@@ -9,31 +9,66 @@ We designed the API such that all important parts that make up the game are dire
 To be more technical, it is essentially a collection of core Singleton instances.
 
 The Game class will also be your starting point when setting up a new LITIengine project.
-In order to launch your game,  you need to at least call `Game.init(String... args)` and `Game.start()` from your program's `main(String[] args)` method.
+In order to launch your game, you need to at least initialize and start the game infrastructure from your application's entry point.
 
-Additionally, event listeners for the most basic operations of a Game life cycle can be registered in the Game class, as can be seen in the following example.
+```java 
+public static void main(String[] args) {
+  Game.init(args);
+  Game.start();
+}
+```
 
-Example snippet:
+Additionally, event listeners for the most basic operations of a Game life cycle can be registered on the Game class:
+
 ```java
-Game.init();
-Game.start();
-Game.addTerminatedListener(() -> 
-{
-  // do sth when game is shut down
+Game.addGameListener(new GameListener() {
+  @Override
+  public void initialized(String... args) {
+    // do sth when game is initialized
+  }
+  @Override
+  public void started() {
+    // do sth when game started
+  }
+  
+  @Override
+  public void terminated() {
+    // do sth when game terminated
+  }
 });
-
-System.out.println("Game version is: " + Game.info().getVersion());
 ```
 ## Major Components
- * `Game.graphics()`
- * `Game.audio()`
- * `Game.physics()`
+
+The `Game` class provides access to the engine's three major parts that are responsible for rendering, the audio as well as the physical restraints an LITIengine games.
+
+### The RenderEngine: `Game.graphics()`
+The 2D Render Engine is used to render texts, shapes and entities at their location in the `Environment` with respect to the `Camera` location and zoom. A typical use-case for calls to the `RenderEngine` is the composition of a graphical user interface.
+
+```java
+// Example: render "my text" at the location of an entity
+Game.graphics().renderText(g, "my text", myEntity.getX(), myEntity.getY());
+```
+![Example: Display texts and images with the RenderEngine](../images/text-and-image-renderengine.png)
+
+### The SoundEngine: `Game.audio()`
+
+The 2D Sound Engine provides methods to playback sounds and music in your game. It allows to define the 2D coordinates from which a sound originates and support the audio formats **.wav**, **.mp3** and **.ogg**.
+
+```java
+// Example: play a sound at environment location (50/50)
+Game.audio().playSound("my-sound.ogg", 50, 50);
+```
+### The PhysicsEngine: `Game.physics()`
 
 ## Meta Components
  * `Game.config()`
  * `Game.info()`
  * `Game.metrics()`
  * `Game.time()`
+
+```java
+System.out.println("Game version is: " + Game.info().getVersion());
+```
 
 ## Game Loops
 In the LITIengine, the game logic is decoupled from the framerate and run in a separate loop. The same applies to the player input. 

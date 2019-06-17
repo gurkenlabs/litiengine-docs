@@ -1,12 +1,5 @@
 # 2D Graphics
 
-## `java.awt.Graphics2D`
-All of LITIengine's rendering happens on a **Java AWT** `Canvas` component and there's **no expicit OpenGL** involved. By that, the engine is one of the very few on the market that achieves an efficient rendering process with **plain Java**.
-
-The `Canvas` provides a `Graphics2D` object which is passed though the engine on every frame and receives all the drawing operations. This object is basically an empty canvas we're drawing the elements of our game on.
-
-For more information, read the [Official Java Documentation on Graphics2D](https://docs.oracle.com/javase/7/docs/api/java/awt/Graphics2D.html).
-
 ## The Render Engine - `Game.graphics()`
 The 2D `RenderEngine` is used to render texts, shapes, images and entities at their location in the
 `Environment` and with respect to the `Camera`'s location and zoom. Notice that the location lies within the coordinate space of the current `Environment`. The `RenderEngine` will translate the coordinates to a location on the screen.
@@ -32,3 +25,13 @@ These classes can be useful when composing a GUI with images, text or shapes whi
   * **Image Renderer** (renders `Images`)
   * **Shape Renderer** (renders `Shapes`)
   * **Text Renderer** (renders `Strings`)
+
+## Rendering Entities with a `Spritesheet`
+
+ TODO!
+## The Graphics instance - `Graphics2D`
+All of LITIengine's rendering happens on a **Java AWT** `Canvas` component and there's **no expicit OpenGL** involved. By that, the engine is one of the very few on the market that achieves an efficient rendering process with **plain Java**.
+
+The `Canvas` provides a `Graphics2D` object which is passed though the engine on every frame and receives all the drawing operations. This object is basically an empty canvas we're drawing the elements of our game on.
+
+For more information, read the [Official Java Documentation on Graphics2D](https://docs.oracle.com/javase/7/docs/api/java/awt/Graphics2D.html).

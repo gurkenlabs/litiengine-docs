@@ -76,4 +76,4 @@
 ## Deployment
 
 ## FAQ
-    * [General](faq/general.md)
+* [General](faq/general.md)
