@@ -32,7 +32,7 @@
     * Map Objects
     * Custom Properties
     * Import maps with utiLITI
-    * Load maps from the .litidata file
+    * Load maps from the game resource file
     * Load external maps
 
 * [Player Input](player-input/README.md)
