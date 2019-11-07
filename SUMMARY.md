@@ -1,79 +1,73 @@
-# Summary
+# Table of contents
+
+* [Introduction](README.md)
+* [Showcase](showcase.md)
 
 ## Basics
 
-* [Getting Started](getting-started/README.md)
-    * [Get LITIengine](getting-started/get-litiengine.md)
-    * [The utiLITI editor](getting-started/utiliti-editor.md)
-    * [Run the Game](getting-started/run-the-game.md)
-
-* [Game Architecture](game-api/README.md)
-    * [2D Graphics](game-api/render-engine.md) 
-    * [2D Audio](game-api/sound-engine.md) 
-    * [2D Physics](game-api/physics-engine.md) 
-    * Loops
-    * Game World
-    * Game Window
-    * Screens
-
-* [Configuration](configuration/README.md)
-    * Basic Information
-    * Configuration File
-    * Default Behavior and Appearance
-
-* [Manage Resources](manage-resources/README.md)
-    * Sounds and Music
-    * Images
-    * Custom Fonts
-    * Text
-
-* [Manage Maps](manage-maps/README.md)
-    * [Map creation with Tiled](manage-maps/create-maps-with-tiled.md)
-    * Map Objects
-    * Custom Properties
-    * Import maps with utiLITI
-    * Load maps from the game resource file
-    * Load external maps
-
-* [Player Input](player-input/README.md)
-    * Keyboard Input
-    * Mouse Input
-    * GamePad Input
-
-* [Entity Framework](entity-framework/README.md)
-    * Default Entity Types
-    * Subscribe to Entity Events
-    * Annotations for static information
-
-* [Control Entities](control-entities/README.md)
-    * Entity Controllers
-    * Animation Controller
-    * Movement Controller
-    * Behavior Controller
-    * Messaging System
-    * Ability Framework
-
-* [User Interface](user-interface/README.md)
-    * GuiComponents: An Overview
-    * Creating Menus
+* [Getting Started](basics/getting-started/README.md)
+  * [Get LITIengine](basics/getting-started/get-litiengine.md)
+  * [The utiLITI editor](basics/getting-started/utiliti-editor.md)
+  * [Run the Game](basics/getting-started/run-the-game.md)
+* [Game Architecture](basics/game-api/README.md)
+  * [2D Graphics](basics/game-api/render-engine.md)
+  * [2D Audio](basics/game-api/sound-engine.md)
+  * [2D Physics](basics/game-api/physics-engine.md)
+  * [Loops](basics/game-api/loops.md)
+  * [Game World](basics/game-api/game-world.md)
+  * [Game Window](basics/game-api/game-window.md)
+  * [Screens](basics/game-api/screens.md)
+* [Configuration](basics/configuration/README.md)
+  * [Basic Information](basics/configuration/basic-information.md)
+  * [Configuration File](basics/configuration/configuration-file.md)
+  * [Default Behavior and Appearance](basics/configuration/default-behavior-and-appearance.md)
+* [Manage Resources](basics/manage-resources/README.md)
+  * [Sounds and Music](basics/manage-resources/sounds-and-music.md)
+  * [Images](basics/manage-resources/images.md)
+  * [Custom Fonts](basics/manage-resources/custom-fonts.md)
+  * [Text](basics/manage-resources/text.md)
+* [Manage Maps](basics/manage-maps/README.md)
+  * [Map creation with Tiled](basics/manage-maps/create-maps-with-tiled.md)
+  * [Map Objects](basics/manage-maps/map-objects.md)
+  * [Custom Properties](basics/manage-maps/custom-properties.md)
+  * [Import maps with utiLITI](basics/manage-maps/import-maps-with-utiliti.md)
+  * [Load maps from the game resource file](basics/manage-maps/load-maps-from-the-game-resource-file.md)
+  * [Load external maps](basics/manage-maps/load-external-maps.md)
+* [Player Input](basics/player-input/README.md)
+  * [Keyboard Input](basics/player-input/keyboard-input.md)
+  * [Mouse Input](basics/player-input/mouse-input.md)
+  * [GamePad Input](basics/player-input/gamepad-input.md)
+* [Entity Framework](basics/entity-framework/README.md)
+  * [Default Entity Types](basics/entity-framework/default-entity-types.md)
+  * [Subscribe to Entity Events](basics/entity-framework/subscribe-to-entity-events.md)
+  * [Annotations for static information](basics/entity-framework/annotations-for-static-information.md)
+* [Control Entities](basics/control-entities/README.md)
+  * [Entity Controllers](basics/control-entities/entity-controllers.md)
+  * [Animation Controller](basics/control-entities/animation-controller.md)
+  * [Movement Controller](basics/control-entities/movement-controller.md)
+  * [Behavior Controller](basics/control-entities/behavior-controller.md)
+  * [Messaging System](basics/control-entities/messaging-system.md)
+  * [Ability Framework](basics/control-entities/ability-framework.md)
+* [User Interface](basics/user-interface/README.md)
+  * [GuiComponents: An Overview](basics/user-interface/guicomponents-an-overview.md)
+  * [Creating Menus](basics/user-interface/creating-menus.md)
 
 ## Advanced
 
-* Static Lighting
-* Dynamic Lighting
-* Advanced Entity Knowledge
-    * Triggers
-    * Custom Entity Implementations
-
-* Custom MapObjectLoaders
-* String Localization
-* The Particle System 
-* Network Communication
-* Utility Classes
-* Object Serialization
-* A few tips on performance
-
-## Deployment
+* [Static Lighting](advanced/static-lighting.md)
+* [Dynamic Lighting](advanced/dynamic-lighting.md)
+* [Advanced Entity Knowledge](advanced/advanced-entity-knowledge/README.md)
+  * [Triggers](advanced/advanced-entity-knowledge/triggers.md)
+  * [Custom Entity Implementations](advanced/advanced-entity-knowledge/custom-entity-implementations.md)
+* [Custom MapObjectLoaders](advanced/custom-mapobjectloaders.md)
+* [String Localization](advanced/string-localization.md)
+* [The Particle System](advanced/the-particle-system.md)
+* [Network Communication](advanced/network-communication.md)
+* [Utility Classes](advanced/utility-classes.md)
+* [Object Serialization](advanced/object-serialization.md)
+* [A few tips on performance](advanced/a-few-tips-on-performance.md)
 
 ## FAQ
+
 * [General](faq/general.md)
+

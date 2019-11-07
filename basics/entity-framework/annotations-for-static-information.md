@@ -1,0 +1,2 @@
+# Annotations for static information
+
