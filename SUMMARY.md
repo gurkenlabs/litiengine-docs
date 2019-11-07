@@ -5,7 +5,7 @@
 
 ## FAQ
 
-* [Frequently Asked Questions](faq-2.md)
+* [Frequently Asked Questions](frequently-asked-questions.md)
 
 ## Basics
 
