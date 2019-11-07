@@ -3,6 +3,10 @@
 * [Introduction](README.md)
 * [Showcase](showcase.md)
 
+## FAQ
+
+* [Frequently Asked Questions](faq/faq.md)
+
 ## Basics
 
 * [Getting Started](basics/getting-started/README.md)
@@ -21,13 +25,12 @@
   * [Basic Information](basics/configuration/basic-information.md)
   * [Configuration File](basics/configuration/configuration-file.md)
   * [Default Behavior and Appearance](basics/configuration/default-behavior-and-appearance.md)
-* [Manage Resources](basics/manage-resources/README.md)
-  * [Sounds and Music](basics/manage-resources/sounds-and-music.md)
-  * [Images](basics/manage-resources/images.md)
-  * [Custom Fonts](basics/manage-resources/custom-fonts.md)
-  * [Text](basics/manage-resources/text.md)
-* [Manage Maps](basics/manage-maps/README.md)
-  * [Map creation with Tiled](basics/manage-maps/create-maps-with-tiled.md)
+* [Resource Management](basics/resource-management/README.md)
+  * [Sounds and Music](basics/resource-management/sounds-and-music.md)
+  * [Images](basics/resource-management/images.md)
+  * [Custom Fonts](basics/resource-management/custom-fonts.md)
+  * [Text](basics/resource-management/text.md)
+* [Map Creation and Management](basics/manage-maps/README.md)
   * [Map Objects](basics/manage-maps/map-objects.md)
   * [Custom Properties](basics/manage-maps/custom-properties.md)
   * [Import maps with utiLITI](basics/manage-maps/import-maps-with-utiliti.md)
@@ -66,8 +69,4 @@
 * [Utility Classes](advanced/utility-classes.md)
 * [Object Serialization](advanced/object-serialization.md)
 * [A few tips on performance](advanced/a-few-tips-on-performance.md)
-
-## FAQ
-
-* [General](faq/general.md)
 

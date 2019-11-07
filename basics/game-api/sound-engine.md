@@ -9,7 +9,31 @@ The LILIengine sound engine supports **.wav**, **.mp3** and **.ogg** by default.
 For more information, read the [Official Java Documentation on Service Provider Interfaces](https://docs.oracle.com/javase/tutorial/sound/SPI-intro.html).
 
 ```java
-Sound mySound = Resources.sounds().get("my-sound.ogg");// play the soundGame.audio().playSound(mySound);// play the sound at environment location (50/50)Game.audio().playSound(mySound, 50, 50);// play the sound at location of an entity Game.audio().playSound(mySound, myEntity);// play background musicGame.audio().playMusic(Resources.sounds().get("my-music.ogg"));// use the SoundPlayback to react to eventsISoundPlayback playback = Game.audio().playSound(mySound);playback.addSoundPlaybackListener(new SoundPlaybackListener() {  @Override  public void finished(SoundEvent event) {  }  @Override  public void cancelled(SoundEvent event) {  }});
+Sound mySound = Resources.sounds().get("my-sound.ogg");
+
+// play the sound
+Game.audio().playSound(mySound);
+
+// play the sound at environment location (50/50)
+Game.audio().playSound(mySound, 50, 50);
+
+// play the sound at location of an entity 
+Game.audio().playSound(mySound, myEntity);
+
+// play background music
+Game.audio().playMusic(Resources.sounds().get("my-music.ogg"));
+
+// use the SoundPlayback to react to events
+ISoundPlayback playback = Game.audio().playSound(mySound);
+playback.addSoundPlaybackListener(new SoundPlaybackListener() {
+
+  @Override
+  public void finished(SoundEvent event) {
+  }
+  @Override
+  public void cancelled(SoundEvent event) {
+  }
+});
 ```
 
 If a location \(or related `Entity`\) is specified when playing a `Sound`, the engine will adjust the `pan` and `volume` relative to the current **listener location**. By default, this location will be the focus of the game's `Camera`.

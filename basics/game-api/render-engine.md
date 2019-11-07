@@ -7,7 +7,15 @@ The 2D `RenderEngine` is used to render texts, shapes, images and entities at th
 Internally, it uses the static renderer implementations to actually execute the drawing operations on the `Graphics2D` object. This class basically prepares the specified render subject and passes them to a renderer with the current correct context.
 
 ```java
-// render "my text" at the environment location (50/100)Game.graphics().renderText(g, "my text", 50, 100);// render "my text" at the location of an entityGame.graphics().renderText(g, "my text", myEntity.getX(), myEntity.getY());// render a rectangle (50x50 px) at the environment location (50/100)Rectangle2D rect = new Rectangle2D.Double(50, 100, 50, 50);Game.graphics().renderShape(g, rect);
+// render "my text" at the environment location (50/100)
+Game.graphics().renderText(g, "my text", 50, 100);
+
+// render "my text" at the location of an entity
+Game.graphics().renderText(g, "my text", myEntity.getX(), myEntity.getY());
+
+// render a rectangle (50x50 px) at the environment location (50/100)
+Rectangle2D rect = new Rectangle2D.Double(50, 100, 50, 50);
+Game.graphics().renderShape(g, rect);
 ```
 
 > Rendering an `Entity` explicitly over the `RenderEngine` should never be necessary as long as the Entity was added to the game's current `Environment`. The rendering process of the current `Environment` takes care of drawing all the entities and implicitly calls these methods on the `RenderEngine`.

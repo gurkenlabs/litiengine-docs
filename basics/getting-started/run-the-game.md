@@ -9,7 +9,11 @@ Since the LITIengine is a normal Java application, it needs to have an [Applicat
 An example implementation would look like this:
 
 ```java
-public class Program {  public static void main(String[] args) {  }}
+public class Program {
+
+  public static void main(String[] args) {
+  }
+}
 ```
 
 We recommend you to keep this class as clean and minimalist as possible so that this class is only responsible for starting up the game. It's good practice to locate all your game logic in other classes.
@@ -19,7 +23,13 @@ We recommend you to keep this class as clean and minimalist as possible so that 
 After successfully setting up the application entry point, it's time to actually use the LITIengine. The following example will initialize the `Game` infrastructure with the specified command-line arguments. Upon calling the method `Game.start()` an empty window will be spawned that renders a black background and a title with the LITIengine logo.
 
 ```java
-public class Program {  public static void main(String[] args) {    Game.init(args);    Game.start();  }}
+public class Program {
+
+  public static void main(String[] args) {
+    Game.init(args);
+    Game.start();
+  }
+}
 ```
 
 If you see the following window, you’ve setup everything correctly and are now ready to create awesome 2D Java games with the LITIengine!

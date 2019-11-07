@@ -29,6 +29,30 @@ Now, depending on the chosen build system, your project structure might look sli
 ### An example LITIengine project structure
 
 ```text
-game-project└─── sprites│   │─── sprite1.png│   └─── ...│─── audio│   │─── sound1.ogg│   └─── ...│─── maps│   │─── map1.tmx│   │─── tileset.tsx│   │─── tileset.png│   └─── ...│─── localization│   │─── strings.properties│   │─── strings_de_DE.properties│   └─── ...│─── src│   └─── com│        └─── mygame│             │─── Program.java│             └─── ...│─── .classpath│─── game.litidata│─── config.properties└───...
+game-project
+└─── sprites
+│   │─── sprite1.png
+│   └─── ...
+│─── audio
+│   │─── sound1.ogg
+│   └─── ...
+│─── maps
+│   │─── map1.tmx
+│   │─── tileset.tsx
+│   │─── tileset.png
+│   └─── ...
+│─── localization
+│   │─── strings.properties
+│   │─── strings_de_DE.properties
+│   └─── ...
+│─── src
+│   └─── com
+│        └─── mygame
+│             │─── Program.java
+│             └─── ...
+│─── .classpath
+│─── game.litidata
+│─── config.properties
+└───...
 ```
 

@@ -1,4 +1,4 @@
-# Manage Resources
+# Resource Management
 
 ![Resources API](../../.gitbook/assets/api-resources.png)
 

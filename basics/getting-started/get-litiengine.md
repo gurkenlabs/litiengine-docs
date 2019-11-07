@@ -15,7 +15,11 @@ A basic example for a Gradle based LITIengine project can be found [HERE](https:
 ### Apache Maven
 
 ```markup
-<dependency>  <groupId>de.gurkenlabs</groupId>  <artifactId>litiengine</artifactId>  <version>0.4.17</version></dependency>
+<dependency>
+  <groupId>de.gurkenlabs</groupId>
+  <artifactId>litiengine</artifactId>
+  <version>0.4.17</version>
+</dependency>
 ```
 
 A basic example for a Maven based LITIengine project can be found [HERE](https://github.com/gurkenlabs/litiengine/tree/master/examples/hello-liti-maven).
