@@ -1,2 +1,0 @@
-# Load external maps
-

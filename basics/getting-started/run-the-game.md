@@ -32,7 +32,7 @@ public class Program {
 }
 ```
 
-If you see the following window, you’ve setup everything correctly and are now ready to create awesome 2D Java games with the LITIengine!
+If you see the following window, you’ve setup everything correctly and are now ready to create awesome 2D Java games with LITIengine!
 
 ![Empty LITIengine Window](../../.gitbook/assets/empty-litiengine-window.png)
 

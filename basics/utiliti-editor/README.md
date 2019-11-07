@@ -1,11 +1,11 @@
-# The utiLITI editor
+# utiLITI
 
 ## What is utiLITI?
 
 utiLITI is the project management and map creation tool that comes with LITIengine. While you can use LITIengine entirely without it, especially beginners are advised to use the utiLITI. It offers the following benefits:
 
 * **Project and Asset Management**:
-  * When creating a project in utiLITI, xml files will be created containing all necessary information for your game.
+  * When creating a project in utiLITI, a _game resource file_ will be created containing all necessary assets for your game.
   * Import Maps, Tilesets, Spritesheets, custom Emitters, and entity blueprints into your projects.
   * The assets will even be included in the project's xml file, which you can choose to encode when deploying your game to prevent plagiarism.
 * **Map Creation**:
