@@ -22,7 +22,7 @@ LITIengine is made for anyone interested in creating 2D computer games with Java
 
 We think that if you are a relatively inexperienced Java developer seeking to create your first Java game, LITIengine might be the most hassle-free experience for you.
 
-### Whom is LITIengine not made for
+### Whom is LITIengine not made for?
 
 If you are looking for a Java game engine able to deploy to mobile devices and browsers, LITIengine is unfortunately not your tool of choice.
 
