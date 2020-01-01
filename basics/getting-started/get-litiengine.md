@@ -7,7 +7,7 @@ So you want to build a 2D Java game with the _LITIengine_, that's great! Now, th
 ### Gradle \(Groovy\)
 
 ```groovy
-compile 'de.gurkenlabs:litiengine:0.4.17'
+compile 'de.gurkenlabs:litiengine:0.4.18'
 ```
 
 A basic example for a Gradle based LITIengine project can be found [HERE](https://github.com/gurkenlabs/litiengine/tree/master/examples/hello-liti-gradle).
@@ -18,7 +18,7 @@ A basic example for a Gradle based LITIengine project can be found [HERE](https:
 <dependency>
   <groupId>de.gurkenlabs</groupId>
   <artifactId>litiengine</artifactId>
-  <version>0.4.17</version>
+  <version>0.4.18</version>
 </dependency>
 ```
 
@@ -26,11 +26,11 @@ A basic example for a Maven based LITIengine project can be found [HERE](https:/
 
 ### Manual Download
 
-[litiengine-0.4.17.jar](https://search.maven.org/remotecontent?filepath=de/gurkenlabs/litiengine/0.4.17/litiengine-0.4.17.jar)
+[litiengine-0.4.18.jar](https://search.maven.org/remotecontent?filepath=de/gurkenlabs/litiengine/0.4.18/litiengine-0.4.18.jar)
 
 > **Note:** This download will not provide you with any referenced native assemblies \(e.g. for Gamepad integration\).
 
-[litiengine-v0.4.17-alpha.zip](https://github.com/gurkenlabs/litiengine/releases/download/v0.4.17-alpha/litiengine-v0.4.17-alpha.zip)
+[litiengine-v0.4.18-alpha.zip](https://github.com/gurkenlabs/litiengine/releases/download/v0.4.18-alpha/litiengine-v0.4.18-alpha.zip)
 
 > **Note:** This `.zip` archive contains all the required libraries and native assemblies
 
@@ -40,7 +40,7 @@ The LITIengine comes with an editor that supports you with creating game environ
 
 > **Note:** The editor is not an IDE for Java development.
 
-[utiLITI for Windows](https://github.com/gurkenlabs/litiengine/releases/download/v0.4.17-alpha/utiliti-v0.4.17-alpha-win.zip)
+[utiLITI for Windows](https://github.com/gurkenlabs/litiengine/releases/download/v0.4.18-alpha/utiliti-v0.4.18-alpha-win.zip)
 
-[utiLITI for Linux / MacOS](https://github.com/gurkenlabs/litiengine/releases/download/v0.4.17-alpha/utiliti-v0.4.17-alpha-linux-mac.zip)
+[utiLITI for Linux / MacOS](https://github.com/gurkenlabs/litiengine/releases/download/v0.4.18-alpha/utiliti-v0.4.18-alpha-linux-mac.zip)
 
