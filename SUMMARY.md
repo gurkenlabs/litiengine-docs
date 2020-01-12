@@ -1,6 +1,7 @@
 # Table of contents
 
 * [Introduction](README.md)
+* [Roadmap](roadmap.md)
 * [Showcase](showcase.md)
 
 ## FAQ
