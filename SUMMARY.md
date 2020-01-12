@@ -7,6 +7,7 @@
 ## FAQ
 
 * [Frequently Asked Questions](faq/frequently-asked-questions.md)
+* [Libraries and Tools](faq/libraries-and-tools.md)
 
 ## Basics
 
