@@ -4,6 +4,7 @@
 * [Contributing](contributing.md)
 * [Roadmap](roadmap.md)
 * [Showcase](showcase.md)
+* [Learning Resources](learning-resources.md)
 
 ## FAQ
 

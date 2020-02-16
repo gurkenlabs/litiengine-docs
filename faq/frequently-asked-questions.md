@@ -48,28 +48,6 @@ Sure you can make a LITIengine game without using the editor. We've done that in
 Since the [`Entities`](https://app.gitbook.com/@gurkenlabs/s/litiengine/~/drafts/-Lt4NljB3cbQX4NxqU4K/basics/entity-framework) in the LITIengine can be loaded from [`MapObjects`](https://app.gitbook.com/@gurkenlabs/s/litiengine/~/drafts/-Lt4NljB3cbQX4NxqU4K/basics/manage-maps/map-objects), an alternative way to get things done is to directly add them in the _Tiled_ editor and provide the required [`MapObjectProperties`](https://www.javadoc.io/static/de.gurkenlabs/litiengine/0.4.19/de/gurkenlabs/litiengine/environment/tilemap/MapObjectProperty.html) if you want to use the engine's entity framework. This was, by the way, the workflow we went with before we had the editor. So you could say that the editor basically evolved from that. Everything that you see in the editor can also be done directly in code though, so if you want, you can totally skip the editor entirely, although it's not recommended.  
 Btw: [`Entities`](https://app.gitbook.com/@gurkenlabs/s/litiengine/~/drafts/-Lt4NljB3cbQX4NxqU4K/basics/entity-framework)don't necessarily have to originate from [`MapObjects`](https://app.gitbook.com/@gurkenlabs/s/litiengine/~/drafts/-Lt4NljB3cbQX4NxqU4K/basics/manage-maps/map-objects), you can also add them to your [`GameWorld`](https://app.gitbook.com/@gurkenlabs/s/litiengine/~/drafts/-Lt4NljB3cbQX4NxqU4K/basics/game-api/game-world) directly from code.
 
-### What's the best way to learn LITIengine?
-
-We offer extensive tutorials on our website. It is also a good idea to look through the LITIengine docs pages. If concrete questions come up, you should visit the LITIengine forum. We do have a [YouTube channel](https://www.youtube.com/channel/UCN7-9zYTxip_Hl1LvCQ8RBA) as well, but due to video creation being such a time consuming task, don't expect many video tutorials being released from us anytime soon. Here's an overview over the most useful links for learning LITIengine:
-
-* [LITIengine forum](https://forum.litiengine.com/)
-* [LITIengine docs: Getting started](https://app.gitbook.com/@gurkenlabs/s/litiengine/~/drafts/-Lt4NljB3cbQX4NxqU4K/basics/getting-started)
-* [LITIengine Javadocs](https://www.javadoc.io/doc/de.gurkenlabs/litiengine/latest/index.html)
-* User Guides
-  * Getting started with LITIengine
-    * [Part 1](https://litiengine.com/getting-started-setup-the-game-project/): Project setup
-    * [Part 2](https://litiengine.com/getting-started-learning-the-basics/): Basic infrastructure
-    * [Part 3](https://litiengine.com/getting-started-configuring-the-game/): Game Configuration
-* Tutorials
-  * Creating a platformer with LITIengine
-    * [Part 1](https://litiengine.com/creating-a-platformer-1/)
-    * [Part 2](https://litiengine.com/creating-a-platformer-2/)
-* How-To's
-  * [Importing .tmx maps in utiLITI](https://www.youtube.com/watch?v=RR3QxOhV8hM&t=1s)
-* Code Examples
-  * [Source Code of "GoIn -Behave or GET LOST!"](https://github.com/gurkenlabs/litiengine-ldjam42), made during LDJAM 42
-  * [Source Code of "Servus Bonus"](https://github.com/gurkenlabs/litiengine-ldjam44), made during LDJAM 44
-
 ## Distribution
 
 ### How do I create executables for a Java game?
