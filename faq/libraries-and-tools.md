@@ -6,6 +6,15 @@ description: >-
 
 # Libraries and Tools
 
+## 3rd-Party Libraries
+
+There is only a bare minimum of third party libraries included in the LITIengine, which we want to mention here thankfully:
+
+* [JInput](https://github.com/jinput/jinput) for Gamepad support
+* [MP3 SPI](http://www.javazoom.net/mp3spi/mp3spi.html) for .mp3 audio file support
+* [Ogg Vorbis SPI](http://www.javazoom.net/vorbisspi/vorbisspi.html) for .ogg audio file support
+* [Steamworks4j](https://github.com/code-disaster/steamworks4j) for supporting the steamworks SDK
+
 ## Steamworks
 
 ### How to use steamworks4j SteamAPI from Eclipse?
