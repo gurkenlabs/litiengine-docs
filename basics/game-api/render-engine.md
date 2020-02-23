@@ -52,8 +52,6 @@ Notice the name of the spritesheet file above: `gurknukem-walk-left.png` - It fo
  * The default animation rules for creatures distinguish between 3 different "STATES": `idle`, `walk` and `dead`.
  * As "DIRECTION" you can specify any value of the `Direction` enum. 
 
-{% github_embed "https://github.com/gurkenlabs/litiengine/blob/master/src/de/gurkenlabs/litiengine/Direction.java#L17-L18" %}{% endgithub_embed %}
-
 By default, the option to use flipped horizontal sprites as fallback is enabled, which means that you must only specify a sprite with either right or left direction.
 
 Specifying a direction is optional and the `CreatureAnimationController` will also search for and use any fallback sprites without a defined direction.
