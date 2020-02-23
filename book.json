@@ -1,4 +1,5 @@
 {
+  "plugins": ["github-embed"],
   "variables": {
   }
 }
