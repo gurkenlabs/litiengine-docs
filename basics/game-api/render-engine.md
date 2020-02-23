@@ -33,10 +33,7 @@ These classes can be useful when composing a GUI with images, text or shapes whi
 The engine facilitates the usage of **Single-purpose spritesheets** to render entities with a matching sprite for their current state.
 Rendering an `Entity` is controlled by its assigned `AnimationController`. There is a pre-defined convention-based set of animation rules,
 that allows you to get quick results without having to write too much code. 
-
-![Example: Spritesheet for walking left - gurknukem-walk-left.png](../../.gitbook/assets/gurknukem-walk-left.png)
-
-As mentioned above, the LITIEngine works best with **single-purpose spritesheets**, i.e. every animation should have a dedicated spritesheet. 
+The LITIEngine works best with **single-purpose spritesheets**, i.e. every animation should have a dedicated spritesheet. 
 
 > It's possible to use a single spritesheet with multiple animations but the provided infrastructure for this is limited and it would probably end up in some custom code that defines 
 which part of the spritesheet should be used by the animations.
@@ -47,6 +44,8 @@ Any entity that uses a spritesheet needs an `AnimationController` which decides 
 
 In the following example, we use a `Player` entity that inherits from the default entity type `Creature`.
 The `CreatureAnimationController` which is assigned to all creatures provides the default animation rules for this type of entity.
+
+![Example: Spritesheet for walking left - gurknukem-walk-left.png](../../.gitbook/assets/gurknukem-walk-left.png)
 
 Notice the name of the spritesheet file above: `gurknukem-walk-left.png` - It follows the pattern: "SPRITE_PREFIX"-"STATE"-"DIRECTION".png. 
  * The "SPRITE_PREFIX" is determined by `Creature.getSpritePrefix()` which can either be set directly or specified in the creature's constructor.
