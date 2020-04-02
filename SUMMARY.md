@@ -65,6 +65,7 @@
 * [User Interface](basics/user-interface/README.md)
   * [GuiComponents: An Overview](basics/user-interface/guicomponents-an-overview.md)
   * [Creating Menus](basics/user-interface/creating-menus.md)
+* [Deployment](basics/deployment.md)
 
 ## Advanced
 

@@ -52,3 +52,5 @@ Btw: [`Entities`](https://app.gitbook.com/@gurkenlabs/s/litiengine/~/drafts/-Lt4
 
 ### How do I create executables for a Java game?
 
+See our [Deployment ](../basics/deployment.md)guide for LITIengine games.
+
