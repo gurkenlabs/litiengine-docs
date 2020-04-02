@@ -66,6 +66,7 @@
   * [GuiComponents: An Overview](basics/user-interface/guicomponents-an-overview.md)
   * [Creating Menus](basics/user-interface/creating-menus.md)
 * [Deployment](basics/deployment.md)
+* [Savegames](basics/savegames.md)
 
 ## Advanced
 
