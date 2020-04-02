@@ -133,33 +133,15 @@ public static void saveGame() {
       return;
     }
 
-    SaveGame saveGame = new SaveGame(level.getChapter(), level.getPart(), GameOrchestrator.getCurrentSpawn(),
-        SAVE_FILE_NAME);
+    SaveGame saveGame = new SaveGame(level.getChapter(), level.getPart(), GameOrchestrator.getCurrentSpawn(), SAVE_FILE_NAME);
     saveGame.setUpgrades(Upgrades.save());
     saveGame.setInventory(Lepus.instance().getInventory());
+    
     String dir = System.getProperty("user.home") + "/.drlepus/savefiles/";
     File dirFile = new File(dir);
-    String path = dir + saveGame.getName() + ".xml";
-    if (!dirFile.exists()) {
-      dirFile.mkdirs();
-    }
-
-    File newFile = new File(path);
-
-    try {
-      JAXBContext jaxbContext = JAXBContext.newInstance(SaveGame.class);
-      Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
-      jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-      OutputStream out = new FileOutputStream(newFile);
-      try {
-        jaxbMarshaller.marshal(saveGame, out);
-      } finally {
-        out.flush();
-        out.close();
-      }
-    } catch (JAXBException | IOException ex) {
-      ex.printStackTrace();
-    }
+    dirFile.mkdirs();
+    String savegamePath = dir + saveGame.getName() + ".xml";
+    XmlUtilities.save(saveGame,savgamePath);
   }
 ```
 
@@ -167,40 +149,18 @@ To load the savegame, we will call `loadSavedGameFile()`.
 
 ```text
   public static void loadSavedGameFile() {
-    loading = true;
     String path = System.getProperty("user.home") + "/.drlepus/savefiles/" + SAVE_FILE_NAME + ".xml";
-    try {
-      final JAXBContext jaxbContext = JAXBContext.newInstance(SaveGame.class);
-      final Unmarshaller um = jaxbContext.createUnmarshaller();
-
-      InputStream stream = null;
-
-      stream = ClassLoader.getSystemResourceAsStream(path);
-      if (stream == null) {
-        stream = new FileInputStream(path);
-      }
-
-      final SaveGame saveGame = (SaveGame) um.unmarshal(stream);
-
-
-      Upgrades.load(saveGame.getUpgrades());
-      Lepus.instance().setupInventory(saveGame.getInventory());
-
-      Level level = Level.getLevel(saveGame.getChapter(), saveGame.getPart());
-      if (level == null) {
-        log.log(java.util.logging.Level.SEVERE, "Invalid save file detected! Level {0}-{1} does not exist", new Object[] { saveGame.getChapter(), saveGame.getPart() });
-        level = Level.LABORATORY;
-      }
-
-      loadEnvironment(level, saveGame.getSpawn());
-    } catch (IOException | JAXBException e) {
-      // load starting level
-      loadEnvironment(DEFAULT_START_LEVEL, DEFAULT_START_SPAWN);
-    } finally {
-      loading = false;
+    final SaveGame saveGame = XmlUtilities.read(SaveGame.class, Resources.getLocation(path));
+    Upgrades.load(saveGame.getUpgrades());
+    Lepus.instance().setupInventory(saveGame.getInventory());
+    Level level = Level.getLevel(saveGame.getChapter(), saveGame.getPart());
+    if (level == null) {
+      log.log(java.util.logging.Level.SEVERE, "Invalid save file detected! Level {0}-{1} does not exist", new Object[] { saveGame.getChapter(), saveGame.getPart() });
+      level = Level.LABORATORY;
     }
+    loadEnvironment(level, saveGame.getSpawn());
   }
 ```
 
-Remember, this is just one specific example how to load and save player progress. You can pick whatever information you like, in whichever format you like, wherever you like to store it. Get creative!
+Remember, this is just one specific example how to load and save player progress. You can pick whatever information you like, in whichever format you like, and wherever you would like to store it. Get creative!
 
