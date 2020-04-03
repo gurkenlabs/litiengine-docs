@@ -29,6 +29,8 @@ description: How to distribute LITIengine games
 Build automation is a blessing! Let's have a look at how to build and deploy your game using Gradle.   
 To build Windows executables, we are going to use the _launch4j_ plugin. We set up different Gradle tasks for each target platform as well.
 
+Your project's `build.gradle` should look something like this: 
+
 ```groovy
 plugins {
   id 'edu.sc.seis.launch4j' version '2.4.4'
