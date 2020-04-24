@@ -10,6 +10,10 @@ In the meantime, enjoy exploring the capabilities of LITIengine!
 
 ### Games made with LITIengine
 
+#### [Pumpkin Keeper](https://gurkenlabs.itch.io/pumpkin-keeper) \([Ludum Dare 46](https://ldjam.com/events/ludum-dare/46/pumpkin-keeper)\)
+
+![Water pumpkins and prevent rival farmers from ruining your harvest! Made during LDJAM46.](.gitbook/assets/banner-showcase.png)
+
 #### [SERVUS BONUS](https://gurkenlabs.itch.io/servus-bonus) \([Ludum Dare 44](https://ldjam.com/events/ludum-dare/44/servus-bonus-1)\)
 
 ![Steal the Romans&apos; slaves in this thrilling adventure made during LDJAM44.](https://gurkenlabs.de/wp-content/uploads/2019/11/banner-showcase.png)
