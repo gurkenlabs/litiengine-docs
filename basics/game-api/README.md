@@ -2,11 +2,11 @@
 
 ![Game API](../../.gitbook/assets/api-game.png)
 
-The static `Game` class is undoubtedly one of the classes that you will call the most when creating a game with LITIengine. It is designed to be the static container that provides access to all important aspects of the engine., e.g. it holds the GameInfo, the RenderEngine, the SoundEngine and many other major components.
+The static `Game` class is undoubtedly one of the classes that you will call the most when creating a game with LITIENGINE. It is designed to be the static container that provides access to all important aspects of the engine., e.g. it holds the GameInfo, the RenderEngine, the SoundEngine and many other major components.
 
 We designed the API such that all important parts that make up the game are directly accessible via the Game class statically. To be more technical, it is essentially a collection of core Singleton instances.
 
-The Game class will also be your starting point when setting up a new LITIengine project. In order to launch your game, you need to at least initialize and start the game infrastructure from your application's entry point.
+The Game class will also be your starting point when setting up a new LITIENGINE project. In order to launch your game, you need to at least initialize and start the game infrastructure from your application's entry point.
 
 ```java
 public static void main(String[] args) {
@@ -37,7 +37,7 @@ Game.addGameListener(new GameListener() {
 
 ## Major Components
 
-The `Game` class provides access to the engine's three major parts that are responsible for rendering, the audio as well as the physical restraints an LITIengine games.
+The `Game` class provides access to the engine's three major parts that are responsible for rendering, the audio as well as the physical restraints an LITIENGINE games.
 
 ### The RenderEngine: `Game.graphics()`
 
@@ -76,7 +76,7 @@ System.out.println("Game version is: " + Game.info().getVersion());
 
 ## Game Loops
 
-In the LITIengine, the game logic is decoupled from the framerate and run in a separate loop. The same applies to the player input. For these purposes, the engine provides three different loops which have their designated purpose.
+In the LITIENGINE, the game logic is decoupled from the framerate and run in a separate loop. The same applies to the player input. For these purposes, the engine provides three different loops which have their designated purpose.
 
 * `Game.loop()`
 * `Game.renderLoop()`

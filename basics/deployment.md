@@ -1,5 +1,5 @@
 ---
-description: How to distribute LITIengine games
+description: How to distribute LITIENGINE games
 ---
 
 # Deployment

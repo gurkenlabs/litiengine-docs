@@ -6,7 +6,7 @@ description: >-
 
 # Tile Maps
 
-Once you have gained a basic understanding of LITIengine's general game infrastructure, it is time to actually create a world for your game to take place in. LITIengine uses [.tmx tile maps](https://doc.mapeditor.org/en/stable/reference/tmx-map-format/), a universally acclaimed standard format for 2D level building. 
+Once you have gained a basic understanding of LITIENGINE's general game infrastructure, it is time to actually create a world for your game to take place in. LITIENGINE uses [.tmx tile maps](https://doc.mapeditor.org/en/stable/reference/tmx-map-format/), a universally acclaimed standard format for 2D level building. 
 
 ## Create a tile map
 

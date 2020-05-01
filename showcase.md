@@ -1,14 +1,14 @@
 ---
-description: Discover Games made with LITIengine
+description: Discover Games made with LITIENGINE
 ---
 
 # Showcase
 
-In this section, we want to present you some of the games created with LITIengine. This site is only available preliminarily, while we are pushing forward to deliver a completely reworked version of the LITIengine website. 
+In this section, we want to present you some of the games created with LITIENGINE. This site is only available preliminarily, while we are pushing forward to deliver a completely reworked version of the LITIENGINE website. 
 
-In the meantime, enjoy exploring the capabilities of LITIengine!
+In the meantime, enjoy exploring the capabilities of LITIENGINE!
 
-### Games made with LITIengine
+### Games made with LITIENGINE
 
 #### [Pumpkin Keeper](https://gurkenlabs.itch.io/pumpkin-keeper) \([Ludum Dare 46](https://ldjam.com/events/ludum-dare/46/pumpkin-keeper)\)
 

@@ -58,7 +58,7 @@ More details on this can be found in the [Animation Controller](https://app.gitb
 
 ## The Graphics instance - `Graphics2D`
 
-All of LITIengine's rendering happens on a **Java AWT** `Canvas` component and there's **no expicit OpenGL** involved. By that, the engine is one of the very few on the market that achieves an efficient rendering process with **plain Java**.
+All of LITIENGINE's rendering happens on a **Java AWT** `Canvas` component and there's **no expicit OpenGL** involved. By that, the engine is one of the very few on the market that achieves an efficient rendering process with **plain Java**.
 
 The `Canvas` provides a `Graphics2D` object which is passed though the engine on every frame and receives all the drawing operations. This object is basically an empty canvas we're drawing the elements of our game on.
 

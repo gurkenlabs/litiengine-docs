@@ -1,4 +1,4 @@
-# Get LITIengine
+# Get LITIENGINE
 
 ## Get the Java library
 
@@ -10,7 +10,7 @@ So you want to build a 2D Java game with the _LITIengine_, that's great! Now, th
 compile 'de.gurkenlabs:litiengine:0.4.20'
 ```
 
-A basic example for a Gradle based LITIengine project can be found [HERE](https://github.com/gurkenlabs/litiengine-gurk-nukem). Have a look at the project's `build.gradle` and `settings.gradle`.
+A basic example for a Gradle based LITIENGINE project can be found [HERE](https://github.com/gurkenlabs/litiengine-gurk-nukem). Have a look at the project's `build.gradle` and `settings.gradle`.
 
 ### Apache Maven
 
@@ -22,7 +22,7 @@ A basic example for a Gradle based LITIengine project can be found [HERE](https:
 </dependency>
 ```
 
-A basic example for a Maven based LITIengine project can be found [HERE](https://github.com/gurkenlabs/litiengine/tree/master/examples/hello-liti-maven).
+A basic example for a Maven based LITIENGINE project can be found [HERE](https://github.com/gurkenlabs/litiengine/tree/master/examples/hello-liti-maven).
 
 ### Manual Download
 
@@ -36,7 +36,7 @@ A basic example for a Maven based LITIengine project can be found [HERE](https:/
 
 ## Get the utiLITI editor
 
-The LITIengine comes with an editor that supports you with creating game environments and managing your resources. It is a stand alone product which produces a `.litidata` game project files that can then be loaded to your game.
+The LITIENGINE comes with an editor that supports you with creating game environments and managing your resources. It is a stand alone product which produces a `.litidata` game project files that can then be loaded to your game.
 
 > **Note:** The editor is not an IDE for Java development.
 

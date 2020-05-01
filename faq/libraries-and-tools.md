@@ -1,14 +1,14 @@
 ---
 description: >-
   This section contains useful information for external libraries and tools
-  related to LITIengine Game Development.
+  related to LITIENGINE Game Development.
 ---
 
 # Libraries and Tools
 
 ## 3rd-Party Libraries
 
-There is only a bare minimum of third party libraries included in the LITIengine, which we want to mention here thankfully:
+There is only a bare minimum of third party libraries included in the LITIENGINE, which we want to mention here thankfully:
 
 * [JInput](https://github.com/jinput/jinput) for Gamepad support
 * [MP3 SPI](http://www.javazoom.net/mp3spi/mp3spi.html) for .mp3 audio file support
@@ -19,7 +19,7 @@ There is only a bare minimum of third party libraries included in the LITIengine
 
 ### How to use steamworks4j SteamAPI from Eclipse?
 
-LITIengine uses the **steamworks4j** wrapper for the SteamAPI to grant access to Steam features from java. When developing a game that uses these features, you need to execute a few extra steps in order to support the functionality from the IDE.
+LITIENGINE uses the **steamworks4j** wrapper for the SteamAPI to grant access to Steam features from java. When developing a game that uses these features, you need to execute a few extra steps in order to support the functionality from the IDE.
 
 1. You need to have created the game on [Steamworks](https://partner.steamgames.com) in order to have an _appID_
 2. Create an `steam_appid.txt` file containing only the _appID_ of your game
@@ -41,9 +41,9 @@ With Tiled editor, you can create orthogonal, hexagonal, and isometric Tile maps
 
 #### How do I use Tiled?
 
-For a general understanding of the mapping process with Tiled editor, we encourage you to have a look at its [plentiful documentation](https://doc.mapeditor.org/en/stable/manual/introduction/#creating-a-new-map). However, we will refer to a few LITIengine specific aspects of creating maps with Tiled in the sections about [Map Objects](https://docs.litiengine.com/basics/manage-maps/map-objects) and [custom properties](https://docs.litiengine.com/basics/manage-maps/custom-properties)
+For a general understanding of the mapping process with Tiled editor, we encourage you to have a look at its [plentiful documentation](https://doc.mapeditor.org/en/stable/manual/introduction/#creating-a-new-map). However, we will refer to a few LITIENGINE specific aspects of creating maps with Tiled in the sections about [Map Objects](https://docs.litiengine.com/basics/manage-maps/map-objects) and [custom properties](https://docs.litiengine.com/basics/manage-maps/custom-properties)
 
 #### Why is tile mapping not a part of the utiLITI editor?
 
-LITIengine had its origin in the idea of writing a Java 2D game engine without including _any_ external libraries \(what were we _thinking_?\). Yet, we believe that it is key to success to be able to sometimes rely on other people's expertise, especially when having limited resources. The Tiled editor has been developed by a vivid community for approximately ten years, offering a universal standard for tile maps. In other words, _it just works_. There is simply no need to reinvent the wheel when it comes to tile mapping.
+LITIENGINE had its origin in the idea of writing a Java 2D game engine without including _any_ external libraries \(what were we _thinking_?\). Yet, we believe that it is key to success to be able to sometimes rely on other people's expertise, especially when having limited resources. The Tiled editor has been developed by a vivid community for approximately ten years, offering a universal standard for tile maps. In other words, _it just works_. There is simply no need to reinvent the wheel when it comes to tile mapping.
 

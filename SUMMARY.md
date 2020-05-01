@@ -14,7 +14,7 @@
 ## Basics
 
 * [Getting Started](basics/getting-started/README.md)
-  * [Get LITIengine](basics/getting-started/get-litiengine.md)
+  * [Get LITIENGINE](basics/getting-started/get-litiengine.md)
   * [Run the Game](basics/getting-started/run-the-game.md)
 * [Game Architecture](basics/game-api/README.md)
   * [2D Graphics](basics/game-api/render-engine.md)

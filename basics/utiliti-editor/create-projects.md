@@ -1,5 +1,5 @@
 ---
-description: Learn how to create a new LITIengine project with the utiLITI editor.
+description: Learn how to create a new LITIENGINE project with the utiLITI editor.
 ---
 
 # Create Projects

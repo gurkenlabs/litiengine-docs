@@ -2,7 +2,7 @@
 
 ![Resources API](../../.gitbook/assets/api-resources.png)
 
-The static `Resources` class is the engine's entry point for accessing any kind of resource from within your LITIengine project. A resource is any non-executable data that is deployed with your game. The `Resources` class provides access to types of `ResourcesContainer` and is used by different \(loading\) mechanisms to make resources available during runtime. LITIengine supports various different resource types, including:
+The static `Resources` class is the engine's entry point for accessing any kind of resource from within your LITIENGINE project. A resource is any non-executable data that is deployed with your game. The `Resources` class provides access to types of `ResourcesContainer` and is used by different \(loading\) mechanisms to make resources available during runtime. LITIENGINE supports various different resource types, including:
 
 * images
 * fonts
