@@ -4,7 +4,7 @@
 * [Showcase](?doc=showcase)
 * [Learning Resources](?doc=learning-resources)
 
-## FAQ
+<span>FAQ</span>
 
 * [Frequently Asked Questions](?doc=faq/frequently-asked-questions)
 * [Libraries and Tools](?doc=faq/libraries-and-tools)
