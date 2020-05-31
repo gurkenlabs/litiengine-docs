@@ -9,7 +9,7 @@
 * [Frequently Asked Questions](?doc=faq/frequently-asked-questions)
 * [Libraries and Tools](?doc=faq/libraries-and-tools)
 
-## Basics
+<span>Basics</span>
 
 * [Getting Started](?doc=basics/getting-started/README)
   * [Get LITIENGINE](?doc=basics/getting-started/get-litiengine)
@@ -66,7 +66,7 @@
 * [Deployment](?doc=basics/deployment)
 * [Savegames](?doc=basics/savegames)
 
-## Advanced
+<span>Advanced</span>
 
 * [Static Lighting](?doc=advanced/static-lighting)
 * [Dynamic Lighting](?doc=advanced/dynamic-lighting)
