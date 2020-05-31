@@ -14,7 +14,7 @@ A basic example for a Gradle based LITIENGINE project can be found [HERE](https:
 
 ### Apache Maven
 
-```markup
+```xml
 <dependency>
   <groupId>de.gurkenlabs</groupId>
   <artifactId>litiengine</artifactId>
