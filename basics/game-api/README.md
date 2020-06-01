@@ -61,7 +61,7 @@ Game.audio().playSound("my-sound.ogg", 50, 50);
 
 ### The PhysicsEngine: `Game.physics()`
 
-![Example: Entity movement with the PhysicsEngine](images/assets/physics-example.gif)
+![Example: Entity movement with the PhysicsEngine](images/physics-example.gif)
 
 ## Meta Components
 
