@@ -6,7 +6,7 @@ description: >-
 
 # Libraries and Tools
 
-## 3rd-Party Libraries
+## Third-Party Libraries
 
 There is only a bare minimum of third party libraries included in the LITIENGINE, which we want to mention here thankfully:
 
