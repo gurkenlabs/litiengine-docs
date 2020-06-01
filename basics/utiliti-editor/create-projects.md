@@ -6,7 +6,7 @@ description: Learn how to create a new LITIENGINE project with the utiLITI edito
 
 Start the utiLITI editor. Hit “**File -&gt; Create project**” \(Shortcut: **CTRL+N**\).
 
-![](../../.gitbook/assets/1-createproject.png)
+![](images/1-createproject.png)
 
 In the file browser that pops up, navigate to your project directory and hit “**open**“.  
 Even if you still have done nothing, hit **save** to create a _game resource file_.  

@@ -17,5 +17,5 @@ utiLITI is the project management and map creation tool that comes with LITIENGI
   * Adjust your MapObjects' properties more comprehensively with sliders, spinners, checkboxes, dropdown menus, and add custom properties to MapObjects.
   * Set Map properties such as colors for ambient light and static shadows, Map title, and description.
 
-![The utiLITI editor](../../.gitbook/assets/utiliti-screenshot.png)
+![The utiLITI editor](images/utiliti-screenshot.png)
 

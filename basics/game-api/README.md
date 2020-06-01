@@ -1,6 +1,6 @@
 # Game Architecture
 
-![Game API](../../.gitbook/assets/api-game.png)
+![Game API](images/api-game.png)
 
 The static `Game` class is undoubtedly one of the classes that you will call the most when creating a game with LITIENGINE. It is designed to be the static container that provides access to all important aspects of the engine., e.g. it holds the GameInfo, the RenderEngine, the SoundEngine and many other major components.
 
@@ -48,7 +48,7 @@ The 2D Render Engine is used to render texts, shapes and entities at their locat
 Game.graphics().renderText(g, "my text", myEntity.getX(), myEntity.getY());
 ```
 
-![Example: Display texts and images with the RenderEngine](../../.gitbook/assets/text-and-image-renderengine.png)
+![Example: Display texts and images with the RenderEngine](images/text-and-image-renderengine.png)
 
 ### The SoundEngine: `Game.audio()`
 
@@ -61,7 +61,7 @@ Game.audio().playSound("my-sound.ogg", 50, 50);
 
 ### The PhysicsEngine: `Game.physics()`
 
-![Example: Entity movement with the PhysicsEngine](../../.gitbook/assets/physics-example.gif)
+![Example: Entity movement with the PhysicsEngine](images/assets/physics-example.gif)
 
 ## Meta Components
 

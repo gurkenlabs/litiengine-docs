@@ -40,7 +40,7 @@ Any entity that uses a spritesheet needs an `AnimationController` which decides 
 
 In the following example, we use a `Player` entity that inherits from the default entity type `Creature`. The `CreatureAnimationController` which is assigned to all creatures provides the default animation rules for this type of entity.
 
-![Example: Spritesheet for walking left - gurknukem-walk-left.png](../../.gitbook/assets/gurknukem-walk-left.png)
+![Example: Spritesheet for walking left - gurknukem-walk-left.png](images/gurknukem-walk-left.png)
 
 Notice the name of the spritesheet file above: `gurknukem-walk-left.png` - It follows the pattern: "SPRITE\_PREFIX"-"STATE"-"DIRECTION".png.
 

@@ -12,7 +12,7 @@ In the meantime, enjoy exploring the capabilities of LITIENGINE!
 
 #### [Pumpkin Keeper](https://gurkenlabs.itch.io/pumpkin-keeper) \([Ludum Dare 46](https://ldjam.com/events/ludum-dare/46/pumpkin-keeper)\)
 
-![Water pumpkins and prevent rival farmers from ruining your harvest! Made during LDJAM46.](images/banner-showcase.png)
+![Water pumpkins and prevent rival farmers from ruining your harvest! Made during LDJAM46.](./images/banner-showcase.png)
 
 #### [SERVUS BONUS](https://gurkenlabs.itch.io/servus-bonus) \([Ludum Dare 44](https://ldjam.com/events/ludum-dare/44/servus-bonus-1)\)
 

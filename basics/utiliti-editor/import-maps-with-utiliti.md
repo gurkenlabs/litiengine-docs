@@ -9,5 +9,5 @@ In the file browser that pops up, navigate to your map file and hit â€œ**Open**â
 If the import was successful, your map will be rendered in the large map panel, and a new entry to your project's map list will be made.  
 Of course, you can select multiple maps to be imported at once.
 
-![utiLITI editor with a loaded map](../../.gitbook/assets/utiliti-screenshot.png)
+![utiLITI editor with a loaded map](images/utiliti-screenshot.png)
 

@@ -34,5 +34,5 @@ public class Program {
 
 If you see the following window, you’ve setup everything correctly and are now ready to create awesome 2D Java games with LITIENGINE!
 
-![Empty LITIENGINE Window](../../.gitbook/assets/empty-litiengine-window.png)
+![Empty LITIENGINE Window](images/empty-litiengine-window.png)
 

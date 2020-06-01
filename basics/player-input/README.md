@@ -1,6 +1,6 @@
 # Player Input
 
-![Input API](../../.gitbook/assets/api-input.png)
+![Input API](images/api-input.png)
 
 Example snippet:
 
