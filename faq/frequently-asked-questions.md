@@ -1,6 +1,6 @@
 ---
 description: Frequently asked questions about LITIENGINE and Java game development in general.
-meta.title: Frequently Asked Questions
+meta.title: FAQ - Frequently Asked Questions
 meta.description: Frequently asked questions about LITIENGINE and Java game development in general.
 ---
 
