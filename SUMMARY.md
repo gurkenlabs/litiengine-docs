@@ -1,12 +1,8 @@
+<span>General</span>
+
 * [Introduction](/docs/README/)
-* [Contributing](/docs/contributing/)
-* [Roadmap](/docs/roadmap/)
-* [Showcase](/docs/showcase/)
-* [Learning Resources](/docs/learning-resources/)
-
-<span>FAQ</span>
-
 * [Frequently Asked Questions](/docs/faq/frequently-asked-questions/)
+* [Roadmap](/docs/roadmap/)
 * [Libraries and Tools](/docs/faq/libraries-and-tools/)
 
 <span>Basics</span>
