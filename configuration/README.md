@@ -21,7 +21,7 @@ two ways to set your information:
  <subTitle>Made with LITIengine!</subTitle>
  <description>A game, that was implemented with the LITIengine.</description>
  <website>https://litiengine.com</website>
- <version>v0.4.12-alpha</version>
+ <version>v0.4.20-alpha</version>
  <company>gurkenlabs.de</company>
  <developer>Steffen Wilke</developer>
  <developer>Matthias Wilke</developer>
