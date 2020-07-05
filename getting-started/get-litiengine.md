@@ -45,7 +45,7 @@ The LITIENGINE comes with an editor that supports you with creating game environ
 [utiLITI for Linux / MacOS](https://github.com/gurkenlabs/litiengine/releases/download/v0.4.20-alpha/utiliti-v0.4.20-alpha-linux-mac.zip)
 
 
-## Managing Native Libraries (optional)
+## Managing Native Libraries
 
 > *Managing (and deploying) the native libraries is only necessary for
 > **Controller Support** and Accessing the **Steamworks** library.*
