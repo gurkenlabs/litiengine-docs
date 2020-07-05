@@ -14,12 +14,12 @@ two ways to set your information:
 
 **Setting game info from code:**
 ```java
-  // set meta information about the game
-  Game.info().setName("My Testgame");
-  Game.info().setSubTitle("Made with LITIengine!");
-  Game.info().setVersion("v1.0.0");
-  Game.info().setWebsite("https://litiengine.com/");
-  ...
+// set meta information about the game
+Game.info().setName("My Testgame");
+Game.info().setSubTitle("Made with LITIengine!");
+Game.info().setVersion("v1.0.0");
+Game.info().setWebsite("https://litiengine.com/");
+...
 ```
 
 **Example XML file:**
