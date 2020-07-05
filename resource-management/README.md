@@ -2,7 +2,7 @@
 
 ![Resources API](images/api-resources.png)
 
-The static `Resources` class is the engine's entry point for accessing any kind of resource from within your LITIENGINE project. A resource is any non-executable data that is deployed with your game. The `Resources` class provides access to types of `ResourcesContainer` and is used by different \(loading\) mechanisms to make resources available during runtime. LITIENGINE supports various different resource types, including:
+The static `Resources` class is the engine's entry point for accessing any kind of resource from within your LITIENGINE project. A resource is any non-executable data that is deployed with your game. The `Resources` class provides access to different types of `ResourcesContainers` and is used by different \(loading\) mechanisms to make resources available during runtime. LITIENGINE supports various different resource types, including:
 
 * images
 * fonts
@@ -22,4 +22,20 @@ There are various overloads for `ResourcesContainer.add(...)` and `ResourcesCont
 ### Listeners
 
 You can register `ResourcesContainerListener`s with `addContainerListener(ResourcesContainerListener<T> listener)` to get notified whenever a resource was added to or removed from your `ResourcesContainer`. Removing listeners works analogically with `removeContainerListener(ResourcesContainerListener<T> listener)`
+
+## Resource Folders
+
+## Images
+
+### Spritesheets
+
+## Sounds
+
+## Maps 
+
+## Strings
+
+## Fonts
+
+## Blueprints
 

@@ -1,4 +1,4 @@
-# Game Architecture
+# The Game API 
 
 ![Game API](images/api-game.png)
 
