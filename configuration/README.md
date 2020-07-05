@@ -14,7 +14,7 @@ two ways to set your information:
 
 **Example XML file:**
 
-``` EnlighterJSRAW
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <gameinfo>
  <name>My Testgame</name>
@@ -77,14 +77,14 @@ each. You can also provide custom groups that hold configuration
 relevant only for your particular game. **Add Custom
 ConfigurationGroup:**
 
-``` EnlighterJSRAW
+```java
 MyCustomConfigurationGroup customGroup = new MyCustomConfigurationGroup();
 Game.config().add(customGroup);
 ```
 
 **Configuration File Excerpt:**
 
-``` EnlighterJSRAW
+```java
 cl_country=US
 cl_language=en
 cl_maxFps=60
