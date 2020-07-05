@@ -12,6 +12,16 @@ two ways to set your information:
   - Directly from code, using  `Game.info().setXX()`
   - Via XML File by calling `Game.setInfo("gameinfo.xml")`
 
+**Setting game info from code:**
+```java
+  // set meta information about the game
+  Game.info().setName("My Testgame");
+  Game.info().setSubTitle("Made with LITIengine!");
+  Game.info().setVersion("v1.0.0");
+  Game.info().setWebsite("https://litiengine.com/");
+  ...
+```
+
 **Example XML file:**
 
 ```xml
@@ -21,7 +31,7 @@ two ways to set your information:
  <subTitle>Made with LITIengine!</subTitle>
  <description>A game, that was implemented with the LITIengine.</description>
  <website>https://litiengine.com</website>
- <version>v0.4.20-alpha</version>
+ <version>v1.0.0</version>
  <company>gurkenlabs.de</company>
  <developer>Steffen Wilke</developer>
  <developer>Matthias Wilke</developer>
@@ -109,7 +119,7 @@ gfx_graphicQuality=VERYHIGH
 ...
 ```
 
-### Logging Configuration `logging.properties`
+## Logging Configuration `logging.properties`
 
 The LITIengine uses the `java.util.logging`framework to log information
 and errors. It is possible to configure the output of the logging by
