@@ -116,3 +116,19 @@ and errors. It is possible to configure the output of the logging by
 providing a `logging.properties` file in the Game's execution directory.
 You can read more about
 this [HERE](http://tutorials.jenkov.com/java-logging/configuration.html#configuration-file).
+
+**Example Logging Configuration file**
+
+```java
+handlers=java.util.logging.FileHandler, java.util.logging.ConsoleHandler
+
+java.util.logging.ConsoleHandler.level=WARNING
+java.util.logging.ConsoleHandler.formatter=java.util.logging.SimpleFormatter
+
+java.util.logging.FileHandler.level=WARNING
+java.util.logging.FileHandler.pattern=game.log
+java.util.logging.FileHandler.formatter=java.util.logging.SimpleFormatter
+java.util.logging.FileHandler.append=true
+java.util.logging.FileHandler.limit = 50000
+java.util.logging.FileHandler.count = 1
+```
