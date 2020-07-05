@@ -1,2 +1,0 @@
-# Default Behavior and Appearance
-
