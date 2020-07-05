@@ -74,12 +74,23 @@ game, it is recommended to provide a default configuration file for your
 players with values that you consider reasonable for your game. The
 configuration is organized in `ConfigurationGroups` with a custom prefix
 each. You can also provide custom groups that hold configuration
-relevant only for your particular game. **Add Custom
-ConfigurationGroup:**
+relevant only for your particular game. 
+
+**Add Custom ConfigurationGroup:**
 
 ```java
 MyCustomConfigurationGroup customGroup = new MyCustomConfigurationGroup();
 Game.config().add(customGroup);
+
+// Example for a custom configuration group
+@ConfigurationGroupInfo(prefix = "custom_")
+public class MyCustomConfigurationGroup extends ConfigurationGroup {
+  private int myInt = 123;
+
+  public int getMyInt(){ return this.myInt }
+
+  public void setMyInt(int myInt){ this.myInt = myInt; }
+}
 ```
 
 **Configuration File Excerpt:**
