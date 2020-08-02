@@ -6,7 +6,7 @@ description: >-
 
 # Tile Maps
 
-Once you have gained a basic understanding of LITIENGINE's general game infrastructure, it is time to actually create a world for your game to take place in. LITIENGINE uses [.tmx tile maps](https://doc.mapeditor.org/en/stable/reference/tmx-map-format/), a universally acclaimed standard format for 2D level building. 
+Once you have gained a basic understanding of LITIENGINE's general game infrastructure, it is time to actually create a world for your game to take place in. LITIENGINE uses [.tmx tile maps](https://doc.mapeditor.org/en/stable/reference/tmx-map-format/), a universally acclaimed standard format for 2D level building.
 
 ## Create a tile map
 
@@ -16,6 +16,4 @@ At the beginning of your world building workflow, you create a tile map with [Ti
 * Then, import the Tileset image into Tiled editor to create a [.tsx Tileset](https://doc.mapeditor.org/en/stable/reference/tmx-map-format/#tileset).
 * Create [layers](https://doc.mapeditor.org/en/stable/manual/layers/) containing Tiles, Objects, and Images.
 * Save your map.
-
-
 

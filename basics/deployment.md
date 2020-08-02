@@ -26,10 +26,10 @@ description: How to distribute LITIENGINE games
 
 ### Build with Gradle
 
-Build automation is a blessing! Let's have a look at how to build and deploy your game using Gradle.   
+Build automation is a blessing! Let's have a look at how to build and deploy your game using Gradle.  
 To build Windows executables, we are going to use the _launch4j_ plugin. We set up different Gradle tasks for each target platform as well.
 
-Your project's `build.gradle` should look something like this: 
+Your project's `build.gradle` should look something like this:
 
 ```groovy
 plugins {
@@ -50,7 +50,7 @@ sourceSets {
   main.java.srcDir "sounds"
   main.java.srcDir "maps"
   main.java.srcDir "localization"
-  
+
   main.resources.includes = ["game.litidata"]
 }
 
@@ -75,27 +75,27 @@ jar {
   }  {
      exclude 'META-INF/services/**'
   }
-  
+
   // make sure to only include service providers from the litiengine when directly referencing the project
   from ("${project(':litiengine').projectDir}/resources/") {
     include 'META-INF/services/**'
   }
-  
+
   from('resources') 
   { 
     include '**/*' 
     exclude 'sprites/*'
   }
-  
+
   from('sounds') { include '**/*' }
   exclude '**/*.dll'
   exclude '**/*.jnilib'
   exclude '**/*.dylib'
   exclude '**/*.so'
   exclude 'junit**/**'
-  
+
   from 'game.litidata'
-  
+
   manifest {
     attributes 'Class-Path': ".",
                'Main-Class': "de.gurkenlabs.mygame.MyGame"
@@ -119,7 +119,7 @@ launch4j {
 task copyNativeLibs(type: Copy) { 
   def litiengineLibs ='../litiengine/build/libs'
   def buildFolder = new File(buildDir, 'libs')
-  
+
   from(litiengineLibs) { 
    include '**/*'
    exclude '**/*.jar'
@@ -127,14 +127,14 @@ task copyNativeLibs(type: Copy) {
    exclude 'LICENSE'
    exclude 'lib/**'
   }
-  
+
   from('/dist/'){
     include 'icon.ico'
     include 'config.properties'
     include 'steam_appid.txt'
     include 'jre/**'
   }
-  
+
   into buildFolder
 }
 
@@ -147,7 +147,7 @@ task distZipWindow(type: Zip) {
    include '*.dll'
    include 'config.properties'
    include 'jre/**'
-      
+
    archiveName archivesBaseName + '-' + version + '-win.zip'
    exclude archiveName
    exclude 'jinput-dx8_64.dll'
@@ -163,7 +163,7 @@ task distZipLinux(type: Zip) {
    include '*.jar'
    include '*.so'
    include 'config.properties'
-      
+
    archiveName archivesBaseName + '-' + version + '-linux.zip'
    exclude archiveName
    destinationDir(file('build/libs/'))
@@ -175,9 +175,9 @@ task distZipOSX(type: Zip) {
    include '*.jar'
    include '*.jnilib'
    include '*.dylib'
-   
+
    include 'config.properties'
-      
+
    archiveName archivesBaseName + '-' + version + '-osx.zip'
    exclude archiveName
    destinationDir(file('build/libs/'))

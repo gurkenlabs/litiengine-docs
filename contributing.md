@@ -8,37 +8,37 @@ You are awesome! Thank you for considering contributing to LITIENGINE. Before yo
 
 In order to contribute to our project, we expect you to have fully read and agreed to our [Code of Conduct](https://github.com/gurkenlabs/litiengine/blob/master/CODE_OF_CONDUCT.md).
 
-### How can I help?
+## How can I help?
 
 You can not only support the development of LITIENGINE by contributing code! There are tons of ways to help us maintain the project and keep the community vivid and helpful, a few of which we want to mention here:
 
-#### You like organizing events?
+### You like organizing events?
 
 * Organize LITIENGINE workshops, meetups or game jams
 * Help us establish a regular LITIENGINE conference
 * Help community members find the right conferences and submit proposals for speaking
 
-#### You like designing stuff?
+### You like designing stuff?
 
 * Improve LITIENGINE’s usability by generating class diagrams
 * Maximize the utiLITI editor's usability by redesigning UI layouts
 * Help us establishing a style guide to maintain consistency in LITIENGINE's code
 * Submit LITIENGINE related art to be used on merchandise products
 
-#### You like writing?
+### You like writing?
 
 * Improve coverage in LITIENGINE's documentation
 * Start a newsletter for LITIENGINE
 * Write tutorials, How-To's, and user guides for LITIENGINE
 * Translate LITIENGINE’s documentation
 
-#### You like structuring things?
+### You like structuring things?
 
 * Link to duplicate issues and suggest new issue labels
 * Go through open issues and suggest closing old ones
 * Ask clarifying questions on recently opened issues to move the discussion forward
 
-#### You like coding?
+### You like coding?
 
 * Find open issues and resolve them
 * Implement new features
@@ -47,7 +47,7 @@ You can not only support the development of LITIENGINE by contributing code! The
 * Improve tooling and testing
 * Enhance LITIENGINE workflows by improving the utiLITI editor.
 
-#### You like being helpful?
+### You like being helpful?
 
 * Answer questions about LITIENGINE on e.g., our forum, Stack Overflow or Reddit
 * Answer questions on open issues
@@ -55,11 +55,11 @@ You can not only support the development of LITIENGINE by contributing code! The
 * Review code on other people’s submissions
 * Support new contributors and mentor them
 
-#### Nothing of the above applies to you?
+### Nothing of the above applies to you?
 
-Well... if you still want to support us, you could consider helping us bear the development costs for LITIENGINE \(e.g. servers and equipment\). You can do so by [becoming our Patron](https://www.patreon.com/gurkenlabs) or [donating via Paypal](https://www.paypal.me/gurkenlabsmatthias).
+Well... if you still want to support us, you could consider helping us bear the development costs for LITIENGINE \(e.g. servers and equipment\). You can do so by [sponsoring LITIENGINE on OpenCollective](https://opencollective.com/litiengine).
 
-### How do I contribute?
+## How do I contribute?
 
 * Create a Github account
 * Fork the LITIENGINE repository
