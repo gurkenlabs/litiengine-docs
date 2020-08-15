@@ -58,6 +58,7 @@ The theme can be switch at runtime
 
 **Dark Theme utiLITI**
 ![utiLITI: Dark Theme](images/darktheme.png)
+
 **Light Theme utiLITI**
 ![utiLITI: Light Theme](images/lighttheme.png)
 
