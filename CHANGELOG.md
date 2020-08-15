@@ -51,11 +51,15 @@ A big thank you to all members of this community. Without your feedback and cont
  * [18a7735](https://github.com/gurkenlabs/litiengine/commit/18a7735cd4690eae3f040b430abe8d931bf98a37) Clear map list when opening another game project
  * [160e563](https://github.com/gurkenlabs/litiengine/commit/160e5634e2698913726da5253e92fcc3b1996682) Added right-click shortcut menu to the map list
 
-#### Added Dark Theme and overhauled Light Theme
-[#340](https://github.com/gurkenlabs/litiengine/pull/340)
+#### Added Dark Theme and overhauled Light Theme [#340](https://github.com/gurkenlabs/litiengine/pull/340)
 
-With this version, we've introduced new themes for the utiLITI editor thanks to the [DarkLaf](https://github.com/weisJ/darklaf)
-![Example: Emitter Panel overhaul](images/darktheme.png)
+With this version, we've introduced theming support for the utiLITI editor with the [DarkLaf](https://github.com/weisJ/darklaf) library.
+The theme can be switch at runtime 
+
+**Dark Theme utiLITI**
+![utiLITI: Dark Theme](images/darktheme.png)
+**Light Theme utiLITI**
+![utiLITI: Light Theme](images/lighttheme.png)
 
 #### Revamped the Emitter UI (make it actually usable)
 
@@ -68,5 +72,5 @@ See the related implementations on GitHub:
 ![Example: Emitter Panel overhaul](images/emitterpanel.gif)
 
 ### Misc
- * Add PR templates
- * Add issue templates
+ * Added PR templates
+ * Added issue templates
