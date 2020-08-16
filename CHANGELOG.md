@@ -12,7 +12,7 @@ With the release of our new Website, the documentation and other information abo
 It's been a long journey but, finally, we're leaving the Alpha status and are looking forward to even more fruitful experiences with the LITIENGINE in the future.
 A big thank you to all members of this community. Without your feedback and contributions we wouldn't be here today. You're awesome! 
 
-#### Fixes 
+#### ✅ Fixes 
  * [00178dd](https://github.com/gurkenlabs/litiengine/commit/00178dd052d21a5aab3c237c4849161614f89645) Fixed NullPointerException when rendering Shapes
  * [00178dd](https://github.com/gurkenlabs/litiengine/commit/00178dd052d21a5aab3c237c4849161614f89645) Fixed vertical position when rendering Text with Alignment.
  * [2c55195](https://github.com/gurkenlabs/litiengine/commit/2c5519506f858fe13432fb91b529a680c41d19f4) Fixed NullPointerException when setting opacity on an image.
@@ -21,7 +21,7 @@ A big thank you to all members of this community. Without your feedback and cont
  * [eb1ca1e](https://github.com/gurkenlabs/litiengine/commit/eb1ca1e8bf386c18f74d6d89ec0280b44a5cdd8f) Fixed issue with "stuttering" `PositionLockCamera`
  * [afe8639](https://github.com/gurkenlabs/litiengine/commit/afe863922ad3b9e45cc9e9f3048034cdc2dff577) Fixed `EntityEmitters` to update their position correctly once the corresponding entity moves.
 
-#### Features/Improvements
+#### ⭐ Features/Improvements
  * [3455fa6](https://github.com/gurkenlabs/litiengine/commit/3455fa6b1b98ccc4cd8e6fbd15ed34f273776937) Make TileData constructor visibility being non public.
  * [1c9642a](https://github.com/gurkenlabs/litiengine/commit/1c9642a1caf97571a7f852d51a04ba516614a48f) Allow comma separated parameters for random methods.
  * [#139](https://github.com/gurkenlabs/litiengine/issues/139) Add API that supports generating maps from code
@@ -34,14 +34,14 @@ A big thank you to all members of this community. Without your feedback and cont
  * [714dd6e](https://github.com/gurkenlabs/litiengine/commit/714dd6e5659f1b92b5c3de93ca9577a51913568d) Extended `TilesetEntry` with support for collision info
 
 
-#### Changes
+#### 🔀 Changes
  * [7909f05](https://github.com/gurkenlabs/litiengine/commit/7909f057e8aa010b49e14727f4624ec4712cc8e9) Adjusted the handling of the anim controller affine transform
  * [30093d7](https://github.com/gurkenlabs/litiengine/commit/30093d701e2b7dd2ebb73e91bbfb6203661e565b) Renamed events to suit the naming conventions
  * [#336](https://github.com/gurkenlabs/litiengine/issues/336) Fixed inconsistent Entity Hierarchy by removing `MobileEntity`
  * [bfa2d98](https://github.com/gurkenlabs/litiengine/commit/bfa2d98bf4240ed649e1ea7908a7ee8b73bfb11a) Make the local ID sequence unique globally (over all `Environments`)
 
 
-#### utiLITI
+#### 🔧 utiLITI Editor
  * [06b8d0e](https://github.com/gurkenlabs/litiengine/commit/06b8d0eae82569a64869ca8b6c8e25c4c675608f) Improved scrollbar granularity
  * [24cd048](https://github.com/gurkenlabs/litiengine/commit/24cd048ed9a9f2dd9cece9c21d27b654b5a17a18) Added Spawnpoint pivot fields to the editor
  * [3af2988](https://github.com/gurkenlabs/litiengine/commit/3af298878fe8e66287f0ab80338a1458ad013470) Fixed potential exception when removing custom properties
@@ -72,6 +72,6 @@ See the related implementations on GitHub:
 
 ![Example: Emitter Panel overhaul](images/emitterpanel.gif)
 
-#### Misc
+#### 💬 Misc
  * Added PR templates
  * Added issue templates
