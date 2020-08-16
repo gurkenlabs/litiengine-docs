@@ -50,18 +50,7 @@
 * [Deployment](/docs/deployment/)
 * [Savegames](/docs/savegames/)
 
-<span>Advanced</span>
+<span>Tutorials</span>
 
-* [Static Lighting](/docs/advanced/static-lighting/)
-* [Dynamic Lighting](/docs/advanced/dynamic-lighting/)
-* [Advanced Entity Knowledge](/docs/advanced/advanced-entity-knowledge/README/)
-  * [Triggers](/docs/advanced/advanced-entity-knowledge/triggers/)
-  * [Custom Entity Implementations](/docs/advanced/advanced-entity-knowledge/custom-entity-implementations/)
-* [Custom MapObjectLoaders](/docs/advanced/custom-mapobjectloaders/)
-* [String Localization](/docs/advanced/string-localization/)
-* [The Particle System](/docs/advanced/the-particle-system/)
-* [Network Communication](/docs/advanced/network-communication/)
-* [Utility Classes](/docs/advanced/utility-classes/)
-* [Object Serialization](/docs/advanced/object-serialization/)
-* [Performance Optimization](/docs/advanced/performance-optimization/)
+* [Creating a platformer](/docs/tutorials/creating-a-platformer/)
 
