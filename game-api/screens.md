@@ -9,11 +9,18 @@ Examples for screens include: Menu Screen, Credits Screen, Game Screen, Inventor
 **Example usages:**
 
 ```java
+// add some custom screens to the ScreenManager
 Game.screens().add(new MenuScreen());
 Game.screens().add(new IngameScreen());
 Game.screens().add(new EndOfLevelScreen());
+
+// display the screen with the name "MENU"
 Game.screens().display("MENU");
+
+// print the name of the currently active screen
 System.out.println("Currently active screen: " + Game.screens().current().getName());
+
+// a custom screen implementation that renders "Test text" on the screen
 public class TestScreen extends GameScreen {
   public TestScreen() {
     super("TEST");

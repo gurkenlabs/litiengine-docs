@@ -11,13 +11,17 @@ It’s important to point out, that the Environment is related to exactly one Ma
 ```java
 // set the active environment on the game
 Game.world().loadEnvironment(new Environment("level-1.tmx"));
+
 // add an entity to the environment
 Game.world().environment().add(new MyEntity("my-entity"));
+
 // retrieve the entity from the enviroment by its name
 IEntity entity = Game.world().environment().get("my-entity");
 MyEntity myEntity = Game.world().environment().get(MyEntity.class, "my-entity");
+
 // remove the entity by its name
 Game.world().environment().remove("my-entity");
+
 // add a entity listener to the current environment of the game
 Game.world().environment().addEntityListener(new EnvironmentEntityListener(){
   @Override
