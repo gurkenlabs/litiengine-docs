@@ -28,7 +28,7 @@ In the file browser that pops up, navigate to your project directory and hit "**
 Even if you still have done nothing, hit "**File -> Save...**" (`CTRL+S`) to create a game resource file.
 You can name it whatever you want, we go for something like “game.litidata” in this guide.
 
-#### Importing Assets
+### Importing Assets
 Let’s assume that you’ve already created assets for your game. In our case, we picked a 4-colour GameBoy style for our project.
 So what basic Assets do we have at this point?
 
@@ -93,7 +93,7 @@ To import Sprite files into utiLITI, either **drag&drop selected files into the 
 
 ![An example map and some spritesheets loaded into utiLITI](images/2-levelLoaded-768x515.png)
 
-#### Basic mapping
+### Basic mapping
 Adjust your grid and snapping settings in the "**View**" menu.
 
 In the **Layer** toolbox in the upper right corner, you can **Add, Delete, Recolor, Rename, Duplicate, Focus / Hide, and reorder** MapObjectLayers.
