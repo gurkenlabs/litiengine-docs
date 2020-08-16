@@ -49,12 +49,12 @@ You only need to provide a left or a right sprite in both cases, the CreatureAni
 We also add two enemy designs to the game. The naming is done in the same way as for our main character, so we end up with four image files: **dean-idle-left.png**, **dean-walk-left.png**, **jorge-idle-left.png**, and **jorge-walk-left.png**.
 
 
-![Dean Walk Left Left](images/dean-walk-left.png)
+![Dean Walk Left](images/Dean-walk-left.png)
  
 *dean-walk-left.png*
 
 
-![Gurk Nukem Idle Left](images/jorge-walk-left.png)
+![Jorge Walk Left](images/Jorge-walk-left.png)
  
 *jorge-walk-left.png*
 
