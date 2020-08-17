@@ -6,6 +6,8 @@ meta.keywords: FAQ, questions, LITIENGINE, java, game, gameengine, development, 
 # LITIENGINE Release notes
 
 ## v0.5.0-beta - "Farewell, Alpha!" 
+![LITIENGINE v0.5.0-beta featureimage](https://litiengine.com/wp-content/uploads/2020/08/litiengine-changelog-featureimage-v0.5.0.png)
+
 This release marks the beginning of a new era for the LITIENGINE. We consider most of the API to be stable and we pretty much settled on the current API design.
 With the release of our new Website, the documentation and other information about the engine are easier to use and everything can be found in one place.
 
