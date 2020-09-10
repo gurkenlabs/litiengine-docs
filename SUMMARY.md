@@ -52,5 +52,6 @@
 
 <span>Tutorials</span>
 
-* [Creating a platformer](/docs/tutorials/creating-a-platformer/)
+* [Creating a Simple Platformer](/docs/tutorials/creating-a-platformer/)
+* [Creating an Arkanoid Clone](/docs/tutorials/creating-an-arkanoid-clone/)
 
