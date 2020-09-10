@@ -3,7 +3,7 @@
 So, you’ve learned about LITIENGINE – great!
 
 You’ve created a project in eclipse and imported LITIENGINE.
-If not, check out our [Download Page](https://staging.litiengine.com/download/) that comes with detailed installation instructions.
+If not, check out our [Download Page](https://litiengine.com/download/) that comes with detailed installation instructions.
 
 Now you’ve probably come to the point where you’ve asked yourself:
 > “How am I supposed to actually make a game with this?”
