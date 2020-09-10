@@ -4,7 +4,6 @@
 * [Frequently Asked Questions](/docs/frequently-asked-questions/)
 * [Roadmap](/docs/roadmap/)
 * [Release notes](/docs/CHANGELOG/)
-* [Libraries and Tools](/docs/libraries-and-tools/)
 
 <span>Basics</span>
 
@@ -49,6 +48,7 @@
   * [Import maps](/docs/utiliti-editor/import-maps-with-utiliti/)
 * [Deployment](/docs/deployment/)
 * [Savegames](/docs/savegames/)
+* [Libraries and Tools](/docs/libraries-and-tools/)
 
 <span>Tutorials</span>
 

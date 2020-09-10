@@ -12,3 +12,11 @@ Moreover, the `SoundEngine` supports **two dimensional audio** that can be playe
 
 LITIENGINE is invented, written and maintained by the two bavarian brothers **Steffen and Matthias** and it has become a [considerably popular open source project](https://github.com/gurkenlabs/litiengine) with a rising number of contributors and an active [Community](https://forum.litiengine.com/).
 
+## Example projects
+ * ["Gurk Nukem"](https://github.com/gurkenlabs/litiengine-gurk-nukem) - A 2-bit platforming shooter made with LITIENGINE
+
+### Open Source games
+ * [Source Code of "GoIn -Behave or GET LOST!"](https://github.com/gurkenlabs/litiengine-ldjam42), made during LDJAM 42
+ * [Source Code of "Servus Bonus"](https://github.com/gurkenlabs/litiengine-ldjam44), made during LDJAM 44
+ * [Source Code of "Pumpkin Keeper"](https://github.com/gurkenlabs/litiengine-ldjam46), made during LDJAM 46
+
