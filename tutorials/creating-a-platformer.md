@@ -165,7 +165,7 @@ public class Program {
     infrastructure (see the [Javadocs][] for an in-depth understanding
     of what this does).
 -   Next, we set the window icon from the logo we created in Day 1 by
-    calling `Game.window().setIconImage()`. *Fancy!* Of course,
+    calling `Game.window().setIcon()`. *Fancy!* Of course,
     the image file 'icon.png' has to be present in our project for this
     to work.
 -   Our game world will be scaled by a factor of 4, which we achieve
