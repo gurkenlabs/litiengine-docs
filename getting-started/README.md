@@ -18,6 +18,10 @@ Of course, it's still possible to just download the LITIengie .jar and import an
 
 > We don't encourage using a manually downloaded .jar for your game project. Trust us, it will be way easier for you in the future to update dependencies on e.g. the LITIENGINE and to better control and integrate the whole development life cycle.
 
+Assuming that you chose [Eclipse IDE](https://www.eclipse.org/downloads/packages/release/kepler/sr1/eclipse-ide-java-developers) and [Gradle](https://gradle.org/), you can create gradle project if you follow as below.
+* if there is no gradle plugin at your Eclipse, go to Help > Eclipse Marketplace to search and install gradle integration.
+* click File > New > Other and select Gradle Project as wizard.
+
 ## Initialize the project structure
 
 Now, depending on the chosen build system, your project structure might look slightly different. The LITIENGINE doesn't restrict you in how you want to organize your project. However there are some common practices that we think are useful to apply for a Game project with the LITIENGINE:
