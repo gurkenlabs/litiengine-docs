@@ -12,6 +12,21 @@ compile 'de.gurkenlabs:litiengine:0.5.0'
 
 A basic example for a Gradle based LITIENGINE project can be found [HERE](https://github.com/gurkenlabs/litiengine-gurk-nukem). Have a look at the project's `build.gradle` and `settings.gradle`.
 
+More specifically, you can use LITIENGINE's library which is distributed over the [Maven Central Repository](https://search.maven.org/artifact/de.gurkenlabs/litiengine/) without download and import library as "oldschool" way by add some code at `build.gradle`.
+```groovy
+apply plugin: 'java'
+apply plugin: 'maven'
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  compile 'de.gurkenlabs:litiengine:0.5.0'
+}
+```
+
+
 ### Apache Maven
 
 ```xml
