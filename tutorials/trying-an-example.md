@@ -9,7 +9,6 @@
 ### Where is the example code?
 
 ## Chapter 2:  SERVUS BONUS
-\\<!--![Alt_text](images/SERVUS_BONUS.jpg)-->
 ![](https://static.jam.vg/raw/f36/2/z/23631.png)
 
 SERVUS BONUS is a 2D game made by Steffen with Litienine. Steffen's github address is https://github.com/steffen-wilke. Currently, it is provided with the MIT license, so it can be modified freely.
