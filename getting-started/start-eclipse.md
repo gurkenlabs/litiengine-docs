@@ -7,4 +7,10 @@ Eclipse can be downloaded [Here](https://www.eclipse.org/ide/), and you can find
 
 ## Install Eclipse
 
+1. Install JDK
+2. Download the installer
+3. unzip the file
+4. execute the eclipse-inst
+5. Choose the java ee developer
+
 ## Make a Basic Java Project
