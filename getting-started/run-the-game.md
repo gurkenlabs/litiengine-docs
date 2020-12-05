@@ -25,6 +25,8 @@ After successfully setting up the application entry point, it's time to actually
 ```java
 public class Program {
 
+import de.gurkenlabs.litiengine.Game;
+
   public static void main(String[] args) {
     Game.init(args);
     Game.start();
