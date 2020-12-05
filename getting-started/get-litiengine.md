@@ -25,7 +25,7 @@ dependencies {
   compile 'de.gurkenlabs:litiengine:0.5.0'
 }
 ```
-
+> **Note:** if you failed build, try to modify apply plugin: 'java' to apply plugin: 'java-library'
 
 ### Apache Maven
 
