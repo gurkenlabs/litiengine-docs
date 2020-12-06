@@ -12,6 +12,8 @@ Create KeyboardEntityController.java file inside the input folder.
 
 ![](../images/createjava.png)
 
+
+
 ## Chapter 2: Let's move the character with the directional keys
 Paste the follwing code to the KeyboardEntityController.java file
 
@@ -124,3 +126,8 @@ public  class  KeyboardEntityController<T  extends  IMobileEntity> extends 
   }
 }
 ```
+
+## Chapter 3: Let's play
+Let's execute the program by build Program.java inside src/com/litiengine/gurknukem
+
+![](../images/gamestart.png)
