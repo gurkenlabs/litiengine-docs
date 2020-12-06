@@ -79,4 +79,29 @@ Add `C:\Gradle\[your-gradle-version]\bin` and click OK to save.
 Now you can use Gradle. If you need more detail how to use Gradle, look **Get LITIENGINE** in docs.
 
 
+## Start SDK in Windows
+
+LITIENGINE provides an editor to creat game environments and manage resources. Here we will introduce how to use LITIENGINE SDK in Windows.  
+First, you should download this [Here](https://litiengine.com/download/). Click this link and download the file for Windows.
+
+
+![sdk-download](./img/sdk_download.png)
+
+
+![sdk-download-2](./img/sdk_download_2.png)
+
+
+Now you have a .zip file. Unzip it and execute `utiliti-v0.5.0-beta.exe` file under utiliti-win folder.  
+Then you can see the following screen.
+
+
+![sdk-download-3](./img/sdk-download_3.png)
+
+
+Click **File** on upper left corner, and click **New...** to make new `.litidata` file. Then select your game project folder and click open. Here we will use the [tutorial game](https://github.com/gurkenlabs/litiengine-gurk-nukem) for explanation.
+
+
+![sdk-download-4](./img/sdk-download_4.png)
+
+
 
