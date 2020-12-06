@@ -113,7 +113,7 @@ Let me introduce the useful functions of this SDK.
 
 
 On upper right corner, you can find the `Objects` and `Layers` menu. They manage the basic elements of game, such as Creature, Collision, and Spawn Point.  
-The functions of each icon in the `Layers` tab are as follows: Add, Delete, Copy, Change Color, Rename, Show selected layer only, send selected layer up, send selected layer down.
+The functions of each icon in the `Layers` tab are as follows: Add, Delete, Copy, Change Color, Rename, Show selected layer only, Send selected layer up, Send selected layer down.
 
 
 ![sdk-download-7](./img/sdk-download_7.png)
