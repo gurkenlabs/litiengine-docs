@@ -104,4 +104,28 @@ Click **File** on upper left corner, and click **New...** to make new `.litidata
 ![sdk-download-4](./img/sdk-download_4.png)
 
 
+The basic step is over.  
+Let me introduce the useful functions of this SDK.
 
+
+![sdk-download-5](./img/sdk-download_5.png)
+![sdk-download-6](./img/sdk-download_6.png)
+
+
+On upper right corner, you can find the `Objects` and `Layers` menu. They manage the basic elements of game, such as Creature, Collision, and Spawn Point.  
+The functions of each icon in the `Layers` tab are as follows: Add, Delete, Copy, Change Color, Rename, Show selected layer only, send selected layer up, send selected layer down.
+
+
+![sdk-download-7](./img/sdk-download_7.png)
+
+
+On bottom left corner, you can find the `Resources` and `Console` menu. You can manage your game resources, such as png file for creature and sound file. 
+
+
+![sdk-download-8](./img/sdk-download_8.png)
+
+
+You can edit your objects in botton right corner. If you select an object in `Objects` tab, then the Properties of the object will appear. You can easily set up the objects' collision or movement through this.
+
+
+Now you can use LITIENGINE SDK.
