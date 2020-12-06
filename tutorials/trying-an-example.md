@@ -158,4 +158,8 @@ The code above shows that a specific image is called up and printed on the scree
 
 ## Chapter 4. Modify the example in the utiLITI
 
+### 1.utiLITL run and utilize 
+
+먼저 utiLITL 를 실행하기 위해서 litiengine 에서 제공해주는 utiliti-v0.5.0-beta.jar를 다운 받게 된다면 map editor인 utiLITI 기본 툴이 다운 받아진다. 이제 여기서 SERVUS BONUS의 map 을 edit 하기 위해서 utiLITI- File-Open을 통해서 위에서 미리 다운 받은 Litiengine-ldjam44 폴더 내부에 있는 game.litidata를 실행한다
+
 ## Chapter 5. What's the difference of the utiLITI and the code?
