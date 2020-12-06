@@ -13,7 +13,7 @@ First of all, you should download the [JDK](https://www.oracle.com/java/technolo
 ![jdk_download](./img/jdk_download.png)
 
 
-There are two options: SE and EE.  
+There are two options: **SE** and **EE**.  
 SE is standard edition, and EE is enterprise edition. EE has more APIs related to web programming. If this is your first Java project, SE will suffice.  
 Click the link, then the following page will be opened.
 
@@ -21,7 +21,7 @@ Click the link, then the following page will be opened.
 ![jdk_downloa_2](./img/jdk_download_2.png)
 
 
-Click the **JDK Download** and find the file for your OS. Then click the download link and run the file to install JDK. When the installation is complete, click Close.
+Click the **JDK Download** and find the file for your OS. Then click the download link and run the file to install JDK. When the installation is complete, click `Close`.
 
 
 ### Install Eclipse
@@ -38,14 +38,14 @@ Click **Download** and choose the package which you need. In normal cases, you m
 ![eclipse-download-2](./img/eclipse_download_2.png)
 
 
-After the download is complete, unzip the file and run the **eclipse.exe** file inside the ecilpse folder.
+After the download is complete, unzip the file and run the **eclipse.exe** file inside the `ecilpse` folder.
 
 
 ![eclipse-download-3](./img/eclipse_download_3.png)
 
 
-Browse the workspace path and click Launch.  
-Then close the welcome tab and click the Open Perspective icon at the upper right corner. Select the Java.
+Browse the workspace path and click `Launch`.  
+Then close the welcome tab and click the `Open Perspective` icon at the upper right corner. Select the `Java`.
 
 
 ![eclipse-download-4](./img/eclipse_download_4.png)
@@ -65,7 +65,7 @@ You can download Gradle [Here](https://gradle.org/install/).
 ![gradle-download](./img/gradle_download.png)
 
 
-In the first step for **Installing manually**, click the **Download** and find latest version. If you need docs and sources, choose complete or binary-only.
+In the first step for **Installing manually**, click the **Download** and find latest version. If you need docs and sources, choose **complete** or **binary-only**.
 
 
 ![gradle-download-2](./img/gradle_download_2.png)
@@ -82,7 +82,7 @@ Now you can use Gradle. If you need more detail how to use Gradle, look **Get LI
 ## Start SDK in Windows
 
 LITIENGINE provides an editor to creat game environments and manage resources. Here we will introduce how to use LITIENGINE SDK in Windows.  
-First, you should download this [Here](https://litiengine.com/download/). Click this link and download the file for Windows.
+First, you should download SDK [Here](https://litiengine.com/download/). Click this link and download the file for Windows.
 
 
 ![sdk-download](./img/sdk_download.png)
@@ -91,20 +91,22 @@ First, you should download this [Here](https://litiengine.com/download/). Click 
 ![sdk-download-2](./img/sdk_download_2.png)
 
 
-Now you have a .zip file. Unzip it and execute `utiliti-v0.5.0-beta.exe` file under utiliti-win folder.  
+Now you have a .zip file. Unzip it and execute `utiliti-v0.5.0-beta.exe` file under `utiliti-win` folder.  
 Then you can see the following screen.
 
 
 ![sdk-download-3](./img/sdk-download_3.png)
 
 
-Click **File** on upper left corner, and click **New...** to make new `.litidata` file. Then select your game project folder and click open. Here we will use the [tutorial game](https://github.com/gurkenlabs/litiengine-gurk-nukem) for explanation.
+Click **File** on upper left corner, and click **New...** to make new `.litidata` file. Then select your game project folder and click open. We used the [tutorial game](https://github.com/gurkenlabs/litiengine-gurk-nukem) for explanation.
 
 
 ![sdk-download-4](./img/sdk-download_4.png)
 
 
-The basic step is over.  
+The basic step is over.
+
+
 Let me introduce the useful functions of this SDK.
 
 
@@ -112,14 +114,14 @@ Let me introduce the useful functions of this SDK.
 ![sdk-download-6](./img/sdk-download_6.png)
 
 
-On upper right corner, you can find the `Objects` and `Layers` menu. They manage the basic elements of game, such as Creature, Collision, and Spawn Point.  
+On upper right corner, you can find the `Objects` and `Layers` tabs. They manage the basic elements of game, such as Creature, Collision, and Spawn Point.  
 The functions of each icon in the `Layers` tab are as follows: Add, Delete, Copy, Change Color, Rename, Show selected layer only, Send selected layer up, Send selected layer down.
 
 
 ![sdk-download-7](./img/sdk-download_7.png)
 
 
-On bottom left corner, you can find the `Resources` and `Console` menu. You can manage your game resources, such as png file for creature and sound file. 
+On bottom left corner, you can find the `Resources` and `Console` tabs. You can manage your game resources, such as .png file for creature and sound file. 
 
 
 ![sdk-download-8](./img/sdk-download_8.png)
