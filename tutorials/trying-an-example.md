@@ -220,7 +220,7 @@ Setting the creatures' location is easily done by the utiLITI whether than libra
 #### (Additional) Icon edit
 
 Editting icon itself is also delivered by the utiLITI readily. Figure shown below show this well. Icons seem active by giving spritewidth and spriteheight a proper value. Also duration contributes for the smooth movement. 
-![](/images/utiliti_pros.png){: width="80%" height="60%"}
+![](/images/utiliti_pros.png){ width="300px"}
 
 ## Chapter 6. What is the difference between utiLITI and code? 
 
