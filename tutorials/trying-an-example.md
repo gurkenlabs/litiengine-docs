@@ -186,11 +186,11 @@ The code above shows that a specific image is called up and printed on the scree
 
 To execute utiLITI, download [litiengine](https://litiengine.com/download/)which consists of utiliti-v0.5.0-beta.jar, the basic map editor called utiLITI tool. Let's run map editor with just one click!
 
-![](/images/utiliti.png){: width="80%" height="60%"}
+![](/images/utiliti.png)
 
 Inside the litiengine-ldjam44 folder downloaded beforehand in chapter 2, go to File-Open and open the source, game.litidata for map editting in SERVUS BONUS. 
 
-![](/images/litidata.png){: width="80%" height="60%"}
+![](/images/litidata.png)
 
 ![](/images/utilitidata_open.gif)
 
@@ -201,7 +201,7 @@ Let's modify three parts 1) Attack speed, 2) Movement speed, 3) Change jump to d
 ### 1. Attack speed
 
 There is no figure that manipulate attack speed in utiLITI. Combat figure has hitpoints, still, it does not affect the attack speed nor attack degree just like moving speed.  (Manipulated hitpoints 100 to 1)
-<img src="/images/attack_speed.png" width="300" height="300">
+![](/images/attack_speed.png)
 
 ### 2.  Moving speed
 
@@ -220,14 +220,14 @@ Setting the creatures' location is easily done by the utiLITI whether than libra
 #### (Additional) Icon edit
 
 Editting icon itself is also delivered by the utiLITI readily. Figure shown below show this well. Icons seem active by giving spritewidth and spriteheight a proper value. Also duration contributes for the smooth movement. 
-![](/images/utiliti_pros.png){ width="300px"}
+![](/images/utiliti_pros.png)
 
 ## Chapter 6. What is the difference between utiLITI and code? 
 
 Code library and utiLITI compared, almost everything in the game can be changed with JAVA library itself. However, if you use the map editor, utiLITI makes it easier to modify the layout of icons or the icons themselves.
 
  In particular,  modification of the icon itself is possible only with utiLITI as shown in the figure. 
-![](/images/utiliti_pros.png){: width="80%" height="60%"}
+![](/images/utiliti_pros.png)
 
 Note that icon name must be written in (creatures's name)-idle/walk to be added in map editor. Therefore, except for updating icon images, utiLITI is better used with JAVA library code interaction. 
 
