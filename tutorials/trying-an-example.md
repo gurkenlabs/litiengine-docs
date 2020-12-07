@@ -194,18 +194,62 @@ Inside the litiengine-ldjam44 folder downloaded beforehand in chapter 2, go to F
 
 ![File-Open](/images/utilitidata_open.gif)
 
-위에서 Code를 통해 수정할 요소 3가지1) 공격 속도, 2) 이동속도, 3) 점프를 대시로 변경 을 utiLITI로 가능한지 알아보자. 먼저 아이콘을 만들고 이 아이콘을 아래와 같은 방식으로 수정이 가능하다.
+## Chapter 5. Modify the example in utiLITI
 
-#### 1) 공격속도
+Let's modify three parts 1) Attack speed, 2) Movement speed, 3) Change jump to dash just like in chapter 3 with utilLITI to notify difference between changing code and using utiLITI  and see what part is more efficient than other in comparison.
 
-#### 2) 이동속도
+### 1. Attack speed
 
-utiLITI에서 아이콘을 클릭하면 해당 아이콘의 Movement 수치를 볼수 있다. utiLITL는 acceleration, deceleration, velocity를 제공하는데 이를 이용하여 아이콘의 이동 속도를 바꿀수 있는지 알아보았다. example로 사용한 아이콘은 slave 이며 code 에서와는 다르게 단순 map editor 이므로 주인공을 제외한 주변 사물처럼 취급되는 아이콘들만 utiLITI에서 변경 가능하다 (단, 주인공 아이콘의 이미지에 관련된 것은 여기서 바꿀 수 있다).
-결과적으로 utiLITI만으로는 아이콘의 이동 속도를 변경할 수 없다. 
+There is no figure that manipulate attack speed in utiLITI. Combat figure has hitpoints, still, it does not affect the attack speed nor attack degree just like moving speed.  (Manipulated hitpoints 100 to 1)
+![](/images/attack_speed)
 
-#### 3) 점프를 대시로 변경
+### 2.  Moving speed
 
-점프를 대시로 변경하기 위해선 두가지 방법이 있다. 첫번째 코드를 바꾸는 방법. "monger-jump" 아이콘 자체를 "dash"로 바꾸기. utiLITI로는 두번째 방법이 가능하다.
+If you click on icon(creature) you can see the figures of movement. UtiLITI provide acceleration, deceleration, velocity figures. These figures were used to consider whether utilLITI can moderate speed within only itself. Since code might affect the speed data, in this tutorial, horse creature was created which was created only within the utiLITI to make horse icon independent of JAVA library. Yet the horse's velocity never changed within the utiLITI operation. This indicate utiLITI cannot change the icon's physical activity.
+![](/images/icon_horse.gif)
 
+### 3. Change Jump to Dash
 
-## Chapter 5. What's the difference of the utiLITI and the code?
+To change jump to dash, two ways are possible. One is to moderate the library code which is too complicated, because all the "monger-jump", for example, must change to "dash" (both data types are string). Secondly, it is easier to change just the icon leaving the icon's name "moger-jump". In this case, modification is way easier than looking up for all the words in JAVA library. 
+![](/images/dash.gif)
+
+### (Additional) Icon display
+
+Setting the creatures' location is easily done by the utiLITI whether than library. You just need to drag the icon and place it in the location you.
+
+### (Additional) Icon edit
+
+Editting icon itself is also delivered by the utiLITI readily. Figure shown below show this well. Icons seem active by giving spritewidth and spriteheight a proper value. Also duration contributes for the smooth movement. 
+![](/images/utiliti_pros)
+
+## Chapter 6. What is the difference between utiLITI and code? 
+
+Code library and utiLITI compared, almost everything in the game can be changed with JAVA library itself. However, if you use the map editor, utiLITI makes it easier to modify the layout of icons or the icons themselves.
+
+ In particular,  modification of the icon itself is possible only with utiLITI as shown in the figure. 
+![](/images/utiliti_pros)
+
+Note that icon name must be written in (creatures's name)-idle/walk to be added in map editor. Therefore, except for updating icon images, utiLITI is better used with JAVA library code interaction. 
+
+```java
+/**
+ * This {@link AnimationController} implementation provides animation rules that
+ * use naming conventions to provide {@link Animation}s for {@link Creature}
+ * implementations.
+ * 
+ * The spritesheet images need to be named according to the following
+ * conventions in order to be automatically used by this controller:
+ * <ul>
+ * <li>{@link #getSpritePrefix()}-idle-{DIRECTION}.{EXTENSION}</li>
+ * <li>{@link #getSpritePrefix()}-walk-{DIRECTION}.{EXTENSION}</li>
+ * </ul>
+ * Where {DIRECTION} refers to a value of the {@link Direction} enum and
+ * {@link #getSpritePrefix()} refers to the current sprite prefix of the entity.
+ * {EXTENSION} refers to a value of the
+ * {@link de.gurkenlabs.litiengine.graphics.ImageFormat} enum.
+ * 
+ * @see de.gurkenlabs.litiengine.entities.Creature
+ * @see de.gurkenlabs.litiengine.Direction
+ * @see de.gurkenlabs.litiengine.entities.IEntity#getName()
+ */
+```
