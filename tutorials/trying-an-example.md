@@ -6,7 +6,7 @@
 
 Gradle is a build automation system using groovy. It adopts a domain language similar to Groovy, and is also the official build system of Android Studio, which is required to create Android apps. It supports several languages such as Java, C / C++ , and Python. [Wikipedia contributors. (2020b, November 26). Gradle. Wikipedia. https://en.wikipedia.org/wiki/Gradle](https://en.wikipedia.org/wiki/Gradle)
 
-To install gradle and execute it firstable download <https://gradle.org/install/>. Next set $PATH and $CLASSPATH. For more specific settings about the environment variable visit [Getting started](#getting-started/start-gradle.md).
+To install gradle and execute it firstable download <https://gradle.org/install/>. Next set $PATH and $CLASSPATH. For more specific settings about the environment variable visit [Getting started](/getting-started/start-gradle.md).
 
 If things are going well, type gradle -v and check. 
 ```bash
