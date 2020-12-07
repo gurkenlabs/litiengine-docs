@@ -1,7 +1,5 @@
 # Trying an example with LITIENGINE
 
-서두
-
 ## Chapter 1:  Start trying the example
 
 ### What is the gradle?
