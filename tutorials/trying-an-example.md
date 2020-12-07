@@ -1,7 +1,5 @@
 # Trying an example with LITIENGINE
 
-서두
-
 ## Chapter 1:  Start trying the example
 
 ### What is the gradle?
@@ -182,16 +180,19 @@ The jump is carried out by reading *monger-jump* or *monger-jump-right* from spr
    <keyframes>150,200,150</keyframes>
 </sprite>
 ```
-
 The code above shows that a specific image is called up and printed on the screen. This is data that cannot be modified through code. It is something that needs to be modified in utiLITI.
 
-## Chapter 4. Modify the example in the utiLITI
+## Chapter 4. UtiLITI run and utilize it
 
-### 1.UtiLITL run and utilize 
+To execute utiLITI, download [litiengine]<https://litiengine.com/download/> which consists of utiliti-v0.5.0-beta.jar, the basic map editor called utiLITI tool. Let's run map editor with just one click!
 
-먼저 utiLITL 를 실행하기 위해서 litiengine 에서 제공해주는 utiliti-v0.5.0-beta.jar를 다운 받게 된다면 map editor인 utiLITI 기본 툴이 다운 받아진다. 이제 여기서 SERVUS BONUS의 map 을 edit 하기 위해서 utiLITI- File-Open을 통해서 위에서 미리 다운 받은 Litiengine-ldjam44 폴더 내부에 있는 game.litidata를 실행한다
+![](/images/utiliti)
 
-### 2. Modify the map directly
+Inside the litiengine-ldjam44 folder downloaded beforehand in chapter 2, go to File-Open and open the source, game.litidata for map editting in SERVUS BONUS. 
+
+![litidata in litiengine-ldjam44 folder](/images/litidata)
+
+![File-Open](/images/utilitidata_open.gif)
 
 위에서 Code를 통해 수정할 요소 3가지1) 공격 속도, 2) 이동속도, 3) 점프를 대시로 변경 을 utiLITI로 가능한지 알아보자. 먼저 아이콘을 만들고 이 아이콘을 아래와 같은 방식으로 수정이 가능하다.
 
