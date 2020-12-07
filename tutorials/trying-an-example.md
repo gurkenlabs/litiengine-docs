@@ -1,13 +1,40 @@
 # Trying an example with LITIENGINE
 
-서두
-
 ## Chapter 1:  Start trying the example
 
 ### What is the gradle?
 
-### Where is the example code?
+Gradle is a build automation system using groovy. It adopts a domain language similar to Groovy, and is also the official build system of Android Studio, which is required to create Android apps. It supports several languages such as Java, C / C++ , and Python. [Wikipedia contributors. (2020b, November 26). Gradle. Wikipedia. https://en.wikipedia.org/wiki/Gradle](https://en.wikipedia.org/wiki/Gradle)
 
+To install gradle and execute it firstable download <https://gradle.org/install/>. Next set $PATH and $CLASSPATH. For more specific settings about the environment variable visit [Getting started](#getting-started/start-gradle.md).
+
+If things are going well, type gradle -v and check. 
+```bash
+gradle -v 
+``` 
+
+Make a JAVA project and file to build, and in the project folder make buld.gradle file. In this file apply plugin:'java'
+```bash
+plugin:'java' 
+``` 
+Now, almost there!
+```bash
+gradle build
+```  
+If you do "gradle build", gradle tests, compiles and then makes jar file.
+This is it for basic gradle execution. For more complicated project dependency resolution process is needed. However, in this example, SERVUS BONUS, gradle wrapper is used. So, I will wrap it up here. 
+
+### Gradle Wrapper
+
+In this tutorial, SERVUS BONUS, gradle wrapper which is preferred way to build project is used. The biggest advantage of using it is when executing an project that already exists on a new environment, it enables direct build without any installation nor settings for different version of JAVA or Gradle. 
+
+However, in this case, executing "./gradlew build" makes an error message telling that JAVA version does not match with the SERVUS BONUS project. The SERVUS BONUS requires some JAVA 8 library which does not match with latest JAVA version,11. 
+
+Therefore, check the below code, and if JAVA version is other than JAVA 8, download JAVA 8 and set environment variable accordingly where the jdk file exist.
+
+```bash
+java --version
+``` 
 ## Chapter 2:  SERVUS BONUS
 ![](https://static.jam.vg/raw/f36/2/z/23631.png)
 
@@ -157,5 +184,25 @@ The jump is carried out by reading *monger-jump* or *monger-jump-right* from spr
 The code above shows that a specific image is called up and printed on the screen. This is data that cannot be modified through code. It is something that needs to be modified in utiLITI.
 
 ## Chapter 4. Modify the example in the utiLITI
+
+### 1.UtiLITL run and utilize 
+
+먼저 utiLITL 를 실행하기 위해서 litiengine 에서 제공해주는 utiliti-v0.5.0-beta.jar를 다운 받게 된다면 map editor인 utiLITI 기본 툴이 다운 받아진다. 이제 여기서 SERVUS BONUS의 map 을 edit 하기 위해서 utiLITI- File-Open을 통해서 위에서 미리 다운 받은 Litiengine-ldjam44 폴더 내부에 있는 game.litidata를 실행한다
+
+### 2. Modify the map directly
+
+위에서 Code를 통해 수정할 요소 3가지1) 공격 속도, 2) 이동속도, 3) 점프를 대시로 변경 을 utiLITI로 가능한지 알아보자. 먼저 아이콘을 만들고 이 아이콘을 아래와 같은 방식으로 수정이 가능하다.
+
+#### 1) 공격속도
+
+#### 2) 이동속도
+
+utiLITI에서 아이콘을 클릭하면 해당 아이콘의 Movement 수치를 볼수 있다. utiLITL는 acceleration, deceleration, velocity를 제공하는데 이를 이용하여 아이콘의 이동 속도를 바꿀수 있는지 알아보았다. example로 사용한 아이콘은 slave 이며 code 에서와는 다르게 단순 map editor 이므로 주인공을 제외한 주변 사물처럼 취급되는 아이콘들만 utiLITI에서 변경 가능하다 (단, 주인공 아이콘의 이미지에 관련된 것은 여기서 바꿀 수 있다).
+결과적으로 utiLITI만으로는 아이콘의 이동 속도를 변경할 수 없다. 
+
+#### 3) 점프를 대시로 변경
+
+점프를 대시로 변경하기 위해선 두가지 방법이 있다. 첫번째 코드를 바꾸는 방법. "monger-jump" 아이콘 자체를 "dash"로 바꾸기. utiLITI로는 두번째 방법이 가능하다.
+
 
 ## Chapter 5. What's the difference of the utiLITI and the code?
