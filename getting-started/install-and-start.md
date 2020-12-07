@@ -7,21 +7,20 @@ It is recommended to use IDE for Litiengine. **Eclipse IDE** and **IntelliJ IDEA
 
 ### Install JDK
 
-First of all, you should download the [JDK](https://www.oracle.com/java/technologies/).
+First of all, you should download the [JDK](https://adoptopenjdk.net/index.html).
 
 
-![jdk_download](./img/jdk_download.png)
+![jdk-install](./img/new-jdk-intsall.png)
 
 
-There are two options: **SE** and **EE**.  
-SE is standard edition, and EE is enterprise edition. EE has more APIs related to web programming. If this is your first Java project, SE will suffice.  
-Click the link, then the following page will be opened.
+Select the version you need and click **Latest release**. If you want to change the options, there is a description on **Help Me Choose**.  
 
 
-![jdk_downloa_2](./img/jdk_download_2.png)
+![jdk-install-2](./img/new-jdk-install-2.png)
 
 
-Click the **JDK Download** and find the file for your OS. Then click the download link and run the file to install JDK. When the installation is complete, click `Close`.
+When the download is complete, run the file. On the Custom Setup page you can change the installation directory. By default, it is `c:\Program Files\AdoptOpenJDK\<package>`. If you want to change it, click `Browse...` and update the path. Then click `Install` to begin the installation.  
+When all processes over, click `Finish` to close the installer.
 
 
 ### Install Eclipse
@@ -45,10 +44,16 @@ After the download is complete, unzip the file and run the **eclipse.exe** file 
 
 
 Browse the workspace path and click `Launch`.  
-Then close the welcome tab and click the `Open Perspective` icon at the upper right corner. Select the `Java`.
+Then close the welcome tab and click the `Window` at the upper left corner. Click `Preferences`. 
 
 
 ![eclipse-download-4](./img/eclipse_download_4.png)
+
+
+Find `Java` in the left menu and unfold it. Double click the `Installed JREs`, and click `Add`. Select `Standard VM` and go next. Click the `Directory...` button and find the JDK folder that you installed. Click `Finish` and `Apply and Close`.
+
+
+![eclipse-download-5](./img/eclipse_download_5.png)
 
 
 Now you are ready to use Eclipse.
