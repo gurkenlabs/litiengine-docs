@@ -213,11 +213,11 @@ If you click on icon(creature) you can see the figures of movement. UtiLITI prov
 To change jump to dash, two ways are possible. One is to moderate the library code which is too complicated, because all the "monger-jump", for example, must change to "dash" (both data types are string). Secondly, it is easier to change just the icon leaving the icon's name "moger-jump". In this case, modification is way easier than looking up for all the words in JAVA library. 
 ![](/images/dash.gif)
 
-### 4. (Additional) Icon display
+#### (Additional) Icon display
 
 Setting the creatures' location is easily done by the utiLITI whether than library. You just need to drag the icon and place it in the location you.
 
-### 5. (Additional) Icon edit
+#### (Additional) Icon edit
 
 Editting icon itself is also delivered by the utiLITI readily. Figure shown below show this well. Icons seem active by giving spritewidth and spriteheight a proper value. Also duration contributes for the smooth movement. 
 ![](/images/utiliti_pros.png)
