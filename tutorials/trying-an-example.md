@@ -201,7 +201,7 @@ Let's modify three parts 1) Attack speed, 2) Movement speed, 3) Change jump to d
 ### 1. Attack speed
 
 There is no figure that manipulate attack speed in utiLITI. Combat figure has hitpoints, still, it does not affect the attack speed nor attack degree just like moving speed.  (Manipulated hitpoints 100 to 1)
-![](/images/attack_speed.png){: width="80%" height="60%"}
+<img src="/images/attack_speed.png" width="300" height="300">
 
 ### 2.  Moving speed
 
