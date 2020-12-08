@@ -2,7 +2,7 @@
 
 ## Start Eclipse
 
-It is recommended to use IDE for Litiengine. **Eclipse IDE** and **IntelliJ IDEA** are available, and gurkenlabs recommend using Eclipse. So, we will discuss how to install and start Eclipse here.
+It is recommended to use IDE for LITIENGINE. **Eclipse IDE** and **IntelliJ IDEA** are available, and gurkenlabs recommend using Eclipse. So, we will discuss how to install and start Eclipse here.
 
 
 ### Install JDK
@@ -81,12 +81,12 @@ Search the `Advanced system setting` on windows search and click `Environment Va
 Add `C:\Gradle\[your-gradle-version]\bin` and click OK to save.
 
 
-Now you can use Gradle. If you need more detail how to use Gradle, look **Get Litiengine** in docs.
+Now you can use Gradle. If you need more detail how to use Gradle, look **Get LITIENGINE** in docs.
 
 
 ## Start SDK in Windows
 
-Litiengine provides an editor to create game environments and manage resources. Here we will introduce how to use Litiengine SDK in Windows.  
+LITIENGINE provides an editor to create game environments and manage resources. Here we will introduce how to use LITIENGINE SDK in Windows.  
 First, you should download SDK [Here](https://litiengine.com/download/). Click this link and download the file for Windows.
 
 
@@ -135,4 +135,4 @@ On bottom left corner, you can find the `Resources` and `Console` tabs. You can 
 You can edit your objects in botton right corner. If you select an object in `Objects` tab, then the Properties of the object will appear. You can easily set up the objects' collision or movement through this.
 
 
-Now you can use Litiengine SDK.
+Now you can use LITIENGINE SDK.
