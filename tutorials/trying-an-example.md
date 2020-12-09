@@ -38,7 +38,7 @@ java --version
 ## Chapter 2:  SERVUS BONUS
 ![](https://static.jam.vg/raw/f36/2/z/23631.png)
 
-SERVUS BONUS is a 2D game made by Steffen with Litienine. Steffen's github address is https://github.com/steffen-wilke. Currently, it is provided with the MIT license, so it can be modified freely.
+SERVUS BONUS is a 2D game made by Steffen and nightm4re94 with LITIENGINE. You can find the code at https://github.com/gurkenlabs/litiengine-ldjam44.git. Currently, it is provided with the MIT license, so it can be modified freely.
 
 **A good slave is a good servant. A great slave is currency!**
 
@@ -53,7 +53,7 @@ The process of building and running the example code will be carried out through
 
 #### 1. For WSL
 WSL users should set up the environment so that they can float the display of the window using the ubuntu terminal.
- 
+
 ##### 1) Setting up .bashrc
 ```bash
 vi ~/.bashrc
@@ -64,35 +64,35 @@ export DISPLAY=0:0
 ```
 
 ##### 2) Installing Xming
-Xming performs when wsl users request to float the display of the window using the ubuntu terminal to configure the display. To run a game made with Litiengine on WSL, Xming must be installed so that the game screen can be printed out.
+Xming performs when wsl users request to float the display of the window using the ubuntu terminal to configure the display. To run a game made with LITIENGINE on WSL, Xming must be installed so that the game screen can be printed out.
 
-By the end of the above process, WSL users can complete the WSL setup to float the Litienine-based game.
+By the end of the above process, WSL users can complete the WSL setup to float the LITIENGINE-based game.
 
 ## Chapter 2: Build and Run with gradle
 
-Gradle's usage is detailed above, so omit it. However, it is not necessary to install the gradle directly to run SERVUS BONUS. If you use the gradlew file inside the *litienine-ldjam44* folder, you can download and run the appropriate version of the gradle to install SERVUS BONUS. However, if you run `./gradlew build` from the litienine-ldjam44 folder, the code folder of SERVUS BONUS, the build will fail. The reason is that the litiengine folder inside the litienine-ldjam44 folder is empty. SERVUS BONUS uses the library code inside the litienine folder, and if this litienine folder is empty, it does not run because there is no code in the API used by SERVUS BONUS. 
+Gradle's usage is detailed above, so omit it. However, it is not necessary to install the gradle directly to run SERVUS BONUS. If you use the gradlew file inside the *litiengine-ldjam44* folder, you can download and run the appropriate version of the gradle to install SERVUS BONUS. However, if you run `./gradlew build` from the litiengine-ldjam44 folder, the code folder of SERVUS BONUS, the build will fail. The reason is that the LITIENGINE folder inside the litiengine-ldjam44 folder is empty. SERVUS BONUS uses the library code inside the LITIENGINE folder, and if this LITIENGINE folder is empty, it does not run because there is no code in the API used by SERVUS BONUS. 
 
-### 1. Downloading the litienine code
+### 1. Downloading the LITIENGINE code
 
-The Litienine code can be downloaded from github. Use the command below to download the Litienine code.
+The LITIENGINE code can be downloaded from github. Use the command below to download the LITIENGINE code.
 ```bash
 git clone https://github.com/gurkenlabs/litiengine.git/
 ```
-Use this command to insert the downloaded Litiengine code into the litienine-ldjam44 folder.
-The Litiengine code downloaded at this time is the latest code created by the efforts of the people who participated in the Litiengine project. However, SERVUS BONUS needs a code as of April 2019, not the most recent one. As Litiengine develops, SERVUS BONUS is using some of the deprecated codes, so it is necessary to downgrade them to the previous version.
+Use this command to insert the downloaded LITIENGINE code into the litiengine-ldjam44 folder.
+The LITIENGINE code downloaded at this time is the latest code created by the efforts of the people who participated in the LITIENGINE project. However, SERVUS BONUS needs a code as of April 2019, not the most recent one. As LITIENGINE develops, SERVUS BONUS is using some of the deprecated codes, so it is necessary to downgrade them to the previous version.
 ```bash
 git log 
 ```
-Use the above command to check the litiignine commit log. If you lower this page, you will find a commit entitled **Allow holding a speechbubble.**
+Use the above command to check the LITIENGINE commit log. If you lower this page, you will find a commit entitled **Allow holding a speechbubble.**
 
-If you find this log, use the command below to downgrade the liti engine. Use the *\-\-hard* option because subsequent codes are unnecessary when using this example.
+If you find this log, use the command below to downgrade the LITIENGINE. Use the *\-\-hard* option because subsequent codes are unnecessary when using this example.
 ```bash
 git reset --hard 61dbc657e772b3a05e262078e13a636b60c29e9
 ```
-So we prepare the appropriate version of the Litienine code for SERVUS BONUS.
+So we prepare the appropriate version of the LITIENGINE code for SERVUS BONUS.
 
 ### 2. Get Permission of Gradlew
-*gradlew* files allow you to proceed with build and run processes without installing *gradle*. However, the first time you download the litienine-ldjam44 code, you cannot run it because you do not have the execution permission in the *gradlew* file. Use the command below to give the execution permission.
+*gradlew* files allow you to proceed with build and run processes without installing *gradle*. However, the first time you download the litiengine-ldjam44 code, you cannot run it because you do not have the execution permission in the *gradlew* file. Use the command below to give the execution permission.
 ```bash
 sudo chmod 775 ./gradlew
 ```
@@ -107,11 +107,11 @@ Now that we're all set, let's run with build. Use the commands below to build an
 If you do not insert **./** in front of the gridlew, an error may appear that there is no command called *gridlew*, so please insert ./ to specify that the gridlew inside the folder is executed.
 After completing all of the above steps, the screen below is output and you can run SERVUS BONUS.
 
-[!Alt_text](../images/run.gif)
+![Alt_text](../images/run.gif)
 
 ## Chapter 3. Modify the code
 
-Let's modify the downloaded SERVUS BONUS code so that the game can do what we want. There are three parts to modify through the code. 1) Attack speed, 2) Movement speed, 3) Change jump to dash. To modify the code, you must access the *src/de/gurkenlabs/ldjam44* folder inside the litienine-ldjam44 folder. Inside the final folder, ldjam44, there are codes that implement SERVUS BONUS's game operating mechanism.
+Let's modify the downloaded SERVUS BONUS code so that the game can do what we want. There are three parts to modify through the code. 1) Attack speed, 2) Movement speed, 3) Change jump to dash. To modify the code, you must access the *src/de/gurkenlabs/ldjam44* folder inside the litiengine-ldjam44 folder. Inside the final folder, ldjam44, there are codes that implement SERVUS BONUS's game operating mechanism.
 
 ### 1. Attack speed
 Let's open the *Strike.java* file inside the *abilities* folder. Then you can find the code below.
@@ -124,10 +124,10 @@ This code applies information about the ability of the character to be a Strike.
 ```
 Cooldown was reduced to 60 for much faster attack speed. Then try building and running and you'll get the following results.
 
-[Alt_text](../images/cooldown_before.gif)
+![Alt_text](../images/cooldown_before.gif)
 **Before**
 
-[Alt_text](../images/cooldown_after.gif)
+![Alt_text](../images/cooldown_after.gif)
 **After**
 
 We can see the speed of attack that has been overwhelmingly faster.
@@ -144,10 +144,10 @@ This code applies information about the movement speed of the character of the p
 Increase the Velocity to 100 for much faster movement speed. Then try building and running and you'll get the following results.
 
 
-[Alt_text](../images/velocity_before.gif)
+![Alt_text](../images/velocity_before.gif)
 **Before**
 
-[Alt_text](../images/velocity_after.gif)
+![Alt_text](../images/velocity_after.gif)
 **After**
 
 We can see the speed of movement that has been overwhelmingly faster.
@@ -172,7 +172,7 @@ Spritesheet rightJumpSprite = Resources.spritesheets().load(rightJump, "monger-j
 controller.add(new Animation(rightJumpSprite, false));
 ```
 
-The jump is carried out by reading *monger-jump* or *monger-jump-right* from spritesheets and printing them on the screen. These spritesheets are stored inside the *game.litidata* file in the litienine-ldjam44 folder.
+The jump is carried out by reading *monger-jump* or *monger-jump-right* from spritesheets and printing them on the screen. These spritesheets are stored inside the *game.litidata* file in the litiengine-ldjam44 folder.
 
 ```html
 <sprite width="14" height="20" name="monger-jump">
