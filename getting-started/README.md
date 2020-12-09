@@ -14,9 +14,13 @@ Currently, there is no build-in support for any IDE but for future releases we p
 
 We also recommend you to get familiar with [Gradle](https://gradle.org/) or [Maven](https://maven.apache.org/) because these tools can help you greatly when developing Java projects. LITIENGINE itself is build upon **Gradle** and uses it to seamlessly manage its build steps and dependent libraries.
 
-Of course, it's still possible to just download the LITIengie .jar and import and use the library manually the "oldschool" way.
+Of course, it's still possible to just download the LITIengine .jar and import and use the library manually the "oldschool" way.
 
 > We don't encourage using a manually downloaded .jar for your game project. Trust us, it will be way easier for you in the future to update dependencies on e.g. the LITIENGINE and to better control and integrate the whole development life cycle.
+
+Assuming that you chose [Eclipse IDE](https://www.eclipse.org/downloads/packages/release/kepler/sr1/eclipse-ide-java-developers) and [Gradle](https://gradle.org/), you can create gradle project if you follow as below.
+* if there is no gradle plugin at your Eclipse, go to Help > Eclipse Marketplace to search and install gradle integration.
+* click File > New > Other and select Gradle Project as wizard.
 
 ## Initialize the project structure
 

@@ -4,8 +4,37 @@
 
 ### What is the gradle?
 
-### Where is the example code?
+Gradle is a build automation system using groovy. It adopts a domain language similar to Groovy, and is also the official build system of Android Studio, which is required to create Android apps. It supports several languages such as Java, C / C++ , and Python. [Wikipedia contributors. (2020b, November 26). Gradle. Wikipedia. https://en.wikipedia.org/wiki/Gradle](https://en.wikipedia.org/wiki/Gradle)
 
+To install gradle and execute it firstable download <https://gradle.org/install/>. Next set $PATH and $CLASSPATH. For more specific settings about the environment variable visit [Getting started](/getting-started/start-gradle.md).
+
+If things are going well, type gradle -v and check. 
+```bash
+gradle -v 
+``` 
+
+Make a JAVA project and file to build, and in the project folder make buld.gradle file. In this file apply plugin:'java'
+```bash
+plugin:'java' 
+``` 
+Now, almost there!
+```bash
+gradle build
+```  
+If you do "gradle build", gradle tests, compiles and then makes jar file.
+This is it for basic gradle execution. For more complicated project dependency resolution process is needed. However, in this example, SERVUS BONUS, gradle wrapper is used. So, I will wrap it up here. 
+
+### Gradle Wrapper
+
+In this tutorial, SERVUS BONUS, gradle wrapper which is preferred way to build project is used. The biggest advantage of using it is when executing an project that already exists on a new environment, it enables direct build without any installation nor settings for different version of JAVA or Gradle. 
+
+However, in this case, executing "./gradlew build" makes an error message telling that JAVA version does not match with the SERVUS BONUS project. The SERVUS BONUS requires some JAVA 8 library which does not match with latest JAVA version,11. 
+
+Therefore, check the below code, and if JAVA version is other than JAVA 8, download JAVA 8 and set environment variable accordingly where the jdk file exist.
+
+```bash
+java --version
+``` 
 ## Chapter 2:  SERVUS BONUS
 ![](https://static.jam.vg/raw/f36/2/z/23631.png)
 
@@ -151,8 +180,76 @@ The jump is carried out by reading *monger-jump* or *monger-jump-right* from spr
    <keyframes>150,200,150</keyframes>
 </sprite>
 ```
-
 The code above shows that a specific image is called up and printed on the screen. This is data that cannot be modified through code. It is something that needs to be modified in utiLITI.
 
-## Chapter 4. Modify the example in the utiLITI
+## Chapter 4. UtiLITI run and utilize it
 
+To execute utiLITI, download [litiengine](https://litiengine.com/download/)which consists of utiliti-v0.5.0-beta.jar, the basic map editor called utiLITI tool. Let's run map editor with just one click!
+
+![](/images/utiliti.png)
+
+Inside the litiengine-ldjam44 folder downloaded beforehand in chapter 2, go to File-Open and open the source, game.litidata for map editting in SERVUS BONUS. 
+
+![](/images/litidata.png)
+
+![](/images/utilitidata_open.gif)
+
+## Chapter 5. Modify the example in utiLITI
+
+Let's modify three parts 1) Attack speed, 2) Movement speed, 3) Change jump to dash just like in chapter 3 with utilLITI to notify difference between changing code and using utiLITI  and see what part is more efficient than other in comparison.
+
+### 1. Attack speed
+
+There is no figure that manipulate attack speed in utiLITI. Combat figure has hitpoints, still, it does not affect the attack speed nor attack degree just like moving speed.  (Manipulated hitpoints 100 to 1)
+![](/images/attack_speed.png)
+
+### 2.  Moving speed
+
+If you click on icon(creature) you can see the figures of movement. UtiLITI provide acceleration, deceleration, velocity figures. These figures were used to consider whether utilLITI can moderate speed within only itself. Since code might affect the speed data, in this tutorial, horse creature was created which was created only within the utiLITI to make horse icon independent of JAVA library. Yet the horse's velocity never changed within the utiLITI operation. This indicate utiLITI cannot change the icon's physical activity.
+![](/images/icon_horse.gif)
+
+### 3. Change Jump to Dash
+
+To change jump to dash, two ways are possible. One is to moderate the library code which is too complicated, because all the "monger-jump", for example, must change to "dash" (both data types are string). Secondly, it is easier to change just the icon leaving the icon's name "moger-jump". In this case, modification is way easier than looking up for all the words in JAVA library. 
+![](/images/dash.gif)
+
+#### (Additional) Icon display
+
+Setting the creatures' location is easily done by the utiLITI whether than library. You just need to drag the icon and place it in the location you.
+
+#### (Additional) Icon edit
+
+Editting icon itself is also delivered by the utiLITI readily. Figure shown below show this well. Icons seem active by giving spritewidth and spriteheight a proper value. Also duration contributes for the smooth movement. 
+![](/images/utiliti_pros.png)
+
+## Chapter 6. What is the difference between utiLITI and code? 
+
+Code library and utiLITI compared, almost everything in the game can be changed with JAVA library itself. However, if you use the map editor, utiLITI makes it easier to modify the layout of icons or the icons themselves.
+
+ In particular,  modification of the icon itself is possible only with utiLITI as shown in the figure. 
+![](/images/utiliti_pros.png)
+
+Note that icon name must be written in (creatures's name)-idle/walk to be added in map editor. Therefore, except for updating icon images, utiLITI is better used with JAVA library code interaction. 
+
+```java
+/**
+ * This {@link AnimationController} implementation provides animation rules that
+ * use naming conventions to provide {@link Animation}s for {@link Creature}
+ * implementations.
+ * 
+ * The spritesheet images need to be named according to the following
+ * conventions in order to be automatically used by this controller:
+ * <ul>
+ * <li>{@link #getSpritePrefix()}-idle-{DIRECTION}.{EXTENSION}</li>
+ * <li>{@link #getSpritePrefix()}-walk-{DIRECTION}.{EXTENSION}</li>
+ * </ul>
+ * Where {DIRECTION} refers to a value of the {@link Direction} enum and
+ * {@link #getSpritePrefix()} refers to the current sprite prefix of the entity.
+ * {EXTENSION} refers to a value of the
+ * {@link de.gurkenlabs.litiengine.graphics.ImageFormat} enum.
+ * 
+ * @see de.gurkenlabs.litiengine.entities.Creature
+ * @see de.gurkenlabs.litiengine.Direction
+ * @see de.gurkenlabs.litiengine.entities.IEntity#getName()
+ */
+```
