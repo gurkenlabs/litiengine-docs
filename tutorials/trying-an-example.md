@@ -217,6 +217,10 @@ To change jump to dash, two ways are possible. One is to moderate the library co
 
 Setting the creatures' location is easily done by the utiLITI whether than library. You just need to drag the icon and place it in the location you.
 
+#### (Additional) Spritesheets and sprite images
+
+Editting on creature is also delivered by the utiLITI readily. Figure shown below show this well. In utiLITI, sprite images in spritesheets can pretend to be active by giving spritewidth and spriteheight a proper value. Also duration contributes for the smooth movement.
+![](/images/utiliti_pros.gif)
 
 ## Chapter 6. What is the difference between utiLITI and code? 
 
