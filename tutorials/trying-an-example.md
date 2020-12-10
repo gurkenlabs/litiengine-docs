@@ -206,7 +206,7 @@ There is no figure that manipulate attack speed in utiLITI. Combat figure has hi
 ### 2.  Moving speed
 
 If you click on icon(creature) you can see the figures of movement. UtiLITI provide acceleration, deceleration, velocity figures. These figures were used to consider whether utilLITI can moderate speed within only itself. Since code might affect the speed data, in this tutorial, horse creature was created which was created only within the utiLITI to make horse icon independent of JAVA library. Yet the horse's velocity never changed within the utiLITI operation. This indicate utiLITI cannot change the icon's physical activity.
-![](/images/icon_horse.gif)
+![](/images/horse_icons.gif)
 
 ### 3. Change Jump to Dash
 
