@@ -23,6 +23,8 @@ We recommend you to keep this class as clean and minimalist as possible so that 
 After successfully setting up the application entry point, it's time to actually use the LITIENGINE. The following example will initialize the `Game` infrastructure with the specified command-line arguments. Upon calling the method `Game.start()` an empty window will be spawned that renders a black background and a title with the LITIENGINE logo.
 
 ```java
+import de.gurkenlabs.litiengine.Game;
+
 public class Program {
 
   public static void main(String[] args) {
@@ -31,6 +33,7 @@ public class Program {
   }
 }
 ```
+> **Note:** If you can't import library even though update build.gradle right, try to refresh build.gradle.
 
 If you see the following window, you’ve setup everything correctly and are now ready to create awesome 2D Java games with LITIENGINE!
 
