@@ -1,9 +1,8 @@
-# Install and Start
+# Installation and Setup
 
-## Start Eclipse
+## Setup Eclipse
 
-It is recommended to use IDE for LITIENGINE. **Eclipse IDE** and **IntelliJ IDEA** are available, and gurkenlabs recommend using Eclipse. So, we will discuss how to install and start Eclipse here.
-
+It is recommended to use an IDE for LITIENGINE development. **Eclipse IDE** and **IntelliJ IDEA** are available, and Eclipse has been used for the development of the engine for the most part. So, we will discuss how to install and start Eclipse here.
 
 ### Install JDK
 
@@ -59,7 +58,7 @@ Find `Java` in the left menu and unfold it. Double click the `Installed JREs`, a
 Now you are ready to use Eclipse.
 
 
-## Start Gradle
+## Setup Gradle
 
 LITIENGNINE supports Gradle and Maven. You can just download the .jar file and import it to use the library, but it is not recommended. Thus, here we will discuss how to install Gradle in Windows.
 
@@ -84,7 +83,7 @@ Add `C:\Gradle\[your-gradle-version]\bin` and click OK to save.
 Now you can use Gradle. If you need more detail how to use Gradle, look **Get LITIENGINE** in docs.
 
 
-## Start SDK in Windows
+## Setup SDK in Windows
 
 LITIENGINE provides an editor to create game environments and manage resources. Here we will introduce how to use LITIENGINE SDK in Windows.  
 First, you should download SDK [Here](https://litiengine.com/download/). Click this link and download the file for Windows.
