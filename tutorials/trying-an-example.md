@@ -1,6 +1,6 @@
-# Trying an example with LITIENGINE
+# Working with the LITIENGINE Sample Projects
 
-## Chapter 1:  Start trying the example
+## Chapter 1: Start trying the example
 
 ### What is the gradle?
 
