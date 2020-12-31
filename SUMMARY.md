@@ -9,6 +9,7 @@
 
 * [Getting Started](/docs/getting-started/README/)
   * [Get LITIENGINE](/docs/getting-started/get-litiengine/)
+  * [Installation and Setup](/docs/getting-started/install-and-start/)
   * [Run the Game](/docs/getting-started/run-the-game/)
 * [Game API](/docs/game-api/README/)
   * [Game.graphics()](/docs/game-api/render-engine/)
@@ -54,4 +55,5 @@
 
 * [Creating a Simple Platformer](/docs/tutorials/creating-a-platformer/)
 * [Creating an Arkanoid Clone](/docs/tutorials/creating-an-arkanoid-clone/)
+* [Working with the Sample projects](/docs/tutorials/trying-an-example/)
 
