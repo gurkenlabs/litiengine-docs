@@ -124,10 +124,10 @@ This code applies information about the ability of the character to be a Strike.
 ```
 Cooldown was reduced to 60 for much faster attack speed. Then try building and running and you'll get the following results.
 
-![Alt_text](../images/cooldown_before.gif)
+![](/images/cooldown_before.gif)
 **Before**
 
-![Alt_text](../images/cooldown_after.gif)
+![](/images/cooldown_after.gif)
 **After**
 
 We can see the speed of attack that has been overwhelmingly faster.
@@ -144,10 +144,10 @@ This code applies information about the movement speed of the character of the p
 Increase the Velocity to 100 for much faster movement speed. Then try building and running and you'll get the following results.
 
 
-![Alt_text](../images/velocity_before.gif)
+![](/images/velocity_before.gif)
 **Before**
 
-![Alt_text](../images/velocity_after.gif)
+![](/images/velocity_after.gif)
 **After**
 
 We can see the speed of movement that has been overwhelmingly faster.
