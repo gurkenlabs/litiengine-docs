@@ -8,7 +8,7 @@ Hi there!
 
 Three weeks ago, I started working with the LITIENGINE. I'm using the engine to program my own version of Arkanoid (a breakout game) as my student research project for university.
 
-In the beginning, it wasn't easy to figure out how to get things done with the LITIengine because at the moment, there is just few documentation. Nevertheless, the docs pages for the most basic things of the engine are there, you can find them here: https://litiengine.com/docs
+In the beginning, it wasn't easy to figure out how to get things done with the LITIENGINE because at the moment, there is just few documentation. Nevertheless, the docs pages for the most basic things of the engine are there, you can find them here: https://litiengine.com/docs
 
 To understand the more specific parts of the engine and how to use them to achieve what I want to, I had a few looks into the game **"SERVUS BONUS"** which was made for LDJAM 44 with the LITIENGINE. You can find the source code of this game here: https://github.com/gurkenlabs/litiengine-ldjam44
 

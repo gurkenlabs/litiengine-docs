@@ -140,7 +140,7 @@ public class Program {
     Game.info().setName("GURK NUKEM"); 
     Game.info().setSubTitle(""); Game.info().setVersion("v0.0.1"); 
     Game.info().setWebsite("https://github.com/gurkenlabs/litiengine-gurk-nukem"); 
-    Game.info().setDescription("An example 2D platformer with shooter elements made in the LITIengine"); 
+    Game.info().setDescription("An example 2D platformer with shooter elements made in the LITIENGINE"); 
     
     // init the game infrastructure 
     Game.init(args); 
@@ -411,7 +411,7 @@ public class Jump extends Ability {
 }
 ```
 
--   As mentioned before, the class `Jump` is a child of LITIengine's
+-   As mentioned before, the class `Jump` is a child of LITIENGINE's
     `Ability`. As such, we can annotate the class with the
     `@AbilityInfo`-annotation to determine its cooldown, origin
     location, duration, and `value`, which is an abstract numeral used

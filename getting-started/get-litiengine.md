@@ -2,7 +2,7 @@
 
 ## Get the Java library
 
-So you want to build a 2D Java game with the _LITIengine_, that's great! Now, the first thing you want to do is to actually download the library. There are multiple ways to achieve this. The library is distributed over the [Maven Central Repository](https://search.maven.org/artifact/de.gurkenlabs/litiengine/) and you can grab the necessary .jar-file\(s\) from there by using your favorite build automation tool or manually download the library.
+So you want to build a 2D Java game with the _LITIENGINE_, that's great! Now, the first thing you want to do is to actually download the library. There are multiple ways to achieve this. The library is distributed over the [Maven Central Repository](https://search.maven.org/artifact/de.gurkenlabs/litiengine/) and you can grab the necessary .jar-file\(s\) from there by using your favorite build automation tool or manually download the library.
 
 ### Gradle \(Groovy\)
 
@@ -50,15 +50,15 @@ The LITIENGINE comes with an editor that supports you with creating game environ
 > *Managing (and deploying) the native libraries is only necessary for
 > **Controller Support** and Accessing the **Steamworks** library.*
 
-The LITIengine has some native dependencies that allow supporting
+The LITIENGINE has some native dependencies that allow supporting
 Controller Input and access to Steamworks. In case you want to use these
 features, you can either use a build tool plugin (e.g.  the [Gradle
 Natives Plugin](https://github.com/cjstehno/gradle-natives)) or get the
-native libraries from the downloadable LITIengine package. Either way,
+native libraries from the downloadable LITIENGINE package. Either way,
 you need to add the location of the natives to the *.classpath* of your
 project if you want to use the functionality when your Game is being run
 from within your IDE. The following `build.gradle` file extracts all
-native libraries of the LITIengine to the '*libs*' folder upon
+native libraries of the LITIENGINE to the '*libs*' folder upon
 calling `gradle includeNatives`
 
 ```groovy

@@ -2,7 +2,7 @@
 
 ## Set the basic game information
 
-When starting a fresh game project with the LITIengine, we encourage you
+When starting a fresh game project with the LITIENGINE, we encourage you
 to give your baby a name. Also, some additional information might be
 very useful, like the game's version, author(s) or the website. For this
 purpose, we've created the `GameInfo` class. It holds all the metadata
@@ -16,7 +16,7 @@ two ways to set your information:
 ```java
 // set meta information about the game
 Game.info().setName("My Testgame");
-Game.info().setSubTitle("Made with LITIengine!");
+Game.info().setSubTitle("Made with LITIENGINE!");
 Game.info().setVersion("v1.0.0");
 Game.info().setWebsite("https://litiengine.com/");
 ...
@@ -28,8 +28,8 @@ Game.info().setWebsite("https://litiengine.com/");
 <?xml version="1.0" encoding="UTF-8"?>
 <gameinfo>
  <name>My Testgame</name>
- <subTitle>Made with LITIengine!</subTitle>
- <description>A game, that was implemented with the LITIengine.</description>
+ <subTitle>Made with LITIENGINE!</subTitle>
+ <description>A game, that was implemented with the LITIENGINE.</description>
  <website>https://litiengine.com</website>
  <version>v1.0.0</version>
  <company>gurkenlabs.de</company>
@@ -39,12 +39,12 @@ Game.info().setWebsite("https://litiengine.com/");
 ```
 
 You need to set this information before `Game.init()` is called, because
-some of this information is used by the LITIengine to e.g. set the
+some of this information is used by the LITIENGINE to e.g. set the
 default JFrame title of the game.
 
 ## Configure Default Behavior and Appearance
 
-All of the components that are provided by the LITIengine come with a
+All of the components that are provided by the LITIENGINE come with a
 reasonable default configuration. However, they might not be applicable
 to your type of game which is why you should at least know about these
 configurations to be able to adjust them when necessary.
@@ -52,7 +52,7 @@ configurations to be able to adjust them when necessary.
   - **Encoding for textual Resources**
     (default: `Resources.ENCODING_ISO_8859_1`) For some languages, you
     might prefer to store your text files with UTF-8 encoding. You can
-    make the LITIengine aware of this by
+    make the LITIENGINE aware of this by
     calling `Resources.setEncoding(Resources.ENCODING_UTF_8)`.
   - **Base Render Scale** (default: `RenderEngine.DEFAULT_RENDERSCALE
     = 3.0`) Depending on what type of Art Style you're going for, it is
@@ -72,11 +72,11 @@ configurations to be able to adjust them when necessary.
 
 ## Game Configuration File `config.properties`
 
-When you want to Configure a LITIengine Game, there are also
+When you want to Configure a LITIENGINE Game, there are also
 configurations that might have to be changed by the player or developer
 on the fly without changing the actual implementation. This includes
 things like Soundvolume, Resolution, Mouse Sensitivity or Debugging
-options. LITIengine Games store this information in
+options. LITIENGINE Games store this information in
 a `config.properties` file in the application's execution folder. If no
 such file exists, the Game will create one for you with all default
 values upon starting up the game for the first time. When deploying your
@@ -121,7 +121,7 @@ gfx_graphicQuality=VERYHIGH
 
 ## Logging Configuration `logging.properties`
 
-The LITIengine uses the `java.util.logging`framework to log information
+The LITIENGINE uses the `java.util.logging`framework to log information
 and errors. It is possible to configure the output of the logging by
 providing a `logging.properties` file in the Game's execution directory.
 You can read more about
