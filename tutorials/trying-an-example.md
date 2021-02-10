@@ -184,7 +184,7 @@ The code above shows that a specific image is called up and printed on the scree
 
 ## Chapter 4. UtiLITI run and utilize it
 
-To execute utiLITI, download [LITIENGINE](https://litiengine.com/download/)which consists of utiliti-v0.5.0-beta.jar, the basic map editor called utiLITI tool. Let's run map editor with just one click!
+To execute utiLITI, download [LITIENGINE](https://litiengine.com/download/)which consists of utiliti-v0.5.1-beta.jar, the basic map editor called utiLITI tool. Let's run map editor with just one click!
 
 ![](/images/utiliti.png)
 

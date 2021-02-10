@@ -54,7 +54,7 @@ Specifying a direction is optional and the `CreatureAnimationController` will al
 
 In general, you are not limited to any of the pre-defined animation rules. You can decide to extend the animation controller or write one from scratch that better suits your needs.
 
-More details on this can be found in the [Animation Controller](https://app.gitbook.com/@gurkenlabs/s/litiengine/basics/control-entities/animation-controller) chapter.
+More details on this can be found in the [Animation Controller](https://litiengine.com/docs/control-entities/animation-controller/) chapter.
 
 ## The Graphics instance - `Graphics2D`
 

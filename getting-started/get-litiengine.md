@@ -7,7 +7,7 @@ So you want to build a 2D Java game with the _LITIENGINE_, that's great! Now, th
 ### Gradle \(Groovy\)
 
 ```groovy
-compile 'de.gurkenlabs:litiengine:0.5.0'
+compile 'de.gurkenlabs:litiengine:0.5.1'
 ```
 
 A basic example for a Gradle based LITIENGINE project can be found [HERE](https://github.com/gurkenlabs/litiengine-gurk-nukem). Have a look at the project's `build.gradle` and `settings.gradle`.
@@ -22,7 +22,7 @@ repositories {
 }
 
 dependencies {
-  compile 'de.gurkenlabs:litiengine:0.5.0'
+  compile 'de.gurkenlabs:litiengine:0.5.1'
 }
 ```
 > **Note:** if you failed build, try to modify apply plugin: 'java' to apply plugin: 'java-library'
@@ -33,7 +33,7 @@ dependencies {
 <dependency>
   <groupId>de.gurkenlabs</groupId>
   <artifactId>litiengine</artifactId>
-  <version>0.5.0</version>
+  <version>0.5.1</version>
 </dependency>
 ```
 
@@ -79,6 +79,6 @@ repositories {
 }
 
 dependencies {
-  compile 'de.gurkenlabs:litiengine:0.5.0'
+  compile 'de.gurkenlabs:litiengine:0.5.1'
 }
 ```

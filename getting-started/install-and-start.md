@@ -95,7 +95,7 @@ First, you should download SDK [Here](https://litiengine.com/download/). Click t
 ![sdk-download-2](/getting-started/img/sdk_download_2.png)
 
 
-Now you have a .zip file. Unzip it and execute `utiliti-v0.5.0-beta.exe` file under `utiliti-win` folder.  
+Now you have a .zip file. Unzip it and execute `utiliti-v0.5.1-beta.exe` file under `utiliti-win` folder.  
 Then you can see the following screen.
 
 
