@@ -17,5 +17,15 @@ utiLITI is the project management and map creation tool that comes with LITIENGI
   * Adjust your MapObjects' properties more comprehensively with sliders, spinners, checkboxes, dropdown menus, and add custom properties to MapObjects.
   * Set Map properties such as colors for ambient light and static shadows, Map title, and description.
 
-![The utiLITI editor](images/utiliti-screenshot.png)
+## How to install utiLITI
+The utiLITI editor is part of the [LITIENGINE SDK](https://litiengine.com/download/). Download it to get started.
+
+![sdk-download](/getting-started/img/sdk_download.png)
+
+* **Windows**: Unzip the downloaded file and execute `utiliti-win/utiliti-vX.X.X.exe`.
+* **Linux/Mac**: Unzip the downloaded file and execute `utiliti/utiliti-vX.X.X.jar`.   
+
+If nothing went wrong, you should see the following window with an empty project:
+
+![empty_project](/getting-started/img/sdk-download_3.png)
 
