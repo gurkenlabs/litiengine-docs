@@ -9,7 +9,6 @@
 
 * [Getting Started](/docs/getting-started/README/)
   * [Get LITIENGINE](/docs/getting-started/get-litiengine/)
-  * [Installation and Setup](/docs/getting-started/install-and-start/)
   * [Run the Game](/docs/getting-started/run-the-game/)
 * [Game API](/docs/game-api/README/)
   * [Game.graphics()](/docs/game-api/render-engine/)
