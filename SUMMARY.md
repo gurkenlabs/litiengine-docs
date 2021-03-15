@@ -8,7 +8,12 @@
 <span>Basics</span>
 
 * [Getting Started](/docs/getting-started/README/)
+  * [Install JDK](/docs/getting-started/install-jdk/)
+  * [Set Up IDE](/docs/getting-started/development-environment/)
+  * [Build Systems](/docs/getting-started/build-systems/)
+  * [Project Structure](/docs/getting-started/project-structure/)
   * [Get LITIENGINE](/docs/getting-started/get-litiengine/)
+  * [Manage native libraries](/docs/getting-started/native-libraries/)
   * [Run the Game](/docs/getting-started/run-the-game/)
 * [Game API](/docs/game-api/README/)
   * [Game.graphics()](/docs/game-api/render-engine/)

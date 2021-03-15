@@ -1,34 +1,62 @@
+---
+meta.description: Learn about all possible ways to download LITIENGINE and include it in your project.
+meta.keywords: LITIENGINE, java, game, gameengine, development, 2D, programming, library, SDK, repository, build
+---
+
 # Get LITIENGINE
+Now, let us discuss how to actually download the LITIENGINE library. There are multiple ways to achieve this:
 
-## Get the Java library
+## 1. Download the LITIENGINE Java library manually
 
-So you want to build a 2D Java game with the _LITIENGINE_, that's great! Now, the first thing you want to do is to actually download the library. There are multiple ways to achieve this. The library is distributed over the [Maven Central Repository](https://search.maven.org/artifact/de.gurkenlabs/litiengine/) and you can grab the necessary .jar-file\(s\) from there by using your favorite build automation tool or manually download the library.
+### 1.1 From the Maven central repository
+The Maven Central Repository is the default repository for Apache Maven, SBT and other build systems and can be easily used from Apache Ant/Ivy, Gradle and many other tools. You can [download the LITIENGINE library directly from the Maven Central Repository](https://search.maven.org/artifact/de.gurkenlabs/litiengine/) if you do not want to use a dedicated build system or need only specific files.
 
-### Gradle \(Groovy\)
+### 1.2 From the LITIENGINE SDK
 
-```groovy
-compile 'de.gurkenlabs:litiengine:0.5.1'
-```
+The LITIENGINE SDK consists of the *LITIENGINE Java library* and *utiLITI*, our project management and map creation tool. It is a stand-alone editor which produces project files that can then be loaded to your game. You can [download the LITIENGINE SDK from litiengine.com](https://litiengine.com/download/).
 
-A basic example for a Gradle based LITIENGINE project can be found [HERE](https://github.com/gurkenlabs/litiengine-gurk-nukem). Have a look at the project's `build.gradle` and `settings.gradle`.
+> **Note:** The utiLITI editor is not an IDE for Java development.
 
-More specifically, you can use LITIENGINE's library which is distributed over the [Maven Central Repository](https://search.maven.org/artifact/de.gurkenlabs/litiengine/) without download and import library as "oldschool" way by add some code at `build.gradle`.
+### 1.3 Add the downloaded library to your project
+#### 1.3.1 Eclipse
+* Open the context menu on your project
+* Select `Properties > Java Build Path > Libraries`. From here, you can add JAR files to the build path, whether they are inside your workspace or not. You can also add a class folder, a directory containing Java class files that are not in a JAR.
+
+> **Example**: The LITIENGINE library is in the `lib` folder inside your project. Simply go to `Project -> Properties -> Java Build Path -> Libraries -> Add JAR` and add `lib/litiengine-0.5.1.jar` to your project's build path.
+
+#### 1.3.2 IntelliJ IDEA
+* Go to `File -> Project Structure` (Ctrl+Alt+Shift+S)
+* Go to `Project Settings -> Libraries`
+* Hit `New Project Library` / `+` (Alt+Insert) and locate `litiengine-0.5.1.jar`
+
+## 2. Download the LITIENGINE Java library via Build Automation Utilities
+### 2.1 Gradle
+Add the LITIENGINE dependency to your Gradle project by adding the following code to your project's `build.gradle` file:
+
 ```groovy
 apply plugin: 'java'
-apply plugin: 'maven'
+apply plugin: 'application'
 
 repositories {
   mavenCentral()
 }
 
 dependencies {
+  // For Gradle versions below 3.0
   compile 'de.gurkenlabs:litiengine:0.5.1'
+
+  // For Gradle versions above 3.0
+  implementation 'de.gurkenlabs:litiengine:0.5.1'
 }
 ```
 > **Note:** if you failed build, try to modify apply plugin: 'java' to apply plugin: 'java-library'
 
-### Apache Maven
+> The `compile` step has been deprecated since Gradle 3.0 - use `implementation` instead for newer versions!
 
+A basic example for a Gradle based LITIENGINE project can be found [HERE](https://github.com/gurkenlabs/litiengine-gurk-nukem). Have a look at the project's `build.gradle` and `settings.gradle`.
+
+### 2.2 Apache Maven
+Add the following code to your project's `pom.xml`:
 ```xml
 <dependency>
   <groupId>de.gurkenlabs</groupId>
@@ -37,48 +65,11 @@ dependencies {
 </dependency>
 ```
 
-### Download the LITIENGINE SDK
-
-The LITIENGINE comes with an editor that supports you with creating game environments and managing your resources. It is a stand alone product which produces a `.litidata` game project files that can then be loaded to your game.
-
-> **Note:** The editor is not an IDE for Java development.
-
-[Download LITIENGINE SDK](https://litiengine.com/download/)
-
-## Managing Native Libraries
-
-> *Managing (and deploying) the native libraries is only necessary for
-> **Controller Support** and Accessing the **Steamworks** library.*
-
-The LITIENGINE has some native dependencies that allow supporting
-Controller Input and access to Steamworks. In case you want to use these
-features, you can either use a build tool plugin (e.g.  the [Gradle
-Natives Plugin](https://github.com/cjstehno/gradle-natives)) or get the
-native libraries from the downloadable LITIENGINE package. Either way,
-you need to add the location of the natives to the *.classpath* of your
-project if you want to use the functionality when your Game is being run
-from within your IDE. The following `build.gradle` file extracts all
-native libraries of the LITIENGINE to the '*libs*' folder upon
-calling `gradle includeNatives`
-
-```groovy
-plugins {
-  id 'com.stehno.natives' version '0.3.1'
-}
-
-natives {
-  configurations = ['runtime']
-  outputDir = 'libs'
-}
-
-apply plugin: 'java'
-apply plugin: 'maven'
-
-repositories {
-  mavenCentral()
-}
-
-dependencies {
-  compile 'de.gurkenlabs:litiengine:0.5.1'
-}
+### 2.3 Apache Ant
+To manage dependencies in Ant, you can [use Apache Ivy](https://emptyhammock.com/blog/download-dependencies-with-ant-and-ivy.html). 
+Add the following code to `ivy.xml`:
+```xml
+<dependencies>
+  <dependency org="de.gurkenlabs" name="litiengine" rev="0.5.1" />
+</dependencies>
 ```
