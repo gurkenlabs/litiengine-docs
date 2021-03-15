@@ -6,31 +6,31 @@ meta.keywords: LITIENGINE, java, game, gameengine, development, 2D, programming,
 # Get LITIENGINE
 Now, let us discuss how to actually download the LITIENGINE library. There are multiple ways to achieve this:
 
-## 1. Download the LITIENGINE Java library manually
+## Download the LITIENGINE Java library manually
 
-### 1.1 From the Maven central repository
+### From the Maven central repository
 The Maven Central Repository is the default repository for Apache Maven, SBT and other build systems and can be easily used from Apache Ant/Ivy, Gradle and many other tools. You can [download the LITIENGINE library directly from the Maven Central Repository](https://search.maven.org/artifact/de.gurkenlabs/litiengine/) if you do not want to use a dedicated build system or need only specific files.
 
-### 1.2 From the LITIENGINE SDK
+### From the LITIENGINE SDK
 
 The LITIENGINE SDK consists of the *LITIENGINE Java library* and *utiLITI*, our project management and map creation tool. It is a stand-alone editor which produces project files that can then be loaded to your game. You can [download the LITIENGINE SDK from litiengine.com](https://litiengine.com/download/).
 
 > **Note:** The utiLITI editor is not an IDE for Java development.
 
-### 1.3 Add the downloaded library to your project
-#### 1.3.1 Eclipse
+### Add the downloaded library to your project
+#### Eclipse
 * Open the context menu on your project
 * Select `Properties > Java Build Path > Libraries`. From here, you can add JAR files to the build path, whether they are inside your workspace or not. You can also add a class folder, a directory containing Java class files that are not in a JAR.
 
 > **Example**: The LITIENGINE library is in the `lib` folder inside your project. Simply go to `Project -> Properties -> Java Build Path -> Libraries -> Add JAR` and add `lib/litiengine-0.5.1.jar` to your project's build path.
 
-#### 1.3.2 IntelliJ IDEA
+#### IntelliJ IDEA
 * Go to `File -> Project Structure` (Ctrl+Alt+Shift+S)
 * Go to `Project Settings -> Libraries`
 * Hit `New Project Library` / `+` (Alt+Insert) and locate `litiengine-0.5.1.jar`
 
-## 2. Download the LITIENGINE Java library via Build Automation Utilities
-### 2.1 Gradle
+## Download the LITIENGINE Java library via Build Automation Utilities
+### Gradle
 Add the LITIENGINE dependency to your Gradle project by adding the following code to your project's `build.gradle` file:
 
 ```groovy
@@ -55,7 +55,7 @@ dependencies {
 
 A basic example for a Gradle based LITIENGINE project can be found [HERE](https://github.com/gurkenlabs/litiengine-gurk-nukem). Have a look at the project's `build.gradle` and `settings.gradle`.
 
-### 2.2 Apache Maven
+### Apache Maven
 Add the following code to your project's `pom.xml`:
 ```xml
 <dependency>
@@ -65,7 +65,7 @@ Add the following code to your project's `pom.xml`:
 </dependency>
 ```
 
-### 2.3 Apache Ant
+### Apache Ant
 To manage dependencies in Ant, you can [use Apache Ivy](https://emptyhammock.com/blog/download-dependencies-with-ant-and-ivy.html). 
 Add the following code to `ivy.xml`:
 ```xml
