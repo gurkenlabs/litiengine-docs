@@ -24,7 +24,9 @@ We guarantee that your data is only used for the purposes you agreed with.
 
 ### What platforms can LITIENGINE deploy to?
 
-With LITIENGINE, you can create games for Windows, Linux, and MacOS
+With LITIENGINE, you can create games for Windows, Linux, and MacOS.
+We have sometimes discussed bringing LITIENGINE to other platforms. However, for example on Android that means completely rewriting all rendering aspects of the engine since `javax.swing` and `java.awt` are unsupported under Android. Porting an engine to Xbox, Playstation, and Nintendo consoles, on the other hand, would require costly dev kits and an extensive knowledge of the respective platform's hardware, which is why we are not even considering porting to consoles.
+We are happy with LITIENGINE being a PC only game library. Since Java Applets are not really an option anymore and Java Web Start has been declared deprecated, web deployment with LITIENGINE is currently not in development either.
 
 ### Whom is LITIENGINE made for?
 
