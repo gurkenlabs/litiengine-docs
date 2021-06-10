@@ -1,8 +1,8 @@
-# Working with the LITIENGINE Sample Projects
+# Modifying existing LITIENGINE Sample Projects
 
 ## Chapter 1: Start trying the example
 
-### What is the gradle?
+### What is Gradle?
 
 Gradle is a build automation system using groovy. It adopts a domain language similar to Groovy, and is also the official build system of Android Studio, which is required to create Android apps. It supports several languages such as Java, C / C++ , and Python. [Wikipedia contributors. (2020b, November 26). Gradle. Wikipedia. https://en.wikipedia.org/wiki/Gradle](https://en.wikipedia.org/wiki/Gradle)
 
@@ -38,7 +38,7 @@ java --version
 ## Chapter 2:  SERVUS BONUS
 ![](https://static.jam.vg/raw/f36/2/z/23631.png)
 
-SERVUS BONUS is a 2D game made by Steffen and nightm4re94 with LITIENGINE. You can find the code at https://github.com/gurkenlabs/litiengine-ldjam44.git. Currently, it is provided with the MIT license, so it can be modified freely.
+SERVUS BONUS is a 2D game made by gurkenlabs, the creators of LITIENGINE. You can find the code at https://github.com/gurkenlabs/litiengine-ldjam44.git. The project is available under the MIT license, so it can be modified freely.
 
 **A good slave is a good servant. A great slave is currency!**
 

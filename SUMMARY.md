@@ -59,5 +59,5 @@
 
 * [Creating a Simple Platformer](/docs/tutorials/creating-a-platformer/)
 * [Creating an Arkanoid Clone](/docs/tutorials/creating-an-arkanoid-clone/)
-* [Working with the Sample projects](/docs/tutorials/trying-an-example/)
+* [Modifying example projects](/docs/tutorials/modifying-example-projects/)
 
