@@ -138,7 +138,8 @@ public class Program {
   public static void main(String[] args) { 
     // set meta information about the game 
     Game.info().setName("GURK NUKEM"); 
-    Game.info().setSubTitle(""); Game.info().setVersion("v0.0.1"); 
+    Game.info().setSubTitle("");
+    Game.info().setVersion("v0.0.1"); 
     Game.info().setWebsite("https://github.com/gurkenlabs/litiengine-gurk-nukem"); 
     Game.info().setDescription("An example 2D platformer with shooter elements made in the LITIENGINE"); 
     
@@ -241,14 +242,18 @@ public class Player extends Creature implements IUpdateable {
   } 
   
   private Player() { 
-    super("gurknukem"); 
-    // setup movement controller 
-    this.addController(new PlatformingMovementController<>(this)); 
+    super("gurknukem");
   } 
   
   @Override 
   public void update() { 
-  } 
+  }
+
+  @Override
+  protected IMovementController createMovementController() {
+    // setup movement controller
+    return new PlatformingMovementController<>(this);
+  }
 }
 ```
 
@@ -278,8 +283,8 @@ Right at the top, you'll notice the [annotations](https://docs.oracle.com/javase
     constructor, will be able to associate the right Spritesheets with
     our Creature (remember the naming conventions for
     Spritesheets?).
--   Furthermore, we add a `PlatformingMovementController` that allows us
-    to move entities horizontally with player input.
+-   Furthermore, we override the `createMovementController()`-method to add a `PlatformingMovementController` that allows us
+    to move entities horizontally with player input. This method will be called upon the initialization of the `Player``.
 
 For now, we leave the `update()`-method empty and focus on spawning our freshly created player into our game world.
 
@@ -366,7 +371,7 @@ Again, we need to call this code from our `main()`-method by adding `PlayerInpu
 For the jump mechanic, we choose to utilize LITIENGINE's `Ability` framework. Go ahead and create the class `Jump`:
 
 ```java
-@AbilityInfo(cooldown = 500, origin = AbilityOrigin.COLLISIONBOX_CENTER, duration = 300, value = 240) 
+@AbilityInfo(cooldown = 500, origin = EntityPivotType.COLLISIONBOX_CENTER, duration = 300, value = 240) 
 public class Jump extends Ability { 
   
   public Jump(Creature executor) { 
@@ -377,14 +382,14 @@ public class Jump extends Ability {
   private class JumpEffect extends ForceEffect { 
 
     protected JumpEffect(Ability ability) { 
-      super(ability, ability.getAttributes().getValue().getCurrentValue().intValue(), EffectTarget.EXECUTINGENTITY); 
+      super(ability, ability.getAttributes().value().get().intValue(), EffectTarget.EXECUTINGENTITY); 
     } 
     
     @Override 
     protected Force applyForce(IMobileEntity affectedEntity) { 
       // create a new force and apply it to the player 
       GravityForce force = new GravityForce(affectedEntity, this.getStrength(), Direction.UP); 
-      affectedEntity.getMovementController().apply(force); 
+      affectedEntity.movement().apply(force); 
       return force; 
     } 
     
@@ -446,8 +451,6 @@ public class Player extends Creature implements IUpdateable {
   
   private Player() { 
     super("gurknukem"); 
-    // setup movement controller 
-    this.addController(new PlatformingMovementController<>(this)); 
     
     // setup the player's abilities 
     this.jump = new Jump(this); 
@@ -466,7 +469,13 @@ public class Player extends Creature implements IUpdateable {
     if (this.isTouchingGround()) { 
       this.consecutiveJumps = 0; 
     } 
-  } 
+  }
+
+  @Override
+  protected IMovementController createMovementController() {
+    // setup movement controller
+    return new PlatformingMovementController<>(this);
+  }
   
   /** 
   * Checks whether this instance can currently jump and then performs the Jump ability. 
@@ -496,7 +505,7 @@ public class Player extends Creature implements IUpdateable {
       return true;
     } 
     
-    return Game.physics().collides(groundCheck, CollisionType.STATIC); 
+    return Game.physics().collides(groundCheck, Collision.STATIC); 
   } 
 }
 ```
@@ -513,7 +522,7 @@ public class Player extends Creature implements IUpdateable {
     all the methods that are declared by the `IMobileEntity` it is
     registered for. But what if we want the
     `PlatformingMovementController` to call logic that is exclusive to
-    one single `Entity` implementing the `IMobileEntity` interface?For
+    one single `Entity` implementing the `IMobileEntity` interface? For
     this purpose, there is a [reflection](https://docs.oracle.com/javase/tutorial/reflect/)-based system in LITIENGINE
     to call methods from `IEntities` that are otherwise inaccessible in
     certain places: Any  `IEntity` can declare an `@Action`-annotation
