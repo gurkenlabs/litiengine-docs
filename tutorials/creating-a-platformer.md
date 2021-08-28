@@ -148,7 +148,7 @@ public class Program {
 
     // set the icon for the game (this has to be done after initialization because the ScreenManager will not be present otherwise) 
     Game.window().setIcon(Resources.images().get("icon.png")); 
-    Game.graphics().setBaseRenderScale(4.001f); 
+    Game.graphics().setBaseRenderScale(4f); 
 
     // load data from the utiLITI game file 
     Resources.load("game.litidata"); 
@@ -170,10 +170,7 @@ public class Program {
     the image file 'icon.png' has to be present in our project for this
     to work.
 -   Our game world will be scaled by a factor of 4, which we achieve
-    with `Game.graphics().setBaseRenderScale()`. You're
-    probably wondering why we've chosen 4.001 as a scaling factor;
-    Simply put: There is currently a bug doing some very ugly stuff when
-    scaling sprites with whole numbered factors.
+    with `Game.graphics().setBaseRenderScale()`.
 -   Now we load up our game resource file created with utiLITI in Day 1.
     Just call `Resources.load("game.litidata")` and all our
     maps, sprites, etc. will be accessible directly from code hereafter.
