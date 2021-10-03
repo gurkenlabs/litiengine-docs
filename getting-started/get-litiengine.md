@@ -53,6 +53,24 @@ dependencies {
 
 > The `compile` step has been deprecated since Gradle 3.0 - use `implementation` instead for newer versions!
 
+> If you want to use recent features of the LITIENGINE master branch that haven't been part of a stable release yet, you can also configure Gradle to include a local clone of the engine repository. Assuming you have cloned the engine to a folder in the same location as your project, you would have the following project structure:
+>```
+>project/settings.gradle
+>litiengine/setting.gradle.kts
+>```
+>Then in `project/settings.gradle`, add the following line:
+>```
+>includeBuild "../litiengine"
+>```
+>In `project/build.gradle`, define the dependency as usual:
+>```groovy
+>dependencies {
+>  implementation 'de.gurkenlabs:litiengine'
+>}
+>```
+> Gradle will automatically replace any dependency with the version provided by `includeBuild` if it finds a matching module.
+
+
 A basic example for a Gradle based LITIENGINE project can be found [HERE](https://github.com/gurkenlabs/litiengine-gurk-nukem). Have a look at the project's `build.gradle` and `settings.gradle`.
 
 ### Apache Maven
