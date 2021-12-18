@@ -29,7 +29,7 @@ plugins {
 }
 
 natives {
-  configurations = ['runtime']
+  configurations = ['runtimeClasspath']
   outputDir = 'libs'
 }
 ```
