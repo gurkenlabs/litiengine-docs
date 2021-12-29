@@ -6,18 +6,121 @@ meta.keywords: FAQ, questions, LITIENGINE, java, game, gameengine, development, 
 
 # LITIENGINE Release notes
 
+## v0.5.2-beta - "Java 16 Migration"
+
+![LITIENGINE v0.5.1-beta featureimage](https://litiengine.com/wp-content/uploads/2021/12/litiengine-patch-banner-0.5.2.png)
+
+Just in time for making your new year's resolution of creating amazing games with LITIENGINE, we proudly present our latest update, packed with 250 commits over the last ten months!
+
+Let's talk about the elephant in the room: LITIENGINE is now fully running on Java 16! In the future, we plan to keep the library updated to the latest stable jdk versions for you to utilize all the juicy new features Java has to offer.
+
+To make building ingame UI more pleasant, the `Slider`, `TextFieldComponent`, and `SpeechBubble` components have seen massive updates.
+
+Bugfixes and UX improvements for utiLITI will ensure a more smooth experience when handling the editor.
+
+Apart from that, a lot has changed in our build and deployment pipeline and the repository is now utilizing GitHub actions instead of Travis CI. This goes along with a completely revised directory structure and proper separation of submodules. The way we bundle native libraries has been adapted and the dependency on steamworks4j has been removed. Please also take note of our changed contribution guidelines: it is now required to comply with the Java code style conventions we provide in the repository (see [CONTRIBUTING.md](https://github.com/gurkenlabs/litiengine/blob/master/CONTRIBUTING.md)).
+
+Finally, a huge THANK YOU is in order: To all our new code contributors, to the community involved in discussing issues, to everyone providing help in our forum and on Discord, and lastly:
+Thank you to our new Sponsors [RajBet](https://raj.bet/), [Trust My Paper](https://www.trustmypaper.com/), [CasinoHex Canada](https://onlinecasinohex.ca/), and [ej-technologies](https://www.ej-technologies.com/products/jprofiler/overview.html) (in chronological order of sponsorships)!
+
+What are you waiting for? Start the new year the right way: making games with LITIENGINE.
+
+#### ✅ Fixes
+
+* [#373](https://github.com/gurkenlabs/litiengine/pull/373) Fix `ArrayIndexOutOfBoundsException` (contributed by [@Gamebuster19901](https://github.com/Gamebuster19901))
+* [#378](https://github.com/gurkenlabs/litiengine/pull/378) Fixed deadlock in `StatusBar` (contributed by [@Gamebuster19901](https://github.com/Gamebuster19901))
+* [#394](https://github.com/gurkenlabs/litiengine/pull/394) Fixed endless recursion for `ResourcesContainer::getAsync(String)` (contributed by [@EagleoutIce](https://github.com/EagleoutIce))
+* [847c523](https://github.com/gurkenlabs/litiengine/commit/847c523b453169e20fa86d0c404e17da0702c160), [5fffe4f](https://github.com/gurkenlabs/litiengine/commit/5fffe4f639e7840b16f9983aaf9b139effecee25) Prevented two `NullPointerExceptions` in SoundSources
+* [87085d7](https://github.com/gurkenlabs/litiengine/commit/87085d7bc5d36359bf39f23e1ad3ca6449d59b3c) Crucially improved robustness and usability of slider GuiComponents.
+* [1f27427](https://github.com/gurkenlabs/litiengine/commit/1f2742708e64c3a48d439c923bc1cea8573e68a9) Removed `final` modifiers from serializable Tmx properties in Triggers
+* [01da7e0](https://github.com/gurkenlabs/litiengine/commit/01da7e03196548bf286de84317d864896c53ea90) Ensured animation caching
+* [7beda04](https://github.com/gurkenlabs/litiengine/commit/7beda046338c75516bad9662d4f853f86ba2f6c1) Fixed Polygon particle rounding errors.
+
+#### ⭐ Features/Improvements
+
+* [#376](https://github.com/gurkenlabs/litiengine/pull/376), [#377](https://github.com/gurkenlabs/litiengine/pull/377), [#381](https://github.com/gurkenlabs/litiengine/pull/381), [#382](https://github.com/gurkenlabs/litiengine/pull/382), [#383](https://github.com/gurkenlabs/litiengine/pull/383), [#385](https://github.com/gurkenlabs/litiengine/pull/385), [#386](https://github.com/gurkenlabs/litiengine/pull/386), [#388](https://github.com/gurkenlabs/litiengine/pull/388), [#389](https://github.com/gurkenlabs/litiengine/pull/389), [#390](https://github.com/gurkenlabs/litiengine/pull/390), [#396](https://github.com/gurkenlabs/litiengine/pull/396), [#397](https://github.com/gurkenlabs/litiengine/pull/397), [#398](https://github.com/gurkenlabs/litiengine/pull/398), [#403](https://github.com/gurkenlabs/litiengine/pull/403) Vastly improved test coverage (contributed by [@DanielH4](https://github.com/DanielH4), [@nwessman](https://github.com/nwessman), [@jluech](https://github.com/jluech), [@ddreimane](https://github.com/ddreimane), [@niels89](https://github.com/niels89))
+* [c42dc23](https://github.com/gurkenlabs/litiengine/commit/c42dc231c8e17b4791553ad3b96b76aa890e002b) Added gamepad mapping for DualShock4 controller
+* [8469c67](https://github.com/gurkenlabs/litiengine/commit/8469c674e4e43f371f008e236e43ea4f33afef53) Guess type of connected gamepads from the most probable variants.
+* [d6449ee](https://github.com/gurkenlabs/litiengine/commit/d6449eebdacde3bf9a877be5d682a221a518d46c), [0cac85a](https://github.com/gurkenlabs/litiengine/commit/0cac85af937d2ccd2d930f639a8697caff0a2ff3) Add TweenType OPACITY and implement opacity Tweening on GuiComponents.
+* [d930a8b](https://github.com/gurkenlabs/litiengine/commit/d930a8b6234f91cff1715a1d801a9229d7aa4b52) Added EntityNavigator overload for using an uninitialized PathFinder.
+* [7047c83](https://github.com/gurkenlabs/litiengine/commit/7047c835aa2ad9befcdaf83dfb2cb4634ae18f31) Disable collision just before firing death events.
+* [f4fa77b](https://github.com/gurkenlabs/litiengine/commit/f4fa77b12144d44ae5b30de5ba271d436b27256d) Added support for setting int and double array fields via `ReflectionUtilities`
+* [5e126bf](https://github.com/gurkenlabs/litiengine/commit/5e126bf1daa6da3bf55842c1dd03668c30c8b6ed), [5227848](https://github.com/gurkenlabs/litiengine/commit/52278485b4e5af6149c2d37d8a67e230f7cff077), [350c137](https://github.com/gurkenlabs/litiengine/commit/350c1377f5881eeca6878b5bd2809e067ec54cb1), [4a24304](https://github.com/gurkenlabs/litiengine/commit/4a243046d7bc1f4ee8ce67c13b17b9a618b5e768) `TextFieldComponent` improvements:
+  * Made blinking cursor configurable
+  * Enabled automatic line breaks
+  * Ensured input termination on mouse clicks outside an active text field
+* [1bcdf2a](https://github.com/gurkenlabs/litiengine/commit/1bcdf2a235b4ec0ef3791f11dc1fd93649ada840) Excluded entities that cannot collide with a Trigger from activating it
+* [bfc8d2f](https://github.com/gurkenlabs/litiengine/commit/bfc8d2fe350ff67edc008fd32f87e56b726b78cf) Added events for GuiComponent rendering
+* [0ee92fa](https://github.com/gurkenlabs/litiengine/commit/0ee92faaede4d9411ebbce2b601c12ddc8244cf5), [634ba28](https://github.com/gurkenlabs/litiengine/commit/634ba28701a07547569421fc673dcda2baa92cec), [bd81b76](https://github.com/gurkenlabs/litiengine/commit/bd81b76becf7a70175c75435cf084e14043f4e0f) Performance optimizations
+* [09bccf3](https://github.com/gurkenlabs/litiengine/commit/09bccf320c777e27b9e6a821ad3dcc417a311455) Made VAlign xml names consistent with enum names
+* [b3c47f9](https://github.com/gurkenlabs/litiengine/commit/b3c47f9c135d80d3b762a186b127fef714481b5e) Ensured that event registrations are passed through to the current gamepad
+* [2e055a2](https://github.com/gurkenlabs/litiengine/commit/2e055a238504952cd83dae793b520f4524455202) Set default color for particles on initialization
+* [64ea5c8](https://github.com/gurkenlabs/litiengine/commit/64ea5c8d9fb80ddbd46b19d9e7f978bf5fcf48bc) Reimplemented `SpeechBubble` as a GuiComponent for more configurabiLITI.
+
+#### 🔀 Changes
+
+* Migrated project to Java 16
+* Migrated deployment pipeline from Travis to GitHub actions
+* Updated Gradle Wrapper from 6.8 -> 7.2
+* Enforced Java code style conventions via spotless Gradle plugin.
+* [bc869ef](https://github.com/gurkenlabs/litiengine/commit/bc869ef528cb1e26c6866d4d8c06d3e777ad927e) Defined Google Java code style as a convention for the repository
+* [#413](https://github.com/gurkenlabs/litiengine/pull/413), [#423](https://github.com/gurkenlabs/litiengine/pull/423), [#424](https://github.com/gurkenlabs/litiengine/pull/424) Major refactorings to build scripts, project layout, and Sonar scan configuration(contributed by [@weisJ](https://github.com/weisJ))
+* [c9d2e4e](https://github.com/gurkenlabs/litiengine/commit/c9d2e4ed7cae791883c16e017bcfb19e0f8af06e) Reduced unit test visibility to `default` due to JUnit 5 migration
+* [df8cf8b](https://github.com/gurkenlabs/litiengine/commit/df8cf8b288b159d253e53bb2e45afbfb3cd9f739) Replaced Gradle Natives plugin with a manual approach.
+* [c31fffd](https://github.com/gurkenlabs/litiengine/commit/c31fffdfc521682e0a31f68cdc28bed929a030e4) Retrieve gamepads by ID instead of index.
+* [6ce69b5](https://github.com/gurkenlabs/litiengine/commit/6ce69b5c22fd1ec156af386d3b3abfc75ef73a91) Removed steamworks4j as a required library.
+* [ae42e12](https://github.com/gurkenlabs/litiengine/commit/ae42e1249b2f816c2b5d83116d324b94eaacb756) Included native libraries in the litiengine jar.
+
+#### 🔧 utiLITI Editor
+
+* [#409](https://github.com/gurkenlabs/litiengine/pull/409) UI updates. (contributed by [@weisJ](https://github.com/weisJ))
+* [49a299e](https://github.com/gurkenlabs/litiengine/commit/49a299e4e2c21653c171648db517e20e77a6e008) Changed visibility of GuiComponent.getCurrentAppearance() to public. Made text align, antialiasing, and shadows available as GuiProperties.
+* [b802ae7](https://github.com/gurkenlabs/litiengine/commit/b802ae7e90b2983fdf088d4329869d9816022767), [#420](https://github.com/gurkenlabs/litiengine/pull/420) Resource panel improvements. (contributed by [@jdeblander](https://github.com/jdeblander))
+* [52d100c](https://github.com/gurkenlabs/litiengine/commit/52d100c5a765db2b9d5468b21098d159963739d7) Fixed creature sprite names in CreaturePanel.
+* [f052c5d](https://github.com/gurkenlabs/litiengine/commit/f052c5dcf25a6a938c4ab061404eea6777ebe0f4) Fixed issue that prevented utiLITI from shutting down properly.
+* [#387](https://github.com/gurkenlabs/litiengine/pull/387), [#391](https://github.com/gurkenlabs/litiengine/pull/391), [#395](https://github.com/gurkenlabs/litiengine/pull/395), [#399](https://github.com/gurkenlabs/litiengine/pull/399) Enhanced crash handling and added debug functionality. (contributed by [@Gamebuster19901](https://github.com/Gamebuster19901))
+* [73d9fa1](https://github.com/gurkenlabs/litiengine/commit/73d9fa14194d439d58fff5f984c608b61523b8b6) Added some basic sanity checks around editing emitters.
+* [a1571c1](https://github.com/gurkenlabs/litiengine/commit/a1571c1cfffbc946539a0e8d47329f9ad79079d9) Improved `GridRenderer` memory usage  
+* [21e56de](https://github.com/gurkenlabs/litiengine/commit/21e56de74be2272e7323383de5b639e4d9cd9e9b) Increased available heap space
+* [d299c54](https://github.com/gurkenlabs/litiengine/commit/d299c543a44c49cafcd6bdeeda1509b895a0c18d) Set year in the help menu dynamically
+* [61aa52c](https://github.com/gurkenlabs/litiengine/commit/61aa52c158e3688a71f02342d9c151577534eb57) Set panel focus globally to prevent unnecessary UI updates.
+* [a9be599](https://github.com/gurkenlabs/litiengine/commit/a9be599fbc5315ed6cd284cbc94efeb1733c8fc8) Fixed a potential NullReference.
+* [ad969f4](https://github.com/gurkenlabs/litiengine/commit/ad969f479aa9c9eb9169f6a9f06bba80ff24b85c) Ensured that the game resource file is saved right after creating a new project.
+* [be0132e](https://github.com/gurkenlabs/litiengine/commit/be0132e85581af7ca73398c0c61225cf93a6abc1) Ensured that only affected nodes in the entity list get updated when entities change.
+* [1e7b4ff](https://github.com/gurkenlabs/litiengine/commit/1e7b4ff29380fe6787b899315ca898cc12132b7c) Skipped unnecessary UI updates and data binding.
+* [f3ce2ca](https://github.com/gurkenlabs/litiengine/commit/f3ce2ca84902123f6da4399caaaa160da80f0090) Prevented UndoManager from updating the same object multiple times.
+* [8306abd](https://github.com/gurkenlabs/litiengine/commit/8306abdf548cb0ec8006b2b5ad4402fca505f114) Prevented entity list from completely rebuilding upon entity deletion.
+
+#### 👩‍💻 New Contributors 👨‍💻
+
+* @DanielH4 in [#376](https://github.com/gurkenlabs/litiengine/pull/376)
+* @nwessman in [#377](https://github.com/gurkenlabs/litiengine/pull/377)
+* @jluech in [#381](https://github.com/gurkenlabs/litiengine/pull/381)
+* @ddreimane in [#383](https://github.com/gurkenlabs/litiengine/pull/383)
+* @EagleoutIce in [#394](https://github.com/gurkenlabs/litiengine/pull/394)
+* @niels89 in [#396](https://github.com/gurkenlabs/litiengine/pull/396)
+
+#### 💵 New Sponsors
+
+* [RajBet](https://raj.bet/) (Bronze sponsorship on OpenCollective)
+* [Trust My Paper](https://www.trustmypaper.com/) (Bronze sponsorship on OpenCollective)
+* [CasinoHex Canada](https://onlinecasinohex.ca/) (Bronze sponsorship on OpenCollective)
+* [ej-technologies](https://www.ej-technologies.com/products/jprofiler/overview.html)  (kindly provided us with a license for their powerful Java profiler `JProfiler`.)
+
 ## v0.5.1-beta - "No more Netcode"
+
 ![LITIENGINE v0.5.1-beta featureimage](https://litiengine.com/wp-content/uploads/2021/02/litiengine-changelog-featureimage-v0.5.1.png)
 
 This release brings tons of bugfixes and quality-of-life improvements. Feature-wise, the highlight of this version is the addition of a [Tweening framework](https://github.com/gurkenlabs/litiengine/pull/352) that lets you interpolate values over time, e.g. to let your `GuiComponents` bounce or your `Entities` wiggle.
 As the engine's networking code had been an unmaintained, untested, and even unsafe mess, we have decided to [remove the networking package entirely](https://github.com/gurkenlabs/litiengine/pull/368).
 
 Our [Discord server](https://discord.gg/T8hVpun) has seen some upgrades and we gladly welcome our first community moderator, [Conifer](https://forum.litiengine.com/u/Conifer)! In order to give back some of your love, we have introduced some special roles for our forum and the Discord server:
-  * @Supporter : Members that have supported us with donations.
-  * @Contributor : Members that have contributed to our open source code repositories
-  * @Early Bird : Members that have been part of our community since the Alpha days of LITIENGINE.
 
-We try to assign these roles to the best of our knowledge, but if we forgot you - please don't hesitate to complain. :) 
+* @Supporter : Members that have supported us with donations.
+* @Contributor : Members that have contributed to our open source code repositories
+* @Early Bird : Members that have been part of our community since the Alpha days of LITIENGINE.
+
+We try to assign these roles to the best of our knowledge, but if we forgot you - please don't hesitate to complain. :)
 
 Apart from that, we've updated the sponsoring tiers in [the LITIENGINE Open Collective](https://opencollective.com/litiengine), allowing you to support our work financially and with full transparency. We have also started a [spreadshirt shop](https://shop.spreadshirt.co.uk/gurkenlabs/) where you can buy all kinds of LITIENGINE related swag and promote the cause (feel free to suggest additional motives)!
 
@@ -46,8 +149,7 @@ As always, huge thanks to all contributors and fans! This is an exciting journey
 
 #### ⭐ Features/Improvements
 
-
-* [1296cfa](https://github.com/gurkenlabs/litiengine/commit/1296cfa13cd54313a7bddd5fdefd608d22357b18) Enabled single-value ParticleParameter initialization 
+* [1296cfa](https://github.com/gurkenlabs/litiengine/commit/1296cfa13cd54313a7bddd5fdefd608d22357b18) Enabled single-value ParticleParameter initialization
 * [2840217](https://github.com/gurkenlabs/litiengine/commit/28402172ee2ff7c95f54c753de0ca8d8ae3076cd) Implemented `SoundSource` entities. Added individual falloff ranges for `SFXPlaybacks`
 * [973d78a](https://github.com/gurkenlabs/litiengine/commit/973d78a586c6543d938dc9fb2d45af8bbc9c7f55) Added individual volume modifiers for `SFXPlaybacks`
 * [ec49e60](https://github.com/gurkenlabs/litiengine/commit/ec49e60c0cb76280def0b2627bbb3f4a41b9b30b) Added CopyConstructor for `Tiles`
@@ -75,6 +177,7 @@ As always, huge thanks to all contributors and fans! This is an exciting journey
 * [7df8c11](https://github.com/gurkenlabs/litiengine/commit/7df8c11a01ad8362bef2354abe30ecf4045b7de7) Improved `GameMetrics` java version output 
 
 #### 🔀 Changes
+
 * [9775b9c](https://github.com/gurkenlabs/litiengine/commit/9775b9c85c720d821d339519aa411da5fdf7f4e9) Set Trigger collision box size implicitly
 * [1ca3997](https://github.com/gurkenlabs/litiengine/commit/1ca39971c4f9032949a5afb641ef1f736c4180c4) Removed distinction between particle color alpha and opacity
 * [3b88928](https://github.com/gurkenlabs/litiengine/commit/3b889282091be009a675f8964292d2d24390f774) Made `VolumeControl` public
