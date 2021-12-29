@@ -47,7 +47,7 @@ repositories {
 }
 
 dependencies {
-  implementation("de.gurkenlabs:litiengine")
+  implementation("de.gurkenlabs:litiengine:0.5.1")
 }
 ```
 
