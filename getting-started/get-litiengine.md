@@ -35,6 +35,22 @@ dependencies {
 ```
 > **Note:** if you failed build, try to modify apply plugin: 'java' to apply plugin: 'java-library'
 
+### Gradle (Kotlin)
+```kotlin
+plugins {
+  java
+  application
+}
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  implementation("de.gurkenlabs:litiengine")
+}
+```
+
 ### Sample Project
 A basic example for a Gradle based LITIENGINE project can be found [HERE](https://github.com/gurkenlabs/litiengine-gurk-nukem). Have a look at the project's `build.gradle` and `settings.gradle`.
 

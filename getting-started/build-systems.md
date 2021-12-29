@@ -12,8 +12,6 @@ Three build systems are predominantly used for Java development:
 * [Apache Maven](https://maven.apache.org/)
 * [Apache Ant](https://ant.apache.org/) 
 
-> Of course, it is possible to just download the LITIENGINE .jar and import and use the library manually the "oldschool" way. However, we don't encourage using the manually downloaded library for your game project as managing the whole life cycle of your software is *much* more straightforward using a dedicated build system.
-
 LITIENGINE itself is built upon **Gradle** and uses it to seamlessly manage its build steps and dependent libraries.
 
 ## Install and set up a build system
