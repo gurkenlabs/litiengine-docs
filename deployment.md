@@ -1,8 +1,9 @@
 ---
 description: How to distribute LITIENGINE games
 ---
+> These are wip notes for the documentation
 
-# Deployment
+# TODO: Deployment
 
 ## How to relase your game
 
