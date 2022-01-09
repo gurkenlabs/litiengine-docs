@@ -6,13 +6,13 @@ meta.keywords: FAQ, questions, LITIENGINE, java, game, gameengine, development, 
 
 # LITIENGINE Release notes
 
-## v0.5.2-beta - "Java 16 Migration"
+## v0.5.2-beta - "Java 17 Migration"
 
 ![LITIENGINE v0.5.1-beta featureimage](https://litiengine.com/wp-content/uploads/2021/12/litiengine-patch-banner-0.5.2.png)
 
 Just in time for making your new year's resolution of creating amazing games with LITIENGINE, we proudly present our latest update, packed with 250 commits over the last ten months!
 
-Let's talk about the elephant in the room: LITIENGINE is now fully running on Java 16! In the future, we plan to keep the library updated to the latest stable jdk versions for you to utilize all the juicy new features Java has to offer.
+Let's talk about the elephant in the room: LITIENGINE is now fully running on Java 17! In the future, we plan to keep the library updated to the latest stable jdk versions for you to utilize all the juicy new features Java has to offer.
 
 To make building ingame UI more pleasant, the `Slider`, `TextFieldComponent`, and `SpeechBubble` components have seen massive updates.
 
@@ -59,7 +59,7 @@ What are you waiting for? Start the new year the right way: making games with LI
 
 #### 🔀 Changes
 
-* Migrated project to Java 16
+* Migrated project to Java 17
 * Migrated deployment pipeline from Travis to GitHub actions
 * Updated Gradle Wrapper from 6.8 -> 7.2
 * Enforced Java code style conventions via spotless Gradle plugin.
