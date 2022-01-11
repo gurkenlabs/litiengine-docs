@@ -27,15 +27,15 @@ What are you waiting for? Start the new year the right way: making games with LI
 
 #### ✅ Fixes
 
-* [#373](https://github.com/gurkenlabs/litiengine/pull/373) Fix `ArrayIndexOutOfBoundsException` (contributed by [@Gamebuster19901](https://github.com/Gamebuster19901))
+* [#373](https://github.com/gurkenlabs/litiengine/pull/373) Fixed `ArrayIndexOutOfBoundsException` (contributed by [@Gamebuster19901](https://github.com/Gamebuster19901))
 * [#378](https://github.com/gurkenlabs/litiengine/pull/378) Fixed deadlock in `StatusBar` (contributed by [@Gamebuster19901](https://github.com/Gamebuster19901))
 * [#394](https://github.com/gurkenlabs/litiengine/pull/394) Fixed endless recursion for `ResourcesContainer::getAsync(String)` (contributed by [@EagleoutIce](https://github.com/EagleoutIce))
 * [847c523](https://github.com/gurkenlabs/litiengine/commit/847c523b453169e20fa86d0c404e17da0702c160), [5fffe4f](https://github.com/gurkenlabs/litiengine/commit/5fffe4f639e7840b16f9983aaf9b139effecee25) Prevented two `NullPointerExceptions` in SoundSources
-* [87085d7](https://github.com/gurkenlabs/litiengine/commit/87085d7bc5d36359bf39f23e1ad3ca6449d59b3c) Crucially improved robustness and usability of slider GuiComponents.
+* [87085d7](https://github.com/gurkenlabs/litiengine/commit/87085d7bc5d36359bf39f23e1ad3ca6449d59b3c) Crucially improved robustness and usability of slider GuiComponents
 * [1f27427](https://github.com/gurkenlabs/litiengine/commit/1f2742708e64c3a48d439c923bc1cea8573e68a9) Removed `final` modifiers from serializable Tmx properties in Triggers
 * [01da7e0](https://github.com/gurkenlabs/litiengine/commit/01da7e03196548bf286de84317d864896c53ea90) Ensured animation caching
 * [7beda04](https://github.com/gurkenlabs/litiengine/commit/7beda046338c75516bad9662d4f853f86ba2f6c1) Fixed Polygon particle rounding errors.
-
+* [#441](https://github.com/gurkenlabs/litiengine/pull/441) Fixed wrong type of EntityController being removed with `clearControllers()` (contributed by [@Gamebuster19901](https://github.com/Gamebuster19901))
 #### ⭐ Features/Improvements
 
 * [#376](https://github.com/gurkenlabs/litiengine/pull/376), [#377](https://github.com/gurkenlabs/litiengine/pull/377), [#381](https://github.com/gurkenlabs/litiengine/pull/381), [#382](https://github.com/gurkenlabs/litiengine/pull/382), [#383](https://github.com/gurkenlabs/litiengine/pull/383), [#385](https://github.com/gurkenlabs/litiengine/pull/385), [#386](https://github.com/gurkenlabs/litiengine/pull/386), [#388](https://github.com/gurkenlabs/litiengine/pull/388), [#389](https://github.com/gurkenlabs/litiengine/pull/389), [#390](https://github.com/gurkenlabs/litiengine/pull/390), [#396](https://github.com/gurkenlabs/litiengine/pull/396), [#397](https://github.com/gurkenlabs/litiengine/pull/397), [#398](https://github.com/gurkenlabs/litiengine/pull/398), [#403](https://github.com/gurkenlabs/litiengine/pull/403) Vastly improved test coverage (contributed by [@DanielH4](https://github.com/DanielH4), [@nwessman](https://github.com/nwessman), [@jluech](https://github.com/jluech), [@ddreimane](https://github.com/ddreimane), [@niels89](https://github.com/niels89))
@@ -55,41 +55,42 @@ What are you waiting for? Start the new year the right way: making games with LI
 * [09bccf3](https://github.com/gurkenlabs/litiengine/commit/09bccf320c777e27b9e6a821ad3dcc417a311455) Made VAlign xml names consistent with enum names
 * [b3c47f9](https://github.com/gurkenlabs/litiengine/commit/b3c47f9c135d80d3b762a186b127fef714481b5e) Ensured that event registrations are passed through to the current gamepad
 * [2e055a2](https://github.com/gurkenlabs/litiengine/commit/2e055a238504952cd83dae793b520f4524455202) Set default color for particles on initialization
-* [64ea5c8](https://github.com/gurkenlabs/litiengine/commit/64ea5c8d9fb80ddbd46b19d9e7f978bf5fcf48bc) Reimplemented `SpeechBubble` as a GuiComponent for more configurabiLITI.
+* [64ea5c8](https://github.com/gurkenlabs/litiengine/commit/64ea5c8d9fb80ddbd46b19d9e7f978bf5fcf48bc) Reimplemented `SpeechBubble` as a GuiComponent for more configurabiLITI
 
 #### 🔀 Changes
 
 * Migrated project to Java 17
 * Migrated deployment pipeline from Travis to GitHub actions
 * Updated Gradle Wrapper from 6.8 -> 7.2
-* Enforced Java code style conventions via spotless Gradle plugin.
+* Established Java code style conventions and enforced them via spotless Gradle plugin.
+* Introduced workflow to build nightly snapshots
 * [bc869ef](https://github.com/gurkenlabs/litiengine/commit/bc869ef528cb1e26c6866d4d8c06d3e777ad927e) Defined Google Java code style as a convention for the repository
 * [#413](https://github.com/gurkenlabs/litiengine/pull/413), [#423](https://github.com/gurkenlabs/litiengine/pull/423), [#424](https://github.com/gurkenlabs/litiengine/pull/424) Major refactorings to build scripts, project layout, and Sonar scan configuration(contributed by [@weisJ](https://github.com/weisJ))
 * [c9d2e4e](https://github.com/gurkenlabs/litiengine/commit/c9d2e4ed7cae791883c16e017bcfb19e0f8af06e) Reduced unit test visibility to `default` due to JUnit 5 migration
-* [df8cf8b](https://github.com/gurkenlabs/litiengine/commit/df8cf8b288b159d253e53bb2e45afbfb3cd9f739) Replaced Gradle Natives plugin with a manual approach.
-* [c31fffd](https://github.com/gurkenlabs/litiengine/commit/c31fffdfc521682e0a31f68cdc28bed929a030e4) Retrieve gamepads by ID instead of index.
-* [6ce69b5](https://github.com/gurkenlabs/litiengine/commit/6ce69b5c22fd1ec156af386d3b3abfc75ef73a91) Removed steamworks4j as a required library.
-* [ae42e12](https://github.com/gurkenlabs/litiengine/commit/ae42e1249b2f816c2b5d83116d324b94eaacb756) Included native libraries in the litiengine jar.
+* [df8cf8b](https://github.com/gurkenlabs/litiengine/commit/df8cf8b288b159d253e53bb2e45afbfb3cd9f739) Replaced Gradle Natives plugin with a manual approach
+* [c31fffd](https://github.com/gurkenlabs/litiengine/commit/c31fffdfc521682e0a31f68cdc28bed929a030e4) Retrieve gamepads by ID instead of index
+* [6ce69b5](https://github.com/gurkenlabs/litiengine/commit/6ce69b5c22fd1ec156af386d3b3abfc75ef73a91) Removed steamworks4j as a required library
+* [ae42e12](https://github.com/gurkenlabs/litiengine/commit/ae42e1249b2f816c2b5d83116d324b94eaacb756) Included native libraries in the litiengine jar
 
 #### 🔧 utiLITI Editor
 
 * [#409](https://github.com/gurkenlabs/litiengine/pull/409) UI updates. (contributed by [@weisJ](https://github.com/weisJ))
 * [49a299e](https://github.com/gurkenlabs/litiengine/commit/49a299e4e2c21653c171648db517e20e77a6e008) Changed visibility of GuiComponent.getCurrentAppearance() to public. Made text align, antialiasing, and shadows available as GuiProperties.
 * [b802ae7](https://github.com/gurkenlabs/litiengine/commit/b802ae7e90b2983fdf088d4329869d9816022767), [#420](https://github.com/gurkenlabs/litiengine/pull/420) Resource panel improvements. (contributed by [@jdeblander](https://github.com/jdeblander))
-* [52d100c](https://github.com/gurkenlabs/litiengine/commit/52d100c5a765db2b9d5468b21098d159963739d7) Fixed creature sprite names in CreaturePanel.
-* [f052c5d](https://github.com/gurkenlabs/litiengine/commit/f052c5dcf25a6a938c4ab061404eea6777ebe0f4) Fixed issue that prevented utiLITI from shutting down properly.
+* [52d100c](https://github.com/gurkenlabs/litiengine/commit/52d100c5a765db2b9d5468b21098d159963739d7) Fixed creature sprite names in CreaturePanel
+* [f052c5d](https://github.com/gurkenlabs/litiengine/commit/f052c5dcf25a6a938c4ab061404eea6777ebe0f4) Fixed issue that prevented utiLITI from shutting down properly
 * [#387](https://github.com/gurkenlabs/litiengine/pull/387), [#391](https://github.com/gurkenlabs/litiengine/pull/391), [#395](https://github.com/gurkenlabs/litiengine/pull/395), [#399](https://github.com/gurkenlabs/litiengine/pull/399) Enhanced crash handling and added debug functionality. (contributed by [@Gamebuster19901](https://github.com/Gamebuster19901))
-* [73d9fa1](https://github.com/gurkenlabs/litiengine/commit/73d9fa14194d439d58fff5f984c608b61523b8b6) Added some basic sanity checks around editing emitters.
+* [73d9fa1](https://github.com/gurkenlabs/litiengine/commit/73d9fa14194d439d58fff5f984c608b61523b8b6) Added some basic sanity checks around editing emitters
 * [a1571c1](https://github.com/gurkenlabs/litiengine/commit/a1571c1cfffbc946539a0e8d47329f9ad79079d9) Improved `GridRenderer` memory usage  
 * [21e56de](https://github.com/gurkenlabs/litiengine/commit/21e56de74be2272e7323383de5b639e4d9cd9e9b) Increased available heap space
 * [d299c54](https://github.com/gurkenlabs/litiengine/commit/d299c543a44c49cafcd6bdeeda1509b895a0c18d) Set year in the help menu dynamically
-* [61aa52c](https://github.com/gurkenlabs/litiengine/commit/61aa52c158e3688a71f02342d9c151577534eb57) Set panel focus globally to prevent unnecessary UI updates.
-* [a9be599](https://github.com/gurkenlabs/litiengine/commit/a9be599fbc5315ed6cd284cbc94efeb1733c8fc8) Fixed a potential NullReference.
-* [ad969f4](https://github.com/gurkenlabs/litiengine/commit/ad969f479aa9c9eb9169f6a9f06bba80ff24b85c) Ensured that the game resource file is saved right after creating a new project.
-* [be0132e](https://github.com/gurkenlabs/litiengine/commit/be0132e85581af7ca73398c0c61225cf93a6abc1) Ensured that only affected nodes in the entity list get updated when entities change.
-* [1e7b4ff](https://github.com/gurkenlabs/litiengine/commit/1e7b4ff29380fe6787b899315ca898cc12132b7c) Skipped unnecessary UI updates and data binding.
-* [f3ce2ca](https://github.com/gurkenlabs/litiengine/commit/f3ce2ca84902123f6da4399caaaa160da80f0090) Prevented UndoManager from updating the same object multiple times.
-* [8306abd](https://github.com/gurkenlabs/litiengine/commit/8306abdf548cb0ec8006b2b5ad4402fca505f114) Prevented entity list from completely rebuilding upon entity deletion.
+* [61aa52c](https://github.com/gurkenlabs/litiengine/commit/61aa52c158e3688a71f02342d9c151577534eb57) Set panel focus globally to prevent unnecessary UI updates
+* [a9be599](https://github.com/gurkenlabs/litiengine/commit/a9be599fbc5315ed6cd284cbc94efeb1733c8fc8) Fixed a potential NullReference
+* [ad969f4](https://github.com/gurkenlabs/litiengine/commit/ad969f479aa9c9eb9169f6a9f06bba80ff24b85c) Ensured that the game resource file is saved right after creating a new project
+* [be0132e](https://github.com/gurkenlabs/litiengine/commit/be0132e85581af7ca73398c0c61225cf93a6abc1) Ensured that only affected nodes in the entity list get updated when entities change
+* [1e7b4ff](https://github.com/gurkenlabs/litiengine/commit/1e7b4ff29380fe6787b899315ca898cc12132b7c) Skipped unnecessary UI updates and data binding
+* [f3ce2ca](https://github.com/gurkenlabs/litiengine/commit/f3ce2ca84902123f6da4399caaaa160da80f0090) Prevented UndoManager from updating the same object multiple times
+* [8306abd](https://github.com/gurkenlabs/litiengine/commit/8306abdf548cb0ec8006b2b5ad4402fca505f114) Prevented entity list from completely rebuilding upon entity deletion
 
 #### 👩‍💻 New Contributors 👨‍💻
 
