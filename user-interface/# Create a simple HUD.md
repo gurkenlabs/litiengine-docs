@@ -21,7 +21,6 @@ import de.gurkenlabs.litiengine.resources.Resources;
 import de.gurkenlabs.litiengine.util.Imaging;
 
 import javax.tools.Tool;
-import java.awt.*;
 import java.awt.image.BufferedImage;
 
 public class HUD extends GuiComponent {
@@ -109,7 +108,7 @@ package org.example;
 
 import de.gurkenlabs.litiengine.Game;
 import de.gurkenlabs.litiengine.gui.screens.GameScreen;
-import java.awt.*;
+
 
 public class  InGameScreen extends GameScreen {
    
