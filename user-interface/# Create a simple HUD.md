@@ -125,7 +125,7 @@ public class  InGameScreen extends GameScreen {
 
     //initialize a new HUD object, and add it to the GameScreen components
     this.hud = new HUD();
-    this.getComponents().add(this.hud);
+    getComponents().add(hud);
 
     }
     @Override
