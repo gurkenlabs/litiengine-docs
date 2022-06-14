@@ -38,7 +38,7 @@ public class HUD extends GuiComponent {
     }
     
 ```
-- its important to know, that the Image files for our BufferdImages can't be recieved from the litidata file, so be sure to provide the complete path in the file system.
+- It's important to know that the Image files for our `BufferedImage`s can't be received from the [game resource file](https://litiengine.com/docs/resource-management/), so be sure to provide the complete path in the file system.
 
 ## The render methods
 
