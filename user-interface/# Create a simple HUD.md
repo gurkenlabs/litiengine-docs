@@ -5,7 +5,7 @@ Litiengine provides a broad kit of Components for this with the `GuiComponents` 
 
 Lets implement a simple HUD that creates a healthbar for us.
 
-![Healthbar](images/Healthbar.PNG)
+* ![Healthbar](images/Healthbar.PNG) Healthbar
 
 ## 1. our HUD class
 
