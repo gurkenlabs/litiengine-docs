@@ -1,6 +1,6 @@
 # Create a simple HUD
 
-a HUD (heads-up display) is used to render Graphics, used for game information, like a healthbar or a Toolbar. 
+A HUD (heads-up display) is used to render Graphics used for game information, like a health bar or a toolbar. 
 Litiengine provides a broad kit of Components for this with the `GuiComponents` class. 
 
 Lets implement a simple HUD that creates a healthbar for us.
