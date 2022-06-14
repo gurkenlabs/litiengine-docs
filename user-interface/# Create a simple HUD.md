@@ -101,7 +101,8 @@ But now we have render methods, so why can't we see our precous health?
 
 ## initializing a new HUD in the `GameScreen` class
 
-Now to actually see a HUD, we first need to create a new one in our `GameScreen` class
+Now to actually see our HUD, we first need to instantiate it in our `GameScreen` class
+
 
 ```java
 package org.example;
