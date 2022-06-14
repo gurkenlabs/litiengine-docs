@@ -138,4 +138,4 @@ public class  InGameScreen extends GameScreen {
     }
 }
 ```
-And there you have it your own Health bar, customizable as you wish :D
+And there you have it: your own Health bar, customizable as you wish :D
