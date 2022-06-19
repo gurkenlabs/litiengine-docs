@@ -26,3 +26,13 @@ Assuming that you chose [Eclipse IDE](https://www.eclipse.org/downloads/packages
 * two files are required in a Gradle project's root folder: `build.gradle`, containing the build tasks, and `settings.gradle`, containing Gradle settings.
 
 ### Example: IntelliJ + Gradle
+If you chose [Intellij](https://www.jetbrains.com/idea/) and [Gradle](https://gradle.org/), follow these steps:
+> If you're on linux or mac, I would hightly recommend to use [SKDMAN!](https://sdkman.io/). If you installed sdk man, type `sdk install gradle` in your terminal. The latest recommend version of Gradle will be installed automatically for you. It should be registered in your IDE after you restart it. For further information look up the [SDKMAN! Docs](https://sdkman.io/usage). **If you use SDKMAN! skip the next three steps**.
+* [download Gradle](https://gradle.org/install/).
+* create a new directory `C:\Gradle` and unzip the downloaded file there. 
+* add `C:\Gradle\[your-gradle-version]\bin` to your system's *PATH* environment variable.
+* usually the gradle plugin is already installed in Intellij, if not, search for it in the plugin marketplace.
+* create a new project and select `Gradle` under `Build system` 
+* two files are required in a Gradle project's root folder: `build.gradle`, containing the build tasks, and `settings.gradle`, containing Gradle settings.
+
+![intellij_gradle](/getting-started/img/intellij_gradle.png)
