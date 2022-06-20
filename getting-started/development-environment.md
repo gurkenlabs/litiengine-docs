@@ -28,4 +28,4 @@ To make sure the JDK got installed correctly, open the `New Project` dialogue an
 
 > If you're on linux or mac, you can also use [SKDMAN!](https://sdkman.io/) to manager your JDK installation . If you installed sdk man, type `sdk install java` in your terminal. The latest recommend JDK will be installed automatically for you. It should be registered in your IDE after you restart it. For further information look up the [SDKMAN! Docs](https://sdkman.io/usage).
 
-![intellij-picker](/getting-started/img/intellij_picker.png)
+![intellij-picker](../images/intellij_picker.png)
