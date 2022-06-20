@@ -27,10 +27,11 @@ Assuming that you chose [Eclipse IDE](https://www.eclipse.org/downloads/packages
 
 ### Example: IntelliJ + Gradle
 If you chose [Intellij](https://www.jetbrains.com/idea/) and [Gradle](https://gradle.org/), follow these steps:
-> If you're on linux or mac, I would hightly recommend to use [SKDMAN!](https://sdkman.io/). If you installed SDKMAN!, type `sdk install gradle` in your terminal. The latest recommend version of Gradle will be installed automatically for you. It should be registered in your IDE after you restart it. For further information look up the [SDKMAN! Docs](https://sdkman.io/usage). **If you use SDKMAN! skip the next three steps**.
-* [download Gradle](https://gradle.org/install/).
-* create a new directory `C:\Gradle` and unzip the downloaded file there. 
-* add `C:\Gradle\[your-gradle-version]\bin` to your system's *PATH* environment variable.
+> If you're on linux or mac, you can also use [SKDMAN!](https://sdkman.io/) to manage your Gradle installation. If you installed SDKMAN!, type `sdk install gradle` in your terminal. The latest recommend version of Gradle will be installed automatically for you. It should be registered in your IDE after you restart it. For further information look up the [SDKMAN! Docs](https://sdkman.io/usage). **If you use SDKMAN! skip the next three steps**.
+* **Usually you don't have to install any build tools manually, because they come bundled with eclipse. The next three steps in Brackets of installing Gradle for IntelliJ below usually only have to be followed if IntelliJ didn't install those build tools in the installation process already.**
+* \([download Gradle](https://gradle.org/install/).\)
+* \(create a new directory `C:\Gradle` and unzip the downloaded file there.\)
+* \(add `C:\Gradle\[your-gradle-version]\bin` to your system's *PATH* environment variable.\)
 * usually the Gradle plugin is already installed in IntelliJ, if not, search for it in the plugin marketplace.
 * create a new project and select `Gradle` under `Build system`.
 * two files are required in a Gradle project's root folder: `build.gradle`, containing the build tasks, and `settings.gradle`, containing Gradle settings.
@@ -39,10 +40,11 @@ If you chose [Intellij](https://www.jetbrains.com/idea/) and [Gradle](https://gr
 
 ### Example: Intellij + Maven
 If you want to use [Intellij](https://www.jetbrains.com/idea/) and [Maven](https://maven.apache.org/) follow these steps:
-> If you're on linux or mac, I would hightly recommend to use [SKDMAN!](https://sdkman.io/). If you installed SDKMAN!, type `sdk install maven` in your terminal. The latest recommend version of Maven will be installed automatically for you. It should be registered in your IDE after you restart it. For further information look up the [SDKMAN! Docs](https://sdkman.io/usage). **If you use SDKMAN! skip the next three steps**.
-* [download Maven](https://maven.apache.org/).
-* create a new directory `C:\Maven` and unzip the downloaded file there.
-* add `C:\Maven\[your-maven-version]\bin` to your system's *PATH* environment variable.
+> If you're on linux or mac, you can also use [SKDMAN!](https://sdkman.io/) to manage your Maven installation. If you installed SDKMAN!, type `sdk install maven` in your terminal. The latest recommend version of Maven will be installed automatically for you. It should be registered in your IDE after you restart it. For further information look up the [SDKMAN! Docs](https://sdkman.io/usage). **If you use SDKMAN! skip the next three steps**.
+* **Usually you don't have to install any build tools manually, because they come bundled with eclipse. The next three steps in Brackets of installing Gradle for IntelliJ below usually only have to be followed if IntelliJ didn't install those build tools in the installation process already.**
+* \([download Maven](https://maven.apache.org/).\)
+* \(create a new directory `C:\Maven` and unzip the downloaded file there.\)
+* \(add `C:\Maven\[your-maven-version]\bin` to your system's *PATH* environment variable.\)
 * usually the Maven plugin is already installed in IntelliJ, if not, search for it in the plugin marketplace.
 * create a new project and select `Maven` under `Build system`.
 * one file is required in a Maven project's root folder: `pom.xml`, containing the information and settings of your project.
