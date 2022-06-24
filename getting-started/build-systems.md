@@ -40,7 +40,7 @@ To use [Intellij](https://www.jetbrains.com/idea/) and [Gradle](https://gradle.o
 
 ### Example: Intellij + Maven
 Getting ready with [Intellij](https://www.jetbrains.com/idea/) and [Maven](https://maven.apache.org/):
-> If you're on linux or mac, you can also use [SKDMAN!](https://sdkman.io/) to manage your Maven installation. As soon you installed SDKMAN!, type `sdk install maven` in your terminal. The latest recommend version of Maven will be installed automatically for you. It should be registered in your IDE after you restart it. For further information look up the [SDKMAN! Docs](https://sdkman.io/usage). **In case you use SDKMAN! skip the next three steps**.
+> If you're on linux or mac, you can also use [SKDMAN!](https://sdkman.io/) to manage your Maven installation. Once you've installed SDKMAN!, type `sdk install maven` in your terminal. The latest recommend version of Maven will be installed automatically for you. It should be registered in your IDE after you restart it. For further information look up the [SDKMAN! Docs](https://sdkman.io/usage). **In case you use SDKMAN! skip the next three steps**.
 * **Usually you don't have to install any build tools manually, because they come bundled with IntelliJ. The next three steps in brackets of installing Maven for IntelliJ below usually only have to be followed if IntelliJ didn't install those build tools in the installation process already.**
 * \([download Maven](https://maven.apache.org/).\)
 * \(create a new directory `C:\Maven` and unzip the downloaded file there.\)
