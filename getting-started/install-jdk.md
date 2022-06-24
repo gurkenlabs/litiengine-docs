@@ -8,6 +8,7 @@ meta.keywords: LITIENGINE, java, game, gameengine, development, 2D, programming,
 ## Installing the Java Development Kit 
 First of all, you should download a Java development kit (**JDK**), containing the Java virtual machine (**JVM**) and other resources for developing Java applications.
 Since LITIENGINE has been created with Java 8, you need at least JDK 8 on your machine.
+> In case you are on linux or mac, you can also use [SKDMAN!](https://sdkman.io/) to manager your JDK installation. Once you've installed sdk man, type `sdk install java` in your terminal. The latest recommend JDK will be installed automatically for you. It should be registered in your IDE after you restart it. For further information look up the [SDKMAN! Docs](https://sdkman.io/usage).
 
 > **The official Oracle JDK has seen some severe licensing changes in 2019, requiring a paid license for developing commercial applications!** 
 

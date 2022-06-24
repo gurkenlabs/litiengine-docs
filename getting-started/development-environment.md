@@ -24,3 +24,8 @@ To do this in Eclipse, unfold `Java` in the `Preferences` menu. Double click the
 ![eclipse-download-5](/getting-started/img/eclipse_download_5.png)
 
 ### IntelliJ IDEA
+To make sure the JDK got installed correctly, open the `New Project` dialogue and expand the `JDK` dropdown menu. If you see your installed JDK in the list, you're set. If you don't, you have to click on the `Add JDK...` button. A file picker dialogue will open, choose your JDK folder there.
+
+> If you're on linux or mac, you can also use [SKDMAN!](https://sdkman.io/) to manager your JDK installation . Once you've installed sdk man, type `sdk install java` in your terminal. The latest recommend JDK will be installed automatically for you. It should be registered in your IDE after you restart it. For further information look up the [SDKMAN! Docs](https://sdkman.io/usage).
+
+![intellij-picker](../images/intellij_picker.png)
