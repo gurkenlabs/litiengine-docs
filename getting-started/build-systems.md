@@ -26,7 +26,7 @@ Assuming that you chose [Eclipse IDE](https://www.eclipse.org/downloads/packages
 * two files are required in a Gradle project's root folder: `build.gradle`, containing the build tasks, and `settings.gradle`, containing Gradle settings.
 
 ### Example: IntelliJ + Gradle
-If you chose [Intellij](https://www.jetbrains.com/idea/) and [Gradle](https://gradle.org/), follow these steps:
+To use [Intellij](https://www.jetbrains.com/idea/) and [Gradle](https://gradle.org/), follow these steps:
 > If you're on linux or mac, you can also use [SKDMAN!](https://sdkman.io/) to manage your Gradle installation. If you installed SDKMAN!, type `sdk install gradle` in your terminal. The latest recommend version of Gradle will be installed automatically for you. It should be registered in your IDE after you restart it. For further information look up the [SDKMAN! Docs](https://sdkman.io/usage). **If you use SDKMAN! skip the next three steps**.
 * **Usually you don't have to install any build tools manually, because they come bundled with IntelliJ. The next three steps in brackets of installing Gradle for IntelliJ below usually only have to be followed if IntelliJ didn't install those build tools in the installation process already.**
 * \([download Gradle](https://gradle.org/install/).\)
@@ -39,7 +39,7 @@ If you chose [Intellij](https://www.jetbrains.com/idea/) and [Gradle](https://gr
 ![intellij_gradle](../images/intellij_gradle.png)
 
 ### Example: Intellij + Maven
-If you want to use [Intellij](https://www.jetbrains.com/idea/) and [Maven](https://maven.apache.org/) follow these steps:
+To start with [Intellij](https://www.jetbrains.com/idea/) and [Maven](https://maven.apache.org/) follow these steps:
 > If you're on linux or mac, you can also use [SKDMAN!](https://sdkman.io/) to manage your Maven installation. If you installed SDKMAN!, type `sdk install maven` in your terminal. The latest recommend version of Maven will be installed automatically for you. It should be registered in your IDE after you restart it. For further information look up the [SDKMAN! Docs](https://sdkman.io/usage). **If you use SDKMAN! skip the next three steps**.
 * **Usually you don't have to install any build tools manually, because they come bundled with IntelliJ. The next three steps in brackets of installing Maven for IntelliJ below usually only have to be followed if IntelliJ didn't install those build tools in the installation process already.**
 * \([download Maven](https://maven.apache.org/).\)
