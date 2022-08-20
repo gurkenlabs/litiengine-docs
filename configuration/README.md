@@ -28,7 +28,7 @@ Game.info().setWebsite("https://litiengine.com/");
 <?xml version="1.0" encoding="UTF-8"?>
 <gameinfo>
  <name>My Testgame</name>
- <subTitle>Made with LITIENGINE!</subTitle>
+ <subtitle>Made with LITIENGINE!</subtitle>
  <description>A game, that was implemented with the LITIENGINE.</description>
  <website>https://litiengine.com</website>
  <version>v1.0.0</version>
