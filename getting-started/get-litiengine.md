@@ -22,24 +22,9 @@ Add the LITIENGINE dependency to your Gradle project by adding the following cod
 
 ### Gradle (Groovy)
 ```groovy
-apply plugin: 'java'
-apply plugin: 'application'
-
-repositories {
-  mavenCentral()
-}
-
-dependencies {
-  implementation 'de.gurkenlabs:litiengine:0.5.1'
-}
-```
-> **Note:** if you failed build, try to modify apply plugin: 'java' to apply plugin: 'java-library'
-
-### Gradle (Kotlin)
-```kotlin
 plugins {
-  java
-  application
+    id("java")
+    id("application")
 }
 
 repositories {
@@ -47,25 +32,75 @@ repositories {
 }
 
 dependencies {
-  implementation("de.gurkenlabs:litiengine:0.5.1")
+  implementation 'de.gurkenlabs:litiengine:0.5.2'
 }
 ```
 
 ### Sample Project
 A basic example for a Gradle based LITIENGINE project can be found [HERE](https://github.com/gurkenlabs/litiengine-gurk-nukem). Have a look at the project's `build.gradle` and `settings.gradle`.
 
-## (Advanced) Build the LITIENGINE from source
+## Consuming LITIENGINE snapshot versions
+Feeling bold and adventurous?
+Try one of LITIENGINE's nightly snapshot builds!
+> If you use LITIENGINE snapshot versions, expect untested code and API that might still change!
 
- If you want to use recent features of the [LITIENGINE master branch](https://github.com/gurkenlabs/litiengine/tree/master) that haven't been part of a stable release yet, you can configure Gradle to include a local clone of the engine repository. Assuming you have cloned the engine to a folder in the same location as your project, you would have the following project structure:
+Consuming the snapshot artifacts is as simple as adding the sonatype snapshots repository to your dependency management, and choosing your preferred snapshot version. Browse all available snapshots [here](https://oss.sonatype.org/content/repositories/snapshots/de/gurkenlabs/litiengine/)!
+
+in your `build.gradle`:
+```groovy
+plugins {
+    id("java")
+    id("application")
+}
+
+repositories {
+  mavenCentral()
+  maven{
+    url "https://oss.sonatype.org/content/repositories/snapshots/"
+  }
+
+}
+
+dependencies {
+  implementation 'de.gurkenlabs:litiengine:0.5.2-dev3r+8cdbfc82-SNAPSHOT'
+}
 ```
-project/settings.gradle
-litiengine/setting.gradle.kts
+
+
+## (Advanced) Composite build with a local copy of the LITIENGINE repository
+
+ You can configure Gradle to include a local clone of the LITIENGINE repository in your build. This way, you can test how changes in LITIENGINE translate to your game without having to deploy the engine as an artifact first. Assuming you have cloned the engine to a folder parallel to your project, you would have the following project structure:
 ```
-Then in `project/settings.gradle`, add the following line:
+.
+└── root/
+    ├── my_project/
+    │   ├── build.gradle
+    │   ├── settings.gradle
+    │   ├── src/
+    │   │   └── ...
+    │   └── ...
+    └── litiengine-sdk/
+        ├── .git/
+        │   └── ...
+        ├── build.gradle
+        ├── settings.gradle
+        ├── litiengine/
+        │   └── ...
+        ├── shared/
+        │   └── ...
+        ├── utiliti/
+        │   └── ...
+        └── ...
 ```
-includeBuild "../litiengine"
+Then in `my_project/settings.gradle`, add the following block:
 ```
-In `project/build.gradle`, define the dependency as usual:
+includeBuild ("../litiengine"){
+    dependencySubstitution {
+        substitute module('de.gurkenlabs:litiengine') using project(':litiengine')
+    }
+}
+```
+In `my_project/build.gradle`, define the dependency without a version:
 
 ```groovy
 dependencies {
