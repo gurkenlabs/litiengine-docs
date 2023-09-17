@@ -36,7 +36,7 @@
   * [Sprite Info Files](/docs/resource-management/sprite-info-files/)
 * [Entity Framework](/docs/entity-framework/README/)
   * [Default Entity Types](/docs/entity-framework/default-entity-types/)
-  * [Props](/docs/entity-framework/props)
+  * [Props](/docs/entity-framework/props/)
   * [Subscribe to Entity Events](/docs/entity-framework/subscribe-to-entity-events/)
   * [Annotations for static information](/docs/entity-framework/annotations-for-static-information/)
 * [Control Entities](/docs/control-entities/README/)

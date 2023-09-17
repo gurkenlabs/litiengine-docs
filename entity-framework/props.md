@@ -2,6 +2,7 @@
 meta.description: How to register a custom Prop implementation in LITIENGINE.
 meta.keywords: LITIENGINE, prop, entities, entity, custom, register, mapobject, loader
 ---
+
 # Props
 Creating props is among the most frequent things you're going to be doing with LITIENGINE. 
 Let us first show you a simple example of creating a box to decorate your map. After we've created the box, we will show you how you can enhance the standard Prop implementation with custom logic.
