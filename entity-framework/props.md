@@ -5,6 +5,9 @@ meta.keywords: LITIENGINE, prop, entities, entity, custom, register, mapobject, 
 
 # Props
 Creating props is among the most frequent things you're going to be doing with LITIENGINE. 
+
+![prop-demonstration](/entity-framework/img/prop-demonstration.gif)
+
 Let us first show you a simple example of creating a box to decorate your map. After we've created the box, we will show you how you can enhance the standard Prop implementation with custom logic.
 
 ## Creating a prop spritesheet
