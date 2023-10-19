@@ -23,7 +23,11 @@ The utiLITI editor is part of the [LITIENGINE SDK](https://litiengine.com/downlo
 ![sdk-download](/getting-started/img/sdk_download.png)
 
 * **Windows**: Unzip the downloaded file and execute `utiliti-win/utiliti-vX.X.X.exe`.
-* **Linux/Mac**: Unzip the downloaded file and execute `utiliti/utiliti-vX.X.X.jar`.   
+* **Linux/Mac**: Unzip the downloaded file and execute `utiliti/utiliti-vX.X.X.jar`.
+
+> You might have to explicitly set execute permissions to the downloaded files. E.g. on Mac, try something like:
+`chmod +x /Applications/litiengine-sdk-vX.X.X-beta-macos/utiliti/litiengine-utiliti.app/Contents/MacOS/*`. 
+
 
 If nothing went wrong, you should see the following window with an empty project:
 
