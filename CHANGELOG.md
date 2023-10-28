@@ -6,6 +6,69 @@ meta.keywords: FAQ, questions, LITIENGINE, java, game, gameengine, development, 
 
 # LITIENGINE Release notes
 
+## 0.6.0 - "Trick or Treat!"
+![LITIENGINE 0.6.0 banner](https://litiengine.com/wp-content/uploads/2023/10/litiengine-patch-banner-0.6.0.png)
+
+Surprise! After a quiet period of not releasing a new engine version since January 2022, we proudly present LITIENGINE 0.6.0. This is a release packed mostly with invisible infrastructure changes and refactorings, but also enhanced documentation, tests, and important bugfixes.
+
+There had been some crucial problems in our build and deploy toolchain, which prevented us from releasing new versions for quite a while, but these problems have been resolved and now we are even releasing nightly snapshot builds for you to test out the latest changes!
+
+You may have noticed the versioning of LITIENGINE has changed too. 
+Instead of e.g. `v0.5.2-beta`, we are now using plain semantic versions for stable releases (starting with this release `0.6.0`) and a modified `git describe` variant (e.g. `0.5.2-166-gb2e597fe-SNAPSHOT/`) for snapshot versions.
+
+Since the last release, we have updated to a more recent Java version several times, and recently we have finally moved to the new LTS version Java 21. That means you can now use all the new cutting-edge Java features in your LITIENGINE games!
+
+    Of course, we want to thank all our contributors, sponsors, users, and community members for keeping LITIENGINE alive even when we maintainers get lazy. You are the heart of this project!
+
+Here's a quick overview of the changes in this release:
+
+### Build Infrastructure:
+* Updated project to Java 21
+* Restored releasability through GitHub actions
+* Introduced nightly snapshot builds
+* Switched versioning to Semantic Versions (assisted bySemVerGuru Gradle plugin.)
+* Cleaned up Gradle dependency management and updateddependencies
+* Rename master branch to main.
+* Restored SonarQube analysis
+* Cleaned up and refactored Gradle project structure
+
+### Improvements:
+* Implemented multi-target ForceEffects. 
+* Implemented StateEvents to register actions when a State isentered/exited.
+* Implemented 9-sliced image scaling. 
+* Added 9-slice scaling option for ImageComponent backgrounds. 
+* Added shortcut methods to determine a GuiComponent's centerpoint.
+* Added color interpolation helper.
+* Turned AntiAliasing on for rendering object boxes in utiLITI
+* Added image scaling overloads for bilinear and bicubicinterpolation.
+* Separated emitter saving in utiLITI from blueprint definition.
+    
+### Bugfixes:
+* Fixed EntityEmitter location jittering.
+* Fixed Particle opacity calculation.
+* Fixed SoundPlaybacks. (contributed by @Gamebuster19901)
+* Fixed Ability impact area calculation.
+* Fixed particle spritesheet assignment dropdown in utiLITI.
+* Fixed an issue with sticky forces
+* Fixed a bug that prevented the utiLITI asset panel fromrefreshing.
+* Fixed threading issues in GameTests by introducingGameTestSuite (contributed by @Gamebuster19901)
+* Fixed duplicate attribute modification in GuiComponentlocation setters. (contributed by @ecchilds)
+
+### API changes:
+* Renamed `Effect.canAttackEntity` to `canAffectEntity`.
+
+### Removals / Deprecations:
+* Removed CompressionUtilities (and tests). There were vulnerabilities in our implementation and the utilities have never actually been used. End users will have a much better experience using libraries such as zip4j.
+
+### Documentation and Miscellaneous:
+* Updated license.
+* Updated contribution guide.
+* Added star history to readme.
+* Removed individual developers' funding links.
+* Added .cff citation file.
+* Improved JavaDocs
+* Added more projects to [LITIENGINE showcase](https://litiengine.com/showcase/) 
+
 ## v0.5.2-beta - "Java 17 Migration"
 
 ![LITIENGINE v0.5.1-beta featureimage](https://litiengine.com/wp-content/uploads/2021/12/litiengine-patch-banner-0.5.2.png)
