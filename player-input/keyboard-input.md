@@ -17,7 +17,7 @@ Create KeyboardEntityController.java file inside the input folder.
 ## Chapter 2: Let's move the character with the directional keys
 Paste the following code to the KeyboardEntityController.java file
 
-```bash
+```java
 package  de.gurkenlabs.litiengine.input;
 
 import  java.awt.event.KeyEvent;
