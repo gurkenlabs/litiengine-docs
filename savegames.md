@@ -6,13 +6,13 @@ description: How to save and load player progress
 
 ### XML savegames
 
-Let's have a look at an example where we store and load savegames using XML files.   
+Let's have a look at an example where we store and load savegames using XML files.
 We need one class representing the savegame, as well as one method for saving and one method for loading the savegame.
 
-Let's have a look at an example used in a legacy version of _Dr. Lepus._  
+Let's have a look at an example used in a legacy version of _Dr. Lepus._
 This is what the `SaveGame` itself would look like:
 
-```text
+```java
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
@@ -119,10 +119,10 @@ public class SaveGame {
 }
 ```
 
-We can save the game state to the system user's directory with the `saveGame()`-method. Make sure that things like the player inventory and active upgrades / skills / traits are also serializable. 
+We can save the game state to the system user's directory with the `saveGame()`-method. Make sure that things like the player inventory and active upgrades / skills / traits are also serializable.
 
-```text
-public static void saveGame() {
+```java
+  public static void saveGame() {
     Level level = GameOrchestrator.getCurrentLevel();
     if (level == null) {
       return;
@@ -136,7 +136,7 @@ public static void saveGame() {
     SaveGame saveGame = new SaveGame(level.getChapter(), level.getPart(), GameOrchestrator.getCurrentSpawn(), SAVE_FILE_NAME);
     saveGame.setUpgrades(Upgrades.save());
     saveGame.setInventory(Lepus.instance().getInventory());
-    
+
     String dir = System.getProperty("user.home") + "/.drlepus/savefiles/";
     File dirFile = new File(dir);
     dirFile.mkdirs();
@@ -147,7 +147,7 @@ public static void saveGame() {
 
 To load the savegame, we will call `loadSavedGameFile()`.
 
-```text
+```java
   public static void loadSavedGameFile() {
     String path = System.getProperty("user.home") + "/.drlepus/savefiles/" + SAVE_FILE_NAME + ".xml";
     final SaveGame saveGame = XmlUtilities.read(SaveGame.class, Resources.getLocation(path));
@@ -163,4 +163,3 @@ To load the savegame, we will call `loadSavedGameFile()`.
 ```
 
 Remember, this is just one specific example how to load and save player progress. You can pick whatever information you like, in whichever format you like, and wherever you would like to store it. Get creative!
-
