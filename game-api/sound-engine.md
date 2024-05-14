@@ -4,7 +4,7 @@
 
 The 2D `SoundEngine` provides all methods to playback sounds and music in your game. It allows to define the 2D coordinates of the sound or even pass in the source entity of the sound which will adjust the position according to the position of the `Entity`.
 
-The LITIengine sound engine supports **.wav**, **.mp3** and **.ogg** by default.
+The LITIENGINE sound engine supports **.wav**, **.mp3** and **.ogg** by default.
 
 > If you need to support other audio codecs, you have to write an own SPI implementation and inject it to your project. For more information, read the [Official Java Documentation on Service Provider Interfaces](https://docs.oracle.com/javase/tutorial/sound/SPI-intro.html).
 
