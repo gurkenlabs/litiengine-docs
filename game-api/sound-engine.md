@@ -24,7 +24,7 @@ Game.audio().playSound(mySound, myEntity);
 Game.audio().playMusic(Resources.sounds().get("my-music.ogg"));
 
 // use the SoundPlayback to react to events
-ISoundPlayback playback = Game.audio().playSound(mySound);
+SoundPlayback playback = Game.audio().playSound(mySound);
 playback.addSoundPlaybackListener(new SoundPlaybackListener() {
 
   @Override
