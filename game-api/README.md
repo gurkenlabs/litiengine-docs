@@ -63,6 +63,11 @@ Game.audio().playSound("my-sound.ogg", 50, 50);
 
 ![Example: Entity movement with the PhysicsEngine](images/physics-example.gif)
 
+### The TweenEngine: `Game.tweens()`
+The tweening framework is a powerful tool that allows you to animate properties of different types of objects in your game. It is a simple way to create smooth interpolations, e.g. for position, size, rotation, opacity, and more.
+
+![Example: GuiComponent animation with the TweenEngine](images/tweening.webp)
+
 ## Meta Components
 
 * `Game.config()`

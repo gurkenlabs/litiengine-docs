@@ -20,6 +20,7 @@
   * [Game.audio()](/docs/game-api/sound-engine/)
   * [Game.physics()](/docs/game-api/physics-engine/)
   * [Game.loop()](/docs/game-api/loops/)
+  * [Game.tweens()](/docs/game-api/tweens/)
   * [Game.world()](/docs/game-api/game-world/)
   * [Game.window()](/docs/game-api/game-window/)
   * [Game.screens()](/docs/game-api/screens/)
