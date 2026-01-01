@@ -121,7 +121,7 @@ gfx_graphicQuality=VERYHIGH
 
 ## Logging Configuration `logging.properties`
 
-The LITIENGINE uses the `java.util.logging`framework to log information
+The LITIENGINE uses the `java.util.logging` framework to log information
 and errors. It is possible to configure the output of the logging by
 providing a `logging.properties` file in the Game's execution directory.
 You can read more about
