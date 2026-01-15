@@ -97,7 +97,7 @@ Game.config().add(customGroup);
 public class MyCustomConfigurationGroup extends ConfigurationGroup {
   private int myInt = 123;
 
-  public int getMyInt(){ return this.myInt }
+  public int getMyInt(){ return this.myInt; }
 
   public void setMyInt(int myInt){ this.myInt = myInt; }
 }
