@@ -32,7 +32,7 @@ repositories {
 }
 
 dependencies {
-  implementation 'de.gurkenlabs:litiengine:0.5.2'
+  implementation 'de.gurkenlabs:litiengine:0.11.1'
 }
 ```
 
@@ -62,7 +62,7 @@ repositories {
 }
 
 dependencies {
-  implementation 'de.gurkenlabs:litiengine:0.5.2-dev3r+8cdbfc82-SNAPSHOT'
+  implementation 'de.gurkenlabs:litiengine:0.11.1-SNAPSHOT'
 }
 ```
 

@@ -10,7 +10,7 @@ description: >-
 
 There is only a bare minimum of third party libraries included in the LITIENGINE, which we want to mention here thankfully:
 
-* [JInput](https://github.com/jinput/jinput) for Gamepad support
+* [Input4j](https://github.com/gurkenlabs/input4j) for Gamepad support (uses Java FFM API, no native libraries required)
 * [MP3 SPI](http://www.javazoom.net/mp3spi/mp3spi.html) for .mp3 audio file support
 * [Ogg Vorbis SPI](http://www.javazoom.net/vorbisspi/vorbisspi.html) for .ogg audio file support
 * [Steamworks4j](https://github.com/code-disaster/steamworks4j) for supporting the steamworks SDK

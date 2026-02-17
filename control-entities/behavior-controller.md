@@ -64,7 +64,7 @@ public class PathMapObjectLoader extends MapObjectLoader {
   @Override
   public Collection<IEntity> load(Environment environment, IMapObject mapObject) {
     Collection<IEntity> entities = new ArrayList<>();
-    if (!mapObject.getType().equals() "PATH"
+    if (!mapObject.getType().equals("PATH")
     || !mapObject.getName().equals("rat_path")
     || mapObject.getPolyline() == null 
     || mapObject.getPolyline().getPoints().isEmpty()) {

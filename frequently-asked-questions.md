@@ -11,7 +11,7 @@ meta.keywords: FAQ, questions, LITIENGINE, java, game, gameengine, development, 
 
 ### Is LITIENGINE a programming language or a library?
 
-LITIENGINE is a 2D game library for Java. It is based on Java 8, but we plan to update to a later Java version soon.
+LITIENGINE is a 2D game library for Java. It requires Java 21 or later.
 
 ### What's the current development status of LITIENGINE?
 

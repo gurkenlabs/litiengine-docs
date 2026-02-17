@@ -15,7 +15,7 @@ Input.keyboard().onKeyReleased(KeyEvent.VK_ENTER, key -> {
 
 Input.keyboard().onKeyPressed(event -> {
   if (event.getKeyCode() == KeyEvent.VK_BACK_SPACE) {
-    // do something on "space" is pressed
+    // do something when "backspace" is pressed
   }
 });
 

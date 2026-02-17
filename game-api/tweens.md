@@ -35,7 +35,7 @@ The `TweenType` enum defines the types of values that can be interpolated. Some 
 - `HITPOINTS`: Interpolates the hitpoints of a Combat Entity.
 - `LOCATION_X`: Interpolates the X-coordinate of an object's location.
 - `LOCATION_XY`: Interpolates the X- and Y-coordinate of an object's location.
-- `LOCATION_XY`: Interpolates the Y-coordinate of an object's location.
+- `LOCATION_Y`: Interpolates the Y-coordinate of an object's location.
 - `SIZE_BOTH`: Interpolates both the width and height of an object.
 - `SIZE_HEIGHT`: Interpolates the height of an object.
 - `SIZE_WIDTH`: Interpolates the width of an object.

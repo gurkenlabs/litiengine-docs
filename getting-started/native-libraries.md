@@ -7,11 +7,10 @@ meta.keywords: LITIENGINE, java, game, gameengine, development, 2D, programming,
 
 ## Managing Native Libraries
 
-> *Managing (and deploying) the native libraries is mainly necessary for
-> **Controller Support** or when using other libraries that require native assemblies (like **steamworks4j**).*
+> **Note:** As of LITIENGINE 0.11.1, gamepad support uses [Input4j](https://github.com/gurkenlabs/input4j) which leverages the Java FFM API. This means **native libraries are no longer required for controller support**. The information below is only relevant for older versions or when using other libraries that require native assemblies (like **steamworks4j**).
 
-The LITIENGINE has some native dependencies that allow supporting
-Controller Input. This requires platform dependent binaries to be available 
+For LITIENGINE versions prior to 0.11.1, the engine had native dependencies that allowed supporting
+Controller Input via JInput. This required platform dependent binaries to be available 
 at runtime to work properly.
 Our java library .jar archive contains all of the necessary binaries, hence the simplest
 way to access them is to tell gradle to extract them to the application directory.

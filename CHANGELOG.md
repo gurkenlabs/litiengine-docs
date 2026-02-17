@@ -6,6 +6,57 @@ meta.keywords: FAQ, questions, LITIENGINE, java, game, gameengine, development, 
 
 # LITIENGINE Release notes
 
+## 0.11.1 - "Input4j Migration"
+
+This release brings major improvements across the engine, editor (utiLITI), input system, file I/O, iconography, documentation, build tooling, and overall stability. The most notable change is our migration towards our own custom input framework: Say goodbye to *JInput*, say hello to [Input4j](https://github.com/gurkenlabs/input4j), improving the cross platform support and eliminating the need to deploy native third party binaries along the engine by utilizing the Java FFM API. We've also migrated the engine to Java 25 and Gradle 9.
+
+### Engine & Core Improvements
+- Rewrote the input system to use Input4J instead of JInput
+- Significantly improved JavaDocs coverage
+- Improved physics and collision handling
+- Added copy constructors
+- Attribute system improvements with event support for value and modifier changes
+- Added a new transparency image effect
+- Improved state machine behavior
+
+### utiLITI Enhancements
+- Major File I/O overhaul with unified use of Path/Paths
+- Refactored package structure toward MVC
+- Replaced all raster icons with scalable vector icons
+- Added light and dark icon theme variants
+
+### Build Updates
+- Migrated to Java 25, producing artifacts compatible with JDK 17
+- Updated Gradle wrapper to 9.2.1
+- Adopted the Reckon plugin for versioning
+- Configured Gradle Maven Publish plugin to publish to Sonatype Central Portal
+
+## 0.10.7
+
+- Fixed memory leak in SoundEngine (contributed by @Gamebuster19901)
+- Upgrade to Java 23
+- Implemented automatic itch.io deployment for Linux & Windows
+- Various dependency updates
+
+## 0.9.0
+
+- Enhanced sprite dimension determination in sprite import panel
+- Fixed alignment of text that overflows boundaries
+- Fixed NullPointerException in TextRenderer#renderWithLinebreaks
+- Added horizontal Menus
+- Adjusted Creature sprite naming conventions
+- Various dependency updates
+
+## 0.8.0
+
+> You might wonder why we've skipped version 0.7.x. This has been due to tests on our automated release pipeline that have created some release versions with 0.6.x and 0.7.x tags.
+
+- Enhanced sprite dimension determination in sprite import panel
+- Upgraded Gradle wrapper from 8.4 to 8.5
+- Added TMX 1.10 support
+- Improved test coverage
+- Automate release announcements
+
 ## 0.6.0 - "Trick or Treat!"
 ![LITIENGINE 0.6.0 banner](https://litiengine.com/wp-content/uploads/2023/10/litiengine-patch-banner-0.6.0.png)
 

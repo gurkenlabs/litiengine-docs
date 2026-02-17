@@ -75,7 +75,7 @@ Game.start();
 
 ```groovy
 dependencies {
-  implementation 'de.gurkenlabs:litiengine:0.5.2'
+  implementation 'de.gurkenlabs:litiengine:0.11.1'
 }
 ```
 
@@ -83,7 +83,7 @@ dependencies {
 <dependency>
   <groupId>de.gurkenlabs</groupId>
   <artifactId>litiengine</artifactId>
-  <version>0.5.2</version>
+  <version>0.11.1</version>
 </dependency>
 ```
 ````
