@@ -65,6 +65,14 @@
 * [Dynamic Lighting](/docs/advanced/dynamic-lighting/)
 * [Static Lighting](/docs/advanced/static-lighting/)
 * [Performance Optimization](/docs/advanced/performance-optimization/)
+* [Custom MapObjectLoaders](/docs/advanced/custom-mapobjectloaders/)
+* [String Localization](/docs/advanced/string-localization/)
+* [Object Serialization](/docs/advanced/object-serialization/)
+* [Utility Classes](/docs/advanced/utility-classes/)
+* [Network Communication](/docs/advanced/network-communication/)
+* [Advanced Entity Knowledge](/docs/advanced/advanced-entity-knowledge/)
+  * [Custom Entity Implementations](/docs/advanced/advanced-entity-knowledge/custom-entity-implementations/)
+  * [Triggers](/docs/advanced/advanced-entity-knowledge/triggers/)
 
 <span>Tutorials</span>
 
