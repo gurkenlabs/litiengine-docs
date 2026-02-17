@@ -15,6 +15,7 @@
   * [Get LITIENGINE](/docs/getting-started/get-litiengine/)
   * [Manage native libraries](/docs/getting-started/native-libraries/)
   * [Run the Game](/docs/getting-started/run-the-game/)
+  * [API Quick Reference](/docs/getting-started/api-quick-reference/)
 * [Game API](/docs/game-api/README/)
   * [Game.graphics()](/docs/game-api/render-engine/)
   * [Game.audio()](/docs/game-api/sound-engine/)
@@ -56,6 +57,14 @@
 * [Deployment](/docs/deployment/)
 * [Savegames](/docs/savegames/)
 * [Libraries and Tools](/docs/libraries-and-tools/)
+* [Glossary](/docs/GLOSSARY/)
+
+<span>Advanced</span>
+
+* [The Particle System](/docs/advanced/the-particle-system/)
+* [Dynamic Lighting](/docs/advanced/dynamic-lighting/)
+* [Static Lighting](/docs/advanced/static-lighting/)
+* [Performance Optimization](/docs/advanced/performance-optimization/)
 
 <span>Tutorials</span>
 
