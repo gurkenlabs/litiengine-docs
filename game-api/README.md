@@ -81,11 +81,10 @@ System.out.println("Game version is: " + Game.info().getVersion());
 
 ## Game Loops
 
-In the LITIENGINE, the game logic is decoupled from the framerate and run in a separate loop. The same applies to the player input. For these purposes, the engine provides three different loops which have their designated purpose.
+In the LITIENGINE, the game logic is decoupled from the framerate and run in a separate loop. The same applies to the player input. The engine internally manages two separate loops that prevent them from interfering with each other.
 
-* `Game.loop()`
-* `Game.renderLoop()`
-* `Game.inputLoop()`
+* `Game.loop()` - Main loop for game logic AND rendering
+* Input Loop - Internal loop for processing player input
 
 ## Composition
 
