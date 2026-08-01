@@ -12,6 +12,15 @@ Now, depending on the chosen build system, your project structure might look sli
 * create multiple sub-folders for different types of resources
 * save all the resources for your game within the project folder
 
+## Content Authoring vs. Runtime Logic
+
+In a typical LITIENGINE game project, responsibilities are clearly split between content authoring and game runtime logic:
+
+* **Content & Resource Data (`.litidata`)**: Stored in a `.litidata` container file alongside maps (`.tmx`), tilesets (`.tsx`), spritesheets, sound assets, emitters, and entity blueprints. Created and authored using **utiLITI** or via the built-in **MCP (Model Context Protocol) Server**.
+* **Game Logic & Behavior (`src/`)**: Implemented in the sibling Java/Gradle project. Custom entity types (`Creature`, `Prop`, `Trigger`), abilities (`Ability`, `Effect`), AI behavior controllers (`IBehaviorController`), game states/screens, and automated unit tests live in Java code.
+
+> **Key Takeaway:** Game logic is typically implemented in the sibling Java/Gradle project beside the `.litidata` game-data project. Use utiLITI / MCP for content authoring and inspect the Gradle project for runtime behavior, APIs, and tests.
+
 ## An example LITIENGINE project structure
 
 ```text
