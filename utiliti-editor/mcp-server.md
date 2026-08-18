@@ -83,6 +83,22 @@ Level B tools provide raw, direct access to utiLITI editor operations and map ob
 
 ---
 
+### 4. Scripting & Code Automation
+
+| Tool Name | Description | Key Parameters |
+| :--- | :--- | :--- |
+| `list-scripts` | Lists all registered scripts in the active project with host types, targets, property metadata, and diagnostic summaries. | `host` *(GAME/ENVIRONMENT/ENTITY)*, `query` *(string)*. |
+| `get-script` | Fetches script metadata and complete source code text. | `id` *(string, required)*. |
+| `create-script` | Generates a new script file with 3-tier template code (`GameScript`, `EnvironmentScript`, `CreatureScript`), registers it with the project, and opens it in Monaco. | `name` *(string, required)*, `host` *(GAME/ENVIRONMENT/ENTITY)*, `targetType` *(string)*, `content` *(string)*, `package` *(string)*. |
+| `update-script` | Updates source code on disk, triggers compiler diagnostics, and hot-reloads open editor tabs. | `id` *(string, required)*, `content` *(string, required)*. |
+| `delete-script` | Removes a script definition and optionally deletes its source file from disk with Undo support. | `id` *(string, required)*, `deleteFile` *(bool, default true)*. |
+| `get-script-diagnostics` | Retrieves compiler errors and warnings across all project scripts or filtered by ID. | `id` *(string)*. |
+| `bind-script` | Attaches a script to an entity (`mapObjectId`), map environment (`mapName`), or game orchestrator (`game`) with parameter values. | `script` *(string, required)*, `targetType` *(entity/map/game)*, `targetId` *(string)*, `enabled` *(bool)*, `order` *(int)*, `parameters` *(object)*. |
+| `unbind-script` | Removes a script binding from an entity, map environment, or game orchestrator. | `script` *(string, required)*, `targetType` *(entity/map/game)*, `targetId` *(string)*. |
+| `get-script-bindings` | Lists all attached script bindings for an entity, map, or game. | `targetType` *(entity/map/game)*, `targetId` *(string)*. |
+
+---
+
 ## Level A: High-Level Semantic Level-Design API
 
 Level A tools provide stateless, batch-capable map operations with optimistic revision control.
@@ -165,3 +181,51 @@ Level A tools provide stateless, batch-capable map operations with optimistic re
 // 3. Scatter Blood Stains
 {"tool": "scatter_floor_details", "arguments": {"mapId": "triage_room", "layer": "details", "x": 4, "y": 4, "width": 10, "height": 10, "gids": [140, 141, 142], "density": 0.25}}
 ```
+
+### Example 3: Script Creation & Entity Binding
+
+```json
+// 1. Create a Creature Combat Script
+{"tool": "create-script", "arguments": {
+  "name": "SkeletonWarriorAI",
+  "host": "ENTITY",
+  "targetType": "Creature"
+}}
+
+// 2. Attach Script to an Enemy on the Active Map
+{"tool": "bind-script", "arguments": {
+  "script": "SkeletonWarriorAI",
+  "targetType": "entity",
+  "targetId": "101",
+  "parameters": {"aggroRadius": "120", "attackPower": "15"}
+}}
+```
+
+---
+
+## MCP Resources & Prompts
+
+### Resources
+- `uti://project/info`: Project path, active map, and resource statistics.
+- `uti://project/scripts`: Manifest of all script definitions in the project.
+- `uti://project/scripts/diagnostics`: Live compiler diagnostics and syntax errors across scripts.
+- `uti://project/scripts/game-bindings`: Configured game-level startup scripts.
+- `uti://project/scripts/{name}`: Full source code and property metadata for any script.
+
+### Prompts
+- `create_litiengine_script`: Architectural guide for authoring scripts conforming to the 3-tier model (`GameScript`, `EnvironmentScript`, `CreatureScript`), fluent combat builders, and `@ScriptProperty` annotations.
+- `debug_litiengine_script`: Diagnostic troubleshooting guide for analyzing and correcting script compiler and runtime errors.
+- `analyze_litiengine_project`: Autonomous map analysis and level-design profiling.
+- `plan_litiengine_map`: Staged Big -> Medium -> Small level authoring workflow.
+- `review_litiengine_map`: 9-point level design audit.
+
+---
+
+## Script Workspace & Editor Status Badge
+
+utiLITI provides a live, interactive `[MCP • 1]` status badge rendered directly inside both the main **Status Bar** and the **Script Workspace**:
+- **Live Status Dot**: Green when the MCP server is listening and ready.
+- **Pulsing Animation**: Automatically pulses during active tool executions.
+- **Client Count**: Displays the number of connected external LLM agents/tools in real-time.
+- **Interactive Server Popup**: Clicking the badge opens the connection details popup with port, endpoint URL, one-click clipboard copy, and the list of active connected clients.
+

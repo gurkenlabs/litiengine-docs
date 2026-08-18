@@ -77,6 +77,65 @@ Bindings are stored as structured data on the map object. You do not need to edi
 
 Game-level scripts are stored in the resource bundle. Environment scripts use the same binding format on map properties. Entity scripts are detached automatically when their entity is removed.
 
+## Configuring script properties (`@ScriptProperty`)
+
+You can expose tweakable variables and parameters from your Java or Groovy script directly to game and level designers in the utiLITI inspector without requiring code recompilation or map hardcoding.
+
+### 1. Annotating fields in code
+
+Add `@ScriptProperty` to any class field in your script:
+
+```java
+import de.gurkenlabs.litiengine.entities.Creature;
+import de.gurkenlabs.litiengine.scripting.*;
+
+@ScriptInfo(id = "GoblinAI", host = ScriptHostType.ENTITY, target = Creature.class)
+public class GoblinAI extends CreatureScript {
+
+  @ScriptProperty(description = "Aggro search radius in pixels", defaultValue = "150")
+  private double aggroRadius = 150;
+
+  @ScriptProperty(description = "Attack damage per hit", defaultValue = "20")
+  private int attackPower = 20;
+
+  @ScriptProperty(description = "Whether the goblin retreats when low on health")
+  private boolean cowardly = true;
+
+  @Override
+  public void update() {
+    if (cowardly && host().getHitPoints().get() < 10) {
+      // Retreat behavior...
+    }
+  }
+}
+```
+
+### 2. Available annotation attributes
+
+| Attribute | Purpose |
+| --- | --- |
+| `name` | Optional display name in the inspector (defaults to field name) |
+| `description` | Descriptive tooltip displayed in the inspector |
+| `category` | Grouping category (defaults to `"Script"`) |
+| `defaultValue` | Fallback default value string |
+| `min` / `max` | Numeric range constraints |
+| `unit` | Optional unit label (e.g. `"px"`, `"ms"`, `"%"`) |
+| `required` | Indicates whether the parameter must be provided |
+
+### 3. Inspector workflow in utiLITI
+
+1. **Attach Script**: In the Entity or Map Inspector, select the script from the dropdown and click **`+`**.
+2. **Select Script**: Click the attached script in the **Attached Scripts** list.
+3. **Edit Properties**: The **Script Properties** table displays all `@ScriptProperty` fields. Double-click any value cell to customize the parameter for that specific entity or map.
+4. **Enable/Disable**: Toggle the **`[x] Enabled`** checkbox to toggle script execution on that entity.
+
+### 4. Automatic runtime injection
+
+When an entity or map environment is loaded at runtime:
+1. `ScriptManager` instantiates the script instance.
+2. The configured property values from the map object or TMX properties are reflected, type-converted, and injected into the `@ScriptProperty` fields.
+3. The script's `onLoaded()` hook is invoked with all custom property values initialized.
+
 ## Explicit reload behavior
 
 Reload is deliberately explicit:

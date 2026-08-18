@@ -1,32 +1,98 @@
 ---
-description: Learn how to create a new LITIENGINE project with the utiLITI editor.
+meta.description: "Learn how to create, configure, save, and manage LITIENGINE game projects (.litidata) in utiLITI, including auto-save and backups."
+meta.keywords: "LITIENGINE, utiLITI, create project, litidata, game resource file, auto save, project management"
+meta.title: "Project Management in utiLITI"
 ---
 
-# Create Projects
+# Project Management
 
-Start the utiLITI editor. Hit “**File -&gt; New...**” \(Shortcut: **CTRL+N**\).
+## Game Resource Files (`.litidata`)
 
-![utiliti-create-project](/getting-started/img/sdk-download_4.png)
+In LITIENGINE, all game assets, maps, blueprints, particle configurations, sounds, and script definitions are organized and bundled into a central **game resource file** (conventionally named with the `.litidata` extension).
 
-In the file browser that pops up, navigate to your project directory and hit “**open**“.  
-Even if you still have done nothing, hit **save** to create a _game resource file_.  
-You can name your _game resource file_ whatever you want, we might refer to it as “game.litidata” later on.
+A `.litidata` file is an XML-structured container that can either reference external assets or store base64-encoded compressed resources directly. This makes it effortless to package your entire game for distribution or version-control your assets cleanly.
 
-You have now successfully created a new project! Let's have a look at the Layout of the utiLITI window and its basic functions.
+### What is stored inside `.litidata`?
 
-# Window Layout
+- **Maps**: All TMX map layouts, tile layer GID grids, and placed map objects.
+- **Tilesets**: External and embedded TSX tilesets, Wang terrain definitions, tile animations, and custom tile collision shapes.
+- **Spritesheets**: Image frame metrics, slice dimensions, and keyframe animation timing data.
+- **Emitters**: Particle emitter configurations, physics properties, and color gradients.
+- **Blueprints**: Reusable entity templates and pre-configured object blueprints.
+- **Sounds**: Registered SFX and audio resources.
+- **Script Definitions**: Declarations for game, environment, and entity scripts with their target bindings and `@ScriptProperty` parameter values.
 
-In the upper right corner, you can find the `Objects` and `Layers` tabs. In the `Objects` tab, you can find a hierarchy of all `MapObjects`. The `Layers` tab contains a list of all `Map Object Layers`, letting you modify layers in the following ways:
-* ![Add](/images/utiliti-icons/add.png) Add
-* ![Delete](/images/utiliti-icons/delete.png) Delete
-* ![Copy](/images/utiliti-icons/copy.png) Copy
-* ![Change Color](/images/utiliti-icons/color.png) Change Color
-* ![Rename](/images/utiliti-icons/rename.png) Rename
-* ![Show selected layer only](/images/utiliti-icons/hideother.png) Show selected layer only
-* ![Send selected layer up](/images/utiliti-icons/lift.png) Send selected layer up
-* ![Send selected layer down](/images/utiliti-icons/lower.png) Send selected layer down
+---
 
-In the bottom left corner, you can find the `Resources` and `Console` tabs. You can manage your game resources, such as .png file for creature and sound file. 
+## Creating a New Project
 
-You can edit your `MapObjects` in the botton right corner. If you select an object, the properties of the object will appear. You can set up the objects' collision, dimensions, name, tags, etc. using these controls.
+1. Launch the utiLITI editor.
+2. Select **File -> New...** from the menu or press **`Ctrl + N`**.
+3. In the file chooser dialog, navigate to your desired directory and specify your project name (for example, `game.litidata`).
+4. Click **Save**.
 
+An empty project will be initialized with a blank canvas, default layer setup, and ready-to-use asset containers.
+
+---
+
+## Opening, Saving & Reverting
+
+### Opening Projects
+- **File -> Open...** (`Ctrl + O`): Browse and open an existing `.litidata` project.
+- **File -> Recent Projects**: Quickly reopen recently edited projects.
+- **Drag-and-Drop**: Drag a `.litidata` file from your operating system file manager directly into the utiLITI window.
+
+### Saving Changes
+- **Save Project** (`Ctrl + S`): Writes all current map modifications, layer updates, and asset changes to the active `.litidata` file.
+- **Save As...**: Saves the entire project bundle to a new `.litidata` destination path.
+- **Compress Resource File**: In **Resources -> Compress Resource File**, toggle compression to drastically reduce `.litidata` bundle size when exporting.
+
+### Reverting
+- **File -> Revert**: Discards all unsaved in-memory changes and reloads the project from the disk version.
+
+---
+
+## Auto-Save & Crash Recovery
+
+utiLITI includes a background **Auto-Save Manager** (`AutoSaveManager`) designed to protect your work against accidental closures or system crashes.
+
+### How Auto-Save Works
+
+1. **Periodic Background Saves**: Every 5 minutes (or as configured in preferences), if changes have been made since the last manual save, utiLITI silently writes a snapshot of your project.
+2. **Backup Storage**: Auto-save snapshots are stored alongside your project file with a `.backup` or `.autosave` suffix.
+3. **Recovery on Startup**: If utiLITI detects an unexpected shutdown or finds a backup file that is newer than the saved project, it prompts you on startup to restore the auto-saved session.
+
+> **Tip:** You can configure the auto-save interval or disable automatic saving in **File -> Settings -> General**.
+
+---
+
+## Project Settings & Startup Restoration
+
+In **File -> Settings -> General**:
+- **Reopen Last Project on Startup**: When enabled, utiLITI automatically loads the most recently active `.litidata` project upon launch.
+- **Gradle Launch Arguments**: Define JVM flags or task options used when launching or debugging the project from the editor.
+- **Log Level**: Filter the console output verbosity (`ALL`, `INFO`, `WARNING`, `SEVERE`, `OFF`).
+
+---
+
+## Loading Projects in Code
+
+Once you have saved your `.litidata` file in utiLITI, loading it into your LITIENGINE game requires only one line of code:
+
+```java
+import de.gurkenlabs.litiengine.Game;
+import de.gurkenlabs.litiengine.resources.Resources;
+
+public class MyGame {
+  public static void main(String[] args) {
+    Game.init(args);
+    
+    // Load the resource bundle created in utiLITI
+    Resources.load("game.litidata");
+    
+    // Load the initial map and start the game
+    Game.world().loadEnvironment("level1");
+    Game.start();
+  }
+}
+```
