@@ -70,3 +70,5 @@ The `Canvas` provides a `Graphics2D` object which is passed though the engine on
 
 For more information, read the [Official Java Documentation on Graphics2D](https://docs.oracle.com/javase/7/docs/api/java/awt/Graphics2D.html).
 
+!!! warning "Rendering Lifecycle Rule"
+    Never invoke `Graphics2D` draw calls directly outside of the render pipeline (`IRenderable.render(Graphics2D g)` or `Screen.render(Graphics2D g)`). Doing so disrupts double-buffering and causes viewport tearing.

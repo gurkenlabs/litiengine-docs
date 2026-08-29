@@ -6,6 +6,19 @@ keywords: ["LITIENGINE", "movement controller", "velocity", "physics", "collisio
 
 # Movement Controller
 
+## MovementController API Method Reference
+
+| Method Signature | Return Type | Description |
+| :--- | :--- | :--- |
+| `setVelocity(double velocity)` | `void` | Sets the base movement speed of the controlled entity. |
+| `applyForce(Point2D target, double strength)` | `void` | Applies a continuous directional force vector towards target. |
+| `applyForce(double angle, double strength)` | `void` | Applies a directional force vector along an angle in degrees. |
+| `onMoved(Consumer<MovementEvent> c)` | `void` | Registers a listener invoked every time the entity moves. |
+| `getVelocity()` | `double` | Returns the current movement velocity. |
+| `dx()` / `dy()` | `double` | Returns the current frame delta displacement along X and Y. |
+
+---
+
 The `MovementController` handles entity movement, including velocity, acceleration, direction, and collision response. It's the bridge between input/behavior systems and the physics engine.
 
 ## Basic Movement

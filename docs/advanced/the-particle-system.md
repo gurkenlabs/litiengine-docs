@@ -6,6 +6,19 @@ keywords: ["LITIENGINE", "particle", "emitter", "effect", "fire", "smoke", "visu
 
 # The Particle System
 
+## Emitter API Method Reference
+
+| Method Signature | Return Type | Description |
+| :--- | :--- | :--- |
+| `setTimeToLive(int duration)` | `void` | Sets lifespan of the emitter in milliseconds (or -1 for infinite). |
+| `setMaxParticles(int count)` | `void` | Limits maximum concurrent alive particles spawned by this emitter. |
+| `setSpawnRate(int delayMs)` | `void` | Sets the interval delay between successive particle spawns. |
+| `setParticleType(ParticleType type)` | `void` | Sets particle primitive (`RECTANGLE`, `ELLIPSE`, `LINE`, `SPRITE`). |
+| `onFinished(EmitterFinishedListener c)` | `void` | Listener invoked when a finite emitter completes and expires. |
+| `activate()` / `deactivate()` | `void` | Enables or pauses particle emission. |
+
+---
+
 The LITIENGINE particle system allows you to create dynamic visual effects by emitting and animating large numbers of small sprites or shapes. Use it for fire, smoke, explosions, magic spells, and environmental effects.
 
 ## How Particles Work

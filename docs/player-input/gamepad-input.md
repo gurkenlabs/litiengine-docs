@@ -6,6 +6,20 @@ keywords: ["LITIENGINE", "gamepad", "controller", "Input4j", "Xbox", "button", "
 
 # Gamepad Input
 
+## Gamepad API Method Reference
+
+| Method Signature | Return Type | Description |
+| :--- | :--- | :--- |
+| `Input.gamepads().current()` | `Gamepad` | Returns the currently active primary gamepad controller. |
+| `Input.gamepads().getAll()` | `List<Gamepad>` | Returns a list of all detected, connected gamepad devices. |
+| `Input.gamepads().onAdded(Consumer<Gamepad> c)` | `void` | Registers a listener invoked when a controller is plugged in. |
+| `Input.gamepads().onRemoved(Consumer<Gamepad> c)` | `void` | Registers a listener invoked when a controller is disconnected. |
+| `gamepad.getAxis(String axis)` | `float` | Reads analog stick/trigger value between `-1.0` and `1.0`. |
+| `gamepad.isPressed(String button)` | `boolean` | Checks if a digital button (e.g. `Gamepad.Buttons.A`) is held down. |
+| `gamepad.onPressed(String button, Consumer c)` | `void` | Registers a listener triggered when a button is first pressed. |
+
+---
+
 LITIENGINE uses [Input4j](https://github.com/gurkenlabs/input4j) for gamepad support, utilizing the Java FFM API for cross-platform compatibility. This eliminates the need for native library deployment.
 
 !!! note
@@ -178,3 +192,6 @@ Input.gamepads().onPressed(Gamepad.Xbox.LEFT_STICK_X, x -> {
 - [Keyboard Input](keyboard-input.md) - Keyboard handling
 - [Mouse Input](mouse-input.md) - Mouse handling
 - [Player Input Overview](README.md) - Input API overview
+
+!!! important "Panama FFM Foreign Memory"
+    LITIENGINE uses `Input4j` via Java Panama Foreign Function & Memory (FFM) APIs. Run your JVM on Java 21 or later to enable native controller polling without JNI overhead.

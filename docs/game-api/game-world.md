@@ -51,3 +51,5 @@ Game.world().environment().addEntityListener(new EnvironmentEntityListener(){
   4.  Call-back on the `EnvironmentRenderListener.rendered` listeners for that type
   5.  If `dbg_logDetailedRenderTimes = true`: track the time it took to execute the rendering
 
+!!! tip "Entity Tag Caching"
+    Use `environment.getEntitiesByTag("enemy")` to efficiently query collections of entities instead of filtering through `environment().getAll()` on every frame.

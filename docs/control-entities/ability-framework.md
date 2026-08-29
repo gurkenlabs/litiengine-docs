@@ -6,6 +6,19 @@ keywords: ["LITIENGINE", "ability", "combat", "cooldown", "effect", "attack", "J
 
 # Ability Framework
 
+## Ability API Method Reference
+
+| Method Signature | Return Type | Description |
+| :--- | :--- | :--- |
+| `cast()` | `boolean` | Executes the ability if not on cooldown; returns `true` on success. |
+| `canCast()` | `boolean` | Checks if the ability is off cooldown and executor has required resources. |
+| `getRemainingCooldown()` | `int` | Returns remaining cooldown duration in milliseconds. |
+| `getExecutor()` | `Creature` | Returns the entity executing the ability. |
+| `getAttributes()` | `AbilityAttributes` | Returns configured cooldown, range, and impact duration attributes. |
+| `addEffect(IEffect effect)` | `void` | Attaches a modular status or damage effect applied on impact. |
+
+---
+
 The Ability Framework provides a structured way to implement combat abilities, spells, and special actions. It handles cooldowns, execution timing, and applying effects to targets.
 
 ## Basic Ability

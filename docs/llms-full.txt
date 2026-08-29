@@ -250,6 +250,30 @@ Explore real-world games built with LITIENGINE:
 * 🐙 **[GitHub Repository](https://github.com/gurkenlabs/litiengine)** — Report issues, request features, and contribute.
 * 📖 **[Javadocs](https://litiengine.com/api/)** — Browse the complete class and method API documentation.
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "LITIENGINE",
+  "operatingSystem": "Windows, macOS, Linux",
+  "applicationCategory": "GameDevelopmentApplication",
+  "programmingLanguage": "Java",
+  "license": "https://github.com/gurkenlabs/litiengine/blob/master/LICENSE",
+  "url": "https://docs.litiengine.com/",
+  "description": "Free, open-source 2D Java Game Engine with AWT graphics, Panama FFM low-latency input, integrated utiLITI editor, physics quadtrees, and positional 2D audio.",
+  "author": {
+    "@type": "Organization",
+    "name": "Gurkenlabs",
+    "url": "https://gurkenlabs.com"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}
+</script>
+
 
 
 ---

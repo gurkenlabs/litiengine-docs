@@ -6,6 +6,19 @@ keywords: ["LITIENGINE", "java", "2d", "game engine", "game api"]
 
 # Screens
 
+## ScreenManager API Method Reference
+
+| Method Signature | Return Type | Description |
+| :--- | :--- | :--- |
+| `Game.screens().display(String screenName)` | `void` | Transitions the active display to the registered screen by name. |
+| `Game.screens().display(Screen screen)` | `void` | Displays the specified screen instance immediately. |
+| `Game.screens().add(Screen screen)` | `void` | Registers a new screen instance with the global screen manager. |
+| `Game.screens().remove(Screen screen)` | `void` | Unregisters a screen instance from the manager. |
+| `Game.screens().current()` | `Screen` | Returns the currently active and visible screen instance. |
+| `Game.screens().onScreenChanged(Consumer c)` | `void` | Listener invoked whenever a screen transition occurs. |
+
+---
+
 **Screens** are the containers that allow you to organize the visible contents of your game. They render the game’s Environment and are considered the parent of all GUI components you want to display in a particular state of your game. The screen itself inherits from `GuiComponent` and thereby provides support to define an Appearance and listen to all kinds of Input events (e.g. `onMouseMoved(…)`). Everything that should be visible to the player needs to be rendered to the currently active screen.
 
 Screens are identified and addressed by a unique name. The ScreenManager holds instances of all available screen and handles whenever a different Screen should be shown to the player. It provides the currently active Screen for the Game’s RenderComponent which calls the `Screen.render(Graphics2D)` method on every tick of the RenderLoop. Overwriting this method provides the ability to define a customized render pipeline that suits the need of a particular Screen implementation. With the GameScreen, the LITIENGINE provides a simple default Screen implementation that renders the current Environment and all its GuiComponents.
