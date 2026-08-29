@@ -1,67 +1,75 @@
 ---
-title: "Getting Started with LITIENGINE"
-description: "Learn how to set up your Java 21+ development environment, install LITIENGINE, configure build tools, and run your first 2D game."
-keywords: ["LITIENGINE", "java", "game engine", "getting started", "setup", "quickstart", "gradle", "maven"]
+title: "Getting Started"
+description: "Everything you need to set up your environment, install Java 21+, configure Gradle/Maven, and run your first 2D LITIENGINE game."
+keywords: ["LITIENGINE", "getting started", "java", "gradle", "installation", "setup", "tutorial"]
 ---
 
 # Getting Started
 
-Welcome to **LITIENGINE**, the lightweight, free, and open-source 2D Java Game Engine! This chapter provides everything you need to set up your development environment, configure your project build system, and run your very first game window.
+Welcome to **LITIENGINE**! This section guides you through installing the Java 21+ development kit, configuring your IDE, setting up Gradle or Maven build automation, and launching your first 2D game.
 
+---
 
-## Chapter Topics
+## 🚀 Explore Getting Started
 
-| Guide | Description |
-| :--- | :--- |
-| **[Install JDK](install-jdk.md)** | Download and install Java 21 or later (Temurin, Corretto, GraalVM, or via SDKMAN). |
-| **[Set Up IDE](development-environment.md)** | Configure your IDE (IntelliJ IDEA, Eclipse, NetBeans, or VS Code) for Java development. |
-| **[Build Systems](build-systems.md)** | Set up Gradle or Maven to manage dependencies and build automation. |
-| **[Project Structure](project-structure.md)** | Understand recommended directory layouts, resource locations, and asset folders. |
-| **[Get LITIENGINE](get-litiengine.md)** | Add LITIENGINE dependencies or clone the engine snapshot builds. |
-| **[Manage Native Libraries](native-libraries.md)** | Understand how LITIENGINE bundles native audio/gamepad libraries. |
-| **[Run the Game](run-the-game.md)** | Write your `Program.java` entry point, initialize the game window, and launch the engine. |
-| **[API Quick Reference](api-quick-reference.md)** | Cheat sheet with the most frequently used LITIENGINE APIs and one-liners. |
+<div class="grid cards" markdown>
 
-## Hello LITIENGINE: A Minimal Game
+- :material-download:{ .lg .middle } **[Get LITIENGINE](get-litiengine.md)**
 
-Here is the smallest complete LITIENGINE game:
+    ---
 
-```java
-package com.mygame;
+    Dependency coordinates for Gradle and Maven, Sonatype snapshot repositories, and standalone fat JARs.
 
-import de.gurkenlabs.litiengine.Game;
-import de.gurkenlabs.litiengine.resources.Resources;
+- :material-coffee:{ .lg .middle } **[Install JDK 21+](install-jdk.md)**
 
-public class Program {
-  public static void main(String[] args) {
-    // 1. Set game metadata
-    Game.info().setName("My First LITIENGINE Game");
-    Game.info().setVersion("v1.0.0");
+    ---
 
-    // 2. Initialize engine subsystems
-    Game.init(args);
+    Set up Java 21 LTS or newer across Windows, Linux, and macOS with modern Panama FFM support.
 
-    // 3. (Optional) Load resource bundle & world environment
-    // Resources.load("game.litidata");
-    // Game.world().loadEnvironment("level1");
+- :material-laptop:{ .lg .middle } **[Set Up Your IDE](development-environment.md)**
 
-    // 4. Start the game loop
-    Game.start();
-  }
-}
-```
+    ---
 
-## Next Steps
+    Configuring IntelliJ IDEA, Eclipse, or VS Code with hot-reloading and debug profiles.
 
-Follow the guides in order: begin by **[Installing the JDK](install-jdk.md)** and **[Setting Up Your IDE](development-environment.md)**.
+- :material-hammer-wrench:{ .lg .middle } **[Build Systems](build-systems.md)**
 
-## Troubleshooting & Common Pitfalls
+    ---
 
-??? question "Game window opens but immediately closes or crashes on launch"
-    Ensure `Game.init(args)` is called *before* any resource loading or screen registrations, and `Game.start()` is called at the end of `main()`. Verify your JDK version is Java 21 or newer (`java --version`).
+    Automated Gradle tasks, `shadowJar` packaging, and build automation workflows.
 
-??? question "Resource `game.litidata` not found when running from IDE"
-    Verify the file is placed in your project's `src/main/resources/` directory (or marked as a resource root in IntelliJ/Eclipse).
+- :material-folder-cog:{ .lg .middle } **[Project Structure](project-structure.md)**
 
-??? question "Controller/Gamepad input not detected"
-    LITIENGINE uses Panama FFM for Input4j. Ensure you are running on Java 21+ with foreign memory access enabled.
+    ---
+
+    Recommended directory layouts for assets, `.litidata` resource archives, maps, and source files.
+
+- :material-play-circle:{ .lg .middle } **[Run the Game](run-the-game.md)**
+
+    ---
+
+    Your first 15-line program initializing `Game.init()`, loading maps, and starting the 60 FPS loop.
+
+- :material-book-open-page-variant:{ .lg .middle } **[API Quick Reference](api-quick-reference.md)**
+
+    ---
+
+    Instant cheat sheet covering all core modules: `Game.*`, `Resources.*`, `Input.*`, and `Camera`.
+
+- :material-package-variant-closed:{ .lg .middle } **[Deployment Guide](../deployment.md)**
+
+    ---
+
+    Bundling a JRE with `jlink` and creating standalone `.exe` executables with Launch4j.
+
+</div>
+
+---
+
+## ❓ Frequently Asked Questions
+
+??? question "Which Java version is required?"
+    LITIENGINE requires **Java 21 LTS or newer** (tested through JDK 25).
+
+??? question "Can I run LITIENGINE on Apple Silicon (M1–M4)?"
+    Yes! LITIENGINE runs natively on macOS AArch64 using any standard ARM64 JDK (Temurin, Azul, or Oracle).
