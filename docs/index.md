@@ -145,7 +145,7 @@ public class Program {
 
 Explore real-world games built with LITIENGINE:
 
-* **[Gurk Nukem](https://github.com/gurkenlabs/gurk-nukem)** — A classic 2D retro action platformer demo.
+* **[Gurk Nukem](https://github.com/gurkenlabs/litiengine-gurknukem)** — A classic 2D retro action platformer demo.
 * **[Star Reaperz](https://github.com/gurkenlabs/litiengine-ldjam52)** — Fast-paced top-down twin-stick action game made for Ludum Dare 52.
 * **[LITIENGINE Showcase](https://litiengine.com/showcase/)** — Community showcase of commercial and indie games.
 

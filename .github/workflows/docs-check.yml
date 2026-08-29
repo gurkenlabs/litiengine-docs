@@ -21,5 +21,8 @@ jobs:
       - name: Lint Markdown Syntax & Lists
         run: python .github/scripts/lint_markdown.py
 
+      - name: Validate Internal & Image Links
+        run: python .github/scripts/validate_links.py
+
       - name: Build documentation
         run: zensical build --clean --strict

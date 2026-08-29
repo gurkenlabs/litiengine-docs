@@ -142,7 +142,7 @@ Bugfixes and UX improvements for utiLITI will ensure a more smooth experience wh
 Apart from that, a lot has changed in our build and deployment pipeline and the repository is now utilizing GitHub actions instead of Travis CI. This goes along with a completely revised directory structure and proper separation of submodules. The way we bundle native libraries has been adapted and the dependency on steamworks4j has been removed. Please also take note of our changed contribution guidelines: it is now required to comply with the Java code style conventions we provide in the repository (see [CONTRIBUTING.md](https://github.com/gurkenlabs/litiengine/blob/master/CONTRIBUTING.md)).
 
 Finally, a huge THANK YOU is in order: To all our new code contributors, to the community involved in discussing issues, to everyone providing help in our forum and on Discord, and lastly:
-Thank you to our new Sponsors [RajBet](https://raj.bet/), [Trust My Paper](https://www.trustmypaper.com/), [CasinoHex Canada](https://onlinecasinohex.ca/), and [ej-technologies](https://www.ej-technologies.com/products/jprofiler/overview.html) (in chronological order of sponsorships)!
+Thank you to our new Sponsors [Trust My Paper](https://www.trustmypaper.com/), [CasinoHex Canada](https://onlinecasinohex.ca/), and [ej-technologies](https://www.ej-technologies.com/products/jprofiler/overview.html) (in chronological order of sponsorships)!
 
 What are you waiting for? Start the new year the right way: making games with LITIENGINE.
 
@@ -224,7 +224,6 @@ What are you waiting for? Start the new year the right way: making games with LI
 
 #### 💵 New Sponsors
 
-* [RajBet](https://raj.bet/) (Bronze sponsorship on OpenCollective)
 * [Trust My Paper](https://www.trustmypaper.com/) (Bronze sponsorship on OpenCollective)
 * [CasinoHex Canada](https://onlinecasinohex.ca/) (Bronze sponsorship on OpenCollective)
 * [ej-technologies](https://www.ej-technologies.com/products/jprofiler/overview.html)  (kindly provided us with a license for their powerful Java profiler `JProfiler`.)

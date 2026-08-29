@@ -57,7 +57,7 @@ Feeling bold and adventurous?
 Try one of LITIENGINE's nightly snapshot builds!
 > If you use LITIENGINE snapshot versions, expect untested code and API that might still change!
 
-Consuming the snapshot artifacts is as simple as adding the sonatype snapshots repository to your dependency management, and choosing your preferred snapshot version. Browse all available snapshots [here](https://oss.sonatype.org/content/repositories/snapshots/de/gurkenlabs/litiengine/)!
+Consuming the snapshot artifacts is as simple as adding the sonatype snapshots repository to your dependency management, and choosing your preferred snapshot version. Browse all available snapshots [here](https://oss.sonatype.org/content/repositories/snapshots/)!
 
 in your `build.gradle`:
 ```groovy

@@ -11,8 +11,8 @@ keywords: ["LITIENGINE", "java", "game engine", "2D", "libraries and tools"]
 There is only a bare minimum of third party libraries included in the LITIENGINE, which we want to mention here thankfully:
 
 * [Input4j](https://github.com/gurkenlabs/input4j) for Gamepad support (uses Java FFM API, no native libraries required)
-* [MP3 SPI](http://www.javazoom.net/mp3spi/mp3spi.html) for .mp3 audio file support
-* [Ogg Vorbis SPI](http://www.javazoom.net/vorbisspi/vorbisspi.html) for .ogg audio file support
+* [MP3 SPI](https://central.sonatype.com/artifact/com.googlecode.soundlibs/mp3spi) for .mp3 audio file support
+* [Ogg Vorbis SPI](https://central.sonatype.com/artifact/com.googlecode.soundlibs/vorbisspi) for .ogg audio file support
 * [Steamworks4j](https://github.com/code-disaster/steamworks4j) for supporting the steamworks SDK
 
 ## Steamworks
@@ -41,7 +41,7 @@ With Tiled editor, you can create orthogonal, hexagonal, and isometric Tile maps
 
 #### How do I use Tiled?
 
-For a general understanding of the mapping process with Tiled editor, we encourage you to have a look at its [plentiful documentation](https://doc.mapeditor.org/en/stable/manual/introduction/#creating-a-new-map). However, we will refer to a few LITIENGINE specific aspects of creating maps with Tiled in the sections about [Map Objects](https://docs.litiengine.com/basics/manage-maps/map-objects) and [custom properties](https://docs.litiengine.com/basics/manage-maps/custom-properties)
+For a general understanding of the mapping process with Tiled editor, we encourage you to have a look at its [plentiful documentation](https://doc.mapeditor.org/en/stable/manual/introduction/#creating-a-new-map). However, we will refer to a few LITIENGINE specific aspects of creating maps with Tiled in the sections about [Map Objects](tile-maps/map-objects.md) and [custom properties](tile-maps/custom-properties.md)
 
 #### Why is tile mapping not a part of the utiLITI editor?
 
