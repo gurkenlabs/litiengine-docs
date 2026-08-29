@@ -1,7 +1,7 @@
 ---
-meta.description: "Script abilities, projectiles, floating combat text, and cinematics in LITIENGINE."
-meta.keywords: "LITIENGINE, abilities, projectiles, combat scripting, floating text, camera cutscenes"
-meta.title: "Combat & Action Scripting"
+title: "Combat & Action Scripting"
+description: "Script abilities, projectiles, floating combat text, and cinematics in LITIENGINE."
+keywords: ["LITIENGINE", "abilities", "projectiles", "combat scripting", "floating text", "camera cutscenes"]
 ---
 
 # Combat & Action Scripting

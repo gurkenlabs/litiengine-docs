@@ -1,6 +1,7 @@
 ---
-meta.description: Documentation of LITIENGINE's physics engine.
-meta.keywords: LITIENGINE, physics, movement, collision, entities, listeners
+title: "2D Physics"
+description: "Documentation of LITIENGINE's physics engine."
+keywords: ["LITIENGINE", "physics", "movement", "collision", "entities", "listeners"]
 ---
 
 # 2D Physics

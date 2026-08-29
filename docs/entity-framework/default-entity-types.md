@@ -1,6 +1,7 @@
 ---
-meta.description: "Learn about the default entity types in LITIENGINE - Entity, CollisionEntity, CombatEntity, Creature, Prop, and their hierarchies."
-meta.keywords: "LITIENGINE, entity types, Creature, Prop, CollisionEntity, CombatEntity, Java"
+title: "Default Entity Types"
+description: "Learn about the default entity types in LITIENGINE - Entity, CollisionEntity, CombatEntity, Creature, Prop, and their hierarchies."
+keywords: ["LITIENGINE", "entity types", "Creature", "Prop", "CollisionEntity", "CombatEntity", "Java"]
 ---
 
 # Default Entity Types

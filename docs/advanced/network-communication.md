@@ -1,6 +1,7 @@
 ---
-meta.description: "Network communication was removed from LITIENGINE in version 0.5.1-beta."
-meta.keywords: "LITIENGINE, network, multiplayer, removed"
+title: "Network Communication"
+description: "Network communication was removed from LITIENGINE in version 0.5.1-beta."
+keywords: ["LITIENGINE", "network", "multiplayer", "removed"]
 ---
 
 # Network Communication

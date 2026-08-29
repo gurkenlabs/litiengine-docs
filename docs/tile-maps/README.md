@@ -1,7 +1,7 @@
 ---
-description: >-
-  Learn about the internal structure of .tmx tile maps and how to load maps into
-  your game project.
+title: "Tile Maps"
+description: ">-"
+keywords: ["LITIENGINE", "java", "game engine", "2D", "tile maps"]
 ---
 
 # Tile Maps

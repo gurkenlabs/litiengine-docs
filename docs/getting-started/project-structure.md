@@ -1,6 +1,7 @@
 ---
-meta.description: Learn about best practices for setting up your game project hierarchy.
-meta.keywords: LITIENGINE, java, game, gameengine, development, 2D, programming, file, project, hierarchy, structure
+title: "Project Structure"
+description: "Learn about best practices for setting up your game project hierarchy."
+keywords: ["LITIENGINE", "java", "game", "gameengine", "development", "2D", "programming", "file", "project", "hierarchy", "structure"]
 ---
 
 # Project Structure

@@ -1,6 +1,7 @@
 ---
-meta.description: "Learn about texture atlases in LITIENGINE - how to create and use sprite sheets for entity animations."
-meta.keywords: "LITIENGINE, texture atlas, spritesheet, sprite, animation, Java"
+title: "Texture Atlases"
+description: "Learn about texture atlases in LITIENGINE - how to create and use sprite sheets for entity animations."
+keywords: ["LITIENGINE", "texture atlas", "spritesheet", "sprite", "animation", "Java"]
 ---
 
 # Texture Atlases

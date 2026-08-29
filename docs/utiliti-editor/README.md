@@ -1,7 +1,7 @@
 ---
-meta.description: "Comprehensive introduction to the utiLITI editor for LITIENGINE, covering workspaces, level design, entity inspection, scripting, and tooling."
-meta.keywords: "LITIENGINE, utiLITI, editor, 2D game editor, level design, map editor, java game development"
-meta.title: "utiLITI Overview & Getting Started"
+title: "utiLITI Overview & Getting Started"
+description: "Comprehensive introduction to the utiLITI editor for LITIENGINE, covering workspaces, level design, entity inspection, scripting, and tooling."
+keywords: ["LITIENGINE", "utiLITI", "editor", "2D game editor", "level design", "map editor", "java game development"]
 ---
 
 # utiLITI

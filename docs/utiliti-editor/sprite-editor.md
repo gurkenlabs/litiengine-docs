@@ -1,7 +1,7 @@
 ---
-meta.description: "Comprehensive guide to the utiLITI Sprite & Animation Editor: spritesheet slicing, keyframe durations, animated previews, and sprite info export."
-meta.keywords: "utiLITI, Sprite Editor, Animation Editor, spritesheets, keyframe durations, sprite slicing, animation preview, sprite info"
-meta.title: "Sprites & Animation Editor in utiLITI"
+title: "Sprites & Animation Editor in utiLITI"
+description: "Comprehensive guide to the utiLITI Sprite & Animation Editor: spritesheet slicing, keyframe durations, animated previews, and sprite info export."
+keywords: ["utiLITI", "Sprite Editor", "Animation Editor", "spritesheets", "keyframe durations", "sprite slicing", "animation preview", "sprite info"]
 ---
 
 # Sprites & Animation Editor

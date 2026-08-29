@@ -1,5 +1,7 @@
 ---
-description: A method of batch importing spritesheets.
+title: "Sprite Info Files"
+description: "A method of batch importing spritesheets."
+keywords: ["LITIENGINE", "java", "game engine", "2D", "sprite info files"]
 ---
 
 # Sprite Info Files

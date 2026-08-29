@@ -1,6 +1,7 @@
 ---
-meta.description: "Learn performance optimization techniques for LITIENGINE games including rendering, entity management, and memory usage."
-meta.keywords: "LITIENGINE, performance, optimization, FPS, memory, rendering, Java"
+title: "Performance Optimization"
+description: "Learn performance optimization techniques for LITIENGINE games including rendering, entity management, and memory usage."
+keywords: ["LITIENGINE", "performance", "optimization", "FPS", "memory", "rendering", "Java"]
 ---
 
 # Performance Optimization

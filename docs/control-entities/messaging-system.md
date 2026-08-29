@@ -1,6 +1,7 @@
 ---
-meta.description: "Learn how to use the Messaging System in LITIENGINE for entity-to-entity communication and event handling."
-meta.keywords: "LITIENGINE, messaging, events, communication, entity, Java"
+title: "Messaging System"
+description: "Learn how to use the Messaging System in LITIENGINE for entity-to-entity communication and event handling."
+keywords: ["LITIENGINE", "messaging", "events", "communication", "entity", "Java"]
 ---
 
 # Messaging System

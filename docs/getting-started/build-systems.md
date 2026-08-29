@@ -1,6 +1,7 @@
 ---
-meta.description: Learn about build automation utilities in general and how to set up the most common build tools for Java development.
-meta.keywords: LITIENGINE, java, game, gameengine, development, 2D, programming, build, gradle, maven, ant
+title: "Build Systems"
+description: "Learn about build automation utilities in general and how to set up the most common build tools for Java development."
+keywords: ["LITIENGINE", "java", "game", "gameengine", "development", "2D", "programming", "build", "gradle", "maven", "ant"]
 ---
 
 # Build Systems

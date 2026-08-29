@@ -1,6 +1,7 @@
 ---
-meta.description: "Learn how to handle gamepad input in LITIENGINE using Input.gamepads() with Input4j for cross-platform controller support."
-meta.keywords: "LITIENGINE, gamepad, controller, Input4j, Xbox, button, axis, Java"
+title: "Gamepad Input"
+description: "Learn how to handle gamepad input in LITIENGINE using Input.gamepads() with Input4j for cross-platform controller support."
+keywords: ["LITIENGINE", "gamepad", "controller", "Input4j", "Xbox", "button", "axis", "Java"]
 ---
 
 # Gamepad Input

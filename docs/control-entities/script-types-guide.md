@@ -1,7 +1,7 @@
 ---
-meta.description: "Comprehensive guide to GameScript, EnvironmentScript, and CreatureScript in LITIENGINE."
-meta.keywords: "LITIENGINE, GameScript, EnvironmentScript, CreatureScript, lifecycle, scripting guide"
-meta.title: "Game, Environment & Entity Scripts Guide"
+title: "Game, Environment & Entity Scripts Guide"
+description: "Comprehensive guide to GameScript, EnvironmentScript, and CreatureScript in LITIENGINE."
+keywords: ["LITIENGINE", "GameScript", "EnvironmentScript", "CreatureScript", "lifecycle", "scripting guide"]
 ---
 
 # Game, Environment & Entity Scripts Guide

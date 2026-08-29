@@ -1,6 +1,7 @@
 ---
-meta.description: "Quick reference cheat sheet for LITIENGINE API - essential methods and classes at a glance."
-meta.keywords: "LITIENGINE, cheat sheet, quick reference, API, Java"
+title: "API Quick Reference"
+description: "Quick reference cheat sheet for LITIENGINE API - essential methods and classes at a glance."
+keywords: ["LITIENGINE", "cheat sheet", "quick reference", "API", "Java"]
 ---
 
 # API Quick Reference

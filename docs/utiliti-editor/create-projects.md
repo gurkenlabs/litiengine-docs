@@ -1,7 +1,7 @@
 ---
-meta.description: "Learn how to create, configure, save, and manage LITIENGINE game projects (.litidata) in utiLITI, including auto-save and backups."
-meta.keywords: "LITIENGINE, utiLITI, create project, litidata, game resource file, auto save, project management"
-meta.title: "Project Management in utiLITI"
+title: "Project Management in utiLITI"
+description: "Learn how to create, configure, save, and manage LITIENGINE game projects (.litidata) in utiLITI, including auto-save and backups."
+keywords: ["LITIENGINE", "utiLITI", "create project", "litidata", "game resource file", "auto save", "project management"]
 ---
 
 # Project Management

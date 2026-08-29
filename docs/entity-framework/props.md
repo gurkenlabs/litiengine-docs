@@ -1,6 +1,7 @@
 ---
-meta.description: How to register a custom Prop implementation in LITIENGINE.
-meta.keywords: LITIENGINE, prop, entities, entity, custom, register, mapobject, loader
+title: "Props"
+description: "How to register a custom Prop implementation in LITIENGINE."
+keywords: ["LITIENGINE", "prop", "entities", "entity", "custom", "register", "mapobject", "loader"]
 ---
 
 # Props

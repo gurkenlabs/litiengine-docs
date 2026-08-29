@@ -1,7 +1,7 @@
 ---
-meta.description: "Add Java or Groovy gameplay scripts to LITIENGINE games while keeping a normal IntelliJ and Gradle development workflow."
-meta.keywords: "LITIENGINE, scripting, Groovy, Java, IntelliJ, utiLITI, game behavior"
-meta.title: "Java and Groovy scripting"
+title: "Java and Groovy scripting"
+description: "Add Java or Groovy gameplay scripts to LITIENGINE games while keeping a normal IntelliJ and Gradle development workflow."
+keywords: ["LITIENGINE", "scripting", "Groovy", "Java", "IntelliJ", "utiLITI", "game behavior"]
 ---
 
 # Java and Groovy scripting

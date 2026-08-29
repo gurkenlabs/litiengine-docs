@@ -1,6 +1,7 @@
 ---
-meta.description: "Learn how to subscribe to entity events in LITIENGINE for movement, combat, lifecycle, and custom events."
-meta.keywords: "LITIENGINE, entity events, listener, callback, onHit, onDeath, onMoved, Java"
+title: "Subscribe to Entity Events"
+description: "Learn how to subscribe to entity events in LITIENGINE for movement, combat, lifecycle, and custom events."
+keywords: ["LITIENGINE", "entity events", "listener", "callback", "onHit", "onDeath", "onMoved", "Java"]
 ---
 
 # Subscribe to Entity Events

@@ -1,7 +1,7 @@
 ---
-meta.description: "Learn how to create, import, export, and configure 2D maps in utiLITI, including ambient lighting, shadows, and ID management."
-meta.keywords: "utiLITI, map management, import map, export map, TMX, ambient light, static shadow, map properties, reassign map ids"
-meta.title: "Maps & Environment Management in utiLITI"
+title: "Maps & Environment Management in utiLITI"
+description: "Learn how to create, import, export, and configure 2D maps in utiLITI, including ambient lighting, shadows, and ID management."
+keywords: ["utiLITI", "map management", "import map", "export map", "TMX", "ambient light", "static shadow", "map properties", "reassign map ids"]
 ---
 
 # Maps & Environment Management

@@ -1,7 +1,7 @@
 ---
-meta.description: "Run standalone LITIENGINE projects without boilerplate Java main classes using GameLauncher."
-meta.keywords: "LITIENGINE, GameLauncher, standalone runner, CLI, litidata, game distribution"
-meta.title: "GameLauncher CLI & Standalone Runner"
+title: "GameLauncher CLI & Standalone Runner"
+description: "Run standalone LITIENGINE projects without boilerplate Java main classes using GameLauncher."
+keywords: ["LITIENGINE", "GameLauncher", "standalone runner", "CLI", "litidata", "game distribution"]
 ---
 
 # GameLauncher CLI & Standalone Runner

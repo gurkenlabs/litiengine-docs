@@ -1,7 +1,7 @@
 ---
-meta.description: "Guide to utiLITI editing tools: Pointer, Tile Brush, Bucket Fill, Eraser, Stamp Brush, Wang Terrain Brush, Snapping, and Visual Overlays."
-meta.keywords: "utiLITI, tools, tile brush, bucket fill, eraser, stamp brush, terrain brush, wang tiles, snapping, grid, collision overlay"
-meta.title: "Editing Tools & Viewport Operations in utiLITI"
+title: "Editing Tools & Viewport Operations in utiLITI"
+description: "Guide to utiLITI editing tools: Pointer, Tile Brush, Bucket Fill, Eraser, Stamp Brush, Wang Terrain Brush, Snapping, and Visual Overlays."
+keywords: ["utiLITI", "tools", "tile brush", "bucket fill", "eraser", "stamp brush", "terrain brush", "wang tiles", "snapping", "grid", "collision overlay"]
 ---
 
 # Editing Tools & Viewport Operations

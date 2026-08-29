@@ -1,6 +1,7 @@
 ---
-meta.description: "Advanced topics for working with LITIENGINE entities."
-meta.keywords: "LITIENGINE, entity, advanced, trigger, custom, Java"
+title: "Advanced Entity Knowledge"
+description: "Advanced topics for working with LITIENGINE entities."
+keywords: ["LITIENGINE", "entity", "advanced", "trigger", "custom", "Java"]
 ---
 
 # Advanced Entity Knowledge

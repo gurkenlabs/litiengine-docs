@@ -1,6 +1,7 @@
 ---
-meta.description: "Learn how to use the LITIENGINE particle system to create visual effects like fire, smoke, explosions, and magic."
-meta.keywords: "LITIENGINE, particle, emitter, effect, fire, smoke, visual, Java"
+title: "The Particle System"
+description: "Learn how to use the LITIENGINE particle system to create visual effects like fire, smoke, explosions, and magic."
+keywords: ["LITIENGINE", "particle", "emitter", "effect", "fire", "smoke", "visual", "Java"]
 ---
 
 # The Particle System

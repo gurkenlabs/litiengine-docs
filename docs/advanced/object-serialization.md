@@ -1,6 +1,7 @@
 ---
-meta.description: "Learn about serialization in LITIENGINE for saving and loading game data and configuration."
-meta.keywords: "LITIENGINE, serialization, XML, save, load, Java"
+title: "Object Serialization"
+description: "Learn about serialization in LITIENGINE for saving and loading game data and configuration."
+keywords: ["LITIENGINE", "serialization", "XML", "save", "load", "Java"]
 ---
 
 # Object Serialization

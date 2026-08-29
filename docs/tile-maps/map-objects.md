@@ -1,6 +1,7 @@
 ---
-meta.description: "Learn about MapObjects in LITIENGINE tile maps - how to place, configure, and load entities from Tiled map objects."
-meta.keywords: "LITIENGINE, map objects, Tiled, tmx, entity, spawnpoint, collision, trigger"
+title: "Map Objects"
+description: "Learn about MapObjects in LITIENGINE tile maps - how to place, configure, and load entities from Tiled map objects."
+keywords: ["LITIENGINE", "map objects", "Tiled", "tmx", "entity", "spawnpoint", "collision", "trigger"]
 ---
 
 # Map Objects

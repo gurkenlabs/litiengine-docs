@@ -1,7 +1,7 @@
 ---
-meta.description: "Discover script events, architecture guides, and startup configuration directly in utiLITI."
-meta.keywords: "utiLITI, Script Explorer, GameScriptsDialog, script guidance, templates, architecture"
-meta.title: "Script Guidance & Architecture Tools in utiLITI"
+title: "Script Guidance & Architecture Tools in utiLITI"
+description: "Discover script events, architecture guides, and startup configuration directly in utiLITI."
+keywords: ["utiLITI", "Script Explorer", "GameScriptsDialog", "script guidance", "templates", "architecture"]
 ---
 
 # Script Guidance & Architecture Tools in utiLITI

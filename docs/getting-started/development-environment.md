@@ -1,6 +1,7 @@
 ---
-meta.description: Learn how to set up a development environment.
-meta.keywords: LITIENGINE, java, game, gameengine, development, 2D, programming, ide, eclipse, intellij, netbeans
+title: "Development Environment"
+description: "Learn how to set up a development environment."
+keywords: ["LITIENGINE", "java", "game", "gameengine", "development", "2D", "programming", "ide", "eclipse", "intellij", "netbeans"]
 ---
 
 # Development Environment

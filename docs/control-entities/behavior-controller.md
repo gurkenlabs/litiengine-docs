@@ -1,6 +1,7 @@
 ---
-meta.description: Learn how to implement predetermined behaviour for your Entities.
-meta.keywords: LITIENGINE, java, game, gameengine, development, 2D, programming, library, SDK, repository, build
+title: "Behavior Controllers"
+description: "Learn how to implement predetermined behaviour for your Entities."
+keywords: ["LITIENGINE", "java", "game", "gameengine", "development", "2D", "programming", "library", "SDK", "repository", "build"]
 ---
 
 # Behavior Controllers

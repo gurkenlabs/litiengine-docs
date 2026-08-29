@@ -1,6 +1,7 @@
 ---
-meta.description: "Learn about static lighting in LITIENGINE - pre-baked shadows and ambient occlusion for performant illumination."
-meta.keywords: "LITIENGINE, static lighting, shadow, ambient occlusion, baked, performance, Java"
+title: "Static Lighting"
+description: "Learn about static lighting in LITIENGINE - pre-baked shadows and ambient occlusion for performant illumination."
+keywords: ["LITIENGINE", "static lighting", "shadow", "ambient occlusion", "baked", "performance", "Java"]
 ---
 
 # Static Lighting

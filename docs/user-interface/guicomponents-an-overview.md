@@ -1,6 +1,7 @@
 ---
-meta.description: "Overview of GuiComponents in LITIENGINE - buttons, labels, sliders, checkboxes, and other UI elements for game interfaces."
-meta.keywords: "LITIENGINE, GUI, component, button, label, slider, menu, Java"
+title: "GuiComponents: An Overview"
+description: "Overview of GuiComponents in LITIENGINE - buttons, labels, sliders, checkboxes, and other UI elements for game interfaces."
+keywords: ["LITIENGINE", "GUI", "component", "button", "label", "slider", "menu", "Java"]
 ---
 
 # GuiComponents: An Overview

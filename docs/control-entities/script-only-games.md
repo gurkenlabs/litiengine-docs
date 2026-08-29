@@ -1,7 +1,7 @@
 ---
-meta.description: "Build complete LITIENGINE games using only scripts with zero boilerplate main classes."
-meta.keywords: "LITIENGINE, script-only games, GameScript, EnvironmentScript, CreatureScript, game development"
-meta.title: "Script-Only Game Architecture"
+title: "Script-Only Game Architecture"
+description: "Build complete LITIENGINE games using only scripts with zero boilerplate main classes."
+keywords: ["LITIENGINE", "script-only games", "GameScript", "EnvironmentScript", "CreatureScript", "game development"]
 ---
 
 # Script-Only Game Architecture

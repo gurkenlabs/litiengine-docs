@@ -1,6 +1,7 @@
 ---
-meta.description: "Learn how to use custom properties in LITIENGINE to configure map objects and entities with custom data."
-meta.keywords: "LITIENGINE, custom properties, Tiled, tmx, map object, configuration, entity"
+title: "Custom Properties"
+description: "Learn how to use custom properties in LITIENGINE to configure map objects and entities with custom data."
+keywords: ["LITIENGINE", "custom properties", "Tiled", "tmx", "map object", "configuration", "entity"]
 ---
 
 # Custom Properties

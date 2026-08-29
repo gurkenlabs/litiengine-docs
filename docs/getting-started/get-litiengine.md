@@ -1,6 +1,7 @@
 ---
-meta.description: Learn about all possible ways to download LITIENGINE and include it in your project.
-meta.keywords: LITIENGINE, java, game, gameengine, development, 2D, programming, library, SDK, repository, build
+title: "Get LITIENGINE"
+description: "Learn about all possible ways to download LITIENGINE and include it in your project."
+keywords: ["LITIENGINE", "java", "game", "gameengine", "development", "2D", "programming", "library", "SDK", "repository", "build"]
 ---
 
 # Get LITIENGINE

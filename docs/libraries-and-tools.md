@@ -1,7 +1,7 @@
 ---
-description: >-
-  This section contains useful information for external libraries and tools
-  related to LITIENGINE Game Development.
+title: "Libraries and Tools"
+description: ">-"
+keywords: ["LITIENGINE", "java", "game engine", "2D", "libraries and tools"]
 ---
 
 # Libraries and Tools

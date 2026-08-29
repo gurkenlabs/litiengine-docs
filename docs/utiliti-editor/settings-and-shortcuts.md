@@ -1,7 +1,7 @@
 ---
-meta.description: "Complete guide to utiLITI application settings, themes, grid configuration, keymap customization, and keyboard shortcuts reference."
-meta.keywords: "utiLITI, settings, preferences, shortcuts, keymap, theme, dark mode, grid settings, mcp settings, hotkeys"
-meta.title: "Settings & Keyboard Shortcuts in utiLITI"
+title: "Settings & Keyboard Shortcuts in utiLITI"
+description: "Complete guide to utiLITI application settings, themes, grid configuration, keymap customization, and keyboard shortcuts reference."
+keywords: ["utiLITI", "settings", "preferences", "shortcuts", "keymap", "theme", "dark mode", "grid settings", "mcp settings", "hotkeys"]
 ---
 
 # Settings & Keyboard Shortcuts

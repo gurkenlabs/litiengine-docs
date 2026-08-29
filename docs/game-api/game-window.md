@@ -1,6 +1,7 @@
 ---
-meta.description: "Learn about LITIENGINE's Game.window() API for managing the game window, resolution scaling, fullscreen mode, custom cursors, and window icons."
-meta.keywords: "LITIENGINE, game window, fullscreen, resolution, cursor, icon, Java"
+title: "Game Window"
+description: "Learn about LITIENGINE's Game.window() API for managing the game window, resolution scaling, fullscreen mode, custom cursors, and window icons."
+keywords: ["LITIENGINE", "game window", "fullscreen", "resolution", "cursor", "icon", "Java"]
 ---
 
 # Game Window

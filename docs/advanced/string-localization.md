@@ -1,6 +1,7 @@
 ---
-meta.description: "Learn how to implement string localization in LITIENGINE for multi-language game support."
-meta.keywords: "LITIENGINE, localization, i18n, translation, language, strings, Java"
+title: "String Localization"
+description: "Learn how to implement string localization in LITIENGINE for multi-language game support."
+keywords: ["LITIENGINE", "localization", "i18n", "translation", "language", "strings", "Java"]
 ---
 
 # String Localization

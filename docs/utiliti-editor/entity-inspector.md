@@ -1,7 +1,7 @@
 ---
-meta.description: "In-depth reference for the utiLITI Entity Inspector, covering general properties, custom Java implementations, entity types, physics, combat, and script bindings."
-meta.keywords: "utiLITI, Entity Inspector, Prop, Creature, Trigger, LightSource, Emitter, SoundSource, Spawnpoint, CollisionBox, CombatPanel, MovementPanel, ScriptBindings"
-meta.title: "Entity & Object Inspector in utiLITI"
+title: "Entity & Object Inspector in utiLITI"
+description: "In-depth reference for the utiLITI Entity Inspector, covering general properties, custom Java implementations, entity types, physics, combat, and script bindings."
+keywords: ["utiLITI", "Entity Inspector", "Prop", "Creature", "Trigger", "LightSource", "Emitter", "SoundSource", "Spawnpoint", "CollisionBox", "CombatPanel", "MovementPanel", "ScriptBindings"]
 ---
 
 # Entity & Object Inspector

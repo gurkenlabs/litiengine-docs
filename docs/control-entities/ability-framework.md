@@ -1,6 +1,7 @@
 ---
-meta.description: "Learn how to use the Ability Framework in LITIENGINE to create combat abilities with cooldowns, effects, and execution logic."
-meta.keywords: "LITIENGINE, ability, combat, cooldown, effect, attack, Java"
+title: "Ability Framework"
+description: "Learn how to use the Ability Framework in LITIENGINE to create combat abilities with cooldowns, effects, and execution logic."
+keywords: ["LITIENGINE", "ability", "combat", "cooldown", "effect", "attack", "Java"]
 ---
 
 # Ability Framework

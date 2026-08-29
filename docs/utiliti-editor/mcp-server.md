@@ -1,6 +1,7 @@
 ---
-meta.description: Exhaustive reference documentation for the utiLITI Model Context Protocol (MCP) Server, covering Level B Raw Scene Building Primitives, Level A High-Level Semantic Tools, Godot-style scene composition, JSON Schema specifications, and live editor automation.
-meta.keywords: LITIENGINE, utiLITI, MCP, Model Context Protocol, raw tools, scene building, godot-mcp, level design, entity placement, tile mapping, JSON Schema 2020-12
+title: "MCP Server Integration & Tool Reference"
+description: "Exhaustive reference documentation for the utiLITI Model Context Protocol (MCP) Server, covering Level B Raw Scene Building Primitives, Level A High-Level Semantic Tools, Godot-style scene composition, JSON Schema specifications, and live editor automation."
+keywords: ["LITIENGINE", "utiLITI", "MCP", "Model Context Protocol", "raw tools", "scene building", "godot-mcp", "level design", "entity placement", "tile mapping", "JSON Schema 2020-12"]
 ---
 
 # MCP Server Integration & Tool Reference

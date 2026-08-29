@@ -1,6 +1,7 @@
 ---
-meta.description: "Learn how to create custom entity implementations in LITIENGINE with specialized behavior."
-meta.keywords: "LITIENGINE, custom entity, implementation, extend, Java"
+title: "Custom Entity Implementations"
+description: "Learn how to create custom entity implementations in LITIENGINE with specialized behavior."
+keywords: ["LITIENGINE", "custom entity", "implementation", "extend", "Java"]
 ---
 
 # Custom Entity Implementations

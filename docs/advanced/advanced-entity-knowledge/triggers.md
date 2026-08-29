@@ -1,6 +1,7 @@
 ---
-meta.description: "Learn how to use Trigger entities in LITIENGINE to create area-based events and scripting."
-meta.keywords: "LITIENGINE, trigger, area, event, activate, scripting, Java"
+title: "Triggers"
+description: "Learn how to use Trigger entities in LITIENGINE to create area-based events and scripting."
+keywords: ["LITIENGINE", "trigger", "area", "event", "activate", "scripting", "Java"]
 ---
 
 # Triggers

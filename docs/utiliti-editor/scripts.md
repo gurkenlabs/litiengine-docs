@@ -1,7 +1,7 @@
 ---
-meta.description: "Create, bind, configure, and reload Java and Groovy gameplay scripts with utiLITI and IntelliJ."
-meta.keywords: "utiLITI, LITIENGINE, scripts, Groovy, Java, IntelliJ, editor"
-meta.title: "Scripts in utiLITI"
+title: "Scripts in utiLITI"
+description: "Create, bind, configure, and reload Java and Groovy gameplay scripts with utiLITI and IntelliJ."
+keywords: ["utiLITI", "LITIENGINE", "scripts", "Groovy", "Java", "IntelliJ", "editor"]
 ---
 
 # Scripts in utiLITI

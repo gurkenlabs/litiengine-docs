@@ -1,6 +1,7 @@
 ---
-meta.description: Learn about managing native libraries in your LITIENGINE project.
-meta.keywords: LITIENGINE, java, game, gameengine, development, 2D, programming, library, build, natives
+title: "Native Libraries"
+description: "Learn about managing native libraries in your LITIENGINE project."
+keywords: ["LITIENGINE", "java", "game", "gameengine", "development", "2D", "programming", "library", "build", "natives"]
 ---
 
 # Native Libraries
