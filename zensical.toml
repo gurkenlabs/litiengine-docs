@@ -126,7 +126,15 @@ nav = [
         { "Release Notes" = "CHANGELOG.md" },
         { "Libraries & Tools" = "libraries-and-tools.md" },
         { "Glossary" = "GLOSSARY.md" },
+        { "💖 Sponsor LITIENGINE" = "https://opencollective.com/litiengine" },
     ] },
+]
+
+[project.extra]
+social = [
+    { icon = "simple/opencollective", link = "https://opencollective.com/litiengine", name = "Sponsor on Open Collective" },
+    { icon = "simple/github", link = "https://github.com/gurkenlabs/litiengine", name = "GitHub" },
+    { icon = "simple/discord", link = "https://discord.gg/9TqCq9C", name = "Discord Community" },
 ]
 
 [project.theme]

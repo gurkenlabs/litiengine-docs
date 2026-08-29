@@ -145,10 +145,27 @@ Explore real-world games built with LITIENGINE:
 
 ---
 
+## 💖 Support & Sponsor LITIENGINE
+
+LITIENGINE is 100% free, independent, and open source. If LITIENGINE helps you build your games, please consider backing the project to fund dedicated engine development, maintenance, and community tooling:
+
+<div class="grid cards" markdown>
+
+- :material-heart:{ .lg .middle } **[Back LITIENGINE on Open Collective →](https://opencollective.com/litiengine)**
+
+    ---
+
+    Support the creators on Open Collective. Every recurring backer or one-time contribution helps keep the engine independent, modern, and actively developed.
+
+</div>
+
+---
+
 ## Community & Contributing
 
-* 💬 **[LITIENGINE Forum](https://forum.litiengine.com/)** — Ask questions and share your projects.
+* 💖 **[Open Collective](https://opencollective.com/litiengine)** — Back the project and support ongoing development.
 * 🐙 **[GitHub Repository](https://github.com/gurkenlabs/litiengine)** — Report issues, request features, and contribute.
+* 💬 **[GitHub Discussions](https://github.com/gurkenlabs/litiengine/discussions)** — Ask questions, share progress, and chat with creators.
 * 📖 **[Javadocs](https://litiengine.com/api/)** — Browse the complete class and method API documentation.
 
 <script type="application/ld+json">
