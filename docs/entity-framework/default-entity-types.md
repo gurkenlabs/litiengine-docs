@@ -2,9 +2,26 @@
 title: "Default Entity Types"
 description: "Learn about the default entity types in LITIENGINE - Entity, CollisionEntity, CombatEntity, Creature, Prop, and their hierarchies."
 keywords: ["LITIENGINE", "entity types", "Creature", "Prop", "CollisionEntity", "CombatEntity", "Java"]
+tags: ["creature", "prop", "emitter", "lightsource", "spawnpoint", "entity types"]
 ---
 
 # Default Entity Types
+
+## 📊 Master Entity Blueprint Matrix
+
+Choose the optimal entity type for your game objects:
+
+| Entity Type | Purpose / Use Case | Default Collision | Key Annotations | utiLITI Object Type | Key Lifecycle Events |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **`Creature`** | Living characters, NPCs, enemies, players | ✅ Yes (Dynamic box) | `@EntityInfo`, `@MovementInfo`, `@CombatInfo`, `@CollisionInfo` | `CREATURE` | `onMoved`, `onHit`, `onDeath`, `onStateChanged` |
+| **`Prop`** | Interactive/static map objects (chests, trees, pots) | ⚙️ Configurable | `@EntityInfo`, `@CollisionInfo` | `PROP` | `onHit`, `onStateChanged`, `onDamaged` |
+| **`Trigger`** | Invisible event zones (doors, cutscenes, teleporters) | ❌ Sensor only | `@EntityInfo` | `TRIGGER` | `onActivated`, `onDeactivated` |
+| **`Emitter`** | Particle sources (fire, weather, explosions) | ❌ None | `@EntityInfo` | `EMITTER` | `onSpawned`, `onParticleFinished` |
+| **`LightSource`** | Dynamic/static ambient lights & torches | ❌ None | `@EntityInfo` | `LIGHTSOURCE` | `onToggled`, `onColorChanged` |
+| **`Spawnpoint`** | Level entry points and entity spawn markers | ❌ None | `@EntityInfo` | `SPAWNPOINT` | `onSpawned` |
+| **`CollisionEntity`** | Invisible collision barrier / impassable wall | ✅ Static Solid | `@CollisionInfo` | `COLLISIONBOX` | `onCollision` |
+
+---
 
 LITIENGINE provides a hierarchy of built-in entity types. Each type builds upon the previous, adding more functionality.
 

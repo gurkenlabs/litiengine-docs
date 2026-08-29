@@ -1,146 +1,119 @@
 ---
-title: "Savegames & Persistence"
-description: "Learn how to serialize and persist player progress, inventory, and game state using JSON and safe cross-platform file paths."
-keywords: ["LITIENGINE", "savegames", "persistence", "JSON", "save file", "serialization", "AppData", "Java"]
+title: "Savegames & State Persistence"
+description: "Architecture guide for serializing player stats, inventory, quest progress, and environment states into JSON or binary save files."
+keywords: ["LITIENGINE", "save game", "persistence", "serialization", "json", "load game", "state", "game state"]
+tags: ["save game", "persistence", "serialization", "json", "load game", "state"]
 ---
 
-# Savegames & Persistence
+# Savegames & State Persistence
 
-Saving and loading player progress is essential for adventure games, RPGs, and high-score arcade titles. LITIENGINE provides full flexibility to structure and store save states using lightweight **JSON** serialization.
-
-```mermaid
-flowchart LR
-    GameState["Game State
-(Level, Spawn, Stats, Inventory)"] --> JSON["JSON Serializer
-(Jakarta JSON / Parsson)"]
-    JSON --> File["Save File (.json)
-(%APPDATA% / User Home)"]
-    File --> Loader["JSON Parser
-(readObject)"]
-    Loader --> GameState
-```
+Building a robust save system in LITIENGINE involves serializing transient game data (player health, coordinates, inventory, and environment flags) into a persistent format (such as JSON or binary files) and restoring that state into an active `Environment`.
 
 ---
 
-## 1. Creating the Save Data Model
+## 1. Defining the Save Data Model
 
-Define a clean, serializable Java class holding your game snapshot:
+Use structured POJOs / Records to represent persistent game state:
 
-```java
+```java title="src/main/java/com/example/game/save/SaveData.java" linenums="1"
+package com.example.game.save;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GameSaveData implements Serializable {
+public class SaveData implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  private String currentMap = "level1";
-  private double playerX = 100.0;
-  private double playerY = 150.0;
-  private int playerHealth = 100;
-  private int score = 0;
-  private List<String> inventoryItems = new ArrayList<>();
+  // Metadata
+  public String saveSlotName = "Slot 1";
+  public long timestamp = System.currentTimeMillis();
+  public String currentMapName = "level1";
 
-  public GameSaveData() {}
+  // Player State
+  public double playerX = 100.0;
+  public double playerY = 150.0;
+  public int playerHealth = 100;
+  public int playerMaxHealth = 100;
+  public int gold = 0;
+  public List<String> inventoryItems = new ArrayList<>();
 
-  // Getters & Setters
-  public String getCurrentMap() { return currentMap; }
-  public void setCurrentMap(String currentMap) { this.currentMap = currentMap; }
-
-  public double getPlayerX() { return playerX; }
-  public void setPlayerX(double playerX) { this.playerX = playerX; }
-
-  public double getPlayerY() { return playerY; }
-  public void setPlayerY(double playerY) { this.playerY = playerY; }
-
-  public int getPlayerHealth() { return playerHealth; }
-  public void setPlayerHealth(int playerHealth) { this.playerHealth = playerHealth; }
-
-  public int getScore() { return score; }
-  public void setScore(int score) { this.score = score; }
-
-  public List<String> getInventoryItems() { return inventoryItems; }
-  public void setInventoryItems(List<String> items) { this.inventoryItems = items; }
+  // World Progress Flags
+  public List<String> defeatedBosses = new ArrayList<>();
+  public List<String> openedChests = new ArrayList<>();
 }
 ```
 
 ---
 
-## 2. Safe Cross-Platform Storage Directory
+## 2. Implementing the Save/Load Controller
 
-Never write save files directly into the installation folder (which may be read-only in Program Files or macOS app bundles). Use the user's local application data directory:
+Save and load state to the user's application directory:
 
-```java
-import java.io.File;
+```java title="src/main/java/com/example/game/save/SaveManager.java" linenums="1"
+package com.example.game.save;
+
+import de.gurkenlabs.litiengine.Game;
+import de.gurkenlabs.litiengine.entities.Creature;
+import de.gurkenlabs.litiengine.entities.Prop;
+import java.io.*;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-public final class SaveManager {
-  private static final String GAME_FOLDER = ".mygame";
+public class SaveManager {
+  private static final String SAVE_FOLDER = "saves/";
 
-  public static Path getSaveDirectory() {
-    String os = System.getProperty("os.name").toLowerCase();
-    String baseDir;
-
-    if (os.contains("win")) {
-      baseDir = System.getenv("APPDATA");
-      if (baseDir == null) {
-        baseDir = System.getProperty("user.home");
+  public static void saveGame(String fileName, Creature player) {
+    try {
+      Path folder = Paths.get(SAVE_FOLDER);
+      if (!Files.exists(folder)) {
+        Files.createDirectories(folder);
       }
-    } else if (os.contains("mac")) {
-      baseDir = System.getProperty("user.home") + "/Library/Application Support";
-    } else {
-      // Linux / Unix standard XDG directory
-      baseDir = System.getProperty("user.home") + "/.local/share";
-    }
 
-    File dir = new File(baseDir, GAME_FOLDER);
-    if (!dir.exists()) {
-      dir.mkdirs();
-    }
-    return dir.toPath();
-  }
-}
-```
+      SaveData data = new SaveData();
+      data.currentMapName = Game.world().environment().getMap().getName();
+      data.playerX = player.getX();
+      data.playerY = player.getY();
+      data.playerHealth = player.getHitPoints();
 
----
+      // Write binary serialized file (or JSON via Jackson/Gson)
+      try (ObjectOutputStream oos = new ObjectOutputStream(
+             new FileOutputStream(SAVE_FOLDER + fileName))) {
+        oos.writeObject(data);
+      }
 
-## 3. Saving & Loading Game State
-
-Use Jakarta JSON (bundled in LITIENGINE) or `JsonUtilities` to write and read save data:
-
-```java
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.nio.file.Path;
-import jakarta.json.bind.Jsonb;
-import jakarta.json.bind.JsonbBuilder;
-
-public final class SaveManager {
-  private static final Jsonb jsonb = JsonbBuilder.create();
-
-  public static void saveGame(String slotName, GameSaveData data) {
-    Path saveFile = getSaveDirectory().resolve(slotName + ".json");
-    try (FileWriter writer = new FileWriter(saveFile.toFile())) {
-      jsonb.toJson(data, writer);
-      System.out.println("Saved progress to: " + saveFile);
+      System.out.println("Game saved successfully to " + fileName);
     } catch (IOException e) {
       e.printStackTrace();
     }
   }
 
-  public static GameSaveData loadGame(String slotName) {
-    Path saveFile = getSaveDirectory().resolve(slotName + ".json");
-    if (!saveFile.toFile().exists()) {
-      return null;
+  public static void loadGame(String fileName, Creature player) {
+    File saveFile = new File(SAVE_FOLDER + fileName);
+    if (!saveFile.exists()) {
+      System.err.println("Save file does not exist: " + fileName);
+      return;
     }
 
-    try (FileReader reader = new FileReader(saveFile.toFile())) {
-      return jsonb.fromJson(reader, GameSaveData.class);
-    } catch (IOException e) {
+    try (ObjectInputStream ois = new ObjectInputStream(
+           new FileInputStream(saveFile))) {
+      SaveData data = (SaveData) ois.readObject();
+
+      // 1. Load the recorded map environment
+      Game.world().loadEnvironment(data.currentMapName);
+
+      // 2. Restore player coordinates & stats
+      player.setLocation(data.playerX, data.playerY);
+      player.setHitPoints(data.playerHealth);
+
+      // 3. Add player to the newly loaded environment
+      Game.world().environment().add(player);
+      Game.world().camera().setFocus(player);
+
+      System.out.println("Game state loaded from " + fileName);
+    } catch (Exception e) {
       e.printStackTrace();
-      return null;
     }
   }
 }
@@ -148,24 +121,25 @@ public final class SaveManager {
 
 ---
 
-## 4. Restoring the World State
+## 3. Restoring Map Entities & Opened Chests
 
-When loading a savegame, re-apply the saved state to the active environment and player entity:
+To prevent chests from closing or dead bosses from respawning when reloading an environment:
 
 ```java
-public static void applySave(GameSaveData save) {
-  if (save == null) return;
-
-  // 1. Switch to the saved level
-  Game.world().loadEnvironment(save.getCurrentMap());
-
-  // 2. Position the player entity
-  IEntity player = Game.world().environment().get("player");
-  if (player instanceof Creature creature) {
-    creature.setLocation(save.getPlayerX(), save.getPlayerY());
+// On environment loaded callback:
+Game.world().onLoaded(env -> {
+  for (String chestId : currentSaveData.openedChests) {
+    Prop chest = env.getProp(chestId);
+    if (chest != null) {
+      chest.setHitPoints(0); // Mark chest as opened/looted
+    }
   }
-
-  // 3. Center camera
-  Game.world().camera().setFocus(save.getPlayerX(), save.getPlayerY());
-}
+});
 ```
+
+---
+
+## 4. Best Practices for Game Saves
+
+!!! tip "Atomic File Writing"
+    Write save data to a temporary file (`save1.tmp`) before renaming it to `save1.dat`. This ensures that if the game crashes or is closed mid-save, the player's existing save file is never corrupted.

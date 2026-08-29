@@ -2,6 +2,7 @@
 title: "Triggers"
 description: "Learn how to use Trigger entities in LITIENGINE to create area-based events and scripting."
 keywords: ["LITIENGINE", "trigger", "area", "event", "activate", "scripting", "Java"]
+tags: ["triggers", "zone", "collision trigger", "doors", "switches", "cutscene"]
 ---
 
 # Triggers

@@ -2,6 +2,7 @@
 title: "2D Physics"
 description: "Documentation of LITIENGINE's physics engine."
 keywords: ["LITIENGINE", "physics", "movement", "collision", "entities", "listeners"]
+tags: ["physics", "collision", "gravity", "quadtree", "raycast", "hitbox", "sliding"]
 ---
 
 # 2D Physics

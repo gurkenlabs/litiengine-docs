@@ -2,6 +2,7 @@
 title: "Sound Engine"
 description: "Master 2D spatial audio, background music streaming, volume attenuation, and sound playback in LITIENGINE."
 keywords: ["LITIENGINE", "sound engine", "audio", "spatial audio", "music", "wav", "mp3", "ogg", "Game.audio"]
+tags: ["sound", "audio", "music", "spatial audio", "bgm", "sfx", "volume", "soundengine"]
 ---
 
 # Sound Engine
@@ -104,3 +105,66 @@ sfx_musicVolume=0.5
 
 * **[Resource Management](../resource-management/README.md)** - Loading sound resources into `.litidata`
 * **[Game World](game-world.md)** - Environment & entity locations
+
+---
+
+## 🎧 2D Spatial Audio & Audio Channel Mastering
+
+LITIENGINE's audio engine supports multi-bus volume controls and realistic 2D positional attenuation:
+
+### 1. Multi-Bus Volume Management
+
+Separate Master, Music (BGM), and Sound Effect (SFX) volumes in your audio settings:
+
+```java title="src/main/java/com/example/game/audio/AudioManager.java" linenums="1"
+package com.example.game.audio;
+
+import de.gurkenlabs.litiengine.Game;
+import de.gurkenlabs.litiengine.sound.Sound;
+import de.gurkenlabs.litiengine.sound.Track;
+import de.gurkenlabs.litiengine.resources.Resources;
+
+public class AudioManager {
+  private static float masterVolume = 1.0f;
+  private static float musicVolume = 0.8f;
+  private static float sfxVolume = 1.0f;
+
+  public static void setMasterVolume(float volume) {
+    masterVolume = Math.clamp(volume, 0.0f, 1.0f);
+    Game.audio().setMasterPlayback(masterVolume);
+  }
+
+  public static void playMusic(String trackName) {
+    Track musicTrack = Resources.tracks().get(trackName);
+    Game.audio().playMusic(musicTrack, true); // true = seamless loop
+  }
+
+  public static void playSound(String soundName) {
+    Sound sound = Resources.sounds().get(soundName);
+    Game.audio().playSound(sound, false, 1, sfxVolume * masterVolume);
+  }
+}
+```
+
+### 2. Positional 2D Spatial Sound (Distance Attenuation)
+
+Play audio centered at specific world coordinates or attached to moving entities. As the player moves away from the sound source, volume attenuates naturally:
+
+```java
+// Play positional explosion sound originating from a barrel entity
+Game.audio().playSound(
+    Resources.sounds().get("explosion.ogg"),
+    barrelEntity.getCenter(),
+    false // do not loop
+);
+
+// Continuous spatial hum originating from a generator prop
+Game.audio().playSound(
+    Resources.sounds().get("generator_hum.ogg"),
+    generatorProp,
+    true // loop continuously
+);
+```
+
+!!! tip "Spatial Sound Range"
+    By default, LITIENGINE computes attenuation based on the distance between the sound origin and the active `Camera` center. Ensure your player entity is tracked by the camera using `Game.world().camera().setFocus(player)`.

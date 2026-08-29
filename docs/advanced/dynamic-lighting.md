@@ -2,6 +2,7 @@
 title: "Dynamic Lighting"
 description: "Learn how to use dynamic lighting in LITIENGINE with LightSource entities to create atmospheric illumination effects."
 keywords: ["LITIENGINE", "dynamic lighting", "light source", "ambient", "shadow", "Java"]
+tags: ["lighting", "darkness", "ambient light", "shadows", "torch", "lightsource"]
 ---
 
 # Dynamic Lighting
