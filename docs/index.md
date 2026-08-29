@@ -114,7 +114,7 @@ Add LITIENGINE to your project build configuration:
 
 ### Your First Game in 15 Lines
 
-```java
+```java title="src/main/java/com/example/game/Program.java" linenums="1"
 package com.example.game;
 
 import de.gurkenlabs.litiengine.Game;
@@ -122,16 +122,22 @@ import de.gurkenlabs.litiengine.resources.Resources;
 
 public class Program {
   public static void main(String[] args) {
-    Game.info().setName("My First LITIENGINE Game");
+    Game.info().setName("My First LITIENGINE Game"); // (1)!
     Game.info().setVersion("v1.0.0");
 
-    Game.init(args);
-    Resources.load("game.litidata");
-    Game.world().loadEnvironment("level1");
-    Game.start();
+    Game.init(args); // (2)!
+    Resources.load("game.litidata"); // (3)!
+    Game.world().loadEnvironment("level1"); // (4)!
+    Game.start(); // (5)!
   }
 }
 ```
+
+1. Sets application metadata displayed in window title bars and logger outputs.
+2. Initializes the graphics canvas, physics quadtrees, audio playback, and input devices.
+3. Loads the binary asset archive containing maps, spritesheets, and sounds.
+4. Initializes the environment and binds entities to the physics world.
+5. Launches the decoupled 60 FPS update loop and rendering tick threads.
 
 ---
 

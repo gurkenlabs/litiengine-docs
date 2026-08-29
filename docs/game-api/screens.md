@@ -58,7 +58,7 @@ public class TestScreen extends GameScreen {
 
 Here is a complete, runnable `GameOverScreen` with animated text rendering and keyboard restart input:
 
-```java
+```java title="src/main/java/com/example/game/screens/GameOverScreen.java" linenums="1"
 package com.example.game.screens;
 
 import de.gurkenlabs.litiengine.Game;

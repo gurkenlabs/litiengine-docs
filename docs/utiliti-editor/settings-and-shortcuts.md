@@ -63,20 +63,20 @@ Access the application preferences by selecting **File -> Settings...** or press
 ### File & Project
 | Action | Windows / Linux | macOS |
 | :--- | :--- | :--- |
-| **New Project** | `Ctrl + N` | `Cmd + N` |
-| **Open Project** | `Ctrl + O` | `Cmd + O` |
-| **Save Project** | `Ctrl + S` | `Cmd + S` |
+| **New Project** | `<kbd>Ctrl</kbd> + <kbd>N</kbd>` | `Cmd + N` |
+| **Open Project** | `<kbd>Ctrl</kbd> + <kbd>O</kbd>` | `Cmd + O` |
+| **Save Project** | `<kbd>Ctrl</kbd> + <kbd>S</kbd>` | `Cmd + S` |
 | **Exit** | `Ctrl + Q` | `Cmd + Q` |
 
 ### Edit & Viewport
 | Action | Windows / Linux | macOS |
 | :--- | :--- | :--- |
-| **Undo** | `Ctrl + Z` | `Cmd + Z` |
-| **Redo** | `Ctrl + Y` | `Cmd + Y` |
+| **Undo** | `<kbd>Ctrl</kbd> + <kbd>Z</kbd>` | `Cmd + Z` |
+| **Redo** | `<kbd>Ctrl</kbd> + <kbd>Y</kbd>` | `Cmd + Y` |
 | **Cut** | `Ctrl + X` | `Cmd + X` |
 | **Copy** | `Ctrl + C` | `Cmd + C` |
 | **Paste** | `Ctrl + V` | `Cmd + V` |
-| **Delete Selection** | `Delete` | `Backspace` |
+| **<kbd>Delete</kbd> Selection** | `<kbd>Delete</kbd>` | `Backspace` |
 | **Select All** | `Ctrl + A` | `Cmd + A` |
 | **Deselect** | `Ctrl + D` | `Cmd + D` |
 | **Quick Search Palette** | `Ctrl + P` | `Cmd + P` |
@@ -93,7 +93,7 @@ Access the application preferences by selecting **File -> Settings...** or press
 | **Zoom In** | `Ctrl + +` | `Cmd + +` |
 | **Zoom Out** | `Ctrl + -` | `Cmd + -` |
 | **Center on Selection** | `Space` | `Space` |
-| **Center on Map** | `Ctrl + Space` | `Cmd + Space` |
+| **Center on Map** | `<kbd>Ctrl</kbd> + <kbd>S</kbd>pace` | `Cmd + Space` |
 
 ### Add Entities
 | Action | Windows / Linux | macOS |
@@ -115,7 +115,7 @@ Access the application preferences by selecting **File -> Settings...** or press
 | **Run Project** | `Shift + F10` | `Shift + F10` |
 | **Debug Project** | `Shift + F9` | `Shift + F9` |
 | **Stop Project** | `Ctrl + F2` | `Cmd + F2` |
-| **Save Script** | `Ctrl + S` | `Cmd + S` |
+| **Save Script** | `<kbd>Ctrl</kbd> + <kbd>S</kbd>` | `Cmd + S` |
 | **Format Code** | `Ctrl + Alt + F` | `Cmd + Opt + F` |
 | **Compile Script** | `Ctrl + F9` | `Cmd + F9` |
 | **Reload Script** | `Ctrl + R` | `Cmd + R` |

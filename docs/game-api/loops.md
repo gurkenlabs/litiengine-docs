@@ -6,6 +6,29 @@ keywords: ["LITIENGINE", "game loop", "update", "render", "tick", "IUpdateable",
 
 # Game Loop
 
+## Decoupled Update vs. Render Loop Architecture
+
+```mermaid
+sequenceDiagram
+    autonumber
+    participant Engine as GameLoop (60 Hz Fixed)
+    participant Phys as PhysicsEngine & Entities
+    participant Render as RenderEngine (Variable / VSync)
+    participant Screen as GameScreen / HUD
+
+    loop Every 16.6 ms (Fixed Tick)
+        Engine->>Phys: update() (Entity controllers, AI, velocities)
+        Phys->>Phys: resolveCollisions() (Spatial quadtree)
+    end
+
+    loop Every Frame (Render Tick)
+        Render->>Screen: render(Graphics2D g) (Double-buffered canvas)
+        Screen->>Render: draw layers (Background -> Ground -> Entities -> Overlay)
+    end
+```
+
+---
+
 LITIENGINE uses a decoupled loop architecture where deterministic game logic (UPS) and rendering (FPS) run in coordinated harmony:
 
 ```mermaid

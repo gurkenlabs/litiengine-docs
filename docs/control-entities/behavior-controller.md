@@ -201,11 +201,26 @@ public class WalkAroundState extends EntityState<Creature> {
 
 The `WalkAroundState` waits for 3000 milliseconds and then changes the walking direction randomly. Right now, there are no conditions defined to return from the `WalkAroundState` to the `FollowPathState`. Try to come up with ideas for that and implement the transitions in the `RatController`!
 
+## AI State Machine Lifecycle Diagram
+
+The state transitions of our enemy AI can be visualized with this state diagram:
+
+```mermaid
+stateDiagram-v2
+    [*] --> Patrol
+    Patrol --> Chase: Player within 150px
+    Chase --> Attack: Player within 30px
+    Attack --> Chase: Player moves away (>= 30px)
+    Chase --> Patrol: Player escapes (> 250px)
+```
+
+---
+
 ## Implementing an AI State Machine
 
 Below is a complete, runnable enemy AI state machine implementing a 3-state lifecycle (**Patrol** &rarr; **Chase** &rarr; **Attack**):
 
-```java
+```java title="src/main/java/com/example/game/ai/EnemyAIController.java" linenums="1"
 package com.example.game.ai;
 
 import de.gurkenlabs.litiengine.Game;
