@@ -30,3 +30,11 @@ To make sure the JDK got installed correctly, open the `New Project` dialogue an
 > If you're on linux or mac, you can also use [SKDMAN!](https://sdkman.io/) to manager your JDK installation . Once you've installed sdk man, type `sdk install java` in your terminal. The latest recommend JDK will be installed automatically for you. It should be registered in your IDE after you restart it. For further information look up the [SDKMAN! Docs](https://sdkman.io/usage).
 
 ![intellij-picker](../images/intellij_picker.png)
+
+## macOS & Apple Silicon Notes
+
+When developing on macOS (Sonoma, Ventura, Sequoia with M1/M2/M3/M4 Apple Silicon):
+
+* **Java Baseline**: Use an **AArch64 (ARM64)** build of OpenJDK 21 or GraalVM (e.g. Eclipse Temurin or via SDKMAN: `sdk install java 21-tem`).
+* **Foreign Memory Access (Input4j)**: LITIENGINE automatically manages Panama FFM bindings on macOS for low-latency gamepad and keyboard polling.
+* **utiLITI UI on Retina Displays**: If text appears tiny on high-DPI displays, Swing UI scaling is automatically adjusted by the JVM. You can explicitly set `-Dsun.java2d.uiScale=2.0` in your IDE run configuration if needed.

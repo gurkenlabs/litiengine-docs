@@ -43,3 +43,25 @@ Input.gamepads().onPressed((button, value) -> {
 });
 ```
 
+## Temporarily Locking Input (Dialogues & Cutscenes)
+
+When entering cutscenes, modal dialogues, or pause menus, you can temporarily disable device polling without unregistering individual listeners:
+
+```java
+// 1. Lock all player input
+Input.keyboard().stop();
+Input.mouse().stop();
+if (Input.gamepads() != null) {
+  Input.gamepads().current().stop();
+}
+
+// 2. Resume player input when cutscene or dialogue finishes
+Input.keyboard().start();
+Input.mouse().start();
+if (Input.gamepads() != null) {
+  Input.gamepads().current().start();
+}
+```
+
+!!! tip "Screen-Level Input Routing"
+    Alternatively, using `ScreenManager` and modal `Screen` implementations will automatically isolate GUI component input events from gameplay entity controllers.

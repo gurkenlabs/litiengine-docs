@@ -53,3 +53,43 @@ Game.world().environment().addEntityListener(new EnvironmentEntityListener(){
 
 !!! tip "Entity Tag Caching"
     Use `environment.getEntitiesByTag("enemy")` to efficiently query collections of entities instead of filtering through `environment().getAll()` on every frame.
+
+## Code-Only Environments (Procedural Maps without utiLITI)
+
+You can build and run games completely in code without creating `.tmx` maps or using the utiLITI visual editor:
+
+```java
+package com.example.game;
+
+import de.gurkenlabs.litiengine.Game;
+import de.gurkenlabs.litiengine.entities.Creature;
+import de.gurkenlabs.litiengine.entities.Prop;
+import de.gurkenlabs.litiengine.environment.Environment;
+import de.gurkenlabs.litiengine.environment.tilemap.xml.TmxMap;
+import java.awt.Color;
+
+public class ProceduralWorld {
+  public static void generateDungeon() {
+    // 1. Create a blank in-memory map (e.g. 50x50 tiles, 16x16 pixels per tile)
+    TmxMap proceduralMap = new TmxMap();
+    proceduralMap.setWidth(50);
+    proceduralMap.setHeight(50);
+    proceduralMap.setTileWidth(16);
+    proceduralMap.setTileHeight(16);
+
+    // 2. Wrap into an Environment
+    Environment env = new Environment(proceduralMap);
+
+    // 3. Add entities programmatically
+    Prop pillar = new Prop("rock");
+    pillar.setLocation(100, 100);
+    env.add(pillar);
+
+    // 4. Set ambient lighting
+    env.getAmbientLight().setColor(new Color(20, 25, 40, 200));
+
+    // 5. Activate environment in GameWorld
+    Game.world().loadEnvironment(env);
+  }
+}
+```

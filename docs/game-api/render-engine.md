@@ -72,3 +72,37 @@ For more information, read the [Official Java Documentation on Graphics2D](https
 
 !!! warning "Rendering Lifecycle Rule"
     Never invoke `Graphics2D` draw calls directly outside of the render pipeline (`IRenderable.render(Graphics2D g)` or `Screen.render(Graphics2D g)`). Doing so disrupts double-buffering and causes viewport tearing.
+
+## Text and Font Rendering (`TextRenderer`)
+
+LITIENGINE provides the static `TextRenderer` utility to render crisp strings, multiline text, alignments, and high-visibility outlines:
+
+```java
+package com.example.game.rendering;
+
+import de.gurkenlabs.litiengine.Align;
+import de.gurkenlabs.litiengine.Valign;
+import de.gurkenlabs.litiengine.graphics.TextRenderer;
+import de.gurkenlabs.litiengine.resources.Resources;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Graphics2D;
+
+public class CustomHudRenderer {
+  public static void drawHud(Graphics2D g) {
+    // 1. Set active font and color
+    Font pixelFont = Resources.fonts().get("fonts/pixel.ttf", 16f);
+    g.setFont(pixelFont);
+    g.setColor(Color.WHITE);
+
+    // 2. Simple text at pixel coordinates
+    TextRenderer.render(g, "Score: 1250", 20, 30);
+
+    // 3. Text with High-Contrast Outline (great for floating damage / HUD)
+    TextRenderer.renderWithOutline(g, "BOSS INCOMING!", 400, 100, Color.BLACK);
+
+    // 4. Centered / Aligned Text within a bounding area
+    TextRenderer.render(g, "PAUSED", 0, 200, Align.CENTER, Valign.MIDDLE);
+  }
+}
+```

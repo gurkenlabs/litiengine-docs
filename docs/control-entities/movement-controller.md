@@ -184,3 +184,39 @@ entity.movement().clearForces();
 - [Entity Controllers](entity-controllers.md) - Controller overview
 - [Physics Engine](../game-api/physics-engine.md) - Collision and physics
 - [Behavior Controller](behavior-controller.md) - AI movement
+
+## A* Pathfinding and Navigation (`EntityNavigator`)
+
+To navigate an enemy creature around map obstacles and collision boxes automatically, use `EntityNavigator` with `AStarPathFinder`:
+
+```java
+package com.example.game.ai;
+
+import de.gurkenlabs.litiengine.Game;
+import de.gurkenlabs.litiengine.entities.Creature;
+import de.gurkenlabs.litiengine.entities.behavior.AStarPathFinder;
+import de.gurkenlabs.litiengine.entities.behavior.EntityNavigator;
+import java.awt.geom.Point2D;
+
+public class EnemyNavigator {
+  private final EntityNavigator navigator;
+
+  public EnemyNavigator(Creature enemy) {
+    // 1. Create an A* pathfinder bound to the active environment
+    AStarPathFinder pathFinder = new AStarPathFinder(Game.world().environment());
+
+    // 2. Attach navigator to enemy creature
+    this.navigator = new EntityNavigator(enemy, pathFinder);
+
+    // 3. Callback when destination is reached
+    this.navigator.onTargetReached(nav -> {
+      System.out.println("Enemy reached target checkpoint!");
+    });
+  }
+
+  public void moveTo(Point2D targetLocation) {
+    // Computes A* path around collision geometry and moves creature
+    navigator.navigate(targetLocation);
+  }
+}
+```
