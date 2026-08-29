@@ -6,7 +6,7 @@ meta.keywords: LITIENGINE, prop, entities, entity, custom, register, mapobject, 
 # Props
 Creating props is among the most frequent things you're going to be doing with LITIENGINE. 
 
-![prop-demonstration](/entity-framework/img/prop-demonstration.gif)
+![prop-demonstration](img/prop-demonstration.gif)
 
 Let us first show you a simple example of creating a box to decorate your map. After we've created the box, we will show you how you can enhance the standard Prop implementation with custom logic.
 
@@ -15,51 +15,51 @@ Make sure to name the spritesheet `prop-box`. The `prop-` part is called a `spri
 ## Importing a prop spritesheet
 In the top toolbar, use `Resources -> Import -> Sprites...` to open the Spritesheet import dialogue.
 
-![prop-spritesheet-import](/entity-framework/img/prop-spritesheet-import.png)
+![prop-spritesheet-import](img/prop-spritesheet-import.png)
 
 In the dialogue, edit the sprite dimensions. This step is important if your spritesheet is an animation with more than one frame. For this box example, we are using a non-animated one-frame spritesheet. 
 
-![prop-spritesheet-edit](/entity-framework/img/prop-spritesheet-edit.png)
+![prop-spritesheet-edit](img/prop-spritesheet-edit.png)
 
 Confirm your changes and you will see that the spritesheet is now added to the Resources tab:
 
-![prop-spritesheet-resourceview](/entity-framework/img/prop-spritesheet-resourceview.png)
+![prop-spritesheet-resourceview](img/prop-spritesheet-resourceview.png)
 
 ## Adding props to a map
 Create an object layer on your map to store all Props. We will simply call this `props`, but you can of course get as detailed as you want with layer naming. Then select the layer to add objects to it.
 
-![prop-layer](/entity-framework/img/prop-layer.png)
+![prop-layer](img/prop-layer.png)
 
 ### Adding props from the right-click menu / via shortcut
 You can right-click anywhere on the map view to open the `Add...` dialogue that lets you place props. This is equivalent to simply hitting `Ctrl + 1`. 
 
-![prop-add-rightclick](/entity-framework/img/prop-add-rightclick.png)
+![prop-add-rightclick](img/prop-add-rightclick.png)
 
 You are now in add mode and can left-click + drag a rectangle on the map that will be your prop object's bounding box.
 
-![prop-add-boundingbox](/entity-framework/img/prop-add-boundingbox.png)
+![prop-add-boundingbox](img/prop-add-boundingbox.png)
 
 Once you release the mouse button, the object will be created.
 Now, select the correct spritesheet from the `Sprite` dropdown menu.
 
-![prop-add-spriteselect](/entity-framework/img/prop-add-spriteselect.png)
+![prop-add-spriteselect](img/prop-add-spriteselect.png)
 
 You've created your first Prop! To make sure its collision behaves correctly, go to the `Collision` tab and adjust the collision box dimensions. Or just deactivate collision entirely - it's up to you!
 
-![prop-add-collision](/entity-framework/img/prop-add-collision.png)
+![prop-add-collision](img/prop-add-collision.png)
 
 
 ### Adding props from the resources tab
 There is an even more convenient way to add props! You can just add them directly from the resources tab by selecting a prop spritesheet and then hitting the little `+` button below:
 
-![prop-add-direct](/entity-framework/img/prop-add-direct.png)
+![prop-add-direct](img/prop-add-direct.png)
 
 On the currently selected object layer, this will magically create a new object that already has its bounding box and spritesheet preconfigured.
 
 ## Behold! A box!
 Once you've added the prop object and configured it to your liking, you're done! Save your map, load up the game, and marvel at our glorious box:
 
-![prop-ingame](/entity-framework/img/prop-ingame.png)
+![prop-ingame](img/prop-ingame.png)
 
 The box will be loaded from the Map as an instance of the `de.gurkenlabs.litiengine.entities.Prop` class. I.e., the box can be animated, has collision, and can be damaged in combat.
 
@@ -105,4 +105,4 @@ During early initialization of your game (usually even before `Game.init()` in t
 
 With the example implementation above, we can see the hitboxes of our props rendered. Of course, this is just a trivial example to demonstrate the concept of custom props. Experiment with custom prop types to add Emitters, interaction, sounds, or whatever you come up with!
 
-![prop-custom-ingame](/entity-framework/img/prop-custom-ingame.png)
+![prop-custom-ingame](img/prop-custom-ingame.png)

@@ -21,7 +21,7 @@ Currently, there is no built-in LITIENGINE support for any IDE but for future re
 If you've chosen Eclipse as your IDE, you need to set up a workspace before launching it. Even if your IDE usually will detect a Java runtime when it's installed in the standard location, you should double-check that your IDE is aware of the correct path to the Java runtime.
 To do this in Eclipse, unfold `Java` in the `Preferences` menu. Double click the `Installed JREs`, and click `Add`. Select `Standard VM` and go next. Click the `Directory...` button and find the JDK folder that you installed. Click `Finish` and `Apply and Close`. Now you are ready to use Eclipse for developing Java applications.
 
-![eclipse-download-5](/getting-started/img/eclipse_download_5.png)
+![eclipse-download-5](img/eclipse_download_5.png)
 
 ### IntelliJ IDEA
 To make sure the JDK got installed correctly, open the `New Project` dialogue and expand the `JDK` dropdown menu. If you see your installed JDK in the list, you're set. If you don't, you have to click on the `Add JDK...` button. A file picker dialogue will open, choose your JDK folder there.
