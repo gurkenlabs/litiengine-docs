@@ -56,7 +56,7 @@ Write hot-reloadable game logic directly in **utiLITI** or external scripts:
 | **[Ability Framework](ability-framework.md)** | Implement cooldown-driven spells, attacks, effects, and area-of-effect abilities. |
 | **[Java & Groovy Scripting](scripting.md)** | Write interactive scripts that run dynamically inside the engine. |
 | **[Script-Only Game Architecture](script-only-games.md)** | Build full LITIENGINE games using scripts and utiLITI without custom Java builds. |
-| **[Script Types Guide](script-types-guide.md)** | Deep dive into `GameScript`, `EnvironmentScript`, and `EntityScript`. |
+| **[Script Types Guide](scripting.md)** | Deep dive into `GameScript`, `EnvironmentScript`, and `EntityScript`. |
 | **[Combat & Action Scripting](combat-scripting.md)** | Script damage handlers, health bars, weapon swings, and projectile mechanics. |
 
 ## Quick Example: Attaching a Custom Controller

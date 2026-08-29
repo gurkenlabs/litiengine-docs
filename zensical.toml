@@ -61,8 +61,7 @@ nav = [
             { "Ability Framework" = "control-entities/ability-framework.md" },
             { "Java & Groovy Scripting" = "control-entities/scripting.md" },
             { "Script-Only Games" = "control-entities/script-only-games.md" },
-            { "Script Types Guide" = "control-entities/script-types-guide.md" },
-            { "Combat Scripting" = "control-entities/combat-scripting.md" },
+                        { "Combat Scripting" = "control-entities/combat-scripting.md" },
         ] },
         { "User Interface" = [
             "user-interface/README.md",

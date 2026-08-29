@@ -133,6 +133,6 @@ trigger1.onActivated(e -> {
 
 ## See Also
 
-- [Messaging System](../../control-entities/messaging-system.md) - Entity communication
-- [Behavior Controllers](../../control-entities/behavior-controller.md) - AI scripting
-- [Map Objects](../../tile-maps/map-objects.md) - Placing entities
+- [Messaging System](../control-entities/messaging-system.md) - Entity communication
+- [Behavior Controllers](../control-entities/behavior-controller.md) - AI scripting
+- [Map Objects](../tile-maps/map-objects.md) - Placing entities
