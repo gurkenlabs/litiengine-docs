@@ -58,7 +58,7 @@ Quick answers to the most common questions about LITIENGINE, architecture, perfo
     **Yes.** LITIENGINE natively supports `.tmx` map files and `.tsx` tilesets exported from [Tiled Map Editor](https://www.mapeditor.org/). You can import `.tmx` maps directly into your `.litidata` projects in utiLITI.
 
 ??? question "Does LITIENGINE support scripting languages?"
-    Yes! LITIENGINE includes a dedicated multi-tier scripting engine supporting **Groovy** and **Java** with hot-reloading at runtime, plus Monaco editor integration inside utiLITI.
+    Yes! LITIENGINE includes a dedicated multi-tier scripting engine supporting **pure Java** with hot-reloading at runtime, plus Monaco editor integration inside utiLITI.
 
 ---
 

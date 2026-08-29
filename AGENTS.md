@@ -6,7 +6,7 @@ This repository contains the documentation for LITIENGINE, a free, open-source 2
 
 This is a **documentation-only repository**. The actual engine code lives at https://github.com/gurkenlabs/litiengine
 
-- **Language**: Markdown (with Java/Groovy code examples)
+- **Language**: Markdown (with Java code examples)
 - **Purpose**: Technical documentation for a 2D game engine library
 - **No build tools, package managers, or CI/CD configured**
 

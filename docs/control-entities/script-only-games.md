@@ -8,7 +8,7 @@ keywords: ["LITIENGINE", "script-only games", "GameScript", "EnvironmentScript",
 
 LITIENGINE allows developers to build entire games using pure scripts—without writing custom `Program.java` entry points, manual game loop setup, or standalone boilerplate classes.
 
-With the **3-tier scripting architecture** and the built-in `GameLauncher`, your entire game logic can live in modular, hot-reloadable Java or Groovy scripts authored directly in utiLITI or IntelliJ.
+With the **3-tier scripting architecture** and the built-in `GameLauncher`, your entire game logic can live in modular, hot-reloadable pure Java scripts authored directly in utiLITI or IntelliJ.
 
 ```text
  ┌──────────────────────────────────────────────────────────┐

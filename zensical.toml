@@ -59,7 +59,7 @@ nav = [
             { "Behavior Controller" = "control-entities/behavior-controller.md" },
             { "Messaging System" = "control-entities/messaging-system.md" },
             { "Ability Framework" = "control-entities/ability-framework.md" },
-            { "Java & Groovy Scripting" = "control-entities/scripting.md" },
+            { "Java Scripting" = "control-entities/scripting.md" },
             { "Script-Only Games" = "control-entities/script-only-games.md" },
                         { "Combat Scripting" = "control-entities/combat-scripting.md" },
         ] },

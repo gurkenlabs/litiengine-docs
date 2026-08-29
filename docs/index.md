@@ -64,7 +64,7 @@ keywords: ["LITIENGINE", "java", "game engine", "2D", "open source", "awt", "pan
 
     ---
 
-    Write game scripts, creature AI, and environment triggers in Groovy or Java with instant in-editor execution and live reload.
+    Write game scripts, creature AI, and environment triggers in pure Java with instant in-editor execution and live reload.
 
 - :material-volume-high: **Positional 2D Spatial Sound**
 

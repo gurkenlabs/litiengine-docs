@@ -1,7 +1,7 @@
 ---
 title: "Control Entities Overview"
-description: "Master entity control in LITIENGINE: controllers, animation, movement, AI behaviors, abilities, and modern Groovy/Java scripting."
-keywords: ["LITIENGINE", "controllers", "movement", "animation", "behavior", "AI", "scripting", "Groovy", "Java"]
+description: "Master entity control in LITIENGINE: controllers, animation, movement, AI behaviors, abilities, and modern Java scripting."
+keywords: ["LITIENGINE", "controllers", "movement", "animation", "behavior", "AI", "scripting", "Java"]
 ---
 
 # Control Entities
@@ -14,7 +14,7 @@ graph TD
   EC --> M["MovementController<br/><i>Physics & Input Forces</i>"]
   EC --> A["AnimationController<br/><i>Spritesheets & States</i>"]
   EC --> B["BehaviorController<br/><i>AI & State Trees</i>"]
-  EC --> S["Scripting Engine<br/><i>Groovy & Java Logic</i>"]
+  EC --> S["Scripting Engine<br/><i>Java Logic</i>"]
 ```
 
 ## The Four Control Paradigms
@@ -37,7 +37,7 @@ Structured spell, skill, and combat action system:
 
 * **`Ability`**: Modular spells or physical attacks with cooldowns, range checks, impact effects, and mana/resource costs.
 
-### 4. Modern Scripting Engine (Groovy & Java)
+### 4. Modern Scripting Engine (Java)
 Write hot-reloadable game logic directly in **utiLITI** or external scripts:
 
 * **Entity Scripts (`EntityScript`)**: Attach custom logic to individual entities without writing boilerplate Java classes.
