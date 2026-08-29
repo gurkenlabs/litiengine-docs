@@ -192,13 +192,13 @@ Configures entity locomotion:
 
 ## 4. Script Bindings Panel
 
-The **Scripts** section attaches Java or Groovy script components directly to map entities:
+The **Scripts** section attaches Java script components directly to map entities:
 
 ```text
 ┌─────────────────────────────────────────────────────────────┐
 │ Attached Scripts:                                    [ + ]  │
-│ ├ 1. [x] GoblinAI.groovy (Order: 1)                  [ - ]  │
-│ └ 2. [x] PatrolBehavior.groovy (Order: 2)            [ 🔍 ] │
+│ ├ 1. [x] GoblinAI.java (Order: 1)                  [ - ]  │
+│ └ 2. [x] PatrolBehavior.java (Order: 2)            [ 🔍 ] │
 ├─────────────────────────────────────────────────────────────┤
 │ Script Properties (GoblinAI):                               │
 │ │ Property     │ Type    │ Value                            │

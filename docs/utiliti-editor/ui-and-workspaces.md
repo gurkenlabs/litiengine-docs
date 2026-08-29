@@ -124,7 +124,7 @@ Located in the bottom-left panel, the **Asset Tree** organizes all loaded projec
 - `Emitters`: Particle effect presets.
 - `Sounds`: Sound effects and audio assets.
 - `Animations`: Custom frame sequences.
-- `Scripts`: Attached Java and Groovy script definitions.
+- `Scripts`: Attached Java script definitions.
 
 > **Drag-and-Drop Spawning:** You can drag any sprite or blueprint asset directly from the Asset Tree onto the map canvas to immediately instantiate a new `Prop` or `Creature` at that location.
 

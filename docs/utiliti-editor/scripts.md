@@ -1,7 +1,7 @@
 ---
 title: "Scripts in utiLITI"
-description: "Create, bind, configure, and reload Java and Groovy gameplay scripts with utiLITI and IntelliJ."
-keywords: ["utiLITI", "LITIENGINE", "scripts", "Groovy", "Java", "IntelliJ", "editor"]
+description: "Create, bind, configure, and reload Java gameplay scripts with utiLITI and IntelliJ."
+keywords: ["utiLITI", "LITIENGINE", "scripts", "Java", "IntelliJ", "editor"]
 ---
 
 # Scripts in utiLITI
@@ -11,13 +11,13 @@ utiLITI and your IDE work on the same project files. Script source is not embedd
 ## Recommended IntelliJ workflow
 
 1. Open the Gradle game project in IntelliJ.
-2. Put Java scripts in `src/main/java` or Groovy scripts in `src/main/groovy`.
+2. Put Java scripts in `src/main/java`.
 3. Build the project so utiLITI can discover compiled entities, abilities, and scripts.
 4. Open the same `.litidata` project in utiLITI.
 5. Select **Assets → Scripts** or choose the **Scripts** icon in the workspace rail.
 6. Create or edit the script definition and bind it to game content.
 7. Edit the implementation in IntelliJ or in utiLITI's source panel.
-8. Choose **Save & reload** to compile Groovy source and replace active preview instances.
+8. Choose **Save & reload** to compile Java source and replace active preview instances.
 
 Java implementations are loaded from the compiled project output. Rebuild the project in IntelliJ or Gradle before reloading Java code.
 
@@ -38,7 +38,7 @@ A definition connects a stable editor ID to source and an implementation class:
 | --- | --- |
 | ID | Stable value stored by bindings, such as `enemy.guard` |
 | Display name | Human-readable asset name |
-| Language | `groovy` for source compilation or `java` for precompiled classes |
+| Language | `java` for compiled classes |
 | Source | Project-relative source path |
 | Implementation | Fully qualified JVM class name |
 | Host | Game, environment, or entity lifecycle |
@@ -79,7 +79,7 @@ Game-level scripts are stored in the resource bundle. Environment scripts use th
 
 ## Configuring script properties (`@ScriptProperty`)
 
-You can expose tweakable variables and parameters from your Java or Groovy script directly to game and level designers in the utiLITI inspector without requiring code recompilation or map hardcoding.
+You can expose tweakable variables and parameters from your Java script directly to game and level designers in the utiLITI inspector without requiring code recompilation or map hardcoding.
 
 ### 1. Annotating fields in code
 
@@ -147,15 +147,15 @@ Reload is deliberately explicit:
 - Parameters are reapplied to fresh instances.
 - Script-local runtime state is reset.
 
-The diagnostics panel reports the script ID, source location, and failure message. Groovy syntax errors include line and column information.
+The diagnostics panel reports the script ID, source location, and failure message. Compilation diagnostics include line and column information.
 
 ## Opening code in an IDE
 
 The source path stored by a script definition is project-relative and maps directly to the file shown by IntelliJ. You can keep utiLITI open while coding and return to **Save & reload** when the project compiles.
 
-utiLITI discovers compiled classes from common Gradle, Maven, IntelliJ, and Eclipse output directories, including `build/classes/groovy/main`. This allows Java-only, Groovy, Kotlin, and mixed JVM projects to keep their normal build layout.
+utiLITI discovers compiled classes from common Gradle, Maven, IntelliJ, and Eclipse output directories, allowing standard Java projects to keep their normal build layout.
 
-The **Open in IDE** action delegates the source file to the configured operating-system editor. IntelliJ remains the recommended workflow for project-wide refactoring, debugging, Gradle tasks, and advanced Java/Groovy analysis.
+The **Open in IDE** action delegates the source file to the configured operating-system editor. IntelliJ remains the recommended workflow for project-wide refactoring, debugging, Gradle tasks, and advanced Java analysis.
 
 ## Completion and API documentation
 
@@ -164,7 +164,7 @@ The built-in source editor provides syntax highlighting, line numbers, folding, 
 - `host()`, `context()`, `environment()`, and static `Game` receivers.
 - The target declared by `@ScriptInfo`, including when resource metadata is stale.
 - `CreatureScript` and generic `EntityScript<T>` host types.
-- Explicit Java/Groovy local types and inferred `def` or `var` assignments.
+- Explicit Java local types and `var` assignments.
 - Chained return types such as `host().getCenter().getX()`.
 - Generic chains through collections, streams, optionals, and typed or inferred local variables.
 - Generic controller lookup results such as `host().getController(IMovementController.class).getVelocity()`.

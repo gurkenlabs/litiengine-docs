@@ -34,7 +34,7 @@ Development is currently focused on consolidating and stabilizing the engine's f
 * **Wang Tiles & Auto-Tiling**: Rule-based terrain autotiling and Wang tile pattern generation in the tileset inspector.
 
 ### 3. Scripting Engine & Hot-Reload Capabilities
-* 3-tier hot-reloadable scripting framework supporting both **Groovy** and **Java** across `GameScript`, `EnvironmentScript`, and `EntityScript`.
+* 3-tier hot-reloadable scripting framework supporting modular **Java** across `GameScript`, `EnvironmentScript`, and `EntityScript`.
 * Defensive lifecycle copying, fault-tolerant exception boundaries, and pause state synchronization across event bridges.
 
 ### 4. AI & Agent Tooling (MCP Server Integration)

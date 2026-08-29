@@ -14,7 +14,7 @@ utiLITI provides a built-in project execution and debugging environment, allowin
 
 Click the green **Run Project** button (`▶`) on the toolbar or press **`Shift + F10`**:
 
-1. **Automatic Build**: utiLITI invokes the project's build service to compile recent Java and Groovy sources.
+1. **Automatic Build**: utiLITI invokes the project's build service to compile recent Java sources.
 2. **Standalone Launch**: utiLITI starts the game process using `GameLauncher` (`de.gurkenlabs.litiengine.launch.GameLauncher`) or the project's configured Gradle `run` task.
 3. **Status Indicator**: The toolbar indicator displays real-time phase transitions:
    `Compiling` ➔ `Launching` ➔ `Running` (Green).
