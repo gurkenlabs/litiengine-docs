@@ -185,7 +185,7 @@ LITIENGINE is 100% free, independent, and open source. If LITIENGINE helps you b
 * 💖 **[Open Collective](https://opencollective.com/litiengine)** — Back the project and support ongoing development.
 * 🐙 **[GitHub Repository](https://github.com/gurkenlabs/litiengine)** — Report issues, request features, and contribute.
 * 💬 **[GitHub Discussions](https://github.com/gurkenlabs/litiengine/discussions)** — Ask questions, share progress, and chat with creators.
-* 📖 **[Javadocs](https://litiengine.com/api/)** — Browse the complete class and method API documentation.
+* 📖 **[API Quick Reference](getting-started/api-quick-reference.md)** — Complete engine method and class reference cheat sheet.
 
 <script type="application/ld+json">
 {
@@ -4629,10 +4629,10 @@ These are the required components for making it happen:
 
 * A path on your map
 * A rat implementation
-* A [`MapObjectLoader`](https://litiengine.com/api/de/gurkenlabs/litiengine/environment/MapObjectLoader/) that associates the path object and the rat
-* A [`StateController`](https://litiengine.com/api/de/gurkenlabs/litiengine/entities/behavior/StateController/) that switches between the rat behaviour states
-* Different [`EntityStates`](https://litiengine.com/api/de/gurkenlabs/litiengine/entities/behavior/EntityState/) that represent certain behaviours
-* An [`EntityNavigator`](https://litiengine.com/api/de/gurkenlabs/litiengine/entities/behavior/EntityNavigator/) to move the rat along the path
+* A [`MapObjectLoader`](../advanced/custom-mapobjectloaders.md) that associates the path object and the rat
+* A [`StateController`](entity-controllers.md) that switches between the rat behaviour states
+* Different [`EntityStates`](#implementing-an-ai-state-machine) that represent certain behaviours
+* An [`EntityNavigator`](movement-controller.md) to move the rat along the path
 
 ### The path MapObject
 First of all, we need a collection of points that mark the path for our rat to walk on. 
@@ -4718,7 +4718,7 @@ When you initialize your game (before calling `Game.start()`), you need to regis
 
 ### The StateController
 
-Now, we define the conditions for switching between walking randomly and following the predetermined path. For that, we implement a state machine that transitions between states once certain conditions are met. In our example, we begin with the path following behaviour and then switch to random walking once the end of the path is reached. What could happen while walking around to trigger another transition? Get creative with the [`StateController`](https://litiengine.com/api/de/gurkenlabs/litiengine/entities/behavior/StateController/) mechanics!
+Now, we define the conditions for switching between walking randomly and following the predetermined path. For that, we implement a state machine that transitions between states once certain conditions are met. In our example, we begin with the path following behaviour and then switch to random walking once the end of the path is reached. What could happen while walking around to trigger another transition? Get creative with the [`StateController`](entity-controllers.md) mechanics!
 
 ```java
 public class RatController extends StateController<Rat> {
@@ -6585,10 +6585,10 @@ Completion data is generated from the code that utiLITI actually loaded:
 
 1. Reflection walks public engine types reachable from `Game`, the selected host type, `ScriptContext`, environments, entity queries, and abilities.
 2. Compiled project entity, controller, and script-reachable classes are added through project-code discovery.
-3. When matching source is available, Javadoc is read from the engine or project source tree and attached to completion items.
+3. When matching source is available, documentation comments are read from the engine or project source tree and attached to completion items.
 4. Missing project output degrades to the stable engine API instead of preventing editing.
 
-This keeps suggestions aligned with the engine version and the project's real entity subclasses. A future build-time API-index task can package the same symbols, generic type information, Javadocs, source links, and examples for installed distributions where source trees are unavailable. That index is deliberately language-neutral so both the embedded editor and external LSP clients can consume it.
+This keeps suggestions aligned with the engine version and the project's real entity subclasses. A future build-time API-index task can package the same symbols, generic type information, API docs, source links, and examples for installed distributions where source trees are unavailable. That index is deliberately language-neutral so both the embedded editor and external LSP clients can consume it.
 
 For full project-semantic features such as rename refactoring, cross-file error analysis, and debugging, continue using IntelliJ. The intended long-term bridge is an LSP/DAP adapter backed by the generated engine API index, not a separate utiLITI-only source model.
 
