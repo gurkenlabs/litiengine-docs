@@ -1,23 +1,142 @@
 ---
-title: "Introduction to LITIENGINE"
-description: "LITIENGINE is a free, open-source 2D Java Game Engine for creating tile-based 2D games with pure Java."
-keywords: ["LITIENGINE", "java", "game engine", "2D", "open source", "introduction", "awt"]
+title: "LITIENGINE — Pure Java 2D Game Engine"
+description: "LITIENGINE is a free, open-source 2D Java Game Engine for creating tile-based 2D games with pure Java, AWT graphics, and zero external dependencies."
+keywords: ["LITIENGINE", "java", "game engine", "2D", "open source", "awt", "panama ffm", "monaco", "mcp server"]
 ---
 
-# Introduction
+# LITIENGINE
 
-**LITIENGINE** is a free, open source and easy to learn **2D Java Game Engine**. It provides the infrastructure to create 2D tile-based Java Games, be it a platformer, a top-down shooter or an RPG. The main features include a **2D Physics Engine**, a **2D Render Engine**, a **2D Sound Engine**, a **Particle System**, support for **Tiled Maps \(.tmx\)** and a clean API for the **Basic Game Infrastructure**. LITIENGINE natively supports all common desktop operating systems, maintaining high portability due to the absence of external libraries.
+<div class="grid cards" markdown>
 
-One major difference to other engines is that the **2D Render Engine** is entirely based on plain **Java AWT Graphics**. If you've learned or starting to learn Java this will instantly give you great results and highly optimized rendering performance with what you already know. We think that this is a great and simple way to start making video games without having to care about a lot of vector math or "OpenGL shenanigans". The graphics can then be further enhanced by the **Particle System** to create beautiful visual effects \(like fire or smoke\).
+- :material-rocket-launch:{ .lg .middle } **[Getting Started →](getting-started/README.md)**
 
-The `Environments` in the LITIENGINE are based on `.tmx` tile maps which can be created and edited with the well known [Tiled Level Editor](https://www.mapeditor.org/) and brought to life with LITIENGINE entities.
+    ---
 
-Moreover, the `SoundEngine` supports **two dimensional audio** that can be played relatively to a position in the environment.
+    Install JDK 21+, configure Gradle/Maven, and boot up your first game window in less than 5 minutes.
 
-## Authors & Community
+- :material-hammer-wrench:{ .lg .middle } **[utiLITI Visual Studio →](utiliti-editor/README.md)**
 
-LITIENGINE is invented, written and maintained by the two bavarian brothers **Steffen and Matthias** and it has become a [considerably popular open source project](https://github.com/gurkenlabs/litiengine) with a rising number of contributors and an active [Community](https://forum.litiengine.com/).
+    ---
 
-## Example projects
-On the LITIENGINE website, we have collected a [showcase of games made with LITIENGINE](https://litiengine.com/showcase/). Most of them are open source projects, so you can simply clone their repositories to get started with basic modifications on existing LITIENGINE projects before creating your first game from scratch.
+    Design maps, manage tilesets, edit sprite sheets, and script live game entities with the Monaco workspace.
 
+- :material-code-json:{ .lg .middle } **[Game API Guide →](game-api/README.md)**
+
+    ---
+
+    Explore decoupled game loops, 2D physics, camera tracking, and positional spatial sound systems.
+
+- :material-school:{ .lg .middle } **[Step-by-Step Tutorials →](tutorials/creating-a-platformer.md)**
+
+    ---
+
+    Build a 2D Platformer, an Arkanoid clone, or a Top-Down Action Twin-Stick Shooter from scratch.
+
+</div>
+
+---
+
+## Why LITIENGINE?
+
+**LITIENGINE** is a free, open-source 2D Java Game Engine engineered to give you the complete infrastructure for tile-based 2D games — platformers, top-down action shooters, tactical RPGs, and arcade games — with pure Java and zero external C-dependencies.
+
+<div class="grid cards" markdown>
+
+- :material-palette-outline: **Pure Java AWT 2D Rendering**
+
+    ---
+
+    Render crisp pixel art and scaled graphics using Java's built-in 2D Graphics. No complex OpenGL / Vulkan boilerplate required.
+
+- :material-gamepad-variant-outline: **Modern Panama FFM Input**
+
+    ---
+
+    Low-latency cross-platform keyboard, mouse, and gamepad integration powered by Panama Foreign Function & Memory APIs via Input4j.
+
+- :material-vector-polygon: **Integrated 2D Physics Engine**
+
+    ---
+
+    Tile collision maps, entity bounding boxes, velocity controllers, raycasting, and obstacle avoidance built directly into the engine core.
+
+- :material-code-braces: **3-Tier Hot-Reload Scripting**
+
+    ---
+
+    Write game scripts, creature AI, and environment triggers in Groovy or Java with instant in-editor execution and live reload.
+
+- :material-volume-high: **Positional 2D Spatial Sound**
+
+    ---
+
+    Stereo sound effects with automatic listener-distance falloff and background music streaming for `.wav`, `.mp3`, and `.ogg` formats.
+
+- :material-robot-outline: **AI-Ready MCP Server Integration**
+
+    ---
+
+    Native Model Context Protocol (MCP) server integration allowing AI coding agents to inspect maps, edit entities, and run live diagnostic queries.
+
+</div>
+
+---
+
+## Quick Start
+
+Add LITIENGINE to your Gradle project:
+
+```groovy
+dependencies {
+    implementation 'de.gurkenlabs:litiengine:0.13.0-SNAPSHOT'
+}
+```
+
+Or Maven `pom.xml`:
+
+```xml
+<dependency>
+    <groupId>de.gurkenlabs</groupId>
+    <artifactId>litiengine</artifactId>
+    <version>0.13.0-SNAPSHOT</version>
+</dependency>
+```
+
+### Your First Game in 15 Lines
+
+```java
+package com.example.game;
+
+import de.gurkenlabs.litiengine.Game;
+import de.gurkenlabs.litiengine.resources.Resources;
+
+public class Program {
+  public static void main(String[] args) {
+    Game.info().setName("My First LITIENGINE Game");
+    Game.info().setVersion("v1.0.0");
+
+    Game.init(args);
+    Resources.load("game.litidata");
+    Game.world().loadEnvironment("level1");
+    Game.start();
+  }
+}
+```
+
+---
+
+## Showcase & Open Source Games
+
+Explore real-world games built with LITIENGINE:
+
+* **[Gurk Nukem](https://github.com/gurkenlabs/gurk-nukem)** — A classic 2D retro action platformer demo.
+* **[Star Reaperz](https://github.com/gurkenlabs/litiengine-ldjam52)** — Fast-paced top-down twin-stick action game made for Ludum Dare 52.
+* **[LITIENGINE Showcase](https://litiengine.com/showcase/)** — Community showcase of commercial and indie games.
+
+---
+
+## Community & Contributing
+
+* 💬 **[LITIENGINE Forum](https://forum.litiengine.com/)** — Ask questions and share your projects.
+* 🐙 **[GitHub Repository](https://github.com/gurkenlabs/litiengine)** — Report issues, request features, and contribute.
+* 📖 **[Javadocs](https://litiengine.com/api/)** — Browse the complete class and method API documentation.

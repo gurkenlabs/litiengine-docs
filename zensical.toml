@@ -7,21 +7,148 @@ docs_dir = "docs"
 site_dir = "site"
 use_directory_urls = true
 repo_url = "https://github.com/gurkenlabs/litiengine"
-edit_uri = "https://github.com/gurkenlabs/litiengine-docs/edit/master/docs/"
+edit_uri = "https://github.com/gurkenlabs/litiengine-docs/edit/master/docs"
 copyright = "Copyright © Gurkenlabs"
 
+nav = [
+    { "General" = [
+        { "Introduction" = "index.md" },
+        { "Frequently Asked Questions" = "frequently-asked-questions.md" },
+        { "Roadmap" = "roadmap.md" },
+        { "Release Notes" = "CHANGELOG.md" },
+    ] },
+    { "Basics" = [
+        { "Getting Started" = [
+            "getting-started/README.md",
+            { "Install JDK" = "getting-started/install-jdk.md" },
+            { "Set Up IDE" = "getting-started/development-environment.md" },
+            { "Build Systems" = "getting-started/build-systems.md" },
+            { "Project Structure" = "getting-started/project-structure.md" },
+            { "Get LITIENGINE" = "getting-started/get-litiengine.md" },
+            { "Manage Native Libraries" = "getting-started/native-libraries.md" },
+            { "Run the Game" = "getting-started/run-the-game.md" },
+            { "API Quick Reference" = "getting-started/api-quick-reference.md" },
+        ] },
+        { "Game API" = [
+            "game-api/README.md",
+            { "Render Engine" = "game-api/render-engine.md" },
+            { "Sound Engine" = "game-api/sound-engine.md" },
+            { "Physics Engine" = "game-api/physics-engine.md" },
+            { "Game Loop" = "game-api/loops.md" },
+            { "Tweens" = "game-api/tweens.md" },
+            { "Game World" = "game-api/game-world.md" },
+            { "Camera & Viewport" = "game-api/camera.md" },
+            { "Game Window" = "game-api/game-window.md" },
+            { "Screens" = "game-api/screens.md" },
+        ] },
+        { "Input API" = [
+            "player-input/README.md",
+            { "Keyboard Input" = "player-input/keyboard-input.md" },
+            { "Mouse Input" = "player-input/mouse-input.md" },
+            { "Gamepad Input" = "player-input/gamepad-input.md" },
+        ] },
+        { "Configuration" = "configuration/README.md" },
+        { "Tile Maps" = [
+            "tile-maps/README.md",
+            { "Map Objects" = "tile-maps/map-objects.md" },
+            { "Custom Properties" = "tile-maps/custom-properties.md" },
+        ] },
+        { "Resource Management" = [
+            "resource-management/README.md",
+            { "Texture Atlas" = "resource-management/texture-atlas.md" },
+            { "Sprite Info Files" = "resource-management/sprite-info-files.md" },
+        ] },
+        { "Entity Framework" = [
+            "entity-framework/README.md",
+            { "Default Entity Types" = "entity-framework/default-entity-types.md" },
+            { "Props" = "entity-framework/props.md" },
+            { "Subscribe to Entity Events" = "entity-framework/subscribe-to-entity-events.md" },
+            { "Annotations for Static Information" = "entity-framework/annotations-for-static-information.md" },
+        ] },
+        { "Control Entities" = [
+            "control-entities/README.md",
+            { "Entity Controllers" = "control-entities/entity-controllers.md" },
+            { "Animation Controller" = "control-entities/animation-controller.md" },
+            { "Movement Controller" = "control-entities/movement-controller.md" },
+            { "Behavior Controller" = "control-entities/behavior-controller.md" },
+            { "Messaging System" = "control-entities/messaging-system.md" },
+            { "Ability Framework" = "control-entities/ability-framework.md" },
+            { "Java and Groovy Scripting" = "control-entities/scripting.md" },
+            { "Script-Only Game Architecture" = "control-entities/script-only-games.md" },
+            { "Game, Environment & Entity Scripts" = "control-entities/script-types-guide.md" },
+            { "Combat & Action Scripting" = "control-entities/combat-scripting.md" },
+        ] },
+        { "User Interface" = [
+            "user-interface/README.md",
+            { "GuiComponents Overview" = "user-interface/guicomponents-an-overview.md" },
+            { "Creating Menus" = "user-interface/creating-menus.md" },
+            { "HUD & UI Cookbook" = "user-interface/hud-and-ui-cookbook.md" },
+        ] },
+        { "utiLITI Editor" = [
+            "utiliti-editor/README.md",
+            { "Project Management" = "utiliti-editor/create-projects.md" },
+            { "User Interface & Workspaces" = "utiliti-editor/ui-and-workspaces.md" },
+            { "Editing Tools & Viewport" = "utiliti-editor/tools-and-editing.md" },
+            { "Entity & Object Inspector" = "utiliti-editor/entity-inspector.md" },
+            { "Maps & Environments" = "utiliti-editor/import-maps-with-utiliti.md" },
+            { "Tilesets & Wang Terrains" = "utiliti-editor/tileset-editor.md" },
+            { "Sprites & Animations" = "utiliti-editor/sprite-editor.md" },
+            { "Scripts & Monaco Workspace" = "utiliti-editor/scripts.md" },
+            { "Script Guidance & Tools" = "utiliti-editor/script-guidance.md" },
+            { "Run, Debug & Hot Reload" = "utiliti-editor/project-runner.md" },
+            { "GameLauncher CLI" = "utiliti-editor/game-launcher.md" },
+            { "MCP Server Integration" = "utiliti-editor/mcp-server.md" },
+            { "Settings & Keymap" = "utiliti-editor/settings-and-shortcuts.md" },
+        ] },
+        { "Deployment" = "deployment.md" },
+        { "Savegames" = "savegames.md" },
+        { "Libraries and Tools" = "libraries-and-tools.md" },
+        { "Glossary" = "GLOSSARY.md" },
+    ] },
+    { "Advanced" = [
+        { "The Particle System" = "advanced/the-particle-system.md" },
+        { "Dynamic Lighting" = "advanced/dynamic-lighting.md" },
+        { "Static Lighting" = "advanced/static-lighting.md" },
+        { "Performance Optimization" = "advanced/performance-optimization.md" },
+        { "Custom MapObjectLoaders" = "advanced/custom-mapobjectloaders.md" },
+        { "String Localization" = "advanced/string-localization.md" },
+        { "Object Serialization" = "advanced/object-serialization.md" },
+        { "Utility Classes" = "advanced/utility-classes.md" },
+        { "Network Communication" = "advanced/network-communication.md" },
+        { "Advanced Entity Knowledge" = [
+            "advanced/advanced-entity-knowledge/README.md",
+            { "Custom Entity Implementations" = "advanced/advanced-entity-knowledge/custom-entity-implementations.md" },
+            { "Triggers" = "advanced/advanced-entity-knowledge/triggers.md" },
+        ] },
+    ] },
+    { "Tutorials" = [
+        { "Creating a Simple Platformer" = "tutorials/creating-a-platformer.md" },
+        { "Creating an Arkanoid Clone" = "tutorials/creating-an-arkanoid-clone.md" },
+        { "Creating a Top-Down Action Game" = "tutorials/creating-a-topdown-shooter.md" },
+        { "Modifying Example Projects" = "tutorials/modifying-example-projects.md" },
+    ] },
+]
+
 [project.theme]
+variant = "modern"
 logo = "assets/logo.png"
 favicon = "assets/favicon.png"
 features = [
     "navigation.instant",
     "navigation.tracking",
+    "navigation.tabs",
+    "navigation.tabs.sticky",
     "navigation.sections",
     "navigation.indexes",
+    "navigation.expand",
     "navigation.path",
     "navigation.top",
     "navigation.footer",
     "toc.follow",
+    "search.suggest",
+    "search.highlight",
+    "content.code.copy",
+    "content.code.annotate",
     "content.action.edit",
     "content.action.view",
 ]
@@ -29,132 +156,15 @@ features = [
 [[project.theme.palette]]
 media = "(prefers-color-scheme: light)"
 scheme = "default"
+primary = "teal"
+accent = "cyan"
 toggle.icon = "lucide/sun"
 toggle.name = "Switch to dark mode"
 
 [[project.theme.palette]]
 media = "(prefers-color-scheme: dark)"
 scheme = "slate"
+primary = "teal"
+accent = "cyan"
 toggle.icon = "lucide/moon"
 toggle.name = "Switch to light mode"
-
-[project.nav]
-"General" = [
-    { "Introduction" = "index.md" },
-    { "Frequently Asked Questions" = "frequently-asked-questions.md" },
-    { "Roadmap" = "roadmap.md" },
-    { "Release Notes" = "CHANGELOG.md" },
-]
-
-"Basics" = [
-    { "Getting Started" = [
-        "getting-started/README.md",
-        { "Install JDK" = "getting-started/install-jdk.md" },
-        { "Set Up IDE" = "getting-started/development-environment.md" },
-        { "Build Systems" = "getting-started/build-systems.md" },
-        { "Project Structure" = "getting-started/project-structure.md" },
-        { "Get LITIENGINE" = "getting-started/get-litiengine.md" },
-        { "Manage Native Libraries" = "getting-started/native-libraries.md" },
-        { "Run the Game" = "getting-started/run-the-game.md" },
-        { "API Quick Reference" = "getting-started/api-quick-reference.md" },
-    ] },
-    { "Game API" = [
-        "game-api/README.md",
-        { "Render Engine" = "game-api/render-engine.md" },
-        { "Sound Engine" = "game-api/sound-engine.md" },
-        { "Physics Engine" = "game-api/physics-engine.md" },
-        { "Game Loop" = "game-api/loops.md" },
-        { "Tweens" = "game-api/tweens.md" },
-        { "Game World" = "game-api/game-world.md" },
-        { "Camera & Viewport" = "game-api/camera.md" },
-        { "Game Window" = "game-api/game-window.md" },
-        { "Screens" = "game-api/screens.md" },
-    ] },
-    { "Input API" = [
-        "player-input/README.md",
-        { "Keyboard Input" = "player-input/keyboard-input.md" },
-        { "Mouse Input" = "player-input/mouse-input.md" },
-        { "Gamepad Input" = "player-input/gamepad-input.md" },
-    ] },
-    { "Configuration" = "configuration/README.md" },
-    { "Tile Maps" = [
-        "tile-maps/README.md",
-        { "Map Objects" = "tile-maps/map-objects.md" },
-        { "Custom Properties" = "tile-maps/custom-properties.md" },
-    ] },
-    { "Resource Management" = [
-        "resource-management/README.md",
-        { "Texture Atlas" = "resource-management/texture-atlas.md" },
-        { "Sprite Info Files" = "resource-management/sprite-info-files.md" },
-    ] },
-    { "Entity Framework" = [
-        "entity-framework/README.md",
-        { "Default Entity Types" = "entity-framework/default-entity-types.md" },
-        { "Props" = "entity-framework/props.md" },
-        { "Subscribe to Entity Events" = "entity-framework/subscribe-to-entity-events.md" },
-        { "Annotations for Static Information" = "entity-framework/annotations-for-static-information.md" },
-    ] },
-    { "Control Entities" = [
-        "control-entities/README.md",
-        { "Entity Controllers" = "control-entities/entity-controllers.md" },
-        { "Animation Controller" = "control-entities/animation-controller.md" },
-        { "Movement Controller" = "control-entities/movement-controller.md" },
-        { "Behavior Controller" = "control-entities/behavior-controller.md" },
-        { "Messaging System" = "control-entities/messaging-system.md" },
-        { "Ability Framework" = "control-entities/ability-framework.md" },
-        { "Java and Groovy Scripting" = "control-entities/scripting.md" },
-        { "Script-Only Game Architecture" = "control-entities/script-only-games.md" },
-        { "Game, Environment & Entity Scripts" = "control-entities/script-types-guide.md" },
-        { "Combat & Action Scripting" = "control-entities/combat-scripting.md" },
-    ] },
-    { "User Interface" = [
-        "user-interface/README.md",
-        { "GuiComponents Overview" = "user-interface/guicomponents-an-overview.md" },
-        { "Creating Menus" = "user-interface/creating-menus.md" },
-        { "HUD & UI Cookbook" = "user-interface/hud-and-ui-cookbook.md" },
-    ] },
-    { "utiLITI Editor" = [
-        "utiliti-editor/README.md",
-        { "Project Management" = "utiliti-editor/create-projects.md" },
-        { "User Interface & Workspaces" = "utiliti-editor/ui-and-workspaces.md" },
-        { "Editing Tools & Viewport" = "utiliti-editor/tools-and-editing.md" },
-        { "Entity & Object Inspector" = "utiliti-editor/entity-inspector.md" },
-        { "Maps & Environments" = "utiliti-editor/import-maps-with-utiliti.md" },
-        { "Tilesets & Wang Terrains" = "utiliti-editor/tileset-editor.md" },
-        { "Sprites & Animations" = "utiliti-editor/sprite-editor.md" },
-        { "Scripts & Monaco Workspace" = "utiliti-editor/scripts.md" },
-        { "Script Guidance & Tools" = "utiliti-editor/script-guidance.md" },
-        { "Run, Debug & Hot Reload" = "utiliti-editor/project-runner.md" },
-        { "GameLauncher CLI" = "utiliti-editor/game-launcher.md" },
-        { "MCP Server Integration" = "utiliti-editor/mcp-server.md" },
-        { "Settings & Keymap" = "utiliti-editor/settings-and-shortcuts.md" },
-    ] },
-    { "Deployment" = "deployment.md" },
-    { "Savegames" = "savegames.md" },
-    { "Libraries and Tools" = "libraries-and-tools.md" },
-    { "Glossary" = "GLOSSARY.md" },
-]
-
-"Advanced" = [
-    { "The Particle System" = "advanced/the-particle-system.md" },
-    { "Dynamic Lighting" = "advanced/dynamic-lighting.md" },
-    { "Static Lighting" = "advanced/static-lighting.md" },
-    { "Performance Optimization" = "advanced/performance-optimization.md" },
-    { "Custom MapObjectLoaders" = "advanced/custom-mapobjectloaders.md" },
-    { "String Localization" = "advanced/string-localization.md" },
-    { "Object Serialization" = "advanced/object-serialization.md" },
-    { "Utility Classes" = "advanced/utility-classes.md" },
-    { "Network Communication" = "advanced/network-communication.md" },
-    { "Advanced Entity Knowledge" = [
-        "advanced/advanced-entity-knowledge/README.md",
-        { "Custom Entity Implementations" = "advanced/advanced-entity-knowledge/custom-entity-implementations.md" },
-        { "Triggers" = "advanced/advanced-entity-knowledge/triggers.md" },
-    ] },
-]
-
-"Tutorials" = [
-    { "Creating a Simple Platformer" = "tutorials/creating-a-platformer.md" },
-    { "Creating an Arkanoid Clone" = "tutorials/creating-an-arkanoid-clone.md" },
-    { "Creating a Top-Down Action Game" = "tutorials/creating-a-topdown-shooter.md" },
-    { "Modifying Example Projects" = "tutorials/modifying-example-projects.md" },
-]
