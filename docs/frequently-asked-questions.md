@@ -1,46 +1,69 @@
 ---
 title: "Frequently Asked Questions"
-description: "Answers to frequently asked questions about LITIENGINE, supported platforms, performance, and Java game development."
-keywords: ["LITIENGINE", "FAQ", "questions", "java", "game", "performance", "platforms", "editor"]
+description: "Answers to frequently asked questions about LITIENGINE architecture, Java 21+ support, performance, distribution, and commercial licensing."
+keywords: ["LITIENGINE", "FAQ", "questions", "java", "game engine", "performance", "platforms", "editor", "licensing", "steam"]
 ---
 
 # Frequently Asked Questions
 
-## LITIENGINE Basics
-
-### Is LITIENGINE a programming language or a library?
-
-LITIENGINE is a 2D game library for Java. It requires **Java 21 or later**.
-
-### What's the current development status of LITIENGINE?
-
-LITIENGINE is actively maintained with modular sub-projects, a built-in scripting engine, and editor tooling. To learn more, read our **[Roadmap](roadmap.md)**.
-
-### Does LITIENGINE collect any user data?
-
-LITIENGINE does not collect any user data via telemetry. However, if you register on our forum or subscribe to our newsletters, your information is stored securely on our servers and only used for the purposes you agreed to.
-
-### What platforms can LITIENGINE deploy to?
-
-With LITIENGINE, you can create and deploy standalone desktop games for **Windows**, **Linux**, and **macOS**.
-Because the 2D rendering pipeline uses pure Java AWT/Swing graphics, mobile platforms (Android/iOS) and console ports (which lack AWT support) are not supported.
-
-### Whom is LITIENGINE made for?
-
-LITIENGINE is designed for anyone interested in creating 2D computer games in pure Java. Simple in nature, it is easy to pick up, yet powerful enough to create massive worlds, RPGs, top-down shooters, and platformers.
-
-### Since LITIENGINE is written in pure Java - what performance drawbacks can I expect?
-
-LITIENGINE uses optimized software rendering via Java AWT Graphics rather than direct native OpenGL bindings. While this keeps the engine 100% portable and free of complex native dependencies, CPU load is higher when rendering thousands of simultaneous dynamic particles or rapidly scaling large unbuffered images. Memory usage remains very low, and standard 2D games run at solid 60+ FPS on standard hardware.
-
-### Can I create LITIENGINE games without using the utiLITI editor?
-
-Yes! You can write entire LITIENGINE games purely in Java code without opening the editor. However, the **utiLITI Editor** provides an integrated visual workflow for configuring entities, importing tilesets, packing `.litidata` resource bundles, and scripting game logic.
+Quick answers to the most common questions about LITIENGINE, architecture, performance, tooling, and distribution.
 
 ---
 
-## Distribution
+## 🎯 General & Architecture
 
-### How do I create standalone executables for players?
+??? question "Is LITIENGINE a library or a full game engine?"
+    LITIENGINE is a **modular 2D Java Game Library and Framework**. It provides everything needed to build commercial-grade 2D games: a decoupled 60 FPS game loop, 2D tile-based physics with spatial quadtrees, AWT graphics pipeline, 2D positional audio, entity lifecycle management, and the companion **utiLITI Editor**.
 
-See our comprehensive **[Deployment Guide](deployment.md)** for instructions on bundling a JRE and building Windows `.exe`, macOS, and Linux packages using Gradle and Launch4j.
+??? question "What Java version is required?"
+    LITIENGINE requires **Java 21 LTS or newer** (tested through JDK 25). It leverages modern Java features including Java Panama Foreign Function & Memory (FFM) APIs for low-latency gamepad polling via `Input4j`.
+
+??? question "Why pure Java with AWT instead of OpenGL/Vulkan bindings?"
+    By relying on pure Java AWT 2D graphics without heavy native dynamic C/C++ libraries (like LWJGL or libGDX bindings), LITIENGINE games run identically across Windows, macOS, and Linux without native DLL hell, driver crashes, or platform-specific compilation hurdles.
+
+??? question "Does LITIENGINE collect any telemetry or user data?"
+    **No.** LITIENGINE and the utiLITI Editor contain zero telemetry, tracking, or analytics code.
+
+---
+
+## 💻 Platforms & Deployment
+
+??? question "What platforms can I deploy my game to?"
+    You can package and deploy standalone desktop games for **Windows**, **Linux**, and **macOS** (including Apple Silicon M1–M4). Because the engine uses standard Java AWT graphics, mobile platforms (Android/iOS) and web browsers (WebAssembly) are not supported.
+
+??? question "Can I sell my LITIENGINE game commercially on Steam or itch.io?"
+    **Yes!** LITIENGINE is licensed under the permissive **MIT License** (or compatible open-source terms). You retain 100% ownership of your game source code, assets, and commercial revenue. You can freely sell your games on Steam, itch.io, GOG, or your own store.
+
+??? question "How do players run my game without installing Java?"
+    You can bundle a lightweight Java Runtime Environment (JRE) directly with your game using **jlink**, **jpackage**, or **Launch4j**. The player receives a standalone `.exe`, `.app`, or `.zip` bundle and simply double-clicks to play. See our **[Deployment Guide](deployment.md)**.
+
+---
+
+## ⚡ Performance & Engine Limits
+
+??? question "What kind of performance can I expect from software AWT rendering?"
+    LITIENGINE easily achieves a steady **60+ FPS** with hundreds of active entities and complex tile layers on standard desktop hardware. While it is not designed for 3D shaders or tens of thousands of simultaneous particles, it is exceptionally fast and memory-efficient for 2D pixel art, RPGs, platformers, and top-down action games.
+
+??? question "How does LITIENGINE handle physics and collision detection?"
+    LITIENGINE features a custom 2D bounding-box physics engine optimized with spatial quadtrees (`Game.physics()`). It supports collision sliding, raycasting, custom gravity forces, and entity velocity resolution without the overhead of heavy external physics engines like Box2D.
+
+---
+
+## 🛠️ Tooling & Workflows
+
+??? question "Do I have to use the utiLITI editor to make a game?"
+    **No.** You can build complete games purely in Java code using `new Environment(new TmxMap())` or procedural level generation. However, **utiLITI** significantly accelerates level design, entity placement, tileset Wang autotiling, and `.litidata` resource archiving.
+
+??? question "Can I use Tiled Map Editor with LITIENGINE?"
+    **Yes.** LITIENGINE natively supports `.tmx` map files and `.tsx` tilesets exported from [Tiled Map Editor](https://www.mapeditor.org/). You can import `.tmx` maps directly into your `.litidata` projects in utiLITI.
+
+??? question "Does LITIENGINE support scripting languages?"
+    Yes! LITIENGINE includes a dedicated multi-tier scripting engine supporting **Groovy** and **Java** with hot-reloading at runtime, plus Monaco editor integration inside utiLITI.
+
+---
+
+## 🤝 Community & Support
+
+??? question "Where can I report bugs or ask for help?"
+    * **GitHub Discussions**: [github.com/gurkenlabs/litiengine/discussions](https://github.com/gurkenlabs/litiengine/discussions)
+    * **Issue Tracker**: [github.com/gurkenlabs/litiengine/issues](https://github.com/gurkenlabs/litiengine/issues)
