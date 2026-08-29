@@ -84,23 +84,33 @@ keywords: ["LITIENGINE", "java", "game engine", "2D", "open source", "awt", "pan
 
 ## Quick Start
 
-Add LITIENGINE to your Gradle project:
+Add LITIENGINE to your project build configuration:
 
-```groovy
-dependencies {
-    implementation 'de.gurkenlabs:litiengine:0.13.0-SNAPSHOT'
-}
-```
+=== "Gradle (Kotlin)"
 
-Or Maven `pom.xml`:
+    ```kotlin
+    dependencies {
+        implementation("de.gurkenlabs:litiengine:0.13.0-SNAPSHOT")
+    }
+    ```
 
-```xml
-<dependency>
-    <groupId>de.gurkenlabs</groupId>
-    <artifactId>litiengine</artifactId>
-    <version>0.13.0-SNAPSHOT</version>
-</dependency>
-```
+=== "Gradle (Groovy)"
+
+    ```groovy
+    dependencies {
+        implementation 'de.gurkenlabs:litiengine:0.13.0-SNAPSHOT'
+    }
+    ```
+
+=== "Maven"
+
+    ```xml
+    <dependency>
+        <groupId>de.gurkenlabs</groupId>
+        <artifactId>litiengine</artifactId>
+        <version>0.13.0-SNAPSHOT</version>
+    </dependency>
+    ```
 
 ### Your First Game in 15 Lines
 

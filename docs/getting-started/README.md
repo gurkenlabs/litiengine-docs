@@ -54,3 +54,14 @@ public class Program {
 ## Next Steps
 
 Follow the guides in order: begin by **[Installing the JDK](install-jdk.md)** and **[Setting Up Your IDE](development-environment.md)**.
+
+## Troubleshooting & Common Pitfalls
+
+??? question "Game window opens but immediately closes or crashes on launch"
+    Ensure `Game.init(args)` is called *before* any resource loading or screen registrations, and `Game.start()` is called at the end of `main()`. Verify your JDK version is Java 21 or newer (`java --version`).
+
+??? question "Resource `game.litidata` not found when running from IDE"
+    Verify the file is placed in your project's `src/main/resources/` directory (or marked as a resource root in IntelliJ/Eclipse).
+
+??? question "Controller/Gamepad input not detected"
+    LITIENGINE uses Panama FFM for Input4j. Ensure you are running on Java 21+ with foreign memory access enabled.

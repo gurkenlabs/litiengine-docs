@@ -114,3 +114,11 @@ java -jar utiliti.jar [OPTIONS] [PROJECT_FILE]
 - [Entity & Object Inspector](entity-inspector.md) — Configure properties, combat stats, and behaviors.
 - [Tilesets & Wang Terrains](tileset-editor.md) — Set up animated tiles, collision shapes, and terrain sets.
 - [Run, Debug & Hot Reload](project-runner.md) — Launch and debug your game directly from the editor.
+
+## Troubleshooting & Common Pitfalls
+
+??? question "utiLITI crashes when loading large .tmx maps"
+    Ensure all tileset image paths in Tiled are saved relative to the `.tmx` file before importing into `.litidata`.
+
+??? question "Monaco script editor fails to load in utiLITI"
+    Verify that JCEF / embedded Chromium binaries are unpackaged correctly in your local app directory.

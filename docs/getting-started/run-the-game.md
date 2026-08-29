@@ -39,7 +39,8 @@ public class Program {
   }
 }
 ```
-> **Note:** If you can't import library even though update build.gradle right, try to refresh build.gradle.
+!!! note
+    If you can't import library even though update build.gradle right, try to refresh build.gradle.
 
 If you see the following window, you’ve setup everything correctly and are now ready to create awesome 2D Java games with LITIENGINE!
 

@@ -1,4 +1,4 @@
-# LITIENGINE Docs (llms.txt)
+# LITIENGINE Documentation (llms.txt)
 
 > LITIENGINE is a free, open-source 2D Java Game Engine engineered to create tile-based 2D video games using pure Java, AWT graphics, modern Panama FFM input handling, and zero external C-dependencies.
 
@@ -8,7 +8,7 @@
 - **Physics**: 2D Tile collision maps, bounding boxes, raycasting (`Game.physics()`)
 - **Input**: Low-latency keyboard, mouse, and gamepad via Panama FFM (`Input4j`, `Input.gamepads()`)
 - **Audio**: 2D positional spatial attenuation and music streaming (`Game.audio()`)
-- **Editor Tooling**: utiLITI Editor with Monaco code editor, Wang autotiling, and live debugging
+- **Editor Tooling**: utiLITI Visual Studio with Monaco code editor, Wang autotiling, and live debugging
 - **Scripting Engine**: 3-tier runtime scripts in Groovy and Java (`GameScript`, `EnvironmentScript`, `CreatureScript`)
 - **AI Tooling**: Native Model Context Protocol (MCP) Server integration (`mcp-server`)
 - **Persistence**: Jakarta JSON serialization (`Jakarta.json.bind` / Parsson)
@@ -37,7 +37,7 @@
 - [Combat & Action Scripting](https://docs.litiengine.com/control-entities/combat-scripting/): Projectile builders, abilities, and combat text.
 - [User Interface Cookbook](https://docs.litiengine.com/user-interface/hud-and-ui-cookbook/): Health bars, damage numbers, and speech bubbles.
 
-### utiLITI Editor
+### utiLITI Visual Studio
 - [utiLITI Overview](https://docs.litiengine.com/utiliti-editor/): Visual workspace and `.litidata` resource archives.
 - [Monaco Script Workspace](https://docs.litiengine.com/utiliti-editor/scripts/): In-editor code editor and diagnostics.
 - [MCP Server Integration](https://docs.litiengine.com/utiliti-editor/mcp-server/): AI agent integration via Model Context Protocol.
@@ -183,23 +183,33 @@ keywords: ["LITIENGINE", "java", "game engine", "2D", "open source", "awt", "pan
 
 ## Quick Start
 
-Add LITIENGINE to your Gradle project:
+Add LITIENGINE to your project build configuration:
 
-```groovy
-dependencies {
-    implementation 'de.gurkenlabs:litiengine:0.13.0-SNAPSHOT'
-}
-```
+=== "Gradle (Kotlin)"
 
-Or Maven `pom.xml`:
+    ```kotlin
+    dependencies {
+        implementation("de.gurkenlabs:litiengine:0.13.0-SNAPSHOT")
+    }
+    ```
 
-```xml
-<dependency>
-    <groupId>de.gurkenlabs</groupId>
-    <artifactId>litiengine</artifactId>
-    <version>0.13.0-SNAPSHOT</version>
-</dependency>
-```
+=== "Gradle (Groovy)"
+
+    ```groovy
+    dependencies {
+        implementation 'de.gurkenlabs:litiengine:0.13.0-SNAPSHOT'
+    }
+    ```
+
+=== "Maven"
+
+    ```xml
+    <dependency>
+        <groupId>de.gurkenlabs</groupId>
+        <artifactId>litiengine</artifactId>
+        <version>0.13.0-SNAPSHOT</version>
+    </dependency>
+    ```
 
 ### Your First Game in 15 Lines
 
@@ -554,6 +564,20 @@ keywords: ["LITIENGINE", "camera", "viewport", "zoom", "shake", "pan", "clampToM
 
 # Camera & Viewport
 
+## Camera API Method Reference
+
+| Method Signature | Return Type | Description |
+| :--- | :--- | :--- |
+| `setFocus(Point2D point)` | `void` | Centers camera viewport directly on the given map coordinates. |
+| `setFocus(IEntity entity)` | `void` | Binds camera focus to follow an entity's center point continuously. |
+| `setClampToMap(boolean clamp)` | `void` | Restricts the viewport so the camera never displays area outside map boundaries. |
+| `setZoom(float zoom, int duration)` | `void` | Smoothly animates camera zoom scale over the specified duration in milliseconds. |
+| `shake(double intensity, int duration, int frequency)` | `void` | Triggers a screen-shake trauma effect. |
+| `getMapLocation(Point2D screenPoint)` | `Point2D` | Converts viewport/screen pixel coordinates to map-space coordinates. |
+| `getViewportLocation(Point2D mapPoint)` | `Point2D` | Converts world map coordinates to window screen pixels. |
+
+---
+
 In LITIENGINE, the `Camera` (implementing `ICamera` and `Tweenable`) manages the viewpoint through which players experience the 2D game world. It handles focus tracking, map boundary clamping, smooth panning, zoom transitions, screen shake, and viewport coordinate conversions.
 
 ```mermaid
@@ -863,7 +887,8 @@ This design ensures consistent physics and gameplay regardless of monitor refres
 
 The `Game.loop()` method returns the main `IGameLoop` that executes all game logic and triggers rendering. It runs at a fixed tick rate (default: 60 ticks/second), ensuring physics, AI, and other time-dependent systems behave consistently.
 
-> **Note:** The game's loop also executes the rendering process. This internally renders the currently active screen which passes the `Graphics2D` object to all `GuiComponents` and the Environment for rendering.
+!!! note
+    The game's loop also executes the rendering process. This internally renders the currently active screen which passes the `Graphics2D` object to all `GuiComponents` and the Environment for rendering.
 
 ### IUpdateable Interface
 
@@ -1137,7 +1162,8 @@ LITIENGINE scripts are ordinary JVM classes attached to the game, an environment
 
 Script source stays in your project. The game resource file stores only definitions, bindings, and configured parameter values. This keeps the source useful in IntelliJ, Git, Gradle, and other JVM tools.
 
-> **Warning:** Project scripts are trusted game code. Running a game or the utiLITI preview can execute that code.
+!!! warning
+    Project scripts are trusted game code. Running a game or the utiLITI preview can execute that code.
 
 ## Add Groovy support
 
@@ -1833,21 +1859,9 @@ keywords: ["LITIENGINE", "roadmap", "v1.0.0", "milestones", "vision", "utiLITI",
 
 LITIENGINE is built with a clear philosophy: provide an accessible, powerful, and completely free 2D game engine in pure Java without external binary dependencies or complex build friction.
 
-```text
-┌─────────────────────────────────────────────────────────────┐
-│                    Project Philosophy                       │
-│  Pure Java 2D  •  LTS Baseline  •  Integrated Tooling (utiLITI) │
-└──────────────────────────────┬──────────────────────────────┘
-                               │
-                               ▼
-┌─────────────────────────────────────────────────────────────┐
-│                 Path to Production (v1.0.0)                 │
-│  • Dedicated GUI Editor in utiLITI                          │
-│  • Monaco Workspace & Scripting (Groovy/Java)               │
-│  • AI & Agent Tooling (MCP Server Integration)              │
-│  • Core Stability (AWT Graphics, Physics, Audio)            │
-│  • Wang Terrains & Level Design Workflows                   │
-└─────────────────────────────────────────────────────────────┘
+```mermaid
+graph TD
+  P["<b>Project Philosophy</b><br/>Pure Java 2D • Java LTS Baseline • Integrated utiLITI Tooling"] --> V1["<b>Path to v1.0.0</b><br/>• Dedicated GUI Editor in utiLITI<br/>• Monaco Workspace & Scripting<br/>• AI & MCP Server Integration<br/>• Core Stability & Performance"]
 ```
 
 ## Project Vision & Java Support Policy

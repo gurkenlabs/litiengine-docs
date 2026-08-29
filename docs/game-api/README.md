@@ -98,3 +98,13 @@ In the LITIENGINE, the game logic is decoupled from the framerate and run in a s
 * `Game.window()`
 * `Game.screens()`
 
+## Troubleshooting & Common Pitfalls
+
+??? question "Sprite rendering is blurry or anti-aliased"
+    Enable pixel-perfect scaling in your configuration: `Game.config().graphics().setGraphicQuality(GraphicQuality.VERYHIGH)` and ensure integer scale factors.
+
+??? question "Audio (.mp3 / .ogg) fails to play"
+    Ensure the audio SPI provider libraries (`mp3spi`, `vorbisspi`) are included on your runtime classpath if loading non-standard `.wav` sound files.
+
+??? question "Physics collision boxes appear offset from entity sprites"
+    Check `@CollisionInfo(collisionBoxWidth, collisionBoxHeight, align, valign)` annotations or inspector offsets to ensure the box is anchored to the creature's feet.

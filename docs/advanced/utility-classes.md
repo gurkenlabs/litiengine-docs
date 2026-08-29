@@ -28,7 +28,8 @@ double lerped = MathUtilities.lerp(start, end, 0.5);
 boolean even = MathUtilities.isEven(number);
 ```
 
-> **Note:** Use `Game.random()` for random numbers instead of MathUtilities.random methods.
+!!! note
+    Use `Game.random()` for random numbers instead of MathUtilities.random methods.
 
 ## GeometricUtilities
 

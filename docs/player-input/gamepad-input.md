@@ -8,7 +8,8 @@ keywords: ["LITIENGINE", "gamepad", "controller", "Input4j", "Xbox", "button", "
 
 LITIENGINE uses [Input4j](https://github.com/gurkenlabs/input4j) for gamepad support, utilizing the Java FFM API for cross-platform compatibility. This eliminates the need for native library deployment.
 
-> **Note:** As of LITIENGINE 0.11.1, gamepad support uses Input4j instead of JInput. No native libraries are required.
+!!! note
+    As of LITIENGINE 0.11.1, gamepad support uses Input4j instead of JInput. No native libraries are required.
 
 ## Accessing Gamepads
 

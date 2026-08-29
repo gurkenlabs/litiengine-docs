@@ -10,7 +10,8 @@ LITIENGINE scripts are ordinary JVM classes attached to the game, an environment
 
 Script source stays in your project. The game resource file stores only definitions, bindings, and configured parameter values. This keeps the source useful in IntelliJ, Git, Gradle, and other JVM tools.
 
-> **Warning:** Project scripts are trusted game code. Running a game or the utiLITI preview can execute that code.
+!!! warning
+    Project scripts are trusted game code. Running a game or the utiLITI preview can execute that code.
 
 ## Add Groovy support
 

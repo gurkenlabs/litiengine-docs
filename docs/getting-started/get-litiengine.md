@@ -11,7 +11,8 @@ Now, let us discuss how to actually download the LITIENGINE. The engine consists
 
 The LITIENGINE SDK contains *utiLITI*, our project management and map creation tool. It is a stand-alone editor which produces project files that can then be loaded to your game. You can [download the LITIENGINE SDK from litiengine.com](https://litiengine.com/download/).
 
-> **Note:** The utiLITI editor is not an IDE for Java development.
+!!! note
+    The utiLITI editor is not an IDE for Java development.
 
 ## 2. Get the LITIENGINE Java library via Gradle
 
@@ -22,20 +23,31 @@ Add the LITIENGINE dependency to your Gradle project by adding the following cod
 > 
 
 ### Gradle (Groovy)
-```groovy
-plugins {
-    id("java")
-    id("application")
-}
+=== "Gradle (Kotlin DSL)"
 
-repositories {
-  mavenCentral()
-}
+    ```kotlin
+    dependencies {
+        implementation("de.gurkenlabs:litiengine:0.13.0-SNAPSHOT")
+    }
+    ```
 
-dependencies {
-  implementation 'de.gurkenlabs:litiengine:0.11.1'
-}
-```
+=== "Gradle (Groovy DSL)"
+
+    ```groovy
+    dependencies {
+        implementation 'de.gurkenlabs:litiengine:0.13.0-SNAPSHOT'
+    }
+    ```
+
+=== "Maven"
+
+    ```xml
+    <dependency>
+        <groupId>de.gurkenlabs</groupId>
+        <artifactId>litiengine</artifactId>
+        <version>0.13.0-SNAPSHOT</version>
+    </dependency>
+    ```
 
 ### Sample Project
 A basic example for a Gradle based LITIENGINE project can be found [HERE](https://github.com/gurkenlabs/litiengine-gurk-nukem). Have a look at the project's `build.gradle` and `settings.gradle`.

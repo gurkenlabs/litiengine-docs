@@ -62,7 +62,8 @@ utiLITI includes a background **Auto-Save Manager** (`AutoSaveManager`) designed
 2. **Backup Storage**: Auto-save snapshots are stored alongside your project file with a `.backup` or `.autosave` suffix.
 3. **Recovery on Startup**: If utiLITI detects an unexpected shutdown or finds a backup file that is newer than the saved project, it prompts you on startup to restore the auto-saved session.
 
-> **Tip:** You can configure the auto-save interval or disable automatic saving in **File -> Settings -> General**.
+!!! tip
+    You can configure the auto-save interval or disable automatic saving in **File -> Settings -> General**.
 
 ---
 

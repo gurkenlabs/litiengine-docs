@@ -6,6 +6,20 @@ keywords: ["LITIENGINE", "camera", "viewport", "zoom", "shake", "pan", "clampToM
 
 # Camera & Viewport
 
+## Camera API Method Reference
+
+| Method Signature | Return Type | Description |
+| :--- | :--- | :--- |
+| `setFocus(Point2D point)` | `void` | Centers camera viewport directly on the given map coordinates. |
+| `setFocus(IEntity entity)` | `void` | Binds camera focus to follow an entity's center point continuously. |
+| `setClampToMap(boolean clamp)` | `void` | Restricts the viewport so the camera never displays area outside map boundaries. |
+| `setZoom(float zoom, int duration)` | `void` | Smoothly animates camera zoom scale over the specified duration in milliseconds. |
+| `shake(double intensity, int duration, int frequency)` | `void` | Triggers a screen-shake trauma effect. |
+| `getMapLocation(Point2D screenPoint)` | `Point2D` | Converts viewport/screen pixel coordinates to map-space coordinates. |
+| `getViewportLocation(Point2D mapPoint)` | `Point2D` | Converts world map coordinates to window screen pixels. |
+
+---
+
 In LITIENGINE, the `Camera` (implementing `ICamera` and `Tweenable`) manages the viewpoint through which players experience the 2D game world. It handles focus tracking, map boundary clamping, smooth panning, zoom transitions, screen shake, and viewport coordinate conversions.
 
 ```mermaid
