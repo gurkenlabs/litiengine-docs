@@ -182,10 +182,10 @@ Completion data is generated from the code that utiLITI actually loaded:
 
 1. Reflection walks public engine types reachable from `Game`, the selected host type, `ScriptContext`, environments, entity queries, and abilities.
 2. Compiled project entity, controller, and script-reachable classes are added through project-code discovery.
-3. When matching source is available, Javadoc is read from the engine or project source tree and attached to completion items.
+3. When matching source is available, documentation comments are read from the engine or project source tree and attached to completion items.
 4. Missing project output degrades to the stable engine API instead of preventing editing.
 
-This keeps suggestions aligned with the engine version and the project's real entity subclasses. A future build-time API-index task can package the same symbols, generic type information, Javadocs, source links, and examples for installed distributions where source trees are unavailable. That index is deliberately language-neutral so both the embedded editor and external LSP clients can consume it.
+This keeps suggestions aligned with the engine version and the project's real entity subclasses. A future build-time API-index task can package the same symbols, generic type information, API docs, source links, and examples for installed distributions where source trees are unavailable. That index is deliberately language-neutral so both the embedded editor and external LSP clients can consume it.
 
 For full project-semantic features such as rename refactoring, cross-file error analysis, and debugging, continue using IntelliJ. The intended long-term bridge is an LSP/DAP adapter backed by the generated engine API index, not a separate utiLITI-only source model.
 

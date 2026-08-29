@@ -98,4 +98,4 @@ String formatted = TimeUtilities.toReadableTime(125000);  // "2:05"
 
 ## See Also
 
-- [API Reference](https://litiengine.com/api/) - Full Javadocs
+- [API Quick Reference](../getting-started/api-quick-reference.md) - Core engine method cheat sheet

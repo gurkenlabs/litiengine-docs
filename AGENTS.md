@@ -99,9 +99,9 @@ dependencies {
   ```markdown
   [Tiled Editor](https://www.mapeditor.org/)
   ```
-- API references: Link to Javadocs
+- API references: Link to API Quick Reference
   ```markdown
-  [Javadocs](https://litiengine.com/api/)
+  [API Reference](/docs/getting-started/api-quick-reference/)
   ```
 
 ### Callouts/Notes
@@ -196,6 +196,5 @@ Many files in this repository are stubs (contain only a title header). When comp
 ## External References
 
 - Main repository: https://github.com/gurkenlabs/litiengine
-- Javadocs: https://litiengine.com/api/
 - Website: https://litiengine.com/
 - Forum: https://forum.litiengine.com/

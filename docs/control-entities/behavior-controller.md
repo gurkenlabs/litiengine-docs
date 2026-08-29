@@ -15,10 +15,10 @@ These are the required components for making it happen:
 
 * A path on your map
 * A rat implementation
-* A [`MapObjectLoader`](https://litiengine.com/api/de/gurkenlabs/litiengine/environment/MapObjectLoader/) that associates the path object and the rat
-* A [`StateController`](https://litiengine.com/api/de/gurkenlabs/litiengine/entities/behavior/StateController/) that switches between the rat behaviour states
-* Different [`EntityStates`](https://litiengine.com/api/de/gurkenlabs/litiengine/entities/behavior/EntityState/) that represent certain behaviours
-* An [`EntityNavigator`](https://litiengine.com/api/de/gurkenlabs/litiengine/entities/behavior/EntityNavigator/) to move the rat along the path
+* A [`MapObjectLoader`](../advanced/custom-mapobjectloaders.md) that associates the path object and the rat
+* A [`StateController`](entity-controllers.md) that switches between the rat behaviour states
+* Different [`EntityStates`](#implementing-an-ai-state-machine) that represent certain behaviours
+* An [`EntityNavigator`](movement-controller.md) to move the rat along the path
 
 ### The path MapObject
 First of all, we need a collection of points that mark the path for our rat to walk on. 
@@ -104,7 +104,7 @@ When you initialize your game (before calling `Game.start()`), you need to regis
 
 ### The StateController
 
-Now, we define the conditions for switching between walking randomly and following the predetermined path. For that, we implement a state machine that transitions between states once certain conditions are met. In our example, we begin with the path following behaviour and then switch to random walking once the end of the path is reached. What could happen while walking around to trigger another transition? Get creative with the [`StateController`](https://litiengine.com/api/de/gurkenlabs/litiengine/entities/behavior/StateController/) mechanics!
+Now, we define the conditions for switching between walking randomly and following the predetermined path. For that, we implement a state machine that transitions between states once certain conditions are met. In our example, we begin with the path following behaviour and then switch to random walking once the end of the path is reached. What could happen while walking around to trigger another transition? Get creative with the [`StateController`](entity-controllers.md) mechanics!
 
 ```java
 public class RatController extends StateController<Rat> {

@@ -172,7 +172,7 @@ LITIENGINE is 100% free, independent, and open source. If LITIENGINE helps you b
 * 💖 **[Open Collective](https://opencollective.com/litiengine)** — Back the project and support ongoing development.
 * 🐙 **[GitHub Repository](https://github.com/gurkenlabs/litiengine)** — Report issues, request features, and contribute.
 * 💬 **[GitHub Discussions](https://github.com/gurkenlabs/litiengine/discussions)** — Ask questions, share progress, and chat with creators.
-* 📖 **[Javadocs](https://litiengine.com/api/)** — Browse the complete class and method API documentation.
+* 📖 **[API Quick Reference](getting-started/api-quick-reference.md)** — Complete engine method and class reference cheat sheet.
 
 <script type="application/ld+json">
 {

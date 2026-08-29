@@ -171,7 +171,7 @@ public class Program {
     setters of `Game.info()`.
 
 -   Calling `Game.init()` is then needed to initialize the Game
-    infrastructure (see the [Javadocs][] for an in-depth understanding
+    infrastructure (see the [API Quick Reference](../getting-started/api-quick-reference.md) for an in-depth overview
     of what this does).
 
 -   Next, we set the window icon from the logo we created in Day 1 by
@@ -283,7 +283,7 @@ Right at the top, you'll notice the [annotations](https://docs.oracle.com/javase
     everything from `CombatEntity`, `CollisionEntity`, and `Entity`,
     while also implementing the methods from `IMobileEntity` and
     `IUpdateable`. For a clearer unterstanding of the entity
-    hierarchy, you can [have a look at the Javadocs](https://litiengine.com/api/) again.
+    hierarchy, you can [explore the Entity Framework](../entity-framework/README.md).
 
 -   We adopt a [Singleton pattern](https://community.oracle.com/docs/DOC-918906) for the `Player`-class, meaning
     that we only allow the existence of one single instance of `Player`
