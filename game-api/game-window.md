@@ -64,9 +64,7 @@ Dimension screenResolution = Game.window().getHostScreenResolution();
 
 ### Resolution Scaling
 
-![Resolution Scaling Comparison](images/scaling.png)
-
-When resolution scaling is enabled, all players see the same portion of the game world regardless of their window size. When disabled, players with larger windows see more of the game world.
+When resolution scaling is enabled, all players see the same proportional view of the game world regardless of their physical window size. When disabled, players with larger windows or higher resolutions see a wider viewport of the map.
 
 Enable in `config.properties`:
 

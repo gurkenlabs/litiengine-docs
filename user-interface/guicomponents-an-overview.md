@@ -9,7 +9,7 @@ LITIENGINE provides a comprehensive GUI framework for creating menus, HUDs, and 
 
 ## Component Hierarchy
 
-```
+```text
 GuiComponent (abstract)
   ├── Button
   ├── CheckBox

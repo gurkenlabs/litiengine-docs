@@ -10,7 +10,7 @@ LITIENGINE allows developers to build entire games using pure scripts—without 
 
 With the **3-tier scripting architecture** and the built-in `GameLauncher`, your entire game logic can live in modular, hot-reloadable Java or Groovy scripts authored directly in utiLITI or IntelliJ.
 
-```
+```text
  ┌──────────────────────────────────────────────────────────┐
  │  🎮 GameScript (Global Game Lifecycle & Entry Point)     │
  │  • Persistent across all map transitions                 │

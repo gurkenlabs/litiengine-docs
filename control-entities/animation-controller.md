@@ -20,7 +20,7 @@ For `Creature` entities, LITIENGINE provides `CreatureAnimationController` with 
 
 ### Spritesheet Naming Convention
 
-```
+```text
 {spritePrefix}-{state}-{direction}.{extension}
 ```
 

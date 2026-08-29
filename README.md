@@ -1,3 +1,9 @@
+---
+title: "Introduction to LITIENGINE"
+description: "LITIENGINE is a free, open-source 2D Java Game Engine for creating tile-based 2D games with pure Java."
+keywords: ["LITIENGINE", "java", "game engine", "2D", "open source", "introduction", "awt"]
+---
+
 # Introduction
 
 **LITIENGINE** is a free, open source and easy to learn **2D Java Game Engine**. It provides the infrastructure to create 2D tile-based Java Games, be it a platformer, a top-down shooter or an RPG. The main features include a **2D Physics Engine**, a **2D Render Engine**, a **2D Sound Engine**, a **Particle System**, support for **Tiled Maps \(.tmx\)** and a clean API for the **Basic Game Infrastructure**. LITIENGINE natively supports all common desktop operating systems, maintaining high portability due to the absence of external libraries.

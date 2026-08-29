@@ -70,7 +70,7 @@ dependencies {
 ## (Advanced) Composite build with a local copy of the LITIENGINE repository
 
  You can configure Gradle to include a local clone of the LITIENGINE repository in your build. This way, you can test how changes in LITIENGINE translate to your game without having to deploy the engine as an artifact first. Assuming you have cloned the engine to a folder parallel to your project, you would have the following project structure:
-```
+```text
 .
 └── root/
     ├── my_project/
@@ -93,7 +93,7 @@ dependencies {
         └── ...
 ```
 Then in `my_project/settings.gradle`, add the following block:
-```
+```java
 includeBuild ("../litiengine"){
     dependencySubstitution {
         substitute module('de.gurkenlabs:litiengine') using project(':litiengine')

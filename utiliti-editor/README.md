@@ -21,7 +21,7 @@ While you can build LITIENGINE games entirely via code or generic external tools
 
 utiLITI features a dual-workspace architecture accessible via the workspace rail on the left edge of the window:
 
-```
+```text
 ┌──────┬────────────────────────────────────────────────────────────────────────┐
 │      │                           VIEWPORT TOOLBAR                             │
 │      ├─────────────────────────────────────────┬──────────────────────────────┤

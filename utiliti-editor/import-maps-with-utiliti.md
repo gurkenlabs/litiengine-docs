@@ -36,7 +36,7 @@ utiLITI provides robust map authoring and management features supporting standar
 
 Select the map background or choose **Map Properties** in the inspector to configure environment-wide settings:
 
-```
+```text
 ┌─────────────────────────────────────────────────────────────┐
 │ MAP PROPERTIES                                              │
 │ Name: dungeon_level_1  | Title: "The Sunken Catacombs"       │

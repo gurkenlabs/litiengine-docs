@@ -29,6 +29,7 @@ Game.tweens()            // Tween engine
 Game.world()             // World/environment manager
 Game.window()            // Game window
 Game.screens()           // Screen manager
+Game.scripts()           // Script engine manager
 Game.config()            // Configuration
 Game.info()              // Game metadata
 Game.metrics()           // Performance metrics
@@ -84,7 +85,7 @@ Input.mouse().onMoved(e -> {...});
 
 // Gamepad
 Input.gamepads().getCurrent();
-Input.gamepadManager().onPressed(Gamepad.Xbox.A, value -> {...});
+Input.gamepads().onPressed(Gamepad.Xbox.A, value -> {...});
 ```
 
 ## Rendering

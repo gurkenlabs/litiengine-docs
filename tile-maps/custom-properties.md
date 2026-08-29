@@ -85,37 +85,37 @@ int hp = mapObject.getIntValue(MapObjectProperty.COMBAT_HITPOINTS, 100);
 Custom properties support various data types:
 
 ### String
-```
+```java
 name: "playerName"
 value: "Hero"
 ```
 
 ### Integer
-```
+```java
 name: "maxHealth"
 value: 100
 ```
 
 ### Float
-```
+```java
 name: "moveSpeed"
 value: 2.5
 ```
 
 ### Boolean
-```
+```java
 name: "isInvulnerable"
 value: true
 ```
 
 ### Color
-```
+```java
 name: "tintColor"
 value: #FF5500
 ```
 
 ### File Path
-```
+```java
 name: "configFile"
 value: "config/enemy.json"
 ```

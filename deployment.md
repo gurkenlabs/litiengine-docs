@@ -1,251 +1,182 @@
 ---
-description: How to distribute LITIENGINE games
+title: "Deploying LITIENGINE Games"
+description: "Learn how to build, package, and deploy LITIENGINE games for Windows, Linux, and macOS using Gradle, Launch4j, and jpackage."
+keywords: ["LITIENGINE", "deployment", "distribution", "gradle", "launch4j", "jpackage", "steam", "itch.io", "Java 21"]
 ---
-> These are wip notes for the documentation
 
-# TODO: Deployment
+# Deploying LITIENGINE Games
 
-## How to relase your game
+This guide walks you through building, packaging, and distributing your LITIENGINE game as a standalone, player-ready executable for **Windows**, **Linux**, and **macOS**.
 
-### Preparation
+```text
+┌─────────────────┐       ┌─────────────────┐       ┌─────────────────────────┐
+│ Java Source &   │ ───►  │  Gradle Build   │ ───►  │ Standalone Distribution │
+│ Game Resources  │       │ (Shadow/Launch4j│       │ (.exe, .zip, Steam, itch│
+└─────────────────┘       └─────────────────┘       └─────────────────────────┘
+```
 
-#### Update version
+## 1. Release Preparation
 
-* Increment the build of the game \(e.g. v1.0.1 to v1.0.2\)
-* Update version build in `MyGame.java` \(or whatever your Main class is called\)
-* Update version build `build.gradle`
-  * Update .exe version in `launch4j` configuration group 
-* Commit the change
+Before building a release distribution, ensure your project is properly configured for production:
 
-#### Create new release draft on github
+1. **Update Game Version**:
+   * Increment your version number in `build.gradle` (e.g. `version = "1.0.0"`).
+   * Update the metadata in your main entry point:
+     ```java
+     Game.info().setName("My Game");
+     Game.info().setVersion("v1.0.0");
+     ```
+2. **Disable Debug Flags**:
+   * Ensure `Game.config().debug().setDebug(false)` or disable debug properties in `config.properties`.
+3. **Verify Resource Bundle**:
+   * Ensure all maps, tilesets, spritesheets, and sounds are packed into `game.litidata` or placed correctly in your runtime `resources/` folder.
 
-* Go to your repository's _releases_ page
-* List all the changes that have been made to the game here
-  * Closed issues
-  * Check all commits since last build
-  * **This is crucial since the text will be reused for patch notes on different platforms**
+---
 
-### Build with Gradle
+## 2. Build Automation with Gradle
 
-Build automation is a blessing! Let's have a look at how to build and deploy your game using Gradle.  
-To build Windows executables, we are going to use the _launch4j_ plugin. We set up different Gradle tasks for each target platform as well.
-
-Your project's `build.gradle` should look something like this:
+Modern LITIENGINE games target **Java 21 or later**. Below is a recommended `build.gradle` using the standard Gradle `application` plugin, `shadow` (uber-jar), and `launch4j` for generating native Windows `.exe` wrappers:
 
 ```groovy
 plugins {
-  id 'edu.sc.seis.launch4j' version '2.4.4'
+  id 'java'
+  id 'application'
+  id 'com.github.johnrengelman.shadow' version '8.1.1'
+  id 'edu.sc.seis.launch4j' version '3.0.5'
 }
 
-apply plugin: 'java'
-apply plugin: 'eclipse'
-apply plugin: 'maven'
+group = 'com.mygame'
+version = '1.0.0'
 
-archivesBaseName = "mygame"
-version = "v1.0.2"
-targetCompatibility = "1.8.0"
+java {
+  toolchain {
+    languageVersion = JavaLanguageVersion.of(21)
+  }
+}
 
-sourceSets {
-  main.java.srcDir "src"
-  main.java.srcDir "resources"
-  main.java.srcDir "sounds"
-  main.java.srcDir "maps"
-  main.java.srcDir "localization"
-
-  main.resources.includes = ["game.litidata"]
+application {
+  mainClass = 'com.mygame.Program'
 }
 
 repositories {
-   mavenCentral()
+  mavenCentral()
 }
 
 dependencies {
- compile project(':litiengine')
+  implementation 'de.gurkenlabs:litiengine:0.11.1'
 }
 
-compileJava.options.encoding = 'UTF-8'
-
-jar {
-  from {
-    configurations.runtime.collect {
-      it.isDirectory() ? it : zipTree(it)
-    }
-    configurations.compile.collect {
-      it.isDirectory() ? it : zipTree(it)
-    }
-  }  {
-     exclude 'META-INF/services/**'
-  }
-
-  // make sure to only include service providers from the litiengine when directly referencing the project
-  from ("${project(':litiengine').projectDir}/resources/") {
-    include 'META-INF/services/**'
-  }
-
-  from('resources') 
-  { 
-    include '**/*' 
-    exclude 'sprites/*'
-  }
-
-  from('sounds') { include '**/*' }
-  exclude '**/*.dll'
-  exclude '**/*.jnilib'
-  exclude '**/*.dylib'
-  exclude '**/*.so'
-  exclude 'junit**/**'
-
-  from 'game.litidata'
-
-  manifest {
-    attributes 'Class-Path': ".",
-               'Main-Class': "de.gurkenlabs.mygame.MyGame"
-  }
+// Configure fat / shadow jar
+shadowJar {
+  archiveBaseName.set('mygame')
+  archiveClassifier.set('all')
+  archiveVersion.set(project.version.toString())
 }
 
+// Configure Windows .exe generation
 launch4j {
-  mainClassName = 'de.gurkenlabs.mygame.MyGame'
-  icon = 'icon.ico'
+  mainClassName = 'com.mygame.Program'
+  icon = "${projectDir}/icon.ico"
   outputDir = 'libs'
-  outfile = archivesBaseName +'.exe'
-  companyName = 'gurkenlabs.de'
-  version = '1.0.2'
-  textVersion = '1.0.2'
-  copyright = '2020 gurkenlabs.de'
+  outfile = "mygame-${project.version}.exe"
+  jarTask = tasks.shadowJar
+  companyName = 'My Game Studio'
+  headerType = 'gui'
+  jreMinVersion = '21'
   bundledJrePath = 'jre'
   jvmOptions = ['-Xms256m', '-Xmx1024m']
-  cmdLine = '-release'
 }
 
-task copyNativeLibs(type: Copy) { 
-  def litiengineLibs ='../litiengine/build/libs'
-  def buildFolder = new File(buildDir, 'libs')
+// Package standalone Windows distribution zip
+tasks.register('distZipWindows', Zip) {
+  group = 'distribution'
+  dependsOn tasks.createExe
 
-  from(litiengineLibs) { 
-   include '**/*'
-   exclude '**/*.jar'
-   exclude '**/*.zip'
-   exclude 'LICENSE'
-   exclude 'lib/**'
+  archiveFileName = "mygame-${project.version}-win.zip"
+  destinationDirectory = file("${buildDir}/distributions")
+
+  from("${buildDir}/launch4j") {
+    include '*.exe'
   }
-
-  from('/dist/'){
-    include 'icon.ico'
+  from(projectDir) {
     include 'config.properties'
-    include 'steam_appid.txt'
-    include 'jre/**'
+    include 'game.litidata'
   }
-
-  into buildFolder
 }
 
-build.dependsOn copyNativeLibs
+// Package standalone Cross-Platform JAR distribution
+tasks.register('distZipUniversal', Zip) {
+  group = 'distribution'
+  dependsOn tasks.shadowJar
 
-task distZipWindow(type: Zip) {
-   group 'build'
-   from 'build/libs/'
-   include '*.exe'
-   include '*.dll'
-   include 'config.properties'
-   include 'jre/**'
+  archiveFileName = "mygame-${project.version}-universal.zip"
+  destinationDirectory = file("${buildDir}/distributions")
 
-   archiveName archivesBaseName + '-' + version + '-win.zip'
-   exclude archiveName
-   exclude 'jinput-dx8_64.dll'
-   exclude 'jinput-raw_64.dll'
-   exclude 'steam_api64.dll'
-   exclude 'steamworks4j64.dll'
-   destinationDir(file('build/libs/'))
-}
-
-task distZipLinux(type: Zip) {
-   group 'build'
-   from 'build/libs/'
-   include '*.jar'
-   include '*.so'
-   include 'config.properties'
-
-   archiveName archivesBaseName + '-' + version + '-linux.zip'
-   exclude archiveName
-   destinationDir(file('build/libs/'))
-}
-
-task distZipOSX(type: Zip) {
-   group 'build'
-   from 'build/libs/'
-   include '*.jar'
-   include '*.jnilib'
-   include '*.dylib'
-
-   include 'config.properties'
-
-   archiveName archivesBaseName + '-' + version + '-osx.zip'
-   exclude archiveName
-   destinationDir(file('build/libs/'))
-}
-
-tasks.withType(JavaCompile) {
-    options.encoding = 'UTF-8'
+  from(tasks.shadowJar.archiveFile)
+  from(projectDir) {
+    include 'config.properties'
+    include 'game.litidata'
+  }
 }
 ```
 
-* Disable debug settings in the `config.properties`
-* Set `Game.DEBUG = false` in `MyGame.java` before building anything that is released
-* Execute the following Gradle tasks your game project \(order matters\)
-  * _clear_
-  * _fullbuild_
-  * _build_ 
-  * _createAllExecutables_
-  * _distZipWindow, distZipLinux, distZipOSX_
-* There should now be three archive files, one for each target platform: `mygame\build\libs\mygame-v1.X.X-win.zip mygame\build\libs\mygame-v1.X.X-linux.zip mygame\build\libs\mygame-v1.X.X-osx.zip`
-  * Make sure that they contain the `jre` folder, the `jinput` and `steamworks` x86 native assemblies, the `config.properties` file \(and the `mygame.exe` executable in the Windows archive\).
-  * These are the archives you are going to deploy to the players.
+---
 
-### Test
+## 3. Bundling the Java Runtime (JRE)
 
-* Before deployment, we should quickly check if the game runs properly
-* Copy the archive somewhere \(Desktop\), extract it and run the executable
-* Ideally: Copy it to an empty VM instance \(e.g. a freshly created Windows 7\) and see if it runs
+Players should not be required to manually install Java on their systems. You can bundle a lightweight JRE with your game using **`jlink`** or **`jpackage`**:
 
-### Deploy
+```bash
+# Create a minimal bundled JRE containing only required modules
+jlink --no-header-files --no-man-pages --compress=2 \
+      --add-modules java.base,java.desktop,java.logging,java.management \
+      --output build/distributions/jre
+```
 
-#### GitHub
+Place the output `jre/` directory inside your game distribution root alongside `mygame.exe` (matching `bundledJrePath = 'jre'` in Launch4j).
 
-* Upload created archive to the github release draft
-* Polish the release description
-* Publish the release
+---
 
-#### Steamworks
+## 4. Testing Your Distribution
 
-* Login to [https://partner.steamgames.com/?goto=%2Fhome](https://partner.steamgames.com/?goto=%2Fhome)
-* Select "MyGame" App and go to `Edit Steamworks Settings/Steampipe/Builds`
-* Since "MyGame" is probably &lt; 256MB, we can usually directly upload it here. 
-* Upload new build
-  * Describe it with something like "Update to version 1.X.X" so that we can later on identify what happend in that build by the patchnotes
-* Set the build live on the development and default branches
-* Update the game from Steam \(might need to restart the client\) and see if it runs properly
+Before releasing your build:
 
-#### itch.io
+1. **Extract to a Clean Directory**: Extract the distribution zip to a separate folder or VM without a pre-installed Java SDK.
+2. **Launch via Executable**: Double-click `mygame.exe` (or run `java -jar mygame-all.jar` on Linux/macOS).
+3. **Verify Assets & Audio**: Verify that fonts, spritesheets, `.litidata` resource bundles, and music tracks load without file-not-found exceptions.
+4. **Verify Save Game & Config Directory**: Ensure the game writes configuration files and savegames to the user's local application data directory rather than trying to write into restricted program files directories.
 
-* Edit your Game page
-* Scroll down to `Uploads`
-* Click `Upload files` and select the archive
-* Select "Executable" for "Windows"
-* Disable the old build for download and set the new one as default
+---
 
-### Share
+## 5. Distributing to Game Platforms
 
-#### Post the patch notes
+### GitHub Releases
+1. Navigate to your repository's **Releases** page and click **Draft a new release**.
+2. Tag the release (e.g. `v1.0.0`) and enter release patch notes.
+3. Upload your packaged `.zip` artifacts and publish.
 
-* Possible headline: **Patch 1.X.X is live now!** 
-* Create new patchnotes image
-* Post patchnotes as new announcement on Steam Community `http://steamcommunity.com/games/{mygameid}/announcements/create/`
-  * Make sure to check "Tag as Patch Notes"
-  * Link it in 
-    * twitter
-    * fb
-    * reddit/r/IndieGames/
-    * instagram
-    * tumblr
-* Post patchnotes as new devlog on itch.io  `https://itch.io/dashboard/game/{mygameid}/devlog`
+### Steamworks
+1. Log in to the [Steamworks Partner Portal](https://partner.steamgames.com/).
+2. Navigate to your app dashboard: **Edit Steamworks Settings &rarr; Steampipe &rarr; Builds**.
+3. Upload your game build directory (containing the executable, bundled JRE, `game.litidata`, and `steam_appid.txt`).
+4. Set the build live on your `default` or `beta` branch.
 
+### itch.io
+1. Go to your game project dashboard on [itch.io](https://itch.io).
+2. Scroll to the **Uploads** section and click **Upload files**.
+3. Select your Windows/Linux/macOS ZIP distributions and mark them as executable.
+4. Set the release public or notify followers with a new devlog post.
+
+---
+
+## Best Practices
+
+> [!TIP]
+> - **Always Bundle the JRE**: Bundling Java ensures consistent performance, prevents JVM version conflicts, and creates a seamless zero-configuration experience for players.
+> - **Use Relative Paths**: Always load assets via `Resources.load("game.litidata")` or classloader streams rather than hardcoded absolute file system paths.
+> - **Automate with CI/CD**: Set up a GitHub Actions workflow to build and package your cross-platform zip files automatically whenever a new version tag is pushed.
+
+## See Also
+
+- **[Savegames Guide](/docs/savegames/)** - Persisting player data across game sessions
+- **[Configuration](/docs/configuration/README/)** - Managing runtime game configuration properties

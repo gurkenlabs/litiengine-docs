@@ -23,7 +23,7 @@ Opening a script file from the asset tree or double-clicking an attached script 
 
 ## Window Layout Overview
 
-```
+```text
 ┌──────┬────────────────────────────────────────────────────────────────────────┐
 │      │ [Map Selector ▼] [▶ Run] [🐞 Debug] [⏹ Stop]   [Tools...] [↩ Undo]    │
 │      ├─────────────────────────────────────────┬──────────────────────────────┤

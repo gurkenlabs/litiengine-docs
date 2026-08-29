@@ -1,16 +1,32 @@
 ---
-meta.description: "Learn about LITIENGINE's game loop - Game.loop() for game logic, rendering, and the IUpdateable interface."
-meta.keywords: "LITIENGINE, game loop, update, render, tick, IUpdateable, framerate, Java"
+title: "Game Loop"
+description: "Learn about LITIENGINE's game loop - Game.loop() for fixed-rate game logic updates, rendering, and the IUpdateable interface."
+keywords: ["LITIENGINE", "game loop", "update", "render", "tick", "IUpdateable", "framerate", "Java"]
 ---
 
 # Game Loop
 
-LITIENGINE uses a game loop architecture where game logic and rendering are decoupled from variable framerates. The engine internally manages two separate loops:
+LITIENGINE uses a decoupled loop architecture where deterministic game logic (UPS) and rendering (FPS) run in coordinated harmony:
 
-- **Game Loop** (`Game.loop()`) - Handles game logic AND rendering at a fixed tick rate
-- **Input Loop** - Processes player input independently (internal, not directly accessible)
+```mermaid
+flowchart TD
+    subgraph InputLoop["Input Loop (Independent Thread)"]
+        RawHW["Hardware Input (Keyboard/Mouse/Gamepad)"] --> InputState["Update Input State (Input.keyboard / Input.mouse / Input.gamepads)"]
+    end
 
-This design ensures consistent game behavior regardless of hardware performance.
+    subgraph MainGameLoop["Game.loop() (Fixed Tick Rate, e.g., 60 UPS)"]
+        TickStart["Tick Start"] --> UpdateLoop["Execute Attached IUpdateable Instances"]
+        UpdateLoop --> UpdateEnv["Update Active Environment (Physics, Entities, Emitters)"]
+        UpdateEnv --> RenderPass["Render Active Screen (Screen.render)"]
+        RenderPass --> RenderWorld["Render Environment (Map, Entities, Lighting, Particles)"]
+        RenderWorld --> RenderGUI["Render GuiComponents & HUD"]
+    end
+```
+
+- **Game Loop** (`Game.loop()`) - Handles game logic and triggers rendering at a fixed tick rate.
+- **Input Loop** - Processes player input independently for maximum responsiveness.
+
+This design ensures consistent physics and gameplay regardless of monitor refresh rates or momentary rendering spikes.
 
 ## The Main Game Loop - `Game.loop()`
 

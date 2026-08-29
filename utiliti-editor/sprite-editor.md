@@ -12,7 +12,7 @@ The **Sprite & Animation Editor** (accessible via the `Spritesheets` asset categ
 
 ## Editor Overview
 
-```
+```text
 ┌─────────────────────────────────────────────────────────────┐
 │ Name: hero-walk  |  Total Frames: 6  |  Frame Size: 32x32   │
 ├───────────────────────────────┬─────────────────────────────┤

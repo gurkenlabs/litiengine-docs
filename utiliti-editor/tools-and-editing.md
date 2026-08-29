@@ -93,7 +93,7 @@ The **Terrain Brush** uses Wang tilesets to automate natural terrain transitions
 
 utiLITI provides several snapping modes to maintain clean grid alignment during level editing:
 
-```
+```text
 ┌─────────────────────────────────────────────────────────────┐
 │ [🧲 Snap to Grid]   [🔲 Snap to Pixels]   [📐 Snap Division: 1/2] │
 └─────────────────────────────────────────────────────────────┘

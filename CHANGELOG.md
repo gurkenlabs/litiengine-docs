@@ -393,10 +393,10 @@ With this version, we've introduced theming support for the utiLITI editor with 
 The theme can be switch at runtime 
 
 **Dark Theme utiLITI**
-![utiLITI: Dark Theme](images/darktheme.png)
+![utiLITI: Dark Theme](/images/darktheme.png)
 
 **Light Theme utiLITI**
-![utiLITI: Light Theme](images/lighttheme.png)
+![utiLITI: Light Theme](/images/lighttheme.png)
 
 ##### Revamped the Emitter UI (make it actually usable)
 
@@ -406,7 +406,7 @@ In addition, we've also added the possibility to configure particle rotation for
 See the related implementations on GitHub:
 [#346](https://github.com/gurkenlabs/litiengine/pull/346) [#298](https://github.com/gurkenlabs/litiengine/issues/298) [#345](https://github.com/gurkenlabs/litiengine/issues/345)
 
-![Example: Emitter Panel overhaul](images/emitterpanel.gif)
+![Example: Emitter Panel overhaul](/images/emitterpanel.gif)
 
 #### 💬 Misc
  * Added PR templates

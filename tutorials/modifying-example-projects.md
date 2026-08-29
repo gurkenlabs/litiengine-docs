@@ -1,28 +1,30 @@
-# Modifying existing LITIENGINE Sample Projects
+---
+title: "Modifying Example Projects"
+description: "Learn how to clone, build, explore, and customize existing LITIENGINE sample games like SERVUS BONUS."
+keywords: ["LITIENGINE", "tutorial", "sample game", "servus bonus", "gradle", "utiLITI", "customization"]
+---
 
-## Chapter 1: Start trying the example
+# Modifying Existing LITIENGINE Sample Projects
+
+## Chapter 1: Getting Started with Sample Projects
 
 ### What is Gradle?
 
-Gradle is a build automation system using groovy. It adopts a domain language similar to Groovy, and is also the official build system of Android Studio, which is required to create Android apps. It supports several languages such as Java, C / C++ , and Python. [Wikipedia contributors. (2020b, November 26). Gradle. Wikipedia. https://en.wikipedia.org/wiki/Gradle](https://en.wikipedia.org/wiki/Gradle)
+Gradle is a build automation system widely used in the Java ecosystem. It manages external dependencies, coordinates builds, and executes game packaging tasks.
 
-To install gradle and execute it firstable download <https://gradle.org/install/>. Next set $PATH and $CLASSPATH. For more specific settings about the environment variable visit [Getting started](/getting-started/start-gradle.md).
+To install Gradle, follow the official [Gradle Installation Guide](https://gradle.org/install/). For more specific setup instructions, visit our **[Build Systems Guide](/docs/getting-started/build-systems/)**.
 
-If things are going well, type gradle -v and check. 
+If Gradle is installed properly, type `gradle -v` to verify:
+
 ```bash
 gradle -v 
 ``` 
 
-Make a JAVA project and file to build, and in the project folder make buld.gradle file. In this file apply plugin:'java'
-```bash
-plugin:'java' 
-``` 
-Now, almost there!
+To test and compile a standard Java project:
+
 ```bash
 gradle build
-```  
-If you do "gradle build", gradle tests, compiles and then makes jar file.
-This is it for basic gradle execution. For more complicated project dependency resolution process is needed. However, in this example, SERVUS BONUS, gradle wrapper is used. So, I will wrap it up here. 
+``` 
 
 ### Gradle Wrapper
 
@@ -210,24 +212,21 @@ If you click on icon(creature) you can see the figures of movement. UtiLITI prov
 
 ### 3. Change Jump to Dash
 
-To change jump to dash, two ways are possible. One is to moderate the library code which is too complicated, because all the "monger-jump", for example, must change to "dash" (both data types are string). Secondly, it is easier to change just the icon leaving the icon's name "moger-jump". In this case, modification is way easier than looking up for all the words in JAVA library. 
-![](/images/dash.gif)
+To change jump to dash, two ways are possible: modify the underlying code to trigger a dash state, or modify the spritesheet frames and durations mapped to the jump state within the `.litidata` resource bundle.
 
-#### (Additional) Icon display
+#### (Additional) Icon Display
 
-Setting the creatures' location is easily done by the utiLITI whether than library. You just need to drag the icon and place it in the location you.
+Setting entity locations can be done interactively in the utiLITI editor by placing and dragging objects onto map layers.
 
-#### (Additional) Spritesheets and sprite images
+#### (Additional) Spritesheets and Sprite Animations
 
-Editting on creature is also delivered by the utiLITI readily. Figure shown below show this well. In utiLITI, sprite images in spritesheets can pretend to be active by giving spritewidth and spriteheight a proper value. Also duration contributes for the smooth movement.
-![](/images/utiliti_pros.gif)
+Editing creature animations is easily done in utiLITI. In the Sprite Editor, configure frame dimensions, durations, and keyframe sequences to achieve smooth animation timing:
 
-## Chapter 6. What is the difference between utiLITI and code? 
-
-Code library and utiLITI compared, almost everything in the game can be changed with JAVA library itself. However, if you use the map editor, utiLITI makes it easier to modify the layout of icons or the icons themselves.
-
- In particular,  modification of the icon itself is possible only with utiLITI as shown in the figure. 
 ![](/images/utiliti_pros.png)
+
+## Chapter 6. Code vs. utiLITI Editor
+
+While everything in LITIENGINE can be constructed and customized purely in Java code, the **utiLITI Editor** significantly accelerates world building, visual tilemap assembly, asset management, and level tuning.
 
 Note that icon name must be written in (creatures's name)-idle/walk to be added in map editor. Therefore, except for updating icon images, utiLITI is better used with JAVA library code interaction. 
 

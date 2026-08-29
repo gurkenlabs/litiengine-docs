@@ -1,5 +1,5 @@
 ---
-meta.description: "Learn how to handle gamepad input in LITIENGINE using Input.gamepadManager() with Input4j for cross-platform controller support."
+meta.description: "Learn how to handle gamepad input in LITIENGINE using Input.gamepads() with Input4j for cross-platform controller support."
 meta.keywords: "LITIENGINE, gamepad, controller, Input4j, Xbox, button, axis, Java"
 ---
 
@@ -13,7 +13,7 @@ LITIENGINE uses [Input4j](https://github.com/gurkenlabs/input4j) for gamepad sup
 
 ```java
 // Get the gamepad manager
-GamepadManager manager = Input.gamepadManager();
+GamepadManager manager = Input.gamepads();
 
 // Get all connected gamepads
 List<Gamepad> gamepads = Input.gamepads().getAll();
@@ -28,12 +28,12 @@ Gamepad gamepad = Input.gamepads().getCurrent();
 
 ```java
 // Using button-specific listener
-Input.gamepadManager().onPressed(Gamepad.Xbox.A, value -> {
+Input.gamepads().onPressed(Gamepad.Xbox.A, value -> {
   System.out.println("A button pressed!");
 });
 
 // Using generic button listener
-Input.gamepadManager().onPressed((button, value) -> {
+Input.gamepads().onPressed((button, value) -> {
   if (button.equals(Gamepad.Xbox.A)) {
     System.out.println("A PRESSED");
   } else if (button.equals(Gamepad.Xbox.B)) {
@@ -45,7 +45,7 @@ Input.gamepadManager().onPressed((button, value) -> {
 ### Button Release Events
 
 ```java
-Input.gamepadManager().onReleased((button, value) -> {
+Input.gamepads().onReleased((button, value) -> {
   if (button.equals(Gamepad.Xbox.START)) {
     // Pause game
   }
@@ -80,7 +80,7 @@ The `Gamepad.Xbox` class provides constants for standard Xbox controller buttons
 Read analog values from thumbsticks:
 
 ```java
-Input.gamepadManager().onPressed(Gamepad.Xbox.LEFT_STICK_Y, pollValue -> {
+Input.gamepads().onPressed(Gamepad.Xbox.LEFT_STICK_Y, pollValue -> {
   if (pollValue > 0.5) {
     System.out.println("MOVE UP");
   } else if (pollValue < -0.5) {
@@ -88,7 +88,7 @@ Input.gamepadManager().onPressed(Gamepad.Xbox.LEFT_STICK_Y, pollValue -> {
   }
 });
 
-Input.gamepadManager().onPressed(Gamepad.Xbox.LEFT_STICK_X, pollValue -> {
+Input.gamepads().onPressed(Gamepad.Xbox.LEFT_STICK_X, pollValue -> {
   if (pollValue > 0.5) {
     System.out.println("MOVE RIGHT");
   } else if (pollValue < -0.5) {
@@ -119,12 +119,12 @@ if (gamepad != null) {
 
 ```java
 // When a gamepad is connected
-Input.gamepadManager().onAdded(gamepad -> {
+Input.gamepads().onAdded(gamepad -> {
   System.out.println("Gamepad connected: " + gamepad.getName());
 });
 
 // When a gamepad is disconnected
-Input.gamepadManager().onRemoved(gamepad -> {
+Input.gamepads().onRemoved(gamepad -> {
   System.out.println("Gamepad disconnected");
 });
 ```
@@ -138,10 +138,10 @@ public class GamepadEntityController<T extends IMobileEntity> extends MovementCo
   
   public GamepadEntityController(T entity) {
     super(entity);
-    Input.gamepadManager().onPressed(Gamepad.Xbox.LEFT_STICK_X, x -> {
+    Input.gamepads().onPressed(Gamepad.Xbox.LEFT_STICK_X, x -> {
       this.setDx((float) x);
     });
-    Input.gamepadManager().onPressed(Gamepad.Xbox.LEFT_STICK_Y, y -> {
+    Input.gamepads().onPressed(Gamepad.Xbox.LEFT_STICK_Y, y -> {
       this.setDy((float) y);
     });
   }
@@ -163,7 +163,7 @@ private float applyDeadZone(float value) {
 }
 
 // Usage
-Input.gamepadManager().onPressed(Gamepad.Xbox.LEFT_STICK_X, x -> {
+Input.gamepads().onPressed(Gamepad.Xbox.LEFT_STICK_X, x -> {
   float adjustedX = applyDeadZone((float) x);
   if (adjustedX != 0) {
     controller.setDx(adjustedX);

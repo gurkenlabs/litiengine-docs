@@ -1,3 +1,9 @@
+---
+title: "2D Graphics"
+description: "2D Graphics documentation for LITIENGINE 2D Java game development."
+keywords: ["LITIENGINE", "java", "2d", "game engine", "game api"]
+---
+
 # 2D Graphics
 
 ## The Render Engine - `Game.graphics()`
@@ -40,7 +46,7 @@ Any entity that uses a spritesheet needs an `AnimationController` which decides 
 
 In the following example, we use a `Player` entity that inherits from the default entity type `Creature`. The `CreatureAnimationController` which is assigned to all creatures provides the default animation rules for this type of entity.
 
-![Example: Spritesheet for walking left - gurknukem-walk-left.png](images/gurknukem-walk-left.png)
+![Example: Spritesheet for walking left - gurknukem-walk-left.png](/images/gurknukem-walk-left.png)
 
 Notice the name of the spritesheet file above: `gurknukem-walk-left.png` - It follows the pattern: "SPRITE\_PREFIX"-"STATE"-"DIRECTION".png.
 

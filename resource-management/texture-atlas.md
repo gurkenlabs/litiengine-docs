@@ -72,7 +72,7 @@ For automatic animation detection, follow naming patterns:
 
 ### Entity Animations
 
-```
+```text
 {spritePrefix}-{state}-{direction}.{ext}
 ```
 
@@ -83,7 +83,7 @@ Examples:
 
 ### Prop States
 
-```
+```java
 prop-{name}-{state}.{ext}
 ```
 

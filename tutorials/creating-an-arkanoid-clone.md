@@ -1,3 +1,9 @@
+---
+title: "Creating an Arkanoid 2D Block Breaker Game"
+description: "Creating an Arkanoid 2D Block Breaker Game documentation for LITIENGINE 2D Java game development."
+keywords: ["LITIENGINE", "java", "2d", "game engine", "tutorials"]
+---
+
 # Creating an Arkanoid 2D Block Breaker Game
 
 > This LITIENGINE tutorial was written by [@YannikSchoeberl](https://github.com/YannikSchoeberl) and originally published on the LITIENGINE community forum.
@@ -16,11 +22,11 @@ Back to my game:
 
 Currently, the basics of Arkanoid are there, which means there are blocks to break, a ball to break those blocks, and a pad that can be moved by the player to prevent the ball from falling down. In the picture below, you can see my first level out of three total.
 
-![Arkanoid Clone Screenshot](images/arkanoid-screenshot1.jpeg)
+![Arkanoid Clone Screenshot](/images/arkanoid-screenshot1.jpeg)
 
 The third level is a boss level, as you can see below. The boss has 25 lives in my case.
 
-![Arkanoid Clone Boss Level](images/arkanoid-screenshot2.jpeg)
+![Arkanoid Clone Boss Level](/images/arkanoid-screenshot2.jpeg)
 
 My game also contains a **menu** to reach different options:
 1. Start the game
@@ -40,15 +46,15 @@ First of all, we need to create one or more maps with the Tiled Map Editor which
 
 After downloading the editor, you need a picture that contains your tiles and open it in the Tiled Map Editor to create a tileset. To do that, you have to open the editor and choose `New Tileset...`
 
-![Tiled Editor Screenshot](images/tiled1.jpeg)
+![Tiled Editor Screenshot](/images/tiled1.jpeg)
 
 After that, the following window shows up:
 
-![Tiled Editor New Tileset](images/tiled2.jpeg)
+![Tiled Editor New Tileset](/images/tiled2.jpeg)
 
 Here you need to specify the image containing your tiles and the width and height of your tiles. After saving the tileset, go to the context menu in the upper left corner of the Tiled Map Editor and select `File -> New -> New Map...`. After that, the following window shows up:
 
-![Tiled Editor New Map](images/tiled3.jpeg)
+![Tiled Editor New Map](/images/tiled3.jpeg)
 
 Here you can specify the size of your map or choose an infinite sized map. The next step is then to create the map with tiles from the created tileset and save it. That's all you need to know about the Tiled Map Editor. Let's have a look at the next step: processing the map(s) in the **utiLITI editor**. To get things started, you need to have the utiLITI editor on your computer. If you don't have the editor, get it here: [LITIENGINE SDK Download](https://litiengine.com/download/)
 
@@ -306,13 +312,13 @@ That's it! We created the ball of the game.
 
 To get the blocks in our map, we need to add the sprites of them to our **utiLITI** project. The image below shows my first level and at the bottom, you can see all imported sprites.
 
-![utiLITI Block Breaker](images/utiliti-block-breaker.jpeg)
+![utiLITI Block Breaker](/images/utiliti-block-breaker.jpeg)
 
 On the right, you can see the options you have to configure the block. You can set its size, its sprite, and its location. If you want to add another block from a loaded sprite, just click on the sprite and then on the "+" symbol.
 
 We also need to specify the collision properties of each block. The corresponding menu is also on the right and looks like this:
 
-![utiLITI configure collision](images/utiliti-configure-collision.jpeg)
+![utiLITI configure collision](/images/utiliti-configure-collision.jpeg)
 
 In this menu, you can set the size, type, and location of the collision box of the block.
 

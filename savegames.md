@@ -1,165 +1,171 @@
 ---
-description: How to save and load player progress
+title: "Savegames & Persistence"
+description: "Learn how to serialize and persist player progress, inventory, and game state using JSON and safe cross-platform file paths."
+keywords: ["LITIENGINE", "savegames", "persistence", "JSON", "save file", "serialization", "AppData", "Java"]
 ---
 
-# Savegames
+# Savegames & Persistence
 
-### XML savegames
+Saving and loading player progress is essential for adventure games, RPGs, and high-score arcade titles. LITIENGINE provides full flexibility to structure and store save states using lightweight **JSON** serialization.
 
-Let's have a look at an example where we store and load savegames using XML files.
-We need one class representing the savegame, as well as one method for saving and one method for loading the savegame.
+```mermaid
+flowchart LR
+    GameState["Game State
+(Level, Spawn, Stats, Inventory)"] --> JSON["JSON Serializer
+(Jakarta JSON / Parsson)"]
+    JSON --> File["Save File (.json)
+(%APPDATA% / User Home)"]
+    File --> Loader["JSON Parser
+(readObject)"]
+    Loader --> GameState
+```
 
-Let's have a look at an example used in a legacy version of _Dr. Lepus._
-This is what the `SaveGame` itself would look like:
+---
+
+## 1. Creating the Save Data Model
+
+Define a clean, serializable Java class holding your game snapshot:
 
 ```java
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
-import de.gurkenlabs.lepus.entities.items.Items;
-import de.gurkenlabs.lepus.inventory.Storage;
+public class GameSaveData implements Serializable {
+  private static final long serialVersionUID = 1L;
 
-@XmlRootElement(name = "savegame")
-public class SaveGame {
+  private String currentMap = "level1";
+  private double playerX = 100.0;
+  private double playerY = 150.0;
+  private int playerHealth = 100;
+  private int score = 0;
+  private List<String> inventoryItems = new ArrayList<>();
 
-  @XmlElement(name = "chapter")
-  private int chapter;
+  public GameSaveData() {}
 
-  @XmlElement(name = "part")
-  private int part;
+  // Getters & Setters
+  public String getCurrentMap() { return currentMap; }
+  public void setCurrentMap(String currentMap) { this.currentMap = currentMap; }
 
-  @XmlElement(name = "spawn")
-  private int spawn;
+  public double getPlayerX() { return playerX; }
+  public void setPlayerX(double playerX) { this.playerX = playerX; }
 
-  @XmlElement(name = "name")
-  private String name;
+  public double getPlayerY() { return playerY; }
+  public void setPlayerY(double playerY) { this.playerY = playerY; }
 
-  @XmlElement(name = "upgrades")
-  private UpgradeLevels upgrades;
+  public int getPlayerHealth() { return playerHealth; }
+  public void setPlayerHealth(int playerHealth) { this.playerHealth = playerHealth; }
 
-  @XmlElement(name = "totalZombiesKilled")
-  private int totalZombiesKilled;
+  public int getScore() { return score; }
+  public void setScore(int score) { this.score = score; }
 
-  @XmlElement(name = "inventory")
-  private Storage<Items> inventory;
+  public List<String> getInventoryItems() { return inventoryItems; }
+  public void setInventoryItems(List<String> items) { this.inventoryItems = items; }
+}
+```
 
-  public SaveGame() {
-  }
+---
 
-  public SaveGame(final int chapter, final int part, final int spawn, final String name) {
-    this.chapter = chapter;
-    this.part = part;
-    this.spawn = spawn;
-    this.name = name;
-  }
+## 2. Safe Cross-Platform Storage Directory
 
-  @XmlTransient
-  public int getChapter() {
-    return this.chapter;
-  }
+Never write save files directly into the installation folder (which may be read-only in Program Files or macOS app bundles). Use the user's local application data directory:
 
-  @XmlTransient
-  public int getPart() {
-    return this.part;
-  }
+```java
+import java.io.File;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
-  @XmlTransient
-  public int getSpawn() {
-    return this.spawn;
-  }
+public final class SaveManager {
+  private static final String GAME_FOLDER = ".mygame";
 
-  @XmlTransient
-  public String getName() {
-    return this.name;
-  }
+  public static Path getSaveDirectory() {
+    String os = System.getProperty("os.name").toLowerCase();
+    String baseDir;
 
-  @XmlTransient
-  public UpgradeLevels getUpgrades() {
-    return this.upgrades;
-  }
+    if (os.contains("win")) {
+      baseDir = System.getenv("APPDATA");
+      if (baseDir == null) {
+        baseDir = System.getProperty("user.home");
+      }
+    } else if (os.contains("mac")) {
+      baseDir = System.getProperty("user.home") + "/Library/Application Support";
+    } else {
+      // Linux / Unix standard XDG directory
+      baseDir = System.getProperty("user.home") + "/.local/share";
+    }
 
-  @XmlTransient
-  public int getTotalZombiesKilled() {
-    return this.totalZombiesKilled;
-  }
-
-  @XmlTransient
-  public Storage<Items> getInventory() {
-    return this.inventory;
-  }
-
-  public void setChapter(int chapter) {
-    this.chapter = chapter;
-  }
-
-  public void setPart(int part) {
-    this.part = part;
-  }
-
-  public void setSpawn(int spawn) {
-    this.spawn = spawn;
-  }
-
-  public void setUpgrades(UpgradeLevels upgrades) {
-    this.upgrades = upgrades;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public void setTotalZombiesKilled(int totalZombiesKilled) {
-    this.totalZombiesKilled = totalZombiesKilled;
-  }
-
-  public void setInventory(Storage<Items> inventory) {
-    this.inventory = inventory;
+    File dir = new File(baseDir, GAME_FOLDER);
+    if (!dir.exists()) {
+      dir.mkdirs();
+    }
+    return dir.toPath();
   }
 }
 ```
 
-We can save the game state to the system user's directory with the `saveGame()`-method. Make sure that things like the player inventory and active upgrades / skills / traits are also serializable.
+---
+
+## 3. Saving & Loading Game State
+
+Use Jakarta JSON (bundled in LITIENGINE) or `JsonUtilities` to write and read save data:
 
 ```java
-  public static void saveGame() {
-    Level level = GameOrchestrator.getCurrentLevel();
-    if (level == null) {
-      return;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.nio.file.Path;
+import jakarta.json.bind.Jsonb;
+import jakarta.json.bind.JsonbBuilder;
+
+public final class SaveManager {
+  private static final Jsonb jsonb = JsonbBuilder.create();
+
+  public static void saveGame(String slotName, GameSaveData data) {
+    Path saveFile = getSaveDirectory().resolve(slotName + ".json");
+    try (FileWriter writer = new FileWriter(saveFile.toFile())) {
+      jsonb.toJson(data, writer);
+      System.out.println("Saved progress to: " + saveFile);
+    } catch (IOException e) {
+      e.printStackTrace();
     }
-
-    // don't save in elevators
-    if (level.getName().contains("elevator")) {
-      return;
-    }
-
-    SaveGame saveGame = new SaveGame(level.getChapter(), level.getPart(), GameOrchestrator.getCurrentSpawn(), SAVE_FILE_NAME);
-    saveGame.setUpgrades(Upgrades.save());
-    saveGame.setInventory(Lepus.instance().getInventory());
-
-    String dir = System.getProperty("user.home") + "/.drlepus/savefiles/";
-    File dirFile = new File(dir);
-    dirFile.mkdirs();
-    String savegamePath = dir + saveGame.getName() + ".xml";
-    XmlUtilities.save(saveGame,savgamePath);
   }
+
+  public static GameSaveData loadGame(String slotName) {
+    Path saveFile = getSaveDirectory().resolve(slotName + ".json");
+    if (!saveFile.toFile().exists()) {
+      return null;
+    }
+
+    try (FileReader reader = new FileReader(saveFile.toFile())) {
+      return jsonb.fromJson(reader, GameSaveData.class);
+    } catch (IOException e) {
+      e.printStackTrace();
+      return null;
+    }
+  }
+}
 ```
 
-To load the savegame, we will call `loadSavedGameFile()`.
+---
+
+## 4. Restoring the World State
+
+When loading a savegame, re-apply the saved state to the active environment and player entity:
 
 ```java
-  public static void loadSavedGameFile() {
-    String path = System.getProperty("user.home") + "/.drlepus/savefiles/" + SAVE_FILE_NAME + ".xml";
-    final SaveGame saveGame = XmlUtilities.read(SaveGame.class, Resources.getLocation(path));
-    Upgrades.load(saveGame.getUpgrades());
-    Lepus.instance().setupInventory(saveGame.getInventory());
-    Level level = Level.getLevel(saveGame.getChapter(), saveGame.getPart());
-    if (level == null) {
-      log.log(java.util.logging.Level.SEVERE, "Invalid save file detected! Level {0}-{1} does not exist", new Object[] { saveGame.getChapter(), saveGame.getPart() });
-      level = Level.LABORATORY;
-    }
-    loadEnvironment(level, saveGame.getSpawn());
-  }
-```
+public static void applySave(GameSaveData save) {
+  if (save == null) return;
 
-Remember, this is just one specific example how to load and save player progress. You can pick whatever information you like, in whichever format you like, and wherever you would like to store it. Get creative!
+  // 1. Switch to the saved level
+  Game.world().loadEnvironment(save.getCurrentMap());
+
+  // 2. Position the player entity
+  IEntity player = Game.world().environment().get("player");
+  if (player instanceof Creature creature) {
+    creature.setLocation(save.getPlayerX(), save.getPlayerY());
+  }
+
+  // 3. Center camera
+  Game.world().camera().setFocus(save.getPlayerX(), save.getPlayerY());
+}
+```

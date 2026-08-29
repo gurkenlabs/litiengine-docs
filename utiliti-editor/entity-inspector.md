@@ -14,7 +14,7 @@ The **Property Inspector** (located on the right side of the Map Workspace) allo
 
 When an entity is selected on the canvas or in the scene graph, the inspector displays organized, collapsible sections:
 
-```
+```text
 ┌─────────────────────────────────────────────────────────────┐
 │ ▼ GENERAL                                                   │
 │   ID: 104  | Name: goblin_guard | RenderType: NORMAL        │
@@ -182,7 +182,7 @@ Configures entity locomotion:
 
 The **Scripts** section attaches Java or Groovy script components directly to map entities:
 
-```
+```text
 ┌─────────────────────────────────────────────────────────────┐
 │ Attached Scripts:                                    [ + ]  │
 │ ├ 1. [x] GoblinAI.groovy (Order: 1)                  [ - ]  │

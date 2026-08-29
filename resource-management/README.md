@@ -1,6 +1,12 @@
+---
+title: "Resource Management"
+description: "Resource Management documentation for LITIENGINE 2D Java game development."
+keywords: ["LITIENGINE", "java", "2d", "game engine", "resource management"]
+---
+
 # Resource Management
 
-![Resources API](images/api-resources.png)
+![Resources API](/images/api-resources.png)
 
 The static `Resources` class is the engine's entry point for accessing any kind of resource from within your LITIENGINE project. A resource is any non-executable data that is deployed with your game. The `Resources` class provides access to different types of `ResourcesContainers` and is used by different \(loading\) mechanisms to make resources available during runtime. LITIENGINE supports various different resource types, including:
 

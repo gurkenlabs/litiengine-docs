@@ -1,0 +1,58 @@
+name: Documentation CI Lint
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  lint-docs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Verify Documentation Integrity
+        run: |
+          python -c "
+          import os, re, sys
+          from pathlib import Path
+
+          root = Path('.')
+          md_files = [f for f in root.rglob('*.md') if f.name not in ['SUMMARY.md', 'AGENTS.md']]
+          
+          errors = []
+          
+          # Check Frontmatter & Unlabeled Fences
+          for f in md_files:
+              text = f.read_text(encoding='utf-8', errors='replace')
+              if not text.startswith('---'):
+                  errors.append(f'Missing frontmatter in {f}')
+              
+              lines = text.splitlines()
+              in_code = False
+              for idx, line in enumerate(lines):
+                  stripped = line.strip()
+                  if stripped.startswith('```'):
+                      if not in_code:
+                          tag = stripped[3:].strip()
+                          if not tag:
+                              errors.append(f'Unlabeled code fence in {f} on line {idx+1}')
+                          in_code = True
+                      else:
+                          in_code = False
+
+          if errors:
+              print(f'Documentation Lint Failed with {len(errors)} error(s):')
+              for e in errors:
+                  print(f'  - {e}')
+              sys.exit(1)
+          else:
+              print('All documentation checks passed!')
+          "

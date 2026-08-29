@@ -28,7 +28,7 @@ Click the **Debug Project** button (`🐞`) on the toolbar or press **`Shift + F
 - utiLITI launches the game with an active **Java Debug Interface (JDI)** socket attached.
 - The **Scripts Workspace** connects to the live execution backend.
 
-```
+```text
 ┌─────────────────────────────────────────────────────────────┐
 │ 10 |  @Override                                             │
 │ 11 |  public void onLoaded() {                              │

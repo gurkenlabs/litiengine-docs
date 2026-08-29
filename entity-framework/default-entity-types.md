@@ -9,7 +9,7 @@ LITIENGINE provides a hierarchy of built-in entity types. Each type builds upon 
 
 ## Entity Hierarchy
 
-```
+```text
 IEntity
   └── Entity (base class)
         └── CollisionEntity (has collision)
@@ -141,7 +141,7 @@ public class Barrel extends Prop {
 - **DESTROYED**: Zero health
 
 ### State-based Spritesheets
-```
+```java
 prop-barrel-intact.png
 prop-barrel-damaged.png
 prop-barrel-destroyed.png

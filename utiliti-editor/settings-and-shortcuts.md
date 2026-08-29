@@ -12,7 +12,7 @@ Access the application preferences by selecting **File -> Settings...** or press
 
 ## Settings Dialog Categories
 
-```
+```text
 ┌─────────────────────────────────────────────────────────────┐
 │ SETTINGS                                          [Search]  │
 ├───────────────────┬─────────────────────────────────────────┤

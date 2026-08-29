@@ -1,3 +1,9 @@
+---
+title: "Game Configuration"
+description: "Game Configuration documentation for LITIENGINE 2D Java game development."
+keywords: ["LITIENGINE", "java", "2d", "game engine", "configuration"]
+---
+
 # Game Configuration
 
 ## Set the basic game information
@@ -65,10 +71,10 @@ configurations to be able to adjust them when necessary.
     want to have a deeper look into the `GuiProperties` class. It
     provides global default appearance settings for all  `GUIComponents`
     e.g. you can set a default Font by
-    calling `GuiProperties.setDefaultFont(Resources.getFont("some-font.ttf")).`
+    calling `GuiProperties.setDefaultFont(Resources.fonts().get("some-font.ttf")).`
   - **Custom Mouse Cursor** If you intend to use the Mouse to control your
     LITIENGINE game you should consider providing a custom Cursor Image.
-    `Game.world().cursor().set(CURSOR_IMAGE, 16, 16);`
+    `Game.window().cursor().set(CURSOR_IMAGE, 16, 16);`
 
 ## Game Configuration File `config.properties`
 

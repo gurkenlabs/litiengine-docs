@@ -1,3 +1,9 @@
+---
+title: "Run the Game"
+description: "Run the Game documentation for LITIENGINE 2D Java game development."
+keywords: ["LITIENGINE", "java", "2d", "game engine", "getting started"]
+---
+
 # Run the Game
 
 Now that you have a basic project structure with the LITIENGINE referenced, your next step is to bring it all together and run the game for the first time.
@@ -37,5 +43,5 @@ public class Program {
 
 If you see the following window, you’ve setup everything correctly and are now ready to create awesome 2D Java games with LITIENGINE!
 
-![Empty LITIENGINE Window](images/empty-litiengine-window.png)
+![Empty LITIENGINE Window](/images/empty-litiengine-window.png)
 

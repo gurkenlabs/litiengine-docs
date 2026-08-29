@@ -1,12 +1,70 @@
 ---
-description: Read about the future of LITIENGINE development.
+title: "LITIENGINE Roadmap"
+description: "Discover the development roadmap, project philosophy, and path to v1.0.0 for LITIENGINE."
+keywords: ["LITIENGINE", "roadmap", "v1.0.0", "milestones", "vision", "utiLITI", "GUI editor", "scripting", "MCP"]
 ---
 
-# Roadmap
+# LITIENGINE Roadmap
 
-**🛈 LITIENGINE is currently in Beta**
+LITIENGINE is built with a clear philosophy: provide an accessible, powerful, and completely free 2D game engine in pure Java without external binary dependencies or complex build friction.
 
-* **Alpha**: Since there hasn't been a pre-alpha phase or anything, this phase includes everything from the very first non-open-sourced LITIENGINE commit to the latest publicly available versions. Expect major API changes and feature additions to happen frequently. Because of the frequent changes, documentation does not have top priority yet. Slowly introduce the framework to the world, incorporate feedback, and form the brand _"LITIENGINE"_. LITIENGINE Alpha had begun in April 2016, lasting for about four years.
-* **Beta**: All core features are implemented in a stable way and can be looked up in the documentation. APIs change less frequently. The focus here is on making LITIENGINE reliable, well-documented, and user-friendly. Beta is the final stress-test for LITIENGINE, where we want to make sure every nook and cranny sits in the right place. Users can now familiarize with what LITIENGINE is finally going to work like, and provide their feedback and / or bug reports for us to apply some fixes. In addition to that, we establish compulsory guidelines for contribution and compliance, migrate to a new forum and website, and no longer work on the master branch directly. Every single bit of new code has to get tested thoroughly and incorporated in the documentation. The master branch only features the latest stable snapshot of LITIENGINE. The first **Beta** release will be v0.5.0, set to release in 2020.
-* **Release**: At the point where we are certain that every LITIENGINE mechanic works in the desired way, can be accessed easily, and is covered in the documentation, we will prepare for the first production-ready release. Users can expect a competitive, well-tested, and easy-to-learn Java 2D game library ready for use in professional environments. By the time of release, we have composed a monetization strategy for LITIENGINE to reward the longstanding efforts we have put into the project. Don't worry, LITIENGINE will stay open-source for everyone!
+```text
+┌─────────────────────────────────────────────────────────────┐
+│                    Project Philosophy                       │
+│  Pure Java 2D  •  LTS Baseline  •  Integrated Tooling (utiLITI) │
+└──────────────────────────────┬──────────────────────────────┘
+                               │
+                               ▼
+┌─────────────────────────────────────────────────────────────┐
+│                 Path to Production (v1.0.0)                 │
+│  • Dedicated GUI Editor in utiLITI                          │
+│  • Monaco Workspace & Scripting (Groovy/Java)               │
+│  • AI & Agent Tooling (MCP Server Integration)              │
+│  • Core Stability (AWT Graphics, Physics, Audio)            │
+│  • Wang Terrains & Level Design Workflows                   │
+└─────────────────────────────────────────────────────────────┘
+```
+
+## Project Vision & Java Support Policy
+
+* **Pure Java Portability**: Keep the engine lightweight, portable, and straightforward to run on any desktop operating system without managing cumbersome C/C++ native dynamic libraries.
+* **Java LTS Baseline**: Development is generally oriented around **Java Long-Term Support (LTS) releases** (such as Java 21 LTS), while proactively adopting groundbreaking JDK features when they provide major advantages (such as the Foreign Function & Memory / Panama API utilized by **[Input4j](https://github.com/gurkenlabs/input4j)** for gamepad input).
+* **Integrated Creative Workflow**: Provide a seamless development loop between code, assets, and level design through the **utiLITI Editor**.
+
+---
+
+## Current Focus: Stabilizing Toward v1.0.0
+
+Development is currently focused on consolidating and stabilizing the engine's feature set directly toward the **v1.0.0 production release**:
+
+### 1. Dedicated GUI Editor in utiLITI
+* A visual in-editor layout tool for creating, styling, and previewing `GuiComponent` hierarchies, in-game HUDs (health bars, resource meters, dialog boxes), and main menu screens without writing manual coordinate math.
+
+### 2. Enhanced utiLITI Editor & Monaco Workspace
+* Built-in **Monaco code editor** embedded directly within utiLITI via Chromium Embedded Framework (CEF).
+* Real-time `JavaLanguageService` with syntax diagnostics, clickable problem markers, parameter hints, and hover documentation.
+* **Wang Tiles & Auto-Tiling**: Rule-based terrain autotiling and Wang tile pattern generation in the tileset inspector.
+
+### 3. Scripting Engine & Hot-Reload Capabilities
+* 3-tier hot-reloadable scripting framework supporting both **Groovy** and **Java** across `GameScript`, `EnvironmentScript`, and `EntityScript`.
+* Defensive lifecycle copying, fault-tolerant exception boundaries, and pause state synchronization across event bridges.
+
+### 4. AI & Agent Tooling (MCP Server Integration)
+* First-class integration of the **Model Context Protocol (MCP)** (`io.modelcontextprotocol.sdk:mcp`), enabling autonomous AI coding agents (such as Antigravity) to query game metadata, inspect entities, edit maps, and generate code directly alongside developers.
+
+### 5. Core Engine Performance & Stability
+* Hardening and profiling the core 2D subsystems:
+  * **2D RenderEngine**: Optimized AWT Graphics rendering pipelines, sprite animation caching, and lighting composites.
+  * **2D PhysicsEngine**: Robust raycasting, collision resolution, and movement controller velocity dampening.
+  * **2D SoundEngine**: Multi-format audio streaming and positional sound spatialization.
+
+---
+
+## Community & Contributing
+
+LITIENGINE is developed collaboratively with its open-source community:
+* **Discussions & Support**: Join our [GitHub Discussions](https://github.com/gurkenlabs/litiengine/discussions) and [Discord Community](https://discord.gg/rRB9cKD).
+* **Issue Tracker**: Submit bug reports and feature requests via the [GitHub Issues Tracker](https://github.com/gurkenlabs/litiengine/issues).
+* **Sponsorship**: Support development via [Open Collective](https://opencollective.com/litiengine).
+
 

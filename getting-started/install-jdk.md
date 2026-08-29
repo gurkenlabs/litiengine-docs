@@ -1,23 +1,46 @@
 ---
-meta.description: Learn about the Java Development Kit (JDK) and its different distributions.
-meta.keywords: LITIENGINE, java, game, gameengine, development, 2D, programming, ide, eclipse, intellij, netbeans
+title: "Install JDK"
+description: "Learn about the Java Development Kit (JDK 21+ / JDK 25) requirements, distributions, and installation methods for LITIENGINE."
+keywords: ["LITIENGINE", "java", "JDK", "JVM", "SDKMAN", "Temurin", "GraalVM", "Java 21", "Java 25"]
 ---
 
 # Install JDK
 
-## Installing the Java Development Kit 
-First of all, you should download a Java development kit (**JDK**), containing the Java virtual machine (**JVM**) and other resources for developing Java applications.
-Since LITIENGINE has been created with Java 25, you need at least JDK 21 on your machine.
-> In case you are on linux or mac, you can also use [SKDMAN!](https://sdkman.io/) to manager your JDK installation. Once you've installed sdk man, type `sdk install java` in your terminal. The latest recommend JDK will be installed automatically for you. It should be registered in your IDE after you restart it. For further information look up the [SDKMAN! Docs](https://sdkman.io/usage).
+## Installing the Java Development Kit
 
-> **The official Oracle JDK has seen some severe licensing changes in 2019, requiring a paid license for developing commercial applications! You should use another JDK distribution with a permissive free license instead.** 
+To develop games with LITIENGINE, you need a Java Development Kit (**JDK**) containing the Java Virtual Machine (**JVM**) and Java compiler.
 
-Here is a short overview over some entirely free JDK distributions:
+LITIENGINE requires **JDK 21 LTS or later** (with modern snapshots targeting **JDK 25**).
 
-name | implementations
-:---- | :------
-Eclipse Temurin      | [JDK 25](https://adoptium.net/temurin/releases/?version=25)
-Amazon Correto    | [JDK 25](https://docs.aws.amazon.com/corretto/latest/corretto-25-ug/downloads-list.html)
-Oracle Open JDK | [JDK 25](http://jdk.java.net/25/)
-Red Hat OpenJDK | [JDK 25](https://developers.redhat.com/products/openjdk/download)
-GraalVM | [JDK 25](https://www.graalvm.org/downloads/#)
+> [!TIP]
+> On macOS and Linux, you can easily install and manage multiple JDK versions using [SDKMAN!](https://sdkman.io/):
+> ```bash
+> sdk install java
+> ```
+
+## Recommended Free JDK Distributions
+
+We recommend using an OpenJDK distribution with a permissive open-source license:
+
+| Distribution | Supported Versions & Download |
+| :--- | :--- |
+| **Eclipse Temurin** (Adoptium) | [Download Temurin JDK](https://adoptium.net/temurin/releases/) |
+| **Amazon Corretto** | [Download Amazon Corretto](https://docs.aws.amazon.com/corretto/) |
+| **Oracle OpenJDK** | [Download OpenJDK](https://jdk.java.net/) |
+| **Red Hat OpenJDK** | [Download Red Hat OpenJDK](https://developers.redhat.com/products/openjdk/download) |
+| **GraalVM** | [Download GraalVM](https://www.graalvm.org/downloads/) |
+
+## Verifying Your Installation
+
+Once installed, open your terminal or command prompt and verify your Java version:
+
+```bash
+java --version
+javac --version
+```
+
+Both commands should return version `21` (or higher).
+
+## Next Steps
+
+Now that your JDK is ready, proceed to **[Set Up Your IDE](/docs/getting-started/development-environment/)**.

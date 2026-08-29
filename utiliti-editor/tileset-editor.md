@@ -12,7 +12,7 @@ The **Tileset Editor** (accessible via the `Tilesets` tab or double-clicking any
 
 ## Editor Overview
 
-```
+```text
 ┌─────────────────────────────────────────────────────────────┐
 │ Tileset: [dungeon_tileset ▼]   Tile Size: 16x16             │
 │ Offsets: X: 0 | Y: 0          Custom Properties: [...]      │
@@ -58,7 +58,7 @@ Select any tile in the tile grid to configure its individual metadata:
 
 Instead of requiring separate external collision tools, utiLITI includes an integrated vector collision editor directly within the tileset view:
 
-```
+```text
 ┌──────────────────────────────────────────────┐
 │ Tools: [↖️ Select] [🔲 Rectangle] [🗑️ Delete] │
 ├──────────────────────────────────────────────┤

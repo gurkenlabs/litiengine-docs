@@ -1,39 +1,106 @@
-# 2D Audio
+---
+title: "Sound Engine"
+description: "Master 2D spatial audio, background music streaming, volume attenuation, and sound playback in LITIENGINE."
+keywords: ["LITIENGINE", "sound engine", "audio", "spatial audio", "music", "wav", "mp3", "ogg", "Game.audio"]
+---
 
-## The Sound Engine - `Game.audio()`
+# Sound Engine
 
-The 2D `SoundEngine` provides all methods to playback sounds and music in your game. It allows to define the 2D coordinates of the sound or even pass in the source entity of the sound which will adjust the position according to the position of the `Entity`.
+The `SoundEngine` (`Game.audio()`) handles all sound effects, ambient background audio, and background music streaming. It natively supports `.wav`, `.mp3`, and `.ogg` audio formats without external native C libraries.
 
-The LITIENGINE sound engine supports **.wav**, **.mp3** and **.ogg** by default.
+```mermaid
+flowchart TD
+    subgraph AudioSources["Audio Sources"]
+        SFX["Sound Effects (.wav, .ogg)"]
+        Music["Music Tracks (.mp3, .ogg)"]
+        Spatial["Positional Sounds (Point2D)"]
+    end
 
-> If you need to support other audio codecs, you have to write an own SPI implementation and inject it to your project. For more information, read the [Official Java Documentation on Service Provider Interfaces](https://docs.oracle.com/javase/tutorial/sound/SPI-intro.html).
+    subgraph SoundEngine["Game.audio()"]
+        Master["Master Volume (sfx_soundVolume)"]
+        MusicBus["Music Volume (sfx_musicVolume)"]
+        SpatialCalc["2D Spatial Attenuation (Listener Focus)"]
+    end
 
-```java
-Sound mySound = Resources.sounds().get("my-sound.ogg");
-
-// play the sound
-Game.audio().playSound(mySound);
-
-// play the sound at environment location (50/50)
-Game.audio().playSound(mySound, 50, 50);
-
-// play the sound at location of an entity
-Game.audio().playSound(mySound, myEntity);
-
-// play background music
-Game.audio().playMusic(Resources.sounds().get("my-music.ogg"));
-
-// use the SoundPlayback to react to events
-SoundPlayback playback = Game.audio().playSound(mySound);
-playback.addSoundPlaybackListener(new SoundPlaybackListener() {
-
-  @Override
-  public void finished(SoundEvent event) {
-  }
-  @Override
-  public void cancelled(SoundEvent event) {
-  }
-});
+    SFX --> Master
+    Spatial --> SpatialCalc --> Master
+    Music --> MusicBus
 ```
 
-If a location \(or related `Entity`\) is specified when playing a `Sound`, the engine will adjust the `pan` and `volume` relative to the current **listener location**. By default, this location will be the focus of the game's `Camera`.
+## Playing Sound Effects
+
+### Global (Non-Positional) Sounds
+Play interface sounds, notifications, or player feedback anywhere in the world:
+
+```java
+// Play a loaded sound resource
+Game.audio().playSound("button-click.wav");
+
+// Play with explicit volume multiplier and loop state
+Sound hitSound = Resources.sounds().get("hit.ogg");
+Game.audio().playSound(hitSound, false, 1.0f);
+```
+
+---
+
+## 2D Positional & Spatial Audio
+
+LITIENGINE calculates stereo panning and volume falloff automatically based on distance from the camera focus (or active player entity listener):
+
+```java
+// Play an explosion at an entity's world position
+Point2D explosionPoint = bossEnemy.getCenter();
+Game.audio().playSound("explosion.wav", explosionPoint);
+
+// Positional audio automatically fades as the camera moves farther away
+Game.audio().playSound("waterfall.wav", waterfallEntity.getLocation());
+```
+
+---
+
+## Background Music
+
+Music is streamed asynchronously to optimize memory usage:
+
+```java
+// Play looping background music
+Game.audio().playMusic("overworld-theme.mp3");
+
+// Stop or pause music
+Game.audio().stopMusic();
+
+// Switch tracks with fading
+Game.audio().playMusic("boss-theme.ogg");
+```
+
+---
+
+## Volume Control & Configuration
+
+Adjust audio levels globally or connect them to in-game options sliders:
+
+```java
+// Master sound effects volume (0.0f to 1.0f)
+Game.audio().setSoundVolume(0.8f);
+
+// Background music volume (0.0f to 1.0f)
+Game.audio().setMusicVolume(0.5f);
+
+// Read current configured volumes
+float currentSfxVolume = Game.config().sound().getSoundVolume();
+float currentMusicVolume = Game.config().sound().getMusicVolume();
+```
+
+In `config.properties`:
+
+```properties
+sfx_soundVolume=0.8
+sfx_musicVolume=0.5
+```
+
+---
+
+## See Also
+
+* **[Resource Management](/docs/resource-management/README/)** - Loading sound resources into `.litidata`
+* **[Game World](/docs/game-api/game-world/)** - Environment & entity locations

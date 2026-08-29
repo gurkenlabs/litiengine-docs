@@ -195,39 +195,105 @@ public class SparkParticle extends Particle {
 }
 ```
 
-## Common Effects
+## Particle Recipes Cookbook
 
-### Fire
+Below are complete, copy-paste ready emitter classes for common 2D visual effects:
+
+### 1. Torch & Campfire Flame
 
 ```java
-emitter.getData().setVelocityYMin(-80);
-emitter.getData().setVelocityYMax(-40);
-emitter.getData().setStartColor(Color.YELLOW);
-emitter.getData().setEndColor(Color.RED);
-emitter.getData().setMinStartScale(1.5f);
-emitter.getData().setMaxEndScale(0.2f);
+import java.awt.Color;
+import de.gurkenlabs.litiengine.graphics.emitters.Emitter;
+import de.gurkenlabs.litiengine.graphics.emitters.particles.ParticleType;
+
+public class CampfireEmitter extends Emitter {
+  public CampfireEmitter(double x, double y) {
+    super(x, y);
+    this.setWidth(16);
+    this.setHeight(16);
+
+    this.getData().setParticleType(ParticleType.CIRCLE);
+    this.getData().setSpawnRate(25);
+    this.getData().setParticleTTLMin(400);
+    this.getData().setParticleTTLMax(800);
+
+    // Float upwards with slight horizontal jitter
+    this.getData().setVelocityXMin(-10);
+    this.getData().setVelocityXMax(10);
+    this.getData().setVelocityYMin(-45);
+    this.getData().setVelocityYMax(-20);
+
+    // Fade from bright yellow/orange to dark smoky red
+    this.getData().setColor(new Color(255, 200, 50, 220));
+    this.getData().setFade(true);
+    this.getData().setFadeColor(new Color(220, 50, 20, 0));
+  }
+}
 ```
 
-### Smoke
+### 2. Explosion / Impact Burst
 
 ```java
-emitter.getData().setVelocityYMin(-30);
-emitter.getData().setVelocityYMax(-15);
-emitter.getData().setStartColor(Color.DARK_GRAY);
-emitter.getData().setEndColor(Color.LIGHT_GRAY);
-emitter.getData().setMinStartAlpha(0.8f);
-emitter.getData().setMaxEndAlpha(0.0f);
+import java.awt.Color;
+import de.gurkenlabs.litiengine.graphics.emitters.Emitter;
+import de.gurkenlabs.litiengine.graphics.emitters.particles.ParticleType;
+
+public class ExplosionEmitter extends Emitter {
+  public ExplosionEmitter(double x, double y) {
+    super(x, y);
+    this.setWidth(10);
+    this.setHeight(10);
+
+    this.getData().setParticleType(ParticleType.SQUARE);
+    this.getData().setSpawnAmount(60);
+    this.getData().setEmitterDuration(150);
+    this.getData().setLoop(false);
+    this.getData().setParticleTTLMin(200);
+    this.getData().setParticleTTLMax(500);
+
+    // Radial explosive velocity in all directions
+    this.getData().setVelocityXMin(-120);
+    this.getData().setVelocityXMax(120);
+    this.getData().setVelocityYMin(-120);
+    this.getData().setVelocityYMax(120);
+
+    this.getData().setColor(new Color(255, 120, 0, 255));
+    this.getData().setFade(true);
+    this.getData().setFadeColor(new Color(80, 80, 80, 0));
+  }
+}
 ```
 
-### Explosion
+### 3. Rain Weather Emitter
 
 ```java
-emitter.getData().setSpawnAmount(100);
-emitter.getData().setEmitterDuration(100);
-emitter.getData().setVelocityXMin(-100);
-emitter.getData().setVelocityXMax(100);
-emitter.getData().setVelocityYMin(-100);
-emitter.getData().setVelocityYMax(100);
+import java.awt.Color;
+import de.gurkenlabs.litiengine.Game;
+import de.gurkenlabs.litiengine.graphics.emitters.Emitter;
+import de.gurkenlabs.litiengine.graphics.emitters.particles.ParticleType;
+
+public class RainEmitter extends Emitter {
+  public RainEmitter() {
+    super(0, 0);
+    // Span across the map or active camera viewport
+    this.setWidth(Game.world().environment().getMap().getSizeInPixels().getWidth());
+    this.setHeight(10);
+
+    this.getData().setParticleType(ParticleType.RECTANGLE);
+    this.getData().setParticleWidth(1);
+    this.getData().setParticleHeight(8);
+    this.getData().setSpawnRate(80);
+    this.getData().setLoop(true);
+
+    // Fall downwards with slight wind angle
+    this.getData().setVelocityXMin(-15);
+    this.getData().setVelocityXMax(-5);
+    this.getData().setVelocityYMin(180);
+    this.getData().setVelocityYMax(240);
+
+    this.getData().setColor(new Color(150, 190, 255, 160));
+  }
+}
 ```
 
 ## Performance Tips
