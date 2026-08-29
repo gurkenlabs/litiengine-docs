@@ -10,7 +10,6 @@ repo_url = "https://github.com/gurkenlabs/litiengine"
 repo_name = "gurkenlabs/litiengine"
 edit_uri = "https://github.com/gurkenlabs/litiengine-docs/edit/master/docs"
 copyright = "Copyright © Gurkenlabs"
-extra_css = ["assets/custom.css"]
 
 nav = [
     { "Get Started" = [
