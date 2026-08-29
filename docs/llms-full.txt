@@ -8,7 +8,7 @@
 - **Physics**: 2D Tile collision maps, bounding boxes, raycasting (`Game.physics()`)
 - **Input**: Low-latency keyboard, mouse, and gamepad via Panama FFM (`Input4j`, `Input.gamepads()`)
 - **Audio**: 2D positional spatial attenuation and music streaming (`Game.audio()`)
-- **Editor Tooling**: utiLITI Visual Studio with Monaco code editor, Wang autotiling, and live debugging
+- **Editor Tooling**: utiLITI Editor with Monaco code editor, Wang autotiling, and live debugging
 - **Scripting Engine**: 3-tier runtime scripts in Groovy and Java (`GameScript`, `EnvironmentScript`, `CreatureScript`)
 - **AI Tooling**: Native Model Context Protocol (MCP) Server integration (`mcp-server`)
 - **Persistence**: Jakarta JSON serialization (`Jakarta.json.bind` / Parsson)
@@ -37,7 +37,7 @@
 - [Combat & Action Scripting](https://docs.litiengine.com/control-entities/combat-scripting/): Projectile builders, abilities, and combat text.
 - [User Interface Cookbook](https://docs.litiengine.com/user-interface/hud-and-ui-cookbook/): Health bars, damage numbers, and speech bubbles.
 
-### utiLITI Visual Studio
+### utiLITI Editor
 - [utiLITI Overview](https://docs.litiengine.com/utiliti-editor/): Visual workspace and `.litidata` resource archives.
 - [Monaco Script Workspace](https://docs.litiengine.com/utiliti-editor/scripts/): In-editor code editor and diagnostics.
 - [MCP Server Integration](https://docs.litiengine.com/utiliti-editor/mcp-server/): AI agent integration via Model Context Protocol.
@@ -113,7 +113,7 @@ keywords: ["LITIENGINE", "java", "game engine", "2D", "open source", "awt", "pan
 
     Install JDK 21+, configure Gradle/Maven, and boot up your first game window in less than 5 minutes.
 
-- :material-hammer-wrench:{ .lg .middle } **[utiLITI Visual Studio →](utiliti-editor/README.md)**
+- :material-hammer-wrench:{ .lg .middle } **[utiLITI Editor →](utiliti-editor/README.md)**
 
     ---
 

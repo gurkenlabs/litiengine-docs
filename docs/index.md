@@ -14,7 +14,7 @@ keywords: ["LITIENGINE", "java", "game engine", "2D", "open source", "awt", "pan
 
     Install JDK 21+, configure Gradle/Maven, and boot up your first game window in less than 5 minutes.
 
-- :material-hammer-wrench:{ .lg .middle } **[utiLITI Visual Studio →](utiliti-editor/README.md)**
+- :material-hammer-wrench:{ .lg .middle } **[utiLITI Editor →](utiliti-editor/README.md)**
 
     ---
 
