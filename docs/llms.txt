@@ -1,4 +1,4 @@
-# LITIENGINE Documentation (llms.txt)
+# LITIENGINE Docs (llms.txt)
 
 > LITIENGINE is a free, open-source 2D Java Game Engine engineered to create tile-based 2D video games using pure Java, AWT graphics, modern Panama FFM input handling, and zero external C-dependencies.
 

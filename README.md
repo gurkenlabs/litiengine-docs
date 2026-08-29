@@ -1,6 +1,6 @@
-# LITIENGINE Documentation
+# LITIENGINE Docs
 
-Source repository for the official LITIENGINE documentation.
+Source repository for the official LITIENGINE docs.
 
 Documentation: [https://docs.litiengine.com/](https://docs.litiengine.com/)
 

@@ -1,12 +1,12 @@
 ---
 title: "Glossary"
-description: "Glossary of terms used in LITIENGINE documentation."
+description: "Glossary of terms used in LITIENGINE docs."
 keywords: ["LITIENGINE", "java", "game engine", "2D", "glossary"]
 ---
 
 # Glossary
 
-This glossary defines key terms used throughout LITIENGINE documentation.
+This glossary defines key terms used throughout LITIENGINE docs.
 
 ## Core Concepts
 

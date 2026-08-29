@@ -1,5 +1,5 @@
 [project]
-site_name = "LITIENGINE Documentation"
+site_name = "LITIENGINE Docs"
 site_url = "https://docs.litiengine.com/"
 site_description = "Documentation for LITIENGINE, the pure Java 2D game engine."
 site_author = "Gurkenlabs"
