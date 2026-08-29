@@ -243,7 +243,7 @@ gfx_enableResolutionScale=true
 
 ## See Also
 
-- [Particle System](the-particle-system.md) - Particle optimization
+- [Particle System](particle-system.md) - Particle optimization
 - [Entity Framework](../entity-framework/README.md) - Entity management
 - [Render Engine](../game-api/render-engine.md) - Rendering system
 

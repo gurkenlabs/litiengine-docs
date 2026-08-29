@@ -1,10 +1,10 @@
 ---
-title: "Creating a platformer with LITIENGINE"
+title: "2D Platformer Tutorial"
 description: "Creating a platformer with LITIENGINE docs for LITIENGINE 2D Java game development."
 keywords: ["LITIENGINE", "java", "2d", "game engine", "tutorials"]
 ---
 
-# Creating a platformer with LITIENGINE
+# 2D Platformer Tutorial
 
 So, you’ve learned about LITIENGINE – great!
 

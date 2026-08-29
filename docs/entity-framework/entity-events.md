@@ -1,10 +1,10 @@
 ---
-title: "Subscribe to Entity Events"
+title: "Entity Event System"
 description: "Learn how to subscribe to entity events in LITIENGINE for movement, combat, lifecycle, and custom events."
 keywords: ["LITIENGINE", "entity events", "listener", "callback", "onHit", "onDeath", "onMoved", "Java"]
 ---
 
-# Subscribe to Entity Events
+# Entity Event System
 
 LITIENGINE entities support event-driven programming through listener registration. Subscribe to events to react to entity state changes without polling.
 

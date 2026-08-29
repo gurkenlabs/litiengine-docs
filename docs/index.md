@@ -4,7 +4,7 @@ description: "LITIENGINE is a free, open-source 2D Java Game Engine for creating
 keywords: ["LITIENGINE", "java", "game engine", "2D", "open source", "awt", "panama ffm", "monaco", "mcp server"]
 ---
 
-# LITIENGINE
+# LITIENGINE — Pure Java 2D Game Engine
 
 <div class="grid cards" markdown>
 
@@ -26,7 +26,7 @@ keywords: ["LITIENGINE", "java", "game engine", "2D", "open source", "awt", "pan
 
     Explore decoupled game loops, 2D physics, camera tracking, and positional spatial sound systems.
 
-- :material-school:{ .lg .middle } **[Step-by-Step Tutorials →](tutorials/creating-a-platformer.md)**
+- :material-school:{ .lg .middle } **[Step-by-Step Tutorials →](tutorials/2d-platformer.md)**
 
     ---
 

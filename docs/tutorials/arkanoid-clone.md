@@ -1,10 +1,10 @@
 ---
-title: "Creating an Arkanoid 2D Block Breaker Game"
+title: "Arkanoid Brick Breaker Tutorial"
 description: "Creating an Arkanoid 2D Block Breaker Game documentation for LITIENGINE 2D Java game development."
 keywords: ["LITIENGINE", "java", "2d", "game engine", "tutorials"]
 ---
 
-# Creating an Arkanoid 2D Block Breaker Game
+# Arkanoid Brick Breaker Tutorial
 
 > This LITIENGINE tutorial was written by [@YannikSchoeberl](https://github.com/YannikSchoeberl) and originally published on the LITIENGINE community forum.
 

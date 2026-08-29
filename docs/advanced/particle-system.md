@@ -1,10 +1,10 @@
 ---
-title: "The Particle System"
+title: "2D Particle System"
 description: "Learn how to use the LITIENGINE particle system to create visual effects like fire, smoke, explosions, and magic."
 keywords: ["LITIENGINE", "particle", "emitter", "effect", "fire", "smoke", "visual", "Java"]
 ---
 
-# The Particle System
+# 2D Particle System
 
 ## Emitter API Method Reference
 

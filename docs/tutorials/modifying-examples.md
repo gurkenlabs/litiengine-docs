@@ -4,7 +4,7 @@ description: "Learn how to clone, inspect, and customize existing LITIENGINE sam
 keywords: ["LITIENGINE", "tutorial", "sample game", "servus bonus", "gradle", "utiLITI", "customization", "modding"]
 ---
 
-# Modifying Existing LITIENGINE Projects
+# Modifying Example Projects
 
 A great way to learn LITIENGINE is to clone, run, and experiment with existing sample projects. This tutorial walks you through modifying **SERVUS BONUS**, an open-source 2D action game created with LITIENGINE.
 
@@ -75,5 +75,5 @@ public class Hit extends Ability {
 
 ## 4. Next Steps
 
-* Explore creating custom maps in utiLITI: **[Import Maps with utiLITI](../utiliti-editor/import-maps-with-utiliti.md)**
+* Explore creating custom maps in utiLITI: **[Import Maps with utiLITI](../utiliti-editor/maps-and-environments.md)**
 * Learn about the full entity lifecycle: **[Entity Framework Overview](../entity-framework/README.md)**

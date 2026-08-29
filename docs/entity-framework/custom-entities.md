@@ -1,10 +1,10 @@
 ---
-title: "Custom Entity Implementations"
+title: "Custom Entity Types"
 description: "Learn how to create custom entity implementations in LITIENGINE with specialized behavior."
 keywords: ["LITIENGINE", "custom entity", "implementation", "extend", "Java"]
 ---
 
-# Custom Entity Implementations
+# Custom Entity Types
 
 While LITIENGINE provides built-in entity types like `Creature`, `Prop`, and `CombatEntity`, you'll often need custom implementations for specialized game objects.
 

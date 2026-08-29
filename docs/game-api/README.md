@@ -1,10 +1,10 @@
 ---
-title: "The Game API"
+title: "Core Game API"
 description: "The Game API documentation for LITIENGINE 2D Java game development."
 keywords: ["LITIENGINE", "java", "2d", "game engine", "game api"]
 ---
 
-# The Game API 
+# Core Game API
 
 ![Game API](../images/api-game.png)
 

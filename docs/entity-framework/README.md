@@ -94,9 +94,9 @@ public class Goblin extends Creature {
 | :--- | :--- |
 | **[Default Entity Types](default-entity-types.md)** | Explore built-in entities: `Creature`, `Prop`, `Emitter`, `LightSource`, `Trigger`, and `SoundSource`. |
 | **[Props](props.md)** | Learn how to place, customize, and destroy interactive props in your world. |
-| **[Subscribe to Entity Events](subscribe-to-entity-events.md)** | Hook into entity lifecycle events (`onMoved`, `onHit`, `onDying`, `onRendered`). |
-| **[Annotations for Static Information](annotations-for-static-information.md)** | Configure static attributes declaratively with `@EntityInfo`, `@MovementInfo`, and `@CombatInfo`. |
-| **[Custom Entity Implementations](../entity-framework/custom-entity-implementations.md)** | Create complex, custom entity classes from scratch. |
+| **[Subscribe to Entity Events](entity-events.md)** | Hook into entity lifecycle events (`onMoved`, `onHit`, `onDying`, `onRendered`). |
+| **[Annotations for Static Information](annotations.md)** | Configure static attributes declaratively with `@EntityInfo`, `@MovementInfo`, and `@CombatInfo`. |
+| **[Custom Entity Implementations](../entity-framework/custom-entities.md)** | Create complex, custom entity classes from scratch. |
 | **[Custom MapObjectLoaders](../advanced/custom-mapobjectloaders.md)** | Map custom Tiled object types directly to your Java entity classes. |
 
 ## Entity Lifecycle

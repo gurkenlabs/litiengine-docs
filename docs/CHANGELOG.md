@@ -1,11 +1,11 @@
 ---
-title: "LITIENGINE Release notes"
+title: "Release Notes & Changelog"
 description: "Release notes for the LITIENGINE that include a complete changelog with all fixes, changes, improvements and a list of added and removed features."
 keywords: ["FAQ", "questions", "LITIENGINE", "java", "game", "gameengine", "development", "2D", "programming"]
 ---
 
 
-# LITIENGINE Release notes
+# Release Notes & Changelog
 
 ## 0.11.1 - "Input4j Migration"
 

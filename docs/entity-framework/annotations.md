@@ -1,10 +1,10 @@
 ---
-title: "Annotations for Static Information"
+title: "Entity Annotations"
 description: "Learn how to use annotations in LITIENGINE to configure entity properties like size, collision, movement, and combat stats."
 keywords: ["LITIENGINE", "annotation", "EntityInfo", "CollisionInfo", "MovementInfo", "CombatInfo", "Java"]
 ---
 
-# Annotations for Static Information
+# Entity Annotations
 
 LITIENGINE uses Java annotations to define static entity properties. These annotations provide metadata that is applied when entities are instantiated from map objects.
 

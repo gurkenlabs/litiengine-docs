@@ -1,10 +1,10 @@
 ---
-title: "Creating a Top-Down Action Game"
+title: "Top-Down Action Shooter Tutorial"
 description: "Step-by-step guide to building a top-down twin-stick action game in LITIENGINE with 8-way movement, mouse aiming, projectile abilities, and enemy waves."
 keywords: ["LITIENGINE", "tutorial", "top-down", "shooter", "twin-stick", "combat", "abilities", "star reaperz"]
 ---
 
-# Creating a Top-Down Action Game
+# Top-Down Action Shooter Tutorial
 
 In this tutorial, you will build a fast-paced **Top-Down Action Shooter** inspired by engine patterns in *Star Reaperz* ([`litiengine-ldjam52`](https://github.com/gurkenlabs/litiengine-ldjam52)).
 

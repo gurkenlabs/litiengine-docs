@@ -103,7 +103,7 @@ description: "LITIENGINE is a free, open-source 2D Java Game Engine for creating
 keywords: ["LITIENGINE", "java", "game engine", "2D", "open source", "awt", "panama ffm", "monaco", "mcp server"]
 ---
 
-# LITIENGINE
+# LITIENGINE — Pure Java 2D Game Engine
 
 <div class="grid cards" markdown>
 
@@ -125,7 +125,7 @@ keywords: ["LITIENGINE", "java", "game engine", "2D", "open source", "awt", "pan
 
     Explore decoupled game loops, 2D physics, camera tracking, and positional spatial sound systems.
 
-- :material-school:{ .lg .middle } **[Step-by-Step Tutorials →](tutorials/creating-a-platformer.md)**
+- :material-school:{ .lg .middle } **[Step-by-Step Tutorials →](tutorials/2d-platformer.md)**
 
     ---
 
@@ -244,10 +244,27 @@ Explore real-world games built with LITIENGINE:
 
 ---
 
+## 💖 Support & Sponsor LITIENGINE
+
+LITIENGINE is 100% free, independent, and open source. If LITIENGINE helps you build your games, please consider backing the project to fund dedicated engine development, maintenance, and community tooling:
+
+<div class="grid cards" markdown>
+
+- :material-heart:{ .lg .middle } **[Back LITIENGINE on Open Collective →](https://opencollective.com/litiengine)**
+
+    ---
+
+    Support the creators on Open Collective. Every recurring backer or one-time contribution helps keep the engine independent, modern, and actively developed.
+
+</div>
+
+---
+
 ## Community & Contributing
 
-* 💬 **[LITIENGINE Forum](https://forum.litiengine.com/)** — Ask questions and share your projects.
+* 💖 **[Open Collective](https://opencollective.com/litiengine)** — Back the project and support ongoing development.
 * 🐙 **[GitHub Repository](https://github.com/gurkenlabs/litiengine)** — Report issues, request features, and contribute.
+* 💬 **[GitHub Discussions](https://github.com/gurkenlabs/litiengine/discussions)** — Ask questions, share progress, and chat with creators.
 * 📖 **[Javadocs](https://litiengine.com/api/)** — Browse the complete class and method API documentation.
 
 <script type="application/ld+json">
@@ -1147,9 +1164,9 @@ public class Goblin extends Creature {
 | :--- | :--- |
 | **[Default Entity Types](default-entity-types.md)** | Explore built-in entities: `Creature`, `Prop`, `Emitter`, `LightSource`, `Trigger`, and `SoundSource`. |
 | **[Props](props.md)** | Learn how to place, customize, and destroy interactive props in your world. |
-| **[Subscribe to Entity Events](subscribe-to-entity-events.md)** | Hook into entity lifecycle events (`onMoved`, `onHit`, `onDying`, `onRendered`). |
-| **[Annotations for Static Information](annotations-for-static-information.md)** | Configure static attributes declaratively with `@EntityInfo`, `@MovementInfo`, and `@CombatInfo`. |
-| **[Custom Entity Implementations](../entity-framework/custom-entity-implementations.md)** | Create complex, custom entity classes from scratch. |
+| **[Subscribe to Entity Events](entity-events.md)** | Hook into entity lifecycle events (`onMoved`, `onHit`, `onDying`, `onRendered`). |
+| **[Annotations for Static Information](annotations.md)** | Configure static attributes declaratively with `@EntityInfo`, `@MovementInfo`, and `@CombatInfo`. |
+| **[Custom Entity Implementations](../entity-framework/custom-entities.md)** | Create complex, custom entity classes from scratch. |
 | **[Custom MapObjectLoaders](../advanced/custom-mapobjectloaders.md)** | Map custom Tiled object types directly to your Java entity classes. |
 
 ## Entity Lifecycle
@@ -1176,12 +1193,12 @@ flowchart LR
 ---
 
 ---
-title: "Java and Groovy scripting"
+title: "Java & Groovy Scripting Engine"
 description: "Add Java or Groovy gameplay scripts to LITIENGINE games while keeping a normal IntelliJ and Gradle development workflow."
 keywords: ["LITIENGINE", "scripting", "Groovy", "Java", "IntelliJ", "utiLITI", "game behavior"]
 ---
 
-# Java and Groovy scripting
+# Java & Groovy Scripting Engine
 
 LITIENGINE scripts are ordinary JVM classes attached to the game, an environment, or an entity. They use the same public API as the rest of your game. Groovy reduces ceremony for small behaviors, while Java remains fully supported for larger systems.
 

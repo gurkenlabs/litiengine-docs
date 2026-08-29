@@ -1,10 +1,10 @@
 ---
-title: "Java and Groovy scripting"
+title: "Java & Groovy Scripting Engine"
 description: "Add Java or Groovy gameplay scripts to LITIENGINE games while keeping a normal IntelliJ and Gradle development workflow."
 keywords: ["LITIENGINE", "scripting", "Groovy", "Java", "IntelliJ", "utiLITI", "game behavior"]
 ---
 
-# Java and Groovy scripting
+# Java & Groovy Scripting Engine
 
 LITIENGINE scripts are ordinary JVM classes attached to the game, an environment, or an entity. They use the same public API as the rest of your game. Groovy reduces ceremony for small behaviors, while Java remains fully supported for larger systems.
 

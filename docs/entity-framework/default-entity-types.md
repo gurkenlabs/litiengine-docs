@@ -200,5 +200,5 @@ spawn.spawn(new Player());
 ## See Also
 
 - [Entity Framework Overview](README.md) - Entity system intro
-- [Annotations](annotations-for-static-information.md) - Configure entities
+- [Annotations](annotations.md) - Configure entities
 - [Props](props.md) - Detailed prop documentation

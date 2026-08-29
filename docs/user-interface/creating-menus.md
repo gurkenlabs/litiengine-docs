@@ -215,5 +215,5 @@ The `Menu` component handles user input out of the box:
 
 ## See Also
 
-- **[GuiComponents: An Overview](guicomponents-an-overview.md)** - Component hierarchy and properties
+- **[GuiComponents: An Overview](gui-components.md)** - Component hierarchy and properties
 - **[Screens API](../game-api/screens.md)** - Resolution scaling and display management

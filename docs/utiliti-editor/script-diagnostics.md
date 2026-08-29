@@ -1,10 +1,10 @@
 ---
-title: "Script Guidance & Architecture Tools in utiLITI"
+title: "Script Diagnostics & Guidance"
 description: "Discover script events, architecture guides, and startup configuration directly in utiLITI."
 keywords: ["utiLITI", "Script Explorer", "GameScriptsDialog", "script guidance", "templates", "architecture"]
 ---
 
-# Script Guidance & Architecture Tools in utiLITI
+# Script Diagnostics & Guidance
 
 utiLITI provides dedicated discovery tools, visual configuration panels, and interactive guidance to help developers explore engine APIs, understand the 3 script tiers, and configure project startup behavior.
 
