@@ -126,8 +126,8 @@ nav = [
         { "Release Notes" = "CHANGELOG.md" },
         { "Libraries & Tools" = "libraries-and-tools.md" },
         { "Glossary" = "GLOSSARY.md" },
-        { "💖 Sponsor LITIENGINE" = "https://opencollective.com/litiengine" },
     ] },
+    { "💖 Sponsor" = "https://opencollective.com/litiengine" },
 ]
 
 [project.extra]
