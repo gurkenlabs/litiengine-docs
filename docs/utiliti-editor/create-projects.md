@@ -70,6 +70,7 @@ utiLITI includes a background **Auto-Save Manager** (`AutoSaveManager`) designed
 ## Project Settings & Startup Restoration
 
 In **File -> Settings -> General**:
+
 - **Reopen Last Project on Startup**: When enabled, utiLITI automatically loads the most recently active `.litidata` project upon launch.
 - **Gradle Launch Arguments**: Define JVM flags or task options used when launching or debugging the project from the editor.
 - **Log Level**: Filter the console output verbosity (`ALL`, `INFO`, `WARNING`, `SEVERE`, `OFF`).

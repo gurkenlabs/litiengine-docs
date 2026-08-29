@@ -91,6 +91,7 @@ Non-destructible props such as our bunker only need one animation file, in our c
 ![Gurk Nukem Icon](../images/gurknukem-icon.png)
 
 We also need:
+
 * **A music track**
 * **A .tsx tileset created with Tiled editor from an image file**
 * **A .tmx map created with Tiled editor using our Tileset**
@@ -168,20 +169,26 @@ public class Program {
 -   First, we set some basic information for our game such as its name,
     subtitle, version, website, and description by using the respective
     setters of `Game.info()`.
+
 -   Calling `Game.init()` is then needed to initialize the Game
     infrastructure (see the [Javadocs][] for an in-depth understanding
     of what this does).
+
 -   Next, we set the window icon from the logo we created in Day 1 by
     calling `Game.window().setIcon()`. *Fancy!* Of course,
     the image file 'icon.png' has to be present in our project for this
     to work.
+
 -   Our game world will be scaled by a factor of 4, which we achieve
     with `Game.graphics().setBaseRenderScale()`.
+
 -   Now we load up our game resource file created with utiLITI in Day 1.
     Just call `Resources.load("game.litidata")` and all our
     maps, sprites, etc. will be accessible directly from code hereafter.
+
 -   Let's try loading our 'level1' with
     `Game.world().loadEnvironment("level1")`.
+
 -   The last thing needed to get our game running is `Game.start()`.
 
 We've all been waiting for this moment, let's go ahead and **RUN THE GAME!**
@@ -208,6 +215,7 @@ Once we add the `IngameScreen` to the `ScreenManager` by calling `Game.screens()
 -   Since there was previously no `Screen` present, adding a new one
     will also call `ScreenManager.display()`, making *the newly added*
     `IngameScreen` the currently visible screen.
+
 -   Every `Screen` extending `GameScreen` contains a call to
     `Game.world().environment().render()`in its `render()`-method.
     **Just remember:** Once you override the
@@ -264,20 +272,25 @@ Right at the top, you'll notice the [annotations](https://docs.oracle.com/javase
 
 -   `EntityInfo` specifies basic properties that all `Entities` have,
     namely their width, height, and RenderType.
+
 -   `MovementInfo` is exclusive to `MobileEntities`: It contains
     movement attributes such as velocity or acceleration.
+
 -   `CollisionInfo`constitutes the size and alignment of a
     `CollisionEntity`'s collision box. .
+
 -   Our Player is a child of `Creature`, meaning that it inherits
     everything from `CombatEntity`, `CollisionEntity`, and `Entity`,
     while also implementing the methods from `IMobileEntity` and
     `IUpdateable`. For a clearer unterstanding of the entity
     hierarchy, you can [have a look at the Javadocs](https://litiengine.com/api/) again.
+
 -   We adopt a [Singleton pattern](https://community.oracle.com/docs/DOC-918906) for the `Player`-class, meaning
     that we only allow the existence of one single instance of `Player`
     at all times. Calling the public static `Player.instance()` will
     only invoke the private constructor on its first call. All future
     calls will return the same instance of `Player`.
+
 -   In the `Player` 's private constructor, we invoke the constructor of
     superclass `Creature` with `super("gurknukem")`, where *'gurknukem'*
     is the so-called `spritePrefix` attribute of a `Creature`.
@@ -286,6 +299,7 @@ Right at the top, you'll notice the [annotations](https://docs.oracle.com/javase
     constructor, will be able to associate the right Spritesheets with
     our Creature (remember the naming conventions for
     Spritesheets?).
+
 -   Furthermore, we override the `createMovementController()`-method to add a `PlatformingMovementController` that allows us
     to move entities horizontally with player input. This method will be called upon the initialization of the `Player``.
 
@@ -328,8 +342,10 @@ public final class GurkNukemLogic {
 -   LITIENGINE comes with a few basic pre-implemented cameras.
     Momentarily, we'll use a `PositionLockCamera` locked to the current
     position of our `Player` instance.
+
 -   With `Game.world().setGravity(120)`, we apply a constant
     `GravityForce` to all `MobileEntities` in all levels.
+
 -   Once an `Environment` is loaded, we want to spawn our player on the
     `Spawnpoint` with the name '*enter*'.
 
@@ -424,15 +440,19 @@ public class Jump extends Ability {
     `@AbilityInfo`-annotation to determine its cooldown, origin
     location, duration, and `value`, which is an abstract numeral used
     in different ways, depending on what your ability does.
+
 -   In an `Ability`'s constructor, the `Creature` which casts the
     `Ability` is always passed as a parameter. In our case, we also add
     a `JumpEffect` to the `Jump`'s list of effects.
+
 -   The inner class `JumpEffect` here is a `ForceEffect`, i.e. it will
     apply a given force to its affected entities. In its constructor, we
     establish its strength and `EffectTarget`.
+
 -   In the `applyForce`-method, we create a `GravityForce` directed
     upward which adopts the `ForceEffect`'s strength. The force will
     then be applied to ability executor for the duration of the ability.
+
 -   We also provide the `isTouchingCeiling`- condition for cancelling
     the `ForceEffect`, which determines if the jumping entity's
     collision box intersects any static collision box above it.
@@ -515,6 +535,7 @@ public class Player extends Creature implements IUpdateable {
 
 -   First, we declare the maximum number of mid-air-jumps, a `Jump`
     instance and the current number of consecutive jumps as fields.
+
 -   Then, we write a `jump()`-method. It casts the Jump ability and
     raises the consecutive jump counter by one if the jump limit hasn't
     been reached and the `Jump` ability's `canCast()`-detection returns
@@ -542,9 +563,11 @@ public class Player extends Creature implements IUpdateable {
     reflection can come with severe security risks (among other
     drawbacks)! In most cases, you should stick to the inheritance-based
     Entity framework that LITIENGINE provides.
+
 -   Hereafter, we declare the `isTouchingGround()`-method, which returns
     true, if the player's collision box touches a static collision box
     or is intersecting with the lower map boundary.
+
 -   In the `update()`-method, we reset the current jump counter to zero
     on collision.
 

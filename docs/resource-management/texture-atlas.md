@@ -78,6 +78,7 @@ For automatic animation detection, follow naming patterns:
 ```
 
 Examples:
+
 - `player-idle-left.png`
 - `player-walk-left.png`
 - `enemy-attack-right.png`
@@ -89,6 +90,7 @@ prop-{name}-{state}.{ext}
 ```
 
 Examples:
+
 - `prop-barrel-intact.png`
 - `prop-barrel-damaged.png`
 - `prop-barrel-destroyed.png`

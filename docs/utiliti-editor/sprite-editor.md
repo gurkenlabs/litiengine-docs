@@ -36,6 +36,7 @@ The **Sprite & Animation Editor** (accessible via the `Spritesheets` asset categ
 ## 1. Spritesheet Slicing & Metrics
 
 When importing a character or effect sprite sheet (`.png`):
+
 - **Columns & Rows**: Specify the number of horizontal columns and vertical rows in the image.
 - **Automatic Frame Dimension Calculation**: utiLITI calculates the resulting `Frame Width` and `Frame Height` in pixels.
 - **Manual Overrides**: You can also set explicit frame width and height to automatically deduce column/row counts.

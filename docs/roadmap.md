@@ -51,6 +51,7 @@ Development is currently focused on consolidating and stabilizing the engine's f
 ## Community & Contributing
 
 LITIENGINE is developed collaboratively with its open-source community:
+
 * **Discussions & Support**: Join our [GitHub Discussions](https://github.com/gurkenlabs/litiengine/discussions) and [Discord Community](https://discord.gg/rRB9cKD).
 * **Issue Tracker**: Submit bug reports and feature requests via the [GitHub Issues Tracker](https://github.com/gurkenlabs/litiengine/issues).
 * **Sponsorship**: Support development via [Open Collective](https://opencollective.com/litiengine).

@@ -71,6 +71,7 @@ Entities can be created in code or placed visually in the **utiLITI Editor** / *
 
 ### 3. Static Metadata via Annotations
 Instead of setting sizes, bounding boxes, and speeds manually in constructors, LITIENGINE provides declarative annotations:
+
 * `@EntityInfo`: Configures entity dimensions, custom render tags, and render layers.
 * `@MovementInfo`: Configures base velocity, acceleration, and deceleration.
 * `@CollisionInfo`: Sets up collision boxes and interaction obstacles.

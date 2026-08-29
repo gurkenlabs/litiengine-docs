@@ -26,6 +26,7 @@ For `Creature` entities, LITIENGINE provides `CreatureAnimationController` with 
 ```
 
 Examples:
+
 - `gurknukem-idle-left.png` - Idle animation, facing left
 - `gurknukem-walk-left.png` - Walking animation, facing left
 - `gurknukem-dead.png` - Death animation (no direction)

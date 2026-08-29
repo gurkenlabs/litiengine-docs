@@ -75,6 +75,7 @@ Since the last release, we have updated to a more recent Java version several ti
 Here's a quick overview of the changes in this release:
 
 **Build Infrastructure:**
+
 * Updated project to Java 21
 * Restored releasability through GitHub actions
 * Introduced nightly snapshot builds
@@ -85,6 +86,7 @@ Here's a quick overview of the changes in this release:
 * Cleaned up and refactored Gradle project structure
 
 **Improvements:**
+
 * Implemented multi-target ForceEffects. 
 * Implemented StateEvents to register actions when a State isentered/exited.
 * Implemented 9-sliced image scaling. 
@@ -96,6 +98,7 @@ Here's a quick overview of the changes in this release:
 * Separated emitter saving in utiLITI from blueprint definition.
     
 **Bugfixes:**
+
 * Fixed EntityEmitter location jittering.
 * Fixed Particle opacity calculation.
 * Fixed SoundPlaybacks. (contributed by @Gamebuster19901)
@@ -107,12 +110,15 @@ Here's a quick overview of the changes in this release:
 * Fixed duplicate attribute modification in GuiComponentlocation setters. (contributed by @ecchilds)
 
 **API changes:**
+
 * Renamed `Effect.canAttackEntity` to `canAffectEntity`.
 
 **Removals / Deprecations:**
+
 * Removed CompressionUtilities (and tests). There were vulnerabilities in our implementation and the utilities have never actually been used. End users will have a much better experience using libraries such as zip4j.
 
 **Documentation and Miscellaneous:**
+
 * Updated license.
 * Updated contribution guide.
 * Added star history to readme.

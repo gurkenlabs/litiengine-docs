@@ -21,12 +21,14 @@ graph TD
 
 ### 1. Screens (`Screen` and `ScreenManager`)
 Screens represent distinct display states of your game (e.g. Title Screen, Level Select, Pause Menu, Ingame Screen).
+
 * Registered globally using `Game.screens().add(new MenuScreen())`.
 * Displayed using `Game.screens().display("MENU")`.
 * A screen manages a list of `GuiComponent` instances and renders them on top of the graphics context.
 
 ### 2. GuiComponents (`GuiComponent`)
 The building blocks of LITIENGINE's UI. Every component has:
+
 * **Bounding Box**: Location (`setX()`, `setY()`) and dimensions (`setWidth()`, `setHeight()`).
 * **Input Listeners**: Mouse events (`onClicked`, `onHovered`, `onMouseMoved`) and keyboard focus.
 * **Appearance & Styling**: Foreground/background colors, borders, custom fonts, and spritesheet states.

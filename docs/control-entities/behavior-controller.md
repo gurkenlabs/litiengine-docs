@@ -12,6 +12,7 @@ You can control an `Entity`'s behaviour using implementations of `IBehaviorContr
 Let's suppose we have a `Creature` such as a rat that's supposed to move along a given path.
 
 These are the required components for making it happen:
+
 * A path on your map
 * A rat implementation
 * A [`MapObjectLoader`](https://litiengine.com/api/de/gurkenlabs/litiengine/environment/MapObjectLoader/) that associates the path object and the rat

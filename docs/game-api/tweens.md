@@ -63,6 +63,7 @@ based on the input time.
 * The `QUAD_IN` function represents a quadratic easing-in function, which accelerates from zero velocity. Similarly, `QUAD_OUT` and `QUAD_INOUT`
   provide quadratic easing-out and easing-in-out transitions, respectively. The `QUAD_OUT` function decelerates to zero velocity, while `QUAD_INOUT`
   combines both behaviors.
+
 * The `CIRCLE_IN`, `CIRCLE_OUT`, and `CIRCLE_INOUT` functions use circular equations to create easing effects that mimic the motion of a circle.
 * The `SINE_IN`, `SINE_OUT`, and `SINE_INOUT` functions use sine wave equations to create smooth sinusoidal transitions.
 * The `EXPO_IN`, `EXPO_OUT`, and `EXPO_INOUT` functions use exponential equations to create transitions that start or end very quickly.

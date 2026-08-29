@@ -39,6 +39,7 @@ java -cp litiengine.jar de.gurkenlabs.litiengine.launch.GameLauncher --project g
 ## Auto-Detection & Fallback Rules
 
 When executing `GameLauncher`:
+
 1. **Startup Script**: If `--startup-script` is not specified, `GameLauncher` inspects the project's bound `GameScript`s and boots the first active one. If none are bound, it searches for any registered `GameScript` definition.
 2. **Initial Map**: If `--map` is not specified, `GameLauncher` checks if the active `GameScript` loaded a map in its `onStarted()` hook. If no map was loaded, it loads the first map found in `.litidata`.
 3. **Audio & Physics**: Audio and physics engines are automatically initialized before any scripts are attached.

@@ -83,6 +83,7 @@ protected IMovementController createMovementController() {
 ```
 
 Supports:
+
 - Horizontal movement only
 - Jumping via @Action annotated methods
 - Gravity applied by PhysicsEngine

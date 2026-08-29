@@ -60,6 +60,7 @@ configurations to be able to adjust them when necessary.
     might prefer to store your text files with UTF-8 encoding. You can
     make the LITIENGINE aware of this by
     calling `Resources.setEncoding(Resources.ENCODING_UTF_8)`.
+
   - **Base Render Scale** (default: `RenderEngine.DEFAULT_RENDERSCALE
     = 3.0`) Depending on what type of Art Style you're going for, it is
     not uncommon to render the game with an adjusted render scale. A
@@ -67,11 +68,13 @@ configurations to be able to adjust them when necessary.
     scale of 1 would not be very practical for today's high-resolution
     monitors. You can adjust this by
     calling `Game.graphics().setBaseRenderScale(5.0)`
+
   - **UI properties** If you intend to use our `GUIComponents` you might
     want to have a deeper look into the `GuiProperties` class. It
     provides global default appearance settings for all  `GUIComponents`
     e.g. you can set a default Font by
     calling `GuiProperties.setDefaultFont(Resources.fonts().get("some-font.ttf")).`
+
   - **Custom Mouse Cursor** If you intend to use the Mouse to control your
     LITIENGINE game you should consider providing a custom Cursor Image.
     `Game.window().cursor().set(CURSOR_IMAGE, 16, 16);`

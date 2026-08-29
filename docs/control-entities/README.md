@@ -23,19 +23,23 @@ LITIENGINE offers four distinct yet interoperable ways to drive entity behavior:
 
 ### 1. Built-in Entity Controllers (`IEntityController`)
 Controllers handle low-level continuous tasks such as keyboard/gamepad-driven movement, pathfinding locomotion, or sprite state transitions:
+
 * **`IMovementController`**: Translates input vectors or navigation paths into 2D velocity forces within the physics engine.
 * **`IEntityAnimationController`**: Evaluates entity state flags (e.g. `isIdle`, `isMoving`, `isDead`, custom states) and plays corresponding spritesheet sequences.
 
 ### 2. AI & Behavior Controllers
 For enemy NPCs, companions, and bosses:
+
 * **`BehaviorController`**: State-machine and behavior-tree implementations for patrol routes, target acquisition, aggro radiuses, and combat sequences.
 
 ### 3. Ability & Combat Framework
 Structured spell, skill, and combat action system:
+
 * **`Ability`**: Modular spells or physical attacks with cooldowns, range checks, impact effects, and mana/resource costs.
 
 ### 4. Modern Scripting Engine (Groovy & Java)
 Write hot-reloadable game logic directly in **utiLITI** or external scripts:
+
 * **Entity Scripts (`EntityScript`)**: Attach custom logic to individual entities without writing boilerplate Java classes.
 * **Environment Scripts (`EnvironmentScript`)**: Control level-wide triggers, cutscenes, wave spawners, and interactive puzzles.
 * **Game Scripts (`GameScript`)**: Manage game startup, global progression flags, inventory, and cross-map state.

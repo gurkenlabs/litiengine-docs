@@ -87,6 +87,7 @@ The central viewport renders your 2D level using the active LITIENGINE graphics 
 ## 3. Scene Graph & Entity Hierarchy (`Objects` Tab)
 
 Located in the top-right panel:
+
 - **Hierarchical Tree View**: Displays all map objects grouped by layer and entity type.
 - **Search & Filter**: Type into the search field to filter entities by name, ID, or tag.
 - **Selection Sync**: Selecting an entity in the hierarchy highlights and focuses it in the viewport and opens its properties in the inspector.
@@ -132,6 +133,7 @@ Located in the bottom-left panel, the **Asset Tree** organizes all loaded projec
 ## 6. Console & Logs (`Console` Tab)
 
 The built-in console streams engine and editor log output:
+
 - **Log Level Filter**: Toggle between `ALL`, `INFO`, `WARNING`, and `SEVERE` messages.
 - **Search**: Filter log messages by keyword or logger category.
 - **Clear Console**: Wipe the log buffer with a single click.
@@ -141,6 +143,7 @@ The built-in console streams engine and editor log output:
 ## 7. Status Bar & MCP Badge
 
 Located at the bottom of the window:
+
 - **FPS Counter**: Current viewport rendering framerate.
 - **Cursor Position**: Live world coordinates (`x`, `y`) under the mouse pointer.
 - **Selection Summary**: Type, ID, dimensions, and layer of the currently focused map object.
@@ -165,5 +168,6 @@ Press **`Ctrl + P`** anywhere in utiLITI to summon the **Quick Search Palette**:
 ## 9. Inspector Navigation History
 
 Similar to a web browser or IDE, utiLITI tracks the history of inspected objects:
+
 - **`Alt + Left Arrow`**: Navigate back to the previously inspected entity.
 - **`Alt + Right Arrow`**: Navigate forward in inspection history.

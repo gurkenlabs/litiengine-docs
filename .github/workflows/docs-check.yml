@@ -18,5 +18,8 @@ jobs:
           python-version: "3.13"
       - name: Install Zensical
         run: pip install -r requirements-docs.txt
+      - name: Lint Markdown Syntax & Lists
+        run: python .github/scripts/lint_markdown.py
+
       - name: Build documentation
         run: zensical build --clean --strict

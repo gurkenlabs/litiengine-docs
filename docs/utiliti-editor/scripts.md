@@ -132,6 +132,7 @@ public class GoblinAI extends CreatureScript {
 ### 4. Automatic runtime injection
 
 When an entity or map environment is loaded at runtime:
+
 1. `ScriptManager` instantiates the script instance.
 2. The configured property values from the map object or TMX properties are reflected, type-converted, and injected into the `@ScriptProperty` fields.
 3. The script's `onLoaded()` hook is invoked with all custom property values initialized.

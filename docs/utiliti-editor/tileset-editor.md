@@ -48,6 +48,7 @@ The **Tileset Editor** (accessible via the `Tilesets` tab or double-clicking any
 ## 2. Tile Properties & Probabilities
 
 Select any tile in the tile grid to configure its individual metadata:
+
 - **Type**: Custom string categorization (e.g. `water`, `wall`, `lava`) accessible via LITIENGINE's tile querying API.
 - **Probability Slider**: Numeric weighting value (`0.0` to `1.0`) used by procedural generation algorithms and random tile scatters.
 - **Tile Custom Properties**: Attach custom metadata specific to that single tile ID.

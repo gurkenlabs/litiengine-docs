@@ -115,6 +115,7 @@ java -cp litiengine.jar de.gurkenlabs.litiengine.launch.GameLauncher --project g
 ```
 
 CLI options supported by `GameLauncher`:
+
 - `--project <path>`: Path to `.litidata` resource file.
 - `--startup-script <id>`: Primary `GameScript` to execute on boot.
 - `--map <name>`: Initial map to load.

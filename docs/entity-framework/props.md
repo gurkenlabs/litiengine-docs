@@ -67,6 +67,7 @@ The box will be loaded from the Map as an instance of the `de.gurkenlabs.litieng
 ## PropStates
 
 As a rough approximation for the visual destruction of a prop, it will take one of three states, depending on how many of its initial hitpoints it has left.
+
 * INTACT: The prop is indestructible OR has more than half of its hitpoints left.
 * DAMAGED: The prop has less than half of its hitpoints (but more than zero) left.
 * DESTROYED: The prop has no hitpoints left

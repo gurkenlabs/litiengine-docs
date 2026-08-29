@@ -201,6 +201,7 @@ public class Program {
 ## Keyboard and Mouse Navigation
 
 The `Menu` component handles user input out of the box:
+
 * **Vertical Menus**: Pressing `UP` and `DOWN` arrow keys navigates items; hitting `ENTER` triggers selection.
 * **Horizontal Menus**: Pressing `LEFT` and `RIGHT` arrow keys navigates items.
 * **Mouse Navigation**: Hovering over menu items triggers the `getAppearanceHovered()` state, and clicking an item sets `currentSelection` and invokes `onChange()`.

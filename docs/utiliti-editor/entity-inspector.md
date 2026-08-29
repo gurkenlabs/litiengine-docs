@@ -62,6 +62,7 @@ Common to all entity types:
 
 ### Props (`PropPanel`)
 Interactive or static background scenery:
+
 - **Spritesheet**: Select the visual sprite animation from project assets.
 - **Material**: Material audio and particle archetype (`WOOD`, `STONE`, `STEEL`, `PLASTIC`, `CERAMIC`, `FLESH`, `FOLIAGE`, `UNDEFINED`).
 - **State**: Initial visual state (`INTACT`, `DAMAGED`, `DESTROYED`).
@@ -73,6 +74,7 @@ Interactive or static background scenery:
 
 ### Creatures (`CreaturePanel`)
 Movable characters, NPCs, players, and enemies:
+
 - **Spritesheet**: Character sprite set containing directional movement animations (idle, walk, attack).
 - **Scale Sprite**: Toggle automatic sprite scaling to entity bounding dimensions.
 - **Direction**: Initial facing orientation (`UP`, `DOWN`, `LEFT`, `RIGHT`).
@@ -81,6 +83,7 @@ Movable characters, NPCs, players, and enemies:
 
 ### Triggers (`TriggerPanel`)
 Spatial event triggers activated by player or creature interactions:
+
 - **Activation Type**:
   - `COLLISION`: Fires when an entity enters the trigger's bounding box.
   - `INTERACT`: Fires when the player presses the action key within the trigger area.
@@ -95,6 +98,7 @@ Spatial event triggers activated by player or creature interactions:
 
 ### Light Sources (`LightSourcePanel`)
 Dynamic 2D lighting emitters:
+
 - **Light Shape**:
   - `CIRCLE`: Omnidirectional radial point light.
   - `RECTANGLE`: Area light.
@@ -108,6 +112,7 @@ Dynamic 2D lighting emitters:
 
 ### Particle Emitters (`EmitterPanel`)
 Visual particle effects (smoke, sparks, fire, magic, weather):
+
 - **General**: Emitter type, particle limit, spawn rate, spawn amount, origin offset.
 - **Particle Type**: `SPRITE`, `TEXT`, `RECTANGLE`, `CIRCLE`, `LINE`, `SHAPE`, `OVAL`.
 - **Physics & Motion**:
@@ -125,6 +130,7 @@ Visual particle effects (smoke, sparks, fire, magic, weather):
 
 ### Sound Sources (`SoundPanel`)
 Positional 2D audio emitters:
+
 - **Sound**: Sound asset picker from project audio resources.
 - **Volume**: Audio playback volume slider (`0%`–`100%`).
 - **Loop**: Checkbox to continuously loop the sound effect.
@@ -134,6 +140,7 @@ Positional 2D audio emitters:
 
 ### Spawnpoints (`SpawnpointPanel`)
 Locations where players or creatures spawn into the environment:
+
 - **Spawn Type**: Creature type filter string matching creature sprites or class names.
 - **Direction**: Initial facing direction for spawned entities (`UP`, `DOWN`, `LEFT`, `RIGHT`).
 
@@ -141,12 +148,14 @@ Locations where players or creatures spawn into the environment:
 
 ### Collision Boxes (`CollisionBoxPanel`)
 Static physics obstacles preventing player/creature passage:
+
 - Static bounding geometry used to block movement without requiring a rendered visual sprite.
 
 ---
 
 ### Static Shadows (`StaticShadowPanel`)
 2D directional shadow casters:
+
 - **Shadow Type**: Directional projection offsets (`NOOFFSET`, `LEFT`, `RIGHT`, `DOWN`, `LEFTDOWN`, `RIGHTDOWN`).
 
 ---
@@ -160,18 +169,21 @@ Non-rendered rectangular regions used for zone transitions, environmental weathe
 
 ### Collision Panel (`CollisionPanel`)
 Configures physics collision bounding geometry:
+
 - **Collision Enabled**: Toggle solid physical body.
 - **Collision Type**: `STATIC` (immovable geometry) or `DYNAMIC` (movable actors).
 - **Collision Box Dimensions**: Custom width, height, and alignment offset (e.g. aligning a character's collision box to their feet rather than whole sprite).
 
 ### Combat Panel (`CombatPanel`)
 Configures combat attributes for damageable entities:
+
 - **Hitpoints (HP)**: Maximum and current health points.
 - **Indestructible**: Prevents the entity from taking combat damage.
 - **Team ID**: Integer team identifier for friend-or-foe targeting.
 
 ### Movement Panel (`MovementPanel`)
 Configures entity locomotion:
+
 - **Velocity**: Movement speed in pixels per second.
 - **Acceleration / Deceleration**: Rate of speed ramp-up and braking.
 - **Turn on Move**: Automatically rotates or flips sprite when moving.
@@ -208,5 +220,6 @@ The **Scripts** section attaches Java or Groovy script components directly to ma
 ## 5. Custom Properties Panel (`CustomPanel`)
 
 Store arbitrary user-defined metadata on any map object:
+
 - **Supported Types**: `String`, `Integer`, `Float`, `Boolean`, `Color`, and `File Path`.
 - Accessible in code via `mapObject.getStringValue("key")`, `getIntValue()`, `getBoolValue()`, etc.

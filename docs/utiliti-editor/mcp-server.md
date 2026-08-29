@@ -225,6 +225,7 @@ Level A tools provide stateless, batch-capable map operations with optimistic re
 ## Script Workspace & Editor Status Badge
 
 utiLITI provides a live, interactive `[MCP • 1]` status badge rendered directly inside both the main **Status Bar** and the **Script Workspace**:
+
 - **Live Status Dot**: Green when the MCP server is listening and ready.
 - **Pulsing Animation**: Automatically pulses during active tool executions.
 - **Client Count**: Displays the number of connected external LLM agents/tools in real-time.

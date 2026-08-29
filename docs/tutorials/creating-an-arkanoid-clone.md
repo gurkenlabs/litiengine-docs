@@ -29,6 +29,7 @@ The third level is a boss level, as you can see below. The boss has 25 lives in 
 ![Arkanoid Clone Boss Level](../images/arkanoid-screenshot2.jpeg)
 
 My game also contains a **menu** to reach different options:
+
 1. Start the game
 2. How to play
 3. Highscore list with player names and scores
