@@ -8,17 +8,13 @@ keywords: ["LITIENGINE", "controllers", "movement", "animation", "behavior", "AI
 
 In LITIENGINE, entity behaviors, animations, locomotion, combat actions, and artificial intelligence are managed through a modular and extensible control architecture. This architecture allows developers to separate game object state (`IEntity`) from dynamic runtime logic.
 
-```text
-                                  ┌───────────────────────────┐
-                                  │      Entity Control       │
-                                  └─────────────┬─────────────┘
-                                                │
-         ┌───────────────────────┬──────────────┴──────────────┬───────────────────────┐
-         ▼                       ▼                             ▼                       ▼
-┌──────────────────┐   ┌──────────────────┐          ┌──────────────────┐    ┌──────────────────┐
-│    Movement      │   │    Animation     │          │    Behavior      │    │    Scripting     │
-│  (Physics/Input) │   │ (Sprites/States) │          │  (AI/State Tree) │    │  (Groovy/Java)   │
-└──────────────────┘   └──────────────────┘          └──────────────────┘    └──────────────────┘
+```mermaid
+graph TD
+  EC["<b>Entity Control Architecture</b>"]
+  EC --> M["MovementController<br/><i>Physics & Input Forces</i>"]
+  EC --> A["AnimationController<br/><i>Spritesheets & States</i>"]
+  EC --> B["BehaviorController<br/><i>AI & State Trees</i>"]
+  EC --> S["Scripting Engine<br/><i>Groovy & Java Logic</i>"]
 ```
 
 ## The Four Control Paradigms

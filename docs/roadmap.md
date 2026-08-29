@@ -8,21 +8,9 @@ keywords: ["LITIENGINE", "roadmap", "v1.0.0", "milestones", "vision", "utiLITI",
 
 LITIENGINE is built with a clear philosophy: provide an accessible, powerful, and completely free 2D game engine in pure Java without external binary dependencies or complex build friction.
 
-```text
-┌─────────────────────────────────────────────────────────────┐
-│                    Project Philosophy                       │
-│  Pure Java 2D  •  LTS Baseline  •  Integrated Tooling (utiLITI) │
-└──────────────────────────────┬──────────────────────────────┘
-                               │
-                               ▼
-┌─────────────────────────────────────────────────────────────┐
-│                 Path to Production (v1.0.0)                 │
-│  • Dedicated GUI Editor in utiLITI                          │
-│  • Monaco Workspace & Scripting (Groovy/Java)               │
-│  • AI & Agent Tooling (MCP Server Integration)              │
-│  • Core Stability (AWT Graphics, Physics, Audio)            │
-│  • Wang Terrains & Level Design Workflows                   │
-└─────────────────────────────────────────────────────────────┘
+```mermaid
+graph TD
+  P["<b>Project Philosophy</b><br/>Pure Java 2D • Java LTS Baseline • Integrated utiLITI Tooling"] --> V1["<b>Path to v1.0.0</b><br/>• Dedicated GUI Editor in utiLITI<br/>• Monaco Workspace & Scripting<br/>• AI & MCP Server Integration<br/>• Core Stability & Performance"]
 ```
 
 ## Project Vision & Java Support Policy

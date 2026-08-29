@@ -8,12 +8,6 @@ keywords: ["LITIENGINE", "java", "game engine", "getting started", "setup", "qui
 
 Welcome to **LITIENGINE**, the lightweight, free, and open-source 2D Java Game Engine! This chapter provides everything you need to set up your development environment, configure your project build system, and run your very first game window.
 
-## Quick-Start Roadmap
-
-```text
-1. Install JDK 21+  ──►  2. Set Up IDE  ──►  3. Configure Gradle/Maven  ──►  4. Run Your First Game!
-   (Temurin / GraalVM)      (IntelliJ / Eclipse)   (Dependency Management)        (Game.init & Game.start)
-```
 
 ## Chapter Topics
 

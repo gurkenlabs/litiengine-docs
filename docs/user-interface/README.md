@@ -8,27 +8,13 @@ keywords: ["LITIENGINE", "UI", "GUI", "GuiComponent", "Menu", "HUD", "Screen", "
 
 LITIENGINE includes a dedicated 2D GUI and screen management framework (`de.gurkenlabs.litiengine.gui`). Whether you need a main title menu with keyboard/mouse navigation, in-game HUDs displaying health and ammo counters, dialog speech bubbles, or custom inventory grids, the UI framework provides modular components with built-in input and rendering lifecycles.
 
-```text
-                          ┌───────────────────────────┐
-                          │       ScreenManager       │
-                          │   (Game.screens().display)│
-                          └─────────────┬─────────────┘
-                                        │
-                         ┌──────────────┴──────────────┐
-                         ▼                             ▼
-                ┌──────────────────┐          ┌──────────────────┐
-                │    GameScreen    │          │    MenuScreen    │
-                │(In-Game World/HUD│          │ (Title & Options)│
-                └────────┬─────────┘          └────────┬─────────┘
-                         │                             │
-                         └──────────────┬──────────────┘
-                                        │
-                                        ▼
-                               ┌─────────────────┐
-                               │  GuiComponents  │
-                               │(Buttons, Sliders│
-                               │ Menus, Labels)  │
-                               └─────────────────┘
+```mermaid
+graph TD
+  SM["<b>ScreenManager</b><br/><i>Game.screens().display(...)</i>"]
+  SM --> GS["<b>GameScreen</b><br/><i>In-Game World & HUD</i>"]
+  SM --> MS["<b>MenuScreen</b><br/><i>Title, Settings & Menus</i>"]
+  GS --> GC["<b>GuiComponents</b><br/><i>Buttons, Sliders, Labels, Menus</i>"]
+  MS --> GC
 ```
 
 ## Core Architectural Concepts

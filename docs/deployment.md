@@ -8,11 +8,10 @@ keywords: ["LITIENGINE", "deployment", "distribution", "gradle", "launch4j", "jp
 
 This guide walks you through building, packaging, and distributing your LITIENGINE game as a standalone, player-ready executable for **Windows**, **Linux**, and **macOS**.
 
-```text
-┌─────────────────┐       ┌─────────────────┐       ┌─────────────────────────┐
-│ Java Source &   │ ───►  │  Gradle Build   │ ───►  │ Standalone Distribution │
-│ Game Resources  │       │ (Shadow/Launch4j│       │ (.exe, .zip, Steam, itch│
-└─────────────────┘       └─────────────────┘       └─────────────────────────┘
+```mermaid
+graph LR
+  SRC["<b>Java Source & Resources</b>"] --> BLD["<b>Gradle Build</b><br/><i>ShadowJar / Launch4j</i>"]
+  BLD --> DST["<b>Standalone Distribution</b><br/><i>.exe, .zip, Steam, itch.io</i>"]
 ```
 
 ## 1. Release Preparation
