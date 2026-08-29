@@ -1,5 +1,6 @@
 ---
 title: "Messaging System"
+icon: "lucide/message-square"
 description: "Learn how to use the Messaging System in LITIENGINE for entity-to-entity communication and event handling."
 keywords: ["LITIENGINE", "messaging", "events", "communication", "entity", "Java"]
 ---

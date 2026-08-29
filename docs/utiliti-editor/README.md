@@ -1,5 +1,6 @@
 ---
 title: "utiLITI Editor Overview"
+icon: "lucide/hammer"
 description: "Visual level design, entity placement, Wang autotiling, and asset bundling with the utiLITI companion editor."
 keywords: ["LITIENGINE", "utiLITI", "editor", "level design", "tilemap", "litidata", "spritesheet"]
 ---

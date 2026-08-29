@@ -1,5 +1,6 @@
 ---
 title: "Sprite Info Files"
+icon: "lucide/file-text"
 description: "A method of batch importing spritesheets."
 keywords: ["LITIENGINE", "java", "game engine", "2D", "sprite info files"]
 ---

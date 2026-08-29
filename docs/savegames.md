@@ -1,5 +1,6 @@
 ---
 title: "Savegames & State Persistence"
+icon: "lucide/save"
 description: "Architecture guide for serializing player stats, inventory, quest progress, and environment states into JSON or binary save files."
 keywords: ["LITIENGINE", "save game", "persistence", "serialization", "json", "load game", "state", "game state"]
 tags: ["save game", "persistence", "serialization", "json", "load game", "state"]

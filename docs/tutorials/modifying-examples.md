@@ -1,5 +1,6 @@
 ---
 title: "Modifying Example Projects"
+icon: "lucide/code-xml"
 description: "Learn how to clone, inspect, and customize existing LITIENGINE sample games like SERVUS BONUS using both Java code and the utiLITI Editor."
 keywords: ["LITIENGINE", "tutorial", "sample game", "servus bonus", "gradle", "utiLITI", "customization", "modding"]
 ---

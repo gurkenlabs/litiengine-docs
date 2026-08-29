@@ -1,5 +1,6 @@
 ---
 title: "Texture Atlases"
+icon: "lucide/image"
 description: "Learn about texture atlases in LITIENGINE - how to create and use sprite sheets for entity animations."
 keywords: ["LITIENGINE", "texture atlas", "spritesheet", "sprite", "animation", "Java"]
 ---

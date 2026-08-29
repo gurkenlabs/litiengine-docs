@@ -1,5 +1,6 @@
 ---
 title: "Tweening"
+icon: "lucide/sparkles"
 description: "The TweenEngine is LITIENGINE's built-in interpolation framework."
 keywords: ["LITIENGINE", "java", "game engine", "2D", "tweening"]
 ---

@@ -1,5 +1,6 @@
 ---
 title: "Entity Annotations"
+icon: "lucide/tag"
 description: "Learn how to use annotations in LITIENGINE to configure entity properties like size, collision, movement, and combat stats."
 keywords: ["LITIENGINE", "annotation", "EntityInfo", "CollisionInfo", "MovementInfo", "CombatInfo", "Java"]
 ---

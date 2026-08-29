@@ -1,5 +1,6 @@
 ---
 title: "Game World"
+icon: "lucide/globe"
 description: "Game World documentation for LITIENGINE 2D Java game development."
 keywords: ["LITIENGINE", "java", "2d", "game engine", "game api"]
 ---

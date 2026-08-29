@@ -13,6 +13,7 @@ This file contains the complete technical documentation for LITIENGINE, optimize
 
 ---
 title: "LITIENGINE — Pure Java 2D Game Engine"
+icon: "lucide/book-open"
 description: "LITIENGINE is a free, open-source 2D Java Game Engine for creating tile-based 2D games with pure Java, AWT graphics, and zero external dependencies."
 keywords: ["LITIENGINE", "java", "game engine", "2D", "open source", "awt", "panama ffm", "monaco", "mcp server"]
 ---
@@ -220,6 +221,7 @@ LITIENGINE is 100% free, independent, and open source. If LITIENGINE helps you b
 
 ---
 title: "Getting Started"
+icon: "lucide/compass"
 description: "Everything you need to set up your environment, install Java 21+, configure Gradle/Maven, and run your first 2D LITIENGINE game."
 keywords: ["LITIENGINE", "getting started", "java", "gradle", "installation", "setup", "tutorial"]
 ---
@@ -303,6 +305,7 @@ Welcome to **LITIENGINE**! This section guides you through installing the Java 2
 
 ---
 title: "Get LITIENGINE"
+icon: "lucide/download"
 description: "Learn about all possible ways to download LITIENGINE and include it in your project."
 keywords: ["LITIENGINE", "java", "game", "gameengine", "development", "2D", "programming", "library", "SDK", "repository", "build"]
 ---
@@ -434,6 +437,7 @@ dependencies {
 
 ---
 title: "Install JDK"
+icon: "lucide/coffee"lucide/coffee"lucide/coffee"
 description: "Learn about the Java Development Kit (JDK 21+ / JDK 25) requirements, distributions, and installation methods for LITIENGINE."
 keywords: ["LITIENGINE", "java", "JDK", "JVM", "SDKMAN", "Temurin", "GraalVM", "Java 21", "Java 25"]
 ---
@@ -488,6 +492,7 @@ Now that your JDK is ready, proceed to **[Set Up Your IDE](development-environme
 
 ---
 title: "Development Environment"
+icon: "lucide/laptop"
 description: "Learn how to set up a development environment."
 keywords: ["LITIENGINE", "java", "game", "gameengine", "development", "2D", "programming", "ide", "eclipse", "intellij", "netbeans"]
 ---
@@ -536,6 +541,7 @@ When developing on macOS (Sonoma, Ventura, Sequoia with M1/M2/M3/M4 Apple Silico
 
 ---
 title: "Build Systems"
+icon: "lucide/wrench"
 description: "Learn about build automation utilities in general and how to set up the most common build tools for Java development."
 keywords: ["LITIENGINE", "java", "game", "gameengine", "development", "2D", "programming", "build", "gradle", "maven", "ant"]
 ---
@@ -601,6 +607,7 @@ Getting ready with [Intellij](https://www.jetbrains.com/idea/) and [Maven](https
 
 ---
 title: "Run the Game"
+icon: "lucide/play"
 description: "Run the Game documentation for LITIENGINE 2D Java game development."
 keywords: ["LITIENGINE", "java", "2d", "game engine", "getting started"]
 ---
@@ -656,6 +663,7 @@ If you see the following window, you’ve setup everything correctly and are now
 
 ---
 title: "API Quick Reference"
+icon: "lucide/book-open"
 description: "Quick reference cheat sheet for LITIENGINE API - essential methods and classes at a glance."
 keywords: ["LITIENGINE", "cheat sheet", "quick reference", "API", "Java"]
 ---
@@ -957,6 +965,7 @@ protected IMovementController createMovementController() {
 
 ---
 title: "Core Game API"
+icon: "lucide/gamepad-2"
 description: "Master LITIENGINE's core subsystems: 2D Graphics, Positional Sound, Physics Quadtrees, Game Loop, Cameras, and Screens."
 keywords: ["LITIENGINE", "game api", "graphics", "audio", "physics", "game loop", "camera", "screens"]
 ---
@@ -1030,6 +1039,7 @@ The **Game API** forms the static backbone of LITIENGINE, providing high-perform
 
 ---
 title: "2D Graphics"
+icon: "lucide/palette"
 description: "2D Graphics documentation for LITIENGINE 2D Java game development."
 keywords: ["LITIENGINE", "java", "2d", "game engine", "game api"]
 tags: ["graphics", "rendering", "textrenderer", "sprites", "fonts", "drawing", "double buffer"]
@@ -1161,6 +1171,7 @@ public class CustomHudRenderer {
 
 ---
 title: "Sound Engine"
+icon: "lucide/volume-2"
 description: "Master 2D spatial audio, background music streaming, volume attenuation, and sound playback in LITIENGINE."
 keywords: ["LITIENGINE", "sound engine", "audio", "spatial audio", "music", "wav", "mp3", "ogg", "Game.audio"]
 tags: ["sound", "audio", "music", "spatial audio", "bgm", "sfx", "volume", "soundengine"]
@@ -1339,6 +1350,7 @@ Game.audio().playSound(
 
 ---
 title: "2D Physics"
+icon: "lucide/atom"
 description: "Documentation of LITIENGINE's physics engine."
 keywords: ["LITIENGINE", "physics", "movement", "collision", "entities", "listeners"]
 tags: ["physics", "collision", "gravity", "quadtree", "raycast", "hitbox", "sliding"]
@@ -1434,6 +1446,7 @@ The physics engine is tied to your game loop. When you call `Game.init()` at sta
 
 ---
 title: "Game Loop"
+icon: "lucide/clock"
 description: "Learn about LITIENGINE's game loop - Game.loop() for fixed-rate game logic updates, rendering, and the IUpdateable interface."
 keywords: ["LITIENGINE", "game loop", "update", "render", "tick", "IUpdateable", "framerate", "Java"]
 ---
@@ -1632,6 +1645,7 @@ public class GameTimer implements IUpdateable {
 
 ---
 title: "Game World"
+icon: "lucide/globe"
 description: "Game World documentation for LITIENGINE 2D Java game development."
 keywords: ["LITIENGINE", "java", "2d", "game engine", "game api"]
 ---
@@ -1735,6 +1749,7 @@ public class ProceduralWorld {
 
 ---
 title: "Camera & Viewport"
+icon: "lucide/camera"
 description: "Master LITIENGINE's Camera system: smooth focus tracking, map boundary clamping, zoom animations, screen shake, and viewport transformations."
 keywords: ["LITIENGINE", "camera", "viewport", "zoom", "shake", "pan", "clampToMap", "coordinate conversion", "Java 2D"]
 tags: ["camera", "screen shake", "zoom", "viewport", "tracking", "follow player"]
@@ -1921,6 +1936,7 @@ Game.tweens().begin(Game.world().camera(), TweenType.ZOOM, 800)
 
 ---
 title: "Screens"
+icon: "lucide/monitor"
 description: "Screens documentation for LITIENGINE 2D Java game development."
 keywords: ["LITIENGINE", "java", "2d", "game engine", "game api"]
 ---
@@ -2050,6 +2066,7 @@ Game.screens().display(GameOverScreen.NAME);
 
 ---
 title: "Tweening"
+icon: "lucide/sparkles"
 description: "The TweenEngine is LITIENGINE's built-in interpolation framework."
 keywords: ["LITIENGINE", "java", "game engine", "2D", "tweening"]
 ---
@@ -2134,6 +2151,7 @@ time.
 
 ---
 title: "Player Input"
+icon: "lucide/gamepad"
 description: "Handle low-latency keyboard, mouse, and gamepad controls in LITIENGINE with Panama FFM integration."
 keywords: ["LITIENGINE", "input", "keyboard", "mouse", "gamepad", "input4j", "panama ffm"]
 ---
@@ -2193,6 +2211,7 @@ Input.mouse().start();
 
 ---
 title: "Keyboard Input"
+icon: "lucide/keyboard"
 description: "Keyboard Input documentation for LITIENGINE 2D Java game development."
 keywords: ["LITIENGINE", "java", "2d", "game engine", "player input"]
 ---
@@ -2352,6 +2371,7 @@ Let's execute the program by build Program.java inside src/com/litiengine/gurknu
 
 ---
 title: "Mouse Input"
+icon: "lucide/mouse"
 description: "Learn how to handle mouse input in LITIENGINE using Input.mouse() for clicks, movement, and drag events."
 keywords: ["LITIENGINE", "mouse input", "click", "drag", "mouse events", "Java"]
 ---
@@ -2546,6 +2566,7 @@ Input.mouse().setLocation(100, 100);
 
 ---
 title: "Gamepad Input"
+icon: "lucide/gamepad-2"
 description: "Learn how to handle gamepad input in LITIENGINE using Input.gamepads() with Input4j for cross-platform controller support."
 keywords: ["LITIENGINE", "gamepad", "controller", "Input4j", "Xbox", "button", "axis", "Java"]
 tags: ["gamepad", "controller", "joystick", "input4j", "panama ffm", "buttons"]
@@ -2752,6 +2773,7 @@ Input.gamepads().onPressed(Gamepad.Xbox.LEFT_STICK_X, x -> {
 
 ---
 title: "Entity Framework Overview"
+icon: "lucide/boxes"
 description: "Understand the LITIENGINE Entity Framework: entities, environments, annotations, map objects, and lifecycle events."
 keywords: ["LITIENGINE", "entity framework", "IEntity", "Creature", "Prop", "Environment", "Java", "annotations"]
 ---
@@ -2877,6 +2899,7 @@ flowchart LR
 
 ---
 title: "Default Entity Types"
+icon: "lucide/box"
 description: "Learn about the default entity types in LITIENGINE - Entity, CollisionEntity, CombatEntity, Creature, Prop, and their hierarchies."
 keywords: ["LITIENGINE", "entity types", "Creature", "Prop", "CollisionEntity", "CombatEntity", "Java"]
 tags: ["creature", "prop", "emitter", "lightsource", "spawnpoint", "entity types"]
@@ -3106,6 +3129,7 @@ spawn.spawn(new Player());
 
 ---
 title: "Custom Entity Types"
+icon: "lucide/puzzle"
 description: "Learn how to create custom entity implementations in LITIENGINE with specialized behavior."
 keywords: ["LITIENGINE", "custom entity", "implementation", "extend", "Java"]
 ---
@@ -3249,6 +3273,7 @@ public class Ghost extends Creature {
 
 ---
 title: "Triggers"
+icon: "lucide/door-open"
 description: "Learn how to use Trigger entities in LITIENGINE to create area-based events and scripting."
 keywords: ["LITIENGINE", "trigger", "area", "event", "activate", "scripting", "Java"]
 tags: ["triggers", "zone", "collision trigger", "doors", "switches", "cutscene"]
@@ -3396,6 +3421,7 @@ trigger1.onActivated(e -> {
 
 ---
 title: "Entity Annotations"
+icon: "lucide/tag"
 description: "Learn how to use annotations in LITIENGINE to configure entity properties like size, collision, movement, and combat stats."
 keywords: ["LITIENGINE", "annotation", "EntityInfo", "CollisionInfo", "MovementInfo", "CombatInfo", "Java"]
 ---
@@ -3622,6 +3648,7 @@ public class Boss extends Creature {
 
 ---
 title: "Entity Event System"
+icon: "lucide/zap"
 description: "Learn how to subscribe to entity events in LITIENGINE for movement, combat, lifecycle, and custom events."
 keywords: ["LITIENGINE", "entity events", "listener", "callback", "onHit", "onDeath", "onMoved", "Java"]
 ---
@@ -3851,6 +3878,7 @@ Game.world().onCameraMoved(camera -> {
 
 ---
 title: "Props"
+icon: "lucide/package"
 description: "How to register a custom Prop implementation in LITIENGINE."
 keywords: ["LITIENGINE", "prop", "entities", "entity", "custom", "register", "mapobject", "loader"]
 ---
@@ -3969,6 +3997,7 @@ With the example implementation above, we can see the hitboxes of our props rend
 
 ---
 title: "Control Entities Overview"
+icon: "lucide/bot"
 description: "Master entity control in LITIENGINE: controllers, animation, movement, AI behaviors, abilities, and modern Java scripting."
 keywords: ["LITIENGINE", "controllers", "movement", "animation", "behavior", "AI", "scripting", "Java"]
 ---
@@ -4055,6 +4084,7 @@ public class Player extends Creature {
 
 ---
 title: "Entity Controllers"
+icon: "lucide/sliders"
 description: "Learn about Entity Controllers in LITIENGINE - how to control entity behavior with animation, movement, and custom controllers."
 keywords: ["LITIENGINE", "entity controller", "animation", "movement", "behavior", "Java"]
 ---
@@ -4218,6 +4248,7 @@ public class CombatController extends EntityController<Creature> {
 
 ---
 title: "Movement Controller"
+icon: "lucide/move"
 description: "Learn how to use MovementController in LITIENGINE to control entity movement with velocity, direction, and collision response."
 keywords: ["LITIENGINE", "movement controller", "velocity", "physics", "collision", "Java"]
 tags: ["movement", "pathfinding", "astar", "velocity", "keyboardcontroller", "navigation"]
@@ -4449,6 +4480,7 @@ public class EnemyNavigator {
 
 ---
 title: "Animation Controller"
+icon: "lucide/clapperboard"
 description: "Learn how to use AnimationController in LITIENGINE to manage entity spritesheet animations and sprite rendering."
 keywords: ["LITIENGINE", "animation controller", "spritesheet", "animation", "sprite", "Java"]
 ---
@@ -4614,6 +4646,7 @@ entity.getAnimationController().add(anim);
 
 ---
 title: "Behavior Controllers"
+icon: "lucide/brain"
 description: "Learn how to implement predetermined behaviour for your Entities."
 keywords: ["LITIENGINE", "java", "game", "gameengine", "development", "2D", "programming", "library", "SDK", "repository", "build"]
 ---
@@ -4922,6 +4955,7 @@ public class EnemyAIController extends StateMachine {
 
 ---
 title: "Ability Framework"
+icon: "lucide/swords"
 description: "Learn how to use the Ability Framework in LITIENGINE to create combat abilities with cooldowns, effects, and execution logic."
 keywords: ["LITIENGINE", "ability", "combat", "cooldown", "effect", "attack", "Java"]
 ---
@@ -5126,6 +5160,7 @@ player.perform("attack");
 
 ---
 title: "Java Scripting Engine"
+icon: "lucide/file-code"
 description: "Add pure Java gameplay scripts to LITIENGINE games with dynamic runtime execution and hot reload."
 keywords: ["LITIENGINE", "scripting", "Java", "IntelliJ", "utiLITI", "game behavior", "hot reload"]
 ---
@@ -5230,6 +5265,7 @@ Game.world().environment().getCreature("guard-1").attachScript(new GuardBehavior
 
 ---
 title: "Savegames & State Persistence"
+icon: "lucide/save"
 description: "Architecture guide for serializing player stats, inventory, quest progress, and environment states into JSON or binary save files."
 keywords: ["LITIENGINE", "save game", "persistence", "serialization", "json", "load game", "state", "game state"]
 tags: ["save game", "persistence", "serialization", "json", "load game", "state"]
@@ -5397,6 +5433,7 @@ Game.world().onLoaded(env -> {
 
 ---
 title: "Deploying LITIENGINE Games"
+icon: "lucide/package"
 description: "Learn how to build, package, and deploy LITIENGINE games for Windows, Linux, and macOS using Gradle, Launch4j, and jpackage."
 keywords: ["LITIENGINE", "deployment", "distribution", "gradle", "launch4j", "jpackage", "steam", "itch.io", "Java 21"]
 ---
@@ -5586,6 +5623,7 @@ Before releasing your build:
 
 ---
 title: "utiLITI Editor Overview"
+icon: "lucide/hammer"
 description: "Visual level design, entity placement, Wang autotiling, and asset bundling with the utiLITI companion editor."
 keywords: ["LITIENGINE", "utiLITI", "editor", "level design", "tilemap", "litidata", "spritesheet"]
 ---
@@ -5647,6 +5685,7 @@ keywords: ["LITIENGINE", "utiLITI", "editor", "level design", "tilemap", "litida
 
 ---
 title: "Project Management in utiLITI"
+icon: "lucide/folder-plus"
 description: "Learn how to create, configure, save, and manage LITIENGINE game projects (.litidata) in utiLITI, including auto-save and backups."
 keywords: ["LITIENGINE", "utiLITI", "create project", "litidata", "game resource file", "auto save", "project management"]
 ---
@@ -5755,6 +5794,7 @@ public class MyGame {
 
 ---
 title: "Maps & Environment Management"
+icon: "lucide/map"
 description: "Learn how to create, import, export, and configure 2D maps in utiLITI, including ambient lighting, shadows, and ID management."
 keywords: ["utiLITI", "map management", "import map", "export map", "TMX", "ambient light", "static shadow", "map properties", "reassign map ids"]
 ---
@@ -5827,6 +5867,7 @@ Select the map background or choose **Map Properties** in the inspector to confi
 
 ---
 title: "Sprites & Animation Editor in utiLITI"
+icon: "lucide/images"
 description: "Comprehensive guide to the utiLITI Sprite & Animation Editor: spritesheet slicing, keyframe durations, animated previews, and sprite info export."
 keywords: ["utiLITI", "Sprite Editor", "Animation Editor", "spritesheets", "keyframe durations", "sprite slicing", "animation preview", "sprite info"]
 ---
@@ -5917,6 +5958,7 @@ durations=120,100,100,120,100,100
 
 ---
 title: "Tilesets & Wang Terrains in utiLITI"
+icon: "lucide/grid"
 description: "Comprehensive guide to the utiLITI Tileset Editor: tile properties, collision vector editing, animated tiles, and Wang terrain sets for auto-tiling."
 keywords: ["utiLITI", "Tileset Editor", "tile collisions", "animated tiles", "Wang tiles", "terrain sets", "auto-tiling", "tile properties"]
 ---
@@ -6040,6 +6082,7 @@ Wang tiles allow the **Terrain Brush Tool** to automatically connect and blend t
 
 ---
 title: "Editing Tools & Viewport Operations in utiLITI"
+icon: "lucide/pen-tool"
 description: "Guide to utiLITI editing tools: Pointer, Tile Brush, Bucket Fill, Eraser, Stamp Brush, Wang Terrain Brush, Snapping, and Visual Overlays."
 keywords: ["utiLITI", "tools", "tile brush", "bucket fill", "eraser", "stamp brush", "terrain brush", "wang tiles", "snapping", "grid", "collision overlay"]
 ---
@@ -6170,6 +6213,7 @@ You can toggle visual debug overlays from the **View** menu or the viewport tool
 
 ---
 title: "Entity & Object Inspector in utiLITI"
+icon: "lucide/search"
 description: "In-depth reference for the utiLITI Entity Inspector, covering general properties, custom Java implementations, entity types, physics, combat, and script bindings."
 keywords: ["utiLITI", "Entity Inspector", "Prop", "Creature", "Trigger", "LightSource", "Emitter", "SoundSource", "Spawnpoint", "CollisionBox", "CombatPanel", "MovementPanel", "ScriptBindings"]
 ---
@@ -6403,6 +6447,7 @@ Store arbitrary user-defined metadata on any map object:
 
 ---
 title: "Scripts in utiLITI"
+icon: "lucide/file-code-2"
 description: "Create, bind, configure, and reload Java gameplay scripts with utiLITI and IntelliJ."
 keywords: ["utiLITI", "LITIENGINE", "scripts", "Java", "IntelliJ", "editor"]
 ---
@@ -6604,6 +6649,7 @@ For full project-semantic features such as rename refactoring, cross-file error 
 
 ---
 title: "Script Diagnostics & Guidance"
+icon: "lucide/activity"
 description: "Discover script events, architecture guides, and startup configuration directly in utiLITI."
 keywords: ["utiLITI", "Script Explorer", "GameScriptsDialog", "script guidance", "templates", "architecture"]
 ---
@@ -6673,6 +6719,7 @@ When creating a new script using **Script -> New Script...** or the `[ + ]` butt
 
 ---
 title: "Settings & Keyboard Shortcuts in utiLITI"
+icon: "lucide/command"
 description: "Complete guide to utiLITI application settings, themes, grid configuration, keymap customization, and keyboard shortcuts reference."
 keywords: ["utiLITI", "settings", "preferences", "shortcuts", "keymap", "theme", "dark mode", "grid settings", "mcp settings", "hotkeys"]
 ---
@@ -6802,6 +6849,7 @@ Access the application preferences by selecting **File -> Settings...** or press
 
 ---
 title: "Frequently Asked Questions"
+icon: "lucide/help-circle"
 description: "Answers to frequently asked questions about LITIENGINE architecture, Java 21+ support, performance, distribution, and commercial licensing."
 keywords: ["LITIENGINE", "FAQ", "questions", "java", "game engine", "performance", "platforms", "editor", "licensing", "steam"]
 ---
@@ -6879,6 +6927,7 @@ Quick answers to the most common questions about LITIENGINE, architecture, perfo
 
 ---
 title: "Glossary"
+icon: "lucide/book-marked"
 description: "Glossary of terms used in LITIENGINE docs."
 keywords: ["LITIENGINE", "java", "game engine", "2D", "glossary"]
 ---

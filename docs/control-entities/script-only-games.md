@@ -1,5 +1,6 @@
 ---
 title: "Script-Only Game Architecture"
+icon: "lucide/play-square"
 description: "Build complete LITIENGINE games using only scripts with zero boilerplate main classes."
 keywords: ["LITIENGINE", "script-only games", "GameScript", "EnvironmentScript", "CreatureScript", "game development"]
 ---

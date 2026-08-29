@@ -1,5 +1,6 @@
 ---
 title: "Arkanoid Brick Breaker Tutorial"
+icon: "lucide/layers"
 description: "Creating an Arkanoid 2D Block Breaker Game documentation for LITIENGINE 2D Java game development."
 keywords: ["LITIENGINE", "java", "2d", "game engine", "tutorials"]
 ---

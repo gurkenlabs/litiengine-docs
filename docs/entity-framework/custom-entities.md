@@ -1,5 +1,6 @@
 ---
 title: "Custom Entity Types"
+icon: "lucide/puzzle"
 description: "Learn how to create custom entity implementations in LITIENGINE with specialized behavior."
 keywords: ["LITIENGINE", "custom entity", "implementation", "extend", "Java"]
 ---

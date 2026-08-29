@@ -1,5 +1,6 @@
 ---
 title: "Combat & Action Scripting"
+icon: "lucide/crosshair"
 description: "Script abilities, projectiles, floating combat text, and cinematics in LITIENGINE."
 keywords: ["LITIENGINE", "abilities", "projectiles", "combat scripting", "floating text", "camera cutscenes"]
 ---

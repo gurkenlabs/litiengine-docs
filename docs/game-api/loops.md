@@ -1,5 +1,6 @@
 ---
 title: "Game Loop"
+icon: "lucide/clock"
 description: "Learn about LITIENGINE's game loop - Game.loop() for fixed-rate game logic updates, rendering, and the IUpdateable interface."
 keywords: ["LITIENGINE", "game loop", "update", "render", "tick", "IUpdateable", "framerate", "Java"]
 ---

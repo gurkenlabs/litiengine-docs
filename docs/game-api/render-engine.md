@@ -1,5 +1,6 @@
 ---
 title: "2D Graphics"
+icon: "lucide/palette"
 description: "2D Graphics documentation for LITIENGINE 2D Java game development."
 keywords: ["LITIENGINE", "java", "2d", "game engine", "game api"]
 tags: ["graphics", "rendering", "textrenderer", "sprites", "fonts", "drawing", "double buffer"]

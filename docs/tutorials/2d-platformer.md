@@ -1,5 +1,6 @@
 ---
 title: "2D Platformer Tutorial"
+icon: "lucide/flame"
 description: "Creating a platformer with LITIENGINE docs for LITIENGINE 2D Java game development."
 keywords: ["LITIENGINE", "java", "2d", "game engine", "tutorials"]
 ---

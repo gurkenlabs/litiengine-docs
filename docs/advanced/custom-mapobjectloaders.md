@@ -1,5 +1,6 @@
 ---
 title: "Custom MapObjectLoaders"
+icon: "lucide/file-input"
 description: "Learn how to create custom MapObjectLoaders in LITIENGINE to load custom entity types from Tiled maps."
 keywords: ["LITIENGINE", "MapObjectLoader", "custom entity", "map", "tmx", "Java"]
 ---

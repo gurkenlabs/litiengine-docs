@@ -1,5 +1,6 @@
 ---
 title: "Editing Tools & Viewport Operations in utiLITI"
+icon: "lucide/pen-tool"
 description: "Guide to utiLITI editing tools: Pointer, Tile Brush, Bucket Fill, Eraser, Stamp Brush, Wang Terrain Brush, Snapping, and Visual Overlays."
 keywords: ["utiLITI", "tools", "tile brush", "bucket fill", "eraser", "stamp brush", "terrain brush", "wang tiles", "snapping", "grid", "collision overlay"]
 ---

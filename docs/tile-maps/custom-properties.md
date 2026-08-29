@@ -1,5 +1,6 @@
 ---
 title: "Custom Properties"
+icon: "lucide/settings-2"
 description: "Learn how to use custom properties in LITIENGINE to configure map objects and entities with custom data."
 keywords: ["LITIENGINE", "custom properties", "Tiled", "tmx", "map object", "configuration", "entity"]
 ---

@@ -1,5 +1,6 @@
 ---
 title: "Network Communication"
+icon: "lucide/radio"
 description: "Network communication was removed from LITIENGINE in version 0.5.1-beta."
 keywords: ["LITIENGINE", "network", "multiplayer", "removed"]
 ---

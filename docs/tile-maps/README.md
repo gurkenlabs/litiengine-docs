@@ -1,5 +1,6 @@
 ---
 title: "Tile Maps"
+icon: "lucide/map"
 description: ">-"
 keywords: ["LITIENGINE", "java", "game engine", "2D", "tile maps"]
 ---

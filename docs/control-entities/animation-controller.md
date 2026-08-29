@@ -1,5 +1,6 @@
 ---
 title: "Animation Controller"
+icon: "lucide/clapperboard"
 description: "Learn how to use AnimationController in LITIENGINE to manage entity spritesheet animations and sprite rendering."
 keywords: ["LITIENGINE", "animation controller", "spritesheet", "animation", "sprite", "Java"]
 ---

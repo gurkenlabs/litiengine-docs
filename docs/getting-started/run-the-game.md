@@ -1,5 +1,6 @@
 ---
 title: "Run the Game"
+icon: "lucide/play"
 description: "Run the Game documentation for LITIENGINE 2D Java game development."
 keywords: ["LITIENGINE", "java", "2d", "game engine", "getting started"]
 ---

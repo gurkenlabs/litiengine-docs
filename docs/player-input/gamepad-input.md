@@ -1,5 +1,6 @@
 ---
 title: "Gamepad Input"
+icon: "lucide/gamepad-2"
 description: "Learn how to handle gamepad input in LITIENGINE using Input.gamepads() with Input4j for cross-platform controller support."
 keywords: ["LITIENGINE", "gamepad", "controller", "Input4j", "Xbox", "button", "axis", "Java"]
 tags: ["gamepad", "controller", "joystick", "input4j", "panama ffm", "buttons"]

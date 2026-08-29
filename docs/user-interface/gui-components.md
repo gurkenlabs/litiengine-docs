@@ -1,5 +1,6 @@
 ---
 title: "GuiComponents Overview"
+icon: "lucide/panel-top"
 description: "Overview of GuiComponents in LITIENGINE - buttons, labels, sliders, checkboxes, and other UI elements for game interfaces."
 keywords: ["LITIENGINE", "GUI", "component", "button", "label", "slider", "menu", "Java"]
 ---

@@ -1,5 +1,6 @@
 ---
 title: "Game Window"
+icon: "lucide/app-window"
 description: "Learn about LITIENGINE's Game.window() API for managing the game window, resolution scaling, fullscreen mode, custom cursors, and window icons."
 keywords: ["LITIENGINE", "game window", "fullscreen", "resolution", "cursor", "icon", "Java"]
 ---

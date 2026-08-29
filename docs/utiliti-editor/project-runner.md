@@ -1,5 +1,6 @@
 ---
 title: "Run, Debug & Hot Reload in utiLITI"
+icon: "lucide/play"
 description: "Comprehensive guide to running, debugging, and hot-reloading LITIENGINE projects directly from utiLITI using JDI breakpoints and standalone runners."
 keywords: ["utiLITI", "Run Project", "Debug Project", "JDI debugger", "breakpoints", "hot reload", "GameLauncher", "Gradle integration", "IDE"]
 ---

@@ -1,5 +1,6 @@
 ---
 title: "Sound Engine"
+icon: "lucide/volume-2"
 description: "Master 2D spatial audio, background music streaming, volume attenuation, and sound playback in LITIENGINE."
 keywords: ["LITIENGINE", "sound engine", "audio", "spatial audio", "music", "wav", "mp3", "ogg", "Game.audio"]
 tags: ["sound", "audio", "music", "spatial audio", "bgm", "sfx", "volume", "soundengine"]

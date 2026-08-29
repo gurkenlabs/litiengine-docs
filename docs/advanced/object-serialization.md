@@ -1,5 +1,6 @@
 ---
 title: "Object Serialization"
+icon: "lucide/hard-drive"
 description: "Learn about serialization in LITIENGINE for saving and loading game data and configuration."
 keywords: ["LITIENGINE", "serialization", "XML", "save", "load", "Java"]
 ---

@@ -1,5 +1,6 @@
 ---
 title: "Resource Management"
+icon: "lucide/library"
 description: "Resource Management documentation for LITIENGINE 2D Java game development."
 keywords: ["LITIENGINE", "java", "2d", "game engine", "resource management"]
 ---

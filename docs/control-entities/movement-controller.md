@@ -1,5 +1,6 @@
 ---
 title: "Movement Controller"
+icon: "lucide/move"
 description: "Learn how to use MovementController in LITIENGINE to control entity movement with velocity, direction, and collision response."
 keywords: ["LITIENGINE", "movement controller", "velocity", "physics", "collision", "Java"]
 tags: ["movement", "pathfinding", "astar", "velocity", "keyboardcontroller", "navigation"]

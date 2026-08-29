@@ -1,5 +1,6 @@
 ---
 title: "Ability Framework"
+icon: "lucide/swords"
 description: "Learn how to use the Ability Framework in LITIENGINE to create combat abilities with cooldowns, effects, and execution logic."
 keywords: ["LITIENGINE", "ability", "combat", "cooldown", "effect", "attack", "Java"]
 ---

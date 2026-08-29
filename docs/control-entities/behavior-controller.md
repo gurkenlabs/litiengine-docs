@@ -1,5 +1,6 @@
 ---
 title: "Behavior Controllers"
+icon: "lucide/brain"
 description: "Learn how to implement predetermined behaviour for your Entities."
 keywords: ["LITIENGINE", "java", "game", "gameengine", "development", "2D", "programming", "library", "SDK", "repository", "build"]
 ---

@@ -1,5 +1,6 @@
 ---
 title: "LITIENGINE — Pure Java 2D Game Engine"
+icon: "lucide/book-open"
 description: "LITIENGINE is a free, open-source 2D Java Game Engine for creating tile-based 2D games with pure Java, AWT graphics, and zero external dependencies."
 keywords: ["LITIENGINE", "java", "game engine", "2D", "open source", "awt", "panama ffm", "monaco", "mcp server"]
 ---

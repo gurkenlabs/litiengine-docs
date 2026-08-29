@@ -1,5 +1,6 @@
 ---
 title: "Scripts in utiLITI"
+icon: "lucide/file-code-2"
 description: "Create, bind, configure, and reload Java gameplay scripts with utiLITI and IntelliJ."
 keywords: ["utiLITI", "LITIENGINE", "scripts", "Java", "IntelliJ", "editor"]
 ---

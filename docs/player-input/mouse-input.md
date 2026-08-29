@@ -1,5 +1,6 @@
 ---
 title: "Mouse Input"
+icon: "lucide/mouse"
 description: "Learn how to handle mouse input in LITIENGINE using Input.mouse() for clicks, movement, and drag events."
 keywords: ["LITIENGINE", "mouse input", "click", "drag", "mouse events", "Java"]
 ---

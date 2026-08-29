@@ -1,5 +1,6 @@
 ---
 title: "Core Game API"
+icon: "lucide/gamepad-2"
 description: "Master LITIENGINE's core subsystems: 2D Graphics, Positional Sound, Physics Quadtrees, Game Loop, Cameras, and Screens."
 keywords: ["LITIENGINE", "game api", "graphics", "audio", "physics", "game loop", "camera", "screens"]
 ---

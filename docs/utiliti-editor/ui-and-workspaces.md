@@ -1,5 +1,6 @@
 ---
 title: "User Interface & Workspaces in utiLITI"
+icon: "lucide/columns"
 description: "Comprehensive guide to the utiLITI user interface, dual workspaces (Map & Script), viewport navigation, toolbar, layers, scene graph, and panels."
 keywords: ["utiLITI", "user interface", "layout", "workspaces", "map viewport", "toolbar", "layers", "scene graph", "console", "status bar", "command palette"]
 ---

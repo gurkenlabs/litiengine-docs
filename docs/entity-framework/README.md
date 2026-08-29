@@ -1,5 +1,6 @@
 ---
 title: "Entity Framework Overview"
+icon: "lucide/boxes"
 description: "Understand the LITIENGINE Entity Framework: entities, environments, annotations, map objects, and lifecycle events."
 keywords: ["LITIENGINE", "entity framework", "IEntity", "Creature", "Prop", "Environment", "Java", "annotations"]
 ---

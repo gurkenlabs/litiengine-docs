@@ -1,5 +1,6 @@
 ---
 title: "Keyboard Input"
+icon: "lucide/keyboard"
 description: "Keyboard Input documentation for LITIENGINE 2D Java game development."
 keywords: ["LITIENGINE", "java", "2d", "game engine", "player input"]
 ---

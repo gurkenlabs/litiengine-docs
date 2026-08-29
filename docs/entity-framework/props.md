@@ -1,5 +1,6 @@
 ---
 title: "Props"
+icon: "lucide/package"
 description: "How to register a custom Prop implementation in LITIENGINE."
 keywords: ["LITIENGINE", "prop", "entities", "entity", "custom", "register", "mapobject", "loader"]
 ---

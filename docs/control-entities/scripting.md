@@ -1,5 +1,6 @@
 ---
 title: "Java Scripting Engine"
+icon: "lucide/file-code"
 description: "Add pure Java gameplay scripts to LITIENGINE games with dynamic runtime execution and hot reload."
 keywords: ["LITIENGINE", "scripting", "Java", "IntelliJ", "utiLITI", "game behavior", "hot reload"]
 ---

@@ -1,5 +1,6 @@
 ---
 title: "Frequently Asked Questions"
+icon: "lucide/help-circle"
 description: "Answers to frequently asked questions about LITIENGINE architecture, Java 21+ support, performance, distribution, and commercial licensing."
 keywords: ["LITIENGINE", "FAQ", "questions", "java", "game engine", "performance", "platforms", "editor", "licensing", "steam"]
 ---

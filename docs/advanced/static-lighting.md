@@ -1,5 +1,6 @@
 ---
 title: "Static Lighting"
+icon: "lucide/sun-medium"
 description: "Learn about static lighting in LITIENGINE - pre-baked shadows and ambient occlusion for performant illumination."
 keywords: ["LITIENGINE", "static lighting", "shadow", "ambient occlusion", "baked", "performance", "Java"]
 ---

@@ -1,5 +1,6 @@
 ---
 title: "2D Physics"
+icon: "lucide/atom"
 description: "Documentation of LITIENGINE's physics engine."
 keywords: ["LITIENGINE", "physics", "movement", "collision", "entities", "listeners"]
 tags: ["physics", "collision", "gravity", "quadtree", "raycast", "hitbox", "sliding"]

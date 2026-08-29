@@ -1,5 +1,6 @@
 ---
 title: "Entity Event System"
+icon: "lucide/zap"
 description: "Learn how to subscribe to entity events in LITIENGINE for movement, combat, lifecycle, and custom events."
 keywords: ["LITIENGINE", "entity events", "listener", "callback", "onHit", "onDeath", "onMoved", "Java"]
 ---

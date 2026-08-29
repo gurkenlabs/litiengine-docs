@@ -1,5 +1,6 @@
 ---
 title: "User Interface Overview"
+icon: "lucide/layout"
 description: "Build rich game menus, title screens, interactive HUDs, and UI components in LITIENGINE using the GuiComponent framework."
 keywords: ["LITIENGINE", "UI", "GUI", "GuiComponent", "Menu", "HUD", "Screen", "Java", "screens", "components"]
 ---

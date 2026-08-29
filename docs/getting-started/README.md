@@ -1,5 +1,6 @@
 ---
 title: "Getting Started"
+icon: "lucide/compass"
 description: "Everything you need to set up your environment, install Java 21+, configure Gradle/Maven, and run your first 2D LITIENGINE game."
 keywords: ["LITIENGINE", "getting started", "java", "gradle", "installation", "setup", "tutorial"]
 ---

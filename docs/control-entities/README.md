@@ -1,5 +1,6 @@
 ---
 title: "Control Entities Overview"
+icon: "lucide/bot"
 description: "Master entity control in LITIENGINE: controllers, animation, movement, AI behaviors, abilities, and modern Java scripting."
 keywords: ["LITIENGINE", "controllers", "movement", "animation", "behavior", "AI", "scripting", "Java"]
 ---

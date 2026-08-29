@@ -1,5 +1,6 @@
 ---
 title: "Utility Classes"
+icon: "lucide/wrench"
 description: "Overview of LITIENGINE utility classes for common operations like math, geometry, and collections."
 keywords: ["LITIENGINE", "utility", "helper", "math", "geometry", "collection", "Java"]
 ---

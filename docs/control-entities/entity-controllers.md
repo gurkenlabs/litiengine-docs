@@ -1,5 +1,6 @@
 ---
 title: "Entity Controllers"
+icon: "lucide/sliders"
 description: "Learn about Entity Controllers in LITIENGINE - how to control entity behavior with animation, movement, and custom controllers."
 keywords: ["LITIENGINE", "entity controller", "animation", "movement", "behavior", "Java"]
 ---

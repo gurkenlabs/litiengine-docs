@@ -1,5 +1,6 @@
 ---
 title: "Release Notes & Changelog"
+icon: "lucide/history"
 description: "Release notes for the LITIENGINE that include a complete changelog with all fixes, changes, improvements and a list of added and removed features."
 keywords: ["FAQ", "questions", "LITIENGINE", "java", "game", "gameengine", "development", "2D", "programming"]
 ---

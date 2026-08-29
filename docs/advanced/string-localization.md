@@ -1,5 +1,6 @@
 ---
 title: "String Localization"
+icon: "lucide/languages"
 description: "Learn how to implement string localization in LITIENGINE for multi-language game support."
 keywords: ["LITIENGINE", "localization", "i18n", "translation", "language", "strings", "Java"]
 ---

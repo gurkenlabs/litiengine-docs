@@ -1,5 +1,6 @@
 ---
 title: "Tilesets & Wang Terrains in utiLITI"
+icon: "lucide/grid"
 description: "Comprehensive guide to the utiLITI Tileset Editor: tile properties, collision vector editing, animated tiles, and Wang terrain sets for auto-tiling."
 keywords: ["utiLITI", "Tileset Editor", "tile collisions", "animated tiles", "Wang tiles", "terrain sets", "auto-tiling", "tile properties"]
 ---

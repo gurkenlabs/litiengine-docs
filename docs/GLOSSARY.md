@@ -1,5 +1,6 @@
 ---
 title: "Glossary"
+icon: "lucide/book-marked"
 description: "Glossary of terms used in LITIENGINE docs."
 keywords: ["LITIENGINE", "java", "game engine", "2D", "glossary"]
 ---

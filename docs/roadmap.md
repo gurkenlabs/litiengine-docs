@@ -1,5 +1,6 @@
 ---
 title: "LITIENGINE Roadmap"
+icon: "lucide/milestone"
 description: "Discover the development roadmap, project philosophy, and path to v1.0.0 for LITIENGINE."
 keywords: ["LITIENGINE", "roadmap", "v1.0.0", "milestones", "vision", "utiLITI", "GUI editor", "scripting", "MCP"]
 ---

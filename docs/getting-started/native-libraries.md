@@ -1,5 +1,6 @@
 ---
 title: "Native Libraries"
+icon: "lucide/cpu"
 description: "Learn about managing native libraries in your LITIENGINE project."
 keywords: ["LITIENGINE", "java", "game", "gameengine", "development", "2D", "programming", "library", "build", "natives"]
 ---

@@ -1,5 +1,6 @@
 ---
 title: "Entity & Object Inspector in utiLITI"
+icon: "lucide/search"
 description: "In-depth reference for the utiLITI Entity Inspector, covering general properties, custom Java implementations, entity types, physics, combat, and script bindings."
 keywords: ["utiLITI", "Entity Inspector", "Prop", "Creature", "Trigger", "LightSource", "Emitter", "SoundSource", "Spawnpoint", "CollisionBox", "CombatPanel", "MovementPanel", "ScriptBindings"]
 ---

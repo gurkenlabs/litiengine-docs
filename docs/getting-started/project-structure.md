@@ -1,5 +1,6 @@
 ---
 title: "Project Structure"
+icon: "lucide/folder-tree"
 description: "Learn about best practices for setting up your game project hierarchy."
 keywords: ["LITIENGINE", "java", "game", "gameengine", "development", "2D", "programming", "file", "project", "hierarchy", "structure"]
 ---

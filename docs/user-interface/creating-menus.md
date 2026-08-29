@@ -1,5 +1,6 @@
 ---
 title: "Creating Game Menus"
+icon: "lucide/menu"
 description: "Learn how to build interactive game menus, title screens, keyboard/mouse navigation, and screen transitions in LITIENGINE."
 keywords: ["LITIENGINE", "menu", "MenuScreen", "Screen", "GuiComponent", "UI", "Java", "title screen", "keyboard navigation"]
 ---

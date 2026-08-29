@@ -1,5 +1,6 @@
 ---
 title: "GameLauncher CLI & Standalone Runner"
+icon: "lucide/terminal"
 description: "Run standalone LITIENGINE projects without boilerplate Java main classes using GameLauncher."
 keywords: ["LITIENGINE", "GameLauncher", "standalone runner", "CLI", "litidata", "game distribution"]
 ---

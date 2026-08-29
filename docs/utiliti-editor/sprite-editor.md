@@ -1,5 +1,6 @@
 ---
 title: "Sprites & Animation Editor in utiLITI"
+icon: "lucide/images"
 description: "Comprehensive guide to the utiLITI Sprite & Animation Editor: spritesheet slicing, keyframe durations, animated previews, and sprite info export."
 keywords: ["utiLITI", "Sprite Editor", "Animation Editor", "spritesheets", "keyframe durations", "sprite slicing", "animation preview", "sprite info"]
 ---

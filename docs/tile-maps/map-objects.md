@@ -1,5 +1,6 @@
 ---
 title: "Map Objects"
+icon: "lucide/map-pin"
 description: "Learn about MapObjects in LITIENGINE tile maps - how to place, configure, and load entities from Tiled map objects."
 keywords: ["LITIENGINE", "map objects", "Tiled", "tmx", "entity", "spawnpoint", "collision", "trigger"]
 ---

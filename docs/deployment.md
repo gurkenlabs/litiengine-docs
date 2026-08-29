@@ -1,5 +1,6 @@
 ---
 title: "Deploying LITIENGINE Games"
+icon: "lucide/package"
 description: "Learn how to build, package, and deploy LITIENGINE games for Windows, Linux, and macOS using Gradle, Launch4j, and jpackage."
 keywords: ["LITIENGINE", "deployment", "distribution", "gradle", "launch4j", "jpackage", "steam", "itch.io", "Java 21"]
 ---
