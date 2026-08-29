@@ -201,7 +201,85 @@ public class WalkAroundState extends EntityState<Creature> {
 
 The `WalkAroundState` waits for 3000 milliseconds and then changes the walking direction randomly. Right now, there are no conditions defined to return from the `WalkAroundState` to the `FollowPathState`. Try to come up with ideas for that and implement the transitions in the `RatController`!
 
+## Implementing an AI State Machine
 
+Below is a complete, runnable enemy AI state machine implementing a 3-state lifecycle (**Patrol** &rarr; **Chase** &rarr; **Attack**):
 
+```java
+package com.example.game.ai;
 
+import de.gurkenlabs.litiengine.Game;
+import de.gurkenlabs.litiengine.entities.Creature;
+import de.gurkenlabs.litiengine.entities.behavior.EntityState;
+import de.gurkenlabs.litiengine.entities.behavior.EntityTransition;
+import de.gurkenlabs.litiengine.entities.behavior.StateMachine;
+import java.awt.geom.Point2D;
 
+public class EnemyAIController extends StateMachine {
+  private final Creature enemy;
+  private final Creature player;
+
+  public EnemyAIController(Creature enemy, Creature player) {
+    this.enemy = enemy;
+    this.player = player;
+
+    // Define States
+    PatrolState patrol = new PatrolState(enemy);
+    ChaseState chase = new ChaseState(enemy, player);
+    AttackState attack = new AttackState(enemy, player);
+
+    // Define Transitions
+    patrol.getTransitions().add(new EntityTransition<>(1, chase, e -> getDistanceToPlayer() < 150));
+    chase.getTransitions().add(new EntityTransition<>(1, attack, e -> getDistanceToPlayer() < 30));
+    chase.getTransitions().add(new EntityTransition<>(2, patrol, e -> getDistanceToPlayer() > 250));
+    attack.getTransitions().add(new EntityTransition<>(1, chase, e -> getDistanceToPlayer() >= 30));
+
+    // Initial state
+    this.setState(patrol);
+  }
+
+  private double getDistanceToPlayer() {
+    return enemy.getCenter().distance(player.getCenter());
+  }
+
+  private static class PatrolState extends EntityState<Creature> {
+    public PatrolState(Creature enemy) {
+      super("PATROL", enemy);
+    }
+
+    @Override
+    public void perform() {
+      // Roam or wander around origin
+    }
+  }
+
+  private static class ChaseState extends EntityState<Creature> {
+    private final Creature target;
+
+    public ChaseState(Creature enemy, Creature target) {
+      super("CHASE", enemy);
+      this.target = target;
+    }
+
+    @Override
+    public void perform() {
+      // Navigate towards player location
+      getEntity().getMovementController().applyForce(target.getCenter(), 50);
+    }
+  }
+
+  private static class AttackState extends EntityState<Creature> {
+    private final Creature target;
+
+    public AttackState(Creature enemy, Creature target) {
+      super("ATTACK", enemy);
+      this.target = target;
+    }
+
+    @Override
+    public void perform() {
+      // Execute combat attack or ability
+    }
+  }
+}
+```

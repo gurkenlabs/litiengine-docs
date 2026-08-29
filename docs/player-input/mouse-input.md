@@ -6,6 +6,18 @@ keywords: ["LITIENGINE", "mouse input", "click", "drag", "mouse events", "Java"]
 
 # Mouse Input
 
+## Mouse API Method Reference
+
+| Method Signature | Return Type | Description |
+| :--- | :--- | :--- |
+| `getLocation()` | `Point2D` | Returns the current mouse cursor location in window screen coordinates. |
+| `getMapLocation()` | `Point2D` | Returns the mouse cursor coordinates mapped to world map coordinates. |
+| `isPressed(int button)` | `boolean` | Checks if a mouse button (`MouseEvent.BUTTON1`, `BUTTON2`, `BUTTON3`) is held. |
+| `onPressed(Consumer<MouseEvent> consumer)` | `void` | Registers a listener triggered on mouse click press. |
+| `onWheelMoved(Consumer<MouseWheelEvent> consumer)` | `void` | Registers a listener triggered when the scroll wheel moves. |
+
+---
+
 The `Input.mouse()` method provides access to the `IMouse` interface for handling mouse input in your game. This includes detecting button presses, tracking mouse position, and responding to mouse events.
 
 ## Basic Usage

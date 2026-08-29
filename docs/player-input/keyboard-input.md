@@ -6,6 +6,18 @@ keywords: ["LITIENGINE", "java", "2d", "game engine", "player input"]
 
 # Keyboard Input
 
+## Keyboard API Method Reference
+
+| Method Signature | Return Type | Description |
+| :--- | :--- | :--- |
+| `isPressed(int keyCode)` | `boolean` | Returns `true` if the key is currently held down. |
+| `onKeyPressed(int keyCode, Consumer<KeyEvent> consumer)` | `void` | Registers a listener invoked once when the key is first pressed. |
+| `onKeyReleased(int keyCode, Consumer<KeyEvent> consumer)` | `void` | Registers a listener invoked when the key is released. |
+| `onKeyTyped(int keyCode, Consumer<KeyEvent> consumer)` | `void` | Registers a listener invoked when a character key is typed. |
+| `consumeKeyEvent(KeyEvent event)` | `void` | Consumes the event so subsequent listeners do not process it. |
+
+---
+
 ## Chapter 1: Setting
 1) Clone the code
 ```bash

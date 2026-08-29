@@ -45,3 +45,35 @@ You can register `ResourcesContainerListener`s with `addContainerListener(Resour
 
 ## Blueprints
 
+## Resource Loading Cheat Sheet
+
+LITIENGINE provides specialized static resource repositories via `Resources.*`:
+
+```java
+package com.example.game;
+
+import de.gurkenlabs.litiengine.graphics.Spritesheet;
+import de.gurkenlabs.litiengine.resources.Resources;
+import de.gurkenlabs.litiengine.sound.Sound;
+import java.awt.Font;
+import java.awt.image.BufferedImage;
+
+public class ResourceManager {
+  public static void preloadAssets() {
+    // 1. Load complete binary bundle (.litidata)
+    Resources.load("game.litidata");
+
+    // 2. Spritesheets (image path, frame width, frame height)
+    Spritesheet heroSprites = Resources.spritesheets().load("sprites/hero.png", 24, 24);
+
+    // 3. Sounds (supports .wav natively, MP3/OGG via SPI)
+    Sound jumpSound = Resources.sounds().get("audio/jump.wav");
+
+    // 4. TrueType / OpenType Fonts
+    Font retroFont = Resources.fonts().get("fonts/pixel.ttf", 16f);
+
+    // 5. Raw BufferedImages
+    BufferedImage logo = Resources.images().get("branding/logo.png");
+  }
+}
+```

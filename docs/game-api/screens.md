@@ -40,3 +40,69 @@ public class TestScreen extends GameScreen {
   }
 }
 ```
+
+## Custom Screen Implementation Example
+
+Here is a complete, runnable `GameOverScreen` with animated text rendering and keyboard restart input:
+
+```java
+package com.example.game.screens;
+
+import de.gurkenlabs.litiengine.Game;
+import de.gurkenlabs.litiengine.gui.screens.Screen;
+import de.gurkenlabs.litiengine.input.Input;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Graphics2D;
+import java.awt.event.KeyEvent;
+
+public class GameOverScreen extends Screen {
+  public static final String NAME = "GAME_OVER";
+
+  public GameOverScreen() {
+    super(NAME);
+  }
+
+  @Override
+  protected void initializeComponents() {
+    super.initializeComponents();
+
+    // Listen for Space key to restart
+    Input.keyboard().onKeyTyped(KeyEvent.VK_SPACE, event -> {
+      if (Game.screens().current().equals(this)) {
+        Game.world().loadEnvironment("level1");
+        Game.screens().display("INGAME-SCREEN");
+      }
+    });
+  }
+
+  @Override
+  public void render(Graphics2D g) {
+    // Fill dark background
+    g.setColor(new Color(15, 10, 20, 230));
+    g.fillRect(0, 0, (int) Game.window().getResolution().getWidth(), (int) Game.window().getResolution().getHeight());
+
+    // Draw game over banner
+    g.setColor(Color.RED);
+    g.setFont(new Font("Monospaced", Font.BOLD, 48));
+    g.drawString("GAME OVER", (int) (Game.window().getCenter().getX() - 140), (int) (Game.window().getCenter().getY() - 20));
+
+    // Draw prompt
+    g.setColor(Color.WHITE);
+    g.setFont(new Font("Monospaced", Font.PLAIN, 18));
+    g.drawString("Press [SPACE] to Restart", (int) (Game.window().getCenter().getX() - 120), (int) (Game.window().getCenter().getY() + 40));
+
+    super.render(g);
+  }
+}
+```
+
+### Registering and Displaying Screens
+
+```java
+// Register in your main game initialization
+Game.screens().add(new GameOverScreen());
+
+// Switch to Game Over screen when player dies
+Game.screens().display(GameOverScreen.NAME);
+```

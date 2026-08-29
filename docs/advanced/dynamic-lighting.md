@@ -184,3 +184,43 @@ gfx_ambientAlpha=0.8
 - [Static Lighting](static-lighting.md) - Pre-baked lighting
 - [Environment](../game-api/game-world.md) - Environment management
 - [Particle System](the-particle-system.md) - Visual effects
+
+## Programmatic LightSource Management
+
+You can spawn, configure, and animate `LightSource` entities at runtime in pure Java:
+
+```java
+package com.example.game.lighting;
+
+import de.gurkenlabs.litiengine.Game;
+import de.gurkenlabs.litiengine.entities.LightSource;
+import java.awt.Color;
+import java.awt.geom.Point2D;
+
+public class TorchLight {
+  public static LightSource createTorch(double x, double y) {
+    // 1. Create a radial ellipse light source (radius = 120, warm amber color)
+    Color warmGlow = new Color(255, 180, 50, 180);
+    LightSource torch = new LightSource(120, warmGlow, LightSource.Type.ELLIPSE);
+    torch.setLocation(x, y);
+
+    // 2. Add to active environment
+    Game.world().environment().add(torch);
+
+    // 3. Add ambient world darkness (RGBA)
+    Game.world().environment().getAmbientLight().setColor(new Color(10, 15, 25, 220));
+
+    return torch;
+  }
+}
+```
+
+### Animating Light Flicker
+
+```java
+// Create a flickering torch flame effect in your game loop
+Game.loop().attach(Game.world().environment(), () -> {
+  int jitter = (int) (Math.random() * 8) - 4;
+  torch.setRadius(120 + jitter);
+});
+```
