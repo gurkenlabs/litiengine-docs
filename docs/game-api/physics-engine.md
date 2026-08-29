@@ -71,4 +71,17 @@ Use the different overloads of `Game.physics().raycast(...)` to cast a ray from 
 
 ## Enabling / disabling physics updates
 The physics engine is tied to your game loop. When you call `Game.init()` at startup, you implicitly attach the physics engine to the Game loop, letting it update all physics in your game world on every tick. The PhysicsEngine is an `IUpdateable`, i.e. you can attach and detach it to any Loop using `Loop.attach(Game.physics())` and `Loop.detach(Game.physics())`.
-
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "LITIENGINE 2D Physics & Spatial Quadtrees",
+  "description": "2D bounding-box collision detection, raycasting, custom gravity forces, and spatial quadtree optimization.",
+  "author": {
+    "@type": "Organization",
+    "name": "Gurkenlabs",
+    "url": "https://gurkenlabs.com"
+  },
+  "inLanguage": "en"
+}
+</script>

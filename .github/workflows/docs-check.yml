@@ -24,5 +24,10 @@ jobs:
       - name: Validate Internal & Image Links
         run: python .github/scripts/validate_links.py
 
+      - name: Generate & Verify llms.txt Sync
+        run: |
+          python .github/scripts/generate_llms.py
+          git diff --exit-code docs/llms.txt docs/llms-full.txt
+
       - name: Build documentation
         run: zensical build --clean --strict

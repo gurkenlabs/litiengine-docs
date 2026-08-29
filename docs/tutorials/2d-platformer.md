@@ -580,3 +580,22 @@ Sit back and enjoy your awesome player double-jumping around the platforms in yo
 
 There are binaries available on the ['Gurk Nukem' GitHub page](https://github.com/gurkenlabs/litiengine-gurk-nukem/releases). Head over there and compare your work to our reference project!
 We can't wait to share more about the journey of creating games with LITIENGINE, so stay tuned.
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Creating a 2D Platformer with LITIENGINE",
+  "description": "Step-by-step tutorial building a complete 2D action platformer in Java with player physics, gravity, jumping, animations, and coin pickups.",
+  "author": {
+    "@type": "Organization",
+    "name": "Gurkenlabs",
+    "url": "https://gurkenlabs.com"
+  },
+  "inLanguage": "en",
+  "about": {
+    "@type": "SoftwareApplication",
+    "name": "LITIENGINE",
+    "programmingLanguage": "Java"
+  }
+}
+</script>

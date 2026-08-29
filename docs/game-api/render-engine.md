@@ -107,3 +107,17 @@ public class CustomHudRenderer {
   }
 }
 ```
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "LITIENGINE 2D Graphics & RenderEngine Guide",
+  "description": "Double-buffered AWT graphics rendering pipeline, sprite transformations, shape drawing, and TextRenderer high-contrast outlines.",
+  "author": {
+    "@type": "Organization",
+    "name": "Gurkenlabs",
+    "url": "https://gurkenlabs.com"
+  },
+  "inLanguage": "en"
+}
+</script>

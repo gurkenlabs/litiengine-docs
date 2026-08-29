@@ -1,88 +1,30 @@
-# LITIENGINE Documentation (llms.txt)
+# LITIENGINE Docs
+> Free, open-source 2D Java Game Engine (Java 21+ LTS) with pure AWT graphics, low-latency Panama FFM input (Input4j), spatial quadtree physics, positional 2D audio, and the utiLITI companion level editor.
 
-> LITIENGINE is a free, open-source 2D Java Game Engine engineered to create tile-based 2D video games using pure Java, AWT graphics, modern Panama FFM input handling, and zero external C-dependencies.
+## Core Documentation
 
-## Key Engine Facts for AI Agents
-- **Language & Runtime**: Java 21+ (Java 25 ready)
-- **Graphics Pipeline**: Pure Java AWT 2D Graphics (`Game.graphics()`)
-- **Physics**: 2D Tile collision maps, bounding boxes, raycasting (`Game.physics()`)
-- **Input**: Low-latency keyboard, mouse, and gamepad via Panama FFM (`Input4j`, `Input.gamepads()`)
-- **Audio**: 2D positional spatial attenuation and music streaming (`Game.audio()`)
-- **Editor Tooling**: utiLITI Visual Studio with Monaco code editor, Wang autotiling, and live debugging
-- **Scripting Engine**: 3-tier runtime scripts in Groovy and Java (`GameScript`, `EnvironmentScript`, `CreatureScript`)
-- **AI Tooling**: Native Model Context Protocol (MCP) Server integration (`mcp-server`)
-- **Persistence**: Jakarta JSON serialization (`Jakarta.json.bind` / Parsson)
+- [Getting Started](https://docs.litiengine.com/getting-started/): Installation, JDK 21+ setup, Gradle/Maven configuration, and first game.
+- [API Quick Reference](https://docs.litiengine.com/getting-started/api-quick-reference/): Complete static cheat sheet covering Game.*, Resources.*, and Input.*.
+- [2D Graphics](https://docs.litiengine.com/game-api/render-engine/): AWT rendering, sprite transformations, shape drawing, and TextRenderer outlines.
+- [2D Physics](https://docs.litiengine.com/game-api/physics-engine/): Bounding-box collisions, spatial quadtree acceleration, and collision sliding.
+- [2D Sound](https://docs.litiengine.com/game-api/sound-engine/): Positional 2D spatial audio, distance attenuation, and multi-bus volume controls.
+- [Player Input](https://docs.litiengine.com/player-input/): Low-latency keyboard, mouse, and hardware gamepads via Input4j Panama FFM.
+- [Entity Framework](https://docs.litiengine.com/entity-framework/): Creatures, Props, Emitters, LightSources, Spawnpoints, and Entity Annotations.
+- [Java Scripting Engine](https://docs.litiengine.com/control-entities/scripting/): Pure Java runtime scripts (GameScript, EnvironmentScript, CreatureScript).
+- [utiLITI Editor](https://docs.litiengine.com/utiliti-editor/): Visual 2D map editor, entity inspector, tilesets, Wang autotiling, and .litidata bundling.
+- [Tutorials](https://docs.litiengine.com/tutorials/2d-platformer/): Step-by-step guides for 2D platformers, top-down shooters, and brick breakers.
+- [Savegames & State Persistence](https://docs.litiengine.com/savegames/): Serializing player stats, inventory, and environment restoration.
+- [Deployment](https://docs.litiengine.com/deployment/): Packaging standalone executables with jlink and Launch4j.
 
-## Core Documentation Structure
+## Key APIs & Symbols
 
-### Getting Started & Installation
-- [Getting Started Overview](https://docs.litiengine.com/getting-started/): Prerequisites and architecture.
-- [Install JDK](https://docs.litiengine.com/getting-started/install-jdk/): Setting up OpenJDK / Temurin 21+.
-- [Build Systems](https://docs.litiengine.com/getting-started/build-systems/): Gradle and Maven dependency configuration.
-- [API Quick Reference](https://docs.litiengine.com/getting-started/api-quick-reference/): All 17 static `Game.*` and `Input.*` entry points.
-- [Deployment](https://docs.litiengine.com/deployment/): Packaging standalone fat JARs, Launch4j `.exe`, and jlink bundles.
-- [Savegames & Persistence](https://docs.litiengine.com/savegames/): JSON state snapshots and cross-platform file paths.
+- `de.gurkenlabs.litiengine.Game`: Master engine entry point (`Game.init(args)`, `Game.start()`, `Game.world()`, `Game.physics()`, `Game.audio()`, `Game.window()`, `Game.graphics()`, `Game.screens()`).
+- `de.gurkenlabs.litiengine.resources.Resources`: Central asset archive manager (`Resources.maps()`, `Resources.spritesheets()`, `Resources.sounds()`, `Resources.tracks()`, `Resources.fonts()`, `Resources.images()`).
+- `de.gurkenlabs.litiengine.input.Input`: Unified input polling (`Input.keyboard()`, `Input.mouse()`, `Input.gamepads()`).
+- `de.gurkenlabs.litiengine.entities.Creature`: Base class for living entities with movement and combat controllers.
+- `de.gurkenlabs.litiengine.entities.Prop`: Base class for static or destructible interactive map objects.
+- `de.gurkenlabs.litiengine.environment.Environment`: Level container holding tilemaps, lights, and entity instances.
 
-### Core Game API
-- [Game Loop](https://docs.litiengine.com/game-api/loops/): Decoupled 60 FPS update loop and rendering ticks.
-- [Camera & Viewport](https://docs.litiengine.com/game-api/camera/): Focus tracking, map clamping (`setClampToMap`), zoom, and screen shake.
-- [Render Engine](https://docs.litiengine.com/game-api/render-engine/): Custom render layers, shapes, sprites, and lighting.
-- [Sound Engine](https://docs.litiengine.com/game-api/sound-engine/): 2D positional audio, stereo falloff, and volume sliders.
-- [Physics Engine](https://docs.litiengine.com/game-api/physics-engine/): Collision boxes, velocity resolution, and raycasting.
-- [Screens System](https://docs.litiengine.com/game-api/screens/): Screen manager, scene transitions, and HUD overlays.
+## Full Context
 
-### Entity Framework & Control
-- [Entity Framework Overview](https://docs.litiengine.com/entity-framework/): `IEntity`, `Creature`, `CombatEntity`, and entity lifecycle.
-- [Scripting Engine](https://docs.litiengine.com/control-entities/scripting/): Groovy and Java scripting with live hot-reload.
-- [Combat & Action Scripting](https://docs.litiengine.com/control-entities/combat-scripting/): Projectile builders, abilities, and combat text.
-- [User Interface Cookbook](https://docs.litiengine.com/user-interface/hud-and-ui-cookbook/): Health bars, damage numbers, and speech bubbles.
-
-### utiLITI Visual Studio
-- [utiLITI Overview](https://docs.litiengine.com/utiliti-editor/): Visual workspace and `.litidata` resource archives.
-- [Monaco Script Workspace](https://docs.litiengine.com/utiliti-editor/scripts/): In-editor code editor and diagnostics.
-- [MCP Server Integration](https://docs.litiengine.com/utiliti-editor/mcp-server/): AI agent integration via Model Context Protocol.
-
-### Tutorials
-- [2D Platformer Tutorial](https://docs.litiengine.com/tutorials/creating-a-platformer/): Step-by-step jump'n'run platformer game.
-- [Top-Down Shooter Tutorial](https://docs.litiengine.com/tutorials/creating-a-topdown-shooter/): Twin-stick action shooter with wave spawning.
-- [Arkanoid Clone Tutorial](https://docs.litiengine.com/tutorials/creating-an-arkanoid-clone/): Classic brick breaker with physics reflection.
-
-## Quick Code Examples
-
-### Minimal Game Entry Point
-```java
-package com.example.game;
-
-import de.gurkenlabs.litiengine.Game;
-import de.gurkenlabs.litiengine.resources.Resources;
-
-public class Program {
-  public static void main(String[] args) {
-    Game.info().setName("My LITIENGINE Game");
-    Game.info().setVersion("v1.0.0");
-
-    Game.init(args);
-    Resources.load("game.litidata");
-    Game.world().loadEnvironment("level1");
-    Game.start();
-  }
-}
-```
-
-### Custom Player Creature
-```java
-package com.example.game.entities;
-
-import de.gurkenlabs.litiengine.entities.*;
-import de.gurkenlabs.litiengine.physics.MovementController;
-
-@EntityInfo(width = 18, height = 18)
-@MovementInfo(velocity = 90)
-@CollisionInfo(collisionBoxWidth = 14, collisionBoxHeight = 10, collision = true)
-public class Player extends Creature {
-  public Player() {
-    super("player");
-    addController(new MovementController<>(this));
-  }
-}
-```
+- [Full Documentation Bundle](https://docs.litiengine.com/llms-full.txt): Complete concatenated markdown documentation for LLM consumption.
