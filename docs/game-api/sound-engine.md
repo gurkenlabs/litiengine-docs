@@ -3,18 +3,18 @@ title: Sound Engine
 icon: lucide/volume-2
 description: Master 2D spatial audio, background music streaming, volume attenuation,
   and sound playback in LITIENGINE.
-keywords: [LITIENGINE, sound engine, audio, spatial audio, music, wav, mp3, ogg, Game.audio]
+keywords: [LITIENGINE, sound engine, audio, spatial audio, music, wav, ogg, Game.audio]
 tags: [audio, sound, music, sfx, sound-engine, playback, volume]
 ---
 # Sound Engine
 
-The `SoundEngine` (`Game.audio()`) handles all sound effects, ambient background audio, and background music streaming. It natively supports `.wav`, `.mp3`, and `.ogg` audio formats without external native C libraries.
+The `SoundEngine` (`Game.audio()`) handles all sound effects, ambient background audio, and background music streaming. It natively supports `.wav` and `.ogg` audio formats without external native C libraries.
 
 ```mermaid
 flowchart TD
  subgraph AudioSources["Audio Sources"]
  SFX["Sound Effects (.wav, .ogg)"]
- Music["Music Tracks (.mp3, .ogg)"]
+ Music["Music Tracks (.ogg)"]
  Spatial["Positional Sounds (Point2D)"]
  end
 
@@ -66,7 +66,7 @@ Music is streamed asynchronously to optimize memory usage:
 
 ```java
 // Play looping background music
-Game.audio().playMusic("overworld-theme.mp3");
+Game.audio().playMusic("overworld-theme.ogg");
 
 // Stop or pause music
 Game.audio().stopMusic();

@@ -12,7 +12,7 @@ A curated collection of concise, production-ready code recipes for common 2D gam
 
 ---
 
-## 1. 📳 Screen Shake on Hit
+## 1. Screen Shake on Hit
 
 Add visceral impact to explosions, heavy attacks, or taking damage by shaking the camera:
 
@@ -36,7 +36,7 @@ public class CameraShakeRecipe {
 
 ---
 
-## 2. 💥 Floating Combat Damage Numbers
+## 2. Floating Combat Damage Numbers
 
 Spawn floating damage numbers that rise and fade when an entity is struck:
 
@@ -72,7 +72,7 @@ public class DamageTextRecipe {
 
 ---
 
-## 3. 🚪 Portal & Level Transition Triggers
+## 3. Portal & Level Transition Triggers
 
 Trigger seamless level transitions when the player walks into a map doorway or teleporter:
 
@@ -106,7 +106,7 @@ public class LevelTransitionRecipe {
 
 ---
 
-## 4. ⏳ Cooldown-Based Attack Ability
+## 4. Cooldown-Based Attack Ability
 
 Implement an attack skill with cooldown tracking, casting sound, and visual range validation:
 
@@ -140,7 +140,7 @@ public class FireballAbilityRecipe extends Ability {
 
 ---
 
-## 5. 🧟 Simple Distance-Based Enemy Aggro AI
+## 5. Simple Distance-Based Enemy Aggro AI
 
 An enemy behavior controller that pursues the player when they step inside detection range:
 
@@ -180,7 +180,7 @@ public class EnemyAggroRecipe extends EntityController<Creature> {
 
 ---
 
-## 6. 🔊 2D Positional Audio with Falloff
+## 6. 2D Positional Audio with Falloff
 
 Play audio sound effects whose volume automatically attenuates based on distance from the player camera:
 
@@ -205,7 +205,7 @@ public class PositionalAudioRecipe {
 
 ---
 
-## 7. 🌟 Particle Explosion on Entity Death
+## 7. Particle Explosion on Entity Death
 
 Create a visual explosion of dust or sparks when an enemy is destroyed:
 

@@ -719,7 +719,7 @@ Game.graphics().setBaseRenderScale(3f);
 ```java
 Game.audio().playSound("sound.wav");
 Game.audio().playSound("sound.wav", x, y); // At location
-Game.audio().playMusic("music.mp3");
+Game.audio().playMusic("music.ogg");
 Game.audio().stopMusic();
 Game.audio().setSoundVolume(0.5f);
 Game.audio().setMusicVolume(0.8f);
@@ -1126,18 +1126,18 @@ title: Sound Engine
 icon: lucide/volume-2
 description: Master 2D spatial audio, background music streaming, volume attenuation,
   and sound playback in LITIENGINE.
-keywords: [LITIENGINE, sound engine, audio, spatial audio, music, wav, mp3, ogg, Game.audio]
+keywords: [LITIENGINE, sound engine, audio, spatial audio, music, wav, ogg, Game.audio]
 tags: [audio, sound, music, sfx, sound-engine, playback, volume]
 ---
 # Sound Engine
 
-The `SoundEngine` (`Game.audio()`) handles all sound effects, ambient background audio, and background music streaming. It natively supports `.wav`, `.mp3`, and `.ogg` audio formats without external native C libraries.
+The `SoundEngine` (`Game.audio()`) handles all sound effects, ambient background audio, and background music streaming. It natively supports `.wav` and `.ogg` audio formats without external native C libraries.
 
 ```mermaid
 flowchart TD
  subgraph AudioSources["Audio Sources"]
  SFX["Sound Effects (.wav, .ogg)"]
- Music["Music Tracks (.mp3, .ogg)"]
+ Music["Music Tracks (.ogg)"]
  Spatial["Positional Sounds (Point2D)"]
  end
 
@@ -1189,7 +1189,7 @@ Music is streamed asynchronously to optimize memory usage:
 
 ```java
 // Play looping background music
-Game.audio().playMusic("overworld-theme.mp3");
+Game.audio().playMusic("overworld-theme.ogg");
 
 // Stop or pause music
 Game.audio().stopMusic();
@@ -2140,7 +2140,7 @@ LITIENGINE provides a unified, low-latency input polling and event system across
 
 ---
 
-## ️ Temporary Input Locking (Cutscenes & Dialogues)
+## Temporary Input Locking (Cutscenes & Dialogues)
 
 To disable input during cutscenes, pause menus, or dialogue sequences:
 
@@ -5999,7 +5999,7 @@ Instead of requiring separate external collision tools, utiLITI includes an inte
 
 ```text
 ┌──────────────────────────────────────────────┐
-│ Tools: [↖️ Select] [Rectangle] [️ Delete] │
+│ Tools: [ Select] [Rectangle] [ Delete] │
 ├──────────────────────────────────────────────┤
 │ ┌──────────────┐ │
 │ │ │ │
@@ -6013,10 +6013,10 @@ Instead of requiring separate external collision tools, utiLITI includes an inte
 
 ### Collision Authoring Workflow:
 1. Select a tile in the grid.
-2. Under the **Collision Editor** section, click **Rectangle Mode** (``).
+2. Under the **Collision Editor** section, click **Rectangle Mode**.
 3. Click and drag across the tile image preview to define collision boundaries (e.g. half-height walls or isometric tops).
-4. Switch to **Select Mode** (`↖️`) to move shapes or drag corner/edge handles to resize.
-5. Click **Delete** (`️`) or press `Delete` to remove collision geometry.
+4. Switch to **Select Mode** (``) to move shapes or drag corner/edge handles to resize.
+5. Click **Delete** (``) or press `Delete` to remove collision geometry.
 
 When painted on any map layer, tiles with defined collision shapes automatically generate static physics obstacles in LITIENGINE's physics engine.
 
@@ -6080,8 +6080,8 @@ The primary tools are available on the viewport toolbar and can be activated usi
 
 | Tool | Icon | Hotkey | Target Layer | Description |
 | :--- | :---: | :---: | :--- | :--- |
-| **Pointer Tool** | ↖️ | `V` / `1` | Object / All | Selects, moves, resizes, and rotates map entities. |
-| **Tile Brush Tool** | ️ | `B` / `2` | Tile Layer | Paints individual tiles selected from the Tileset panel. |
+| **Pointer Tool** | | `V` / `1` | Object / All | Selects, moves, resizes, and rotates map entities. |
+| **Tile Brush Tool** |  | `B` / `2` | Tile Layer | Paints individual tiles selected from the Tileset panel. |
 | **Bucket Fill Tool** | | `G` / `3` | Tile Layer | Flood-fills contiguous tile areas with the active tile GID. |
 | **Eraser Tool** | | `E` / `4` | Tile Layer | Clears tile cells on the active tile layer. |
 | **Stamp Brush Tool** | | `S` / `5` | Tile Layer | Stamps multi-tile patterns and rectangular tile arrangements. |
@@ -6733,20 +6733,20 @@ Access the application preferences by selecting **File -> Settings...** or press
 └───────────────────┴─────────────────────────────────────────┘
 ```
 
-### 1. Appearance (``)
+### 1. Appearance
 - **Theme**: Toggle between **Dark Theme** (default) and **Light Theme**.
 - **UI Scale**: Adjust scaling factor from `0.5x` to `2.0x` for high-DPI (4K/Retina) displays.
 - **Editor Font Family**: Choose between `Roboto`, `OpenSans`, or installed system monospace fonts for the code and property editors.
 - **Editor Font Size**: Text point size (`8`–`32`).
 - **Editor FPS Cap**: Limit viewport framerate (`1`–`1000` FPS, default: `60`) to reduce GPU/CPU consumption.
 
-### 2. General (``)
+### 2. General
 - **Language & Region**: Switch editor localization (English, German, etc.).
 - **Reopen Last Project on Startup**: Automatically restores the most recently active `.litidata` project on launch.
 - **Gradle Launch Arguments**: Additional JVM or Gradle flags passed when running projects.
 - **Log Level**: Filter console output (`ALL`, `INFO`, `WARNING`, `SEVERE`, `OFF`).
 
-### 3. Grid (``)
+### 3. Grid
 - **Snap to Grid**: Global default toggle for grid alignment.
 - **Snap to Pixels**: Global default toggle for integer pixel coordinates.
 - **Snap Division**: Set subdivision precision (`1/1`, `1/2`, `1/4` of tile size).
@@ -6754,13 +6754,13 @@ Access the application preferences by selecting **File -> Settings...** or press
 - **Grid Color**: Custom color picker and opacity slider.
 - **Live Preview**: Interactive box showing the active grid style.
 
-### 4. Keymap (``)
+### 4. Keymap
 - Full interactive shortcut table.
 - Filter commands with the search bar.
 - Double-click any command row or press **Record Shortcut** to bind custom key combinations.
 - **Reset Defaults**: Restore original factory keybindings.
 
-### 5. MCP Server (``)
+### 5. MCP Server
 - **Enable MCP Server**: Enable or disable the embedded Model Context Protocol server.
 - **Server Port**: Port for JSON-RPC / SSE connections (default: `8088`).
 - **Endpoint Info**: Displays `http://localhost:8088/mcp` and `http://localhost:8088/sse` with one-click clipboard copy.
@@ -6842,78 +6842,118 @@ Access the application preferences by selecting **File -> Settings...** or press
 <!-- BEGIN CHAPTER: frequently-asked-questions.md -->
 
 ---
-title: Frequently Asked Questions
-icon: lucide/help-circle
-description: Answers to frequently asked questions about LITIENGINE architecture,
-  Java 21+ support, performance, distribution, and commercial licensing.
-keywords: [LITIENGINE, FAQ, questions, java, game engine, performance, platforms,
-  editor, licensing, steam]
-tags: [faq, questions, troubleshooting, help, basics]
+title: "Frequently Asked Questions"
+icon: "lucide/help-circle"
+description: "Comprehensive FAQ addressing LITIENGINE architecture, Java 21+ support, performance, game loops, persistence, multiplayer, and distribution."
+keywords: ["LITIENGINE FAQ", "questions", "java 2D game", "performance", "platforms", "savegame", "multiplayer", "scaling", "licensing", "steam"]
+tags: ["faq", "questions", "troubleshooting", "help", "basics", "architecture", "multiplayer"]
 ---
+
 # Frequently Asked Questions
 
-Quick answers to the most common questions about LITIENGINE, architecture, performance, tooling, and distribution.
+Quick answers to the most common questions about LITIENGINE architecture, performance, mechanics, persistence, and distribution.
 
 ---
 
 ## General & Architecture
 
 ??? question "Is LITIENGINE a library or a full game engine?"
-    LITIENGINE is a **modular 2D Java Game Library and Framework**. It provides everything needed to build commercial-grade 2D games: a decoupled 60 FPS game loop, 2D tile-based physics with spatial quadtrees, AWT graphics pipeline, 2D positional audio, entity lifecycle management, and the companion **utiLITI Editor**.
+    LITIENGINE is a **modular 2D Java Game Library and Framework**. It provides everything needed to build commercial-grade 2D games: a decoupled 60 FPS update loop, 2D tile-based physics with spatial quadtrees, AWT graphics pipeline, 2D positional audio, entity lifecycle management, and the companion **utiLITI Editor**.
 
 ??? question "What Java version is required?"
-    LITIENGINE requires **Java 21 LTS or newer** (tested through JDK 25). It leverages modern Java features including Java Panama Foreign Function & Memory (FFM) APIs for low-latency gamepad polling via `Input4j`.
+    LITIENGINE requires **Java 21 LTS or newer** (tested through JDK 25). It leverages modern Java features including Java Panama Foreign Function & Memory (FFM) APIs for low-latency gamepad polling via `Input4j` with zero JNI setup.
 
 ??? question "Why pure Java with AWT instead of OpenGL/Vulkan bindings?"
     By relying on pure Java AWT 2D graphics without heavy native dynamic C/C++ libraries (like LWJGL or libGDX bindings), LITIENGINE games run identically across Windows, macOS, and Linux without native DLL hell, driver crashes, or platform-specific compilation hurdles.
+
+??? question "How does the decoupled game loop work?"
+    LITIENGINE uses a **decoupled multi-threaded loop**:
+    
+    1. **Update Loop (`Game.loop()`)**: Runs at a fixed, deterministic rate (default: **60 ticks/second**) executing physics, entity logic, timers, and AI.
+    2. **Render Loop (`Game.window().getRenderComponent()`)**: Runs on the AWT graphics pipeline, interpolating positions to deliver smooth rendering regardless of display refresh rate.
 
 ??? question "Does LITIENGINE collect any telemetry or user data?"
     **No.** LITIENGINE and the utiLITI Editor contain zero telemetry, tracking, or analytics code.
 
 ---
 
+## Graphics, Scaling & Display
+
+??? question "How do I handle pixel art scaling and high-DPI displays?"
+    LITIENGINE provides integer pixel scaling through the camera and render component:
+    
+    ```java
+    // Set base camera zoom to 3x for crisp pixel art on 1080p/4K
+    Game.world().camera().setZoom(3.0f, 0);
+    
+    // Clamp coordinates to whole pixel integers
+    Game.world().camera().setClampToMap(true);
+    ```
+
+??? question "Can I toggle fullscreen mode at runtime?"
+    Yes! You can toggle between borderless windowed, windowed, and exclusive fullscreen:
+    
+    ```java
+    // Toggle fullscreen mode
+    Game.window().getRenderComponent().setFullscreen(!Game.window().getRenderComponent().isFullscreen());
+    ```
+
+---
+
+## Mechanics, Audio & Persistence
+
+??? question "What audio formats are supported and how are they cached?"
+    LITIENGINE natively supports **`.wav`** and **`.ogg` (Vorbis)** audio files. Sounds are loaded once via the unified resource manager (`Resources.sounds().get("sfx/hit.ogg")`) and cached in memory. The audio engine supports 2D positional distance falloff, background music playlists, and volume master buses.
+
+??? question "How do I save and load game states?"
+    LITIENGINE supports state persistence via the `Savegame` API or by serializing custom entity state to JSON:
+    
+    ```java
+    // Built-in Savegame class
+    Savegame save = new Savegame();
+    save.setString("player_name", "Hero");
+    save.setInt("coins", 42);
+    save.save("saves/slot1.sav");
+    ```
+
+??? question "Can I create multiplayer or networked games with LITIENGINE?"
+    **Yes.** Because LITIENGINE is pure Java, you can integrate standard Java networking libraries such as **Netty**, **Java NIO (WebSockets/TCP/UDP)**, or **gRPC**. LITIENGINE's deterministic tick loop makes client-side prediction and server reconciliation straightforward. See our **[Network Communication Guide](/advanced/network-communication/)**.
+
+---
+
 ## Platforms & Deployment
 
 ??? question "What platforms can I deploy my game to?"
-    You can package and deploy standalone desktop games for **Windows**, **Linux**, and **macOS** (including Apple Silicon M1–M4). Because the engine uses standard Java AWT graphics, mobile platforms (Android/iOS) and web browsers (WebAssembly) are not supported.
+    You can package and deploy standalone desktop games for **Windows**, **Linux**, and **macOS** (including native Apple Silicon M1–M4). Because the engine uses standard Java AWT graphics, mobile platforms (Android/iOS) and web browsers (WebAssembly) are not supported.
 
 ??? question "Can I sell my LITIENGINE game commercially on Steam or itch.io?"
-    **Yes!** LITIENGINE is licensed under the permissive **MIT License** (or compatible open-source terms). You retain 100% ownership of your game source code, assets, and commercial revenue. You can freely sell your games on Steam, itch.io, GOG, or your own store.
+    **Yes!** LITIENGINE is licensed under the permissive **MIT License**. You retain 100% ownership of your game source code, assets, and commercial revenue. You can freely sell your games on Steam, itch.io, GOG, or your own store.
 
 ??? question "How do players run my game without installing Java?"
-    You can bundle a lightweight Java Runtime Environment (JRE) directly with your game using **jlink**, **jpackage**, or **Launch4j**. The player receives a standalone `.exe`, `.app`, or `.zip` bundle and simply double-clicks to play. See our **[Deployment Guide](/deployment/)**.
+    You can bundle a lightweight Java Runtime Environment (JRE) directly with your game using **jlink**, **jpackage**, or **Launch4j**. The player receives a standalone `.exe`, `.app`, or `.zip` bundle (~35 MB) and simply double-clicks to play. See our **[Deployment Guide](/deployment/)**.
 
 ---
 
-## Performance & Engine Limits
-
-??? question "What kind of performance can I expect from software AWT rendering?"
-    LITIENGINE easily achieves a steady **60+ FPS** with hundreds of active entities and complex tile layers on standard desktop hardware. While it is not designed for 3D shaders or tens of thousands of simultaneous particles, it is exceptionally fast and memory-efficient for 2D pixel art, RPGs, platformers, and top-down action games.
-
-??? question "How does LITIENGINE handle physics and collision detection?"
-    LITIENGINE features a custom 2D bounding-box physics engine optimized with spatial quadtrees (`Game.physics()`). It supports collision sliding, raycasting, custom gravity forces, and entity velocity resolution without the overhead of heavy external physics engines like Box2D.
-
----
-
-## Tooling & Workflows
+## Tooling, Editors & AI Integration
 
 ??? question "Do I have to use the utiLITI editor to make a game?"
-    **No.** You can build complete games purely in Java code using `new Environment(new TmxMap())` or procedural level generation. However, **utiLITI** significantly accelerates level design, entity placement, tileset Wang autotiling, and `.litidata` resource archiving.
+    **No.** You can build complete games purely in Java code using procedural generation or raw Tiled maps. However, **utiLITI** significantly accelerates level design, entity placement, tileset Wang autotiling, and binary `.litidata` resource archiving.
 
-??? question "Can I use Tiled Map Editor with LITIENGINE?"
-    **Yes.** LITIENGINE natively supports `.tmx` map files and `.tsx` tilesets exported from [Tiled Map Editor](https://www.mapeditor.org/). You can import `.tmx` maps directly into your `.litidata` projects in utiLITI.
+??? question "Can I use AI coding agents like OpenCode or Antigravity with LITIENGINE?"
+    **Yes!** utiLITI includes an embedded **Model Context Protocol (MCP)** server on port `8088`. AI agents can inspect loaded maps, place entities, configure colliders, and generate code directly. Check out our **[AI-Assisted Game Development Guide](/tutorials/ai-game-development/)**.
 
-??? question "Does LITIENGINE support scripting languages?"
-    Yes! LITIENGINE includes a dedicated multi-tier scripting engine supporting **pure Java** with hot-reloading at runtime, plus Monaco editor integration inside utiLITI.
+??? question "Can I use Tiled Map Editor alongside utiLITI?"
+    **Yes.** LITIENGINE natively parses `.tmx` map files and `.tsx` tilesets exported from [Tiled Map Editor](https://www.mapeditor.org/). You can import `.tmx` maps directly into your `.litidata` projects in utiLITI.
 
 ---
 
 ## Community & Support
 
-??? question "Where can I report bugs or ask for help?"
+??? question "Where can I get help, report bugs, or share my game?"
 
+    * **Discord Community**: Join hundreds of 2D game developers on the [Official LITIENGINE Discord](https://discord.gg/9TqCq9C).
     * **GitHub Discussions**: [github.com/gurkenlabs/litiengine/discussions](https://github.com/gurkenlabs/litiengine/discussions)
-    * **Issue Tracker**: [github.com/gurkenlabs/litiengine/issues](https://github.com/gurkenlabs/litiengine/issues)
+    * **Issue Tracker**: Report bugs and feature requests at [github.com/gurkenlabs/litiengine/issues](https://github.com/gurkenlabs/litiengine/issues)
 
 <!-- END CHAPTER: frequently-asked-questions.md -->
 

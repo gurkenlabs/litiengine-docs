@@ -105,7 +105,7 @@ Game.graphics().setBaseRenderScale(3f);
 ```java
 Game.audio().playSound("sound.wav");
 Game.audio().playSound("sound.wav", x, y); // At location
-Game.audio().playMusic("music.mp3");
+Game.audio().playMusic("music.ogg");
 Game.audio().stopMusic();
 Game.audio().setSoundVolume(0.5f);
 Game.audio().setMusicVolume(0.8f);

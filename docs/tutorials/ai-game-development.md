@@ -75,9 +75,9 @@ This repository contains a 2D game built with **LITIENGINE**, a free, open-sourc
 - Game Scripting: Pure Java only (no Groovy). Hot-reloadable via Monaco script workspace.
 
 ## 3. Anti-Patterns to Avoid
-- ❌ Never perform disk I/O inside render() or update().
-- ❌ Never introduce native C/C++ dependencies.
-- ❌ Never hardcode window coordinates; use Game.world().camera().viewportToWorld().
+- Never perform disk I/O inside render() or update().
+- Never introduce native C/C++ dependencies.
+- Never hardcode window coordinates; use Game.world().camera().viewportToWorld().
 ```
 
 ---
