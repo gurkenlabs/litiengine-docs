@@ -1,50 +1,122 @@
 ---
-title: Libraries and Tools
-icon: lucide/wrench
-description: '>-'
-keywords: [LITIENGINE, java, game engine, 2D, libraries and tools]
-tags: [libraries, tools, dependencies, ecosystem, tiled, aseprite]
+title: "Libraries and Tools"
+icon: "lucide/wrench"
+description: "Comprehensive overview of third-party libraries, developer tools, and asset pipelines used within the modern LITIENGINE ecosystem."
+keywords: ["LITIENGINE libraries", "Input4j", "Java FFM", "Steamworks4j", "Tiled", "Aseprite", "utiLITI", "Monaco", "MCP server"]
+tags: ["libraries", "tools", "dependencies", "ecosystem", "tiled", "aseprite", "input4j", "steamworks"]
 ---
+
 # Libraries and Tools
 
-## Third-Party Libraries
+LITIENGINE adheres to a lean, minimalist architecture. The engine relies on a carefully selected foundation of lightweight libraries and ecosystem tools to maximize developer productivity while eliminating native dependency conflicts.
 
-There is only a bare minimum of third party libraries included in the LITIENGINE, which we want to mention here thankfully:
+---
 
-* [Input4j](https://github.com/gurkenlabs/input4j) for Gamepad support (uses Java FFM API, no native libraries required)
-* [MP3 SPI](https://central.sonatype.com/artifact/com.googlecode.soundlibs/mp3spi) for .mp3 audio file support
-* [Ogg Vorbis SPI](https://central.sonatype.com/artifact/com.googlecode.soundlibs/vorbisspi) for .ogg audio file support
-* [Steamworks4j](https://github.com/code-disaster/steamworks4j) for supporting the steamworks SDK
+## Core Engine Libraries
 
-## Steamworks
+LITIENGINE intentionally avoids heavy native dynamic bindings (like C/C++ OpenGL layers), maintaining pure cross-platform portability across Windows, Linux, and macOS:
 
-### How to use steamworks4j SteamAPI from Eclipse?
+| Library | Version / Source | Purpose |
+|:---|:---|:---|
+| **[Input4j](https://github.com/gurkenlabs/input4j)** | Pure Java 21+ | Gamepad, joystick, and controller input integration utilizing Java Panama Foreign Function & Memory (FFM) APIs with zero external DLL/so dependencies. |
+| **[VorbisSPI](https://central.sonatype.com/artifact/com.googlecode.soundlibs/vorbisspi)** | 1.0.3-1 | Java Sound Service Provider Interface for decoding and streaming `.ogg` Vorbis audio files. |
+| **[MP3SPI](https://central.sonatype.com/artifact/com.googlecode.soundlibs/mp3spi)** | 1.9.5-4 | Java Sound SPI for decoding `.mp3` background music and sound effects. |
+| **[Steamworks4j](https://github.com/code-disaster/steamworks4j)** | 1.9.0 | Optional lightweight bridge for Steamworks SDK features (Steam achievements, cloud saves, leaderboards, and overlay). |
 
-LITIENGINE uses the **steamworks4j** wrapper for the SteamAPI to grant access to Steam features from java. When developing a game that uses these features, you need to execute a few extra steps in order to support the functionality from the IDE.
+---
 
-1. You need to have created the game on [Steamworks](https://partner.steamgames.com) in order to have an _appID_
-2. Create an `steam_appid.txt` file containing only the _appID_ of your game
-3. Copy the `steam_appid.txt` to the _working directory_ of your app.
+## Game Development Tools & Integrations
 
- > For debugging and running your app from Eclipse \(or other IDEs\), the application will be run, using the `javaw.exe`. Your _working directory_ will typically be something like _C:\Program Files\Java\jdkX.X.X\_XXX\bin_, which is where your `javaw.exe` is located. This, of course, depends on your environment \(workspace/project\) _Java Build Path_ configuration of the editor
+<div class="grid cards" markdown>
 
-4. From here on, you can just follow the original tutorial [here](http://code-disaster.github.io/steamworks4j/getting-started.html#initialization).
+- :material-cube-outline:{ .lg .middle } **[utiLITI Editor](/utiliti-editor/README/)**
 
-## Tiled Map Editor
+    ---
 
-### What is '_Tiled_'?
+    The official 2D level editor, tileset designer, asset packager, and live Java script executor bundled directly with LITIENGINE.
 
-From the official [Tiled docs page](https://doc.mapeditor.org/en/stable/manual/introduction/):
+- :material-map-outline:{ .lg .middle } **[Tiled Map Editor](https://www.mapeditor.org/)**
 
-> Tiled is a 2D level editor that helps you develop the content of your game. Its primary feature is to edit tile maps of various forms, but it also supports free image placement as well as powerful ways to annotate your level with extra information used by the game. Tiled focuses on general flexibility while trying to stay intuitive.
+    ---
 
-With Tiled editor, you can create orthogonal, hexagonal, and isometric Tile maps in no time. It is the absolute go-to tool for 2D Tile-based mapping.
+    Full bi-directional support for importing and editing `.tmx` maps and `.tsx` tilesets exported from the industry-standard Tiled editor.
 
-#### How do I use Tiled?
+- :material-palette-outline:{ .lg .middle } **[Aseprite](https://www.aseprite.org/) & Pixel Art Tools**
 
-For a general understanding of the mapping process with Tiled editor, we encourage you to have a look at its [plentiful documentation](https://doc.mapeditor.org/en/stable/manual/introduction/#creating-a-new-map). However, we will refer to a few LITIENGINE specific aspects of creating maps with Tiled in the sections about [Map Objects](/tile-maps/map-objects/) and [custom properties](/tile-maps/custom-properties/)
+    ---
 
-#### Why is tile mapping not a part of the utiLITI editor?
+    Seamless workflow for importing spritesheet grids, JSON texture atlases, and animation frame sequences exported from Aseprite.
 
-LITIENGINE had its origin in the idea of writing a Java 2D game engine without including _any_ external libraries \(what were we _thinking_?\). Yet, we believe that it is key to success to be able to sometimes rely on other people's expertise, especially when having limited resources. The Tiled editor has been developed by a vivid community for approximately ten years, offering a universal standard for tile maps. In other words, _it just works_. There is simply no need to reinvent the wheel when it comes to tile mapping.
+- :material-robot-outline:{ .lg .middle } **[Model Context Protocol (MCP)](/utiliti-editor/mcp-server/)**
 
+    ---
+
+    Built-in JSON-RPC / SSE server in utiLITI enabling AI coding agents (OpenCode, Antigravity, Codex) to inspect and edit levels directly.
+
+</div>
+
+---
+
+## Steam Integration with Steamworks4j
+
+LITIENGINE supports full Steam integration using the **steamworks4j** wrapper. To enable Steam features in your development environment:
+
+1. Register your title on the [Steamworks Partner Portal](https://partner.steamgames.com) to obtain your game's numerical **AppID**.
+2. Create a text file named `steam_appid.txt` in your project root containing only your AppID (e.g. `480` for Spacewar test):
+    ```text title="steam_appid.txt"
+    480
+    ```
+3. Initialize the Steam API during game startup:
+    ```java title="SteamProgram.java"
+    package com.example.game;
+
+    import com.codedisaster.steamworks.SteamAPI;
+    import com.codedisaster.steamworks.SteamException;
+    import de.gurkenlabs.litiengine.Game;
+
+    public class SteamProgram {
+      public static void main(String[] args) {
+        try {
+          if (SteamAPI.init()) {
+            System.out.println("Steamworks initialized successfully!");
+          }
+        } catch (SteamException e) {
+          System.err.println("Failed to initialize Steam: " + e.getMessage());
+        }
+
+        Game.init(args);
+        Game.start();
+      }
+    }
+    ```
+
+---
+
+## Standalone Distribution & Packaging Tools
+
+When preparing your game for release, these tools allow you to package standalone binaries that require no pre-installed Java on the player's computer:
+
+* **[jpackage](https://docs.oracle.com/en/java/javase/21/jpackage/using-jpackage.html)**: Bundled tool in JDK 21+ for generating native `.msi` / `.exe` (Windows), `.dmg` / `.app` (macOS), and `.deb` / `.rpm` (Linux) installers.
+* **[jlink](https://docs.oracle.com/en/java/javase/21/docs/specs/man/jlink.html)**: Generates a lightweight, stripped-down Java runtime containing only the modules your game actively uses (~35–45 MB).
+* **[Launch4j](https://launch4j.sourceforge.net/)**: Wraps your executable JAR into a lightweight Windows native `.exe` with customized icons and splash screens.
+* **[Gradle Shadow Plugin](https://imperceptiblethoughts.com/shadow/)**: Bundles all compiled classes and third-party dependencies into a single executable fat JAR.
+
+---
+
+## Related Documentation
+
+<div class="grid cards" markdown>
+
+- :material-play-box-outline:{ .lg .middle } **[Deployment & Distribution](/deployment/)**
+
+    ---
+
+    Step-by-step instructions on bundling standalone executables with jlink and Launch4j.
+
+- :material-map-legend:{ .lg .middle } **[Tile Maps Overview](/tile-maps/README/)**
+
+    ---
+
+    Guide to loading TMX maps, configuring layers, and reading custom map properties.
+
+</div>
