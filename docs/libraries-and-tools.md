@@ -14,13 +14,12 @@ LITIENGINE adheres to a lean, minimalist architecture. The engine relies on a ca
 
 ## Core Engine Libraries
 
-LITIENGINE intentionally avoids heavy native dynamic bindings (like C/C++ OpenGL layers), maintaining pure cross-platform portability across Windows, Linux, and macOS:
+LITIENGINE intentionally avoids heavy native dynamic bindings (like C/C++ OpenGL layers), maintaining pure cross-platform portability across Windows, Linux, and macOS. The engine core only includes a minimal set of runtime dependencies:
 
 | Library | Version / Source | Purpose |
 |:---|:---|:---|
 | **[Input4j](https://github.com/gurkenlabs/input4j)** | Pure Java 21+ | Gamepad, joystick, and controller input integration utilizing Java Panama Foreign Function & Memory (FFM) APIs with zero external DLL/so dependencies. |
 | **[VorbisSPI](https://central.sonatype.com/artifact/com.googlecode.soundlibs/vorbisspi)** | 1.0.3-1 | Java Sound Service Provider Interface for decoding and streaming `.ogg` Vorbis audio files. |
-| **[Steamworks4j](https://github.com/code-disaster/steamworks4j)** | 1.9.0 | Optional lightweight bridge for Steamworks SDK features (Steam achievements, cloud saves, leaderboards, and overlay). |
 
 ---
 
@@ -56,10 +55,23 @@ LITIENGINE intentionally avoids heavy native dynamic bindings (like C/C++ OpenGL
 
 ---
 
-## Steam Integration with Steamworks4j
+## Steam Integration (steamworks4j)
 
-LITIENGINE supports full Steam integration using the **steamworks4j** wrapper. To enable Steam features in your development environment:
+LITIENGINE does not bundle or require Steam libraries out of the box—games remain 100% independent with zero forced dependencies. 
 
+However, if you plan to distribute your game commercially on Steam, the open-source **[steamworks4j](https://github.com/code-disaster/steamworks4j)** library is the recommended bridge for accessing Steamworks SDK features (achievements, cloud saves, leaderboards, and overlay).
+
+### 1. Add steamworks4j Dependency
+In your `build.gradle`:
+
+```groovy title="build.gradle"
+dependencies {
+  implementation 'com.code-disaster.steamworks4j:steamworks4j:1.9.0'
+  implementation 'com.code-disaster.steamworks4j:steamworks4j-server:1.9.0'
+}
+```
+
+### 2. Configure App ID & Initialization
 1. Register your title on the [Steamworks Partner Portal](https://partner.steamgames.com) to obtain your game's numerical **AppID**.
 2. Create a text file named `steam_appid.txt` in your project root containing only your AppID (e.g. `480` for Spacewar test):
     ```text title="steam_appid.txt"
