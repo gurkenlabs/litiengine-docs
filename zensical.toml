@@ -107,6 +107,7 @@ social = [{ icon = "simple/opencollective", link = "https://opencollective.com/l
  { icon = "simple/discord", link = "https://discord.gg/9TqCq9C", name = "Discord Community" },]
 
 extra_css = ["stylesheets/extra.css"]
+extra_javascript = ["https://media.ethicalads.io/media/client/ethicalads.min.js", "javascripts/ethicalads.js"]
 
 [project.theme]
 custom_dir = "overrides"
