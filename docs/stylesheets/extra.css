@@ -108,3 +108,44 @@
 [data-ea-publisher].flat {
   background: transparent !important;
 }
+
+/* ==========================================================================
+   EthicalAds Integration (Privacy-Preserving Developer Advertising)
+   ========================================================================== */
+.ea-sidebar-wrapper {
+  margin-top: 1.5rem;
+  padding: 0.75rem 0;
+  border-top: 1px dashed var(--md-default-fg-color--lightest);
+}
+
+.ea-sidebar-wrapper [data-ea-publisher] {
+  width: 100%;
+}
+
+.ethical-ad-article-wrapper {
+  margin: 3rem auto 1.5rem auto;
+  padding: 1rem 0;
+  border-top: 1px solid var(--md-default-fg-color--lightest);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100px;
+}
+
+/* Hide article bottom ad on desktop when sidebar ad is present */
+@media screen and (min-width: 76.25em) {
+  .ethical-ad-article-wrapper {
+    display: none;
+  }
+}
+
+/* Light / Dark Mode adaptive styling */
+[data-ea-publisher].bordered {
+  border: 1px solid var(--md-default-fg-color--lighter) !important;
+  border-radius: 8px !important;
+  background-color: var(--md-code-bg-color) !important;
+}
+
+[data-ea-publisher].flat {
+  background: transparent !important;
+}
