@@ -60,7 +60,7 @@ Quick answers to the most common questions about LITIENGINE architecture, perfor
 ## Mechanics, Audio & Persistence
 
 ??? question "What audio formats are supported and how are they cached?"
-    LITIENGINE natively supports **`.wav`**, **`.ogg` (Vorbis)**, and **`.mp3`** audio files. Sounds are loaded once via the unified resource manager (`Resources.sounds().get("sfx/hit.ogg")`) and cached in memory. The audio engine supports 2D positional distance falloff, background music playlists, and volume master buses.
+    LITIENGINE natively supports **`.wav`** and **`.ogg` (Vorbis)** audio files. Sounds are loaded once via the unified resource manager (`Resources.sounds().get("sfx/hit.ogg")`) and cached in memory. The audio engine supports 2D positional distance falloff, background music playlists, and volume master buses.
 
 ??? question "How do I save and load game states?"
     LITIENGINE supports state persistence via the `Savegame` API or by serializing custom entity state to JSON:

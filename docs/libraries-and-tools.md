@@ -20,7 +20,6 @@ LITIENGINE intentionally avoids heavy native dynamic bindings (like C/C++ OpenGL
 |:---|:---|:---|
 | **[Input4j](https://github.com/gurkenlabs/input4j)** | Pure Java 21+ | Gamepad, joystick, and controller input integration utilizing Java Panama Foreign Function & Memory (FFM) APIs with zero external DLL/so dependencies. |
 | **[VorbisSPI](https://central.sonatype.com/artifact/com.googlecode.soundlibs/vorbisspi)** | 1.0.3-1 | Java Sound Service Provider Interface for decoding and streaming `.ogg` Vorbis audio files. |
-| **[MP3SPI](https://central.sonatype.com/artifact/com.googlecode.soundlibs/mp3spi)** | 1.9.5-4 | Java Sound SPI for decoding `.mp3` background music and sound effects. |
 | **[Steamworks4j](https://github.com/code-disaster/steamworks4j)** | 1.9.0 | Optional lightweight bridge for Steamworks SDK features (Steam achievements, cloud saves, leaderboards, and overlay). |
 
 ---

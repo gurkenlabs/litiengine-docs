@@ -719,7 +719,7 @@ Game.graphics().setBaseRenderScale(3f);
 ```java
 Game.audio().playSound("sound.wav");
 Game.audio().playSound("sound.wav", x, y); // At location
-Game.audio().playMusic("music.mp3");
+Game.audio().playMusic("music.ogg");
 Game.audio().stopMusic();
 Game.audio().setSoundVolume(0.5f);
 Game.audio().setMusicVolume(0.8f);
@@ -1126,18 +1126,18 @@ title: Sound Engine
 icon: lucide/volume-2
 description: Master 2D spatial audio, background music streaming, volume attenuation,
   and sound playback in LITIENGINE.
-keywords: [LITIENGINE, sound engine, audio, spatial audio, music, wav, mp3, ogg, Game.audio]
+keywords: [LITIENGINE, sound engine, audio, spatial audio, music, wav, ogg, Game.audio]
 tags: [audio, sound, music, sfx, sound-engine, playback, volume]
 ---
 # Sound Engine
 
-The `SoundEngine` (`Game.audio()`) handles all sound effects, ambient background audio, and background music streaming. It natively supports `.wav`, `.mp3`, and `.ogg` audio formats without external native C libraries.
+The `SoundEngine` (`Game.audio()`) handles all sound effects, ambient background audio, and background music streaming. It natively supports `.wav` and `.ogg` audio formats without external native C libraries.
 
 ```mermaid
 flowchart TD
  subgraph AudioSources["Audio Sources"]
  SFX["Sound Effects (.wav, .ogg)"]
- Music["Music Tracks (.mp3, .ogg)"]
+ Music["Music Tracks (.ogg)"]
  Spatial["Positional Sounds (Point2D)"]
  end
 
@@ -1189,7 +1189,7 @@ Music is streamed asynchronously to optimize memory usage:
 
 ```java
 // Play looping background music
-Game.audio().playMusic("overworld-theme.mp3");
+Game.audio().playMusic("overworld-theme.ogg");
 
 // Stop or pause music
 Game.audio().stopMusic();
@@ -6903,7 +6903,7 @@ Quick answers to the most common questions about LITIENGINE architecture, perfor
 ## Mechanics, Audio & Persistence
 
 ??? question "What audio formats are supported and how are they cached?"
-    LITIENGINE natively supports **`.wav`**, **`.ogg` (Vorbis)**, and **`.mp3`** audio files. Sounds are loaded once via the unified resource manager (`Resources.sounds().get("sfx/hit.ogg")`) and cached in memory. The audio engine supports 2D positional distance falloff, background music playlists, and volume master buses.
+    LITIENGINE natively supports **`.wav`** and **`.ogg` (Vorbis)** audio files. Sounds are loaded once via the unified resource manager (`Resources.sounds().get("sfx/hit.ogg")`) and cached in memory. The audio engine supports 2D positional distance falloff, background music playlists, and volume master buses.
 
 ??? question "How do I save and load game states?"
     LITIENGINE supports state persistence via the `Savegame` API or by serializing custom entity state to JSON:

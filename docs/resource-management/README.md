@@ -132,7 +132,7 @@ int totalFrames = hero.getTotalNumberOfSprites();
 Loads and caches audio tracks and sound effects for the `SoundEngine`:
 
 ```java
-// Supports standard .wav, and .mp3 / .ogg via Java SPI providers
+// Supports standard .wav, and .ogg (Vorbis) via VorbisSPI
 Sound jumpSfx = Resources.sounds().get("audio/sfx/jump.wav");
 Sound bgm = Resources.sounds().get("audio/music/overworld.ogg");
 
