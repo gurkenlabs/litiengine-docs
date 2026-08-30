@@ -11,27 +11,27 @@ keywords: ["LITIENGINE", "java", "game engine", "2D", "open source", "awt", "pan
 
 - :material-rocket-launch:{ .lg .middle } **[Getting Started ->](getting-started/README.md)**
 
- ---
+    ---
 
- Install JDK 21+, configure Gradle/Maven, and boot up your first game window in less than 5 minutes.
+    Install JDK 21+, configure Gradle/Maven, and boot up your first game window in less than 5 minutes.
 
 - :material-hammer-wrench:{ .lg .middle } **[utiLITI Editor ->](utiliti-editor/README.md)**
 
- ---
+    ---
 
- Design maps, manage tilesets, edit sprite sheets, and script live game entities with the Monaco workspace.
+    Design maps, manage tilesets, edit sprite sheets, and script live game entities with the Monaco workspace.
 
 - :material-code-json:{ .lg .middle } **[Game API Guide ->](game-api/README.md)**
 
- ---
+    ---
 
- Explore decoupled game loops, 2D physics, camera tracking, and positional spatial sound systems.
+    Explore decoupled game loops, 2D physics, camera tracking, and positional spatial sound systems.
 
 - :material-school:{ .lg .middle } **[Step-by-Step Tutorials ->](tutorials/2d-platformer.md)**
 
- ---
+    ---
 
- Build a 2D Platformer, an Arkanoid clone, or a Top-Down Action Twin-Stick Shooter from scratch.
+    Build a 2D Platformer, an Arkanoid clone, or a Top-Down Action Twin-Stick Shooter from scratch.
 
 </div>
 
@@ -45,39 +45,39 @@ keywords: ["LITIENGINE", "java", "game engine", "2D", "open source", "awt", "pan
 
 - :material-palette-outline: **Pure Java AWT 2D Rendering**
 
- ---
+    ---
 
- Render crisp pixel art and scaled graphics using Java's built-in 2D Graphics. No complex OpenGL / Vulkan boilerplate required.
+    Render crisp pixel art and scaled graphics using Java's built-in 2D Graphics. No complex OpenGL / Vulkan boilerplate required.
 
 - :material-gamepad-variant-outline: **Modern Panama FFM Input**
 
- ---
+    ---
 
- Low-latency cross-platform keyboard, mouse, and gamepad integration powered by Panama Foreign Function & Memory APIs via Input4j.
+    Low-latency cross-platform keyboard, mouse, and gamepad integration powered by Panama Foreign Function & Memory APIs via Input4j.
 
 - :material-vector-polygon: **Integrated 2D Physics Engine**
 
- ---
+    ---
 
- Tile collision maps, entity bounding boxes, velocity controllers, raycasting, and obstacle avoidance built directly into the engine core.
+    Tile collision maps, entity bounding boxes, velocity controllers, raycasting, and obstacle avoidance built directly into the engine core.
 
 - :material-code-braces: **3-Tier Hot-Reload Scripting**
 
- ---
+    ---
 
- Write game scripts, creature AI, and environment triggers in pure Java with instant in-editor execution and live reload.
+    Write game scripts, creature AI, and environment triggers in pure Java with instant in-editor execution and live reload.
 
 - :material-volume-high: **Positional 2D Spatial Sound**
 
- ---
+    ---
 
- Stereo sound effects with automatic listener-distance falloff and background music streaming for `.wav`, `.mp3`, and `.ogg` formats.
+    Stereo sound effects with automatic listener-distance falloff and background music streaming for `.wav`, `.mp3`, and `.ogg` formats.
 
 - :material-robot-outline: **AI-Ready MCP Server Integration**
 
- ---
+    ---
 
- Native Model Context Protocol (MCP) server integration allowing AI coding agents to inspect maps, edit entities, and run live diagnostic queries.
+    Native Model Context Protocol (MCP) server integration allowing AI coding agents to inspect maps, edit entities, and run live diagnostic queries.
 
 </div>
 
@@ -160,11 +160,11 @@ LITIENGINE is 100% free, independent, and open source. If LITIENGINE helps you b
 
 - :material-heart:{ .lg .middle } **Support Independent Open-Source Game Tech**
 
- ---
+    ---
 
- Every recurring backer or one-time contribution directly funds engine maintenance, documentation, and tooling.
+    Every recurring backer or one-time contribution directly funds engine maintenance, documentation, and tooling.
 
- [Become a Backer on Open Collective](https://opencollective.com/litiengine){ .md-button .md-button--primary style="background: linear-gradient(135deg, #ea4c89 0%, #ff5e7e 100%); border-color: #ea4c89; color: white; font-weight: bold; margin-top: 0.5rem;" }
+    [Become a Backer on Open Collective](https://opencollective.com/litiengine){ .md-button .md-button--primary style="background: linear-gradient(135deg, #ea4c89 0%, #ff5e7e 100%); border-color: #ea4c89; color: white; font-weight: bold; margin-top: 0.5rem;" }
 
 </div>
 

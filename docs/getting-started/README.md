@@ -17,51 +17,51 @@ Welcome to **LITIENGINE**! This section guides you through installing the Java 2
 
 - :material-download:{ .lg .middle } **[Get LITIENGINE](get-litiengine.md)**
 
- ---
+    ---
 
- Dependency coordinates for Gradle and Maven, Sonatype snapshot repositories, and standalone fat JARs.
+    Dependency coordinates for Gradle and Maven, Sonatype snapshot repositories, and standalone fat JARs.
 
 - :material-coffee:{ .lg .middle } **[Install JDK 21+](install-jdk.md)**
 
- ---
+    ---
 
- Set up Java 21 LTS or newer across Windows, Linux, and macOS with modern Panama FFM support.
+    Set up Java 21 LTS or newer across Windows, Linux, and macOS with modern Panama FFM support.
 
 - :material-laptop:{ .lg .middle } **[Set Up Your IDE](development-environment.md)**
 
- ---
+    ---
 
- Configuring IntelliJ IDEA, Eclipse, or VS Code with hot-reloading and debug profiles.
+    Configuring IntelliJ IDEA, Eclipse, or VS Code with hot-reloading and debug profiles.
 
 - :material-hammer-wrench:{ .lg .middle } **[Build Systems](build-systems.md)**
 
- ---
+    ---
 
- Automated Gradle tasks, `shadowJar` packaging, and build automation workflows.
+    Automated Gradle tasks, `shadowJar` packaging, and build automation workflows.
 
 - :material-folder-cog:{ .lg .middle } **[Project Structure](project-structure.md)**
 
- ---
+    ---
 
- Recommended directory layouts for assets, `.litidata` resource archives, maps, and source files.
+    Recommended directory layouts for assets, `.litidata` resource archives, maps, and source files.
 
 - :material-play-circle:{ .lg .middle } **[Run the Game](run-the-game.md)**
 
- ---
+    ---
 
- Your first 15-line program initializing `Game.init()`, loading maps, and starting the 60 FPS loop.
+    Your first 15-line program initializing `Game.init()`, loading maps, and starting the 60 FPS loop.
 
 - :material-book-open-page-variant:{ .lg .middle } **[API Quick Reference](api-quick-reference.md)**
 
- ---
+    ---
 
- Instant cheat sheet covering all core modules: `Game.*`, `Resources.*`, `Input.*`, and `Camera`.
+    Instant cheat sheet covering all core modules: `Game.*`, `Resources.*`, `Input.*`, and `Camera`.
 
 - :material-package-variant-closed:{ .lg .middle } **[Deployment Guide](../deployment.md)**
 
- ---
+    ---
 
- Bundling a JRE with `jlink` and creating standalone `.exe` executables with Launch4j.
+    Bundling a JRE with `jlink` and creating standalone `.exe` executables with Launch4j.
 
 </div>
 
