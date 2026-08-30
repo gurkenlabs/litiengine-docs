@@ -41,6 +41,44 @@
 }
 
 /* ==========================================================================
+   Sidebar Navigation Hierarchy & Section Header Distinctions
+   ========================================================================== */
+/* Section Headers (e.g. Player Input, Entity Framework, Tile Maps) */
+.md-nav--primary .md-nav__item--section > .md-nav__link,
+.md-nav--primary .md-nav__item--section > label.md-nav__link {
+  margin-top: 1.25rem !important;
+  padding-top: 0.4rem !important;
+  padding-bottom: 0.35rem !important;
+  font-size: 0.76rem !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.06em !important;
+  color: var(--md-typeset-a-color, #29b6f6) !important;
+  border-bottom: 1px solid var(--md-default-fg-color--lightest) !important;
+  margin-bottom: 0.35rem !important;
+}
+
+/* Child navigation items nested inside sections */
+.md-nav--primary .md-nav__item--section .md-nav__list {
+  border-left: 1px solid var(--md-default-fg-color--lightest);
+  margin-left: 0.4rem !important;
+  padding-left: 0.25rem !important;
+}
+
+.md-nav--primary .md-nav__item--section .md-nav__list .md-nav__link {
+  font-size: 0.76rem !important;
+  font-weight: 400 !important;
+  text-transform: none !important;
+  letter-spacing: normal !important;
+}
+
+/* Active child link highlight */
+.md-nav--primary .md-nav__item--section .md-nav__link--active {
+  font-weight: 600 !important;
+  color: var(--md-typeset-a-color, #29b6f6) !important;
+}
+
+/* ==========================================================================
    Interactive Canvas Simulators & Playground Cards
    ========================================================================== */
 .interactive-card {
