@@ -28,29 +28,29 @@ Add the LITIENGINE dependency to your Gradle project by adding the following cod
 ### Gradle (Groovy)
 === "Gradle (Kotlin DSL)"
 
- ```kotlin
-dependencies {
-  implementation("de.gurkenlabs:litiengine:0.13.0-SNAPSHOT")
-}
- ```
+    ```kotlin
+    dependencies {
+      implementation("de.gurkenlabs:litiengine:0.13.0-SNAPSHOT")
+    }
+    ```
 
 === "Gradle (Groovy DSL)"
 
- ```groovy
-dependencies {
-  implementation 'de.gurkenlabs:litiengine:0.13.0-SNAPSHOT'
-}
- ```
+    ```groovy
+    dependencies {
+      implementation 'de.gurkenlabs:litiengine:0.13.0-SNAPSHOT'
+    }
+    ```
 
 === "Maven"
 
- ```xml
-<dependency>
-  <groupId>de.gurkenlabs</groupId>
-  <artifactId>litiengine</artifactId>
-  <version>0.13.0-SNAPSHOT</version>
-</dependency>
- ```
+    ```xml
+    <dependency>
+      <groupId>de.gurkenlabs</groupId>
+      <artifactId>litiengine</artifactId>
+      <version>0.13.0-SNAPSHOT</version>
+    </dependency>
+    ```
 
 ### Sample Project
 A basic example for a Gradle based LITIENGINE project can be found [HERE](https://github.com/gurkenlabs/litiengine-gurk-nukem). Have a look at the project's `build.gradle` and `settings.gradle`.

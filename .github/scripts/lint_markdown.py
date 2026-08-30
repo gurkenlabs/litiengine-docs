@@ -80,6 +80,37 @@ def lint_markdown():
         if in_code:
             errors.append(f"{rel}:{fence_line}: Unclosed code fence opened on line {fence_line}")
 
+        # 6. Check Content Tab Block Indentation (All lines inside === "..." tab blocks must have >= 4 spaces)
+        in_tab = False
+        tab_start_line = 0
+        in_tab_fence = False
+        for idx, line in enumerate(lines):
+            line_num = idx + 1
+            stripped = line.strip()
+            
+            if re.match(r'^===\s+"[^"]+"', stripped):
+                in_tab = True
+                tab_start_line = line_num
+                in_tab_fence = False
+                continue
+                
+            if in_tab:
+                if stripped.startswith("```") or stripped.startswith("~~~"):
+                    in_tab_fence = not in_tab_fence
+                    if not line.startswith("    "):
+                        errors.append(f"{rel}:{line_num}: Code fence inside tab block must be indented by 4 spaces (tab opened on line {tab_start_line})")
+                    continue
+                    
+                if not in_tab_fence and (line.startswith("#") or line.startswith("---") or line.startswith("<div") or line.startswith("</div")):
+                    in_tab = False
+                    continue
+                    
+                if stripped == "":
+                    continue
+                    
+                if not line.startswith("    "):
+                    errors.append(f"{rel}:{line_num}: Content inside tab block must be indented by at least 4 spaces: '{line[:40]}' (tab opened on line {tab_start_line})")
+
     if errors:
         print(f"Markdown Syntax Lint Failed with {len(errors)} error(s):")
         for e in errors:

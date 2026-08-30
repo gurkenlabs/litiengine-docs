@@ -65,27 +65,27 @@ Add LITIENGINE to your project build configuration:
 === "Gradle (Kotlin)"
 
     ```kotlin
-dependencies {
-  implementation("de.gurkenlabs:litiengine:0.13.0-SNAPSHOT")
-}
+    dependencies {
+      implementation("de.gurkenlabs:litiengine:0.13.0-SNAPSHOT")
+    }
     ```
 
 === "Gradle (Groovy)"
 
     ```groovy
-dependencies {
-  implementation 'de.gurkenlabs:litiengine:0.13.0-SNAPSHOT'
-}
+    dependencies {
+      implementation 'de.gurkenlabs:litiengine:0.13.0-SNAPSHOT'
+    }
     ```
 
 === "Maven"
 
     ```xml
-<dependency>
-  <groupId>de.gurkenlabs</groupId>
-  <artifactId>litiengine</artifactId>
-  <version>0.13.0-SNAPSHOT</version>
-</dependency>
+    <dependency>
+      <groupId>de.gurkenlabs</groupId>
+      <artifactId>litiengine</artifactId>
+      <version>0.13.0-SNAPSHOT</version>
+    </dependency>
     ```
 
 ### Your First Game in 15 Lines
