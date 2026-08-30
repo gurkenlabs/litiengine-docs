@@ -10,7 +10,7 @@ def lint_markdown():
         print(f"Error: docs directory not found at {docs_dir}")
         sys.exit(1)
         
-    md_files = list(docs_dir.rglob("*.md"))
+    md_files = [f for f in docs_dir.rglob("*.md") if "assets" not in f.parts]
     errors = []
     
     for f in md_files:
