@@ -1,154 +1,168 @@
 ---
-title: Game Configuration
-icon: lucide/settings
-description: Game Configuration documentation for LITIENGINE 2D Java game development.
-keywords: [LITIENGINE, java, 2d, game engine, configuration]
-tags: [configuration, settings, properties, preferences, ini]
+title: "Game Configuration & Settings"
+icon: "lucide/settings"
+description: "Comprehensive guide to LITIENGINE's configuration system: built-in graphic/audio/client settings, custom INI groups, and disk persistence."
+keywords: ["LITIENGINE configuration", "config.properties", "Game.config", "GraphicConfiguration", "SoundConfiguration", "ClientConfiguration", "ConfigurationGroup"]
+tags: ["configuration", "settings", "properties", "preferences", "ini", "persistence"]
 ---
-# Game Configuration
 
-## Set the basic game information
+# Game Configuration & Settings
 
-When starting a fresh game project with the LITIENGINE, we encourage you
-to give your baby a name. Also, some additional information might be
-very useful, like the game's version, author(s) or the website. For this
-purpose, we've created the `GameInfo` class. It holds all the metadata
-of your game and can be accessed via `Game.info()`. There are basically
-two ways to set your information:
+LITIENGINE includes a modular configuration management subsystem accessible via `Game.config()`. It automatically reads, validates, and persists game settings to a `config.properties` file in the application's working directory.
 
- - Directly from code, using `Game.info().setXX()`
- - Via XML File by calling `Game.setInfo("gameinfo.xml")`
+---
 
-**Setting game info from code:**
-```java
-// set meta information about the game
-Game.info().setName("My Testgame");
-Game.info().setSubTitle("Made with LITIENGINE!");
-Game.info().setVersion("v1.0.0");
-Game.info().setWebsite("https://litiengine.com/");
-...
-```
+## Built-in Configuration Groups
 
-**Example XML file:**
+LITIENGINE organizes engine settings into distinct configuration groups:
 
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<gameinfo>
-  <name>My Testgame</name>
-  <subtitle>Made with LITIENGINE!</subtitle>
-  <description>A game, that was implemented with the LITIENGINE.</description>
-  <website>https://litiengine.com</website>
-  <version>v1.0.0</version>
-  <company>gurkenlabs.de</company>
-  <developer>Steffen Wilke</developer>
-  <developer>Matthias Wilke</developer>
-</gameinfo>
-```
+### 1. `ClientConfiguration` (`cl_`)
+Manages general client runtime properties:
 
-You need to set this information before `Game.init()` is called, because
-some of this information is used by the LITIENGINE to e.g. set the
-default JFrame title of the game.
+| Property Key | Type | Default | Description |
+|:---|:---|:---|:---|
+| `cl_maxFps` | `int` | `60` | Target framerate limit for the rendering thread. |
+| `cl_updaterate` | `int` | `60` | Fixed tick update rate for physics, AI, and game loop logic. |
+| `cl_showGameMetrics` | `boolean` | `false` | Displays live FPS, memory usage, and quadtree metric overlays. |
+| `cl_country` | `String` | `"US"` | Active locale country code. |
+| `cl_language` | `String` | `"en"` | Active ISO language string for localization bundles. |
 
-## Configure Default Behavior and Appearance
+---
 
-All of the components that are provided by the LITIENGINE come with a
-reasonable default configuration. However, they might not be applicable
-to your type of game which is why you should at least know about these
-configurations to be able to adjust them when necessary.
+### 2. `GraphicConfiguration` (`gfx_`)
+Controls display resolution, window mode, and pixel scaling:
 
-- **Encoding for textual Resources**
- (default: `Resources.ENCODING_ISO_8859_1`) For some languages, you
- might prefer to store your text files with UTF-8 encoding. You can
- make the LITIENGINE aware of this by
- calling `Resources.setEncoding(Resources.ENCODING_UTF_8)`.
+| Property Key | Type | Default | Description |
+|:---|:---|:---|:---|
+| `gfx_fullscreen` | `boolean` | `false` | Enables borderless exclusive fullscreen mode. |
+| `gfx_enableResolutionScale` | `boolean` | `true` | Automatically scales virtual coordinates to monitor resolution. |
+| `gfx_graphicQuality` | `Quality` | `VERYHIGH` | AWT anti-aliasing and rendering hint quality (`LOW`, `MEDIUM`, `HIGH`, `VERYHIGH`). |
+| `gfx_antiAliasing` | `boolean` | `false` | Smooths vector geometries (recommended `false` for crisp pixel art). |
 
-- **Base Render Scale** (default: `RenderEngine.DEFAULT_RENDERSCALE
- = 3.0`) Depending on what type of Art Style you're going for, it is
- not uncommon to render the game with an adjusted render scale. A
- good example would be 8-Bit pixel art. Rendering such a game at a
- scale of 1 would not be very practical for today's high-resolution
- monitors. You can adjust this by
- calling `Game.graphics().setBaseRenderScale(5.0)`
+---
 
-- **UI properties** If you intend to use our `GUIComponents` you might
- want to have a deeper look into the `GuiProperties` class. It
- provides global default appearance settings for all `GUIComponents`
- e.g. you can set a default Font by
- calling `GuiProperties.setDefaultFont(Resources.fonts().get("some-font.ttf")).`
+### 3. `SoundConfiguration` (`sfx_`)
+Controls master, music, and sound effect volume buses:
 
-- **Custom Mouse Cursor** If you intend to use the Mouse to control your
- LITIENGINE game you should consider providing a custom Cursor Image.
- `Game.window().cursor().set(CURSOR_IMAGE, 16, 16);`
+| Property Key | Type | Default | Description |
+|:---|:---|:---|:---|
+| `sfx_soundVolume` | `float` | `0.5f` | Master volume multiplier for sound effects ($0.0$ to $1.0$). |
+| `sfx_musicVolume` | `float` | `0.5f` | Master volume multiplier for background music ($0.0$ to $1.0$). |
 
-## Game Configuration File `config.properties`
+---
 
-When you want to Configure a LITIENGINE Game, there are also
-configurations that might have to be changed by the player or developer
-on the fly without changing the actual implementation. This includes
-things like Soundvolume, Resolution, Mouse Sensitivity or Debugging
-options. LITIENGINE Games store this information in
-a `config.properties` file in the application's execution folder. If no
-such file exists, the Game will create one for you with all default
-values upon starting up the game for the first time. When deploying your
-game, it is recommended to provide a default configuration file for your
-players with values that you consider reasonable for your game. The
-configuration is organized in `ConfigurationGroups` with a custom prefix
-each. You can also provide custom groups that hold configuration
-relevant only for your particular game. 
+## Creating Custom Configuration Groups
 
-**Add Custom ConfigurationGroup:**
+You can define custom configuration groups to persist gameplay options, custom keybindings, difficulty settings, and player preferences:
 
-```java
-MyCustomConfigurationGroup customGroup = new MyCustomConfigurationGroup();
-Game.config().add(customGroup);
+```java title="src/main/java/com/example/game/GameSettings.java"
+package com.example.game;
 
-// Example for a custom configuration group
-@ConfigurationGroupInfo(prefix = "custom_")
-public class MyCustomConfigurationGroup extends ConfigurationGroup {
-  private int myInt = 123;
+import de.gurkenlabs.litiengine.configuration.ConfigurationGroup;
+import de.gurkenlabs.litiengine.configuration.ConfigurationGroupInfo;
 
-  public int getMyInt(){ return this.myInt; }
+@ConfigurationGroupInfo(prefix = "game_")
+public class GameSettings extends ConfigurationGroup {
+  private boolean screenShake = true;
+  private boolean damageNumbers = true;
+  private int difficulty = 1; // 0 = Easy, 1 = Normal, 2 = Hard
+  private String playerName = "Hero";
 
-  public void setMyInt(int myInt){ this.myInt = myInt; }
+  public boolean isScreenShake() { return this.screenShake; }
+  public void setScreenShake(boolean screenShake) { this.screenShake = screenShake; }
+
+  public boolean isDamageNumbers() { return this.damageNumbers; }
+  public void setDamageNumbers(boolean damageNumbers) { this.damageNumbers = damageNumbers; }
+
+  public int getDifficulty() { return this.difficulty; }
+  public void setDifficulty(int difficulty) { this.difficulty = difficulty; }
+
+  public String getPlayerName() { return this.playerName; }
+  public void setPlayerName(String playerName) { this.playerName = playerName; }
 }
 ```
 
-**Configuration File Excerpt:**
+### Registering and Saving Configuration
 
-```java
+Register your custom configuration group during game initialization:
+
+```java title="Program.java"
+package com.example.game;
+
+import de.gurkenlabs.litiengine.Game;
+
+public class Program {
+  public static GameSettings settings;
+
+  public static void main(String[] args) {
+    // 1. Register custom configuration group before or right after Game.init
+    settings = new GameSettings();
+    Game.config().add(settings);
+
+    Game.init(args);
+
+    // 2. Read values from configuration
+    if (settings.isScreenShake()) {
+      System.out.println("Screen shake is enabled!");
+    }
+
+    // 3. Save changes back to config.properties on disk
+    settings.setDifficulty(2);
+    Game.config().save();
+
+    Game.start();
+  }
+}
+```
+
+---
+
+## Sample `config.properties` File
+
+When saved, LITIENGINE formats all settings with their group prefixes:
+
+```properties title="config.properties"
+# LITIENGINE Configuration File
 cl_country=US
 cl_language=en
 cl_maxFps=60
-cl_showGameMetrics=true
+cl_showGameMetrics=false
 cl_updaterate=60
-sfx_musicVolume=0.5
-sfx_soundVolume=0.5
+
+gfx_antiAliasing=false
 gfx_enableResolutionScale=true
 gfx_fullscreen=false
 gfx_graphicQuality=VERYHIGH
-...
+
+sfx_musicVolume=0.75
+sfx_soundVolume=0.80
+
+game_difficulty=2
+game_damageNumbers=true
+game_playerName=Hero
+game_screenShake=true
 ```
 
-## Logging Configuration `logging.properties`
+---
 
-The LITIENGINE uses the `java.util.logging` framework to log information
-and errors. It is possible to configure the output of the logging by
-providing a `logging.properties` file in the Game's execution directory.
-You can read more about
-this [HERE](http://tutorials.jenkov.com/java-logging/configuration.html#configuration-file).
+## See Also
 
-**Example Logging Configuration file**
+<div class="grid cards" markdown>
 
-```java
-handlers=java.util.logging.FileHandler, java.util.logging.ConsoleHandler
+- :material-volume-high:{ .lg .middle } **[Sound Engine](/game-api/sound-engine/)**
 
-java.util.logging.ConsoleHandler.level=WARNING
-java.util.logging.ConsoleHandler.formatter=java.util.logging.SimpleFormatter
+    ---
 
-java.util.logging.FileHandler.level=WARNING
-java.util.logging.FileHandler.pattern=game.log
-java.util.logging.FileHandler.formatter=java.util.logging.SimpleFormatter
-java.util.logging.FileHandler.append=true
-java.util.logging.FileHandler.limit = 50000
-java.util.logging.FileHandler.count = 1
-```
+    Audio volume buses and playlist management.
+
+- :material-monitor-dashboard:{ .lg .middle } **[Game Window](/game-api/game-window/)**
+
+    ---
+
+    Window resolution, display modes, and cursor configurations.
+
+</div>
+
+*[Game.config()]: Global configuration manager reading and saving config.properties
+*[ConfigurationGroup]: Base class for modular INI configuration settings
+*[ConfigurationGroupInfo]: Annotation specifying prefix for persisted settings
