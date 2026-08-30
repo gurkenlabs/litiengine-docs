@@ -15,19 +15,19 @@ LITIENGINE provides a unified, low-latency input polling and event system across
 
 <div class="grid cards" markdown>
 
-- :material-keyboard:{ .lg .middle } **[Keyboard Input](keyboard-input.md)**
+- :material-keyboard:{ .lg .middle } **[Keyboard Input](/player-input/keyboard-input/)**
 
     ---
 
     Key listener bindings, continuous key state polling, and configurable directional mapping.
 
-- :material-mouse:{ .lg .middle } **[Mouse Input](mouse-input.md)**
+- :material-mouse:{ .lg .middle } **[Mouse Input](/player-input/mouse-input/)**
 
     ---
 
     Pointer coordinates in screen/map space, mouse wheel scrolling, and drag-and-drop interactions.
 
-- :material-controller:{ .lg .middle } **[Gamepad Input](gamepad-input.md)**
+- :material-controller:{ .lg .middle } **[Gamepad Input](/player-input/gamepad-input/)**
 
     ---
 

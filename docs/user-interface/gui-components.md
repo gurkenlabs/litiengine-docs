@@ -255,5 +255,5 @@ public class HealthBar extends GuiComponent {
 
 ## See Also
 
-- [Creating Menus](creating-menus.md) - Building complete menus
+- [Creating Menus](/user-interface/creating-menus/) - Building complete menus
 - [Screens](/game-api/screens/) - Screen management

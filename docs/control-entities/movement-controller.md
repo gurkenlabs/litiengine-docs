@@ -183,9 +183,9 @@ entity.movement().clearForces();
 
 ## See Also
 
-- [Entity Controllers](entity-controllers.md) - Controller overview
+- [Entity Controllers](/control-entities/entity-controllers/) - Controller overview
 - [Physics Engine](/game-api/physics-engine/) - Collision and physics
-- [Behavior Controller](behavior-controller.md) - AI movement
+- [Behavior Controller](/control-entities/behavior-controller/) - AI movement
 
 ## A* Pathfinding and Navigation (`EntityNavigator`)
 

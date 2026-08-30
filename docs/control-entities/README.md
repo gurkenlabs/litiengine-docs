@@ -49,16 +49,16 @@ Write hot-reloadable game logic directly in **utiLITI** or external scripts:
 
 | Topic | Description |
 | :--- | :--- |
-| **[Entity Controllers](entity-controllers.md)** | Understand the controller lifecycle (`addController`, `getController`, `update`). |
-| **[Animation Controller](animation-controller.md)** | Configure sprite animation rules, frame durations, and custom animation states. |
-| **[Movement Controller](movement-controller.md)** | Handle keyboard input, gamepad locomotion, velocity, and collision avoidance. |
-| **[Behavior Controller](behavior-controller.md)** | Build intelligent AI entities with state machines and behavior trees. |
-| **[Messaging System](messaging-system.md)** | Decouple entity communication via typed message events. |
-| **[Ability Framework](ability-framework.md)** | Implement cooldown-driven spells, attacks, effects, and area-of-effect abilities. |
-| **[Java Scripting Engine](scripting.md)** | Write interactive scripts that run dynamically inside the engine. |
-| **[Script-Only Game Architecture](script-only-games.md)** | Build full LITIENGINE games using scripts and utiLITI without custom Java builds. |
-| **[Script Types Guide](scripting.md)** | Deep dive into `GameScript`, `EnvironmentScript`, and `EntityScript`. |
-| **[Combat & Action Scripting](combat-scripting.md)** | Script damage handlers, health bars, weapon swings, and projectile mechanics. |
+| **[Entity Controllers](/control-entities/entity-controllers/)** | Understand the controller lifecycle (`addController`, `getController`, `update`). |
+| **[Animation Controller](/control-entities/animation-controller/)** | Configure sprite animation rules, frame durations, and custom animation states. |
+| **[Movement Controller](/control-entities/movement-controller/)** | Handle keyboard input, gamepad locomotion, velocity, and collision avoidance. |
+| **[Behavior Controller](/control-entities/behavior-controller/)** | Build intelligent AI entities with state machines and behavior trees. |
+| **[Messaging System](/control-entities/messaging-system/)** | Decouple entity communication via typed message events. |
+| **[Ability Framework](/control-entities/ability-framework/)** | Implement cooldown-driven spells, attacks, effects, and area-of-effect abilities. |
+| **[Java Scripting Engine](/control-entities/scripting/)** | Write interactive scripts that run dynamically inside the engine. |
+| **[Script-Only Game Architecture](/control-entities/script-only-games/)** | Build full LITIENGINE games using scripts and utiLITI without custom Java builds. |
+| **[Script Types Guide](/control-entities/scripting/)** | Deep dive into `GameScript`, `EnvironmentScript`, and `EntityScript`. |
+| **[Combat & Action Scripting](/control-entities/combat-scripting/)** | Script damage handlers, health bars, weapon swings, and projectile mechanics. |
 
 ## Quick Example: Attaching a Custom Controller
 

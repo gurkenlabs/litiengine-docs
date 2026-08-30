@@ -17,37 +17,37 @@ Welcome to the official technical documentation for **LITIENGINE**, the free and
 
 <div class="grid cards" markdown>
 
-- :material-rocket-launch:{ .lg .middle } **[Get Started](getting-started/README.md)**
+- :material-rocket-launch:{ .lg .middle } **[Get Started](/getting-started/)**
 
     ---
 
     Install Java 21 LTS+, configure Gradle or Maven, and run your first 2D game in 15 lines of pure Java.
 
-- :material-code-json:{ .lg .middle } **[Core Game API](game-api/README.md)**
+- :material-code-json:{ .lg .middle } **[Core Game API](/game-api/)**
 
     ---
 
     Explore decoupled game loops, 2D physics, camera tracking, input handling, and positional spatial audio.
 
-- :material-hammer-wrench:{ .lg .middle } **[utiLITI Editor](utiliti-editor/README.md)**
+- :material-hammer-wrench:{ .lg .middle } **[utiLITI Editor](/utiliti-editor/)**
 
     ---
 
     Design maps, manage tilesets, edit sprite sheets, and script live game entities with the Monaco workspace.
 
-- :material-school:{ .lg .middle } **[Tutorials](tutorials/2d-platformer.md)**
+- :material-school:{ .lg .middle } **[Tutorials](/tutorials/2d-platformer/)**
 
     ---
 
     Step-by-step guides building a 2D Platformer, an Arkanoid clone, or a Top-Down Action Twin-Stick Shooter.
 
-- :material-tune:{ .lg .middle } **[Advanced Topics](advanced/dynamic-lighting.md)**
+- :material-tune:{ .lg .middle } **[Advanced Topics](/advanced/dynamic-lighting/)**
 
     ---
 
     Dynamic 2D lighting, particle systems, performance tuning, string localization, and serialization.
 
-- :material-help-circle-outline:{ .lg .middle } **[Project & Reference](frequently-asked-questions.md)**
+- :material-help-circle-outline:{ .lg .middle } **[Project & Reference](/frequently-asked-questions/)**
 
     ---
 
@@ -140,4 +140,4 @@ LITIENGINE is 100% free, independent, and open source. If LITIENGINE helps you b
 * **[Community Showcase](https://litiengine.com/showcase/)** — Featured games built by the community.
 * **[Community Forum](https://forum.litiengine.com/)** — Discussion boards and technical Q&A.
 * **[GitHub Repository](https://github.com/gurkenlabs/litiengine)** — Source code, issue tracker, and feature requests.
-* **[API Quick Reference](getting-started/api-quick-reference.md)** — Core engine method and class cheat sheet.
+* **[API Quick Reference](/getting-started/api-quick-reference/)** — Core engine method and class cheat sheet.

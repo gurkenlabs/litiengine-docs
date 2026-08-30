@@ -30,37 +30,37 @@ Welcome to the official technical documentation for **LITIENGINE**, the free and
 
 <div class="grid cards" markdown>
 
-- :material-rocket-launch:{ .lg .middle } **[Get Started](getting-started/README.md)**
+- :material-rocket-launch:{ .lg .middle } **[Get Started](/getting-started/)**
 
     ---
 
     Install Java 21 LTS+, configure Gradle or Maven, and run your first 2D game in 15 lines of pure Java.
 
-- :material-code-json:{ .lg .middle } **[Core Game API](game-api/README.md)**
+- :material-code-json:{ .lg .middle } **[Core Game API](/game-api/)**
 
     ---
 
     Explore decoupled game loops, 2D physics, camera tracking, input handling, and positional spatial audio.
 
-- :material-hammer-wrench:{ .lg .middle } **[utiLITI Editor](utiliti-editor/README.md)**
+- :material-hammer-wrench:{ .lg .middle } **[utiLITI Editor](/utiliti-editor/)**
 
     ---
 
     Design maps, manage tilesets, edit sprite sheets, and script live game entities with the Monaco workspace.
 
-- :material-school:{ .lg .middle } **[Tutorials](tutorials/2d-platformer.md)**
+- :material-school:{ .lg .middle } **[Tutorials](/tutorials/2d-platformer/)**
 
     ---
 
     Step-by-step guides building a 2D Platformer, an Arkanoid clone, or a Top-Down Action Twin-Stick Shooter.
 
-- :material-tune:{ .lg .middle } **[Advanced Topics](advanced/dynamic-lighting.md)**
+- :material-tune:{ .lg .middle } **[Advanced Topics](/advanced/dynamic-lighting/)**
 
     ---
 
     Dynamic 2D lighting, particle systems, performance tuning, string localization, and serialization.
 
-- :material-help-circle-outline:{ .lg .middle } **[Project & Reference](frequently-asked-questions.md)**
+- :material-help-circle-outline:{ .lg .middle } **[Project & Reference](/frequently-asked-questions/)**
 
     ---
 
@@ -153,7 +153,7 @@ LITIENGINE is 100% free, independent, and open source. If LITIENGINE helps you b
 * **[Community Showcase](https://litiengine.com/showcase/)** — Featured games built by the community.
 * **[Community Forum](https://forum.litiengine.com/)** — Discussion boards and technical Q&A.
 * **[GitHub Repository](https://github.com/gurkenlabs/litiengine)** — Source code, issue tracker, and feature requests.
-* **[API Quick Reference](getting-started/api-quick-reference.md)** — Core engine method and class cheat sheet.
+* **[API Quick Reference](/getting-started/api-quick-reference/)** — Core engine method and class cheat sheet.
 
 <!-- END CHAPTER: index.md -->
 
@@ -179,49 +179,49 @@ Welcome to **LITIENGINE**! This section guides you through installing the Java 2
 
 <div class="grid cards" markdown>
 
-- :material-download:{ .lg .middle } **[Get LITIENGINE](get-litiengine.md)**
+- :material-download:{ .lg .middle } **[Get LITIENGINE](/getting-started/get-litiengine/)**
 
     ---
 
     Dependency coordinates for Gradle and Maven, Sonatype snapshot repositories, and standalone fat JARs.
 
-- :material-coffee:{ .lg .middle } **[Install JDK 21+](install-jdk.md)**
+- :material-coffee:{ .lg .middle } **[Install JDK 21+](/getting-started/install-jdk/)**
 
     ---
 
     Set up Java 21 LTS or newer across Windows, Linux, and macOS with modern Panama FFM support.
 
-- :material-laptop:{ .lg .middle } **[Set Up Your IDE](development-environment.md)**
+- :material-laptop:{ .lg .middle } **[Set Up Your IDE](/getting-started/development-environment/)**
 
     ---
 
     Configuring IntelliJ IDEA, Eclipse, or VS Code with hot-reloading and debug profiles.
 
-- :material-hammer-wrench:{ .lg .middle } **[Build Systems](build-systems.md)**
+- :material-hammer-wrench:{ .lg .middle } **[Build Systems](/getting-started/build-systems/)**
 
     ---
 
     Automated Gradle tasks, `shadowJar` packaging, and build automation workflows.
 
-- :material-folder-cog:{ .lg .middle } **[Project Structure](project-structure.md)**
+- :material-folder-cog:{ .lg .middle } **[Project Structure](/getting-started/project-structure/)**
 
     ---
 
     Recommended directory layouts for assets, `.litidata` resource archives, maps, and source files.
 
-- :material-play-circle:{ .lg .middle } **[Run the Game](run-the-game.md)**
+- :material-play-circle:{ .lg .middle } **[Run the Game](/getting-started/run-the-game/)**
 
     ---
 
     Your first 15-line program initializing `Game.init()`, loading maps, and starting the 60 FPS loop.
 
-- :material-book-open-page-variant:{ .lg .middle } **[API Quick Reference](api-quick-reference.md)**
+- :material-book-open-page-variant:{ .lg .middle } **[API Quick Reference](/getting-started/api-quick-reference/)**
 
     ---
 
     Instant cheat sheet covering all core modules: `Game.*`, `Resources.*`, `Input.*`, and `Camera`.
 
-- :material-package-variant-closed:{ .lg .middle } **[Deployment Guide](../deployment.md)**
+- :material-package-variant-closed:{ .lg .middle } **[Deployment Guide](/deployment/)**
 
     ---
 
@@ -424,7 +424,7 @@ Both commands should return version `21` (or higher).
 
 ## Next Steps
 
-Now that your JDK is ready, proceed to **[Set Up Your IDE](development-environment.md)**.
+Now that your JDK is ready, proceed to **[Set Up Your IDE](/getting-started/development-environment/)**.
 
 <!-- END CHAPTER: getting-started/install-jdk.md -->
 
@@ -923,49 +923,49 @@ The **Game API** forms the static backbone of LITIENGINE, providing high-perform
 
 <div class="grid cards" markdown>
 
-- :material-palette:{ .lg .middle } **[2D Graphics Engine](render-engine.md)**
+- :material-palette:{ .lg .middle } **[2D Graphics Engine](/game-api/render-engine/)**
 
     ---
 
     Double-buffered AWT rendering, sprite transformations, shape drawing, and `TextRenderer` outlines.
 
-- :material-volume-high:{ .lg .middle } **[2D Sound Engine](sound-engine.md)**
+- :material-volume-high:{ .lg .middle } **[2D Sound Engine](/game-api/sound-engine/)**
 
     ---
 
     Spatial audio playback, background music streaming, 2D attenuation, and sound effects.
 
-- :material-atom:{ .lg .middle } **[2D Physics Engine](physics-engine.md)**
+- :material-atom:{ .lg .middle } **[2D Physics Engine](/game-api/physics-engine/)**
 
     ---
 
     Bounding-box collisions, spatial quadtree acceleration, collision sliding, and raycasting.
 
-- :material-clock-fast:{ .lg .middle } **[Game Loop & Timers](loops.md)**
+- :material-clock-fast:{ .lg .middle } **[Game Loop & Timers](/game-api/loops/)**
 
     ---
 
     Decoupled 60 Hz physics update tick, fixed-rate logic timers, and delta-time interpolation.
 
-- :material-video-vintage:{ .lg .middle } **[Camera & Viewport](camera.md)**
+- :material-video-vintage:{ .lg .middle } **[Camera & Viewport](/game-api/camera/)**
 
     ---
 
     Smooth target tracking, zoom levels, viewport shaking, and bounding constraints.
 
-- :material-monitor-screenshot:{ .lg .middle } **[Screens & State Flow](screens.md)**
+- :material-monitor-screenshot:{ .lg .middle } **[Screens & State Flow](/game-api/screens/)**
 
     ---
 
     Managing Title screens, Gameplay worlds, HUD overlays, and Pause menus.
 
-- :material-animation-play:{ .lg .middle } **[Tweening Engine](tweens.md)**
+- :material-animation-play:{ .lg .middle } **[Tweening Engine](/game-api/tweens/)**
 
     ---
 
     Smooth easing transitions for positions, alpha transparency, rotations, and UI scaling.
 
-- :material-earth:{ .lg .middle } **[Game World](game-world.md)**
+- :material-earth:{ .lg .middle } **[Game World](/game-api/game-world/)**
 
     ---
 
@@ -1218,7 +1218,7 @@ sfx_musicVolume=0.5
 
 ## See Also
 * **[Resource Management](/resource-management/)** - Loading sound resources into `.litidata`
-* **[Game World](game-world.md)** - Environment & entity locations
+* **[Game World](/game-api/game-world/)** - Environment & entity locations
 
 ---
 
@@ -1574,8 +1574,8 @@ public class GameTimer implements IUpdateable {
 
 ## See Also
 
-- [Game.world()](game-world.md) - Environment management
-- [Game.screens()](screens.md) - Screen management
+- [Game.world()](/game-api/game-world/) - Environment management
+- [Game.screens()](/game-api/screens/) - Screen management
 - [Player Input](/player-input/) - Input handling details
 
 <!-- END CHAPTER: game-api/loops.md -->
@@ -1864,9 +1864,9 @@ Game.tweens().begin(Game.world().camera(), TweenType.ZOOM, 800)
 ---
 
 ## See Also
-* **[Game World](game-world.md)** - Environment management
-* **[Render Engine](render-engine.md)** - 2D rendering pipeline
-* **[Tweens](tweens.md)** - Animation and easing engine
+* **[Game World](/game-api/game-world/)** - Environment management
+* **[Render Engine](/game-api/render-engine/)** - 2D rendering pipeline
+* **[Tweens](/game-api/tweens/)** - Animation and easing engine
 
 <!-- END CHAPTER: game-api/camera.md -->
 
@@ -2107,19 +2107,19 @@ LITIENGINE provides a unified, low-latency input polling and event system across
 
 <div class="grid cards" markdown>
 
-- :material-keyboard:{ .lg .middle } **[Keyboard Input](keyboard-input.md)**
+- :material-keyboard:{ .lg .middle } **[Keyboard Input](/player-input/keyboard-input/)**
 
     ---
 
     Key listener bindings, continuous key state polling, and configurable directional mapping.
 
-- :material-mouse:{ .lg .middle } **[Mouse Input](mouse-input.md)**
+- :material-mouse:{ .lg .middle } **[Mouse Input](/player-input/mouse-input/)**
 
     ---
 
     Pointer coordinates in screen/map space, mouse wheel scrolling, and drag-and-drop interactions.
 
-- :material-controller:{ .lg .middle } **[Gamepad Input](gamepad-input.md)**
+- :material-controller:{ .lg .middle } **[Gamepad Input](/player-input/gamepad-input/)**
 
     ---
 
@@ -2494,9 +2494,9 @@ Input.mouse().setLocation(100, 100);
 
 ## See Also
 
-- [Keyboard Input](keyboard-input.md) - Keyboard handling
-- [Gamepad Input](gamepad-input.md) - Gamepad handling
-- [Player Input Overview](README.md) - Input API overview
+- [Keyboard Input](/player-input/keyboard-input/) - Keyboard handling
+- [Gamepad Input](/player-input/gamepad-input/) - Gamepad handling
+- [Player Input Overview](/player-input/) - Input API overview
 
 <!-- END CHAPTER: player-input/mouse-input.md -->
 
@@ -2698,9 +2698,9 @@ Input.gamepads().onPressed(Gamepad.Xbox.LEFT_STICK_X, x -> {
 
 ## See Also
 
-- [Keyboard Input](keyboard-input.md) - Keyboard handling
-- [Mouse Input](mouse-input.md) - Mouse handling
-- [Player Input Overview](README.md) - Input API overview
+- [Keyboard Input](/player-input/keyboard-input/) - Keyboard handling
+- [Mouse Input](/player-input/mouse-input/) - Mouse handling
+- [Player Input Overview](/player-input/) - Input API overview
 
 !!! important "Panama FFM Foreign Memory"
  LITIENGINE uses `Input4j` via Java Panama Foreign Function & Memory (FFM) APIs. Run your JVM on Java 21 or later to enable native controller polling without JNI overhead.
@@ -2807,10 +2807,10 @@ public class Goblin extends Creature {
 
 | Topic | Description |
 | :--- | :--- |
-| **[Default Entity Types](default-entity-types.md)** | Explore built-in entities: `Creature`, `Prop`, `Emitter`, `LightSource`, `Trigger`, and `SoundSource`. |
-| **[Props](props.md)** | Learn how to place, customize, and destroy interactive props in your world. |
-| **[Subscribe to Entity Events](entity-events.md)** | Hook into entity lifecycle events (`onMoved`, `onHit`, `onDying`, `onRendered`). |
-| **[Annotations for Static Information](annotations.md)** | Configure static attributes declaratively with `@EntityInfo`, `@MovementInfo`, and `@CombatInfo`. |
+| **[Default Entity Types](/entity-framework/default-entity-types/)** | Explore built-in entities: `Creature`, `Prop`, `Emitter`, `LightSource`, `Trigger`, and `SoundSource`. |
+| **[Props](/entity-framework/props/)** | Learn how to place, customize, and destroy interactive props in your world. |
+| **[Subscribe to Entity Events](/entity-framework/entity-events/)** | Hook into entity lifecycle events (`onMoved`, `onHit`, `onDying`, `onRendered`). |
+| **[Annotations for Static Information](/entity-framework/annotations/)** | Configure static attributes declaratively with `@EntityInfo`, `@MovementInfo`, and `@CombatInfo`. |
 | **[Custom Entity Implementations](/entity-framework/custom-entities/)** | Create complex, custom entity classes from scratch. |
 | **[Custom MapObjectLoaders](/advanced/custom-mapobjectloaders/)** | Map custom Tiled object types directly to your Java entity classes. |
 
@@ -3057,9 +3057,9 @@ spawn.spawn(new Player());
 
 ## See Also
 
-- [Entity Framework Overview](README.md) - Entity system intro
-- [Annotations](annotations.md) - Configure entities
-- [Props](props.md) - Detailed prop documentation
+- [Entity Framework Overview](/entity-framework/) - Entity system intro
+- [Annotations](/entity-framework/annotations/) - Configure entities
+- [Props](/entity-framework/props/) - Detailed prop documentation
 
 <!-- END CHAPTER: entity-framework/default-entity-types.md -->
 
@@ -3201,7 +3201,7 @@ public class Ghost extends Creature {
 
 ## See Also
 
-- [Default Entity Types](default-entity-types.md) - Built-in types
+- [Default Entity Types](/entity-framework/default-entity-types/) - Built-in types
 - [Entity Controllers](/control-entities/entity-controllers/) - Controller system
 - [Custom MapObjectLoaders](/advanced/custom-mapobjectloaders/) - Loading from maps
 
@@ -3572,7 +3572,7 @@ public class Boss extends Creature {
 
 ## See Also
 
-- [Default Entity Types](default-entity-types.md) - Built-in entity classes
+- [Default Entity Types](/entity-framework/default-entity-types/) - Built-in entity classes
 - [Ability Framework](/control-entities/ability-framework/) - Ability annotations
 - [Custom Properties](/tile-maps/custom-properties/) - Runtime property configuration
 
@@ -3805,7 +3805,7 @@ Game.world().onCameraMoved(camera -> {
 
 ## See Also
 
-- [Default Entity Types](default-entity-types.md) - Entity hierarchy
+- [Default Entity Types](/entity-framework/default-entity-types/) - Entity hierarchy
 - [Messaging System](/control-entities/messaging-system/) - Entity communication
 - [Ability Framework](/control-entities/ability-framework/) - Ability events
 
@@ -3986,16 +3986,16 @@ Write hot-reloadable game logic directly in **utiLITI** or external scripts:
 
 | Topic | Description |
 | :--- | :--- |
-| **[Entity Controllers](entity-controllers.md)** | Understand the controller lifecycle (`addController`, `getController`, `update`). |
-| **[Animation Controller](animation-controller.md)** | Configure sprite animation rules, frame durations, and custom animation states. |
-| **[Movement Controller](movement-controller.md)** | Handle keyboard input, gamepad locomotion, velocity, and collision avoidance. |
-| **[Behavior Controller](behavior-controller.md)** | Build intelligent AI entities with state machines and behavior trees. |
-| **[Messaging System](messaging-system.md)** | Decouple entity communication via typed message events. |
-| **[Ability Framework](ability-framework.md)** | Implement cooldown-driven spells, attacks, effects, and area-of-effect abilities. |
-| **[Java Scripting Engine](scripting.md)** | Write interactive scripts that run dynamically inside the engine. |
-| **[Script-Only Game Architecture](script-only-games.md)** | Build full LITIENGINE games using scripts and utiLITI without custom Java builds. |
-| **[Script Types Guide](scripting.md)** | Deep dive into `GameScript`, `EnvironmentScript`, and `EntityScript`. |
-| **[Combat & Action Scripting](combat-scripting.md)** | Script damage handlers, health bars, weapon swings, and projectile mechanics. |
+| **[Entity Controllers](/control-entities/entity-controllers/)** | Understand the controller lifecycle (`addController`, `getController`, `update`). |
+| **[Animation Controller](/control-entities/animation-controller/)** | Configure sprite animation rules, frame durations, and custom animation states. |
+| **[Movement Controller](/control-entities/movement-controller/)** | Handle keyboard input, gamepad locomotion, velocity, and collision avoidance. |
+| **[Behavior Controller](/control-entities/behavior-controller/)** | Build intelligent AI entities with state machines and behavior trees. |
+| **[Messaging System](/control-entities/messaging-system/)** | Decouple entity communication via typed message events. |
+| **[Ability Framework](/control-entities/ability-framework/)** | Implement cooldown-driven spells, attacks, effects, and area-of-effect abilities. |
+| **[Java Scripting Engine](/control-entities/scripting/)** | Write interactive scripts that run dynamically inside the engine. |
+| **[Script-Only Game Architecture](/control-entities/script-only-games/)** | Build full LITIENGINE games using scripts and utiLITI without custom Java builds. |
+| **[Script Types Guide](/control-entities/scripting/)** | Deep dive into `GameScript`, `EnvironmentScript`, and `EntityScript`. |
+| **[Combat & Action Scripting](/control-entities/combat-scripting/)** | Script damage handlers, health bars, weapon swings, and projectile mechanics. |
 
 ## Quick Example: Attaching a Custom Controller
 
@@ -4076,15 +4076,15 @@ public interface IEntityController extends IUpdateable {
 
 ### AnimationController
 
-Controls which spritesheet animation is displayed for an entity. See [Animation Controller](animation-controller.md) for details.
+Controls which spritesheet animation is displayed for an entity. See [Animation Controller](/control-entities/animation-controller/) for details.
 
 ### MovementController
 
-Handles entity movement, including velocity, direction, and collision response. See [Movement Controller](movement-controller.md) for details.
+Handles entity movement, including velocity, direction, and collision response. See [Movement Controller](/control-entities/movement-controller/) for details.
 
 ### BehaviorController / StateController
 
-Manages AI behavior and state machines. See [Behavior Controller](behavior-controller.md) for details.
+Manages AI behavior and state machines. See [Behavior Controller](/control-entities/behavior-controller/) for details.
 
 ## Creating Custom Controllers
 
@@ -4174,10 +4174,10 @@ public class CombatController extends EntityController<Creature> {
 
 ## See Also
 
-- [Animation Controller](animation-controller.md) - Animation management
-- [Movement Controller](movement-controller.md) - Movement handling
-- [Behavior Controller](behavior-controller.md) - AI and state machines
-- [Ability Framework](ability-framework.md) - Combat abilities
+- [Animation Controller](/control-entities/animation-controller/) - Animation management
+- [Movement Controller](/control-entities/movement-controller/) - Movement handling
+- [Behavior Controller](/control-entities/behavior-controller/) - AI and state machines
+- [Ability Framework](/control-entities/ability-framework/) - Combat abilities
 
 <!-- END CHAPTER: control-entities/entity-controllers.md -->
 
@@ -4371,9 +4371,9 @@ entity.movement().clearForces();
 
 ## See Also
 
-- [Entity Controllers](entity-controllers.md) - Controller overview
+- [Entity Controllers](/control-entities/entity-controllers/) - Controller overview
 - [Physics Engine](/game-api/physics-engine/) - Collision and physics
-- [Behavior Controller](behavior-controller.md) - AI movement
+- [Behavior Controller](/control-entities/behavior-controller/) - AI movement
 
 ## A* Pathfinding and Navigation (`EntityNavigator`)
 
@@ -4572,7 +4572,7 @@ entity.getAnimationController().add(anim);
 
 ## See Also
 
-- [Entity Controllers](entity-controllers.md) - Controller overview
+- [Entity Controllers](/control-entities/entity-controllers/) - Controller overview
 - [Render Engine](/game-api/render-engine/) - How entities are rendered
 - [Resource Management](/resource-management/) - Loading spritesheets
 
@@ -4602,9 +4602,9 @@ These are the required components for making it happen:
 * A path on your map
 * A rat implementation
 * A [`MapObjectLoader`](/advanced/custom-mapobjectloaders/) that associates the path object and the rat
-* A [`StateController`](entity-controllers.md) that switches between the rat behaviour states
+* A [`StateController`](/control-entities/entity-controllers/) that switches between the rat behaviour states
 * Different [`EntityStates`](#implementing-an-ai-state-machine) that represent certain behaviours
-* An [`EntityNavigator`](movement-controller.md) to move the rat along the path
+* An [`EntityNavigator`](/control-entities/movement-controller/) to move the rat along the path
 
 ### The path MapObject
 First of all, we need a collection of points that mark the path for our rat to walk on. 
@@ -4690,7 +4690,7 @@ When you initialize your game (before calling `Game.start()`), you need to regis
 
 ### The StateController
 
-Now, we define the conditions for switching between walking randomly and following the predetermined path. For that, we implement a state machine that transitions between states once certain conditions are met. In our example, we begin with the path following behaviour and then switch to random walking once the end of the path is reached. What could happen while walking around to trigger another transition? Get creative with the [`StateController`](entity-controllers.md) mechanics!
+Now, we define the conditions for switching between walking randomly and following the predetermined path. For that, we implement a state machine that transitions between states once certain conditions are met. In our example, we begin with the path following behaviour and then switch to random walking once the end of the path is reached. What could happen while walking around to trigger another transition? Get creative with the [`StateController`](/control-entities/entity-controllers/) mechanics!
 
 ```java
 public class RatController extends StateController<Rat> {
@@ -5086,9 +5086,9 @@ player.perform("attack");
 
 ## See Also
 
-- [Entity Controllers](entity-controllers.md) - Controller overview
+- [Entity Controllers](/control-entities/entity-controllers/) - Controller overview
 - [Physics Engine](/game-api/physics-engine/) - Forces and movement
-- [Behavior Controller](behavior-controller.md) - AI abilities
+- [Behavior Controller](/control-entities/behavior-controller/) - AI abilities
 
 <!-- END CHAPTER: control-entities/ability-framework.md -->
 
@@ -5550,8 +5550,8 @@ Before releasing your build:
 > - **Automate with CI/CD**: Set up a GitHub Actions workflow to build and package your cross-platform zip files automatically whenever a new version tag is pushed.
 
 ## See Also
-- **[Savegames Guide](savegames.md)** - Persisting player data across game sessions
-- **[Configuration](configuration/README.md)** - Managing runtime game configuration properties
+- **[Savegames Guide](/savegames/)** - Persisting player data across game sessions
+- **[Configuration](/configuration/)** - Managing runtime game configuration properties
 
 <!-- END CHAPTER: deployment.md -->
 
@@ -5577,37 +5577,37 @@ keywords: ["LITIENGINE", "utiLITI", "editor", "level design", "tilemap", "litida
 
 <div class="grid cards" markdown>
 
-- :material-map:{ .lg .middle } **[Maps & Environments](maps-and-environments.md)**
+- :material-map:{ .lg .middle } **[Maps & Environments](/utiliti-editor/maps-and-environments/)**
 
     ---
 
     Import `.tmx` maps, configure ambient darkness, and organize level layers.
 
-- :material-image-multiple:{ .lg .middle } **[Sprite & Animation Editor](sprite-editor.md)**
+- :material-image-multiple:{ .lg .middle } **[Sprite & Animation Editor](/utiliti-editor/sprite-editor/)**
 
     ---
 
     Slice spritesheets, configure keyframe durations, and preview character animations.
 
-- :material-grid:{ .lg .middle } **[Tilesets & Wang Terrains](tileset-editor.md)**
+- :material-grid:{ .lg .middle } **[Tilesets & Wang Terrains](/utiliti-editor/tileset-editor/)**
 
     ---
 
     Configure terrain rules and smart Wang autotiling for fast terrain painting.
 
-- :material-cursor-default-click:{ .lg .middle } **[Editing Tools & Viewport](tools-and-editing.md)**
+- :material-cursor-default-click:{ .lg .middle } **[Editing Tools & Viewport](/utiliti-editor/tools-and-editing/)**
 
     ---
 
     Multi-selection, grid snapping, collision box adjustments, and zoom navigation.
 
-- :material-file-code:{ .lg .middle } **[Java Scripting in utiLITI](scripts.md)**
+- :material-file-code:{ .lg .middle } **[Java Scripting in utiLITI](/utiliti-editor/scripts/)**
 
     ---
 
     Attach Java scripts to map entities with Monaco editor integration and hot reloading.
 
-- :material-robot:{ .lg .middle } **[MCP Server Integration](mcp-server.md)**
+- :material-robot:{ .lg .middle } **[MCP Server Integration](/utiliti-editor/mcp-server/)**
 
     ---
 
@@ -6006,7 +6006,7 @@ Wang tiles allow the **Terrain Brush Tool** to automatically connect and blend t
 2. Select the terrain type (`Corner`, `Edge`, or `Mixed`).
 3. Add **Wang Colors** (e.g. *Grass* as Green, *Stone* as Gray).
 4. Select a tile in the tileset and use the **8-Slot Terrain Mask** to assign which edges and corners belong to each terrain color.
-5. Once configured, switch to the [Terrain Brush Tool](tools-and-editing.md) to paint seamless terrain borders directly on your map!
+5. Once configured, switch to the [Terrain Brush Tool](/utiliti-editor/tools-and-editing/) to paint seamless terrain borders directly on your map!
 
 <!-- END CHAPTER: utiliti-editor/tileset-editor.md -->
 
@@ -6100,7 +6100,7 @@ The **Stamp Brush** places multi-tile selections and complex tile patterns in a 
 
 The **Terrain Brush** uses Wang tilesets to automate natural terrain transitions (such as grass-to-dirt, water-to-sand, or wall corners) without requiring you to manually pick corner and edge tiles:
 
-1. Configure a **Wang Set** in the [Tileset & Terrain Editor](tileset-editor.md).
+1. Configure a **Wang Set** in the [Tileset & Terrain Editor](/utiliti-editor/tileset-editor/).
 2. Select the **Terrain Brush Tool** from the toolbar.
 3. In the terrain dropdown attached to the tool, pick your desired terrain type (e.g. *Grass*, *Dirt*, *Water*).
 4. Paint freely on the canvas: utiLITI automatically inspects all 8 neighboring cells and selects the correct edge, corner, inner-corner, or center tile variation seamlessly.
@@ -6820,7 +6820,7 @@ Quick answers to the most common questions about LITIENGINE, architecture, perfo
  **Yes!** LITIENGINE is licensed under the permissive **MIT License** (or compatible open-source terms). You retain 100% ownership of your game source code, assets, and commercial revenue. You can freely sell your games on Steam, itch.io, GOG, or your own store.
 
 ??? question "How do players run my game without installing Java?"
- You can bundle a lightweight Java Runtime Environment (JRE) directly with your game using **jlink**, **jpackage**, or **Launch4j**. The player receives a standalone `.exe`, `.app`, or `.zip` bundle and simply double-clicks to play. See our **[Deployment Guide](deployment.md)**.
+ You can bundle a lightweight Java Runtime Environment (JRE) directly with your game using **jlink**, **jpackage**, or **Launch4j**. The player receives a standalone `.exe`, `.app`, or `.zip` bundle and simply double-clicks to play. See our **[Deployment Guide](/deployment/)**.
 
 ---
 

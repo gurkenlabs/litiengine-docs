@@ -93,10 +93,10 @@ public class Goblin extends Creature {
 
 | Topic | Description |
 | :--- | :--- |
-| **[Default Entity Types](default-entity-types.md)** | Explore built-in entities: `Creature`, `Prop`, `Emitter`, `LightSource`, `Trigger`, and `SoundSource`. |
-| **[Props](props.md)** | Learn how to place, customize, and destroy interactive props in your world. |
-| **[Subscribe to Entity Events](entity-events.md)** | Hook into entity lifecycle events (`onMoved`, `onHit`, `onDying`, `onRendered`). |
-| **[Annotations for Static Information](annotations.md)** | Configure static attributes declaratively with `@EntityInfo`, `@MovementInfo`, and `@CombatInfo`. |
+| **[Default Entity Types](/entity-framework/default-entity-types/)** | Explore built-in entities: `Creature`, `Prop`, `Emitter`, `LightSource`, `Trigger`, and `SoundSource`. |
+| **[Props](/entity-framework/props/)** | Learn how to place, customize, and destroy interactive props in your world. |
+| **[Subscribe to Entity Events](/entity-framework/entity-events/)** | Hook into entity lifecycle events (`onMoved`, `onHit`, `onDying`, `onRendered`). |
+| **[Annotations for Static Information](/entity-framework/annotations/)** | Configure static attributes declaratively with `@EntityInfo`, `@MovementInfo`, and `@CombatInfo`. |
 | **[Custom Entity Implementations](/entity-framework/custom-entities/)** | Create complex, custom entity classes from scratch. |
 | **[Custom MapObjectLoaders](/advanced/custom-mapobjectloaders/)** | Map custom Tiled object types directly to your Java entity classes. |
 

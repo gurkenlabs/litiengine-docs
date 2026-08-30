@@ -83,7 +83,7 @@ The **Stamp Brush** places multi-tile selections and complex tile patterns in a 
 
 The **Terrain Brush** uses Wang tilesets to automate natural terrain transitions (such as grass-to-dirt, water-to-sand, or wall corners) without requiring you to manually pick corner and edge tiles:
 
-1. Configure a **Wang Set** in the [Tileset & Terrain Editor](tileset-editor.md).
+1. Configure a **Wang Set** in the [Tileset & Terrain Editor](/utiliti-editor/tileset-editor/).
 2. Select the **Terrain Brush Tool** from the toolbar.
 3. In the terrain dropdown attached to the tool, pick your desired terrain type (e.g. *Grass*, *Dirt*, *Water*).
 4. Paint freely on the canvas: utiLITI automatically inspects all 8 neighboring cells and selects the correct edge, corner, inner-corner, or center tile variation seamlessly.

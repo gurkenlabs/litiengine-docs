@@ -150,6 +150,6 @@ Resources.load("game.litidata");
 
 ## See Also
 
-- [Resource Management](README.md) - Loading resources
-- [Sprite Info Files](sprite-info-files.md) - Sprite metadata format
+- [Resource Management](/resource-management/) - Loading resources
+- [Sprite Info Files](/resource-management/sprite-info-files/) - Sprite metadata format
 - [Animation Controller](/control-entities/animation-controller/) - Using animations

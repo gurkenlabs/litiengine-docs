@@ -215,5 +215,5 @@ The `Menu` component handles user input out of the box:
 > - **Clean Screen Transitions**: When switching screens with `Game.screens().display()`, use `prepare()` to reset timers, selections, and transient UI states.
 
 ## See Also
-- **[GuiComponents: An Overview](gui-components.md)** - Component hierarchy and properties
+- **[GuiComponents: An Overview](/user-interface/gui-components/)** - Component hierarchy and properties
 - **[Screens API](/game-api/screens/)** - Resolution scaling and display management

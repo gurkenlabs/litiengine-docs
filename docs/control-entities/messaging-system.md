@@ -185,6 +185,6 @@ trigger.onActivated(e -> {
 
 ## See Also
 
-- [Entity Controllers](entity-controllers.md) - Controller overview
+- [Entity Controllers](/control-entities/entity-controllers/) - Controller overview
 - [Entity Framework](/entity-framework/) - Entity system
-- [Behavior Controller](behavior-controller.md) - AI reactions
+- [Behavior Controller](/control-entities/behavior-controller/) - AI reactions

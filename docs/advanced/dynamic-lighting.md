@@ -183,9 +183,9 @@ gfx_ambientAlpha=0.8
 
 ## See Also
 
-- [Static Lighting](static-lighting.md) - Pre-baked lighting
+- [Static Lighting](/advanced/static-lighting/) - Pre-baked lighting
 - [Environment](/game-api/game-world/) - Environment management
-- [Particle System](particle-system.md) - Visual effects
+- [Particle System](/advanced/particle-system/) - Visual effects
 
 ## Programmatic LightSource Management
 

@@ -11,7 +11,7 @@ Once you have gained a basic understanding of LITIENGINE's general game infrastr
 
 ## Create a tile map
 
-At the beginning of your world building workflow, you create a tile map with [Tiled map editor](../libraries-and-tools.md#tiled-map-editor). While we won't go into details here \(because the [official Tiled docs](https://doc.mapeditor.org/en/stable/manual/introduction/) do\), here's the rough workflow:
+At the beginning of your world building workflow, you create a tile map with [Tiled map editor](/libraries-and-tools/#tiled-map-editor). While we won't go into details here \(because the [official Tiled docs](https://doc.mapeditor.org/en/stable/manual/introduction/) do\), here's the rough workflow:
 
 * First, you need to paint your Tileset in the [pixel art editor of your choice (e.g. Aseprite, LibreSprite, or GIMP)](https://www.aseprite.org/).
 * Then, import the Tileset image into Tiled editor to create a [.tsx Tileset](https://doc.mapeditor.org/en/stable/reference/tmx-map-format/#tileset).

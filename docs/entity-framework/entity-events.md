@@ -217,6 +217,6 @@ Game.world().onCameraMoved(camera -> {
 
 ## See Also
 
-- [Default Entity Types](default-entity-types.md) - Entity hierarchy
+- [Default Entity Types](/entity-framework/default-entity-types/) - Entity hierarchy
 - [Messaging System](/control-entities/messaging-system/) - Entity communication
 - [Ability Framework](/control-entities/ability-framework/) - Ability events

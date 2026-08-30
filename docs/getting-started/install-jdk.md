@@ -44,4 +44,4 @@ Both commands should return version `21` (or higher).
 
 ## Next Steps
 
-Now that your JDK is ready, proceed to **[Set Up Your IDE](development-environment.md)**.
+Now that your JDK is ready, proceed to **[Set Up Your IDE](/getting-started/development-environment/)**.

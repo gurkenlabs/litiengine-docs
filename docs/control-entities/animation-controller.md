@@ -152,6 +152,6 @@ entity.getAnimationController().add(anim);
 
 ## See Also
 
-- [Entity Controllers](entity-controllers.md) - Controller overview
+- [Entity Controllers](/control-entities/entity-controllers/) - Controller overview
 - [Render Engine](/game-api/render-engine/) - How entities are rendered
 - [Resource Management](/resource-management/) - Loading spritesheets

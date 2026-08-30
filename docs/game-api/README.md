@@ -15,49 +15,49 @@ The **Game API** forms the static backbone of LITIENGINE, providing high-perform
 
 <div class="grid cards" markdown>
 
-- :material-palette:{ .lg .middle } **[2D Graphics Engine](render-engine.md)**
+- :material-palette:{ .lg .middle } **[2D Graphics Engine](/game-api/render-engine/)**
 
     ---
 
     Double-buffered AWT rendering, sprite transformations, shape drawing, and `TextRenderer` outlines.
 
-- :material-volume-high:{ .lg .middle } **[2D Sound Engine](sound-engine.md)**
+- :material-volume-high:{ .lg .middle } **[2D Sound Engine](/game-api/sound-engine/)**
 
     ---
 
     Spatial audio playback, background music streaming, 2D attenuation, and sound effects.
 
-- :material-atom:{ .lg .middle } **[2D Physics Engine](physics-engine.md)**
+- :material-atom:{ .lg .middle } **[2D Physics Engine](/game-api/physics-engine/)**
 
     ---
 
     Bounding-box collisions, spatial quadtree acceleration, collision sliding, and raycasting.
 
-- :material-clock-fast:{ .lg .middle } **[Game Loop & Timers](loops.md)**
+- :material-clock-fast:{ .lg .middle } **[Game Loop & Timers](/game-api/loops/)**
 
     ---
 
     Decoupled 60 Hz physics update tick, fixed-rate logic timers, and delta-time interpolation.
 
-- :material-video-vintage:{ .lg .middle } **[Camera & Viewport](camera.md)**
+- :material-video-vintage:{ .lg .middle } **[Camera & Viewport](/game-api/camera/)**
 
     ---
 
     Smooth target tracking, zoom levels, viewport shaking, and bounding constraints.
 
-- :material-monitor-screenshot:{ .lg .middle } **[Screens & State Flow](screens.md)**
+- :material-monitor-screenshot:{ .lg .middle } **[Screens & State Flow](/game-api/screens/)**
 
     ---
 
     Managing Title screens, Gameplay worlds, HUD overlays, and Pause menus.
 
-- :material-animation-play:{ .lg .middle } **[Tweening Engine](tweens.md)**
+- :material-animation-play:{ .lg .middle } **[Tweening Engine](/game-api/tweens/)**
 
     ---
 
     Smooth easing transitions for positions, alpha transparency, rotations, and UI scaling.
 
-- :material-earth:{ .lg .middle } **[Game World](game-world.md)**
+- :material-earth:{ .lg .middle } **[Game World](/game-api/game-world/)**
 
     ---
 

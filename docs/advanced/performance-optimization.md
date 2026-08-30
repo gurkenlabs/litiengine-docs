@@ -84,7 +84,7 @@ Pre-bake shadows instead of calculating dynamically:
 gfx_enableDynamicShadows=false
 ```
 
-See [Static Lighting](static-lighting.md) for details.
+See [Static Lighting](/advanced/static-lighting/) for details.
 
 ## Entity Management
 
@@ -244,7 +244,7 @@ gfx_enableResolutionScale=true
 
 ## See Also
 
-- [Particle System](particle-system.md) - Particle optimization
+- [Particle System](/advanced/particle-system/) - Particle optimization
 - [Entity Framework](/entity-framework/) - Entity management
 - [Render Engine](/game-api/render-engine/) - Rendering system
 

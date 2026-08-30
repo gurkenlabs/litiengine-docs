@@ -211,7 +211,7 @@ public class Boss extends Creature {
 
 ## See Also
 
-- [Default Entity Types](default-entity-types.md) - Built-in entity classes
+- [Default Entity Types](/entity-framework/default-entity-types/) - Built-in entity classes
 - [Ability Framework](/control-entities/ability-framework/) - Ability annotations
 - [Custom Properties](/tile-maps/custom-properties/) - Runtime property configuration
 

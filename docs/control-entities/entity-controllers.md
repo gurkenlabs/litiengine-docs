@@ -52,15 +52,15 @@ public interface IEntityController extends IUpdateable {
 
 ### AnimationController
 
-Controls which spritesheet animation is displayed for an entity. See [Animation Controller](animation-controller.md) for details.
+Controls which spritesheet animation is displayed for an entity. See [Animation Controller](/control-entities/animation-controller/) for details.
 
 ### MovementController
 
-Handles entity movement, including velocity, direction, and collision response. See [Movement Controller](movement-controller.md) for details.
+Handles entity movement, including velocity, direction, and collision response. See [Movement Controller](/control-entities/movement-controller/) for details.
 
 ### BehaviorController / StateController
 
-Manages AI behavior and state machines. See [Behavior Controller](behavior-controller.md) for details.
+Manages AI behavior and state machines. See [Behavior Controller](/control-entities/behavior-controller/) for details.
 
 ## Creating Custom Controllers
 
@@ -150,7 +150,7 @@ public class CombatController extends EntityController<Creature> {
 
 ## See Also
 
-- [Animation Controller](animation-controller.md) - Animation management
-- [Movement Controller](movement-controller.md) - Movement handling
-- [Behavior Controller](behavior-controller.md) - AI and state machines
-- [Ability Framework](ability-framework.md) - Combat abilities
+- [Animation Controller](/control-entities/animation-controller/) - Animation management
+- [Movement Controller](/control-entities/movement-controller/) - Movement handling
+- [Behavior Controller](/control-entities/behavior-controller/) - AI and state machines
+- [Ability Framework](/control-entities/ability-framework/) - Combat abilities

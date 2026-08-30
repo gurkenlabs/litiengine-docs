@@ -15,37 +15,37 @@ keywords: ["LITIENGINE", "utiLITI", "editor", "level design", "tilemap", "litida
 
 <div class="grid cards" markdown>
 
-- :material-map:{ .lg .middle } **[Maps & Environments](maps-and-environments.md)**
+- :material-map:{ .lg .middle } **[Maps & Environments](/utiliti-editor/maps-and-environments/)**
 
     ---
 
     Import `.tmx` maps, configure ambient darkness, and organize level layers.
 
-- :material-image-multiple:{ .lg .middle } **[Sprite & Animation Editor](sprite-editor.md)**
+- :material-image-multiple:{ .lg .middle } **[Sprite & Animation Editor](/utiliti-editor/sprite-editor/)**
 
     ---
 
     Slice spritesheets, configure keyframe durations, and preview character animations.
 
-- :material-grid:{ .lg .middle } **[Tilesets & Wang Terrains](tileset-editor.md)**
+- :material-grid:{ .lg .middle } **[Tilesets & Wang Terrains](/utiliti-editor/tileset-editor/)**
 
     ---
 
     Configure terrain rules and smart Wang autotiling for fast terrain painting.
 
-- :material-cursor-default-click:{ .lg .middle } **[Editing Tools & Viewport](tools-and-editing.md)**
+- :material-cursor-default-click:{ .lg .middle } **[Editing Tools & Viewport](/utiliti-editor/tools-and-editing/)**
 
     ---
 
     Multi-selection, grid snapping, collision box adjustments, and zoom navigation.
 
-- :material-file-code:{ .lg .middle } **[Java Scripting in utiLITI](scripts.md)**
+- :material-file-code:{ .lg .middle } **[Java Scripting in utiLITI](/utiliti-editor/scripts/)**
 
     ---
 
     Attach Java scripts to map entities with Monaco editor integration and hot reloading.
 
-- :material-robot:{ .lg .middle } **[MCP Server Integration](mcp-server.md)**
+- :material-robot:{ .lg .middle } **[MCP Server Integration](/utiliti-editor/mcp-server/)**
 
     ---
 

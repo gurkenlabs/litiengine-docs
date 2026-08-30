@@ -36,7 +36,7 @@ Quick answers to the most common questions about LITIENGINE, architecture, perfo
  **Yes!** LITIENGINE is licensed under the permissive **MIT License** (or compatible open-source terms). You retain 100% ownership of your game source code, assets, and commercial revenue. You can freely sell your games on Steam, itch.io, GOG, or your own store.
 
 ??? question "How do players run my game without installing Java?"
- You can bundle a lightweight Java Runtime Environment (JRE) directly with your game using **jlink**, **jpackage**, or **Launch4j**. The player receives a standalone `.exe`, `.app`, or `.zip` bundle and simply double-clicks to play. See our **[Deployment Guide](deployment.md)**.
+ You can bundle a lightweight Java Runtime Environment (JRE) directly with your game using **jlink**, **jpackage**, or **Launch4j**. The player receives a standalone `.exe`, `.app`, or `.zip` bundle and simply double-clicks to play. See our **[Deployment Guide](/deployment/)**.
 
 ---
 

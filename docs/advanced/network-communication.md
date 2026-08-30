@@ -26,4 +26,4 @@ If you're interested in the historical implementation, you can find the removed 
 
 ## See Also
 
-- [Release notes v0.5.1-beta](../CHANGELOG.md) - Removal announcement
+- [Release notes v0.5.1-beta](/CHANGELOG/) - Removal announcement

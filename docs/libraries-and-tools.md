@@ -42,7 +42,7 @@ With Tiled editor, you can create orthogonal, hexagonal, and isometric Tile maps
 
 #### How do I use Tiled?
 
-For a general understanding of the mapping process with Tiled editor, we encourage you to have a look at its [plentiful documentation](https://doc.mapeditor.org/en/stable/manual/introduction/#creating-a-new-map). However, we will refer to a few LITIENGINE specific aspects of creating maps with Tiled in the sections about [Map Objects](tile-maps/map-objects.md) and [custom properties](tile-maps/custom-properties.md)
+For a general understanding of the mapping process with Tiled editor, we encourage you to have a look at its [plentiful documentation](https://doc.mapeditor.org/en/stable/manual/introduction/#creating-a-new-map). However, we will refer to a few LITIENGINE specific aspects of creating maps with Tiled in the sections about [Map Objects](/tile-maps/map-objects/) and [custom properties](/tile-maps/custom-properties/)
 
 #### Why is tile mapping not a part of the utiLITI editor?
 
