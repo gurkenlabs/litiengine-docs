@@ -1,6 +1,6 @@
 # AGENTS.md - LITIENGINE Game Repository Guide
 
-This repository contains a 2D game built with **LITIENGINE**, a free, open-source 2D Java Game Engine. This document provides technical rules, project architecture, build instructions, and coding standards for AI coding agents (Claude, Cursor, Copilot, Antigravity, etc.).
+This repository contains a 2D game built with **LITIENGINE**, a free, open-source 2D Java Game Engine. This document provides technical rules, project architecture, build instructions, and coding standards for AI coding agents (OpenCode, Google Antigravity, OpenAI Codex, Claude, Cursor, Copilot, etc.).
 
 ---
 
