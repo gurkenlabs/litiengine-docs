@@ -49,8 +49,6 @@ Select an easing equation below to preview the interpolation curve and watch the
 </div>
 </div>
 
-</div>
-
 <script>
 (function() {
   function initTweenPlayground() {

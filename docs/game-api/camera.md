@@ -71,8 +71,6 @@ Game.world().camera().setClampToMap(true);</code></pre>
 </div>
 </div>
 
-</div>
-
 <script>
 (function() {
   function initCameraSimulator() {

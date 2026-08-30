@@ -48,8 +48,6 @@ Experiment with entity dimensions and `@CollisionInfo` alignments to see how bou
 </div>
 </div>
 
-</div>
-
 <script>
 (function() {
   function initBoxVisualizer() {
