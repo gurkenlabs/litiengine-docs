@@ -17,7 +17,6 @@ utiLITI includes an embedded **Model Context Protocol (MCP)** server running on 
 ---
 
 ## Overview & Architecture
-
 - **Endpoint**: `http://localhost:8088/mcp`
 - **SSE Stream**: `http://localhost:8088/sse`
 - **Protocol Specification**: MCP JSON-RPC 2.0 with **JSON Schema 2020-12** (SEP-1613)
@@ -173,11 +172,9 @@ Level A tools provide stateless, batch-capable map operations with optimistic re
 
 // 2. Batch Place Props & Creatures
 {"tool": "create_entities", "arguments": {
-  "mapId": "triage_room",
-  "entities": [
-    {"type": "PROP", "name": "bed1", "spritesheetName": "bed3", "material": "STEEL", "x": 64, "y": 64, "width": 32, "height": 32, "collision": true},
-    {"type": "CREATURE", "name": "zombie1", "spritesheetName": "zombie-doctor", "x": 96, "y": 64, "width": 16, "height": 16}
-  ]
+ "mapId": "triage_room",
+ "entities": [{"type": "PROP", "name": "bed1", "spritesheetName": "bed3", "material": "STEEL", "x": 64, "y": 64, "width": 32, "height": 32, "collision": true},
+ {"type": "CREATURE", "name": "zombie1", "spritesheetName": "zombie-doctor", "x": 96, "y": 64, "width": 16, "height": 16}]
 }}
 
 // 3. Scatter Blood Stains
@@ -189,17 +186,17 @@ Level A tools provide stateless, batch-capable map operations with optimistic re
 ```json
 // 1. Create a Creature Combat Script
 {"tool": "create-script", "arguments": {
-  "name": "SkeletonWarriorAI",
-  "host": "ENTITY",
-  "targetType": "Creature"
+ "name": "SkeletonWarriorAI",
+ "host": "ENTITY",
+ "targetType": "Creature"
 }}
 
 // 2. Attach Script to an Enemy on the Active Map
 {"tool": "bind-script", "arguments": {
-  "script": "SkeletonWarriorAI",
-  "targetType": "entity",
-  "targetId": "101",
-  "parameters": {"aggroRadius": "120", "attackPower": "15"}
+ "script": "SkeletonWarriorAI",
+ "targetType": "entity",
+ "targetId": "101",
+ "parameters": {"aggroRadius": "120", "attackPower": "15"}
 }}
 ```
 

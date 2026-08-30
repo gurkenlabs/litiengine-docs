@@ -28,25 +28,25 @@ In a typical LITIENGINE game project, responsibilities are clearly split between
 ```text
 game-project
 └─── sprites
-│   │─── sprite1.png
-│   └─── ...
+│ │─── sprite1.png
+│ └─── ...
 │─── audio
-│   │─── sound1.ogg
-│   └─── ...
+│ │─── sound1.ogg
+│ └─── ...
 │─── maps
-│   │─── map1.tmx
-│   │─── tileset.tsx
-│   │─── tileset.png
-│   └─── ...
+│ │─── map1.tmx
+│ │─── tileset.tsx
+│ │─── tileset.png
+│ └─── ...
 │─── localization
-│   │─── strings.properties
-│   │─── strings_de_DE.properties
-│   └─── ...
+│ │─── strings.properties
+│ │─── strings_de_DE.properties
+│ └─── ...
 │─── src
-│   └─── com
-│        └─── mygame
-│             │─── Program.java
-│             └─── ...
+│ └─── com
+│ └─── mygame
+│ │─── Program.java
+│ └─── ...
 │─── .classpath
 │─── game.litidata
 │─── config.properties

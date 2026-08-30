@@ -12,21 +12,21 @@ The `SoundEngine` (`Game.audio()`) handles all sound effects, ambient background
 
 ```mermaid
 flowchart TD
-    subgraph AudioSources["Audio Sources"]
-        SFX["Sound Effects (.wav, .ogg)"]
-        Music["Music Tracks (.mp3, .ogg)"]
-        Spatial["Positional Sounds (Point2D)"]
-    end
+ subgraph AudioSources["Audio Sources"]
+ SFX["Sound Effects (.wav, .ogg)"]
+ Music["Music Tracks (.mp3, .ogg)"]
+ Spatial["Positional Sounds (Point2D)"]
+ end
 
-    subgraph SoundEngine["Game.audio()"]
-        Master["Master Volume (sfx_soundVolume)"]
-        MusicBus["Music Volume (sfx_musicVolume)"]
-        SpatialCalc["2D Spatial Attenuation (Listener Focus)"]
-    end
+ subgraph SoundEngine["Game.audio()"]
+ Master["Master Volume (sfx_soundVolume)"]
+ MusicBus["Music Volume (sfx_musicVolume)"]
+ SpatialCalc["2D Spatial Attenuation (Listener Focus)"]
+ end
 
-    SFX --> Master
-    Spatial --> SpatialCalc --> Master
-    Music --> MusicBus
+ SFX --> Master
+ Spatial --> SpatialCalc --> Master
+ Music --> MusicBus
 ```
 
 ## Playing Sound Effects
@@ -103,13 +103,12 @@ sfx_musicVolume=0.5
 ---
 
 ## See Also
-
 * **[Resource Management](/resource-management/)** - Loading sound resources into `.litidata`
 * **[Game World](game-world.md)** - Environment & entity locations
 
 ---
 
-## 🎧 2D Spatial Audio & Audio Channel Mastering
+## 2D Spatial Audio & Audio Channel Mastering
 
 LITIENGINE's audio engine supports multi-bus volume controls and realistic 2D positional attenuation:
 
@@ -126,24 +125,24 @@ import de.gurkenlabs.litiengine.sound.Track;
 import de.gurkenlabs.litiengine.resources.Resources;
 
 public class AudioManager {
-  private static float masterVolume = 1.0f;
-  private static float musicVolume = 0.8f;
-  private static float sfxVolume = 1.0f;
+ private static float masterVolume = 1.0f;
+ private static float musicVolume = 0.8f;
+ private static float sfxVolume = 1.0f;
 
-  public static void setMasterVolume(float volume) {
-    masterVolume = Math.clamp(volume, 0.0f, 1.0f);
-    Game.audio().setMasterPlayback(masterVolume);
-  }
+ public static void setMasterVolume(float volume) {
+ masterVolume = Math.clamp(volume, 0.0f, 1.0f);
+ Game.audio().setMasterPlayback(masterVolume);
+ }
 
-  public static void playMusic(String trackName) {
-    Track musicTrack = Resources.tracks().get(trackName);
-    Game.audio().playMusic(musicTrack, true); // true = seamless loop
-  }
+ public static void playMusic(String trackName) {
+ Track musicTrack = Resources.tracks().get(trackName);
+ Game.audio().playMusic(musicTrack, true); // true = seamless loop
+ }
 
-  public static void playSound(String soundName) {
-    Sound sound = Resources.sounds().get(soundName);
-    Game.audio().playSound(sound, false, 1, sfxVolume * masterVolume);
-  }
+ public static void playSound(String soundName) {
+ Sound sound = Resources.sounds().get(soundName);
+ Game.audio().playSound(sound, false, 1, sfxVolume * masterVolume);
+ }
 }
 ```
 
@@ -154,18 +153,18 @@ Play audio centered at specific world coordinates or attached to moving entities
 ```java
 // Play positional explosion sound originating from a barrel entity
 Game.audio().playSound(
-    Resources.sounds().get("explosion.ogg"),
-    barrelEntity.getCenter(),
-    false // do not loop
+ Resources.sounds().get("explosion.ogg"),
+ barrelEntity.getCenter(),
+ false // do not loop
 );
 
 // Continuous spatial hum originating from a generator prop
 Game.audio().playSound(
-    Resources.sounds().get("generator_hum.ogg"),
-    generatorProp,
-    true // loop continuously
+ Resources.sounds().get("generator_hum.ogg"),
+ generatorProp,
+ true // loop continuously
 );
 ```
 
 !!! tip "Spatial Sound Range"
-    By default, LITIENGINE computes attenuation based on the distance between the sound origin and the active `Camera` center. Ensure your player entity is tracked by the camera using `Game.world().camera().setFocus(player)`.
+ By default, LITIENGINE computes attenuation based on the distance between the sound origin and the active `Camera` center. Ensure your player entity is tracked by the camera using `Game.world().camera().setFocus(player)`.

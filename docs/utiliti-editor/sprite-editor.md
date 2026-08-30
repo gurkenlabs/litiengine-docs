@@ -15,20 +15,20 @@ The **Sprite & Animation Editor** (accessible via the `Spritesheets` asset categ
 
 ```text
 ┌─────────────────────────────────────────────────────────────┐
-│ Name: hero-walk  |  Total Frames: 6  |  Frame Size: 32x32   │
+│ Name: hero-walk | Total Frames: 6 | Frame Size: 32x32 │
 ├───────────────────────────────┬─────────────────────────────┤
-│                               │ [Live Animation Preview]    │
-│                               │ ┌────────┐ [▶] [⏸] [⏮] [⏭] │
-│                               │ │  HERO  │ Speed: 1.0x      │
-│                               │ └────────┘ Zoom: 4x [Loop]  │
-│         SPRITE GRID           ├─────────────────────────────┤
-│  Interactive Slicing Preview  │ [Keyframe Durations (ms)]   │
-│  Columns: 6  |  Rows: 1       │ │ Frame 0 │ 120ms           │
-│                               │ │ Frame 1 │ 100ms           │
-│                               │ │ Frame 2 │ 100ms           │
-│                               │ │ Frame 3 │ 120ms           │
-│                               │ │ Frame 4 │ 100ms           │
-│                               │ │ Frame 5 │ 100ms           │
+│ │ [Live Animation Preview] │
+│ │ ┌────────┐ [] [] [] [] │
+│ │ │ HERO │ Speed: 1.0x │
+│ │ └────────┘ Zoom: 4x [Loop] │
+│ SPRITE GRID ├─────────────────────────────┤
+│ Interactive Slicing Preview │ [Keyframe Durations (ms)] │
+│ Columns: 6 | Rows: 1 │ │ Frame 0 │ 120ms │
+│ │ │ Frame 1 │ 100ms │
+│ │ │ Frame 2 │ 100ms │
+│ │ │ Frame 3 │ 120ms │
+│ │ │ Frame 4 │ 100ms │
+│ │ │ Frame 5 │ 100ms │
 └───────────────────────────────┴─────────────────────────────┘
 ```
 
@@ -60,17 +60,16 @@ LITIENGINE supports variable keyframe durations, enabling fluid animation pacing
 The animated canvas preview provides rich playback testing:
 
 - **Playback Controls**:
-  - **Play / Pause (`▶` / `⏸`)**: Start or stop animation playback.
-  - **Step Forward / Backward (`⏭` / `⏮`)**: Advance or reverse the animation one frame at a time.
-  - **Playback Speed**: Adjust speed multipliers (`0.25x`, `0.5x`, `1.0x`, `2.0x`) for slow-motion animation tuning.
-  - **Loop Toggle**: Test single-shot vs. repeating animations.
+- **Play / Pause (`` / ``)**: Start or stop animation playback.
+- **Step Forward / Backward (`` / ``)**: Advance or reverse the animation one frame at a time.
+- **Playback Speed**: Adjust speed multipliers (`0.25x`, `0.5x`, `1.0x`, `2.0x`) for slow-motion animation tuning.
+- **Loop Toggle**: Test single-shot vs. repeating animations.
 - **Zoom Factor**: Switch between `1x`, `2x`, `4x`, and `8x` zoom levels with crisp nearest-neighbor pixel scaling.
 - **Current Frame Display**: Live indicator showing active frame index and elapsed milliseconds.
 
 ---
 
 ## 4. Importing & Exporting Sprite Info Files
-
 - **Import Spritesheets**: **Resources -> Import -> Import Spritesheets...** (`Ctrl + Shift + I`).
 - **Import Texture Atlas**: **Resources -> Import -> Import Texture Atlas...** to import LibGDX or generic texture atlases.
 - **Export `.info` Files**: Select **Resources -> Export -> Export Spritesheets...** (`Ctrl + E`) to export `.info` text files containing frame metrics and duration arrays.

@@ -13,31 +13,31 @@ With the **3-tier scripting architecture** and the built-in `GameLauncher`, your
 
 ```text
  ┌──────────────────────────────────────────────────────────┐
- │  🎮 GameScript (Global Game Lifecycle & Entry Point)     │
- │  • Persistent across all map transitions                 │
- │  • Loads initial maps: loadMap("level1")                 │
- │  • Global player state: globals.put("score", 0)          │
- │  • Soundtrack & audio: playMusic("bg_theme")             │
- │  • Global keybindings: Pause menu on ESC                 │
+ │ GameScript (Global Game Lifecycle & Entry Point) │
+ │ • Persistent across all map transitions │
+ │ • Loads initial maps: loadMap("level1") │
+ │ • Global player state: globals.put("score", 0) │
+ │ • Soundtrack & audio: playMusic("bg_theme") │
+ │ • Global keybindings: Pause menu on ESC │
  └────────────────────────────┬─────────────────────────────┘
-                              │ loads & transitions
-                              ▼
+ │ loads & transitions
+ ▼
  ┌──────────────────────────────────────────────────────────┐
- │  🗺 EnvironmentScript (Map / Level Controller)           │
- │  • Active while a specific map is loaded                 │
- │  • Wave spawning & map objectives                        │
- │  • onEntityRemoved -> Level clear & transition           │
- │  • Cinematics & camera: cameraPanTo(boss, 60)            │
+ │ EnvironmentScript (Map / Level Controller) │
+ │ • Active while a specific map is loaded │
+ │ • Wave spawning & map objectives │
+ │ • onEntityRemoved -> Level clear & transition │
+ │ • Cinematics & camera: cameraPanTo(boss, 60) │
  └────────────────────────────┬─────────────────────────────┘
-                              │ spawns & contains
-                              ▼
+ │ spawns & contains
+ ▼
  ┌──────────────────────────────────────────────────────────┐
- │  ⚔ CreatureScript / EntityScript (Entity Behaviors & AI) │
- │  • Attached to players, enemies, NPCs, chests, traps     │
- │  • AI movement: moveTowards(target)                      │
- │  • Combat abilities: createAbility("Fireball").cast()    │
- │  • Projectiles: spawnProjectile()                        │
- │  • Feedback: onHit (floatText), onDeath (remove())       │
+ │ CreatureScript / EntityScript (Entity Behaviors & AI) │
+ │ • Attached to players, enemies, NPCs, chests, traps │
+ │ • AI movement: moveTowards(target) │
+ │ • Combat abilities: createAbility("Fireball").cast() │
+ │ • Projectiles: spawnProjectile() │
+ │ • Feedback: onHit (floatText), onDeath (remove()) │
  └──────────────────────────────────────────────────────────┘
 ```
 
@@ -82,9 +82,9 @@ sendMessage(targetCreature, "heal:50");
 // Receive and handle messages:
 @Override
 protected void onMessage(String message, Object sender) {
-  if ("enrage".equals(message)) {
-    host().getVelocity().setBaseValue(300);
-  }
+ if ("enrage".equals(message)) {
+ host().getVelocity().setBaseValue(300);
+ }
 }
 ```
 
@@ -94,11 +94,11 @@ Scripts can query and filter entities in the active environment:
 ```java
 // Find the closest alive monster within 200 pixels:
 var target = EntityQuery.in(environment(), Creature.class)
-    .alive()
-    .enemyOf(host())
-    .within(host().getCenter(), 200)
-    .nearestTo(host().getCenter())
-    .first();
+ .alive()
+ .enemyOf(host())
+ .within(host().getCenter(), 200)
+ .nearestTo(host().getCenter())
+ .first();
 ```
 
 ---

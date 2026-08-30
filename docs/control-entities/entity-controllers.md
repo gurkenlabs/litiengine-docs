@@ -21,18 +21,18 @@ Controllers implement the `IEntityController` interface and are attached to enti
 
 ```java
 public class Player extends Creature {
-  
-  public Player() {
-    super("player");
-    
-    // Add custom controller
-    this.addController(new MyCustomController(this));
-  }
-  
-  @Override
-  protected IMovementController createMovementController() {
-    return new KeyboardEntityController<>(this);
-  }
+ 
+ public Player() {
+ super("player");
+ 
+ // Add custom controller
+ this.addController(new MyCustomController(this));
+ }
+ 
+ @Override
+ protected IMovementController createMovementController() {
+ return new KeyboardEntityController<>(this);
+ }
 }
 ```
 
@@ -42,9 +42,9 @@ Controllers are automatically attached to the game loop when added to an entity:
 
 ```java
 public interface IEntityController extends IUpdateable {
-  void attach();
-  void detach();
-  IEntity getEntity();
+ void attach();
+ void detach();
+ IEntity getEntity();
 }
 ```
 
@@ -68,25 +68,25 @@ Extend `EntityController` for custom behavior:
 
 ```java
 public class MyCustomController extends EntityController<MyEntity> {
-  
-  public MyCustomController(MyEntity entity) {
-    super(entity);
-  }
-  
-  @Override
-  public void update() {
-    // Called every tick while attached
-    MyEntity entity = getEntity();
-    
-    // Custom logic here
-    if (entity.isAlive()) {
-      performCustomBehavior();
-    }
-  }
-  
-  private void performCustomBehavior() {
-    // Custom behavior implementation
-  }
+ 
+ public MyCustomController(MyEntity entity) {
+ super(entity);
+ }
+ 
+ @Override
+ public void update() {
+ // Called every tick while attached
+ MyEntity entity = getEntity();
+ 
+ // Custom logic here
+ if (entity.isAlive()) {
+ performCustomBehavior();
+ }
+ }
+ 
+ private void performCustomBehavior() {
+ // Custom behavior implementation
+ }
 }
 ```
 
@@ -97,22 +97,22 @@ Entities can override which controllers are created:
 ```java
 @EntityInfo(width = 32, height = 32)
 public class FlyingEnemy extends Creature {
-  
-  public FlyingEnemy() {
-    super("flying-enemy");
-  }
-  
-  @Override
-  protected IMovementController createMovementController() {
-    // Use custom flying movement instead of default
-    return new FlyingMovementController<>(this);
-  }
-  
-  @Override
-  protected IEntityAnimationController<?> createAnimationController() {
-    // Custom animation controller
-    return new FlyingEnemyAnimationController(this);
-  }
+ 
+ public FlyingEnemy() {
+ super("flying-enemy");
+ }
+ 
+ @Override
+ protected IMovementController createMovementController() {
+ // Use custom flying movement instead of default
+ return new FlyingMovementController<>(this);
+ }
+ 
+ @Override
+ protected IEntityAnimationController<?> createAnimationController() {
+ // Custom animation controller
+ return new FlyingEnemyAnimationController(this);
+ }
 }
 ```
 
@@ -135,16 +135,16 @@ Controllers can define and fire custom events:
 
 ```java
 public class CombatController extends EntityController<Creature> {
-  
-  public void attack() {
-    // Perform attack
-    fireAttackEvent();
-  }
-  
-  private void fireAttackEvent() {
-    // Notify listeners
-    getEntity().getListeners().forEach(l -> l.onAttack());
-  }
+ 
+ public void attack() {
+ // Perform attack
+ fireAttackEvent();
+ }
+ 
+ private void fireAttackEvent() {
+ // Notify listeners
+ getEntity().getListeners().forEach(l -> l.onAttack());
+ }
 }
 ```
 

@@ -7,7 +7,7 @@ tags: ["physics", "collision", "gravity", "quadtree", "raycast", "hitbox", "slid
 ---
 
 # 2D Physics
-The PhysicsEngine provides functionality for simulating and handling physics interactions in your game. It holds collections of all  Collision Entities in your Environment and allows you to define and manage physical properties such as collision detection for shapes and entities, gravity, forces, and movement. Here's an overview of how you can use the PhysicsEngine in LITIENGINE through the `Game.physics()` method:
+The PhysicsEngine provides functionality for simulating and handling physics interactions in your game. It holds collections of all Collision Entities in your Environment and allows you to define and manage physical properties such as collision detection for shapes and entities, gravity, forces, and movement. Here's an overview of how you can use the PhysicsEngine in LITIENGINE through the `Game.physics()` method:
 
 ## Creating collision entities:
 In order to make Entities interact with physics, they need to extend the `CollisionEntity` class. `CollisionBox`, `Creature`, `Prop`, and `Trigger` are the built-in entity types supporting physics simulation by default. Collision entities can e.g. manage their collision box properties, register collision listeners, or filter potential collision candidates by having a specific `Collision` type.
@@ -57,12 +57,12 @@ The `CollisionEvent` class allows you to listen for specific types of collisions
 Prop p;
 // [...]
 p.onCollision(event -> {
-    // Our prop is the source of the CollisionEvent.
-    System.out.println("Source: " + event.getSource().getName());
-    // getInvolvedEntities returns the list of all colliding entities.
-    event.getInvolvedEntities().forEach(e -> {
-        System.out.println("Involved entity: " + e.getName());
-    });
+ // Our prop is the source of the CollisionEvent.
+ System.out.println("Source: " + event.getSource().getName());
+ // getInvolvedEntities returns the list of all colliding entities.
+ event.getInvolvedEntities().forEach(e -> {
+ System.out.println("Involved entity: " + e.getName());
+ });
 });
 ```
 
@@ -74,15 +74,15 @@ Use the different overloads of `Game.physics().raycast(...)` to cast a ray from 
 The physics engine is tied to your game loop. When you call `Game.init()` at startup, you implicitly attach the physics engine to the Game loop, letting it update all physics in your game world on every tick. The PhysicsEngine is an `IUpdateable`, i.e. you can attach and detach it to any Loop using `Loop.attach(Game.physics())` and `Loop.detach(Game.physics())`.
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@type": "TechArticle",
-  "headline": "LITIENGINE 2D Physics & Spatial Quadtrees",
-  "description": "2D bounding-box collision detection, raycasting, custom gravity forces, and spatial quadtree optimization.",
-  "author": {
-    "@type": "Organization",
-    "name": "Gurkenlabs",
-    "url": "https://gurkenlabs.com"
-  },
-  "inLanguage": "en"
+ "@context": "https://schema.org",
+ "@type": "TechArticle",
+ "headline": "LITIENGINE 2D Physics & Spatial Quadtrees",
+ "description": "2D bounding-box collision detection, raycasting, custom gravity forces, and spatial quadtree optimization.",
+ "author": {
+ "@type": "Organization",
+ "name": "Gurkenlabs",
+ "url": "https://gurkenlabs.com"
+ },
+ "inLanguage": "en"
 }
 </script>

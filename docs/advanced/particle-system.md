@@ -41,27 +41,27 @@ The LITIENGINE particle system allows you to create dynamic visual effects by em
 
 ```java
 public class FireEmitter extends Emitter {
-  
-  public FireEmitter(double x, double y) {
-    super(x, y);
-    
-    // Configure emitter
-    this.getData().setSpawnRate(30);           // Particles per second
-    this.getData().setEmitterDuration(0);      // 0 = infinite
-    this.getData().setMaxParticles(100);
-    
-    // Configure particles
-    this.getData().setParticleWidth(16);
-    this.getData().setParticleHeight(16);
-    this.getData().setMinTTL(500);             // Min lifetime (ms)
-    this.getData().setMaxTTL(1000);            // Max lifetime (ms)
-    
-    // Particle appearance
-    this.getData().setSpritesheet(Resources.spritesheets().get("fire-particle"));
-    
-    // Start emitting
-    this.activate();
-  }
+ 
+ public FireEmitter(double x, double y) {
+ super(x, y);
+ 
+ // Configure emitter
+ this.getData().setSpawnRate(30); // Particles per second
+ this.getData().setEmitterDuration(0); // 0 = infinite
+ this.getData().setMaxParticles(100);
+ 
+ // Configure particles
+ this.getData().setParticleWidth(16);
+ this.getData().setParticleHeight(16);
+ this.getData().setMinTTL(500); // Min lifetime (ms)
+ this.getData().setMaxTTL(1000); // Max lifetime (ms)
+ 
+ // Particle appearance
+ this.getData().setSpritesheet(Resources.spritesheets().get("fire-particle"));
+ 
+ // Start emitting
+ this.activate();
+ }
 }
 ```
 
@@ -143,7 +143,7 @@ emitter.getData().setParticleType(ParticleType.TRIANGLE);
 ```java
 // Render particles as text
 emitter.getData().setParticleType(ParticleType.TEXT);
-emitter.getData().setText("★");
+emitter.getData().setText("");
 emitter.getData().setFont(Resources.fonts().get("gamefont.ttf", 12f));
 ```
 
@@ -162,8 +162,8 @@ emitter.getData().setLoop(false);
 
 ```java
 // Continuous emission
-emitter.getData().setSpawnRate(20);  // Particles per second
-emitter.getData().setEmitterDuration(0);  // Infinite
+emitter.getData().setSpawnRate(20); // Particles per second
+emitter.getData().setEmitterDuration(0); // Infinite
 emitter.getData().setLoop(true);
 ```
 
@@ -172,9 +172,9 @@ emitter.getData().setLoop(true);
 ```java
 // Emit bursts at intervals
 emitter.getData().setSpawnAmount(30);
-emitter.getData().setSpawnRate(0);  // Not continuous
+emitter.getData().setSpawnRate(0); // Not continuous
 emitter.getData().setBurstMode(true);
-emitter.getData().setBurstInterval(2000);  // Every 2 seconds
+emitter.getData().setBurstInterval(2000); // Every 2 seconds
 ```
 
 ## Adding Emitters to Environment
@@ -190,23 +190,23 @@ Create custom particle behavior by extending `Particle`:
 
 ```java
 public class SparkParticle extends Particle {
-  
-  public SparkParticle() {
-    super();
-    this.setWidth(4);
-    this.setHeight(4);
-    this.setColor(Color.YELLOW);
-  }
-  
-  @Override
-  public void update(float updateRatio) {
-    super.update(updateRatio);
-    
-    // Custom behavior: flicker
-    if (Game.random().nextFloat() > 0.5f) {
-      this.setVisible(!this.isVisible());
-    }
-  }
+ 
+ public SparkParticle() {
+ super();
+ this.setWidth(4);
+ this.setHeight(4);
+ this.setColor(Color.YELLOW);
+ }
+ 
+ @Override
+ public void update(float updateRatio) {
+ super.update(updateRatio);
+ 
+ // Custom behavior: flicker
+ if (Game.random().nextFloat() > 0.5f) {
+ this.setVisible(!this.isVisible());
+ }
+ }
 }
 ```
 
@@ -222,27 +222,27 @@ import de.gurkenlabs.litiengine.graphics.emitters.Emitter;
 import de.gurkenlabs.litiengine.graphics.emitters.particles.ParticleType;
 
 public class CampfireEmitter extends Emitter {
-  public CampfireEmitter(double x, double y) {
-    super(x, y);
-    this.setWidth(16);
-    this.setHeight(16);
+ public CampfireEmitter(double x, double y) {
+ super(x, y);
+ this.setWidth(16);
+ this.setHeight(16);
 
-    this.getData().setParticleType(ParticleType.CIRCLE);
-    this.getData().setSpawnRate(25);
-    this.getData().setParticleTTLMin(400);
-    this.getData().setParticleTTLMax(800);
+ this.getData().setParticleType(ParticleType.CIRCLE);
+ this.getData().setSpawnRate(25);
+ this.getData().setParticleTTLMin(400);
+ this.getData().setParticleTTLMax(800);
 
-    // Float upwards with slight horizontal jitter
-    this.getData().setVelocityXMin(-10);
-    this.getData().setVelocityXMax(10);
-    this.getData().setVelocityYMin(-45);
-    this.getData().setVelocityYMax(-20);
+ // Float upwards with slight horizontal jitter
+ this.getData().setVelocityXMin(-10);
+ this.getData().setVelocityXMax(10);
+ this.getData().setVelocityYMin(-45);
+ this.getData().setVelocityYMax(-20);
 
-    // Fade from bright yellow/orange to dark smoky red
-    this.getData().setColor(new Color(255, 200, 50, 220));
-    this.getData().setFade(true);
-    this.getData().setFadeColor(new Color(220, 50, 20, 0));
-  }
+ // Fade from bright yellow/orange to dark smoky red
+ this.getData().setColor(new Color(255, 200, 50, 220));
+ this.getData().setFade(true);
+ this.getData().setFadeColor(new Color(220, 50, 20, 0));
+ }
 }
 ```
 
@@ -254,28 +254,28 @@ import de.gurkenlabs.litiengine.graphics.emitters.Emitter;
 import de.gurkenlabs.litiengine.graphics.emitters.particles.ParticleType;
 
 public class ExplosionEmitter extends Emitter {
-  public ExplosionEmitter(double x, double y) {
-    super(x, y);
-    this.setWidth(10);
-    this.setHeight(10);
+ public ExplosionEmitter(double x, double y) {
+ super(x, y);
+ this.setWidth(10);
+ this.setHeight(10);
 
-    this.getData().setParticleType(ParticleType.SQUARE);
-    this.getData().setSpawnAmount(60);
-    this.getData().setEmitterDuration(150);
-    this.getData().setLoop(false);
-    this.getData().setParticleTTLMin(200);
-    this.getData().setParticleTTLMax(500);
+ this.getData().setParticleType(ParticleType.SQUARE);
+ this.getData().setSpawnAmount(60);
+ this.getData().setEmitterDuration(150);
+ this.getData().setLoop(false);
+ this.getData().setParticleTTLMin(200);
+ this.getData().setParticleTTLMax(500);
 
-    // Radial explosive velocity in all directions
-    this.getData().setVelocityXMin(-120);
-    this.getData().setVelocityXMax(120);
-    this.getData().setVelocityYMin(-120);
-    this.getData().setVelocityYMax(120);
+ // Radial explosive velocity in all directions
+ this.getData().setVelocityXMin(-120);
+ this.getData().setVelocityXMax(120);
+ this.getData().setVelocityYMin(-120);
+ this.getData().setVelocityYMax(120);
 
-    this.getData().setColor(new Color(255, 120, 0, 255));
-    this.getData().setFade(true);
-    this.getData().setFadeColor(new Color(80, 80, 80, 0));
-  }
+ this.getData().setColor(new Color(255, 120, 0, 255));
+ this.getData().setFade(true);
+ this.getData().setFadeColor(new Color(80, 80, 80, 0));
+ }
 }
 ```
 
@@ -288,26 +288,26 @@ import de.gurkenlabs.litiengine.graphics.emitters.Emitter;
 import de.gurkenlabs.litiengine.graphics.emitters.particles.ParticleType;
 
 public class RainEmitter extends Emitter {
-  public RainEmitter() {
-    super(0, 0);
-    // Span across the map or active camera viewport
-    this.setWidth(Game.world().environment().getMap().getSizeInPixels().getWidth());
-    this.setHeight(10);
+ public RainEmitter() {
+ super(0, 0);
+ // Span across the map or active camera viewport
+ this.setWidth(Game.world().environment().getMap().getSizeInPixels().getWidth());
+ this.setHeight(10);
 
-    this.getData().setParticleType(ParticleType.RECTANGLE);
-    this.getData().setParticleWidth(1);
-    this.getData().setParticleHeight(8);
-    this.getData().setSpawnRate(80);
-    this.getData().setLoop(true);
+ this.getData().setParticleType(ParticleType.RECTANGLE);
+ this.getData().setParticleWidth(1);
+ this.getData().setParticleHeight(8);
+ this.getData().setSpawnRate(80);
+ this.getData().setLoop(true);
 
-    // Fall downwards with slight wind angle
-    this.getData().setVelocityXMin(-15);
-    this.getData().setVelocityXMax(-5);
-    this.getData().setVelocityYMin(180);
-    this.getData().setVelocityYMax(240);
+ // Fall downwards with slight wind angle
+ this.getData().setVelocityXMin(-15);
+ this.getData().setVelocityXMax(-5);
+ this.getData().setVelocityYMin(180);
+ this.getData().setVelocityYMax(240);
 
-    this.getData().setColor(new Color(150, 190, 255, 160));
-  }
+ this.getData().setColor(new Color(150, 190, 255, 160));
+ }
 }
 ```
 

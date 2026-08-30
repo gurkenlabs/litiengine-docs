@@ -8,19 +8,19 @@ tags: ["creature", "prop", "emitter", "lightsource", "spawnpoint", "entity types
 
 # Default Entity Types
 
-## 📊 Master Entity Blueprint Matrix
+## Master Entity Blueprint Matrix
 
 Choose the optimal entity type for your game objects:
 
 | Entity Type | Purpose / Use Case | Default Collision | Key Annotations | utiLITI Object Type | Key Lifecycle Events |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **`Creature`** | Living characters, NPCs, enemies, players | ✅ Yes (Dynamic box) | `@EntityInfo`, `@MovementInfo`, `@CombatInfo`, `@CollisionInfo` | `CREATURE` | `onMoved`, `onHit`, `onDeath`, `onStateChanged` |
-| **`Prop`** | Interactive/static map objects (chests, trees, pots) | ⚙️ Configurable | `@EntityInfo`, `@CollisionInfo` | `PROP` | `onHit`, `onStateChanged`, `onDamaged` |
-| **`Trigger`** | Invisible event zones (doors, cutscenes, teleporters) | ❌ Sensor only | `@EntityInfo` | `TRIGGER` | `onActivated`, `onDeactivated` |
-| **`Emitter`** | Particle sources (fire, weather, explosions) | ❌ None | `@EntityInfo` | `EMITTER` | `onSpawned`, `onParticleFinished` |
-| **`LightSource`** | Dynamic/static ambient lights & torches | ❌ None | `@EntityInfo` | `LIGHTSOURCE` | `onToggled`, `onColorChanged` |
-| **`Spawnpoint`** | Level entry points and entity spawn markers | ❌ None | `@EntityInfo` | `SPAWNPOINT` | `onSpawned` |
-| **`CollisionEntity`** | Invisible collision barrier / impassable wall | ✅ Static Solid | `@CollisionInfo` | `COLLISIONBOX` | `onCollision` |
+| **`Creature`** | Living characters, NPCs, enemies, players | Yes (Dynamic box) | `@EntityInfo`, `@MovementInfo`, `@CombatInfo`, `@CollisionInfo` | `CREATURE` | `onMoved`, `onHit`, `onDeath`, `onStateChanged` |
+| **`Prop`** | Interactive/static map objects (chests, trees, pots) | Configurable | `@EntityInfo`, `@CollisionInfo` | `PROP` | `onHit`, `onStateChanged`, `onDamaged` |
+| **`Trigger`** | Invisible event zones (doors, cutscenes, teleporters) | Sensor only | `@EntityInfo` | `TRIGGER` | `onActivated`, `onDeactivated` |
+| **`Emitter`** | Particle sources (fire, weather, explosions) | None | `@EntityInfo` | `EMITTER` | `onSpawned`, `onParticleFinished` |
+| **`LightSource`** | Dynamic/static ambient lights & torches | None | `@EntityInfo` | `LIGHTSOURCE` | `onToggled`, `onColorChanged` |
+| **`Spawnpoint`** | Level entry points and entity spawn markers | None | `@EntityInfo` | `SPAWNPOINT` | `onSpawned` |
+| **`CollisionEntity`** | Invisible collision barrier / impassable wall | Static Solid | `@CollisionInfo` | `COLLISIONBOX` | `onCollision` |
 
 ---
 
@@ -30,11 +30,11 @@ LITIENGINE provides a hierarchy of built-in entity types. Each type builds upon 
 
 ```text
 IEntity
-  └── Entity (base class)
-        └── CollisionEntity (has collision)
-              └── CombatEntity (has health/combat)
-                    └── Creature (has animation, movement)
-                    └── Prop (static/dynamic objects)
+ └── Entity (base class)
+ └── CollisionEntity (has collision)
+ └── CombatEntity (has health/combat)
+ └── Creature (has animation, movement)
+ └── Prop (static/dynamic objects)
 ```
 
 ## Entity
@@ -43,11 +43,11 @@ The base class for all game objects.
 
 ```java
 public class MyEntity extends Entity {
-  public MyEntity() {
-    super("my-entity");
-    setLocation(100, 100);
-    setSize(32, 32);
-  }
+ public MyEntity() {
+ super("my-entity");
+ setLocation(100, 100);
+ setSize(32, 32);
+ }
 }
 ```
 
@@ -67,9 +67,9 @@ Extends `Entity` with collision detection capabilities.
 @EntityInfo(width = 32, height = 32)
 @CollisionInfo(collisionBoxWidth = 28, collisionBoxHeight = 28, collision = true)
 public class Wall extends CollisionEntity {
-  public Wall() {
-    super("wall");
-  }
+ public Wall() {
+ super("wall");
+ }
 }
 ```
 
@@ -91,9 +91,9 @@ Extends `CollisionEntity` with health and combat mechanics.
 @EntityInfo(width = 32, height = 32)
 @CombatInfo(hitpoints = 100, team = 1)
 public class Destructible extends CombatEntity {
-  public Destructible() {
-    super("destructible");
-  }
+ public Destructible() {
+ super("destructible");
+ }
 }
 ```
 
@@ -120,9 +120,9 @@ The most feature-rich entity type. Combines collision, combat, movement, and ani
 @CombatInfo(hitpoints = 50)
 @CollisionInfo(collisionBoxWidth = 14, collisionBoxHeight = 16, collision = true)
 public class Player extends Creature {
-  public Player() {
-    super("player"); // spritePrefix
-  }
+ public Player() {
+ super("player"); // spritePrefix
+ }
 }
 ```
 
@@ -134,10 +134,10 @@ public class Player extends Creature {
 
 ### Key Methods
 ```java
-creature.getFacingDirection();      // Current facing direction
+creature.getFacingDirection(); // Current facing direction
 creature.setSpritePrefix("prefix"); // For animation lookup
-creature.isIdle();                  // Check if not moving
-creature.isDead();                  // Check if dead
+creature.isIdle(); // Check if not moving
+creature.isDead(); // Check if dead
 ```
 
 ## Prop
@@ -148,9 +148,9 @@ Static or interactive objects in the game world.
 @EntityInfo(width = 32, height = 32)
 @CollisionInfo(collision = true)
 public class Barrel extends Prop {
-  public Barrel() {
-    super("barrel");
-  }
+ public Barrel() {
+ super("barrel");
+ }
 }
 ```
 

@@ -16,8 +16,8 @@ purpose, we've created the `GameInfo` class. It holds all the metadata
 of your game and can be accessed via `Game.info()`. There are basically
 two ways to set your information:
 
-  - Directly from code, using  `Game.info().setXX()`
-  - Via XML File by calling `Game.setInfo("gameinfo.xml")`
+ - Directly from code, using `Game.info().setXX()`
+ - Via XML File by calling `Game.setInfo("gameinfo.xml")`
 
 **Setting game info from code:**
 ```java
@@ -56,29 +56,29 @@ reasonable default configuration. However, they might not be applicable
 to your type of game which is why you should at least know about these
 configurations to be able to adjust them when necessary.
 
-  - **Encoding for textual Resources**
-    (default: `Resources.ENCODING_ISO_8859_1`) For some languages, you
-    might prefer to store your text files with UTF-8 encoding. You can
-    make the LITIENGINE aware of this by
-    calling `Resources.setEncoding(Resources.ENCODING_UTF_8)`.
+- **Encoding for textual Resources**
+ (default: `Resources.ENCODING_ISO_8859_1`) For some languages, you
+ might prefer to store your text files with UTF-8 encoding. You can
+ make the LITIENGINE aware of this by
+ calling `Resources.setEncoding(Resources.ENCODING_UTF_8)`.
 
-  - **Base Render Scale** (default: `RenderEngine.DEFAULT_RENDERSCALE
-    = 3.0`) Depending on what type of Art Style you're going for, it is
-    not uncommon to render the game with an adjusted render scale. A
-    good example would be 8-Bit pixel art. Rendering such a game at a
-    scale of 1 would not be very practical for today's high-resolution
-    monitors. You can adjust this by
-    calling `Game.graphics().setBaseRenderScale(5.0)`
+- **Base Render Scale** (default: `RenderEngine.DEFAULT_RENDERSCALE
+ = 3.0`) Depending on what type of Art Style you're going for, it is
+ not uncommon to render the game with an adjusted render scale. A
+ good example would be 8-Bit pixel art. Rendering such a game at a
+ scale of 1 would not be very practical for today's high-resolution
+ monitors. You can adjust this by
+ calling `Game.graphics().setBaseRenderScale(5.0)`
 
-  - **UI properties** If you intend to use our `GUIComponents` you might
-    want to have a deeper look into the `GuiProperties` class. It
-    provides global default appearance settings for all  `GUIComponents`
-    e.g. you can set a default Font by
-    calling `GuiProperties.setDefaultFont(Resources.fonts().get("some-font.ttf")).`
+- **UI properties** If you intend to use our `GUIComponents` you might
+ want to have a deeper look into the `GuiProperties` class. It
+ provides global default appearance settings for all `GUIComponents`
+ e.g. you can set a default Font by
+ calling `GuiProperties.setDefaultFont(Resources.fonts().get("some-font.ttf")).`
 
-  - **Custom Mouse Cursor** If you intend to use the Mouse to control your
-    LITIENGINE game you should consider providing a custom Cursor Image.
-    `Game.window().cursor().set(CURSOR_IMAGE, 16, 16);`
+- **Custom Mouse Cursor** If you intend to use the Mouse to control your
+ LITIENGINE game you should consider providing a custom Cursor Image.
+ `Game.window().cursor().set(CURSOR_IMAGE, 16, 16);`
 
 ## Game Configuration File `config.properties`
 
@@ -105,11 +105,11 @@ Game.config().add(customGroup);
 // Example for a custom configuration group
 @ConfigurationGroupInfo(prefix = "custom_")
 public class MyCustomConfigurationGroup extends ConfigurationGroup {
-  private int myInt = 123;
+ private int myInt = 123;
 
-  public int getMyInt(){ return this.myInt; }
+ public int getMyInt(){ return this.myInt; }
 
-  public void setMyInt(int myInt){ this.myInt = myInt; }
+ public void setMyInt(int myInt){ this.myInt = myInt; }
 }
 ```
 

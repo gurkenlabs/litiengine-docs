@@ -46,8 +46,8 @@ gfx_ambientAlpha=0.8
 ```java
 LightSource torch = new LightSource();
 torch.setLocation(100, 100);
-torch.setIntensity(150);           // Light radius
-torch.setColor(Color.ORANGE);      // Light color
+torch.setIntensity(150); // Light radius
+torch.setColor(Color.ORANGE); // Light color
 torch.setShape(LightSource.ELLIPSE); // Light shape
 
 // Add to environment
@@ -61,9 +61,9 @@ Game.world().environment().add(torch);
 Controls the radius of illumination:
 
 ```java
-light.setIntensity(100);  // Small light
-light.setIntensity(200);  // Medium light
-light.setIntensity(400);  // Large light
+light.setIntensity(100); // Small light
+light.setIntensity(200); // Medium light
+light.setIntensity(400); // Large light
 ```
 
 ### Color
@@ -99,8 +99,8 @@ Add flickering effect for torches and fire:
 ```java
 // Enable flicker
 light.setFlicker(true);
-light.setFlickerIntensity(0.2f);  // 20% intensity variation
-light.setFlickerSpeed(100);       // Flicker interval in ms
+light.setFlickerIntensity(0.2f); // 20% intensity variation
+light.setFlickerSpeed(100); // Flicker interval in ms
 ```
 
 ## Shadow Casting
@@ -128,14 +128,14 @@ Lights can follow entities:
 
 ```java
 public class TorchBearer extends Creature {
-  private LightSource torchLight;
-  
-  @Override
-  public void update() {
-    super.update();
-    // Light follows entity
-    torchLight.setLocation(this.getCenter());
-  }
+ private LightSource torchLight;
+ 
+ @Override
+ public void update() {
+ super.update();
+ // Light follows entity
+ torchLight.setLocation(this.getCenter());
+ }
 }
 ```
 
@@ -156,8 +156,8 @@ Pulsing or animated lighting:
 
 ```java
 Game.loop().attach(() -> {
-  float pulse = (float) Math.sin(Game.time().now() / 200.0) * 0.3f + 0.7f;
-  light.setIntensity((int)(150 * pulse));
+ float pulse = (float) Math.sin(Game.time().now() / 200.0) * 0.3f + 0.7f;
+ light.setIntensity((int)(150 * pulse));
 });
 ```
 
@@ -200,20 +200,20 @@ import java.awt.Color;
 import java.awt.geom.Point2D;
 
 public class TorchLight {
-  public static LightSource createTorch(double x, double y) {
-    // 1. Create a radial ellipse light source (radius = 120, warm amber color)
-    Color warmGlow = new Color(255, 180, 50, 180);
-    LightSource torch = new LightSource(120, warmGlow, LightSource.Type.ELLIPSE);
-    torch.setLocation(x, y);
+ public static LightSource createTorch(double x, double y) {
+ // 1. Create a radial ellipse light source (radius = 120, warm amber color)
+ Color warmGlow = new Color(255, 180, 50, 180);
+ LightSource torch = new LightSource(120, warmGlow, LightSource.Type.ELLIPSE);
+ torch.setLocation(x, y);
 
-    // 2. Add to active environment
-    Game.world().environment().add(torch);
+ // 2. Add to active environment
+ Game.world().environment().add(torch);
 
-    // 3. Add ambient world darkness (RGBA)
-    Game.world().environment().getAmbientLight().setColor(new Color(10, 15, 25, 220));
+ // 3. Add ambient world darkness (RGBA)
+ Game.world().environment().getAmbientLight().setColor(new Color(10, 15, 25, 220));
 
-    return torch;
-  }
+ return torch;
+ }
 }
 ```
 
@@ -222,7 +222,7 @@ public class TorchLight {
 ```java
 // Create a flickering torch flame effect in your game loop
 Game.loop().attach(Game.world().environment(), () -> {
-  int jitter = (int) (Math.random() * 8) - 4;
-  torch.setRadius(120 + jitter);
+ int jitter = (int) (Math.random() * 8) - 4;
+ torch.setRadius(120 + jitter);
 });
 ```

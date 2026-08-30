@@ -23,41 +23,41 @@ import de.gurkenlabs.litiengine.entities.CombatEntity;
 import de.gurkenlabs.litiengine.gui.GuiComponent;
 
 public class HealthBar extends GuiComponent {
-  private final CombatEntity entity;
-  private static final int BAR_WIDTH = 50;
-  private static final int BAR_HEIGHT = 6;
+ private final CombatEntity entity;
+ private static final int BAR_WIDTH = 50;
+ private static final int BAR_HEIGHT = 6;
 
-  public HealthBar(CombatEntity entity) {
-    super(0, 0, BAR_WIDTH, BAR_HEIGHT);
-    this.entity = entity;
-  }
+ public HealthBar(CombatEntity entity) {
+ super(0, 0, BAR_WIDTH, BAR_HEIGHT);
+ this.entity = entity;
+ }
 
-  @Override
-  public void render(Graphics2D g) {
-    super.render(g);
-    if (this.entity == null || this.entity.isDead()) {
-      return;
-    }
+ @Override
+ public void render(Graphics2D g) {
+ super.render(g);
+ if (this.entity == null || this.entity.isDead()) {
+ return;
+ }
 
-    // Position health bar 10 pixels above the entity
-    double screenX = this.entity.getX() - (BAR_WIDTH - this.entity.getWidth()) / 2.0;
-    double screenY = this.entity.getY() - 10;
+ // Position health bar 10 pixels above the entity
+ double screenX = this.entity.getX() - (BAR_WIDTH - this.entity.getWidth()) / 2.0;
+ double screenY = this.entity.getY() - 10;
 
-    double healthPercent = Math.max(0.0, (double) entity.getHitpoints() / entity.getMaxHitpoints());
+ double healthPercent = Math.max(0.0, (double) entity.getHitpoints() / entity.getMaxHitpoints());
 
-    // 1. Background Bar (Dark Gray)
-    g.setColor(new Color(40, 40, 40, 200));
-    g.fill(new Rectangle2D.Double(screenX, screenY, BAR_WIDTH, BAR_HEIGHT));
+ // 1. Background Bar (Dark Gray)
+ g.setColor(new Color(40, 40, 40, 200));
+ g.fill(new Rectangle2D.Double(screenX, screenY, BAR_WIDTH, BAR_HEIGHT));
 
-    // 2. Health Fill (Green > Yellow > Red)
-    Color healthColor = healthPercent > 0.5 ? Color.GREEN : (healthPercent > 0.2 ? Color.YELLOW : Color.RED);
-    g.setColor(healthColor);
-    g.fill(new Rectangle2D.Double(screenX, screenY, BAR_WIDTH * healthPercent, BAR_HEIGHT));
+ // 2. Health Fill (Green > Yellow > Red)
+ Color healthColor = healthPercent > 0.5 ? Color.GREEN : (healthPercent > 0.2 ? Color.YELLOW : Color.RED);
+ g.setColor(healthColor);
+ g.fill(new Rectangle2D.Double(screenX, screenY, BAR_WIDTH * healthPercent, BAR_HEIGHT));
 
-    // 3. Border Outline
-    g.setColor(Color.BLACK);
-    g.draw(new Rectangle2D.Double(screenX, screenY, BAR_WIDTH, BAR_HEIGHT));
-  }
+ // 3. Border Outline
+ g.setColor(Color.BLACK);
+ g.draw(new Rectangle2D.Double(screenX, screenY, BAR_WIDTH, BAR_HEIGHT));
+ }
 }
 ```
 
@@ -77,37 +77,37 @@ import de.gurkenlabs.litiengine.IUpdateable;
 import de.gurkenlabs.litiengine.graphics.TextRenderer;
 
 public class FloatingText implements IUpdateable {
-  private Point2D location;
-  private final String text;
-  private final Color color;
-  private int alpha = 255;
-  private int lifetime = 40; // 40 ticks = ~0.66s
+ private Point2D location;
+ private final String text;
+ private final Color color;
+ private int alpha = 255;
+ private int lifetime = 40; // 40 ticks = ~0.66s
 
-  public FloatingText(String text, Point2D startLocation, Color color) {
-    this.text = text;
-    this.location = new Point2D.Double(startLocation.getX(), startLocation.getY());
-    this.color = color;
-    Game.loop().attach(this);
-  }
+ public FloatingText(String text, Point2D startLocation, Color color) {
+ this.text = text;
+ this.location = new Point2D.Double(startLocation.getX(), startLocation.getY());
+ this.color = color;
+ Game.loop().attach(this);
+ }
 
-  @Override
-  public void update() {
-    this.location.setLocation(this.location.getX(), this.location.getY() - 0.7);
-    this.alpha = Math.max(0, this.alpha - (255 / lifetime));
+ @Override
+ public void update() {
+ this.location.setLocation(this.location.getX(), this.location.getY() - 0.7);
+ this.alpha = Math.max(0, this.alpha - (255 / lifetime));
 
-    if (this.alpha <= 0) {
-      Game.loop().detach(this);
-    }
-  }
+ if (this.alpha <= 0) {
+ Game.loop().detach(this);
+ }
+ }
 
-  public void render(Graphics2D g) {
-    if (this.alpha <= 0) return;
+ public void render(Graphics2D g) {
+ if (this.alpha <= 0) return;
 
-    Point2D screenPos = Game.world().camera().getViewportLocation(this.location.getX(), this.location.getY());
-    g.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 14));
-    Color drawColor = new Color(color.getRed(), color.getGreen(), color.getBlue(), alpha);
-    TextRenderer.renderWithOutline(g, text, screenPos.getX(), screenPos.getY(), drawColor, Color.BLACK);
-  }
+ Point2D screenPos = Game.world().camera().getViewportLocation(this.location.getX(), this.location.getY());
+ g.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 14));
+ Color drawColor = new Color(color.getRed(), color.getGreen(), color.getBlue(), alpha);
+ TextRenderer.renderWithOutline(g, text, screenPos.getX(), screenPos.getY(), drawColor, Color.BLACK);
+ }
 }
 ```
 
@@ -138,35 +138,35 @@ import de.gurkenlabs.litiengine.gui.Button;
 import de.gurkenlabs.litiengine.gui.GuiComponent;
 
 public class PauseOverlay extends GuiComponent {
-  private final Button resumeButton;
-  private final Button exitButton;
+ private final Button resumeButton;
+ private final Button exitButton;
 
-  public PauseOverlay() {
-    super(0, 0, Game.window().getResolution().getWidth(), Game.window().getResolution().getHeight());
-    
-    double centerX = getWidth() / 2.0;
-    double centerY = getHeight() / 2.0;
+ public PauseOverlay() {
+ super(0, 0, Game.window().getResolution().getWidth(), Game.window().getResolution().getHeight());
+ 
+ double centerX = getWidth() / 2.0;
+ double centerY = getHeight() / 2.0;
 
-    this.resumeButton = new Button(centerX - 100, centerY - 40, 200, 40, "Resume");
-    this.resumeButton.onClicked(e -> setVisible(false));
+ this.resumeButton = new Button(centerX - 100, centerY - 40, 200, 40, "Resume");
+ this.resumeButton.onClicked(e -> setVisible(false));
 
-    this.exitButton = new Button(centerX - 100, centerY + 20, 200, 40, "Quit to Title");
-    this.exitButton.onClicked(e -> Game.screens().display("TITLE"));
+ this.exitButton = new Button(centerX - 100, centerY + 20, 200, 40, "Quit to Title");
+ this.exitButton.onClicked(e -> Game.screens().display("TITLE"));
 
-    this.getComponents().add(resumeButton);
-    this.getComponents().add(exitButton);
-    this.setVisible(false);
-  }
+ this.getComponents().add(resumeButton);
+ this.getComponents().add(exitButton);
+ this.setVisible(false);
+ }
 
-  @Override
-  public void render(Graphics2D g) {
-    if (!isVisible()) return;
+ @Override
+ public void render(Graphics2D g) {
+ if (!isVisible()) return;
 
-    // Semi-transparent backdrop
-    g.setColor(new Color(0, 0, 0, 180));
-    g.fillRect(0, 0, (int) getWidth(), (int) getHeight());
+ // Semi-transparent backdrop
+ g.setColor(new Color(0, 0, 0, 180));
+ g.fillRect(0, 0, (int) getWidth(), (int) getHeight());
 
-    super.render(g);
-  }
+ super.render(g);
+ }
 }
 ```

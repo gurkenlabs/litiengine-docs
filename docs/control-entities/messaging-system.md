@@ -27,17 +27,17 @@ Implement message handling:
 
 ```java
 public class TriggerEntity extends Entity implements IMessageReceiver {
-  
-  @Override
-  public void sendMessage(Object sender, String message) {
-    if ("ACTIVATE".equals(message)) {
-      activate();
-    }
-  }
-  
-  private void activate() {
-    // Handle activation
-  }
+ 
+ @Override
+ public void sendMessage(Object sender, String message) {
+ if ("ACTIVATE".equals(message)) {
+ activate();
+ }
+ }
+ 
+ private void activate() {
+ // Handle activation
+ }
 }
 ```
 
@@ -48,12 +48,12 @@ Subscribe to entity lifecycle events:
 ```java
 // When entity is added to environment
 entity.onAdded(e -> {
-  System.out.println("Entity spawned!");
+ System.out.println("Entity spawned!");
 });
 
 // When entity is removed
 entity.onRemoved(e -> {
-  System.out.println("Entity destroyed!");
+ System.out.println("Entity destroyed!");
 });
 ```
 
@@ -66,19 +66,19 @@ CombatEntity combatEntity = ...;
 
 // When hit by attack
 combatEntity.onHit(event -> {
-  int damage = event.getDamage();
-  System.out.println("Took " + damage + " damage!");
+ int damage = event.getDamage();
+ System.out.println("Took " + damage + " damage!");
 });
 
 // When entity dies
 combatEntity.onDeath(event -> {
-  System.out.println("Entity died!");
-  spawnLoot();
+ System.out.println("Entity died!");
+ spawnLoot();
 });
 
 // When entity is resurrected
 combatEntity.onResurrect(event -> {
-  System.out.println("Entity revived!");
+ System.out.println("Entity revived!");
 });
 ```
 
@@ -90,14 +90,14 @@ Handle collision events:
 CollisionEntity colliding = ...;
 
 colliding.onCollision(event -> {
-  IEntity other = event.getInvolvedEntities().stream()
-    .filter(e -> e != colliding)
-    .findFirst()
-    .orElse(null);
-    
-  if (other != null) {
-    handleCollision(other);
-  }
+ IEntity other = event.getInvolvedEntities().stream()
+ .filter(e -> e != colliding)
+ .findFirst()
+ .orElse(null);
+ 
+ if (other != null) {
+ handleCollision(other);
+ }
 });
 ```
 
@@ -109,8 +109,8 @@ Track entity movement:
 MobileEntity mobile = ...;
 
 mobile.onMoved(event -> {
-  // Entity position changed
-  checkForTriggers();
+ // Entity position changed
+ checkForTriggers();
 });
 ```
 
@@ -120,16 +120,16 @@ Define custom event types:
 
 ```java
 public class GameEvent {
-  private String type;
-  private Object data;
-  
-  public GameEvent(String type, Object data) {
-    this.type = type;
-    this.data = data;
-  }
-  
-  public String getType() { return type; }
-  public Object getData() { return data; }
+ private String type;
+ private Object data;
+ 
+ public GameEvent(String type, Object data) {
+ this.type = type;
+ this.data = data;
+ }
+ 
+ public String getType() { return type; }
+ public Object getData() { return data; }
 }
 
 // Fire custom event
@@ -156,17 +156,17 @@ Listen for environment-level events:
 ```java
 // When environment is loaded
 Game.world().onLoaded(env -> {
-  initializeLevel();
+ initializeLevel();
 });
 
 // When environment is unloaded
 Game.world().onUnloaded(env -> {
-  cleanupLevel();
+ cleanupLevel();
 });
 
 // When entity is added to environment
 Game.world().environment().onEntityAdded(e -> {
-  System.out.println("Entity added: " + e.getEntity().getName());
+ System.out.println("Entity added: " + e.getEntity().getName());
 });
 ```
 
@@ -178,8 +178,8 @@ Triggers are special entities that fire events when entered:
 Trigger trigger = Game.world().environment().getTrigger("myTrigger");
 
 trigger.onActivated(e -> {
-  // Player entered trigger zone
-  spawnEnemies();
+ // Player entered trigger zone
+ spawnEnemies();
 });
 ```
 

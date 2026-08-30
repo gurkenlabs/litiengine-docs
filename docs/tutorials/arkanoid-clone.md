@@ -85,11 +85,11 @@ After that, you have to add a render method to your screen like this:
 ```java
 @Override 
 public void render(Graphics2D graphics) { 
-  if (Game.world().environment() != null) { 
-    Game.world().environment().render(graphics); 
-  }
+ if (Game.world().environment() != null) { 
+ Game.world().environment().render(graphics); 
+ }
 
-  super.render(graphics); 
+ super.render(graphics); 
 }
 ```
 
@@ -120,11 +120,11 @@ Let's have a look at the constructor. In my case it's a private constructor in w
 
 ```java
 private Player() { 
-  super("vaus"); 
-  KeyboardEntityController playerController = new KeyboardEntityController<>(this); 
-  playerController.addLeftKey(KeyEvent.VK_LEFT); 
-  playerController.addRightKey(KeyEvent.VK_RIGHT); 
-  this.setController(IMovementController.class, playerController); 
+ super("vaus"); 
+ KeyboardEntityController playerController = new KeyboardEntityController<>(this); 
+ playerController.addLeftKey(KeyEvent.VK_LEFT); 
+ playerController.addRightKey(KeyEvent.VK_RIGHT); 
+ this.setController(IMovementController.class, playerController); 
 }
 ```
 
@@ -140,11 +140,11 @@ The last thing we need for our Player class is a public method to get the instan
 
 ```java
 public static Player instance() { 
-  if (instance == null) { 
-    instance = new Player(); 
-  } 
+ if (instance == null) { 
+ instance = new Player(); 
+ } 
 
-  return instance; 
+ return instance; 
 }
 ```
 
@@ -154,13 +154,13 @@ To let our player instance appear in our game, we then need to spawn it. In my g
 
 ```java
 Game.world().addLoadedListener(e -> { 
-  Spawnpoint enter = e.getSpawnpoint("enter"); 
-  if (enter != null) { 
-    enter.spawn(Player.instance()); 
-  } 
-  
-  Player.instance().setLocation(Game.window().getResolution().getWidth() / 2 - Player.instance().getWidth() / 2, 
-                                Game.window().getResolution().getHeight() * 0.95); 
+ Spawnpoint enter = e.getSpawnpoint("enter"); 
+ if (enter != null) { 
+ enter.spawn(Player.instance()); 
+ } 
+ 
+ Player.instance().setLocation(Game.window().getResolution().getWidth() / 2 - Player.instance().getWidth() / 2, 
+ Game.window().getResolution().getHeight() * 0.95); 
 }
 ```
 
@@ -190,8 +190,8 @@ To keep track if the ball is currently moving or not, the class contains an enum
 
 ```java
 public enum BallState { 
-  IDLE, 
-  INGAME 
+ IDLE, 
+ INGAME 
 }
 ```
 
@@ -206,7 +206,7 @@ The constructor of the class is quite simple:
 
 ```java
 private Ball() { 
-  super("ball"); 
+ super("ball"); 
 }
 ```
 
@@ -214,11 +214,11 @@ So everything is just like inside the Player class but without a movement contro
 
 ```java
 public static Ball instance() { 
-  if (instance == null) { 
-    instance = new Ball(); 
-  } 
+ if (instance == null) { 
+ instance = new Ball(); 
+ } 
 
-  return instance; 
+ return instance; 
 }
 ```
 
@@ -230,9 +230,9 @@ The update method checks if the ball touches the bottom of the screen which then
 ```java
 @Override 
 public void update() { 
-  if (Ball.instance().getLocation().getY() + Ball.instance().getHeight() >= Game.window().getResolution().getHeight()) { 
-    GameHandler.lifeLost(); 
-  } 
+ if (Ball.instance().getLocation().getY() + Ball.instance().getHeight() >= Game.window().getResolution().getHeight()) { 
+ GameHandler.lifeLost(); 
+ } 
 }
 ```
 
@@ -241,20 +241,20 @@ I won't further go into the `lifeLost()` method because this doesn't belong to t
 ```java
 @Override 
 public void render(Graphics2D graphics2D) { 
-  if (state == BallState.INGAME) { 
-    boolean isMoving = Game.physics().move(Ball.instance(), Ball.instance().getAngle(), Ball.instance().getTickVelocity()); 
-    if (!isMoving) { 
-      double newAngle;
+ if (state == BallState.INGAME) { 
+ boolean isMoving = Game.physics().move(Ball.instance(), Ball.instance().getAngle(), Ball.instance().getTickVelocity()); 
+ if (!isMoving) { 
+ double newAngle;
 
-      if (Ball.instance().getLocation().getY() + Ball.instance().getHeight() >= Player.instance().getLocation().getY()) { 
-        newAngle = getAngleOfDynamicCollision(); 
-      } else { 
-        newAngle = getAngleOfStaticCollision(); 
-      } 
+ if (Ball.instance().getLocation().getY() + Ball.instance().getHeight() >= Player.instance().getLocation().getY()) { 
+ newAngle = getAngleOfDynamicCollision(); 
+ } else { 
+ newAngle = getAngleOfStaticCollision(); 
+ } 
 
-      Ball.instance().setAngle(newAngle); Game.physics().move(Ball.instance(), Ball.instance().getAngle(), Ball.instance().getTickVelocity()); 
-    } 
-  } 
+ Ball.instance().setAngle(newAngle); Game.physics().move(Ball.instance(), Ball.instance().getAngle(), Ball.instance().getTickVelocity()); 
+ } 
+ } 
 }
 ```
 
@@ -269,7 +269,7 @@ That was a lot of code for the Ball class. To get the ball working, we also need
 ```java
 Spawnpoint enterBall = e.getSpawnpoint("enter_ball"); 
 if (enterBall != null) { 
-  enterBall.spawn(Ball.instance()); 
+ enterBall.spawn(Ball.instance()); 
 }
 ```
 
@@ -279,18 +279,18 @@ Also, we add a listener for the space key of the keyboard inside the `init()` me
 
 ```java
 Input.keyboard().onKeyPressed(e -> { 
-  if (e.getKeyCode() == KeyEvent.VK_SPACE) { 
-    if (GameHandler.getState() == GameState.INGAME && Ball.getState() == Ball.BallState.IDLE) { 
-      startBall(); 
-    } 
-  } 
+ if (e.getKeyCode() == KeyEvent.VK_SPACE) { 
+ if (GameHandler.getState() == GameState.INGAME && Ball.getState() == Ball.BallState.IDLE) { 
+ startBall(); 
+ } 
+ } 
 });
 
 private static void startBall() { 
-  Ball.instance().setAngle(180);  
-  Ball.instance().setVelocity(GAMESPEED);  
-  Ball.instance().setAcceleration(500);  
-  Ball.setState(Ball.BallState.INGAME); 
+ Ball.instance().setAngle(180);  
+ Ball.instance().setVelocity(GAMESPEED);  
+ Ball.instance().setAcceleration(500);  
+ Ball.setState(Ball.BallState.INGAME); 
 }
 ```
 
@@ -300,10 +300,10 @@ Finally, we need one more snippet of code to handle the ball's behavior when its
 ```java
 @Override 
 public void update() { 
-  if (Ball.getState() == Ball.BallState.IDLE) { 
-    Point2D locationOfPlayer = Player.instance().getLocation(); 
-    Ball.instance().setLocation(locationOfPlayer.getX() + 76, locationOfPlayer.getY() - 67); 
-  } 
+ if (Ball.getState() == Ball.BallState.IDLE) { 
+ Point2D locationOfPlayer = Player.instance().getLocation(); 
+ Ball.instance().setLocation(locationOfPlayer.getX() + 76, locationOfPlayer.getY() - 67); 
+ } 
 }
 ```
 
@@ -337,7 +337,7 @@ If the game is restarted later, the block will still be destroyed. To let it app
 
 ```java
 for (int i = 0; i <= MAX_LEVEL; i++) { 
-  Game.world().reset(Resources.maps().get("level" + i)); 
+ Game.world().reset(Resources.maps().get("level" + i)); 
 }
 ```
 
@@ -356,10 +356,10 @@ To play some music, you have to write the following code inside the update metho
 ```java
 @Override 
 public void update() { 
-  if (this.lastPlayed == 0) { 
-    Game.audio().playMusic("menu_music"); 
-    this.lastPlayed = Game.loop().getTicks(); 
-  }
+ if (this.lastPlayed == 0) { 
+ Game.audio().playMusic("menu_music"); 
+ this.lastPlayed = Game.loop().getTicks(); 
+ }
 }
 ```
 
@@ -378,6 +378,6 @@ update();
 inside the `prepare()` method of your screen.
 
 Now you can add music and sound effects to your game!
-You've reached the end of this tutorial, **thanks for reading** 😊
+You've reached the end of this tutorial, **thanks for reading** 
 
 I hope this tutorial helped you.

@@ -11,21 +11,21 @@ keywords: ["LITIENGINE", "game loop", "update", "render", "tick", "IUpdateable",
 
 ```mermaid
 sequenceDiagram
-    autonumber
-    participant Engine as GameLoop (60 Hz Fixed)
-    participant Phys as PhysicsEngine & Entities
-    participant Render as RenderEngine (Variable / VSync)
-    participant Screen as GameScreen / HUD
+ autonumber
+ participant Engine as GameLoop (60 Hz Fixed)
+ participant Phys as PhysicsEngine & Entities
+ participant Render as RenderEngine (Variable / VSync)
+ participant Screen as GameScreen / HUD
 
-    loop Every 16.6 ms (Fixed Tick)
-        Engine->>Phys: update() (Entity controllers, AI, velocities)
-        Phys->>Phys: resolveCollisions() (Spatial quadtree)
-    end
+ loop Every 16.6 ms (Fixed Tick)
+ Engine->>Phys: update() (Entity controllers, AI, velocities)
+ Phys->>Phys: resolveCollisions() (Spatial quadtree)
+ end
 
-    loop Every Frame (Render Tick)
-        Render->>Screen: render(Graphics2D g) (Double-buffered canvas)
-        Screen->>Render: draw layers (Background -> Ground -> Entities -> Overlay)
-    end
+ loop Every Frame (Render Tick)
+ Render->>Screen: render(Graphics2D g) (Double-buffered canvas)
+ Screen->>Render: draw layers (Background -> Ground -> Entities -> Overlay)
+ end
 ```
 
 ---
@@ -34,17 +34,17 @@ LITIENGINE uses a decoupled loop architecture where deterministic game logic (UP
 
 ```mermaid
 flowchart TD
-    subgraph InputLoop["Input Loop (Independent Thread)"]
-        RawHW["Hardware Input (Keyboard/Mouse/Gamepad)"] --> InputState["Update Input State (Input.keyboard / Input.mouse / Input.gamepads)"]
-    end
+ subgraph InputLoop["Input Loop (Independent Thread)"]
+ RawHW["Hardware Input (Keyboard/Mouse/Gamepad)"] --> InputState["Update Input State (Input.keyboard / Input.mouse / Input.gamepads)"]
+ end
 
-    subgraph MainGameLoop["Game.loop() (Fixed Tick Rate, e.g., 60 UPS)"]
-        TickStart["Tick Start"] --> UpdateLoop["Execute Attached IUpdateable Instances"]
-        UpdateLoop --> UpdateEnv["Update Active Environment (Physics, Entities, Emitters)"]
-        UpdateEnv --> RenderPass["Render Active Screen (Screen.render)"]
-        RenderPass --> RenderWorld["Render Environment (Map, Entities, Lighting, Particles)"]
-        RenderWorld --> RenderGUI["Render GuiComponents & HUD"]
-    end
+ subgraph MainGameLoop["Game.loop() (Fixed Tick Rate, e.g., 60 UPS)"]
+ TickStart["Tick Start"] --> UpdateLoop["Execute Attached IUpdateable Instances"]
+ UpdateLoop --> UpdateEnv["Update Active Environment (Physics, Entities, Emitters)"]
+ UpdateEnv --> RenderPass["Render Active Screen (Screen.render)"]
+ RenderPass --> RenderWorld["Render Environment (Map, Entities, Lighting, Particles)"]
+ RenderWorld --> RenderGUI["Render GuiComponents & HUD"]
+ end
 ```
 
 - **Game Loop** (`Game.loop()`) - Handles game logic and triggers rendering at a fixed tick rate.
@@ -57,7 +57,7 @@ This design ensures consistent physics and gameplay regardless of monitor refres
 The `Game.loop()` method returns the main `IGameLoop` that executes all game logic and triggers rendering. It runs at a fixed tick rate (default: 60 ticks/second), ensuring physics, AI, and other time-dependent systems behave consistently.
 
 !!! note
-    The game's loop also executes the rendering process. This internally renders the currently active screen which passes the `Graphics2D` object to all `GuiComponents` and the Environment for rendering.
+ The game's loop also executes the rendering process. This internally renders the currently active screen which passes the `Graphics2D` object to all `GuiComponents` and the Environment for rendering.
 
 ### IUpdateable Interface
 
@@ -65,12 +65,12 @@ To execute custom logic every tick, implement the `IUpdateable` interface and at
 
 ```java
 public class MyEntity extends Entity implements IUpdateable {
-  
-  @Override
-  public void update() {
-    // This code runs every tick (default: 60 times per second)
-    setLocation(getX() + 1, getY());
-  }
+ 
+ @Override
+ public void update() {
+ // This code runs every tick (default: 60 times per second)
+ setLocation(getX() + 1, getY());
+ }
 }
 
 // Attach the entity to the game loop
@@ -104,7 +104,7 @@ Schedule actions to execute after a delay:
 ```java
 // Execute after 2 seconds (120 ticks at 60 tick rate)
 int actionId = Game.loop().execute(120, () -> {
-  System.out.println("Delayed action executed!");
+ System.out.println("Delayed action executed!");
 });
 
 // Cancel a timed action by setting execution time to -1
@@ -142,26 +142,26 @@ cl_showGameMetrics=false
 ```java
 @EntityInfo(width = 32, height = 32)
 public class Enemy extends Creature implements IUpdateable {
-  
-  public Enemy() {
-    super("enemy");
-    Game.loop().attach(this);
-  }
-  
-  @Override
-  public void update() {
-    if (this.isDead()) {
-      Game.loop().detach(this);
-      return;
-    }
-    
-    // AI behavior runs every tick
-    chasePlayer();
-  }
-  
-  private void chasePlayer() {
-    // Movement logic
-  }
+ 
+ public Enemy() {
+ super("enemy");
+ Game.loop().attach(this);
+ }
+ 
+ @Override
+ public void update() {
+ if (this.isDead()) {
+ Game.loop().detach(this);
+ return;
+ }
+ 
+ // AI behavior runs every tick
+ chasePlayer();
+ }
+ 
+ private void chasePlayer() {
+ // Movement logic
+ }
 }
 ```
 
@@ -169,18 +169,18 @@ public class Enemy extends Creature implements IUpdateable {
 
 ```java
 public class GameTimer implements IUpdateable {
-  private int secondsRemaining;
-  
-  public GameTimer(int seconds) {
-    this.secondsRemaining = seconds;
-    Game.loop().attach(this);
-  }
-  
-  @Override
-  public void update() {
-    // Track time using deltaTime
-    // 60 ticks = 1 second at default tick rate
-  }
+ private int secondsRemaining;
+ 
+ public GameTimer(int seconds) {
+ this.secondsRemaining = seconds;
+ Game.loop().attach(this);
+ }
+ 
+ @Override
+ public void update() {
+ // Track time using deltaTime
+ // 60 ticks = 1 second at default tick rate
+ }
 }
 ```
 

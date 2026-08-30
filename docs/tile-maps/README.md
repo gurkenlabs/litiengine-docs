@@ -31,21 +31,21 @@ import de.gurkenlabs.litiengine.environment.tilemap.ITileLayer;
 import de.gurkenlabs.litiengine.resources.Resources;
 
 public class MapManager {
-  public static void loadLevel(String mapName) {
-    // 1. Load the map from .litidata or filesystem
-    IMap map = Resources.maps().get(mapName);
+ public static void loadLevel(String mapName) {
+ // 1. Load the map from .litidata or filesystem
+ IMap map = Resources.maps().get(mapName);
 
-    // 2. Load into GameWorld environment
-    Game.world().loadEnvironment(map);
+ // 2. Load into GameWorld environment
+ Game.world().loadEnvironment(map);
 
-    // 3. Inspect map dimensions
-    int widthInPixels = map.getSizeInPixels().width;
-    int heightInPixels = map.getSizeInPixels().height;
+ // 3. Inspect map dimensions
+ int widthInPixels = map.getSizeInPixels().width;
+ int heightInPixels = map.getSizeInPixels().height;
 
-    // 4. Access tile layers
-    for (ITileLayer layer : map.getTileLayers()) {
-      System.out.println("Layer: " + layer.getName() + " (visible=" + layer.isVisible() + ")");
-    }
-  }
+ // 4. Access tile layers
+ for (ITileLayer layer : map.getTileLayers()) {
+ System.out.println("Layer: " + layer.getName() + " (visible=" + layer.isVisible() + ")");
+ }
+ }
 }
 ```

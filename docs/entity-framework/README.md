@@ -11,48 +11,48 @@ In LITIENGINE, every dynamic and interactive object that exists within a game wo
 
 ```mermaid
 classDiagram
-    class IEntity {
-        <<interface>>
-        +getLocation()
-        +getMapId()
-        +render(Graphics2D g)
-    }
-    class Entity {
-        +setLocation(double x, double y)
-        +getBoundingBox()
-    }
-    class CollisionEntity {
-        +getCollisionBox()
-        +hasCollision()
-    }
-    class MobileEntity {
-        +getVelocity()
-        +getMovementController()
-    }
-    class Creature {
-        +getAnimationController()
-        +getFacingDirection()
-    }
-    class CombatEntity {
-        +getHitpoints()
-        +hit(int damage)
-        +die()
-    }
-    class Prop {
-        +getMaterial()
-        +isIndestructible()
-    }
-    class Emitter {
-        +spawnParticle()
-    }
+ class IEntity {
+ <<interface>>
+ +getLocation()
+ +getMapId()
+ +render(Graphics2D g)
+ }
+ class Entity {
+ +setLocation(double x, double y)
+ +getBoundingBox()
+ }
+ class CollisionEntity {
+ +getCollisionBox()
+ +hasCollision()
+ }
+ class MobileEntity {
+ +getVelocity()
+ +getMovementController()
+ }
+ class Creature {
+ +getAnimationController()
+ +getFacingDirection()
+ }
+ class CombatEntity {
+ +getHitpoints()
+ +hit(int damage)
+ +die()
+ }
+ class Prop {
+ +getMaterial()
+ +isIndestructible()
+ }
+ class Emitter {
+ +spawnParticle()
+ }
 
-    IEntity <|.. Entity
-    Entity <|-- CollisionEntity
-    CollisionEntity <|-- MobileEntity
-    CollisionEntity <|-- Prop
-    MobileEntity <|-- Creature
-    Creature <|-- CombatEntity
-    Entity <|-- Emitter
+ IEntity <|.. Entity
+ Entity <|-- CollisionEntity
+ CollisionEntity <|-- MobileEntity
+ CollisionEntity <|-- Prop
+ MobileEntity <|-- Creature
+ Creature <|-- CombatEntity
+ Entity <|-- Emitter
 ```
 
 ## Core Concepts
@@ -83,9 +83,9 @@ Instead of setting sizes, bounding boxes, and speeds manually in constructors, L
 @MovementInfo(velocity = 90)
 @CollisionInfo(collision = true, collisionBoxWidth = 16, collisionBoxHeight = 12)
 public class Goblin extends Creature {
-  public Goblin() {
-    super("goblin");
-  }
+ public Goblin() {
+ super("goblin");
+ }
 }
 ```
 
@@ -104,11 +104,11 @@ public class Goblin extends Creature {
 
 ```mermaid
 flowchart LR
-    A["1. Instantiation\n(Constructor / MapLoader)"] --> B["2. Environment.add()\n(onLoaded event)"]
-    B --> C["3. Game Loop Tick\n(Controllers / update())"]
-    C --> D["4. RenderEngine Pass\n(RenderType layer)"]
-    D --> C
-    C --> E["5. Environment.remove()\n(onDisposed / Cleanup)"]
+ A["1. Instantiation\n(Constructor / MapLoader)"] --> B["2. Environment.add()\n(onLoaded event)"]
+ B --> C["3. Game Loop Tick\n(Controllers / update())"]
+ C --> D["4. RenderEngine Pass\n(RenderType layer)"]
+ D --> C
+ C --> E["5. Environment.remove()\n(onDisposed / Cleanup)"]
 ```
 
 1. **Instantiation**: Constructed in Java code or loaded from a `.tmx` MapObject via `MapObjectLoader`.

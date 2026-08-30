@@ -27,11 +27,11 @@ The Ability Framework provides a structured way to implement combat abilities, s
 ```java
 @AbilityInfo(cooldown = 500, duration = 300, value = 240)
 public class Jump extends Ability {
-  
-  public Jump(Creature executor) {
-    super(executor);
-    this.addEffect(new JumpEffect(this));
-  }
+ 
+ public Jump(Creature executor) {
+ super(executor);
+ this.addEffect(new JumpEffect(this));
+ }
 }
 ```
 
@@ -41,15 +41,15 @@ Configure ability properties:
 
 ```java
 @AbilityInfo(
-  cooldown = 1000,              // Milliseconds between uses
-  duration = 500,               // How long ability executes
-  value = 100,                  // Custom value (damage, etc.)
-  origin = EntityPivotType.CENTER,  // Where ability originates
-  range = 200,                  // Maximum range
-  multiTarget = false           // Can hit multiple targets
+ cooldown = 1000, // Milliseconds between uses
+ duration = 500, // How long ability executes
+ value = 100, // Custom value (damage, etc.)
+ origin = EntityPivotType.CENTER, // Where ability originates
+ range = 200, // Maximum range
+ multiTarget = false // Can hit multiple targets
 )
 public class Fireball extends Ability {
-  // ...
+ // ...
 }
 ```
 
@@ -61,12 +61,12 @@ Jump jumpAbility = new Jump(creature);
 
 // Check if ability can be cast
 if (jumpAbility.canCast()) {
-  jumpAbility.cast();
+ jumpAbility.cast();
 }
 
 // Check if currently executing
 if (jumpAbility.isExecuting()) {
-  // Ability in progress
+ // Ability in progress
 }
 ```
 
@@ -76,22 +76,22 @@ Effects are applied when an ability executes:
 
 ```java
 public class JumpEffect extends ForceEffect {
-  
-  public JumpEffect(Ability ability) {
-    super(ability, ability.getAttributes().value().get(), EffectTarget.EXECUTINGENTITY);
-  }
-  
-  @Override
-  protected Force applyForce(IMobileEntity entity) {
-    GravityForce force = new GravityForce(entity, getStrength(), Direction.UP);
-    entity.movement().apply(force);
-    return force;
-  }
-  
-  @Override
-  protected boolean hasEnded(EffectApplication appliance) {
-    return super.hasEnded(appliance) || isTouchingCeiling();
-  }
+ 
+ public JumpEffect(Ability ability) {
+ super(ability, ability.getAttributes().value().get(), EffectTarget.EXECUTINGENTITY);
+ }
+ 
+ @Override
+ protected Force applyForce(IMobileEntity entity) {
+ GravityForce force = new GravityForce(entity, getStrength(), Direction.UP);
+ entity.movement().apply(force);
+ return force;
+ }
+ 
+ @Override
+ protected boolean hasEnded(EffectApplication appliance) {
+ return super.hasEnded(appliance) || isTouchingCeiling();
+ }
 }
 ```
 
@@ -116,27 +116,27 @@ Create combat abilities that deal damage:
 
 ```java
 public class SwordSlash extends Ability {
-  
-  public SwordSlash(Creature executor) {
-    super(executor);
-    this.addEffect(new DamageEffect(this));
-  }
+ 
+ public SwordSlash(Creature executor) {
+ super(executor);
+ this.addEffect(new DamageEffect(this));
+ }
 }
 
 public class DamageEffect extends Effect {
-  
-  public DamageEffect(Ability ability) {
-    super(ability, EffectTarget.ENEMY);
-  }
-  
-  @Override
-  public void apply(IEntity entity) {
-    if (entity instanceof ICombatEntity) {
-      ICombatEntity target = (ICombatEntity) entity;
-      int damage = getAbility().getAttributes().value().get();
-      target.hit(damage);
-    }
-  }
+ 
+ public DamageEffect(Ability ability) {
+ super(ability, EffectTarget.ENEMY);
+ }
+ 
+ @Override
+ public void apply(IEntity entity) {
+ if (entity instanceof ICombatEntity) {
+ ICombatEntity target = (ICombatEntity) entity;
+ int damage = getAbility().getAttributes().value().get();
+ target.hit(damage);
+ }
+ }
 }
 ```
 
@@ -144,11 +144,11 @@ public class DamageEffect extends Effect {
 
 ```java
 ability.onCast(event -> {
-  System.out.println("Ability cast!");
+ System.out.println("Ability cast!");
 });
 
 ability.onFinished(event -> {
-  System.out.println("Ability finished!");
+ System.out.println("Ability finished!");
 });
 ```
 
@@ -171,18 +171,18 @@ Mark methods as invokable abilities:
 
 ```java
 public class Player extends Creature {
-  
-  @Action(description = "Perform a jump")
-  public void jump() {
-    if (jumpAbility.canCast()) {
-      jumpAbility.cast();
-    }
-  }
-  
-  @Action(description = "Attack with sword")
-  public void attack() {
-    // Perform attack
-  }
+ 
+ @Action(description = "Perform a jump")
+ public void jump() {
+ if (jumpAbility.canCast()) {
+ jumpAbility.cast();
+ }
+ }
+ 
+ @Action(description = "Attack with sword")
+ public void attack() {
+ // Perform attack
+ }
 }
 
 // Invoke by name

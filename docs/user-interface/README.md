@@ -11,11 +11,11 @@ LITIENGINE includes a dedicated 2D GUI and screen management framework (`de.gurk
 
 ```mermaid
 graph TD
-  SM["<b>ScreenManager</b><br/><i>Game.screens().display(...)</i>"]
-  SM --> GS["<b>GameScreen</b><br/><i>In-Game World & HUD</i>"]
-  SM --> MS["<b>MenuScreen</b><br/><i>Title, Settings & Menus</i>"]
-  GS --> GC["<b>GuiComponents</b><br/><i>Buttons, Sliders, Labels, Menus</i>"]
-  MS --> GC
+ SM["<b>ScreenManager</b><br/><i>Game.screens().display(...)</i>"]
+ SM --> GS["<b>GameScreen</b><br/><i>In-Game World & HUD</i>"]
+ SM --> MS["<b>MenuScreen</b><br/><i>Title, Settings & Menus</i>"]
+ GS --> GC["<b>GuiComponents</b><br/><i>Buttons, Sliders, Labels, Menus</i>"]
+ MS --> GC
 ```
 
 ## Core Architectural Concepts
@@ -56,8 +56,8 @@ playButton.setForeground(Color.WHITE);
 playButton.setBackground(new Color(40, 40, 40));
 
 playButton.onClicked(e -> {
-  Game.screens().display("INGAME");
-  Game.world().loadEnvironment("level1");
+ Game.screens().display("INGAME");
+ Game.world().loadEnvironment("level1");
 });
 
 // Add to your active screen

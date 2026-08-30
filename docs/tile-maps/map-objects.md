@@ -44,7 +44,6 @@ LITIENGINE supports several built-in map object types:
 Each map object has configurable properties accessible in the utiLITI properties panel:
 
 ### Common Properties
-
 - **Name**: Unique identifier for the object
 - **Type**: Entity type (CollisionBox, Prop, Creature, etc.)
 - **X, Y**: Position in tile coordinates
@@ -87,23 +86,23 @@ Create custom loaders for your own entity types:
 
 ```java
 public class MyEntityLoader extends MapObjectLoader {
-  
-  public MyEntityLoader() {
-    super("MY_ENTITY_TYPE");
-  }
-  
-  @Override
-  public Collection<IEntity> load(Environment environment, IMapObject mapObject) {
-    Collection<IEntity> entities = new ArrayList<>();
-    
-    MyEntity entity = new MyEntity();
-    entity.setLocation(mapObject.getLocation());
-    entity.setWidth(mapObject.getWidth());
-    entity.setHeight(mapObject.getHeight());
-    
-    entities.add(entity);
-    return entities;
-  }
+ 
+ public MyEntityLoader() {
+ super("MY_ENTITY_TYPE");
+ }
+ 
+ @Override
+ public Collection<IEntity> load(Environment environment, IMapObject mapObject) {
+ Collection<IEntity> entities = new ArrayList<>();
+ 
+ MyEntity entity = new MyEntity();
+ entity.setLocation(mapObject.getLocation());
+ entity.setWidth(mapObject.getWidth());
+ entity.setHeight(mapObject.getHeight());
+ 
+ entities.add(entity);
+ return entities;
+ }
 }
 
 // Register before Game.start()
@@ -123,10 +122,10 @@ spawn.spawn(Player.instance());
 
 // Use spawnpoint in world loaded event
 Game.world().onLoaded(env -> {
-  Spawnpoint start = env.getSpawnpoint("start");
-  if (start != null) {
-    start.spawn(Player.instance());
-  }
+ Spawnpoint start = env.getSpawnpoint("start");
+ if (start != null) {
+ start.spawn(Player.instance());
+ }
 });
 ```
 

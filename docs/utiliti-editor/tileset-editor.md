@@ -15,31 +15,30 @@ The **Tileset Editor** (accessible via the `Tilesets` tab or double-clicking any
 
 ```text
 ┌─────────────────────────────────────────────────────────────┐
-│ Tileset: [dungeon_tileset ▼]   Tile Size: 16x16             │
-│ Offsets: X: 0 | Y: 0          Custom Properties: [...]      │
+│ Tileset: [dungeon_tileset ▼] Tile Size: 16x16 │
+│ Offsets: X: 0 | Y: 0 Custom Properties: [...] │
 ├───────────────────────────────┬─────────────────────────────┤
-│                               │ [Tile Properties]           │
-│                               │ Type: solid_wall            │
-│                               │ Probability: 1.0            │
-│                               ├─────────────────────────────┤
-│         TILE GRID             │ [Tile Collision Editor]     │
-│    Interactive Atlas          │ ┌────────┐ Mode: Rectangle  │
-│    Multi-tile Selection       │ │ ■■■■■■ │ Shapes: [Delete] │
-│                               │ └────────┘                  │
-│                               ├─────────────────────────────┤
-│                               │ [Tile Animation]            │
-│                               │ Frame 1 (100ms) -> Frame 2  │
-│                               ├─────────────────────────────┤
-│                               │ [Wang Terrain Sets]         │
-│                               │ Set: Walls | Type: Corner   │
-│                               │ 8-Slot Edge/Corner Mask     │
+│ │ [Tile Properties] │
+│ │ Type: solid_wall │
+│ │ Probability: 1.0 │
+│ ├─────────────────────────────┤
+│ TILE GRID │ [Tile Collision Editor] │
+│ Interactive Atlas │ ┌────────┐ Mode: Rectangle │
+│ Multi-tile Selection │ │ ■■■■■■ │ Shapes: [Delete] │
+│ │ └────────┘ │
+│ ├─────────────────────────────┤
+│ │ [Tile Animation] │
+│ │ Frame 1 (100ms) -> Frame 2 │
+│ ├─────────────────────────────┤
+│ │ [Wang Terrain Sets] │
+│ │ Set: Walls | Type: Corner │
+│ │ 8-Slot Edge/Corner Mask │
 └───────────────────────────────┴─────────────────────────────┘
 ```
 
 ---
 
 ## 1. Tileset Properties & Management
-
 - **Importing Tilesets**: Go to **Resources -> Import -> Import Tilesets...** or drag a `.tsx` or image file into the editor.
 - **Tile Offsets**: Adjust `Tile Offset X` and `Tile Offset Y` spinners to offset tile rendering alignment relative to the map grid.
 - **Custom Tileset Properties**: Define custom key-value pairs applicable to all tiles within the tileset.
@@ -62,24 +61,24 @@ Instead of requiring separate external collision tools, utiLITI includes an inte
 
 ```text
 ┌──────────────────────────────────────────────┐
-│ Tools: [↖️ Select] [🔲 Rectangle] [🗑️ Delete] │
+│ Tools: [↖️ Select] [Rectangle] [️ Delete] │
 ├──────────────────────────────────────────────┤
-│               ┌──────────────┐               │
-│               │              │               │
-│               │   ┌──────┐   │ ◄ Resize Grip │
-│               │   │ RED  │   │               │
-│               │   │ AREA │   │               │
-│               │   └──────┘   │               │
-│               └──────────────┘               │
+│ ┌──────────────┐ │
+│ │ │ │
+│ │ ┌──────┐ │ ◄ Resize Grip │
+│ │ │ RED │ │ │
+│ │ │ AREA │ │ │
+│ │ └──────┘ │ │
+│ └──────────────┘ │
 └──────────────────────────────────────────────┘
 ```
 
 ### Collision Authoring Workflow:
 1. Select a tile in the grid.
-2. Under the **Collision Editor** section, click **Rectangle Mode** (`🔲`).
+2. Under the **Collision Editor** section, click **Rectangle Mode** (``).
 3. Click and drag across the tile image preview to define collision boundaries (e.g. half-height walls or isometric tops).
 4. Switch to **Select Mode** (`↖️`) to move shapes or drag corner/edge handles to resize.
-5. Click **Delete** (`🗑️`) or press `Delete` to remove collision geometry.
+5. Click **Delete** (`️`) or press `Delete` to remove collision geometry.
 
 When painted on any map layer, tiles with defined collision shapes automatically generate static physics obstacles in LITIENGINE's physics engine.
 

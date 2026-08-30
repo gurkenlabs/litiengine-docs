@@ -33,7 +33,6 @@ Game.world().environment().add(trigger);
 ## Trigger Properties
 
 ### Activation Type
-
 - **PROPAGATE**: Triggers once, stays active
 - **ONCE**: Triggers once, then disables
 - **TOGGLE**: Activates/deactivates on each entry
@@ -67,12 +66,12 @@ trigger.setMessageTarget("door1");
 
 ```java
 trigger.onActivated(event -> {
-  IEntity activator = event.getEntity();
-  System.out.println("Triggered by: " + activator.getName());
-  
-  // Execute trigger logic
-  spawnEnemies();
-  closeDoors();
+ IEntity activator = event.getEntity();
+ System.out.println("Triggered by: " + activator.getName());
+ 
+ // Execute trigger logic
+ spawnEnemies();
+ closeDoors();
 });
 ```
 
@@ -80,7 +79,7 @@ trigger.onActivated(event -> {
 
 ```java
 trigger.onDeactivated(event -> {
-  System.out.println("Entity left trigger zone");
+ System.out.println("Entity left trigger zone");
 });
 ```
 
@@ -91,7 +90,7 @@ trigger.onDeactivated(event -> {
 ```java
 Trigger exit = new Trigger("exit", TriggerActivation.ONCE);
 exit.onActivated(e -> {
-  Game.world().loadEnvironment("level2");
+ Game.world().loadEnvironment("level2");
 });
 ```
 
@@ -100,11 +99,11 @@ exit.onActivated(e -> {
 ```java
 Trigger spawnZone = new Trigger("spawn_wave1", TriggerActivation.ONCE);
 spawnZone.onActivated(e -> {
-  for (int i = 0; i < 5; i++) {
-    Enemy enemy = new Enemy();
-    enemy.setLocation(spawnX + i * 50, spawnY);
-    Game.world().environment().add(enemy);
-  }
+ for (int i = 0; i < 5; i++) {
+ Enemy enemy = new Enemy();
+ enemy.setLocation(spawnX + i * 50, spawnY);
+ Game.world().environment().add(enemy);
+ }
 });
 ```
 
@@ -113,11 +112,11 @@ spawnZone.onActivated(e -> {
 ```java
 Trigger cutscene = new Trigger("intro_cutscene", TriggerActivation.ONCE);
 cutscene.onActivated(e -> {
-  Player.instance().setControlEnabled(false);
-  playDialog("welcome");
-  Game.loop().execute(3000, () -> {
-    Player.instance().setControlEnabled(true);
-  });
+ Player.instance().setControlEnabled(false);
+ playDialog("welcome");
+ Game.loop().execute(3000, () -> {
+ Player.instance().setControlEnabled(true);
+ });
 });
 ```
 
@@ -127,9 +126,9 @@ Triggers can activate other triggers or send messages:
 
 ```java
 trigger1.onActivated(e -> {
-  // Activate trigger2
-  Trigger trigger2 = Game.world().environment().getTrigger("trigger2");
-  trigger2.activate((IEntity) e.getEntity());
+ // Activate trigger2
+ Trigger trigger2 = Game.world().environment().getTrigger("trigger2");
+ trigger2.activate((IEntity) e.getEntity());
 });
 ```
 

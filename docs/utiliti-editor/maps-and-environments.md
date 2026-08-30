@@ -15,9 +15,9 @@ utiLITI provides robust map authoring and management features supporting standar
 
 1. Select **Map -> New...** from the menu or press **`Ctrl + Shift + N`**.
 2. In the **New Map Dialog**:
-   - **Name**: Unique internal map identifier.
-   - **Width & Height**: Map size in tile units.
-   - **Tile Width & Tile Height**: Grid cell pixel dimensions (e.g. `16x16`, `32x32`).
+- **Name**: Unique internal map identifier.
+- **Width & Height**: Map size in tile units.
+- **Tile Width & Tile Height**: Grid cell pixel dimensions (e.g. `16x16`, `32x32`).
 3. Click **Create** to initialize the map and add it to your project bundle.
 
 ---
@@ -39,14 +39,14 @@ Select the map background or choose **Map Properties** in the inspector to confi
 
 ```text
 ┌─────────────────────────────────────────────────────────────┐
-│ MAP PROPERTIES                                              │
-│ Name: dungeon_level_1  | Title: "The Sunken Catacombs"       │
-│ Description: "First underground level of the dungeon."      │
+│ MAP PROPERTIES │
+│ Name: dungeon_level_1 | Title: "The Sunken Catacombs" │
+│ Description: "First underground level of the dungeon." │
 ├─────────────────────────────────────────────────────────────┤
-│ Ambient Light Color: [ #3C0029 (Alpha: 200) ]  [🎨 Picker]  │
-│ Static Shadow Color: [ #000000 (Alpha: 140) ]  [🎨 Picker]  │
+│ Ambient Light Color: [#3C0029 (Alpha: 200)] [Picker] │
+│ Static Shadow Color: [#000000 (Alpha: 140)] [Picker] │
 ├─────────────────────────────────────────────────────────────┤
-│ [Live Ambient Light & Shadow Preview]                       │
+│ [Live Ambient Light & Shadow Preview] │
 └─────────────────────────────────────────────────────────────┘
 ```
 
@@ -58,7 +58,6 @@ Select the map background or choose **Map Properties** in the inspector to confi
 ---
 
 ## 4. Map Snapshots & Maintenance Tools
-
 - **Save Map Snapshot (`Shift + PrintScreen`)**: Renders the entire full-resolution map canvas to a PNG image file—ideal for level overviews, mini-maps, or documentation.
 - **Sync Maps**: When **Map -> Sync Maps** is checked, external modifications to `.tmx` files on disk are automatically detected and reloaded into utiLITI.
 - **Reassign Map IDs**: Opens **Map -> Reassign Map IDs...** to re-index all entity IDs starting from a specified minimum integer, resolving ID collisions across merged levels.

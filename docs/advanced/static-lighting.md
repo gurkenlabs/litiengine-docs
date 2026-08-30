@@ -10,7 +10,6 @@ keywords: ["LITIENGINE", "static lighting", "shadow", "ambient occlusion", "bake
 Static lighting refers to pre-computed shadows and illumination baked into your tile map. It offers better performance than dynamic lighting for fixed light sources.
 
 ## When to Use Static Lighting
-
 - **Fixed architecture**: Walls, buildings, trees
 - **Non-moving lights**: Lamps, windows, torches that don't move
 - **Performance-critical areas**: When you need many light sources
@@ -89,7 +88,7 @@ Or at runtime:
 
 ```java
 // Adjust shadow transparency
-Game.graphics().setShadowOpacity(0.8f);  // 80% opacity
+Game.graphics().setShadowOpacity(0.8f); // 80% opacity
 ```
 
 ## Best Practices

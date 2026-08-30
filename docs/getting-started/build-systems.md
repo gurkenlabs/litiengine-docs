@@ -34,9 +34,9 @@ To use [Intellij](https://www.jetbrains.com/idea/) and [Gradle](https://gradle.o
 > If you're on linux or mac, you can also use [SDKMAN!](https://sdkman.io/) to manage your Gradle installation. Once you've installed SDKMAN!, type `sdk install gradle` in your terminal. The latest recommend version of Gradle will be installed automatically for you. It should be registered in your IDE after you restart it. For further information look up the [SDKMAN! Docs](https://sdkman.io/usage). **In case you use SDKMAN! skip the next three steps**.
 
 * **Usually you don't have to install any build tools manually, because they come bundled with IntelliJ. The next three steps in brackets of installing Gradle for IntelliJ below usually only have to be followed if IntelliJ didn't install those build tools in the installation process already.**
-* \([download Gradle](https://gradle.org/install/).\)
-* \(create a new directory `C:\Gradle` and unzip the downloaded file there.\)
-* \(add `C:\Gradle\[your-gradle-version]\bin` to your system's *PATH* environment variable.\)
+* ([download Gradle](https://gradle.org/install/).)
+* (create a new directory `C:\Gradle` and unzip the downloaded file there.)
+* (add `C:\Gradle\[your-gradle-version]\bin` to your system's *PATH* environment variable.)
 * usually the Gradle plugin is already installed in IntelliJ, if not, search for it in the plugin marketplace.
 * create a new project and select `Gradle` under `Build system`.
 * two files are required in a Gradle project's root folder: `build.gradle`, containing the build tasks, and `settings.gradle`, containing Gradle settings.

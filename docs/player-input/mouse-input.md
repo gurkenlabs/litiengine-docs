@@ -33,23 +33,23 @@ double y = location.getY();
 ```
 
 !!! note
-    The coordinates are relative to the game window, not the game world. To get world coordinates, account for camera position.
+ The coordinates are relative to the game window, not the game world. To get world coordinates, account for camera position.
 
 ### Checking Button State
 
 ```java
 // Check if any mouse button is pressed
 if (Input.mouse().isPressed()) {
-  // Mouse button is currently pressed
+ // Mouse button is currently pressed
 }
 
 // Check specific buttons
 if (Input.mouse().isLeftMouseButtonDown()) {
-  // Left mouse button is pressed
+ // Left mouse button is pressed
 }
 
 if (Input.mouse().isRightMouseButtonDown()) {
-  // Right mouse button is pressed
+ // Right mouse button is pressed
 }
 ```
 
@@ -61,7 +61,7 @@ Register listeners to respond to mouse events:
 
 ```java
 Input.mouse().onClicked(e -> {
-  System.out.println("Mouse clicked at: " + e.getX() + ", " + e.getY());
+ System.out.println("Mouse clicked at: " + e.getX() + ", " + e.getY());
 });
 ```
 
@@ -70,17 +70,17 @@ Input.mouse().onClicked(e -> {
 ```java
 // When mouse button is pressed down
 Input.mouse().onPressed(e -> {
-  System.out.println("Mouse pressed: " + e.getButton());
+ System.out.println("Mouse pressed: " + e.getButton());
 });
 
 // When mouse button is released
 Input.mouse().onReleased(e -> {
-  System.out.println("Mouse released: " + e.getButton());
+ System.out.println("Mouse released: " + e.getButton());
 });
 
 // Continuously while mouse is pressed
 Input.mouse().onPressing(e -> {
-  // Handle dragging operations
+ // Handle dragging operations
 });
 ```
 
@@ -89,13 +89,13 @@ Input.mouse().onPressing(e -> {
 ```java
 // When mouse moves
 Input.mouse().onMoved(e -> {
-  Point2D location = Input.mouse().getLocation();
-  // Update cursor effects, hover states, etc.
+ Point2D location = Input.mouse().getLocation();
+ // Update cursor effects, hover states, etc.
 });
 
 // When mouse is dragged (moved while button pressed)
 Input.mouse().onDragged(e -> {
-  // Handle drag operations
+ // Handle drag operations
 });
 ```
 
@@ -107,13 +107,13 @@ Convert screen coordinates to game world coordinates:
 
 ```java
 Input.mouse().onClicked(e -> {
-  // Get screen position
-  Point2D screenPos = Input.mouse().getLocation();
-  
-  // Convert to world position (account for camera)
-  Point2D worldPos = Game.world().camera().getMapLocation(screenPos);
-  
-  // Now you can use worldPos for game logic
+ // Get screen position
+ Point2D screenPos = Input.mouse().getLocation();
+ 
+ // Convert to world position (account for camera)
+ Point2D worldPos = Game.world().camera().getMapLocation(screenPos);
+ 
+ // Now you can use worldPos for game logic
 });
 ```
 
@@ -121,16 +121,16 @@ Input.mouse().onClicked(e -> {
 
 ```java
 Input.mouse().onClicked(e -> {
-  Point2D mousePos = Input.mouse().getLocation();
-  Point2D worldPos = Game.world().camera().getMapLocation(mousePos);
-  
-  // Check if clicked on any entity
-  for (IEntity entity : Game.world().environment().getEntities()) {
-    if (entity.getBoundingBox().contains(worldPos)) {
-      System.out.println("Clicked on: " + entity.getName());
-      break;
-    }
-  }
+ Point2D mousePos = Input.mouse().getLocation();
+ Point2D worldPos = Game.world().camera().getMapLocation(mousePos);
+ 
+ // Check if clicked on any entity
+ for (IEntity entity : Game.world().environment().getEntities()) {
+ if (entity.getBoundingBox().contains(worldPos)) {
+ System.out.println("Clicked on: " + entity.getName());
+ break;
+ }
+ }
 });
 ```
 
@@ -138,13 +138,13 @@ Input.mouse().onClicked(e -> {
 
 ```java
 Input.mouse().onClicked(e -> {
-  Point2D worldPos = Game.world().camera().getMapLocation(
-    Input.mouse().getLocation()
-  );
-  
-  // Move player to clicked location
-  Player player = Player.instance();
-  Game.physics().move(player, player.getAngleTo(worldPos), player.getVelocity());
+ Point2D worldPos = Game.world().camera().getMapLocation(
+ Input.mouse().getLocation()
+ );
+ 
+ // Move player to clicked location
+ Player player = Player.instance();
+ Game.physics().move(player, player.getAngleTo(worldPos), player.getVelocity());
 });
 ```
 
@@ -154,12 +154,12 @@ Handle mouse wheel events for zooming or scrolling:
 
 ```java
 Game.window().getRenderComponent().addMouseWheelListener(e -> {
-  int rotation = e.getWheelRotation();
-  if (rotation < 0) {
-    // Scroll up / zoom in
-  } else {
-    // Scroll down / zoom out
-  }
+ int rotation = e.getWheelRotation();
+ if (rotation < 0) {
+ // Scroll up / zoom in
+ } else {
+ // Scroll down / zoom out
+ }
 });
 ```
 
@@ -168,12 +168,12 @@ Game.window().getRenderComponent().addMouseWheelListener(e -> {
 ```java
 // Check if event was left button
 if (Input.mouse().isLeftButton(event)) {
-  // ...
+ // ...
 }
 
-// Check if event was right button  
+// Check if event was right button 
 if (Input.mouse().isRightButton(event)) {
-  // ...
+ // ...
 }
 
 // Set mouse location programmatically

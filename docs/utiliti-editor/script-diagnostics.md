@@ -17,8 +17,8 @@ The **Script Events & API Explorer** is a searchable cheat sheet and interactive
 
 ### Accessing the Explorer
 - **Menu Bar**: `Script` -> `Script Events & API Explorer...`
-- **Script Workspace**: Click `[ 🔍 ]` in the **GLOBALS & APIS** dock panel.
-- **Entity Inspector**: Click `[ 🔍 ]` in the **Scripts** section toolbar.
+- **Script Workspace**: Click `[]` in the **GLOBALS & APIS** dock panel.
+- **Entity Inspector**: Click `[]` in the **Scripts** section toolbar.
 
 ### Explorer Features
 1. **Categorized Event Catalog**: Browse events categorized into Entity Lifecycle, Environment Lifecycle, Game Lifecycle, Combat & Abilities, Movement & Physics, Cinematics, and Spatial Queries.
@@ -30,7 +30,7 @@ The **Script Events & API Explorer** is a searchable cheat sheet and interactive
 
 ## 2. Scripting Architecture & Getting Started Guide
 
-Located within the **Architecture & Getting Started Guide** tab of the explorer (accessible via `Script -> Scripting Guide & Getting Started...` or the `[ 📖 ]` button in the Script Workspace header):
+Located within the **Architecture & Getting Started Guide** tab of the explorer (accessible via `Script -> Scripting Guide & Getting Started...` or the `[]` button in the Script Workspace header):
 
 - Explains the roles of **GameScript**, **EnvironmentScript**, and **CreatureScript**.
 - Details how scripts communicate using `globals`, `sendMessage`, and `EntityQuery`.
@@ -44,7 +44,7 @@ The **Game Scripts & Startup Configuration Dialog** provides project-level manag
 
 ### Accessing the Configuration Dialog
 - **Menu Bar**: `Script` -> `Configure Game Scripts...`
-- **Script Workspace**: Click `[ ⚙ ]` in the Script Explorer header actions.
+- **Script Workspace**: Click `[]` in the Script Explorer header actions.
 
 ### What you can configure
 - **Primary Startup Script**: Choose which `GameScript` automatically initializes on boot.
@@ -55,7 +55,7 @@ The **Game Scripts & Startup Configuration Dialog** provides project-level manag
 
 ## 4. Rich Code Starter Templates
 
-When creating a new script using **Script -> New Script...** or the `[ + ]` button in the Script Workspace, utiLITI generates fully commented starter code with working examples:
+When creating a new script using **Script -> New Script...** or the `[+]` button in the Script Workspace, utiLITI generates fully commented starter code with working examples:
 
 - **GameScript**: Generates map loading boilerplate, `globals` initialization, audio playback, and ESC pause input handlers.
 - **EnvironmentScript**: Generates level start announcement banners, objective tracking via `onEntityRemoved`, and victory transitions.

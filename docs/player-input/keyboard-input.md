@@ -52,7 +52,7 @@ public  class  KeyboardEntityController<T  extends  IMobileEntity> extends 
   private  final  List <Integer > left;
   private  final  List <Integer > right;
   public  KeyboardEntityController(final  T  entity) {
-    this (entity, KeyEvent.VK_UP, KeyEvent.VK_DOWN, KeyEvent.VK_LEFT, KeyEvent.VK_RIGHT);  // You can customize these key. 
+    this (entity, KeyEvent.VK_UP, KeyEvent.VK_DOWN, KeyEvent.VK_LEFT, KeyEvent.VK_RIGHT); // You can customize these key. 
   }
   public  KeyboardEntityController(final  T  entity, final  int  up, final  int  down, final  int  left, final  int  right) {
     super (entity);
@@ -73,8 +73,8 @@ public  class  KeyboardEntityController<T  extends  IMobileEntity> extends 
       this .setDy(this .getDy() + 1 );
     } else  if  (this .left.contains(keyCode.getKeyCode())) {
       this .setDx(this .getDx() - 1 );
-    } else  if  (this .right.contains(keyCode.getKeyCode())) {            // getDx, getDy tells the current coodinates of the character.
-      this .setDx(this .getDx() + 1 );                                    // setDx, setDy sets the coodinates of the character.
+    } else  if  (this .right.contains(keyCode.getKeyCode())) { // getDx, getDy tells the current coodinates of the character.
+      this .setDx(this .getDx() + 1 ); // setDx, setDy sets the coodinates of the character.
     }
   }
   public  void  addUpKey(int  keyCode) {

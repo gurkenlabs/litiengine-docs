@@ -11,8 +11,8 @@ This guide walks you through building, packaging, and distributing your LITIENGI
 
 ```mermaid
 graph LR
-  SRC["<b>Java Source & Resources</b>"] --> BLD["<b>Gradle Build</b><br/><i>ShadowJar / Launch4j</i>"]
-  BLD --> DST["<b>Standalone Distribution</b><br/><i>.exe, .zip, Steam, itch.io</i>"]
+ SRC["<b>Java Source & Resources</b>"] --> BLD["<b>Gradle Build</b><br/><i>ShadowJar / Launch4j</i>"]
+ BLD --> DST["<b>Standalone Distribution</b><br/><i>.exe, .zip, Steam, itch.io</i>"]
 ```
 
 ## 1. Release Preparation
@@ -20,16 +20,17 @@ graph LR
 Before building a release distribution, ensure your project is properly configured for production:
 
 1. **Update Game Version**:
-   * Increment your version number in `build.gradle` (e.g. `version = "1.0.0"`).
-   * Update the metadata in your main entry point:
-     ```java
-     Game.info().setName("My Game");
-     Game.info().setVersion("v1.0.0");
-     ```
+ * Increment your version number in `build.gradle` (e.g. `version = "1.0.0"`).
+ * Update the metadata in your main entry point:
+ ```java
+ Game.info().setName("My Game");
+ Game.info().setVersion("v1.0.0");
+ ```
+
 2. **Disable Debug Flags**:
-   * Ensure `Game.config().debug().setDebug(false)` or disable debug properties in `config.properties`.
+ * Ensure `Game.config().debug().setDebug(false)` or disable debug properties in `config.properties`.
 3. **Verify Resource Bundle**:
-   * Ensure all maps, tilesets, spritesheets, and sounds are packed into `game.litidata` or placed correctly in your runtime `resources/` folder.
+ * Ensure all maps, tilesets, spritesheets, and sounds are packed into `game.litidata` or placed correctly in your runtime `resources/` folder.
 
 ---
 
@@ -39,84 +40,84 @@ Modern LITIENGINE games target **Java 21 or later**. Below is a recommended `bui
 
 ```groovy
 plugins {
-  id 'java'
-  id 'application'
-  id 'com.github.johnrengelman.shadow' version '8.1.1'
-  id 'edu.sc.seis.launch4j' version '3.0.5'
+ id 'java'
+ id 'application'
+ id 'com.github.johnrengelman.shadow' version '8.1.1'
+ id 'edu.sc.seis.launch4j' version '3.0.5'
 }
 
 group = 'com.mygame'
 version = '1.0.0'
 
 java {
-  toolchain {
-    languageVersion = JavaLanguageVersion.of(21)
-  }
+ toolchain {
+ languageVersion = JavaLanguageVersion.of(21)
+ }
 }
 
 application {
-  mainClass = 'com.mygame.Program'
+ mainClass = 'com.mygame.Program'
 }
 
 repositories {
-  mavenCentral()
+ mavenCentral()
 }
 
 dependencies {
-  implementation 'de.gurkenlabs:litiengine:0.11.1'
+ implementation 'de.gurkenlabs:litiengine:0.11.1'
 }
 
 // Configure fat / shadow jar
 shadowJar {
-  archiveBaseName.set('mygame')
-  archiveClassifier.set('all')
-  archiveVersion.set(project.version.toString())
+ archiveBaseName.set('mygame')
+ archiveClassifier.set('all')
+ archiveVersion.set(project.version.toString())
 }
 
 // Configure Windows .exe generation
 launch4j {
-  mainClassName = 'com.mygame.Program'
-  icon = "${projectDir}/icon.ico"
-  outputDir = 'libs'
-  outfile = "mygame-${project.version}.exe"
-  jarTask = tasks.shadowJar
-  companyName = 'My Game Studio'
-  headerType = 'gui'
-  jreMinVersion = '21'
-  bundledJrePath = 'jre'
-  jvmOptions = ['-Xms256m', '-Xmx1024m']
+ mainClassName = 'com.mygame.Program'
+ icon = "${projectDir}/icon.ico"
+ outputDir = 'libs'
+ outfile = "mygame-${project.version}.exe"
+ jarTask = tasks.shadowJar
+ companyName = 'My Game Studio'
+ headerType = 'gui'
+ jreMinVersion = '21'
+ bundledJrePath = 'jre'
+ jvmOptions = ['-Xms256m', '-Xmx1024m']
 }
 
 // Package standalone Windows distribution zip
 tasks.register('distZipWindows', Zip) {
-  group = 'distribution'
-  dependsOn tasks.createExe
+ group = 'distribution'
+ dependsOn tasks.createExe
 
-  archiveFileName = "mygame-${project.version}-win.zip"
-  destinationDirectory = file("${buildDir}/distributions")
+ archiveFileName = "mygame-${project.version}-win.zip"
+ destinationDirectory = file("${buildDir}/distributions")
 
-  from("${buildDir}/launch4j") {
-    include '*.exe'
-  }
-  from(projectDir) {
-    include 'config.properties'
-    include 'game.litidata'
-  }
+ from("${buildDir}/launch4j") {
+ include '*.exe'
+ }
+ from(projectDir) {
+ include 'config.properties'
+ include 'game.litidata'
+ }
 }
 
 // Package standalone Cross-Platform JAR distribution
 tasks.register('distZipUniversal', Zip) {
-  group = 'distribution'
-  dependsOn tasks.shadowJar
+ group = 'distribution'
+ dependsOn tasks.shadowJar
 
-  archiveFileName = "mygame-${project.version}-universal.zip"
-  destinationDirectory = file("${buildDir}/distributions")
+ archiveFileName = "mygame-${project.version}-universal.zip"
+ destinationDirectory = file("${buildDir}/distributions")
 
-  from(tasks.shadowJar.archiveFile)
-  from(projectDir) {
-    include 'config.properties'
-    include 'game.litidata'
-  }
+ from(tasks.shadowJar.archiveFile)
+ from(projectDir) {
+ include 'config.properties'
+ include 'game.litidata'
+ }
 }
 ```
 
@@ -129,8 +130,8 @@ Players should not be required to manually install Java on their systems. You ca
 ```bash
 # Create a minimal bundled JRE containing only required modules
 jlink --no-header-files --no-man-pages --compress=2 \
-      --add-modules java.base,java.desktop,java.logging,java.management \
-      --output build/distributions/jre
+ --add-modules java.base,java.desktop,java.logging,java.management \
+ --output build/distributions/jre
 ```
 
 Place the output `jre/` directory inside your game distribution root alongside `mygame.exe` (matching `bundledJrePath = 'jre'` in Launch4j).
@@ -177,6 +178,5 @@ Before releasing your build:
 > - **Automate with CI/CD**: Set up a GitHub Actions workflow to build and package your cross-platform zip files automatically whenever a new version tag is pushed.
 
 ## See Also
-
 - **[Savegames Guide](savegames.md)** - Persisting player data across game sessions
 - **[Configuration](configuration/README.md)** - Managing runtime game configuration properties

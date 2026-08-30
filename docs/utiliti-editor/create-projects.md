@@ -14,7 +14,6 @@ In LITIENGINE, all game assets, maps, blueprints, particle configurations, sound
 A `.litidata` file is an XML-structured container that can either reference external assets or store base64-encoded compressed resources directly. This makes it effortless to package your entire game for distribution or version-control your assets cleanly.
 
 ### What is stored inside `.litidata`?
-
 - **Maps**: All TMX map layouts, tile layer GID grids, and placed map objects.
 - **Tilesets**: External and embedded TSX tilesets, Wang terrain definitions, tile animations, and custom tile collision shapes.
 - **Spritesheets**: Image frame metrics, slice dimensions, and keyframe animation timing data.
@@ -64,7 +63,7 @@ utiLITI includes a background **Auto-Save Manager** (`AutoSaveManager`) designed
 3. **Recovery on Startup**: If utiLITI detects an unexpected shutdown or finds a backup file that is newer than the saved project, it prompts you on startup to restore the auto-saved session.
 
 !!! tip
-    You can configure the auto-save interval or disable automatic saving in **File -> Settings -> General**.
+ You can configure the auto-save interval or disable automatic saving in **File -> Settings -> General**.
 
 ---
 
@@ -87,15 +86,15 @@ import de.gurkenlabs.litiengine.Game;
 import de.gurkenlabs.litiengine.resources.Resources;
 
 public class MyGame {
-  public static void main(String[] args) {
-    Game.init(args);
-    
-    // Load the resource bundle created in utiLITI
-    Resources.load("game.litidata");
-    
-    // Load the initial map and start the game
-    Game.world().loadEnvironment("level1");
-    Game.start();
-  }
+ public static void main(String[] args) {
+ Game.init(args);
+ 
+ // Load the resource bundle created in utiLITI
+ Resources.load("game.litidata");
+ 
+ // Load the initial map and start the game
+ Game.world().loadEnvironment("level1");
+ Game.start();
+ }
 }
 ```

@@ -15,11 +15,11 @@ LITIENGINE entities support event-driven programming through listener registrati
 
 ```java
 entity.onAdded(e -> {
-  System.out.println("Entity added to environment");
+ System.out.println("Entity added to environment");
 });
 
 entity.onRemoved(e -> {
-  System.out.println("Entity removed from environment");
+ System.out.println("Entity removed from environment");
 });
 ```
 
@@ -27,13 +27,13 @@ entity.onRemoved(e -> {
 
 ```java
 Game.world().environment().onEntityAdded(e -> {
-  IEntity entity = e.getEntity();
-  System.out.println("Spawned: " + entity.getName());
+ IEntity entity = e.getEntity();
+ System.out.println("Spawned: " + entity.getName());
 });
 
 Game.world().environment().onEntityRemoved(e -> {
-  IEntity entity = e.getEntity();
-  System.out.println("Despawned: " + entity.getName());
+ IEntity entity = e.getEntity();
+ System.out.println("Despawned: " + entity.getName());
 });
 ```
 
@@ -45,14 +45,14 @@ Game.world().environment().onEntityRemoved(e -> {
 CombatEntity combat = ...;
 
 combat.onHit(event -> {
-  int damage = event.getDamage();
-  ICombatEntity attacker = event.getExecutor();
-  
-  System.out.println("Took " + damage + " damage!");
-  
-  // Play hit effect
-  playHitSound();
-  flashRed();
+ int damage = event.getDamage();
+ ICombatEntity attacker = event.getExecutor();
+ 
+ System.out.println("Took " + damage + " damage!");
+ 
+ // Play hit effect
+ playHitSound();
+ flashRed();
 });
 ```
 
@@ -60,16 +60,16 @@ combat.onHit(event -> {
 
 ```java
 combat.onDeath(event -> {
-  System.out.println("Entity died!");
-  
-  // Handle death
-  spawnLoot(combat.getLocation());
-  Game.world().environment().remove(combat);
+ System.out.println("Entity died!");
+ 
+ // Handle death
+ spawnLoot(combat.getLocation());
+ Game.world().environment().remove(combat);
 });
 
 combat.onResurrect(event -> {
-  System.out.println("Entity revived!");
-  combat.setHitpoints(combat.getMaxHitpoints());
+ System.out.println("Entity revived!");
+ combat.setHitpoints(combat.getMaxHitpoints());
 });
 ```
 
@@ -81,9 +81,9 @@ combat.onResurrect(event -> {
 MobileEntity mobile = ...;
 
 mobile.onMoved(event -> {
-  // Entity position updated
-  checkForTriggers(mobile.getLocation());
-  updateMinimap();
+ // Entity position updated
+ checkForTriggers(mobile.getLocation());
+ updateMinimap();
 });
 ```
 
@@ -93,12 +93,12 @@ mobile.onMoved(event -> {
 CollisionEntity colliding = ...;
 
 colliding.onCollision(event -> {
-  // Get other entities involved
-  for (IEntity other : event.getInvolvedEntities()) {
-    if (other != colliding) {
-      handleCollisionWith(other);
-    }
-  }
+ // Get other entities involved
+ for (IEntity other : event.getInvolvedEntities()) {
+ if (other != colliding) {
+ handleCollisionWith(other);
+ }
+ }
 });
 ```
 
@@ -106,17 +106,17 @@ colliding.onCollision(event -> {
 
 ```java
 entity.getAnimationController().onKeyFrameChanged((anim, frame) -> {
-  // Specific frame reached
-  if (frame == 3 && anim.getName().contains("walk")) {
-    playFootstepSound();
-  }
+ // Specific frame reached
+ if (frame == 3 && anim.getName().contains("walk")) {
+ playFootstepSound();
+ }
 });
 
 entity.getAnimationController().onFinished(anim -> {
-  // Animation completed
-  if (anim.getName().equals("attack")) {
-    entity.setAttacking(false);
-  }
+ // Animation completed
+ if (anim.getName().equals("attack")) {
+ entity.setAttacking(false);
+ }
 });
 ```
 
@@ -126,16 +126,16 @@ entity.getAnimationController().onFinished(anim -> {
 Trigger trigger = ...;
 
 trigger.onActivated(event -> {
-  IEntity activator = event.getEntity();
-  System.out.println("Trigger activated by: " + activator.getName());
-  
-  // Execute trigger logic
-  spawnEnemies();
-  closeDoors();
+ IEntity activator = event.getEntity();
+ System.out.println("Trigger activated by: " + activator.getName());
+ 
+ // Execute trigger logic
+ spawnEnemies();
+ closeDoors();
 });
 
 trigger.onDeactivated(event -> {
-  System.out.println("Entity left trigger zone");
+ System.out.println("Entity left trigger zone");
 });
 ```
 
@@ -145,10 +145,10 @@ Define and fire custom events:
 
 ```java
 public class PowerUpEvent {
-  private String powerUpType;
-  private IEntity target;
-  
-  // constructor, getters...
+ private String powerUpType;
+ private IEntity target;
+ 
+ // constructor, getters...
 }
 
 // Fire event
@@ -156,9 +156,9 @@ entity.fireEvent(new PowerUpEvent("speed", entity));
 
 // Listen for events
 entity.onEvent(PowerUpEvent.class, event -> {
-  if ("speed".equals(event.getPowerUpType())) {
-    applySpeedBoost();
-  }
+ if ("speed".equals(event.getPowerUpType())) {
+ applySpeedBoost();
+ }
 });
 ```
 
@@ -187,7 +187,7 @@ Multiple listeners can be registered for the same event:
 // Sound handler
 entity.onHit(event -> playHitSound());
 
-// Visual effect handler  
+// Visual effect handler 
 entity.onHit(event -> showDamageNumber());
 
 // Game logic handler
@@ -201,17 +201,17 @@ Subscribe to global game world events:
 ```java
 // Environment loaded
 Game.world().onLoaded(env -> {
-  initializeLevel();
+ initializeLevel();
 });
 
 // Environment unloaded
 Game.world().onUnloaded(env -> {
-  cleanupLevel();
+ cleanupLevel();
 });
 
 // Camera changed
 Game.world().onCameraMoved(camera -> {
-  updateParallax();
+ updateParallax();
 });
 ```
 

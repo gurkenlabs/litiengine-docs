@@ -12,66 +12,66 @@ A cheat sheet of essential LITIENGINE API methods and patterns.
 ## Game Lifecycle
 
 ```java
-Game.init(args);                           // Initialize engine
-Game.start();                              // Start game loop
-Game.exit();                               // Terminate game
+Game.init(args); // Initialize engine
+Game.start(); // Start game loop
+Game.exit(); // Terminate game
 
-Game.info().setName("My Game");            // Set game name
-Game.info().setVersion("v1.0.0");          // Set version
+Game.info().setName("My Game"); // Set game name
+Game.info().setVersion("v1.0.0"); // Set version
 ```
 
 ## Game Components
 
 ```java
-Game.loop()              // Game loop (logic + rendering)
-Game.graphics()          // Render engine
-Game.audio()             // Sound engine
-Game.physics()           // Physics engine
-Game.tweens()            // Tween engine
-Game.world()             // World/environment manager
-Game.window()            // Game window
-Game.screens()           // Screen manager
-Game.scripts()           // Script engine manager
-Game.config()            // Configuration
-Game.info()              // Game metadata
-Game.metrics()           // Performance metrics
-Game.time()              // Game time utilities
-Game.random()            // Random number generator
+Game.loop() // Game loop (logic + rendering)
+Game.graphics() // Render engine
+Game.audio() // Sound engine
+Game.physics() // Physics engine
+Game.tweens() // Tween engine
+Game.world() // World/environment manager
+Game.window() // Game window
+Game.screens() // Screen manager
+Game.scripts() // Script engine manager
+Game.config() // Configuration
+Game.info() // Game metadata
+Game.metrics() // Performance metrics
+Game.time() // Game time utilities
+Game.random() // Random number generator
 ```
 
 ## World & Environment
 
 ```java
-Game.world().loadEnvironment("level1");              // Load by name
-Game.world().loadEnvironment(new Environment(map));  // Load instance
-Game.world().environment();                          // Current environment
-Game.world().camera();                               // Current camera
+Game.world().loadEnvironment("level1"); // Load by name
+Game.world().loadEnvironment(new Environment(map)); // Load instance
+Game.world().environment(); // Current environment
+Game.world().camera(); // Current camera
 
-Game.world().environment().get("entityName");        // Get entity by name
+Game.world().environment().get("entityName"); // Get entity by name
 Game.world().environment().getByType(Creature.class); // Get by type
-Game.world().environment().getByTag("enemy");        // Get by tag
-Game.world().environment().add(entity);              // Add entity
-Game.world().environment().remove(entity);           // Remove entity
+Game.world().environment().getByTag("enemy"); // Get by tag
+Game.world().environment().add(entity); // Add entity
+Game.world().environment().remove(entity); // Remove entity
 ```
 
 ## Game Loop
 
 ```java
-Game.loop().attach(updateable);           // Register for updates
-Game.loop().detach(updateable);           // Unregister
-Game.loop().getDeltaTime();               // Ms since last tick
-Game.loop().getTicks();                   // Total ticks
-Game.loop().getTickRate();                // Ticks per second
-Game.loop().setTickRate(30);              // Change tick rate
-Game.loop().execute(60, () -> {...});     // Execute after 60 ticks
+Game.loop().attach(updateable); // Register for updates
+Game.loop().detach(updateable); // Unregister
+Game.loop().getDeltaTime(); // Ms since last tick
+Game.loop().getTicks(); // Total ticks
+Game.loop().getTickRate(); // Ticks per second
+Game.loop().setTickRate(30); // Change tick rate
+Game.loop().execute(60, () -> {...}); // Execute after 60 ticks
 ```
 
 ## Input
 
 ```java
-Input.keyboard()                          // Keyboard access
-Input.mouse()                             // Mouse access
-Input.gamepads()                          // Gamepad manager
+Input.keyboard() // Keyboard access
+Input.mouse() // Mouse access
+Input.gamepads() // Gamepad manager
 
 // Keyboard
 Input.keyboard().onKeyPressed(KeyEvent.VK_SPACE, e -> {...});
@@ -79,7 +79,7 @@ Input.keyboard().onKeyReleased(KeyEvent.VK_SPACE, e -> {...});
 Input.keyboard().isPressed(KeyEvent.VK_SPACE);
 
 // Mouse
-Input.mouse().getLocation();              // Current position
+Input.mouse().getLocation(); // Current position
 Input.mouse().isLeftMouseButtonDown();
 Input.mouse().isRightMouseButtonDown();
 Input.mouse().onClicked(e -> {...});
@@ -103,7 +103,7 @@ Game.graphics().setBaseRenderScale(3f);
 
 ```java
 Game.audio().playSound("sound.wav");
-Game.audio().playSound("sound.wav", x, y);     // At location
+Game.audio().playSound("sound.wav", x, y); // At location
 Game.audio().playMusic("music.mp3");
 Game.audio().stopMusic();
 Game.audio().setSoundVolume(0.5f);
@@ -122,12 +122,12 @@ Game.physics().raycast(start, end);
 ## Resources
 
 ```java
-Resources.load("game.litidata");                    // Load bundle
+Resources.load("game.litidata"); // Load bundle
 
-Resources.images().get("image.png");                // Load image
-Resources.sounds().get("sound.wav");                // Load sound
-Resources.fonts().get("font.ttf", 24f);             // Load font
-Resources.spritesheets().get("player-idle");        // Get spritesheet
+Resources.images().get("image.png"); // Load image
+Resources.sounds().get("sound.wav"); // Load sound
+Resources.fonts().get("font.ttf", 24f); // Load font
+Resources.spritesheets().get("player-idle"); // Get spritesheet
 ```
 
 ## Entities
@@ -140,9 +140,9 @@ Resources.spritesheets().get("player-idle");        // Get spritesheet
 @MovementInfo(velocity = 100)
 @CombatInfo(hitpoints = 50)
 public class Enemy extends Creature {
-  public Enemy() {
-    super("enemy");
-  }
+ public Enemy() {
+ super("enemy");
+ }
 }
 ```
 
@@ -196,19 +196,19 @@ entity.getAnimationController().getCurrentAnimation();
 
 ```java
 public class MenuScreen extends Screen {
-  public MenuScreen() {
-    super("MENU");
-  }
-  
-  @Override
-  protected void initializeComponents() {
-    // Add GUI components
-  }
-  
-  @Override
-  public void render(Graphics2D g) {
-    // Custom rendering
-  }
+ public MenuScreen() {
+ super("MENU");
+ }
+ 
+ @Override
+ protected void initializeComponents() {
+ // Add GUI components
+ }
+ 
+ @Override
+ public void render(Graphics2D g) {
+ // Custom rendering
+ }
 }
 
 Game.screens().add(new MenuScreen());
@@ -220,9 +220,9 @@ Game.screens().current();
 
 ```java
 Game.tweens().begin(entity, TweenType.LOCATION_XY, 1000)
-    .target(200, 300)
-    .ease(TweenFunction.QUAD_INOUT)
-    .begin();
+ .target(200, 300)
+ .ease(TweenFunction.QUAD_INOUT)
+ .begin();
 ```
 
 ## Camera
@@ -251,11 +251,11 @@ client_updaterate=60
 
 ```java
 public static void main(String[] args) {
-  Game.info().setName("My Game");
-  Game.init(args);
-  Resources.load("game.litidata");
-  Game.world().loadEnvironment("level1");
-  Game.start();
+ Game.info().setName("My Game");
+ Game.init(args);
+ Resources.load("game.litidata");
+ Game.world().loadEnvironment("level1");
+ Game.start();
 }
 ```
 
@@ -263,19 +263,19 @@ public static void main(String[] args) {
 
 ```java
 public class Enemy extends Creature implements IUpdateable {
-  public Enemy() {
-    super("enemy");
-    Game.loop().attach(this);
-  }
-  
-  @Override
-  public void update() {
-    if (isDead()) {
-      Game.loop().detach(this);
-      return;
-    }
-    // AI logic
-  }
+ public Enemy() {
+ super("enemy");
+ Game.loop().attach(this);
+ }
+ 
+ @Override
+ public void update() {
+ if (isDead()) {
+ Game.loop().detach(this);
+ return;
+ }
+ // AI logic
+ }
 }
 ```
 
@@ -284,11 +284,11 @@ public class Enemy extends Creature implements IUpdateable {
 ```java
 @Override
 protected IMovementController createMovementController() {
-  KeyboardEntityController<Player> c = new KeyboardEntityController<>(this);
-  c.addUpKey(KeyEvent.VK_W);
-  c.addDownKey(KeyEvent.VK_S);
-  c.addLeftKey(KeyEvent.VK_A);
-  c.addRightKey(KeyEvent.VK_D);
-  return c;
+ KeyboardEntityController<Player> c = new KeyboardEntityController<>(this);
+ c.addUpKey(KeyEvent.VK_W);
+ c.addDownKey(KeyEvent.VK_S);
+ c.addLeftKey(KeyEvent.VK_A);
+ c.addRightKey(KeyEvent.VK_D);
+ return c;
 }
 ```

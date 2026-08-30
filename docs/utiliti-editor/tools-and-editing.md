@@ -18,11 +18,11 @@ The primary tools are available on the viewport toolbar and can be activated usi
 | Tool | Icon | Hotkey | Target Layer | Description |
 | :--- | :---: | :---: | :--- | :--- |
 | **Pointer Tool** | ↖️ | `V` / `1` | Object / All | Selects, moves, resizes, and rotates map entities. |
-| **Tile Brush Tool** | 🖌️ | `B` / `2` | Tile Layer | Paints individual tiles selected from the Tileset panel. |
-| **Bucket Fill Tool** | 🪣 | `G` / `3` | Tile Layer | Flood-fills contiguous tile areas with the active tile GID. |
-| **Eraser Tool** | 🧹 | `E` / `4` | Tile Layer | Clears tile cells on the active tile layer. |
-| **Stamp Brush Tool** | 📑 | `S` / `5` | Tile Layer | Stamps multi-tile patterns and rectangular tile arrangements. |
-| **Terrain Brush Tool** | 🌲 | `T` / `6` | Tile Layer | Paints Wang terrain sets, automatically resolving neighboring edge and corner transitions. |
+| **Tile Brush Tool** | ️ | `B` / `2` | Tile Layer | Paints individual tiles selected from the Tileset panel. |
+| **Bucket Fill Tool** | | `G` / `3` | Tile Layer | Flood-fills contiguous tile areas with the active tile GID. |
+| **Eraser Tool** | | `E` / `4` | Tile Layer | Clears tile cells on the active tile layer. |
+| **Stamp Brush Tool** | | `S` / `5` | Tile Layer | Stamps multi-tile patterns and rectangular tile arrangements. |
+| **Terrain Brush Tool** | | `T` / `6` | Tile Layer | Paints Wang terrain sets, automatically resolving neighboring edge and corner transitions. |
 
 ---
 
@@ -37,9 +37,9 @@ The **Pointer Tool** is the primary tool for interacting with map objects and en
 - **Moving Entities**: Click and drag selected entities to move them across the map.
 - **Resizing Entities**: Hover over the boundary handles (corners and edges) of a selected entity and drag to adjust width and height.
 - **Transform Modes**:
-  - `Move`: Standard translation.
-  - `Rotate`: Adjust rotation angle.
-  - `Scale`: Proportional resizing.
+ - `Move`: Standard translation.
+ - `Rotate`: Adjust rotation angle.
+ - `Scale`: Proportional resizing.
 
 ---
 
@@ -96,7 +96,7 @@ utiLITI provides several snapping modes to maintain clean grid alignment during 
 
 ```text
 ┌─────────────────────────────────────────────────────────────┐
-│ [🧲 Snap to Grid]   [🔲 Snap to Pixels]   [📐 Snap Division: 1/2] │
+│ [Snap to Grid] [Snap to Pixels] [Snap Division: 1/2] │
 └─────────────────────────────────────────────────────────────┘
 ```
 

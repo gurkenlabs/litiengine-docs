@@ -20,7 +20,7 @@ import de.gurkenlabs.litiengine.util.MathUtilities;
 int clamped = MathUtilities.clamp(value, 0, 100);
 
 // Rounding
-double rounded = MathUtilities.round(value, 2);  // 2 decimal places
+double rounded = MathUtilities.round(value, 2); // 2 decimal places
 
 // Interpolation
 double lerped = MathUtilities.lerp(start, end, 0.5);
@@ -30,7 +30,7 @@ boolean even = MathUtilities.isEven(number);
 ```
 
 !!! note
-    Use `Game.random()` for random numbers instead of MathUtilities.random methods.
+ Use `Game.random()` for random numbers instead of MathUtilities.random methods.
 
 ## GeometricUtilities
 
@@ -94,7 +94,7 @@ Time formatting:
 import de.gurkenlabs.litiengine.util.TimeUtilities;
 
 // Format milliseconds to readable time
-String formatted = TimeUtilities.toReadableTime(125000);  // "2:05"
+String formatted = TimeUtilities.toReadableTime(125000); // "2:05"
 ```
 
 ## See Also

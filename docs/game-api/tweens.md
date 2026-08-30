@@ -22,9 +22,9 @@ Then you can chain methods to set the starting and ending values, the easing fun
 ImageComponent ic;
 // Create a new Tween that moves the ImageComponent to the given location over 4 seconds, using a quadratic easing function.
 Game.tweens().begin(ic, TweenType.LOCATION_XY, 4000)
-    .target(100, 200)
-    .ease(TweenFunction.QUAD_INOUT)
-    .begin();
+ .target(100, 200)
+ .ease(TweenFunction.QUAD_INOUT)
+ .begin();
 ```
 
 ## TweenType
@@ -62,8 +62,8 @@ based on the input time.
 
 * The `LINEAR` function simply returns the input time, creating a linear transition.
 * The `QUAD_IN` function represents a quadratic easing-in function, which accelerates from zero velocity. Similarly, `QUAD_OUT` and `QUAD_INOUT`
-  provide quadratic easing-out and easing-in-out transitions, respectively. The `QUAD_OUT` function decelerates to zero velocity, while `QUAD_INOUT`
-  combines both behaviors.
+ provide quadratic easing-out and easing-in-out transitions, respectively. The `QUAD_OUT` function decelerates to zero velocity, while `QUAD_INOUT`
+ combines both behaviors.
 
 * The `CIRCLE_IN`, `CIRCLE_OUT`, and `CIRCLE_INOUT` functions use circular equations to create easing effects that mimic the motion of a circle.
 * The `SINE_IN`, `SINE_OUT`, and `SINE_INOUT` functions use sine wave equations to create smooth sinusoidal transitions.

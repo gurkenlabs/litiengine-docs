@@ -15,7 +15,7 @@ utiLITI and your IDE work on the same project files. Script source is not embedd
 2. Put Java scripts in `src/main/java`.
 3. Build the project so utiLITI can discover compiled entities, abilities, and scripts.
 4. Open the same `.litidata` project in utiLITI.
-5. Select **Assets → Scripts** or choose the **Scripts** icon in the workspace rail.
+5. Select **Assets -> Scripts** or choose the **Scripts** icon in the workspace rail.
 6. Create or edit the script definition and bind it to game content.
 7. Edit the implementation in IntelliJ or in utiLITI's source panel.
 8. Choose **Save & reload** to compile Java source and replace active preview instances.
@@ -93,21 +93,21 @@ import de.gurkenlabs.litiengine.scripting.*;
 @ScriptInfo(id = "GoblinAI", host = ScriptHostType.ENTITY, target = Creature.class)
 public class GoblinAI extends CreatureScript {
 
-  @ScriptProperty(description = "Aggro search radius in pixels", defaultValue = "150")
-  private double aggroRadius = 150;
+ @ScriptProperty(description = "Aggro search radius in pixels", defaultValue = "150")
+ private double aggroRadius = 150;
 
-  @ScriptProperty(description = "Attack damage per hit", defaultValue = "20")
-  private int attackPower = 20;
+ @ScriptProperty(description = "Attack damage per hit", defaultValue = "20")
+ private int attackPower = 20;
 
-  @ScriptProperty(description = "Whether the goblin retreats when low on health")
-  private boolean cowardly = true;
+ @ScriptProperty(description = "Whether the goblin retreats when low on health")
+ private boolean cowardly = true;
 
-  @Override
-  public void update() {
-    if (cowardly && host().getHitPoints().get() < 10) {
-      // Retreat behavior...
-    }
-  }
+ @Override
+ public void update() {
+ if (cowardly && host().getHitPoints().get() < 10) {
+ // Retreat behavior...
+ }
+ }
 }
 ```
 
@@ -191,4 +191,4 @@ This keeps suggestions aligned with the engine version and the project's real en
 For full project-semantic features such as rename refactoring, cross-file error analysis, and debugging, continue using IntelliJ. The intended long-term bridge is an LSP/DAP adapter backed by the generated engine API index, not a separate utiLITI-only source model.
 
 !!! warning
-    Previewing a project executes trusted project code. Only run projects and scripts from sources you trust.
+ Previewing a project executes trusted project code. Only run projects and scripts from sources you trust.

@@ -11,11 +11,11 @@ In LITIENGINE, entity behaviors, animations, locomotion, combat actions, and art
 
 ```mermaid
 graph TD
-  EC["<b>Entity Control Architecture</b>"]
-  EC --> M["MovementController<br/><i>Physics & Input Forces</i>"]
-  EC --> A["AnimationController<br/><i>Spritesheets & States</i>"]
-  EC --> B["BehaviorController<br/><i>AI & State Trees</i>"]
-  EC --> S["Scripting Engine<br/><i>Java Logic</i>"]
+ EC["<b>Entity Control Architecture</b>"]
+ EC --> M["MovementController<br/><i>Physics & Input Forces</i>"]
+ EC --> A["AnimationController<br/><i>Spritesheets & States</i>"]
+ EC --> B["BehaviorController<br/><i>AI & State Trees</i>"]
+ EC --> S["Scripting Engine<br/><i>Java Logic</i>"]
 ```
 
 ## The Four Control Paradigms
@@ -64,16 +64,16 @@ Write hot-reloadable game logic directly in **utiLITI** or external scripts:
 
 ```java
 public class Player extends Creature {
-  public Player() {
-    super("player");
+ public Player() {
+ super("player");
 
-    // Add standard keyboard movement controller
-    addController(new KeyboardEntityController<>(this));
+ // Add standard keyboard movement controller
+ addController(new KeyboardEntityController<>(this));
 
-    // Listen to movement events
-    movement().onMoved(e -> {
-      // Custom footsteps, trail effects, or stamina drain
-    });
-  }
+ // Listen to movement events
+ movement().onMoved(e -> {
+ // Custom footsteps, trail effects, or stamina drain
+ });
+ }
 }
 ```

@@ -31,10 +31,10 @@ Game.world().environment().remove("my-entity");
 
 // add a entity listener to the current environment of the game
 Game.world().environment().addEntityListener(new EnvironmentEntityListener(){
-  @Override
-  public void entityAdded(IEntity entity) {
-    // do sth when entities are added
-  }
+ @Override
+ public void entityAdded(IEntity entity) {
+ // do sth when entities are added
+ }
 });
 ```
  ### Layering
@@ -46,14 +46,14 @@ Game.world().environment().addEntityListener(new EnvironmentEntityListener(){
 
  Internally, the Environment.render method does the following for every `RenderType` (besides `RenderType.NONE`, which can, for example, be used to make objects invisible temporarily):
 
-  1.  Render all Map Layers of that type
-  2.  Render all registered `IRenderable` implementations of that type
-  3.  Render all added `IEntities` of that type
-  4.  Call-back on the `EnvironmentRenderListener.rendered` listeners for that type
-  5.  If `dbg_logDetailedRenderTimes = true`: track the time it took to execute the rendering
+ 1. Render all Map Layers of that type
+ 2. Render all registered `IRenderable` implementations of that type
+ 3. Render all added `IEntities` of that type
+ 4. Call-back on the `EnvironmentRenderListener.rendered` listeners for that type
+ 5. If `dbg_logDetailedRenderTimes = true`: track the time it took to execute the rendering
 
 !!! tip "Entity Tag Caching"
-    Use `environment.getEntitiesByTag("enemy")` to efficiently query collections of entities instead of filtering through `environment().getAll()` on every frame.
+ Use `environment.getEntitiesByTag("enemy")` to efficiently query collections of entities instead of filtering through `environment().getAll()` on every frame.
 
 ## Code-Only Environments (Procedural Maps without utiLITI)
 
@@ -70,27 +70,27 @@ import de.gurkenlabs.litiengine.environment.tilemap.xml.TmxMap;
 import java.awt.Color;
 
 public class ProceduralWorld {
-  public static void generateDungeon() {
-    // 1. Create a blank in-memory map (e.g. 50x50 tiles, 16x16 pixels per tile)
-    TmxMap proceduralMap = new TmxMap();
-    proceduralMap.setWidth(50);
-    proceduralMap.setHeight(50);
-    proceduralMap.setTileWidth(16);
-    proceduralMap.setTileHeight(16);
+ public static void generateDungeon() {
+ // 1. Create a blank in-memory map (e.g. 50x50 tiles, 16x16 pixels per tile)
+ TmxMap proceduralMap = new TmxMap();
+ proceduralMap.setWidth(50);
+ proceduralMap.setHeight(50);
+ proceduralMap.setTileWidth(16);
+ proceduralMap.setTileHeight(16);
 
-    // 2. Wrap into an Environment
-    Environment env = new Environment(proceduralMap);
+ // 2. Wrap into an Environment
+ Environment env = new Environment(proceduralMap);
 
-    // 3. Add entities programmatically
-    Prop pillar = new Prop("rock");
-    pillar.setLocation(100, 100);
-    env.add(pillar);
+ // 3. Add entities programmatically
+ Prop pillar = new Prop("rock");
+ pillar.setLocation(100, 100);
+ env.add(pillar);
 
-    // 4. Set ambient lighting
-    env.getAmbientLight().setColor(new Color(20, 25, 40, 200));
+ // 4. Set ambient lighting
+ env.getAmbientLight().setColor(new Color(20, 25, 40, 200));
 
-    // 5. Activate environment in GameWorld
-    Game.world().loadEnvironment(env);
-  }
+ // 5. Activate environment in GameWorld
+ Game.world().loadEnvironment(env);
+ }
 }
 ```

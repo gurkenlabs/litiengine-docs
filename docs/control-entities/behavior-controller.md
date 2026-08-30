@@ -29,7 +29,7 @@ First of all, we need a collection of points that mark the path for our rat to w
 If you decide to add the path manually, the object xml should look something like this:
 ```xml
 <object id="10" name="rat_path" type="PATH" x="264" y="84" width="0" height="0">
-    <polyline points="0,4 -38,9 -40,20 0,20 40,28 48,52 46,100 81,148 68,180"/>
+ <polyline points="0,4 -38,9 -40,20 0,20 40,28 48,52 46,100 81,148 68,180"/>
 </object>
 ```
 
@@ -46,9 +46,9 @@ We're going to keep the rat implementation a minimal extension of `Creature` and
 @MovementInfo(velocity = 6)
 public class Rat extends Creature {
 
-  public Rat() {
-    super("rat");
-  }
+ public Rat() {
+ super("rat");
+ }
 
 }
 ```
@@ -60,47 +60,47 @@ Next, we implement a custom `MapObjectLoader` that can handle the `PATH` object 
 ```java
 public class PathMapObjectLoader extends MapObjectLoader {
 
-  public PathMapObjectLoader() {
-    super("PATH");
-  }
+ public PathMapObjectLoader() {
+ super("PATH");
+ }
 
-  @Override
-  public Collection<IEntity> load(Environment environment, IMapObject mapObject) {
-    Collection<IEntity> entities = new ArrayList<>();
-    if (!mapObject.getType().equals("PATH")
-    || !mapObject.getName().equals("rat_path")
-    || mapObject.getPolyline() == null 
-    || mapObject.getPolyline().getPoints().isEmpty()) {
-      return entities;
-    }
+ @Override
+ public Collection<IEntity> load(Environment environment, IMapObject mapObject) {
+ Collection<IEntity> entities = new ArrayList<>();
+ if (!mapObject.getType().equals("PATH")
+ || !mapObject.getName().equals("rat_path")
+ || mapObject.getPolyline() == null 
+ || mapObject.getPolyline().getPoints().isEmpty()) {
+ return entities;
+ }
 
-    // Convert the mapObject's polyline to a Path2D object.
-    final Path2D path = MapUtilities.convertPolyshapeToPath(mapObject);
-    if (path == null) {
-      return entities;
-    }
+ // Convert the mapObject's polyline to a Path2D object.
+ final Path2D path = MapUtilities.convertPolyshapeToPath(mapObject);
+ if (path == null) {
+ return entities;
+ }
 
-    final Point2D start = new Point2D.Double(mapObject.getLocation().getX(), mapObject.getLocation().getY());
+ final Point2D start = new Point2D.Double(mapObject.getLocation().getX(), mapObject.getLocation().getY());
 
-    // Either initialize a new Rat and add it to the entity list, or access an existing instance.
-    Rat rat;
-    rat.setLocation(start);
-    rat.setMapId(mapObject.getId());
-    // Add a behavior controller to the rat.
-    rat.addController(new RatController(rat, path));
-    
-    // For cutscenes, you can let the camera follow our Rat
-    Game.world().setCamera(new PositionLockCamera(rat));
+ // Either initialize a new Rat and add it to the entity list, or access an existing instance.
+ Rat rat;
+ rat.setLocation(start);
+ rat.setMapId(mapObject.getId());
+ // Add a behavior controller to the rat.
+ rat.addController(new RatController(rat, path));
+ 
+ // For cutscenes, you can let the camera follow our Rat
+ Game.world().setCamera(new PositionLockCamera(rat));
 
-    return entities;
-  }
+ return entities;
+ }
 }
 
 ```
 
 When you initialize your game (before calling `Game.start()`), you need to register the `PathMapObjectLoader` like this:
 ```java
-  Environment.registerMapObjectLoader(new PathMapObjectLoader());
+ Environment.registerMapObjectLoader(new PathMapObjectLoader());
 ```
 
 ### The StateController
@@ -110,27 +110,27 @@ Now, we define the conditions for switching between walking randomly and followi
 ```java
 public class RatController extends StateController<Rat> {
 
-  private final FollowPathState followPathState;
-  private final WalkAroundState randomWalkState;
+ private final FollowPathState followPathState;
+ private final WalkAroundState randomWalkState;
 
 
-  public RatController(final Rat entity, final Path2D path) {
-    super(entity);
-    this.followPathState = new FollowPathState(entity, path);
-    this.randomWalkState = new WalkAroundState(entity);
-    // Stop navigating if the rat was killed
-    followPathState.getNavigator().cancelNavigation(e -> entity.isDead());
-    // Trigger the state transition to walk around randomly once the navigator has reached the end of the path.
-    followPathState.getTransitions().add(new Transition(1, randomWalkState) {
+ public RatController(final Rat entity, final Path2D path) {
+ super(entity);
+ this.followPathState = new FollowPathState(entity, path);
+ this.randomWalkState = new WalkAroundState(entity);
+ // Stop navigating if the rat was killed
+ followPathState.getNavigator().cancelNavigation(e -> entity.isDead());
+ // Trigger the state transition to walk around randomly once the navigator has reached the end of the path.
+ followPathState.getTransitions().add(new Transition(1, randomWalkState) {
 
-      @Override
-      public boolean conditionsFullfilled() {
-        return !followPathState.getNavigator().isNavigating();
-      }
-    });
-    // Set the first state
-    setState(followPathState);
-  }
+ @Override
+ public boolean conditionsFullfilled() {
+ return !followPathState.getNavigator().isNavigating();
+ }
+ });
+ // Set the first state
+ setState(followPathState);
+ }
 }
 ```
 
@@ -142,29 +142,29 @@ In the previous section, we have initialized a `FollowPathState` and a `WalkArou
 ```java
 public class FollowPathState extends EntityState<Creature> {
 
-  private EntityNavigator navigator;
-  private final Path2D path;
-  private boolean started;
+ private EntityNavigator navigator;
+ private final Path2D path;
+ private boolean started;
 
-  public FollowPathState(final Creature entity, final Path2D path) {
-    super("FOLLOW_PATH", entity, Game.world().environment());
-    this.path = path;
-    // Add an EntityNavigator that can move our entity along paths. Since we want to determine the path manually, pass null as the PathFinder parameter to the constructor.
-    this.navigator = new EntityNavigator(entity, null);
-  }
+ public FollowPathState(final Creature entity, final Path2D path) {
+ super("FOLLOW_PATH", entity, Game.world().environment());
+ this.path = path;
+ // Add an EntityNavigator that can move our entity along paths. Since we want to determine the path manually, pass null as the PathFinder parameter to the constructor.
+ this.navigator = new EntityNavigator(entity, null);
+ }
 
-  @Override
-  public void perform() {
-    // let the EntityNavigator start navigating.
-    if (!started) {
-      navigator.navigate(path);
-      this.started = true;
-    }
-  }
+ @Override
+ public void perform() {
+ // let the EntityNavigator start navigating.
+ if (!started) {
+ navigator.navigate(path);
+ this.started = true;
+ }
+ }
 
-  public EntityNavigator getNavigator() {
-    return navigator;
-  }
+ public EntityNavigator getNavigator() {
+ return navigator;
+ }
 }
 ```
 
@@ -174,29 +174,29 @@ The `FollowPathState` simply tells an `EntityNavigator` to move our entity along
 
 ```java
 public class WalkAroundState extends EntityState<Creature> {
-  private static final int ANGLE_CHANGE_INTERVAL = 3000;
-  private int angle;
-  private long lastAngleChange;
+ private static final int ANGLE_CHANGE_INTERVAL = 3000;
+ private int angle;
+ private long lastAngleChange;
 
-  public WalkAroundState(final Creature entity) {
-    super("WALK_AROUND", entity, Game.world().environment());
-  }
+ public WalkAroundState(final Creature entity) {
+ super("WALK_AROUND", entity, Game.world().environment());
+ }
 
-  @Override
-  public void perform() {
-    if (getEntity().isDead()) {
-      return;
-    }
+ @Override
+ public void perform() {
+ if (getEntity().isDead()) {
+ return;
+ }
 
-    final long currentTick = Game.loop().getTicks();
+ final long currentTick = Game.loop().getTicks();
 
-    if (angle == 0 || Game.time().since(lastAngleChange) > ANGLE_CHANGE_INTERVAL) {
-      this.angle = Game.random().nextInt(360);
-      this.lastAngleChange = currentTick;
-    }
+ if (angle == 0 || Game.time().since(lastAngleChange) > ANGLE_CHANGE_INTERVAL) {
+ this.angle = Game.random().nextInt(360);
+ this.lastAngleChange = currentTick;
+ }
 
-    Game.physics().move(getEntity(), angle, getEntity().getTickVelocity());
-  }
+ Game.physics().move(getEntity(), angle, getEntity().getTickVelocity());
+ }
 }
 ```
 
@@ -208,11 +208,11 @@ The state transitions of our enemy AI can be visualized with this state diagram:
 
 ```mermaid
 stateDiagram-v2
-    [*] --> Patrol
-    Patrol --> Chase: Player within 150px
-    Chase --> Attack: Player within 30px
-    Attack --> Chase: Player moves away (>= 30px)
-    Chase --> Patrol: Player escapes (> 250px)
+ [*] --> Patrol
+ Patrol --> Chase: Player within 150px
+ Chase --> Attack: Player within 30px
+ Attack --> Chase: Player moves away (>= 30px)
+ Chase --> Patrol: Player escapes (> 250px)
 ```
 
 ---
@@ -232,70 +232,70 @@ import de.gurkenlabs.litiengine.entities.behavior.StateMachine;
 import java.awt.geom.Point2D;
 
 public class EnemyAIController extends StateMachine {
-  private final Creature enemy;
-  private final Creature player;
+ private final Creature enemy;
+ private final Creature player;
 
-  public EnemyAIController(Creature enemy, Creature player) {
-    this.enemy = enemy;
-    this.player = player;
+ public EnemyAIController(Creature enemy, Creature player) {
+ this.enemy = enemy;
+ this.player = player;
 
-    // Define States
-    PatrolState patrol = new PatrolState(enemy);
-    ChaseState chase = new ChaseState(enemy, player);
-    AttackState attack = new AttackState(enemy, player);
+ // Define States
+ PatrolState patrol = new PatrolState(enemy);
+ ChaseState chase = new ChaseState(enemy, player);
+ AttackState attack = new AttackState(enemy, player);
 
-    // Define Transitions
-    patrol.getTransitions().add(new EntityTransition<>(1, chase, e -> getDistanceToPlayer() < 150));
-    chase.getTransitions().add(new EntityTransition<>(1, attack, e -> getDistanceToPlayer() < 30));
-    chase.getTransitions().add(new EntityTransition<>(2, patrol, e -> getDistanceToPlayer() > 250));
-    attack.getTransitions().add(new EntityTransition<>(1, chase, e -> getDistanceToPlayer() >= 30));
+ // Define Transitions
+ patrol.getTransitions().add(new EntityTransition<>(1, chase, e -> getDistanceToPlayer() < 150));
+ chase.getTransitions().add(new EntityTransition<>(1, attack, e -> getDistanceToPlayer() < 30));
+ chase.getTransitions().add(new EntityTransition<>(2, patrol, e -> getDistanceToPlayer() > 250));
+ attack.getTransitions().add(new EntityTransition<>(1, chase, e -> getDistanceToPlayer() >= 30));
 
-    // Initial state
-    this.setState(patrol);
-  }
+ // Initial state
+ this.setState(patrol);
+ }
 
-  private double getDistanceToPlayer() {
-    return enemy.getCenter().distance(player.getCenter());
-  }
+ private double getDistanceToPlayer() {
+ return enemy.getCenter().distance(player.getCenter());
+ }
 
-  private static class PatrolState extends EntityState<Creature> {
-    public PatrolState(Creature enemy) {
-      super("PATROL", enemy);
-    }
+ private static class PatrolState extends EntityState<Creature> {
+ public PatrolState(Creature enemy) {
+ super("PATROL", enemy);
+ }
 
-    @Override
-    public void perform() {
-      // Roam or wander around origin
-    }
-  }
+ @Override
+ public void perform() {
+ // Roam or wander around origin
+ }
+ }
 
-  private static class ChaseState extends EntityState<Creature> {
-    private final Creature target;
+ private static class ChaseState extends EntityState<Creature> {
+ private final Creature target;
 
-    public ChaseState(Creature enemy, Creature target) {
-      super("CHASE", enemy);
-      this.target = target;
-    }
+ public ChaseState(Creature enemy, Creature target) {
+ super("CHASE", enemy);
+ this.target = target;
+ }
 
-    @Override
-    public void perform() {
-      // Navigate towards player location
-      getEntity().getMovementController().applyForce(target.getCenter(), 50);
-    }
-  }
+ @Override
+ public void perform() {
+ // Navigate towards player location
+ getEntity().getMovementController().applyForce(target.getCenter(), 50);
+ }
+ }
 
-  private static class AttackState extends EntityState<Creature> {
-    private final Creature target;
+ private static class AttackState extends EntityState<Creature> {
+ private final Creature target;
 
-    public AttackState(Creature enemy, Creature target) {
-      super("ATTACK", enemy);
-      this.target = target;
-    }
+ public AttackState(Creature enemy, Creature target) {
+ super("ATTACK", enemy);
+ this.target = target;
+ }
 
-    @Override
-    public void perform() {
-      // Execute combat attack or ability
-    }
-  }
+ @Override
+ public void perform() {
+ // Execute combat attack or ability
+ }
+ }
 }
 ```

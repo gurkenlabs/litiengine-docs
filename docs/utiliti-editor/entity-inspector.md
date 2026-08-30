@@ -17,26 +17,26 @@ When an entity is selected on the canvas or in the scene graph, the inspector di
 
 ```text
 ┌─────────────────────────────────────────────────────────────┐
-│ ▼ GENERAL                                                   │
-│   ID: 104  | Name: goblin_guard | RenderType: NORMAL        │
-│   Layer: entities | Implementation: mygame.GoblinAI         │
-│   Tags: [enemy] [patrol]                                    │
-│   Transform: X: 128 | Y: 64 | W: 32 | H: 32                 │
+│ ▼ GENERAL │
+│ ID: 104 | Name: goblin_guard | RenderType: NORMAL │
+│ Layer: entities | Implementation: mygame.GoblinAI │
+│ Tags: [enemy] [patrol] │
+│ Transform: X: 128 | Y: 64 | W: 32 | H: 32 │
 ├─────────────────────────────────────────────────────────────┤
-│ ▼ ENTITY TYPE (CREATURE / PROP / TRIGGER / etc.)            │
-│   Spritesheet: goblin-run | Direction: DOWN | Scale: [x]    │
+│ ▼ ENTITY TYPE (CREATURE / PROP / TRIGGER / etc.) │
+│ Spritesheet: goblin-run | Direction: DOWN | Scale: [x] │
 ├─────────────────────────────────────────────────────────────┤
-│ ▶ COLLISION                                                 │
+│ COLLISION │
 ├─────────────────────────────────────────────────────────────┤
-│ ▶ COMBAT                                                    │
+│ COMBAT │
 ├─────────────────────────────────────────────────────────────┤
-│ ▶ MOVEMENT                                                  │
+│ MOVEMENT │
 ├─────────────────────────────────────────────────────────────┤
-│ ▼ SCRIPTS                                                   │
-│   Attached: [GoblinAI] (Order 1, Enabled)                   │
-│   Properties: aggroRadius=150, attackPower=20               │
+│ ▼ SCRIPTS │
+│ Attached: [GoblinAI] (Order 1, Enabled) │
+│ Properties: aggroRadius=150, attackPower=20 │
 ├─────────────────────────────────────────────────────────────┤
-│ ▶ CUSTOM PROPERTIES                                         │
+│ CUSTOM PROPERTIES │
 └─────────────────────────────────────────────────────────────┘
 ```
 
@@ -86,9 +86,9 @@ Movable characters, NPCs, players, and enemies:
 Spatial event triggers activated by player or creature interactions:
 
 - **Activation Type**:
-  - `COLLISION`: Fires when an entity enters the trigger's bounding box.
-  - `INTERACT`: Fires when the player presses the action key within the trigger area.
-  - `TOGGLE`: Switches state on and off repeatedly upon interaction.
+ - `COLLISION`: Fires when an entity enters the trigger's bounding box.
+ - `INTERACT`: Fires when the player presses the action key within the trigger area.
+ - `TOGGLE`: Switches state on and off repeatedly upon interaction.
 - **Message**: Custom string payload broadcast to target entities or the messaging system.
 - **Targets**: Target entity names or comma-separated integer IDs to receive the trigger event.
 - **Cooldown**: Cooldown period in milliseconds before the trigger can fire again.
@@ -101,9 +101,9 @@ Spatial event triggers activated by player or creature interactions:
 Dynamic 2D lighting emitters:
 
 - **Light Shape**:
-  - `CIRCLE`: Omnidirectional radial point light.
-  - `RECTANGLE`: Area light.
-  - `FAN`: Directional cone or flashlight beam.
+ - `CIRCLE`: Omnidirectional radial point light.
+ - `RECTANGLE`: Area light.
+ - `FAN`: Directional cone or flashlight beam.
 - **Color**: Color picker for light tint and alpha blending.
 - **Intensity**: Brightness value from `0` (off) to `255` (full intensity).
 - **Active**: Checkbox to enable or disable lighting at startup.
@@ -117,15 +117,15 @@ Visual particle effects (smoke, sparks, fire, magic, weather):
 - **General**: Emitter type, particle limit, spawn rate, spawn amount, origin offset.
 - **Particle Type**: `SPRITE`, `TEXT`, `RECTANGLE`, `CIRCLE`, `LINE`, `SHAPE`, `OVAL`.
 - **Physics & Motion**:
-  - Lifespan min/max (ms).
-  - Gravity X/Y and delta velocity acceleration.
-  - Velocity X/Y initial burst speeds.
-  - Width/Height dimension expansion or contraction deltas.
-  - Fade-in, fade-out, fade-on-collision, and anti-aliasing toggles.
+ - Lifespan min/max (ms).
+ - Gravity X/Y and delta velocity acceleration.
+ - Velocity X/Y initial burst speeds.
+ - Width/Height dimension expansion or contraction deltas.
+ - Fade-in, fade-out, fade-on-collision, and anti-aliasing toggles.
 - **Sub-Panels**:
-  - `EmitterColorPanel`: Gradient color ranges, start/end color, alpha range.
-  - `EmitterTextPanel`: Floating text list, font, text alignment.
-  - `EmitterSpritePanel`: Spritesheet animation sequence, loop mode.
+ - `EmitterColorPanel`: Gradient color ranges, start/end color, alpha range.
+ - `EmitterTextPanel`: Floating text list, font, text alignment.
+ - `EmitterSpritePanel`: Spritesheet animation sequence, loop mode.
 
 ---
 
@@ -197,16 +197,16 @@ The **Scripts** section attaches Java script components directly to map entities
 
 ```text
 ┌─────────────────────────────────────────────────────────────┐
-│ Attached Scripts:                                    [ + ]  │
-│ ├ 1. [x] GoblinAI.java (Order: 1)                  [ - ]  │
-│ └ 2. [x] PatrolBehavior.java (Order: 2)            [ 🔍 ] │
+│ Attached Scripts: [+] │
+│ ├ 1. [x] GoblinAI.java (Order: 1) [-] │
+│ └ 2. [x] PatrolBehavior.java (Order: 2) [] │
 ├─────────────────────────────────────────────────────────────┤
-│ Script Properties (GoblinAI):                               │
-│ │ Property     │ Type    │ Value                            │
+│ Script Properties (GoblinAI): │
+│ │ Property │ Type │ Value │
 │ ├──────────────┼─────────┼──────────────────────────────────┤
-│ │ aggroRadius  │ Double  │ 150.0                            │
-│ │ attackPower  │ Integer │ 25                               │
-│ │ cowardly     │ Boolean │ true                             │
+│ │ aggroRadius │ Double │ 150.0 │
+│ │ attackPower │ Integer │ 25 │
+│ │ cowardly │ Boolean │ true │
 └─────────────────────────────────────────────────────────────┘
 ```
 

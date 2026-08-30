@@ -11,11 +11,10 @@ LITIENGINE is built with a clear philosophy: provide an accessible, powerful, an
 
 ```mermaid
 graph TD
-  P["<b>Project Philosophy</b><br/>Pure Java 2D • Java LTS Baseline • Integrated utiLITI Tooling"] --> V1["<b>Path to v1.0.0</b><br/>• Dedicated GUI Editor in utiLITI<br/>• Monaco Workspace & Scripting<br/>• AI & MCP Server Integration<br/>• Core Stability & Performance"]
+ P["<b>Project Philosophy</b><br/>Pure Java 2D • Java LTS Baseline • Integrated utiLITI Tooling"] --> V1["<b>Path to v1.0.0</b><br/>• Dedicated GUI Editor in utiLITI<br/>• Monaco Workspace & Scripting<br/>• AI & MCP Server Integration<br/>• Core Stability & Performance"]
 ```
 
 ## Project Vision & Java Support Policy
-
 * **Pure Java Portability**: Keep the engine lightweight, portable, and straightforward to run on any desktop operating system without managing cumbersome C/C++ native dynamic libraries.
 * **Java LTS Baseline**: Development is generally oriented around **Java Long-Term Support (LTS) releases** (such as Java 21 LTS), while proactively adopting groundbreaking JDK features when they provide major advantages (such as the Foreign Function & Memory / Panama API utilized by **[Input4j](https://github.com/gurkenlabs/input4j)** for gamepad input).
 * **Integrated Creative Workflow**: Provide a seamless development loop between code, assets, and level design through the **utiLITI Editor**.
@@ -43,9 +42,9 @@ Development is currently focused on consolidating and stabilizing the engine's f
 
 ### 5. Core Engine Performance & Stability
 * Hardening and profiling the core 2D subsystems:
-  * **2D RenderEngine**: Optimized AWT Graphics rendering pipelines, sprite animation caching, and lighting composites.
-  * **2D PhysicsEngine**: Robust raycasting, collision resolution, and movement controller velocity dampening.
-  * **2D SoundEngine**: Multi-format audio streaming and positional sound spatialization.
+* **2D RenderEngine**: Optimized AWT Graphics rendering pipelines, sprite animation caching, and lighting composites.
+* **2D PhysicsEngine**: Robust raycasting, collision resolution, and movement controller velocity dampening.
+* **2D SoundEngine**: Multi-format audio streaming and positional sound spatialization.
 
 ---
 

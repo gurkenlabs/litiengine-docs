@@ -13,7 +13,7 @@ Now, let us discuss how to actually download the LITIENGINE. The engine consists
 The LITIENGINE SDK contains *utiLITI*, our project management and map creation tool. It is a stand-alone editor which produces project files that can then be loaded to your game. You can [download the LITIENGINE SDK from litiengine.com](https://litiengine.com/download/).
 
 !!! note
-    The utiLITI editor is not an IDE for Java development.
+ The utiLITI editor is not an IDE for Java development.
 
 ## 2. Get the LITIENGINE Java library via Gradle
 
@@ -26,29 +26,29 @@ Add the LITIENGINE dependency to your Gradle project by adding the following cod
 ### Gradle (Groovy)
 === "Gradle (Kotlin DSL)"
 
-    ```kotlin
-    dependencies {
-        implementation("de.gurkenlabs:litiengine:0.13.0-SNAPSHOT")
-    }
-    ```
+ ```kotlin
+ dependencies {
+ implementation("de.gurkenlabs:litiengine:0.13.0-SNAPSHOT")
+ }
+ ```
 
 === "Gradle (Groovy DSL)"
 
-    ```groovy
-    dependencies {
-        implementation 'de.gurkenlabs:litiengine:0.13.0-SNAPSHOT'
-    }
-    ```
+ ```groovy
+ dependencies {
+ implementation 'de.gurkenlabs:litiengine:0.13.0-SNAPSHOT'
+ }
+ ```
 
 === "Maven"
 
-    ```xml
-    <dependency>
-        <groupId>de.gurkenlabs</groupId>
-        <artifactId>litiengine</artifactId>
-        <version>0.13.0-SNAPSHOT</version>
-    </dependency>
-    ```
+ ```xml
+ <dependency>
+ <groupId>de.gurkenlabs</groupId>
+ <artifactId>litiengine</artifactId>
+ <version>0.13.0-SNAPSHOT</version>
+ </dependency>
+ ```
 
 ### Sample Project
 A basic example for a Gradle based LITIENGINE project can be found [HERE](https://github.com/gurkenlabs/litiengine-gurk-nukem). Have a look at the project's `build.gradle` and `settings.gradle`.
@@ -63,20 +63,20 @@ Consuming the snapshot artifacts is as simple as adding the sonatype snapshots r
 in your `build.gradle`:
 ```groovy
 plugins {
-    id("java")
-    id("application")
+ id("java")
+ id("application")
 }
 
 repositories {
-  mavenCentral()
-  maven{
-    url "https://oss.sonatype.org/content/repositories/snapshots/"
-  }
+ mavenCentral()
+ maven{
+ url "https://oss.sonatype.org/content/repositories/snapshots/"
+ }
 
 }
 
 dependencies {
-  implementation 'de.gurkenlabs:litiengine:0.11.1-SNAPSHOT'
+ implementation 'de.gurkenlabs:litiengine:0.11.1-SNAPSHOT'
 }
 ```
 
@@ -87,38 +87,38 @@ dependencies {
 ```text
 .
 └── root/
-    ├── my_project/
-    │   ├── build.gradle
-    │   ├── settings.gradle
-    │   ├── src/
-    │   │   └── ...
-    │   └── ...
-    └── litiengine-sdk/
-        ├── .git/
-        │   └── ...
-        ├── build.gradle
-        ├── settings.gradle
-        ├── litiengine/
-        │   └── ...
-        ├── shared/
-        │   └── ...
-        ├── utiliti/
-        │   └── ...
-        └── ...
+ ├── my_project/
+ │ ├── build.gradle
+ │ ├── settings.gradle
+ │ ├── src/
+ │ │ └── ...
+ │ └── ...
+ └── litiengine-sdk/
+ ├── .git/
+ │ └── ...
+ ├── build.gradle
+ ├── settings.gradle
+ ├── litiengine/
+ │ └── ...
+ ├── shared/
+ │ └── ...
+ ├── utiliti/
+ │ └── ...
+ └── ...
 ```
 Then in `my_project/settings.gradle`, add the following block:
 ```java
 includeBuild ("../litiengine"){
-    dependencySubstitution {
-        substitute module('de.gurkenlabs:litiengine') using project(':litiengine')
-    }
+ dependencySubstitution {
+ substitute module('de.gurkenlabs:litiengine') using project(':litiengine')
+ }
 }
 ```
 In `my_project/build.gradle`, define the dependency without a version:
 
 ```groovy
 dependencies {
-  implementation 'de.gurkenlabs:litiengine'
+ implementation 'de.gurkenlabs:litiengine'
 }
 ```
  Gradle will automatically replace any dependency with the version provided by `includeBuild` if it finds a matching module.

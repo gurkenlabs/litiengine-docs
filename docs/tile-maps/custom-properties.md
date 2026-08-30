@@ -49,18 +49,18 @@ LITIENGINE recognizes several built-in property names that configure entity beha
 ```java
 @Override
 public Collection<IEntity> load(Environment environment, IMapObject mapObject) {
-  // Read string property
-  String customValue = mapObject.getStringValue("myProperty");
-  
-  // Read with default value
-  String value = mapObject.getStringValue("optional", "default");
-  
-  // Read typed properties
-  int intValue = mapObject.getIntValue("count", 0);
-  float floatValue = mapObject.getFloatValue("speed", 1.0f);
-  boolean boolValue = mapObject.getBoolValue("enabled", true);
-  
-  // ...
+ // Read string property
+ String customValue = mapObject.getStringValue("myProperty");
+ 
+ // Read with default value
+ String value = mapObject.getStringValue("optional", "default");
+ 
+ // Read typed properties
+ int intValue = mapObject.getIntValue("count", 0);
+ float floatValue = mapObject.getFloatValue("speed", 1.0f);
+ boolean boolValue = mapObject.getBoolValue("enabled", true);
+ 
+ // ...
 }
 ```
 
@@ -156,19 +156,19 @@ once=true
 
 ```java
 public class EnemyLoader extends MapObjectLoader {
-  
-  @Override
-  public Collection<IEntity> load(Environment environment, IMapObject mapObject) {
-    Enemy enemy = new Enemy();
-    
-    // Configure from properties
-    enemy.setHealth(mapObject.getIntValue("hp", 100));
-    enemy.setDamage(mapObject.getIntValue("damage", 10));
-    enemy.setSpeed(mapObject.getFloatValue("speed", 1.0f));
-    enemy.setPatrols(mapObject.getBoolValue("patrol", false));
-    
-    return List.of(enemy);
-  }
+ 
+ @Override
+ public Collection<IEntity> load(Environment environment, IMapObject mapObject) {
+ Enemy enemy = new Enemy();
+ 
+ // Configure from properties
+ enemy.setHealth(mapObject.getIntValue("hp", 100));
+ enemy.setDamage(mapObject.getIntValue("damage", 10));
+ enemy.setSpeed(mapObject.getFloatValue("speed", 1.0f));
+ enemy.setPatrols(mapObject.getBoolValue("patrol", false));
+ 
+ return List.of(enemy);
+ }
 }
 ```
 
