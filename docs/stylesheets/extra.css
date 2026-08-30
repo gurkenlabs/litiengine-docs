@@ -221,3 +221,122 @@
   vertical-align: middle;
   margin-right: 6px;
 }
+
+/* ==========================================================================
+   EthicalAds Integration (Privacy-Preserving Developer Advertising)
+   ========================================================================== */
+.ea-sidebar-wrapper {
+  margin-top: 1.5rem;
+  padding: 0.75rem 0;
+  border-top: 1px dashed var(--md-default-fg-color--lightest);
+}
+
+.ethical-ad-article-wrapper {
+  margin: 3rem auto 1.5rem auto;
+  padding: 1rem 0;
+  border-top: 1px solid var(--md-default-fg-color--lightest);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100px;
+}
+
+/* Hide article bottom ad on desktop when sidebar ad is present */
+@media screen and (min-width: 76.25em) {
+  .ethical-ad-article-wrapper {
+    display: none;
+  }
+}
+
+/* Always style the ad container box consistently across all navigations */
+[data-ea-publisher],
+.ea-sidebar-wrapper [data-ea-publisher],
+.ethical-ad-article-wrapper [data-ea-publisher] {
+  display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  border: 1px solid var(--md-default-fg-color--lighter, rgba(255,255,255,0.12)) !important;
+  border-radius: 6px !important;
+  background-color: var(--md-code-bg-color, #1a1e24) !important;
+  padding: 0.85rem 1rem !important;
+  box-sizing: border-box !important;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+  font-size: 0.78rem !important;
+  line-height: 1.45 !important;
+}
+
+[data-ea-publisher]:hover {
+  border-color: var(--md-typeset-a-color, #00b0ff) !important;
+}
+
+/* Typography & Links */
+[data-ea-publisher] .ea-content {
+  margin: 0 !important;
+  padding: 0 !important;
+  color: var(--md-default-fg-color, #e0e0e0) !important;
+}
+
+[data-ea-publisher] .ea-content a {
+  color: inherit !important;
+  text-decoration: none !important;
+  display: block !important;
+}
+
+[data-ea-publisher] .ea-content a strong,
+[data-ea-publisher] .ea-content strong {
+  color: var(--md-typeset-a-color, #29b6f6) !important;
+  font-weight: 600 !important;
+}
+
+[data-ea-publisher] .ea-content a:hover strong {
+  text-decoration: underline !important;
+}
+
+/* "Ads by EthicalAds" Footer */
+[data-ea-publisher] .ea-call-to-action,
+[data-ea-publisher] .ea-call-to-action a,
+.ea-sidebar-wrapper .ea-call-to-action a {
+  display: block !important;
+  margin-top: 0.45rem !important;
+  text-align: right !important;
+  font-size: 0.65rem !important;
+  font-style: italic !important;
+  color: var(--md-default-fg-color--lighter, #888888) !important;
+  text-decoration: none !important;
+  opacity: 0.8;
+}
+
+[data-ea-publisher] .ea-call-to-action a:hover {
+  opacity: 1;
+  text-decoration: underline !important;
+}
+
+/* Hide 1x1 tracking/impression pixels so they never render as broken image thumbnails */
+[data-ea-publisher] img[width="1"],
+[data-ea-publisher] img[height="1"],
+[data-ea-publisher] img[src*="impression"],
+[data-ea-publisher] img[src*="pixel"],
+.ea-pixel,
+.ea-sidebar-wrapper img[width="1"],
+.ea-sidebar-wrapper img[height="1"] {
+  display: none !important;
+  visibility: hidden !important;
+  width: 0 !important;
+  height: 0 !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+[data-ea-publisher] img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+.ea-sidebar-wrapper img {
+  max-width: 24px;
+  max-height: 24px;
+  object-fit: contain;
+  vertical-align: middle;
+  margin-right: 6px;
+}
