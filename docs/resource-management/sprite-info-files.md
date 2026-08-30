@@ -1,63 +1,94 @@
 ---
 title: "Sprite Info Files"
 icon: "lucide/file-text"
-description: "A method of batch importing spritesheets."
-keywords: ["LITIENGINE", "java", "game engine", "2D", "sprite info files"]
+description: "Batch import spritesheets and configure custom animation keyframe durations using .info and .sprite metadata files in LITIENGINE."
+keywords: ["LITIENGINE", "java", "game engine", "2D", "sprite info files", "batch import", "spritesheet"]
 ---
 
 # Sprite Info Files
 
-If you want to import many Spritesheets at once, you can use the Spritesheet batch import feature using so-called _sprite info files._ A _sprite info file_ is a plain text file located in one of your project's resource folders. Each line contains a Spritesheet to import, file names and frame dimensions, as well as animation keyframe durations, if you want to override the default. Comments are supported following the '\#' character.
+When managing dozens or hundreds of character animations, importing spritesheets one by one can be tedious. LITIENGINE provides a batch-import mechanism using plain-text **Sprite Info Files** (`.info` or `.sprite`).
 
-{% hint style="warning" %}
-The entries need to comply with this schema:
+A sprite info file defines the file path, frame dimensions, and optional per-frame duration timing for multiple spritesheets in a clean, human-readable format.
 
-{FILENAME}.{EXTENSTION},{FRAME-WIDTH},{FRAME-HEIGHT}\(;{KEYFRAME\_DURATIONS}\)
+---
 
-where
+## File Syntax & Schema
 
-* {FILENAME} is the file name
-* {EXTENSTION} is the file extension
-* {FRAME-WIDTH} is the width of each frame in the Spritesheet
-* {FRAME-HEIGHT} is the height of each frame in the Spritesheet
-* {KEYFRAME\_DURATIONS} is a comma-separated list of custom keyframe durations in milliseconds. This part, as well as the semicolon before it, is optional.
-{% endhint %}
-
-See an example sprite info file below:
+Each line in a sprite info file defines a single spritesheet. Empty lines and comment lines starting with `#` are ignored:
 
 ```text
-#mobs
-gnome1_walk.png,16,16
-gnome1-dead.png,16,13
-civilian1-walk.png,16,32
-civilian2-walk.png,16,32
-civilian3-walk.png,16,32
-
-
-#clown
-clown-walk-down.png,18,34
-clown-walk-up.png,18,34
-clown-cakethrow-preparation-down.png,20,34
-clown-cakethrow-preparation-up.png,20,34
-clown-victory.png,18,45;200,120,200,200,200,120,120,300,120,4000,200,200
-
-#props
-prop-tent1-intact.png,83,60
-prop-car1-intact.png,43,20
-prop-car2-intact.png,43,20
-prop-bookshelf1-intact.png,32,16
-prop-bed1-intact.png,16,8
-
-#misc
-arrow-throw.png,8,8
-arrow-throw-red.png,8,8
-projectile-cake.png,8,6
-nose.png,5,9
+{FILENAME}.{EXTENSION},{FRAME_WIDTH},{FRAME_HEIGHT}(;{KEYFRAME_DURATIONS})
 ```
 
-Load all Spritesheets declared in a sprite info file into your game as follows:
+### Parameter Breakdown
 
-```text
-List<Spritesheet> loaded = Resources.spritesheets().loadFrom("sprites.info");
+| Field | Required | Description |
+|:---|:---|:---|
+| `{FILENAME}.{EXTENSION}` | Yes | The filename and extension of the spritesheet image (e.g. `hero-walk.png`). |
+| `{FRAME_WIDTH}` | Yes | The width in pixels of an individual animation frame. |
+| `{FRAME_HEIGHT}` | Yes | The height in pixels of an individual animation frame. |
+| `{KEYFRAME_DURATIONS}` | Optional | Semicolon followed by a comma-separated list of keyframe durations in milliseconds. |
+
+!!! tip "Default Frame Duration"
+    If `{KEYFRAME_DURATIONS}` is omitted, the engine uses the default animation frame rate (typically `100ms` per frame, or 10 FPS).
+
+---
+
+## Example Sprite Info File
+
+```text title="sprites/characters.info"
+# ==============================================================================
+# Player Character Spritesheets
+# ==============================================================================
+hero-idle-down.png,24,32
+hero-idle-up.png,24,32
+hero-idle-left.png,24,32
+hero-idle-right.png,24,32
+
+# Walk animations with uniform 120ms frame delays
+hero-walk-down.png,24,32;120,120,120,120
+hero-walk-up.png,24,32;120,120,120,120
+hero-walk-left.png,24,32;120,120,120,120
+hero-walk-right.png,24,32;120,120,120,120
+
+# Attack animation with custom variable frame timing (anticipation -> strike -> recovery)
+hero-attack-down.png,32,32;80,40,200,100
+
+# ==============================================================================
+# Environment Props & Scenery
+# ==============================================================================
+prop-torch-lit.png,16,24;150,150,150,150
+prop-campfire.png,32,32;100,100,100,100
+prop-chest-intact.png,16,16
 ```
 
+---
+
+## Loading Sprite Info Files in Code
+
+Load and register all spritesheets declared in a sprite info file using `Resources.spritesheets().loadFrom(...)`:
+
+```java title="src/main/java/com/example/game/AssetLoader.java"
+package com.example.game;
+
+import de.gurkenlabs.litiengine.graphics.Spritesheet;
+import de.gurkenlabs.litiengine.resources.Resources;
+import java.util.List;
+
+public class AssetLoader {
+  public static void loadCharacterSprites() {
+    // Batch load and cache all spritesheets declared in the .info file
+    List<Spritesheet> loaded = Resources.spritesheets().loadFrom("sprites/characters.info");
+    System.out.println("Successfully registered " + loaded.size() + " spritesheets!");
+  }
+}
+```
+
+---
+
+## See Also
+
+- **[Resource Management Overview](/resource-management/)** — Central `Resources` caching API
+- **[Texture Atlases](/resource-management/texture-atlas/)** — Sprite sheet organization and animation guidelines
+- **[Animation Controller](/control-entities/animation-controller/)** — State-driven entity animation controllers

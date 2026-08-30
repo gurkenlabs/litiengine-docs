@@ -1,155 +1,132 @@
 ---
 title: "Texture Atlases"
 icon: "lucide/image"
-description: "Learn about texture atlases in LITIENGINE - how to create and use sprite sheets for entity animations."
-keywords: ["LITIENGINE", "texture atlas", "spritesheet", "sprite", "animation", "Java"]
+description: "Learn how to create, structure, and animate sprite sheets and texture atlases in LITIENGINE for 2D characters and environment props."
+keywords: ["LITIENGINE", "texture atlas", "spritesheet", "sprite", "animation", "Java", "pixel art"]
 ---
 
-# Texture Atlases
+# Texture Atlases & Spritesheets
 
-Texture atlases (also called spritesheets) combine multiple sprites into a single image file. LITIENGINE uses them for entity animations and tile rendering.
+A **Texture Atlas** (or **Spritesheet**) combines multiple animation frames or graphical tiles into a single contiguous image file. In 2D game development with Java AWT and LITIENGINE, using spritesheets dramatically improves memory efficiency, cache locality, and rendering speed.
 
-## What is a Texture Atlas?
+---
 
-A texture atlas is a single image containing multiple sub-images (sprites) arranged in a grid or custom layout. Benefits include:
+## Why Use Texture Atlases?
 
-- Reduced memory usage
-- Faster rendering (fewer texture swaps)
-- Easier asset management
+1. **Reduced Memory Overhead**: Packing multiple frames into one image reduces image descriptor overhead.
+2. **Simplified Asset Organization**: Keeps all directional animation frames in self-contained files.
+3. **Optimized Frame Slicing**: LITIENGINE automatically calculates grid columns and rows based on frame dimensions.
 
-## Sprite Info Files
+---
 
-LITIENGINE uses `.sprite` info files to define spritesheet metadata:
+## Naming Conventions & Auto-Detection
 
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<sprite name="player-idle" width="32" height="32">
-  <animations>
-    <animation name="idle" keyframes="5" duration="100" loop="true"/>
-  </animations>
-</sprite>
-```
+LITIENGINE uses standardized sprite naming patterns to automatically link spritesheets to `Creature` and `Prop` entities without requiring manual code bindings:
 
-## Importing Spritesheets
+### 1. Creature Entity Animations
 
-### Via utiLITI
-
-1. Open **Resources -> Import Spritesheets...**
-2. Select your image file
-3. Configure sprite dimensions
-4. Set animation properties
-
-### Via Code
-
-```java
-BufferedImage image = Resources.images().get("sprites/player.png");
-Spritesheet sheet = new Spritesheet(image, "player", 32, 32);
-Resources.spritesheets().add("player", sheet);
-```
-
-## Animation Configuration
-
-### Frame Dimensions
-
-Set the width and height of each frame:
-
-- If image is 160x32 pixels and each frame is 32x32
-- Result: 5 frames horizontally
-
-### Frame Duration
-
-How long each frame displays (milliseconds):
-
-- 100ms = 10 frames per second
-- 50ms = 20 frames per second
-
-### Loop Settings
-- **Loop**: Animation repeats continuously
-- **No Loop**: Animation plays once and stops
-
-## Naming Conventions
-
-For automatic animation detection, follow naming patterns:
-
-### Entity Animations
+Pattern: `{spritePrefix}-{action}-{direction}.{ext}`
 
 ```text
-{spritePrefix}-{state}-{direction}.{ext}
+player-idle-down.png
+player-idle-up.png
+player-walk-left.png
+player-walk-right.png
+player-attack-down.png
 ```
 
-Examples:
+When an entity is declared with `@AnimationInfo(spritePrefix = "player")`, the engine's `CreatureAnimationController` automatically detects and plays `idle`, `walk`, and `dead` animations matching the entity's facing direction.
 
-- `player-idle-left.png`
-- `player-walk-left.png`
-- `enemy-attack-right.png`
+### 2. Prop State Sprites
 
-### Prop States
+Pattern: `prop-{name}-{state}.{ext}`
 
-```java
-prop-{name}-{state}.{ext}
+```text
+prop-chest-closed.png
+prop-chest-open.png
+prop-barrel-intact.png
+prop-barrel-damaged.png
+prop-barrel-destroyed.png
 ```
 
-Examples:
+---
 
-- `prop-barrel-intact.png`
-- `prop-barrel-damaged.png`
-- `prop-barrel-destroyed.png`
+## Creating & Using Spritesheets
 
-## Using Spritesheets
+### Programmatic Registration
 
-### In Entities
+```java title="src/main/java/com/example/game/GameSprites.java"
+package com.example.game;
 
-```java
-@AnimationInfo(spritePrefix = "player")
-public class Player extends Creature {
-  public Player() {
-    super("player"); // Uses "player-*" spritesheets
+import de.gurkenlabs.litiengine.graphics.Spritesheet;
+import de.gurkenlabs.litiengine.resources.Resources;
+import java.awt.image.BufferedImage;
+
+public class GameSprites {
+  public static void registerCustomSprites() {
+    // 1. Direct loading from file path (path, frameWidth, frameHeight)
+    Spritesheet heroWalk = Resources.spritesheets().load("sprites/hero-walk.png", 24, 32);
+
+    // 2. Wrap an existing BufferedImage
+    BufferedImage rawImage = Resources.images().get("sprites/monsters.png");
+    Spritesheet monsterSheet = new Spritesheet(rawImage, "monster-slime", 16, 16);
+    Resources.spritesheets().add("monster-slime", monsterSheet);
   }
 }
 ```
 
-### Manual Animation
+### Direct Frame Extraction
 
 ```java
-Spritesheet sheet = Resources.spritesheets().get("player-idle");
-Animation animation = new Animation(sheet, true, 100); // loop, duration
-entity.getAnimationController().play(animation);
+// Retrieve a specific keyframe from a spritesheet
+Spritesheet sheet = Resources.spritesheets().get("hero-walk");
+BufferedImage frame2 = sheet.getSprite(2); // 0-indexed frame
 ```
 
-### Direct Sprite Access
+---
 
-```java
-Spritesheet sheet = Resources.spritesheets().get("player-idle");
-BufferedImage frame = sheet.getSprite(0); // First frame
-g.drawImage(frame, x, y, null);
-```
+## Animation Timing & Custom Durations
 
-## Creating Spritesheets
+By default, LITIENGINE plays animation frames at **100ms** per frame (10 FPS). You can customize frame timing in three ways:
 
-### Recommended Tools
+1. **In Sprite Info Files**: Using semicolon notation (e.g. `hero-attack.png,32,32;80,40,200,100`).
+2. **In the utiLITI Editor**: Select the spritesheet in the **Spritesheets Panel** and edit individual frame millisecond durations.
+3. **In Java Code**:
+   ```java
+   Spritesheet sheet = Resources.spritesheets().get("hero-walk");
+   sheet.setKeyFrameDurations(120, 120, 120, 120);
+   ```
 
-- [Aseprite](https://www.aseprite.org/) - Pixel art and animation
-- [TexturePacker](https://www.codeandweb.com/texturepacker) - Atlas generation
-- [Tiled](https://www.mapeditor.org/) - Built-in tileset editor
+---
 
-### Best Practices
+## Recommended Tools & Workflow
 
-1. **Consistent frame sizes** across animations
-2. **Power of 2 dimensions** for compatibility (32, 64, 128, 256)
-3. **Minimal padding** between frames
-4. **Logical naming** following conventions
+- **[Aseprite](https://www.aseprite.org/)**: Industry-standard animated pixel art editor with JSON spritesheet export.
+- **[Tiled Map Editor](https://www.mapeditor.org/)**: Map and tileset design tool integrated with LITIENGINE `.tmx` loading.
+- **utiLITI**: LITIENGINE's native editor for editing spritesheet metadata, previewing frame loops, and building `.litidata` archives.
 
-## Spritesheet in Game Files
+---
 
-When you save a project in utiLITI, spritesheets are bundled in the `.litidata` file:
+## Related Documentation
 
-```java
-Resources.load("game.litidata");
-// All spritesheets now available via Resources.spritesheets()
-```
+<div class="grid cards" markdown>
 
-## See Also
+- :material-library:{ .lg .middle } **[Resource Management Overview](/resource-management/)**
 
-- [Resource Management](/resource-management/) - Loading resources
-- [Sprite Info Files](/resource-management/sprite-info-files/) - Sprite metadata format
-- [Animation Controller](/control-entities/animation-controller/) - Using animations
+    ---
+
+    Learn how the static `Resources` hub manages in-memory caching and `.litidata` bundles.
+
+- :material-file-document-edit:{ .lg .middle } **[Sprite Info Files](/resource-management/sprite-info-files/)**
+
+    ---
+
+    Batch import spritesheets and custom keyframe durations via plain text `.info` files.
+
+- :material-animation-play:{ .lg .middle } **[Animation Controller](/control-entities/animation-controller/)**
+
+    ---
+
+    Configure state machines and animation rules for creatures and props.
+
+</div>
