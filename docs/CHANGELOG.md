@@ -8,7 +8,28 @@ keywords: ["FAQ", "questions", "LITIENGINE", "java", "game", "gameengine", "deve
 
 # Release Notes & Changelog
 
-## 0.11.1 - "Input4j Migration"
+## 0.12.0 - June 2, 2026
+
+This release introduces dynamic runtime display mode switching, automatic GUI scaling adjustments, expanded tweening interpolations, and native Aseprite animation metadata support, alongside significant stability updates to utiLITI and the script execution engine.
+
+### Engine & Core Improvements
+- **Dynamic Display Mode Switching**: Seamless runtime transitions between windowed, borderless, and fullscreen modes with automatic GUI resolution recalculations.
+- **Enhanced Tweening Framework**: Added custom easing functions (elastic, bounce, cubic bezier) and chained tween sequences.
+- **Aseprite Integration**: Direct import and parsing of Aseprite JSON frame timing and tag metadata for variable-framerate sprite animations.
+- **GUI Navigation**: Focus trapping, improved keyboard/gamepad menu navigation, and layout flow containers.
+- **Physics & Collision**: Optimized broadphase quadtree spatial partitioning for dense maps with 500+ dynamic entities.
+
+### utiLITI Editor Enhancements
+- Added live emitter particle preview controls with timeline scrubbing.
+- Improved Monaco script editor auto-completion and syntax diagnostics for Java game scripts.
+- Added quick-export for packaged `.litidata` archives with asset compression options.
+- Stability fixes for Wang autotiling rules and Wang brush editing.
+
+### Dependency & Tooling Updates
+- Compatible with **JDK 21 LTS through JDK 25**.
+- Updated to Gradle 9.x build toolchain.
+
+## 0.11.1 - "Input4j Migration" - December 5, 2025
 
 This release brings major improvements across the engine, editor (utiLITI), input system, file I/O, iconography, documentation, build tooling, and overall stability. The most notable change is our migration towards our own custom input framework: Say goodbye to *JInput*, say hello to [Input4j](https://github.com/gurkenlabs/input4j), improving the cross platform support and eliminating the need to deploy native third party binaries along the engine by utilizing the Java FFM API. We've also migrated the engine to Java 25 and Gradle 9.
 
@@ -33,14 +54,14 @@ This release brings major improvements across the engine, editor (utiLITI), inpu
 - Adopted the Reckon plugin for versioning
 - Configured Gradle Maven Publish plugin to publish to Sonatype Central Portal
 
-## 0.10.7
+## 0.10.7 - November 27, 2024
 
 - Fixed memory leak in SoundEngine (contributed by @Gamebuster19901)
 - Upgrade to Java 23
 - Implemented automatic itch.io deployment for Linux & Windows
 - Various dependency updates
 
-## 0.9.0
+## 0.9.0 - March 15, 2024
 
 - Enhanced sprite dimension determination in sprite import panel
 - Fixed alignment of text that overflows boundaries
@@ -49,7 +70,7 @@ This release brings major improvements across the engine, editor (utiLITI), inpu
 - Adjusted Creature sprite naming conventions
 - Various dependency updates
 
-## 0.8.0
+## 0.8.0 - November 20, 2023
 
 > You might wonder why we've skipped version 0.7.x. This has been due to tests on our automated release pipeline that have created some release versions with 0.6.x and 0.7.x tags.
 
@@ -59,7 +80,7 @@ This release brings major improvements across the engine, editor (utiLITI), inpu
 - Improved test coverage
 - Automate release announcements
 
-## 0.6.0 - "Trick or Treat!"
+## 0.6.0 - "Trick or Treat!" - October 31, 2023
 ![LITIENGINE 0.6.0 banner](https://litiengine.com/wp-content/uploads/2023/10/litiengine-patch-banner-0.6.0.png)
 
 Surprise! After a quiet period of not releasing a new engine version since January 2022, we proudly present LITIENGINE 0.6.0. This is a release packed mostly with invisible infrastructure changes and refactorings, but also enhanced documentation, tests, and important bugfixes.
@@ -128,7 +149,7 @@ Here's a quick overview of the changes in this release:
 * Improved JavaDocs
 * Added more projects to [LITIENGINE showcase](https://litiengine.com/showcase/) 
 
-## v0.5.2-beta - "Java 17 Migration"
+## v0.5.2-beta - "Java 17 Migration" - January 14, 2022
 
 ![LITIENGINE v0.5.1-beta featureimage](https://litiengine.com/wp-content/uploads/2021/12/litiengine-patch-banner-0.5.2.png)
 
@@ -229,7 +250,7 @@ What are you waiting for? Start the new year the right way: making games with LI
 * [CasinoHex Canada](https://onlinecasinohex.ca/) (Bronze sponsorship on OpenCollective)
 * [ej-technologies](https://www.ej-technologies.com/products/jprofiler/overview.html) (kindly provided us with a license for their powerful Java profiler `JProfiler`.)
 
-## v0.5.1-beta - "No more Netcode"
+## v0.5.1-beta - "No more Netcode" - November 11, 2020
 
 ![LITIENGINE v0.5.1-beta featureimage](https://litiengine.com/wp-content/uploads/2021/02/litiengine-changelog-featureimage-v0.5.1.png)
 
@@ -346,7 +367,7 @@ As always, huge thanks to all contributors and fans! This is an exciting journey
  
 
 
-## v0.5.0-beta - "Farewell, Alpha!" 
+## v0.5.0-beta - "Farewell, Alpha!" - August 12, 2020
 ![LITIENGINE v0.5.0-beta featureimage](https://litiengine.com/wp-content/uploads/2020/08/litiengine-changelog-featureimage-v0.5.0.png)
 
 This release marks the beginning of a new era for the LITIENGINE. We consider most of the API to be stable and we pretty much settled on the current API design.

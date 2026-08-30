@@ -1,6 +1,6 @@
 ---
 title: "Install JDK"
-icon: "lucide/coffee"lucide/coffee"lucide/coffee"
+icon: "lucide/coffee"
 description: "Learn about the Java Development Kit (JDK 21+ / JDK 25) requirements, distributions, and installation methods for LITIENGINE."
 keywords: ["LITIENGINE", "java", "JDK", "JVM", "SDKMAN", "Temurin", "GraalVM", "Java 21", "Java 25"]
 ---
