@@ -1,6 +1,6 @@
 /**
  * EthicalAds Integration for LITIENGINE Documentation (Zensical)
- * Privacy-preserving developer ads with instant navigation and broken image fallback.
+ * Privacy-preserving developer ads with instant navigation and consistent card styling.
  */
 (function() {
   // Global error listener to silently hide any blocked or failed ad images / pixels
@@ -17,22 +17,29 @@
 
     // 1. Table of Contents Sidebar Placement (Desktop)
     const tocNav = document.querySelector('.md-sidebar--secondary nav.md-nav--secondary');
-    if (tocNav && !document.getElementById('ea-sidebar-container')) {
-      const adSidebarWrapper = document.createElement('div');
-      adSidebarWrapper.id = 'ea-sidebar-container';
-      adSidebarWrapper.className = 'ea-sidebar-wrapper';
-      adSidebarWrapper.innerHTML = `<div data-ea-publisher="litiengine" data-ea-type="text"${testAttr} class="adaptive flat"></div>`;
-      tocNav.appendChild(adSidebarWrapper);
+    if (tocNav) {
+      let adSidebarWrapper = document.getElementById('ea-sidebar-container');
+      if (!adSidebarWrapper) {
+        adSidebarWrapper = document.createElement('div');
+        adSidebarWrapper.id = 'ea-sidebar-container';
+        adSidebarWrapper.className = 'ea-sidebar-wrapper';
+        tocNav.appendChild(adSidebarWrapper);
+      }
+      // Clean inner content on SPA navigation so EthicalAds cleanly re-renders
+      adSidebarWrapper.innerHTML = `<div data-ea-publisher="litiengine" data-ea-type="text"${testAttr} class="adaptive bordered"></div>`;
     }
 
     // 2. Article Bottom Placement (Mobile / No-sidebar view)
     const contentInner = document.querySelector('.md-content__inner article') || document.querySelector('.md-content__inner');
-    if (contentInner && !document.getElementById('ea-article-container')) {
-      const adArticleWrapper = document.createElement('div');
-      adArticleWrapper.id = 'ea-article-container';
-      adArticleWrapper.className = 'ethical-ad-article-wrapper';
+    if (contentInner) {
+      let adArticleWrapper = document.getElementById('ea-article-container');
+      if (!adArticleWrapper) {
+        adArticleWrapper = document.createElement('div');
+        adArticleWrapper.id = 'ea-article-container';
+        adArticleWrapper.className = 'ethical-ad-article-wrapper';
+        contentInner.appendChild(adArticleWrapper);
+      }
       adArticleWrapper.innerHTML = `<div data-ea-publisher="litiengine" data-ea-type="image"${testAttr} class="adaptive bordered"></div>`;
-      contentInner.appendChild(adArticleWrapper);
     }
 
     // 3. Trigger EthicalAds reload with retry for async script loading

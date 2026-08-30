@@ -1,64 +1,114 @@
 ---
-title: Script Diagnostics & Guidance
-icon: lucide/activity
-description: Discover script events, architecture guides, and startup configuration
-  directly in utiLITI.
-keywords: [utiLITI, Script Explorer, GameScriptsDialog, script guidance, templates,
-  architecture]
-tags: [diagnostics, compiler, errors, warnings, linter]
+title: "Script Diagnostics & Guidance"
+icon: "lucide/activity"
+description: "Discover script events, architecture guides, live diagnostics, and batch entity automation scripts directly inside utiLITI."
+keywords: ["utiLITI", "Script Explorer", "Monaco", "script guidance", "diagnostics", "batch automation", "Java scripting"]
+tags: ["diagnostics", "compiler", "errors", "warnings", "linter", "scripts", "monaco"]
 ---
+
 # Script Diagnostics & Guidance
 
-utiLITI provides dedicated discovery tools, visual configuration panels, and interactive guidance to help developers explore engine APIs, understand the 3 script tiers, and configure project startup behavior.
+utiLITI provides dedicated discovery tools, live console diagnostics, and an integrated **Monaco Code Editor** with real-time compilation and hot-reloading for Java scripts.
 
 ---
 
 ## 1. Script Events & API Explorer
 
-The **Script Events & API Explorer** is a searchable cheat sheet and interactive catalog of all engine events, lifecycle hooks, and scripting primitives.
+The **Script Events & API Explorer** is an interactive, searchable catalog of all engine events, lifecycle hooks, and scripting primitives:
 
 ### Accessing the Explorer
-- **Menu Bar**: `Script` -> `Script Events & API Explorer...`
-- **Script Workspace**: Click `[]` in the **GLOBALS & APIS** dock panel.
-- **Entity Inspector**: Click `[]` in the **Scripts** section toolbar.
+* **Menu Bar**: `Script` -> `Script Events & API Explorer...`
+* **Script Workspace**: Click `Explorer` in the **GLOBALS & APIS** dock panel.
+* **Entity Inspector**: Click the script icon in the **Scripts** section toolbar.
 
-### Explorer Features
-1. **Categorized Event Catalog**: Browse events categorized into Entity Lifecycle, Environment Lifecycle, Game Lifecycle, Combat & Abilities, Movement & Physics, Cinematics, and Spatial Queries.
-2. **Instant Search & Filter**: Search by method name, parameter type, or code keyword.
-3. **One-Click Insertion**: Click **"Insert into Active Script"** to automatically insert method stubs or code snippets into the active Monaco editor tab at your current cursor position.
-4. **Copy Snippet**: Copy ready-to-use template code to your clipboard.
+### Explorer Capabilities
+1. **Categorized Event Catalog**: Browse events categorized into Entity Lifecycle, Environment Lifecycle, Game Lifecycle, Combat & Abilities, Movement & Physics, and Spatial Queries.
+2. **Instant Search & Filter**: Search by method name, parameter type, or keyword.
+3. **One-Click Insertion**: Click **"Insert into Active Script"** to insert boilerplate method stubs directly into the active Monaco tab.
 
 ---
 
-## 2. Scripting Architecture & Getting Started Guide
+## 2. Practical Script Examples for utiLITI
 
-Located within the **Architecture & Getting Started Guide** tab of the explorer (accessible via `Script -> Scripting Guide & Getting Started...` or the `[]` button in the Script Workspace header):
+You can write and execute pure Java scripts directly inside utiLITI to automate map design, inspect entities, and test game mechanics in real time:
 
-- Explains the roles of **GameScript**, **EnvironmentScript**, and **CreatureScript**.
-- Details how scripts communicate using `globals`, `sendMessage`, and `EntityQuery`.
-- Features one-click **"Create Game Script"**, **"Create Map Script"**, and **"Create Creature Script"** action buttons.
+### Example A: Batch Collider Application to Props
+Automatically applies standardized 2.5D feet collision bounding boxes to all decorative props matching a naming prefix:
+
+```java title="BatchApplyColliders.java"
+import de.gurkenlabs.litiengine.Align;
+import de.gurkenlabs.litiengine.Valign;
+import de.gurkenlabs.litiengine.Game;
+import de.gurkenlabs.litiengine.entities.Prop;
+
+// Find all props with names starting with "tree_" or "rock_"
+Game.world().environment().getProps().forEach(prop -> {
+  if (prop.getName() != null && (prop.getName().startsWith("tree_") || prop.getName().startsWith("rock_"))) {
+    // Enable solid collision anchored to the base
+    prop.setCollision(true);
+    prop.setCollisionBoxWidth(prop.getWidth() * 0.5);
+    prop.setCollisionBoxHeight(prop.getHeight() * 0.3);
+    prop.setCollisionBoxAlign(Align.CENTER);
+    prop.setCollisionBoxValign(Valign.DOWN);
+    System.out.println("Updated collider for: " + prop.getName());
+  }
+});
+```
+
+---
+
+### Example B: Live Quadtree Spatial & Memory Diagnostics
+Inspect active entity counts, memory usage, and quadtree spatial partitions:
+
+```java title="SpatialDiagnostics.java"
+import de.gurkenlabs.litiengine.Game;
+import de.gurkenlabs.litiengine.entities.IEntity;
+import java.util.Collection;
+
+public class DiagnosticsRunner {
+  public static void runDiagnostics() {
+    Collection<IEntity> allEntities = Game.world().environment().all();
+    long totalMem = Runtime.getRuntime().totalMemory() / (1024 * 1024);
+    long freeMem = Runtime.getRuntime().freeMemory() / (1024 * 1024);
+    long usedMem = totalMem - freeMem;
+
+    System.out.println("=== LITIENGINE LIVE DIAGNOSTICS ===");
+    System.out.println("Active Entities: " + allEntities.size());
+    System.out.println("Creatures: " + Game.world().environment().getCreatures().size());
+    System.out.println("Props: " + Game.world().environment().getProps().size());
+    System.out.println("Triggers: " + Game.world().environment().getTriggers().size());
+    System.out.println("Memory Used: " + usedMem + " MB / " + totalMem + " MB");
+    System.out.println("===================================");
+  }
+}
+```
 
 ---
 
 ## 3. Configure Game Scripts & Startup Dialog
 
-The **Game Scripts & Startup Configuration Dialog** provides project-level management for your game entry points:
+The **Game Scripts & Startup Configuration Dialog** (`Script -> Configure Game Scripts...`) allows you to define default boot sequences:
 
-### Accessing the Configuration Dialog
-- **Menu Bar**: `Script` -> `Configure Game Scripts...`
-- **Script Workspace**: Click `[]` in the Script Explorer header actions.
-
-### What you can configure
-- **Primary Startup Script**: Choose which `GameScript` automatically initializes on boot.
-- **Fallback Map**: Specify a default map to load if the game script does not invoke `loadMap()`.
-- **Active Game Scripts Table**: Enable, disable, add, remove, and open game-level scripts directly in the editor.
+* **Primary Startup Script**: Choose which `GameScript` automatically initializes on project launch.
+* **Fallback Map**: Specify a default `.tmx` environment if the game script does not invoke `loadMap()`.
+* **Active Game Scripts Table**: Enable, disable, and rearrange game-level scripts.
 
 ---
 
-## 4. Rich Code Starter Templates
+## See Also
 
-When creating a new script using **Script -> New Script...** or the `[+]` button in the Script Workspace, utiLITI generates fully commented starter code with working examples:
+<div class="grid cards" markdown>
 
-- **GameScript**: Generates map loading boilerplate, `globals` initialization, audio playback, and ESC pause input handlers.
-- **EnvironmentScript**: Generates level start announcement banners, objective tracking via `onEntityRemoved`, and victory transitions.
-- **CreatureScript**: Generates AI movement loops, ability casting, floating combat text on `onHit`, and mortality cleanup on `onDeath`.
+- :material-code-braces:{ .lg .middle } **[UI & Workspaces](/utiliti-editor/ui-and-workspaces/)**
+
+    ---
+
+    Overview of dock panels, Monaco code editor, and asset inspectors.
+
+- :material-play-outline:{ .lg .middle } **[Project Runner](/utiliti-editor/project-runner/)**
+
+    ---
+
+    Launching, debugging, and testing projects directly from utiLITI.
+
+</div>

@@ -1,53 +1,43 @@
 ---
-title: Player Input
-icon: lucide/gamepad
-description: Handle low-latency keyboard, mouse, and gamepad controls in LITIENGINE
-  with Panama FFM integration.
-keywords: [LITIENGINE, input, keyboard, mouse, gamepad, input4j, panama ffm]
-tags: [input, player-input, controls, event-listeners]
+title: "Player Input"
+icon: "lucide/gamepad-2"
+description: "Master LITIENGINE player input handling: Keyboard, Mouse, Gamepad (via Input4j and Java FFM), and custom Input Controllers."
+keywords: ["LITIENGINE input", "keyboard", "mouse", "gamepad", "Input4j", "Java FFM", "Input.keyboard", "Input.mouse", "Input.gamepads"]
+tags: ["input", "keyboard", "mouse", "gamepad", "controllers"]
 ---
+
 # Player Input
 
-LITIENGINE provides a unified, low-latency input polling and event system across keyboards, mouse pointers, and hardware gamepads.
+LITIENGINE provides a unified, responsive input subsystem accessible globally via the static `Input` class. It manages keyboard key states, mouse position and dragging, gamepad axis polling (via `Input4j`), and customizable entity input controllers.
 
 ---
 
-## Input Devices
+## Input Documentation Sections
 
 <div class="grid cards" markdown>
 
-- :material-keyboard:{ .lg .middle } **[Keyboard Input](/player-input/keyboard-input/)**
+- :material-keyboard-outline:{ .lg .middle } **[Keyboard Input](/player-input/keyboard-input/)**
 
     ---
 
-    Key listener bindings, continuous key state polling, and configurable directional mapping.
+    Key event listeners, keybinding registration, typed characters, and pressed state polling.
 
-- :material-mouse:{ .lg .middle } **[Mouse Input](/player-input/mouse-input/)**
+- :material-mouse-outline:{ .lg .middle } **[Mouse Input](/player-input/mouse-input/)**
 
     ---
 
-    Pointer coordinates in screen/map space, mouse wheel scrolling, and drag-and-drop interactions.
+    Mouse coordinates, screen-to-world coordinate transformations, drag events, and button clicks.
 
 - :material-controller:{ .lg .middle } **[Gamepad Input](/player-input/gamepad-input/)**
 
     ---
 
-    Multi-controller gamepad polling powered by `Input4j` with zero native DLL configuration.
+    DirectInput, XInput, and multi-controller polling via Input4j and Java Panama Foreign Function & Memory APIs.
+
+- :material-tune:{ .lg .middle } **[Movement Controllers](/control-entities/movement-controller/)**
+
+    ---
+
+    Attaching 8-directional movement, platformer gravity, and custom keybinding controllers to entities.
 
 </div>
-
----
-
-## Temporary Input Locking (Cutscenes & Dialogues)
-
-To disable input during cutscenes, pause menus, or dialogue sequences:
-
-```java
-// Lock input during cutscene
-Input.keyboard().stop();
-Input.mouse().stop();
-
-// Resume input after cutscene
-Input.keyboard().start();
-Input.mouse().start();
-```

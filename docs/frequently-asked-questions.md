@@ -74,7 +74,7 @@ Quick answers to the most common questions about LITIENGINE architecture, perfor
     ```
 
 ??? question "Can I create multiplayer or networked games with LITIENGINE?"
-    **Yes.** Because LITIENGINE is pure Java, you can integrate standard Java networking libraries such as **Netty**, **Java NIO (WebSockets/TCP/UDP)**, or **gRPC**. LITIENGINE's deterministic tick loop makes client-side prediction and server reconciliation straightforward. See our **[Network Communication Guide](/advanced/network-communication/)**.
+    **Yes.** Because LITIENGINE is pure Java, you can integrate standard Java networking libraries such as **Netty**, **Java NIO (WebSockets/TCP/UDP)**, or **gRPC**. LITIENGINE's deterministic tick loop makes client-side prediction and server reconciliation straightforward.
 
 ---
 
