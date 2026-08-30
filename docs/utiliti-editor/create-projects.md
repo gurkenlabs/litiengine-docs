@@ -63,7 +63,7 @@ utiLITI includes a background **Auto-Save Manager** (`AutoSaveManager`) designed
 3. **Recovery on Startup**: If utiLITI detects an unexpected shutdown or finds a backup file that is newer than the saved project, it prompts you on startup to restore the auto-saved session.
 
 !!! tip
- You can configure the auto-save interval or disable automatic saving in **File -> Settings -> General**.
+    You can configure the auto-save interval or disable automatic saving in **File -> Settings -> General**.
 
 ---
 

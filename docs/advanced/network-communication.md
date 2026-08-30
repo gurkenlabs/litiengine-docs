@@ -8,9 +8,9 @@ keywords: ["LITIENGINE", "network", "multiplayer", "removed"]
 # Network Communication
 
 !!! note
- Network communication was removed from LITIENGINE in version 0.5.1-beta.
+    Network communication was removed from LITIENGINE in version 0.5.1-beta.
 
-As the engine's networking code had been unmaintained, untested, and had security concerns, the networking package was removed from LITIENGINE.
+    As the engine's networking code had been unmaintained, untested, and had security concerns, the networking package was removed from LITIENGINE.
 
 ## Alternatives
 

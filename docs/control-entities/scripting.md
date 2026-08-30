@@ -94,4 +94,4 @@ Game.world().environment().getCreature("guard-1").attachScript(new GuardBehavior
 ```
 
 !!! tip "Zero Overhead"
- Because LITIENGINE scripts are standard compiled Java bytecode running on the JVM, they execute at maximum native CPU speed with zero JNI reflection overhead or garbage collection penalty.
+    Because LITIENGINE scripts are standard compiled Java bytecode running on the JVM, they execute at maximum native CPU speed with zero JNI reflection overhead or garbage collection penalty.

@@ -191,4 +191,4 @@ This keeps suggestions aligned with the engine version and the project's real en
 For full project-semantic features such as rename refactoring, cross-file error analysis, and debugging, continue using IntelliJ. The intended long-term bridge is an LSP/DAP adapter backed by the generated engine API index, not a separate utiLITI-only source model.
 
 !!! warning
- Previewing a project executes trusted project code. Only run projects and scripts from sources you trust.
+    Previewing a project executes trusted project code. Only run projects and scripts from sources you trust.

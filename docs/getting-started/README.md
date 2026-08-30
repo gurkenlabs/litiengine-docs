@@ -70,7 +70,7 @@ Welcome to **LITIENGINE**! This section guides you through installing the Java 2
 ## Frequently Asked Questions
 
 ??? question "Which Java version is required?"
- LITIENGINE requires **Java 21 LTS or newer** (tested through JDK 25).
+    LITIENGINE requires **Java 21 LTS or newer** (tested through JDK 25).
 
 ??? question "Can I run LITIENGINE on Apple Silicon (M1–M4)?"
- Yes! LITIENGINE runs natively on macOS AArch64 using any standard ARM64 JDK (Temurin, Azul, or Oracle).
+    Yes! LITIENGINE runs natively on macOS AArch64 using any standard ARM64 JDK (Temurin, Azul, or Oracle).

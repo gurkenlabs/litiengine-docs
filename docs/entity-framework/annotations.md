@@ -221,4 +221,4 @@ public class Boss extends Creature {
 - [Custom Properties](/tile-maps/custom-properties/) - Runtime property configuration
 
 !!! tip "2.5D Perspective Collision Boxes"
- For top-down and 2.5D games, always set `@CollisionInfo` bounding boxes smaller than the entity's sprite (anchored to the feet) to allow characters to naturally walk behind obstacles and trees.
+    For top-down and 2.5D games, always set `@CollisionInfo` bounding boxes smaller than the entity's sprite (anchored to the feet) to allow characters to naturally walk behind obstacles and trees.

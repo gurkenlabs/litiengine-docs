@@ -70,6 +70,12 @@ def lint_markdown():
                     prev_is_table = prev_line.startswith("|") and prev_line.endswith("|")
                     if not prev_is_table and prev_line != "" and not prev_line.startswith("#") and not prev_line.startswith("<"):
                         errors.append(f"{rel}:{line_num}: Table header without preceding blank line: '{prev_line[:40]}'")
+
+            # 5. Check Admonition Indentation (Line following !!! or ??? must be indented with 4 spaces)
+            if re.match(r'^[!?]{3}\s+[a-zA-Z0-9_-]+', stripped) and idx + 1 < len(lines):
+                next_line = lines[idx + 1]
+                if next_line.strip() and not next_line.startswith("    "):
+                    errors.append(f"{rel}:{line_num+1}: Admonition content must be indented by 4 spaces: '{next_line[:40]}'")
                     
         if in_code:
             errors.append(f"{rel}:{fence_line}: Unclosed code fence opened on line {fence_line}")

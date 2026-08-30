@@ -143,18 +143,18 @@ Game.world().onLoaded(env -> {
 ## 4. Best Practices for Game Saves
 
 !!! tip "Atomic File Writing"
- Write save data to a temporary file (`save1.tmp`) before renaming it to `save1.dat`. This ensures that if the game crashes or is closed mid-save, the player's existing save file is never corrupted.
-<script type="application/ld+json">
-{
- "@context": "https://schema.org",
- "@type": "TechArticle",
- "headline": "LITIENGINE Savegames & State Persistence Architecture",
- "description": "Serializing player stats, inventory, and environment state restoration into JSON/binary save files.",
- "author": {
- "@type": "Organization",
- "name": "Gurkenlabs",
- "url": "https://gurkenlabs.com"
- },
- "inLanguage": "en"
-}
-</script>
+    Write save data to a temporary file (`save1.tmp`) before renaming it to `save1.dat`. This ensures that if the game crashes or is closed mid-save, the player's existing save file is never corrupted.
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "LITIENGINE Savegames & State Persistence Architecture",
+    "description": "Serializing player stats, inventory, and environment state restoration into JSON/binary save files.",
+    "author": {
+    "@type": "Organization",
+    "name": "Gurkenlabs",
+    "url": "https://gurkenlabs.com"
+    },
+    "inLanguage": "en"
+    }
+    </script>

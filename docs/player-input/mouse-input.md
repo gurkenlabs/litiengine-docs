@@ -33,7 +33,7 @@ double y = location.getY();
 ```
 
 !!! note
- The coordinates are relative to the game window, not the game world. To get world coordinates, account for camera position.
+    The coordinates are relative to the game window, not the game world. To get world coordinates, account for camera position.
 
 ### Checking Button State
 

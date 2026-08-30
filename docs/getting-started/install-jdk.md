@@ -16,7 +16,7 @@ LITIENGINE requires **JDK 21 LTS or later** (with modern snapshots targeting **J
 !!! tip
     On macOS and Linux, you can easily install and manage multiple JDK versions using [SDKMAN!](https://sdkman.io/):
     ```bash
-sdk install java
+    sdk install java
     ```
 
 ## Recommended Free JDK Distributions

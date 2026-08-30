@@ -249,4 +249,4 @@ gfx_enableResolutionScale=true
 - [Render Engine](/game-api/render-engine/) - Rendering system
 
 !!! tip "Zero-Allocation Game Loops"
- Avoid creating `new Point2D.Double(...)` or temporary objects inside your update loops. Reuse pre-allocated instance vectors to eliminate Garbage Collection (GC) latency spikes.
+    Avoid creating `new Point2D.Double(...)` or temporary objects inside your update loops. Reuse pre-allocated instance vectors to eliminate Garbage Collection (GC) latency spikes.

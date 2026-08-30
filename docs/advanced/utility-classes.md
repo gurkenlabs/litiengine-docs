@@ -30,7 +30,7 @@ boolean even = MathUtilities.isEven(number);
 ```
 
 !!! note
- Use `Game.random()` for random numbers instead of MathUtilities.random methods.
+    Use `Game.random()` for random numbers instead of MathUtilities.random methods.
 
 ## GeometricUtilities
 

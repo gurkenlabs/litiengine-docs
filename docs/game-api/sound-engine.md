@@ -167,4 +167,4 @@ true // loop continuously
 ```
 
 !!! tip "Spatial Sound Range"
- By default, LITIENGINE computes attenuation based on the distance between the sound origin and the active `Camera` center. Ensure your player entity is tracked by the camera using `Game.world().camera().setFocus(player)`.
+    By default, LITIENGINE computes attenuation based on the distance between the sound origin and the active `Camera` center. Ensure your player entity is tracked by the camera using `Game.world().camera().setFocus(player)`.

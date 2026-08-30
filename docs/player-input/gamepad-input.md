@@ -25,7 +25,7 @@ tags: ["gamepad", "controller", "joystick", "input4j", "panama ffm", "buttons"]
 LITIENGINE uses [Input4j](https://github.com/gurkenlabs/input4j) for gamepad support, utilizing the Java FFM API for cross-platform compatibility. This eliminates the need for native library deployment.
 
 !!! note
- As of LITIENGINE 0.11.1, gamepad support uses Input4j instead of JInput. No native libraries are required.
+    As of LITIENGINE 0.11.1, gamepad support uses Input4j instead of JInput. No native libraries are required.
 
 ## Accessing Gamepads
 
@@ -196,4 +196,4 @@ Input.gamepads().onPressed(Gamepad.Xbox.LEFT_STICK_X, x -> {
 - [Player Input Overview](/player-input/) - Input API overview
 
 !!! important "Panama FFM Foreign Memory"
- LITIENGINE uses `Input4j` via Java Panama Foreign Function & Memory (FFM) APIs. Run your JVM on Java 21 or later to enable native controller polling without JNI overhead.
+    LITIENGINE uses `Input4j` via Java Panama Foreign Function & Memory (FFM) APIs. Run your JVM on Java 21 or later to enable native controller polling without JNI overhead.
