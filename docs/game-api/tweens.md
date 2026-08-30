@@ -215,7 +215,7 @@ The `TweenType` enum defines all interpolatable entity and component properties:
 | `COLLISION_BOTH` | `ICollisionEntity` | Physics collision box dimensions |
 | `HITPOINTS` | `ICombatEntity` | Entity health pool (for smooth damage healthbars) |
 | `VELOCITY` | `IMobileEntity` | Entity movement velocity |
-| `VOLUME` | `Sound` / `SoundSource` | Audio volume multiplier ($0.0$ to $1.0$) |
+| `VOLUME` | `Sound` / `SoundSource` | Audio volume multiplier (0.0 to 1.0) |
 | `OPACITY` | `IEntity` / `GuiComponent` | Visual alpha transparency |
 | `FONTSIZE` | `GuiComponent` | Text font rendering point size |
 
@@ -226,8 +226,8 @@ The `TweenType` enum defines all interpolatable entity and component properties:
 LITIENGINE includes Robert Penner's complete collection of mathematical easing functions:
 
 * **Linear**: `LINEAR` (constant velocity without acceleration).
-* **Quadratic ($t^2$)**: `QUAD_IN`, `QUAD_OUT`, `QUAD_INOUT` (smooth, subtle curve).
-* **Cubic ($t^3$)**: `CUBIC_IN`, `CUBIC_OUT`, `CUBIC_INOUT` (pronounced acceleration/deceleration).
+* **Quadratic (t²)**: `QUAD_IN`, `QUAD_OUT`, `QUAD_INOUT` (smooth, subtle curve).
+* **Cubic (t³)**: `CUBIC_IN`, `CUBIC_OUT`, `CUBIC_INOUT` (pronounced acceleration/deceleration).
 * **Circular**: `CIRCLE_IN`, `CIRCLE_OUT`, `CIRCLE_INOUT` (mimics circular arc momentum).
 * **Sinusoidal**: `SINE_IN`, `SINE_OUT`, `SINE_INOUT` (gentle wave ease).
 * **Exponential**: `EXPO_IN`, `EXPO_OUT`, `EXPO_INOUT` (fast ramp-up/down).
