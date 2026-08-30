@@ -10,6 +10,8 @@ repo_url = "https://github.com/gurkenlabs/litiengine"
 repo_name = "gurkenlabs/litiengine"
 edit_uri = "https://github.com/gurkenlabs/litiengine-docs/edit/master/docs"
 copyright = "Copyright © Gurkenlabs"
+extra_css = ["stylesheets/extra.css"]
+extra_javascript = ["https://media.ethicalads.io/media/client/ethicalads.min.js", "javascripts/ethicalads.js"]
 
 nav = [{ "Get Started" = ["getting-started/README.md",
  { "Install JDK" = "getting-started/install-jdk.md" },
@@ -105,9 +107,6 @@ nav = [{ "Get Started" = ["getting-started/README.md",
 social = [{ icon = "simple/opencollective", link = "https://opencollective.com/litiengine", name = "Sponsor on Open Collective" },
  { icon = "simple/github", link = "https://github.com/gurkenlabs/litiengine", name = "GitHub" },
  { icon = "simple/discord", link = "https://discord.gg/9TqCq9C", name = "Discord Community" },]
-
-extra_css = ["stylesheets/extra.css"]
-extra_javascript = ["https://media.ethicalads.io/media/client/ethicalads.min.js", "javascripts/ethicalads.js"]
 
 [project.theme]
 custom_dir = "overrides"

@@ -27,10 +27,15 @@
       tocNav.appendChild(adSidebarWrapper);
     }
 
-    // 3. Trigger EthicalAds reload
-    if (window.ethicalads && typeof window.ethicalads.load === 'function') {
-      window.ethicalads.load();
+    // 3. Trigger EthicalAds reload with retry for async script loading
+    function tryLoadAds(attempts = 0) {
+      if (window.ethicalads && typeof window.ethicalads.load === 'function') {
+        window.ethicalads.load();
+      } else if (attempts < 5) {
+        setTimeout(() => tryLoadAds(attempts + 1), 250);
+      }
     }
+    tryLoadAds();
   }
 
   // Hook into Material/Zensical document observable stream if present
@@ -47,4 +52,5 @@
   // Backup observer for dynamic route changes
   window.addEventListener('popstate', setupAds);
   document.addEventListener('DOMContentSwitch', setupAds);
+  window.addEventListener('load', setupAds);
 })();
