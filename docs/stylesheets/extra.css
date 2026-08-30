@@ -41,6 +41,18 @@
 }
 
 /* ==========================================================================
+   Interactive Canvas Simulators & Playground Cards
+   ========================================================================== */
+.interactive-card {
+  margin: 1.5rem 0;
+  padding: 1.25rem;
+  border-radius: 8px;
+  background-color: var(--md-code-bg-color);
+  border: 1px solid var(--md-default-fg-color--lighter);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* ==========================================================================
    EthicalAds Integration (Privacy-Preserving Developer Advertising)
    ========================================================================== */
 .ethical-ad-footer-container {
