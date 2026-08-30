@@ -1,10 +1,12 @@
 ---
-title: "Project Management in utiLITI"
-icon: "lucide/folder-plus"
-description: "Learn how to create, configure, save, and manage LITIENGINE game projects (.litidata) in utiLITI, including auto-save and backups."
-keywords: ["LITIENGINE", "utiLITI", "create project", "litidata", "game resource file", "auto save", "project management"]
+title: Project Management in utiLITI
+icon: lucide/folder-plus
+description: Learn how to create, configure, save, and manage LITIENGINE game projects
+  (.litidata) in utiLITI, including auto-save and backups.
+keywords: [LITIENGINE, utiLITI, create project, litidata, game resource file, auto
+    save, project management]
+tags: [projects, litidata, project-management, new-project]
 ---
-
 # Project Management
 
 ## Game Resource Files (`.litidata`)

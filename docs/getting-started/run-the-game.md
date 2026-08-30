@@ -1,10 +1,10 @@
 ---
-title: "Run the Game"
-icon: "lucide/play"
-description: "Run the Game documentation for LITIENGINE 2D Java game development."
-keywords: ["LITIENGINE", "java", "2d", "game engine", "getting started"]
+title: Run the Game
+icon: lucide/play
+description: Run the Game documentation for LITIENGINE 2D Java game development.
+keywords: [LITIENGINE, java, 2d, game engine, getting started]
+tags: [running, execution, main, lifecycle, gameloop, startup]
 ---
-
 # Run the Game
 
 Now that you have a basic project structure with the LITIENGINE referenced, your next step is to bring it all together and run the game for the first time.

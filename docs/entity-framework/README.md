@@ -1,10 +1,12 @@
 ---
-title: "Entity Framework Overview"
-icon: "lucide/boxes"
-description: "Understand the LITIENGINE Entity Framework: entities, environments, annotations, map objects, and lifecycle events."
-keywords: ["LITIENGINE", "entity framework", "IEntity", "Creature", "Prop", "Environment", "Java", "annotations"]
+title: Entity Framework Overview
+icon: lucide/boxes
+description: 'Understand the LITIENGINE Entity Framework: entities, environments,
+  annotations, map objects, and lifecycle events.'
+keywords: [LITIENGINE, entity framework, IEntity, Creature, Prop, Environment, Java,
+  annotations]
+tags: [entities, entity-framework, game-objects, architecture]
 ---
-
 # Entity Framework
 
 In LITIENGINE, every dynamic and interactive object that exists within a game world is an **Entity** (implementing `IEntity`). The **Entity Framework** provides the foundational architecture for managing game objects, their spatial transformations, physics collision boundaries, rendering order, animation states, combat mechanics, and event lifecycles.

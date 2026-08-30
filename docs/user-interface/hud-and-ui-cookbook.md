@@ -1,10 +1,12 @@
 ---
-title: "HUD & UI Cookbook"
-icon: "lucide/layout-grid"
-description: "Ready-to-use recipes for common 2D game UI elements: Health Bars, Floating Combat Text, Speech Bubbles, and Pause Overlays."
-keywords: ["LITIENGINE", "UI", "HUD", "health bar", "floating text", "speech bubble", "pause overlay", "GuiComponent"]
+title: HUD & UI Cookbook
+icon: lucide/layout-grid
+description: 'Ready-to-use recipes for common 2D game UI elements: Health Bars, Floating
+  Combat Text, Speech Bubbles, and Pause Overlays.'
+keywords: [LITIENGINE, UI, HUD, health bar, floating text, speech bubble, pause overlay,
+  GuiComponent]
+tags: [hud, health-bar, score, cookbook, recipes, overlay]
 ---
-
 # HUD & UI Cookbook
 
 This cookbook provides copy-paste ready implementations for common user interface elements in 2D games using LITIENGINE's `GuiComponent` and `SpeechBubble` frameworks.

@@ -1,10 +1,12 @@
 ---
-title: "Texture Atlases"
-icon: "lucide/image"
-description: "Learn how to create, structure, and animate sprite sheets and texture atlases in LITIENGINE for 2D characters and environment props."
-keywords: ["LITIENGINE", "texture atlas", "spritesheet", "sprite", "animation", "Java", "pixel art"]
+title: Texture Atlases
+icon: lucide/image
+description: Learn how to create, structure, and animate sprite sheets and texture
+  atlases in LITIENGINE for 2D characters and environment props.
+keywords: [LITIENGINE, texture atlas, spritesheet, sprite, animation, Java, pixel
+    art]
+tags: [texture-atlas, spritesheet, aseprite, pixel-art, animations]
 ---
-
 # Texture Atlases & Spritesheets
 
 A **Texture Atlas** (or **Spritesheet**) combines multiple animation frames or graphical tiles into a single contiguous image file. In 2D game development with Java AWT and LITIENGINE, using spritesheets dramatically improves memory efficiency, cache locality, and rendering speed.

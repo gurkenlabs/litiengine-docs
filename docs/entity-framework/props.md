@@ -1,10 +1,10 @@
 ---
-title: "Props"
-icon: "lucide/package"
-description: "How to register a custom Prop implementation in LITIENGINE."
-keywords: ["LITIENGINE", "prop", "entities", "entity", "custom", "register", "mapobject", "loader"]
+title: Props
+icon: lucide/package
+description: How to register a custom Prop implementation in LITIENGINE.
+keywords: [LITIENGINE, prop, entities, entity, custom, register, mapobject, loader]
+tags: [props, scenery, destructible, materials, interaction]
 ---
-
 # Props
 Creating props is among the most frequent things you're going to be doing with LITIENGINE. 
 

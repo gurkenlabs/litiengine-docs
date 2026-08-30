@@ -1,10 +1,11 @@
 ---
-title: "Core Game API"
-icon: "lucide/gamepad-2"
-description: "Master LITIENGINE's core subsystems: 2D Graphics, Positional Sound, Physics Quadtrees, Game Loop, Cameras, and Screens."
-keywords: ["LITIENGINE", "game api", "graphics", "audio", "physics", "game loop", "camera", "screens"]
+title: Core Game API
+icon: lucide/gamepad-2
+description: 'Master LITIENGINE''s core subsystems: 2D Graphics, Positional Sound,
+  Physics Quadtrees, Game Loop, Cameras, and Screens.'
+keywords: [LITIENGINE, game api, graphics, audio, physics, game loop, camera, screens]
+tags: [game-api, architecture, core, systems, subsystems]
 ---
-
 # Core Game API
 
 The **Game API** forms the static backbone of LITIENGINE, providing high-performance subsystems for rendering, spatial physics, audio playback, viewports, and display management.

@@ -1,10 +1,11 @@
 ---
-title: "GameLauncher CLI & Standalone Runner"
-icon: "lucide/terminal"
-description: "Run standalone LITIENGINE projects without boilerplate Java main classes using GameLauncher."
-keywords: ["LITIENGINE", "GameLauncher", "standalone runner", "CLI", "litidata", "game distribution"]
+title: GameLauncher CLI & Standalone Runner
+icon: lucide/terminal
+description: Run standalone LITIENGINE projects without boilerplate Java main classes
+  using GameLauncher.
+keywords: [LITIENGINE, GameLauncher, standalone runner, CLI, litidata, game distribution]
+tags: [game-launcher, standalone-runner, playtesting, execution]
 ---
-
 # GameLauncher CLI & Standalone Runner
 
 `GameLauncher` (`de.gurkenlabs.litiengine.launch.GameLauncher`) is LITIENGINE's standalone CLI launcher. It boots and runs `.litidata` resource bundles without requiring you to compile a custom `public static void main` class.

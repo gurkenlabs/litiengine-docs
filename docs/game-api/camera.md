@@ -1,11 +1,12 @@
 ---
-title: "Camera & Viewport"
-icon: "lucide/camera"
-description: "Master LITIENGINE's Camera system: smooth focus tracking, map boundary clamping, zoom animations, screen shake, and viewport transformations."
-keywords: ["LITIENGINE", "camera", "viewport", "zoom", "shake", "pan", "clampToMap", "coordinate conversion", "Java 2D"]
-tags: ["camera", "screen shake", "zoom", "viewport", "tracking", "follow player"]
+title: Camera & Viewport
+icon: lucide/camera
+description: 'Master LITIENGINE''s Camera system: smooth focus tracking, map boundary
+  clamping, zoom animations, screen shake, and viewport transformations.'
+keywords: [LITIENGINE, camera, viewport, zoom, shake, pan, clampToMap, coordinate
+    conversion, Java 2D]
+tags: [camera, viewport, zoom, scrolling, focus, tracking]
 ---
-
 # Camera & Viewport
 
 ## Camera API Method Reference

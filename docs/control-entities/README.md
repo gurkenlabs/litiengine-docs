@@ -1,10 +1,12 @@
 ---
-title: "Control Entities Overview"
-icon: "lucide/bot"
-description: "Master entity control in LITIENGINE: controllers, animation, movement, AI behaviors, abilities, and modern Java scripting."
-keywords: ["LITIENGINE", "controllers", "movement", "animation", "behavior", "AI", "scripting", "Java"]
+title: Control Entities Overview
+icon: lucide/bot
+description: 'Master entity control in LITIENGINE: controllers, animation, movement,
+  AI behaviors, abilities, and modern Java scripting.'
+keywords: [LITIENGINE, controllers, movement, animation, behavior, AI, scripting,
+  Java]
+tags: [control-entities, controllers, behaviors, ai]
 ---
-
 # Control Entities
 
 In LITIENGINE, entity behaviors, animations, locomotion, combat actions, and artificial intelligence are managed through a modular and extensible control architecture. This architecture allows developers to separate game object state (`IEntity`) from dynamic runtime logic.

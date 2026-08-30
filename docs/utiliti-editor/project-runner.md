@@ -1,10 +1,12 @@
 ---
-title: "Run, Debug & Hot Reload in utiLITI"
-icon: "lucide/play"
-description: "Comprehensive guide to running, debugging, and hot-reloading LITIENGINE projects directly from utiLITI using JDI breakpoints and standalone runners."
-keywords: ["utiLITI", "Run Project", "Debug Project", "JDI debugger", "breakpoints", "hot reload", "GameLauncher", "Gradle integration", "IDE"]
+title: Run, Debug & Hot Reload in utiLITI
+icon: lucide/play
+description: Comprehensive guide to running, debugging, and hot-reloading LITIENGINE
+  projects directly from utiLITI using JDI breakpoints and standalone runners.
+keywords: [utiLITI, Run Project, Debug Project, JDI debugger, breakpoints, hot reload,
+  GameLauncher, Gradle integration, IDE]
+tags: [project-runner, testing, run, debugging, playtest]
 ---
-
 # Run, Debug & Hot Reload
 
 utiLITI provides a built-in project execution and debugging environment, allowing you to test, pause, step through, and hot-reload gameplay code without switching to an external terminal.

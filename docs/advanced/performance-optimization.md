@@ -1,10 +1,11 @@
 ---
-title: "Performance Optimization"
-icon: "lucide/gauge"
-description: "Learn performance optimization techniques for LITIENGINE games including rendering, entity management, and memory usage."
-keywords: ["LITIENGINE", "performance", "optimization", "FPS", "memory", "rendering", "Java"]
+title: Performance Optimization
+icon: lucide/gauge
+description: Learn performance optimization techniques for LITIENGINE games including
+  rendering, entity management, and memory usage.
+keywords: [LITIENGINE, performance, optimization, FPS, memory, rendering, Java]
+tags: [performance, optimization, profiling, memory, fps, quadtree]
 ---
-
 # Performance Optimization
 
 LITIENGINE is designed to be efficient, but game performance depends on how you use it. This guide covers common optimization techniques.

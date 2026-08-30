@@ -1,10 +1,12 @@
 ---
-title: "Frequently Asked Questions"
-icon: "lucide/help-circle"
-description: "Answers to frequently asked questions about LITIENGINE architecture, Java 21+ support, performance, distribution, and commercial licensing."
-keywords: ["LITIENGINE", "FAQ", "questions", "java", "game engine", "performance", "platforms", "editor", "licensing", "steam"]
+title: Frequently Asked Questions
+icon: lucide/help-circle
+description: Answers to frequently asked questions about LITIENGINE architecture,
+  Java 21+ support, performance, distribution, and commercial licensing.
+keywords: [LITIENGINE, FAQ, questions, java, game engine, performance, platforms,
+  editor, licensing, steam]
+tags: [faq, questions, troubleshooting, help, basics]
 ---
-
 # Frequently Asked Questions
 
 Quick answers to the most common questions about LITIENGINE, architecture, performance, tooling, and distribution.

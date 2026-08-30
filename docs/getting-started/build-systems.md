@@ -1,10 +1,12 @@
 ---
-title: "Build Systems"
-icon: "lucide/wrench"
-description: "Learn about build automation utilities in general and how to set up the most common build tools for Java development."
-keywords: ["LITIENGINE", "java", "game", "gameengine", "development", "2D", "programming", "build", "gradle", "maven", "ant"]
+title: Build Systems
+icon: lucide/wrench
+description: Learn about build automation utilities in general and how to set up the
+  most common build tools for Java development.
+keywords: [LITIENGINE, java, game, gameengine, development, 2D, programming, build,
+  gradle, maven, ant]
+tags: [gradle, maven, build, dependencies, shadowjar]
 ---
-
 # Build Systems
 ## Choose a build system
 

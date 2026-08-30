@@ -1,10 +1,12 @@
 ---
-title: "Script-Only Game Architecture"
-icon: "lucide/play-square"
-description: "Build complete LITIENGINE games using only scripts with zero boilerplate main classes."
-keywords: ["LITIENGINE", "script-only games", "GameScript", "EnvironmentScript", "CreatureScript", "game development"]
+title: Script-Only Game Architecture
+icon: lucide/play-square
+description: Build complete LITIENGINE games using only scripts with zero boilerplate
+  main classes.
+keywords: [LITIENGINE, script-only games, GameScript, EnvironmentScript, CreatureScript,
+  game development]
+tags: [script-only, fast-prototyping, visual-workflow, scripts]
 ---
-
 # Script-Only Game Architecture
 
 LITIENGINE allows developers to build entire games using pure scripts—without writing custom `Program.java` entry points, manual game loop setup, or standalone boilerplate classes.

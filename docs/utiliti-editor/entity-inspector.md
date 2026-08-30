@@ -1,10 +1,13 @@
 ---
-title: "Entity & Object Inspector in utiLITI"
-icon: "lucide/search"
-description: "In-depth reference for the utiLITI Entity Inspector, covering general properties, custom Java implementations, entity types, physics, combat, and script bindings."
-keywords: ["utiLITI", "Entity Inspector", "Prop", "Creature", "Trigger", "LightSource", "Emitter", "SoundSource", "Spawnpoint", "CollisionBox", "CombatPanel", "MovementPanel", "ScriptBindings"]
+title: Entity & Object Inspector in utiLITI
+icon: lucide/search
+description: In-depth reference for the utiLITI Entity Inspector, covering general
+  properties, custom Java implementations, entity types, physics, combat, and script
+  bindings.
+keywords: [utiLITI, Entity Inspector, Prop, Creature, Trigger, LightSource, Emitter,
+  SoundSource, Spawnpoint, CollisionBox, CombatPanel, MovementPanel, ScriptBindings]
+tags: [entity-inspector, properties, transform, tags, attributes]
 ---
-
 # Entity & Object Inspector
 
 The **Property Inspector** (located on the right side of the Map Workspace) allows you to configure attributes, physics collision, combat statistics, particle behaviors, and script bindings for any placed map object.

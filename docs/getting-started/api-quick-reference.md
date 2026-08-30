@@ -1,10 +1,11 @@
 ---
-title: "API Quick Reference"
-icon: "lucide/book-open"
-description: "Quick reference cheat sheet for LITIENGINE API - essential methods and classes at a glance."
-keywords: ["LITIENGINE", "cheat sheet", "quick reference", "API", "Java"]
+title: API Quick Reference
+icon: lucide/book-open
+description: Quick reference cheat sheet for LITIENGINE API - essential methods and
+  classes at a glance.
+keywords: [LITIENGINE, cheat sheet, quick reference, API, Java]
+tags: [api, cheat-sheet, quick-reference, classes, methods, methods-index]
 ---
-
 # API Quick Reference
 
 A cheat sheet of essential LITIENGINE API methods and patterns.

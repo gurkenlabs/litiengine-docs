@@ -1,10 +1,11 @@
 ---
-title: "Native Libraries"
-icon: "lucide/cpu"
-description: "Learn about managing native libraries in your LITIENGINE project."
-keywords: ["LITIENGINE", "java", "game", "gameengine", "development", "2D", "programming", "library", "build", "natives"]
+title: Native Libraries
+icon: lucide/cpu
+description: Learn about managing native libraries in your LITIENGINE project.
+keywords: [LITIENGINE, java, game, gameengine, development, 2D, programming, library,
+  build, natives]
+tags: [native, libraries, panama, ffm, input4j, zero-dependency]
 ---
-
 # Native Libraries
 
 ## Managing Native Libraries

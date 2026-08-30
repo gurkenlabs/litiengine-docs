@@ -1,10 +1,12 @@
 ---
-title: "Deploying LITIENGINE Games"
-icon: "lucide/package"
-description: "Learn how to build, package, and deploy LITIENGINE games for Windows, Linux, and macOS using Gradle, Launch4j, and jpackage."
-keywords: ["LITIENGINE", "deployment", "distribution", "gradle", "launch4j", "jpackage", "steam", "itch.io", "Java 21"]
+title: Deploying LITIENGINE Games
+icon: lucide/package
+description: Learn how to build, package, and deploy LITIENGINE games for Windows,
+  Linux, and macOS using Gradle, Launch4j, and jpackage.
+keywords: [LITIENGINE, deployment, distribution, gradle, launch4j, jpackage, steam,
+  itch.io, Java 21]
+tags: [deployment, packaging, distribution, jar, jpackage, native, executable]
 ---
-
 # Deploying LITIENGINE Games
 
 This guide walks you through building, packaging, and distributing your LITIENGINE game as a standalone, player-ready executable for **Windows**, **Linux**, and **macOS**.

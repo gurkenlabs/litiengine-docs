@@ -1,10 +1,12 @@
 ---
-title: "Modifying Example Projects"
-icon: "lucide/code-xml"
-description: "Learn how to clone, inspect, and customize existing LITIENGINE sample games like SERVUS BONUS using both Java code and the utiLITI Editor."
-keywords: ["LITIENGINE", "tutorial", "sample game", "servus bonus", "gradle", "utiLITI", "customization", "modding"]
+title: Modifying Example Projects
+icon: lucide/code-xml
+description: Learn how to clone, inspect, and customize existing LITIENGINE sample
+  games like SERVUS BONUS using both Java code and the utiLITI Editor.
+keywords: [LITIENGINE, tutorial, sample game, servus bonus, gradle, utiLITI, customization,
+  modding]
+tags: [tutorial, examples, modding, customization, learning]
 ---
-
 # Modifying Example Projects
 
 A great way to learn LITIENGINE is to clone, run, and experiment with existing sample projects. This tutorial walks you through modifying **SERVUS BONUS**, an open-source 2D action game created with LITIENGINE.

@@ -1,10 +1,12 @@
 ---
-title: "LITIENGINE Roadmap"
-icon: "lucide/milestone"
-description: "Discover the development roadmap, project philosophy, and path to v1.0.0 for LITIENGINE."
-keywords: ["LITIENGINE", "roadmap", "v1.0.0", "milestones", "vision", "utiLITI", "GUI editor", "scripting", "MCP"]
+title: LITIENGINE Roadmap
+icon: lucide/milestone
+description: Discover the development roadmap, project philosophy, and path to v1.0.0
+  for LITIENGINE.
+keywords: [LITIENGINE, roadmap, v1.0.0, milestones, vision, utiLITI, GUI editor, scripting,
+  MCP]
+tags: [roadmap, future, milestones, features, plans]
 ---
-
 # LITIENGINE Roadmap
 
 LITIENGINE is built with a clear philosophy: provide an accessible, powerful, and completely free 2D game engine in pure Java without external binary dependencies or complex build friction.

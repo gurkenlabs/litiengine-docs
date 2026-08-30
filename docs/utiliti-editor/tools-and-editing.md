@@ -1,10 +1,12 @@
 ---
-title: "Editing Tools & Viewport Operations in utiLITI"
-icon: "lucide/pen-tool"
-description: "Guide to utiLITI editing tools: Pointer, Tile Brush, Bucket Fill, Eraser, Stamp Brush, Wang Terrain Brush, Snapping, and Visual Overlays."
-keywords: ["utiLITI", "tools", "tile brush", "bucket fill", "eraser", "stamp brush", "terrain brush", "wang tiles", "snapping", "grid", "collision overlay"]
+title: Editing Tools & Viewport Operations in utiLITI
+icon: lucide/pen-tool
+description: 'Guide to utiLITI editing tools: Pointer, Tile Brush, Bucket Fill, Eraser,
+  Stamp Brush, Wang Terrain Brush, Snapping, and Visual Overlays.'
+keywords: [utiLITI, tools, tile brush, bucket fill, eraser, stamp brush, terrain brush,
+  wang tiles, snapping, grid, collision overlay]
+tags: [editing-tools, selection, brush, stamp, shapes]
 ---
-
 # Editing Tools & Viewport Operations
 
 utiLITI provides a suite of viewport editing tools designed for precise object placement, freeform tile painting, pattern stamping, and automated Wang terrain matching.

@@ -1,10 +1,11 @@
 ---
-title: "Project Structure"
-icon: "lucide/folder-tree"
-description: "Learn about best practices for setting up your game project hierarchy."
-keywords: ["LITIENGINE", "java", "game", "gameengine", "development", "2D", "programming", "file", "project", "hierarchy", "structure"]
+title: Project Structure
+icon: lucide/folder-tree
+description: Learn about best practices for setting up your game project hierarchy.
+keywords: [LITIENGINE, java, game, gameengine, development, 2D, programming, file,
+  project, hierarchy, structure]
+tags: [project-structure, architecture, organization, directories, assets]
 ---
-
 # Project Structure
 ## Initialize the project structure
 

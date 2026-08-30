@@ -1,10 +1,11 @@
 ---
-title: "Map Objects"
-icon: "lucide/map-pin"
-description: "Learn about MapObjects in LITIENGINE tile maps - how to place, configure, and load entities from Tiled map objects."
-keywords: ["LITIENGINE", "map objects", "Tiled", "tmx", "entity", "spawnpoint", "collision", "trigger"]
+title: Map Objects
+icon: lucide/map-pin
+description: Learn about MapObjects in LITIENGINE tile maps - how to place, configure,
+  and load entities from Tiled map objects.
+keywords: [LITIENGINE, map objects, Tiled, tmx, entity, spawnpoint, collision, trigger]
+tags: [map-objects, tmx-objects, spawning, shapes, props]
 ---
-
 # Map Objects
 
 MapObjects are objects placed on your tile map using the Tiled editor or utiLITI. They define where and how entities spawn in your game world. When a map is loaded, LITIENGINE's `MapObjectLoader` implementations translate these map objects into game entities.

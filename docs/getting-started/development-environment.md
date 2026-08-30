@@ -1,10 +1,11 @@
 ---
-title: "Development Environment"
-icon: "lucide/laptop"
-description: "Learn how to set up a development environment."
-keywords: ["LITIENGINE", "java", "game", "gameengine", "development", "2D", "programming", "ide", "eclipse", "intellij", "netbeans"]
+title: Development Environment
+icon: lucide/laptop
+description: Learn how to set up a development environment.
+keywords: [LITIENGINE, java, game, gameengine, development, 2D, programming, ide,
+  eclipse, intellij, netbeans]
+tags: [ide, intellij, vscode, eclipse, setup, configuration]
 ---
-
 # Development Environment
 
 ## Setup IDE

@@ -1,11 +1,12 @@
 ---
-title: "Default Entity Types"
-icon: "lucide/box"
-description: "Learn about the default entity types in LITIENGINE - Entity, CollisionEntity, CombatEntity, Creature, Prop, and their hierarchies."
-keywords: ["LITIENGINE", "entity types", "Creature", "Prop", "CollisionEntity", "CombatEntity", "Java"]
-tags: ["creature", "prop", "emitter", "lightsource", "spawnpoint", "entity types"]
+title: Default Entity Types
+icon: lucide/box
+description: Learn about the default entity types in LITIENGINE - Entity, CollisionEntity,
+  CombatEntity, Creature, Prop, and their hierarchies.
+keywords: [LITIENGINE, entity types, Creature, Prop, CollisionEntity, CombatEntity,
+  Java]
+tags: [creature, prop, trigger, spawnpoint, collisionbox, light]
 ---
-
 # Default Entity Types
 
 ## Master Entity Blueprint Matrix

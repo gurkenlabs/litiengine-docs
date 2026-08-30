@@ -1,10 +1,10 @@
 ---
-title: "Screens"
-icon: "lucide/monitor"
-description: "Screens documentation for LITIENGINE 2D Java game development."
-keywords: ["LITIENGINE", "java", "2d", "game engine", "game api"]
+title: Screens
+icon: lucide/monitor
+description: Screens documentation for LITIENGINE 2D Java game development.
+keywords: [LITIENGINE, java, 2d, game engine, game api]
+tags: [screens, screen-manager, menus, loading-screen, hud, ui]
 ---
-
 # Screens
 
 ## ScreenManager API Method Reference

@@ -1,11 +1,11 @@
 ---
-title: "Sound Engine"
-icon: "lucide/volume-2"
-description: "Master 2D spatial audio, background music streaming, volume attenuation, and sound playback in LITIENGINE."
-keywords: ["LITIENGINE", "sound engine", "audio", "spatial audio", "music", "wav", "mp3", "ogg", "Game.audio"]
-tags: ["sound", "audio", "music", "spatial audio", "bgm", "sfx", "volume", "soundengine"]
+title: Sound Engine
+icon: lucide/volume-2
+description: Master 2D spatial audio, background music streaming, volume attenuation,
+  and sound playback in LITIENGINE.
+keywords: [LITIENGINE, sound engine, audio, spatial audio, music, wav, mp3, ogg, Game.audio]
+tags: [audio, sound, music, sfx, sound-engine, playback, volume]
 ---
-
 # Sound Engine
 
 The `SoundEngine` (`Game.audio()`) handles all sound effects, ambient background audio, and background music streaming. It natively supports `.wav`, `.mp3`, and `.ogg` audio formats without external native C libraries.

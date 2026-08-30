@@ -1,10 +1,11 @@
 ---
-title: "Player Input"
-icon: "lucide/gamepad"
-description: "Handle low-latency keyboard, mouse, and gamepad controls in LITIENGINE with Panama FFM integration."
-keywords: ["LITIENGINE", "input", "keyboard", "mouse", "gamepad", "input4j", "panama ffm"]
+title: Player Input
+icon: lucide/gamepad
+description: Handle low-latency keyboard, mouse, and gamepad controls in LITIENGINE
+  with Panama FFM integration.
+keywords: [LITIENGINE, input, keyboard, mouse, gamepad, input4j, panama ffm]
+tags: [input, player-input, controls, event-listeners]
 ---
-
 # Player Input
 
 LITIENGINE provides a unified, low-latency input polling and event system across keyboards, mouse pointers, and hardware gamepads.

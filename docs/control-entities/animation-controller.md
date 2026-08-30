@@ -1,10 +1,11 @@
 ---
-title: "Animation Controller"
-icon: "lucide/clapperboard"
-description: "Learn how to use AnimationController in LITIENGINE to manage entity spritesheet animations and sprite rendering."
-keywords: ["LITIENGINE", "animation controller", "spritesheet", "animation", "sprite", "Java"]
+title: Animation Controller
+icon: lucide/clapperboard
+description: Learn how to use AnimationController in LITIENGINE to manage entity spritesheet
+  animations and sprite rendering.
+keywords: [LITIENGINE, animation controller, spritesheet, animation, sprite, Java]
+tags: [animation, animation-controller, spritesheet, state-machine]
 ---
-
 # Animation Controller
 
 The `AnimationController` manages which spritesheet animation is displayed for an entity. It determines the current animation based on entity state and handles animation playback.

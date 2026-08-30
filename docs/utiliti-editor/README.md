@@ -1,10 +1,11 @@
 ---
-title: "utiLITI Editor Overview"
-icon: "lucide/hammer"
-description: "Visual level design, entity placement, Wang autotiling, and asset bundling with the utiLITI companion editor."
-keywords: ["LITIENGINE", "utiLITI", "editor", "level design", "tilemap", "litidata", "spritesheet"]
+title: utiLITI Editor Overview
+icon: lucide/hammer
+description: Visual level design, entity placement, Wang autotiling, and asset bundling
+  with the utiLITI companion editor.
+keywords: [LITIENGINE, utiLITI, editor, level design, tilemap, litidata, spritesheet]
+tags: [utiliti, editor, level-editor, game-dev, tooling]
 ---
-
 # utiLITI Editor Overview
 
 **utiLITI** is the official 2D level design and asset management editor designed specifically for LITIENGINE games.

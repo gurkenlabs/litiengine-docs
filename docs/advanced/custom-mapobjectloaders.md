@@ -1,10 +1,11 @@
 ---
-title: "Custom MapObjectLoaders"
-icon: "lucide/file-input"
-description: "Learn how to create custom MapObjectLoaders in LITIENGINE to load custom entity types from Tiled maps."
-keywords: ["LITIENGINE", "MapObjectLoader", "custom entity", "map", "tmx", "Java"]
+title: Custom MapObjectLoaders
+icon: lucide/file-input
+description: Learn how to create custom MapObjectLoaders in LITIENGINE to load custom
+  entity types from Tiled maps.
+keywords: [LITIENGINE, MapObjectLoader, custom entity, map, tmx, Java]
+tags: [mapobjectloaders, loaders, custom-entities, tmx-parsing]
 ---
-
 # Custom MapObjectLoaders
 
 MapObjectLoaders convert MapObjects from your Tiled map into game entities. Create custom loaders when you define new entity types.

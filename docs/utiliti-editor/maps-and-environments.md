@@ -1,10 +1,12 @@
 ---
-title: "Maps & Environment Management"
-icon: "lucide/map"
-description: "Learn how to create, import, export, and configure 2D maps in utiLITI, including ambient lighting, shadows, and ID management."
-keywords: ["utiLITI", "map management", "import map", "export map", "TMX", "ambient light", "static shadow", "map properties", "reassign map ids"]
+title: Maps & Environment Management
+icon: lucide/map
+description: Learn how to create, import, export, and configure 2D maps in utiLITI,
+  including ambient lighting, shadows, and ID management.
+keywords: [utiLITI, map management, import map, export map, TMX, ambient light, static
+    shadow, map properties, reassign map ids]
+tags: [maps, environments, layers, tiled, editor]
 ---
-
 # Maps & Environment Management
 
 utiLITI provides robust map authoring and management features supporting standard TMX formats while adding LITIENGINE-specific environment properties like ambient lighting, shadow tinting, and ID synchronization.

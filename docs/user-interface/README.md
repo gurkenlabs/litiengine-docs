@@ -1,10 +1,11 @@
 ---
-title: "User Interface Overview"
-icon: "lucide/layout"
-description: "Build rich game menus, title screens, interactive HUDs, and UI components in LITIENGINE using the GuiComponent framework."
-keywords: ["LITIENGINE", "UI", "GUI", "GuiComponent", "Menu", "HUD", "Screen", "Java", "screens", "components"]
+title: User Interface Overview
+icon: lucide/layout
+description: Build rich game menus, title screens, interactive HUDs, and UI components
+  in LITIENGINE using the GuiComponent framework.
+keywords: [LITIENGINE, UI, GUI, GuiComponent, Menu, HUD, Screen, Java, screens, components]
+tags: [user-interface, gui, hud, components, menus]
 ---
-
 # User Interface
 
 LITIENGINE includes a dedicated 2D GUI and screen management framework (`de.gurkenlabs.litiengine.gui`). Whether you need a main title menu with keyboard/mouse navigation, in-game HUDs displaying health and ammo counters, dialog speech bubbles, or custom inventory grids, the UI framework provides modular components with built-in input and rendering lifecycles.

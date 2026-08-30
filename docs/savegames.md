@@ -1,11 +1,12 @@
 ---
-title: "Savegames & State Persistence"
-icon: "lucide/save"
-description: "Architecture guide for serializing player stats, inventory, quest progress, and environment states into JSON or binary save files."
-keywords: ["LITIENGINE", "save game", "persistence", "serialization", "json", "load game", "state", "game state"]
-tags: ["save game", "persistence", "serialization", "json", "load game", "state"]
+title: Savegames & State Persistence
+icon: lucide/save
+description: Architecture guide for serializing player stats, inventory, quest progress,
+  and environment states into JSON or binary save files.
+keywords: [LITIENGINE, save game, persistence, serialization, json, load game, state,
+  game state]
+tags: [savegames, persistence, serialization, json, xml, storage]
 ---
-
 # Savegames & State Persistence
 
 Building a robust save system in LITIENGINE involves serializing transient game data (player health, coordinates, inventory, and environment flags) into a persistent format (such as JSON or binary files) and restoring that state into an active `Environment`.

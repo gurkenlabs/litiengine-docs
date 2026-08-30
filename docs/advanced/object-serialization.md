@@ -1,10 +1,11 @@
 ---
-title: "Object Serialization"
-icon: "lucide/hard-drive"
-description: "Learn about serialization in LITIENGINE for saving and loading game data and configuration."
-keywords: ["LITIENGINE", "serialization", "XML", "save", "load", "Java"]
+title: Object Serialization
+icon: lucide/hard-drive
+description: Learn about serialization in LITIENGINE for saving and loading game data
+  and configuration.
+keywords: [LITIENGINE, serialization, XML, save, load, Java]
+tags: [serialization, savegames, persistence, xml, json, reflection]
 ---
-
 # Object Serialization
 
 LITIENGINE uses XML serialization for saving and loading game data, including resource bundles and configuration.

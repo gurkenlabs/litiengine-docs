@@ -1,10 +1,11 @@
 ---
-title: "Utility Classes"
-icon: "lucide/wrench"
-description: "Overview of LITIENGINE utility classes for common operations like math, geometry, and collections."
-keywords: ["LITIENGINE", "utility", "helper", "math", "geometry", "collection", "Java"]
+title: Utility Classes
+icon: lucide/wrench
+description: Overview of LITIENGINE utility classes for common operations like math,
+  geometry, and collections.
+keywords: [LITIENGINE, utility, helper, math, geometry, collection, Java]
+tags: [utilities, math, geometry, helpers, reflection, files]
 ---
-
 # Utility Classes
 
 LITIENGINE provides utility classes for common operations. These static helpers simplify repetitive tasks.

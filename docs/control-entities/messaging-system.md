@@ -1,10 +1,11 @@
 ---
-title: "Messaging System"
-icon: "lucide/message-square"
-description: "Learn how to use the Messaging System in LITIENGINE for entity-to-entity communication and event handling."
-keywords: ["LITIENGINE", "messaging", "events", "communication", "entity", "Java"]
+title: Messaging System
+icon: lucide/message-square
+description: Learn how to use the Messaging System in LITIENGINE for entity-to-entity
+  communication and event handling.
+keywords: [LITIENGINE, messaging, events, communication, entity, Java]
+tags: [messaging, events, communication, entity-messages]
 ---
-
 # Messaging System
 
 The Messaging System allows entities to communicate with each other through messages and events. This decouples entity behavior and enables reactive game logic.

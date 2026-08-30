@@ -1,10 +1,12 @@
 ---
-title: "Creating Game Menus"
-icon: "lucide/menu"
-description: "Learn how to build interactive game menus, title screens, keyboard/mouse navigation, and screen transitions in LITIENGINE."
-keywords: ["LITIENGINE", "menu", "MenuScreen", "Screen", "GuiComponent", "UI", "Java", "title screen", "keyboard navigation"]
+title: Creating Game Menus
+icon: lucide/menu
+description: Learn how to build interactive game menus, title screens, keyboard/mouse
+  navigation, and screen transitions in LITIENGINE.
+keywords: [LITIENGINE, menu, MenuScreen, Screen, GuiComponent, UI, Java, title screen,
+  keyboard navigation]
+tags: [menus, main-menu, pause-menu, navigation, ui]
 ---
-
 # Creating Game Menus
 
 Game menus and title screens are the entry points for players into your game. In LITIENGINE, menus are built by subclassing `Screen` and composing `GuiComponent` instances like `Menu`, `ImageComponent`, and `Button`.

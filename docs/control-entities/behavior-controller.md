@@ -1,10 +1,11 @@
 ---
-title: "Behavior Controllers"
-icon: "lucide/brain"
-description: "Learn how to implement predetermined behaviour for your Entities."
-keywords: ["LITIENGINE", "java", "game", "gameengine", "development", "2D", "programming", "library", "SDK", "repository", "build"]
+title: Behavior Controllers
+icon: lucide/brain
+description: Learn how to implement predetermined behaviour for your Entities.
+keywords: [LITIENGINE, java, game, gameengine, development, 2D, programming, library,
+  SDK, repository, build]
+tags: [behavior, ai, state-machine, enemy-ai, steering]
 ---
-
 # Behavior Controllers
 
 You can control an `Entity`'s behaviour using implementations of `IBehaviorController`. For example, if you want an enemy to walk around like a madman and then attack the player on sight, you can use the `StateController` implementation. Another example would be cutscenes, where you want to move entities on a predetermined path and then switch to normal walking once the cutscene has finished. 

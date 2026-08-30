@@ -1,10 +1,14 @@
 ---
-title: "Developing LITIENGINE Games with AI"
-icon: "lucide/bot"
-description: "Comprehensive guide to building 2D Java games using open-source and modern AI coding assistants (OpenCode, Antigravity, OpenAI Codex, Claude, Cursor) with LITIENGINE and the utiLITI Model Context Protocol (MCP) server."
-keywords: ["LITIENGINE AI", "OpenCode", "Google Antigravity", "OpenAI Codex", "AI game development", "Model Context Protocol", "MCP game engine", "AGENTS.md", "Java game AI", "Cursor", "Claude Desktop"]
+title: Developing LITIENGINE Games with AI
+icon: lucide/bot
+description: Comprehensive guide to building 2D Java games using open-source and modern
+  AI coding assistants (OpenCode, Antigravity, OpenAI Codex, Claude, Cursor) with
+  LITIENGINE and the utiLITI Model Context Protocol (MCP) server.
+keywords: [LITIENGINE AI, OpenCode, Google Antigravity, OpenAI Codex, AI game development,
+  Model Context Protocol, MCP game engine, AGENTS.md, Java game AI, Cursor, Claude
+    Desktop]
+tags: [ai, opencode, antigravity, codex, mcp, agents-md, automation, cursor, claude]
 ---
-
 # Developing LITIENGINE Games with AI
 
 Building 2D games in Java is significantly faster and more intuitive when pairing with modern **AI Coding Assistants**. In the open-source spirit, developers can leverage tools like **[OpenCode](https://github.com/opencode-ai/opencode)**, **Google Antigravity**, **OpenAI Codex**, **Claude**, and **Cursor**.

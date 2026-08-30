@@ -1,10 +1,11 @@
 ---
-title: "Java Scripting Engine"
-icon: "lucide/file-code"
-description: "Add pure Java gameplay scripts to LITIENGINE games with dynamic runtime execution and hot reload."
-keywords: ["LITIENGINE", "scripting", "Java", "IntelliJ", "utiLITI", "game behavior", "hot reload"]
+title: Java Scripting Engine
+icon: lucide/file-code
+description: Add pure Java gameplay scripts to LITIENGINE games with dynamic runtime
+  execution and hot reload.
+keywords: [LITIENGINE, scripting, Java, IntelliJ, utiLITI, game behavior, hot reload]
+tags: [scripting, java-scripts, hot-reload, monaco, compiler]
 ---
-
 # Java Scripting Engine
 
 LITIENGINE scripts are ordinary pure Java classes attached to the game, an environment, or an entity. They use the same public API as the rest of your game, allowing you to write modular, hot-reloadable gameplay logic directly in Java.

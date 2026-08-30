@@ -1,10 +1,12 @@
 ---
-title: "User Interface & Workspaces in utiLITI"
-icon: "lucide/columns"
-description: "Comprehensive guide to the utiLITI user interface, dual workspaces (Map & Script), viewport navigation, toolbar, layers, scene graph, and panels."
-keywords: ["utiLITI", "user interface", "layout", "workspaces", "map viewport", "toolbar", "layers", "scene graph", "console", "status bar", "command palette"]
+title: User Interface & Workspaces in utiLITI
+icon: lucide/columns
+description: Comprehensive guide to the utiLITI user interface, dual workspaces (Map
+  & Script), viewport navigation, toolbar, layers, scene graph, and panels.
+keywords: [utiLITI, user interface, layout, workspaces, map viewport, toolbar, layers,
+  scene graph, console, status bar, command palette]
+tags: [ui, workspaces, dark-theme, light-theme, layout]
 ---
-
 # User Interface & Workspaces
 
 The utiLITI editor is structured around high-productivity level design and code authoring workflows. This guide explores every region of the editor window, its toolbars, dockable panels, and productivity features.

@@ -1,10 +1,10 @@
 ---
-title: "Glossary"
-icon: "lucide/book-marked"
-description: "Glossary of terms used in LITIENGINE docs."
-keywords: ["LITIENGINE", "java", "game engine", "2D", "glossary"]
+title: Glossary
+icon: lucide/book-marked
+description: Glossary of terms used in LITIENGINE docs.
+keywords: [LITIENGINE, java, game engine, 2D, glossary]
+tags: [glossary, terminology, definitions, concepts, reference]
 ---
-
 # Glossary
 
 This glossary defines key terms used throughout LITIENGINE docs.

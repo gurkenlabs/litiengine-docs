@@ -1,10 +1,12 @@
 ---
-title: "Resource Management"
-icon: "lucide/library"
-description: "Comprehensive guide to managing assets in LITIENGINE using the static Resources API, in-memory caching containers, and .litidata binary archives."
-keywords: ["LITIENGINE", "java", "2d", "game engine", "resource management", "spritesheet", "sound", "fonts", "litidata", "maps", "blueprints"]
+title: Resource Management
+icon: lucide/library
+description: Comprehensive guide to managing assets in LITIENGINE using the static
+  Resources API, in-memory caching containers, and .litidata binary archives.
+keywords: [LITIENGINE, java, 2d, game engine, resource management, spritesheet, sound,
+  fonts, litidata, maps, blueprints]
+tags: [resource-management, resources, caching, litidata, assets, memory]
 ---
-
 # Resource Management
 
 The `Resources` class (`de.gurkenlabs.litiengine.resources.Resources`) is the central gateway for accessing, caching, and managing non-executable game assets across your LITIENGINE project. Whether your assets are stored as raw files on the filesystem, inside your compiled application JAR, or bundled in a compressed `.litidata` archive, the `Resources` API provides unified, thread-safe access to every asset container.

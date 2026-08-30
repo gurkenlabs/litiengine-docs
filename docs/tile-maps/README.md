@@ -1,10 +1,10 @@
 ---
-title: "Tile Maps"
-icon: "lucide/map"
-description: ">-"
-keywords: ["LITIENGINE", "java", "game engine", "2D", "tile maps"]
+title: Tile Maps
+icon: lucide/map
+description: '>-'
+keywords: [LITIENGINE, java, game engine, 2D, tile maps]
+tags: [tile-maps, tiled, tmx, maps, layers, tilesets]
 ---
-
 # Tile Maps
 
 Once you have gained a basic understanding of LITIENGINE's general game infrastructure, it is time to actually create a world for your game to take place in. LITIENGINE uses [.tmx tile maps](https://doc.mapeditor.org/en/stable/reference/tmx-map-format/), a universally acclaimed standard format for 2D level building.

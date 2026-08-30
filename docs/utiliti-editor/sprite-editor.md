@@ -1,10 +1,12 @@
 ---
-title: "Sprites & Animation Editor in utiLITI"
-icon: "lucide/images"
-description: "Comprehensive guide to the utiLITI Sprite & Animation Editor: spritesheet slicing, keyframe durations, animated previews, and sprite info export."
-keywords: ["utiLITI", "Sprite Editor", "Animation Editor", "spritesheets", "keyframe durations", "sprite slicing", "animation preview", "sprite info"]
+title: Sprites & Animation Editor in utiLITI
+icon: lucide/images
+description: 'Comprehensive guide to the utiLITI Sprite & Animation Editor: spritesheet
+  slicing, keyframe durations, animated previews, and sprite info export.'
+keywords: [utiLITI, Sprite Editor, Animation Editor, spritesheets, keyframe durations,
+  sprite slicing, animation preview, sprite info]
+tags: [sprite-editor, spritesheet, animations, preview, frames]
 ---
-
 # Sprites & Animation Editor
 
 The **Sprite & Animation Editor** (accessible via the `Spritesheets` asset category) allows you to import sprite sheets, configure frame slicing grids, define custom per-frame durations, test animations in a live playback preview, and export sprite metadata.

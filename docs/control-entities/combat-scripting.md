@@ -1,10 +1,12 @@
 ---
-title: "Combat & Action Scripting"
-icon: "lucide/crosshair"
-description: "Script abilities, projectiles, floating combat text, and cinematics in LITIENGINE."
-keywords: ["LITIENGINE", "abilities", "projectiles", "combat scripting", "floating text", "camera cutscenes"]
+title: Combat & Action Scripting
+icon: lucide/crosshair
+description: Script abilities, projectiles, floating combat text, and cinematics in
+  LITIENGINE.
+keywords: [LITIENGINE, abilities, projectiles, combat scripting, floating text, camera
+    cutscenes]
+tags: [combat, attacks, damage, health, hitpoints, scripting]
 ---
-
 # Combat & Action Scripting
 
 LITIENGINE provides fluent builders for creating scripted abilities, projectile trajectories, combat visual feedback, and cinematic sequences directly from scripts.

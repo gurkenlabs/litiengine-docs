@@ -1,10 +1,11 @@
 ---
-title: "Game Window"
-icon: "lucide/app-window"
-description: "Learn about LITIENGINE's Game.window() API for managing the game window, resolution scaling, fullscreen mode, custom cursors, and window icons."
-keywords: ["LITIENGINE", "game window", "fullscreen", "resolution", "cursor", "icon", "Java"]
+title: Game Window
+icon: lucide/app-window
+description: Learn about LITIENGINE's Game.window() API for managing the game window,
+  resolution scaling, fullscreen mode, custom cursors, and window icons.
+keywords: [LITIENGINE, game window, fullscreen, resolution, cursor, icon, Java]
+tags: [game-window, display, resolution, fullscreen, windowed, screen]
 ---
-
 # Game Window
 
 The `Game.window()` method provides access to the `GameWindow` class, which manages the window that hosts your game's rendering component. Use it to control window properties like title, icon, resolution, cursor, and display mode.

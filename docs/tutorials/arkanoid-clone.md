@@ -1,10 +1,11 @@
 ---
-title: "Arkanoid Brick Breaker Tutorial"
-icon: "lucide/layers"
-description: "Creating an Arkanoid 2D Block Breaker Game documentation for LITIENGINE 2D Java game development."
-keywords: ["LITIENGINE", "java", "2d", "game engine", "tutorials"]
+title: Arkanoid Brick Breaker Tutorial
+icon: lucide/layers
+description: Creating an Arkanoid 2D Block Breaker Game documentation for LITIENGINE
+  2D Java game development.
+keywords: [LITIENGINE, java, 2d, game engine, tutorials]
+tags: [tutorial, arkanoid, breakout, paddle, ball, bricks]
 ---
-
 # Arkanoid Brick Breaker Tutorial
 
 > This LITIENGINE tutorial was written by [@YannikSchoeberl](https://github.com/YannikSchoeberl) and originally published on the LITIENGINE community forum.

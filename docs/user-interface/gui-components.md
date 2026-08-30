@@ -1,10 +1,11 @@
 ---
-title: "GuiComponents Overview"
-icon: "lucide/panel-top"
-description: "Overview of GuiComponents in LITIENGINE - buttons, labels, sliders, checkboxes, and other UI elements for game interfaces."
-keywords: ["LITIENGINE", "GUI", "component", "button", "label", "slider", "menu", "Java"]
+title: GuiComponents Overview
+icon: lucide/panel-top
+description: Overview of GuiComponents in LITIENGINE - buttons, labels, sliders, checkboxes,
+  and other UI elements for game interfaces.
+keywords: [LITIENGINE, GUI, component, button, label, slider, menu, Java]
+tags: [gui-components, buttons, text-fields, panels, widgets]
 ---
-
 # GuiComponents Overview
 
 LITIENGINE provides a comprehensive GUI framework for creating menus, HUDs, and in-game interfaces. All GUI components extend `GuiComponent`, which provides positioning, rendering, and input handling.

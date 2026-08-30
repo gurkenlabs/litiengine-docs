@@ -1,10 +1,12 @@
 ---
-title: "Tilesets & Wang Terrains in utiLITI"
-icon: "lucide/grid"
-description: "Comprehensive guide to the utiLITI Tileset Editor: tile properties, collision vector editing, animated tiles, and Wang terrain sets for auto-tiling."
-keywords: ["utiLITI", "Tileset Editor", "tile collisions", "animated tiles", "Wang tiles", "terrain sets", "auto-tiling", "tile properties"]
+title: Tilesets & Wang Terrains in utiLITI
+icon: lucide/grid
+description: 'Comprehensive guide to the utiLITI Tileset Editor: tile properties,
+  collision vector editing, animated tiles, and Wang terrain sets for auto-tiling.'
+keywords: [utiLITI, Tileset Editor, tile collisions, animated tiles, Wang tiles, terrain
+    sets, auto-tiling, tile properties]
+tags: [tilesets, wang-terrains, tiles, editor, collision]
 ---
-
 # Tilesets & Wang Terrains
 
 The **Tileset Editor** (accessible via the `Tilesets` tab or double-clicking any tileset asset in the asset tree) provides full control over tile graphics, custom tile collision shapes, multi-frame tile animations, and Wang terrain definitions.

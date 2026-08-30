@@ -1,10 +1,11 @@
 ---
-title: "Game Loop"
-icon: "lucide/clock"
-description: "Learn about LITIENGINE's game loop - Game.loop() for fixed-rate game logic updates, rendering, and the IUpdateable interface."
-keywords: ["LITIENGINE", "game loop", "update", "render", "tick", "IUpdateable", "framerate", "Java"]
+title: Game Loop
+icon: lucide/clock
+description: Learn about LITIENGINE's game loop - Game.loop() for fixed-rate game
+  logic updates, rendering, and the IUpdateable interface.
+keywords: [LITIENGINE, game loop, update, render, tick, IUpdateable, framerate, Java]
+tags: [gameloop, update-loop, fps, ticks, timing, callbacks]
 ---
-
 # Game Loop
 
 ## Decoupled Update vs. Render Loop Architecture

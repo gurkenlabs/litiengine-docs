@@ -1,10 +1,10 @@
 ---
-title: "Tweening"
-icon: "lucide/sparkles"
-description: "The TweenEngine is LITIENGINE's built-in interpolation framework."
-keywords: ["LITIENGINE", "java", "game engine", "2D", "tweening"]
+title: Tweening
+icon: lucide/sparkles
+description: The TweenEngine is LITIENGINE's built-in interpolation framework.
+keywords: [LITIENGINE, java, game engine, 2D, tweening]
+tags: [tweens, tweening, interpolation, easing, animation, transitions]
 ---
-
 # Tweening
 
 The tweening framework is a powerful tool that allows you to animate properties of different types of objects in your game. It is a simple way to

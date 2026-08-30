@@ -1,10 +1,12 @@
 ---
-title: "Settings & Keyboard Shortcuts in utiLITI"
-icon: "lucide/command"
-description: "Complete guide to utiLITI application settings, themes, grid configuration, keymap customization, and keyboard shortcuts reference."
-keywords: ["utiLITI", "settings", "preferences", "shortcuts", "keymap", "theme", "dark mode", "grid settings", "mcp settings", "hotkeys"]
+title: Settings & Keyboard Shortcuts in utiLITI
+icon: lucide/command
+description: Complete guide to utiLITI application settings, themes, grid configuration,
+  keymap customization, and keyboard shortcuts reference.
+keywords: [utiLITI, settings, preferences, shortcuts, keymap, theme, dark mode, grid
+    settings, mcp settings, hotkeys]
+tags: [shortcuts, hotkeys, key-bindings, settings, productivity]
 ---
-
 # Settings & Keyboard Shortcuts
 
 Access the application preferences by selecting **File -> Settings...** or pressing **`Ctrl + Alt + S`**.

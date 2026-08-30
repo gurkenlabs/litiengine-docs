@@ -1,10 +1,12 @@
 ---
-title: "Top-Down Action Shooter Tutorial"
-icon: "lucide/crosshair"
-description: "Step-by-step guide to building a top-down twin-stick action game in LITIENGINE with 8-way movement, mouse aiming, projectile abilities, and enemy waves."
-keywords: ["LITIENGINE", "tutorial", "top-down", "shooter", "twin-stick", "combat", "abilities", "star reaperz"]
+title: Top-Down Action Shooter Tutorial
+icon: lucide/crosshair
+description: Step-by-step guide to building a top-down twin-stick action game in LITIENGINE
+  with 8-way movement, mouse aiming, projectile abilities, and enemy waves.
+keywords: [LITIENGINE, tutorial, top-down, shooter, twin-stick, combat, abilities,
+  star reaperz]
+tags: [tutorial, top-down, shooter, projectiles, waves, weapons]
 ---
-
 # Top-Down Action Shooter Tutorial
 
 In this tutorial, you will build a fast-paced **Top-Down Action Shooter** inspired by engine patterns in *Star Reaperz* ([`litiengine-ldjam52`](https://github.com/gurkenlabs/litiengine-ldjam52)).

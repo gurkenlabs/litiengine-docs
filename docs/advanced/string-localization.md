@@ -1,10 +1,11 @@
 ---
-title: "String Localization"
-icon: "lucide/languages"
-description: "Learn how to implement string localization in LITIENGINE for multi-language game support."
-keywords: ["LITIENGINE", "localization", "i18n", "translation", "language", "strings", "Java"]
+title: String Localization
+icon: lucide/languages
+description: Learn how to implement string localization in LITIENGINE for multi-language
+  game support.
+keywords: [LITIENGINE, localization, i18n, translation, language, strings, Java]
+tags: [localization, i18n, translations, languages, strings]
 ---
-
 # String Localization
 
 LITIENGINE provides built-in support for string localization, allowing you to create multi-language games.

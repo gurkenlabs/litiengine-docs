@@ -1,10 +1,11 @@
 ---
-title: "Sprite Info Files"
-icon: "lucide/file-text"
-description: "Batch import spritesheets and configure custom animation keyframe durations using .info and .sprite metadata files in LITIENGINE."
-keywords: ["LITIENGINE", "java", "game engine", "2D", "sprite info files", "batch import", "spritesheet"]
+title: Sprite Info Files
+icon: lucide/file-text
+description: Batch import spritesheets and configure custom animation keyframe durations
+  using .info and .sprite metadata files in LITIENGINE.
+keywords: [LITIENGINE, java, game engine, 2D, sprite info files, batch import, spritesheet]
+tags: [sprite-info, spritesheet, batch-import, frame-durations, timing]
 ---
-
 # Sprite Info Files
 
 When managing dozens or hundreds of character animations, importing spritesheets one by one can be tedious. LITIENGINE provides a batch-import mechanism using plain-text **Sprite Info Files** (`.info` or `.sprite`).

@@ -1,10 +1,11 @@
 ---
-title: "Custom Properties"
-icon: "lucide/settings-2"
-description: "Learn how to use custom properties in LITIENGINE to configure map objects and entities with custom data."
-keywords: ["LITIENGINE", "custom properties", "Tiled", "tmx", "map object", "configuration", "entity"]
+title: Custom Properties
+icon: lucide/settings-2
+description: Learn how to use custom properties in LITIENGINE to configure map objects
+  and entities with custom data.
+keywords: [LITIENGINE, custom properties, Tiled, tmx, map object, configuration, entity]
+tags: [custom-properties, tmx-properties, metadata, attributes]
 ---
-
 # Custom Properties
 
 Custom properties allow you to attach arbitrary data to map objects in the Tiled editor or utiLITI. These properties are then accessible at runtime to configure entity behavior.

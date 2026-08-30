@@ -1,10 +1,11 @@
 ---
-title: "Scripts in utiLITI"
-icon: "lucide/file-code-2"
-description: "Create, bind, configure, and reload Java gameplay scripts with utiLITI and IntelliJ."
-keywords: ["utiLITI", "LITIENGINE", "scripts", "Java", "IntelliJ", "editor"]
+title: Scripts in utiLITI
+icon: lucide/file-code-2
+description: Create, bind, configure, and reload Java gameplay scripts with utiLITI
+  and IntelliJ.
+keywords: [utiLITI, LITIENGINE, scripts, Java, IntelliJ, editor]
+tags: [monaco, java-scripts, code-editor, auto-completion, scripts]
 ---
-
 # Scripts in utiLITI
 
 utiLITI and your IDE work on the same project files. Script source is not embedded in `.litidata`, so you can edit it in IntelliJ, use Git normally, and still configure behavior visually.

@@ -1,10 +1,12 @@
 ---
-title: "Static Lighting"
-icon: "lucide/sun-medium"
-description: "Learn about static lighting in LITIENGINE - pre-baked shadows and ambient occlusion for performant illumination."
-keywords: ["LITIENGINE", "static lighting", "shadow", "ambient occlusion", "baked", "performance", "Java"]
+title: Static Lighting
+icon: lucide/sun-medium
+description: Learn about static lighting in LITIENGINE - pre-baked shadows and ambient
+  occlusion for performant illumination.
+keywords: [LITIENGINE, static lighting, shadow, ambient occlusion, baked, performance,
+  Java]
+tags: [lighting, static-light, prebaked, lightmaps, performance]
 ---
-
 # Static Lighting
 
 Static lighting refers to pre-computed shadows and illumination baked into your tile map. It offers better performance than dynamic lighting for fixed light sources.

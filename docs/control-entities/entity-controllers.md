@@ -1,10 +1,11 @@
 ---
-title: "Entity Controllers"
-icon: "lucide/sliders"
-description: "Learn about Entity Controllers in LITIENGINE - how to control entity behavior with animation, movement, and custom controllers."
-keywords: ["LITIENGINE", "entity controller", "animation", "movement", "behavior", "Java"]
+title: Entity Controllers
+icon: lucide/sliders
+description: Learn about Entity Controllers in LITIENGINE - how to control entity
+  behavior with animation, movement, and custom controllers.
+keywords: [LITIENGINE, entity controller, animation, movement, behavior, Java]
+tags: [controllers, entity-controller, lifecycle, components]
 ---
-
 # Entity Controllers
 
 Entity Controllers are the primary mechanism for defining how entities behave in LITIENGINE. Each controller manages a specific aspect of an entity's functionality, such as animation, movement, or AI behavior.

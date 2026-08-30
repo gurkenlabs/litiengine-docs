@@ -1,11 +1,11 @@
 ---
-title: "Triggers"
-icon: "lucide/door-open"
-description: "Learn how to use Trigger entities in LITIENGINE to create area-based events and scripting."
-keywords: ["LITIENGINE", "trigger", "area", "event", "activate", "scripting", "Java"]
-tags: ["triggers", "zone", "collision trigger", "doors", "switches", "cutscene"]
+title: Triggers
+icon: lucide/door-open
+description: Learn how to use Trigger entities in LITIENGINE to create area-based
+  events and scripting.
+keywords: [LITIENGINE, trigger, area, event, activate, scripting, Java]
+tags: [triggers, events, collision-trigger, interact, zones]
 ---
-
 # Triggers
 
 Triggers are area-based entities that fire events when other entities enter or exit their bounds. Use them for scripting game events without writing code.

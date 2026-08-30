@@ -1,10 +1,10 @@
 ---
-title: "Libraries and Tools"
-icon: "lucide/wrench"
-description: ">-"
-keywords: ["LITIENGINE", "java", "game engine", "2D", "libraries and tools"]
+title: Libraries and Tools
+icon: lucide/wrench
+description: '>-'
+keywords: [LITIENGINE, java, game engine, 2D, libraries and tools]
+tags: [libraries, tools, dependencies, ecosystem, tiled, aseprite]
 ---
-
 # Libraries and Tools
 
 ## Third-Party Libraries
