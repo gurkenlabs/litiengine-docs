@@ -1,8 +1,16 @@
 /**
  * EthicalAds Integration for LITIENGINE Documentation (Zensical)
- * Privacy-preserving developer ads with instant navigation and responsive placement.
+ * Privacy-preserving developer ads with instant navigation and broken image fallback.
  */
 (function() {
+  // Global error listener to silently hide any blocked or failed ad images / pixels
+  window.addEventListener('error', function(event) {
+    const target = event.target;
+    if (target && target.tagName === 'IMG' && target.closest('[data-ea-publisher], .ea-sidebar-wrapper, .ethical-ad-article-wrapper')) {
+      target.style.display = 'none';
+    }
+  }, true);
+
   function setupAds() {
     const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
     const testAttr = isLocalhost ? ' data-ea-test="true"' : '';
@@ -17,7 +25,7 @@
       tocNav.appendChild(adSidebarWrapper);
     }
 
-    // 2. Article Bottom Placement (Visible when sidebar is absent or on mobile)
+    // 2. Article Bottom Placement (Mobile / No-sidebar view)
     const contentInner = document.querySelector('.md-content__inner article') || document.querySelector('.md-content__inner');
     if (contentInner && !document.getElementById('ea-article-container')) {
       const adArticleWrapper = document.createElement('div');
