@@ -62,6 +62,7 @@ Access the application preferences by selecting **File -> Settings...** or press
 ## Keyboard Shortcuts Reference
 
 ### File & Project
+
 | Action | Windows / Linux | macOS |
 | :--- | :--- | :--- |
 | **New Project** | `<kbd>Ctrl</kbd> + <kbd>N</kbd>` | `Cmd + N` |
@@ -70,6 +71,7 @@ Access the application preferences by selecting **File -> Settings...** or press
 | **Exit** | `Ctrl + Q` | `Cmd + Q` |
 
 ### Edit & Viewport
+
 | Action | Windows / Linux | macOS |
 | :--- | :--- | :--- |
 | **Undo** | `<kbd>Ctrl</kbd> + <kbd>Z</kbd>` | `Cmd + Z` |
@@ -85,6 +87,7 @@ Access the application preferences by selecting **File -> Settings...** or press
 | **Inspector History Forward** | `Alt + Right` | `Opt + Right` |
 
 ### View & Camera
+
 | Action | Windows / Linux | macOS |
 | :--- | :--- | :--- |
 | **Toggle Grid** | `Ctrl + G` | `Cmd + G` |
@@ -97,6 +100,7 @@ Access the application preferences by selecting **File -> Settings...** or press
 | **Center on Map** | `<kbd>Ctrl</kbd> + <kbd>S</kbd>pace` | `Cmd + Space` |
 
 ### Add Entities
+
 | Action | Windows / Linux | macOS |
 | :--- | :--- | :--- |
 | **Add Prop** | `Ctrl + 1` | `Cmd + 1` |
@@ -111,6 +115,7 @@ Access the application preferences by selecting **File -> Settings...** or press
 | **Add Sound Source** | `Ctrl + 0` | `Cmd + 0` |
 
 ### Scripting & Execution
+
 | Action | Windows / Linux | macOS |
 | :--- | :--- | :--- |
 | **Run Project** | `Shift + F10` | `Shift + F10` |

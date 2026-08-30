@@ -60,6 +60,16 @@ def lint_markdown():
                 
                 if not prev_is_list and not prev_is_empty and not prev_is_heading and not prev_is_fence and not prev_is_admonition and not prev_is_html and not prev_is_card:
                     errors.append(f"{rel}:{line_num}: List item without preceding blank line after paragraph: '{prev_line[:40]}'")
+
+            # 4. Check Table Boundaries (Must have blank line before table header)
+            is_table_row = stripped.startswith("|") and stripped.endswith("|")
+            if is_table_row and idx + 1 < len(lines):
+                next_line = lines[idx + 1].strip()
+                if re.match(r'^\|[\s:-|-]+\|$', next_line) and idx > 0:
+                    prev_line = lines[idx - 1].strip()
+                    prev_is_table = prev_line.startswith("|") and prev_line.endswith("|")
+                    if not prev_is_table and prev_line != "" and not prev_line.startswith("#") and not prev_line.startswith("<"):
+                        errors.append(f"{rel}:{line_num}: Table header without preceding blank line: '{prev_line[:40]}'")
                     
         if in_code:
             errors.append(f"{rel}:{fence_line}: Unclosed code fence opened on line {fence_line}")

@@ -27,6 +27,7 @@ public class MyEntity extends Entity {
 ```
 
 **Properties:**
+
 | Property | Type | Description |
 |----------|------|-------------|
 | `width` | int | Entity width (pixels) |
@@ -51,6 +52,7 @@ public class Wall extends CollisionEntity {
 ```
 
 **Properties:**
+
 | Property | Type | Description |
 |----------|------|-------------|
 | `collision` | boolean | Enable/disable collision |
@@ -77,6 +79,7 @@ public class Enemy extends Creature {
 ```
 
 **Properties:**
+
 | Property | Type | Description |
 |----------|------|-------------|
 | `velocity` | float | Maximum speed (pixels/sec) |
@@ -101,6 +104,7 @@ public class Player extends Creature {
 ```
 
 **Properties:**
+
 | Property | Type | Description |
 |----------|------|-------------|
 | `hitpoints` | int | Maximum hitpoints |
@@ -123,6 +127,7 @@ public class Player extends Creature {
 ```
 
 **Properties:**
+
 | Property | Type | Description |
 |----------|------|-------------|
 | `spritePrefix` | String | Prefix for spritesheet lookup |
