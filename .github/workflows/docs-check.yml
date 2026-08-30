@@ -1,0 +1,33 @@
+name: Validate Documentation
+
+on:
+  pull_request:
+  push:
+    branches: [ master, main, feature/* ]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - name: Install Zensical
+        run: pip install -r requirements-docs.txt
+      - name: Lint Markdown Syntax & Lists
+        run: python .github/scripts/lint_markdown.py
+
+      - name: Validate Internal & Image Links
+        run: python .github/scripts/validate_links.py
+
+      - name: Generate & Verify llms.txt Sync
+        run: |
+          python .github/scripts/generate_llms.py
+          git diff --exit-code docs/llms.txt docs/llms-full.txt
+
+      - name: Build documentation
+        run: zensical build --clean --strict

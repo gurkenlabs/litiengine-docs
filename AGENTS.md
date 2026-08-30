@@ -1,4 +1,4 @@
-# AGENTS.md - LITIENGINE Documentation
+# AGENTS.md - LITIENGINE Docs
 
 This repository contains the documentation for LITIENGINE, a free, open-source 2D Java Game Engine. The docs are published at https://litiengine.com/docs/
 
@@ -6,7 +6,7 @@ This repository contains the documentation for LITIENGINE, a free, open-source 2
 
 This is a **documentation-only repository**. The actual engine code lives at https://github.com/gurkenlabs/litiengine
 
-- **Language**: Markdown (with Java/Groovy code examples)
+- **Language**: Markdown (with Java code examples)
 - **Purpose**: Technical documentation for a 2D game engine library
 - **No build tools, package managers, or CI/CD configured**
 
@@ -23,23 +23,23 @@ For quality assurance:
 
 ```
 /
-├── README.md              # Introduction page
-├── SUMMARY.md             # Navigation/table of contents (DO NOT REMOVE)
-├── CHANGELOG.md           # Release notes
-├── GLOSSARY.md            # Term definitions
-├── getting-started/       # Installation & setup guides
-├── game-api/              # Core API documentation (Game.graphics(), etc.)
-├── player-input/          # Input handling (keyboard, mouse, gamepad)
-├── configuration/         # Game configuration docs
-├── entity-framework/      # Entity system documentation
-├── control-entities/      # Controllers, abilities, AI
-├── tile-maps/             # Tiled map integration
-├── resource-management/   # Assets, sprites, textures
-├── user-interface/        # GUI components
-├── utiliti-editor/        # utiLITI editor docs
-├── tutorials/             # Step-by-step tutorials
-├── advanced/              # Advanced topics
-└── images/                # General images/assets
+├── README.md # Introduction page
+├── SUMMARY.md # Navigation/table of contents (DO NOT REMOVE)
+├── CHANGELOG.md # Release notes
+├── GLOSSARY.md # Term definitions
+├── getting-started/ # Installation & setup guides
+├── game-api/ # Core API documentation (Game.graphics(), etc.)
+├── player-input/ # Input handling (keyboard, mouse, gamepad)
+├── configuration/ # Game configuration docs
+├── entity-framework/ # Entity system documentation
+├── control-entities/ # Controllers, abilities, AI
+├── tile-maps/ # Tiled map integration
+├── resource-management/ # Assets, sprites, textures
+├── user-interface/ # GUI components
+├── utiliti-editor/ # utiLITI editor docs
+├── tutorials/ # Step-by-step tutorials
+├── advanced/ # Advanced topics
+└── images/ # General images/assets
 ```
 
 ## Markdown Style Guidelines
@@ -75,15 +75,15 @@ Game.start();
 
 ```groovy
 dependencies {
-  implementation 'de.gurkenlabs:litiengine:0.11.1'
+ implementation 'de.gurkenlabs:litiengine:0.11.1'
 }
 ```
 
 ```xml
 <dependency>
-  <groupId>de.gurkenlabs</groupId>
-  <artifactId>litiengine</artifactId>
-  <version>0.11.1</version>
+ <groupId>de.gurkenlabs</groupId>
+ <artifactId>litiengine</artifactId>
+ <version>0.11.1</version>
 </dependency>
 ```
 ````
@@ -91,18 +91,18 @@ dependencies {
 ### Links
 
 - Internal links: Use `/docs/` prefix with trailing slash
-  ```markdown
-  [Getting Started](/docs/getting-started/README/)
-  [Install JDK](/docs/getting-started/install-jdk/)
-  ```
+ ```markdown
+ [Getting Started](/docs/getting-started/README/)
+ [Install JDK](/docs/getting-started/install-jdk/)
+ ```
 - External links: Full URL
-  ```markdown
-  [Tiled Editor](https://www.mapeditor.org/)
-  ```
-- API references: Link to Javadocs
-  ```markdown
-  [Javadocs](https://litiengine.com/api/)
-  ```
+ ```markdown
+ [Tiled Editor](https://www.mapeditor.org/)
+ ```
+- API references: Link to API Quick Reference
+ ```markdown
+ [API Reference](/docs/getting-started/api-quick-reference/)
+ ```
 
 ### Callouts/Notes
 
@@ -132,15 +132,15 @@ Use blockquotes for notes and warnings:
 
 ```java
 public class Program {
-  public static void main(String[] args) {
-    Game.info().setName("My Game");
-    Game.info().setVersion("v1.0.0");
-    
-    Game.init(args);
-    Resources.load("game.litidata");
-    Game.world().loadEnvironment("level1");
-    Game.start();
-  }
+ public static void main(String[] args) {
+ Game.info().setName("My Game");
+ Game.info().setVersion("v1.0.0");
+ 
+ Game.init(args);
+ Resources.load("game.litidata");
+ Game.world().loadEnvironment("level1");
+ Game.start();
+ }
 }
 ```
 
@@ -153,7 +153,7 @@ Show LITIENGINE annotations with their common attributes:
 @MovementInfo(velocity = 70)
 @CollisionInfo(collisionBoxWidth = 8, collisionBoxHeight = 16, collision = true)
 public class Player extends Creature {
-  // ...
+ // ...
 }
 ```
 
@@ -196,6 +196,5 @@ Many files in this repository are stubs (contain only a title header). When comp
 ## External References
 
 - Main repository: https://github.com/gurkenlabs/litiengine
-- Javadocs: https://litiengine.com/api/
 - Website: https://litiengine.com/
 - Forum: https://forum.litiengine.com/

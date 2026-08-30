@@ -1,0 +1,30 @@
+# LITIENGINE Docs
+> Free, open-source 2D Java Game Engine (Java 21+ LTS) with pure AWT graphics, low-latency Panama FFM input (Input4j), spatial quadtree physics, positional 2D audio, and the utiLITI companion level editor.
+
+## Core Documentation
+
+- [Getting Started](https://docs.litiengine.com/getting-started/): Installation, JDK 21+ setup, Gradle/Maven configuration, and first game.
+- [API Quick Reference](https://docs.litiengine.com/getting-started/api-quick-reference/): Complete static cheat sheet covering Game.*, Resources.*, and Input.*.
+- [2D Graphics](https://docs.litiengine.com/game-api/render-engine/): AWT rendering, sprite transformations, shape drawing, and TextRenderer outlines.
+- [2D Physics](https://docs.litiengine.com/game-api/physics-engine/): Bounding-box collisions, spatial quadtree acceleration, and collision sliding.
+- [2D Sound](https://docs.litiengine.com/game-api/sound-engine/): Positional 2D spatial audio, distance attenuation, and multi-bus volume controls.
+- [Player Input](https://docs.litiengine.com/player-input/): Low-latency keyboard, mouse, and hardware gamepads via Input4j Panama FFM.
+- [Entity Framework](https://docs.litiengine.com/entity-framework/): Creatures, Props, Emitters, LightSources, Spawnpoints, and Entity Annotations.
+- [Java Scripting Engine](https://docs.litiengine.com/control-entities/scripting/): Pure Java runtime scripts (GameScript, EnvironmentScript, CreatureScript).
+- [utiLITI Editor](https://docs.litiengine.com/utiliti-editor/): Visual 2D map editor, entity inspector, tilesets, Wang autotiling, and .litidata bundling.
+- [Tutorials](https://docs.litiengine.com/tutorials/2d-platformer/): Step-by-step guides for 2D platformers, top-down shooters, and brick breakers.
+- [Savegames & State Persistence](https://docs.litiengine.com/savegames/): Serializing player stats, inventory, and environment restoration.
+- [Deployment](https://docs.litiengine.com/deployment/): Packaging standalone executables with jlink and Launch4j.
+
+## Key APIs & Symbols
+
+- `de.gurkenlabs.litiengine.Game`: Master engine entry point (`Game.init(args)`, `Game.start()`, `Game.world()`, `Game.physics()`, `Game.audio()`, `Game.window()`, `Game.graphics()`, `Game.screens()`).
+- `de.gurkenlabs.litiengine.resources.Resources`: Central asset archive manager (`Resources.maps()`, `Resources.spritesheets()`, `Resources.sounds()`, `Resources.tracks()`, `Resources.fonts()`, `Resources.images()`).
+- `de.gurkenlabs.litiengine.input.Input`: Unified input polling (`Input.keyboard()`, `Input.mouse()`, `Input.gamepads()`).
+- `de.gurkenlabs.litiengine.entities.Creature`: Base class for living entities with movement and combat controllers.
+- `de.gurkenlabs.litiengine.entities.Prop`: Base class for static or destructible interactive map objects.
+- `de.gurkenlabs.litiengine.environment.Environment`: Level container holding tilemaps, lights, and entity instances.
+
+## Full Context
+
+- [Full Documentation Bundle](https://docs.litiengine.com/llms-full.txt): Complete concatenated markdown documentation for LLM consumption.

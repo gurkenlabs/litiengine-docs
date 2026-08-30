@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+# LITIENGINE Docs Pre-Commit Hook
+# Validates Markdown syntax, list boundaries, code fences, and links before committing.
+
+set -e
+
+echo "🔍 Running LITIENGINE Docs Pre-Commit Validations..."
+
+# Check Python environment (prioritizing local venv)
+if [ -f ".venv/Scripts/python.exe" ]; then
+    PY=".venv/Scripts/python.exe"
+elif [ -f ".venv/bin/python" ]; then
+    PY=".venv/bin/python"
+elif command -v py &>/dev/null; then
+    PY="py -3"
+elif command -v python3 &>/dev/null; then
+    PY="python3"
+elif command -v python &>/dev/null; then
+    PY="python"
+else
+    echo "⚠️ Python not found in PATH; skipping local markdown validation."
+    exit 0
+fi
+
+# 1. Lint Markdown Syntax
+$PY .github/scripts/lint_markdown.py
+
+# 2. Validate Links & Images
+$PY .github/scripts/validate_links.py
+
+# 3. Synchronize llms.txt
+$PY .github/scripts/generate_llms.py
+
+echo "✅ All pre-commit documentation checks passed!"
