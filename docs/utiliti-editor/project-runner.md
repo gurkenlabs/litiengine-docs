@@ -15,7 +15,7 @@ utiLITI provides a built-in project execution and debugging environment, allowin
 
 ## 1. Running the Project (`Shift + F10`)
 
-Click the green **Run Project** button (``) on the toolbar or press **`Shift + F10`**:
+Click the green **Run Project** button (:material-play:{ .middle style="color: #4caf50;" }) on the toolbar or press <kbd>Shift</kbd> + <kbd>F10</kbd>:
 
 1. **Automatic Build**: utiLITI invokes the project's build service to compile recent Java sources.
 2. **Standalone Launch**: utiLITI starts the game process using `GameLauncher` (`de.gurkenlabs.litiengine.launch.GameLauncher`) or the project's configured Gradle `run` task.
@@ -26,7 +26,7 @@ Click the green **Run Project** button (``) on the toolbar or press **`Shift + F
 
 ## 2. Debugging with Breakpoints (`Shift + F9`)
 
-Click the **Debug Project** button (``) on the toolbar or press **`Shift + F9`**:
+Click the **Debug Project** button (:material-bug:{ .middle style="color: #29b6f6;" }) on the toolbar or press <kbd>Shift</kbd> + <kbd>F9</kbd>:
 
 - utiLITI launches the game with an active **Java Debug Interface (JDI)** socket attached.
 - The **Scripts Workspace** connects to the live execution backend.
@@ -50,7 +50,7 @@ Click the **Debug Project** button (``) on the toolbar or press **`Shift + F9`**
 ```
 
 ### Setting Breakpoints:
-- Click the left gutter of any line in the Monaco code editor. A red circle (``) indicates an active breakpoint.
+- Click the left gutter of any line in the Monaco code editor. A red circle indicator (:material-circle:{ .middle style="color: #ef5350;" }) marks an active breakpoint.
 - Breakpoints are automatically saved across sessions in user preferences.
 
 ### Debugger Controls:

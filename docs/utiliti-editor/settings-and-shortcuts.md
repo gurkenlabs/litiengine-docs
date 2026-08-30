@@ -27,20 +27,20 @@ Access the application preferences by selecting **File -> Settings...** or press
 └───────────────────┴─────────────────────────────────────────┘
 ```
 
-### 1. Appearance (``)
+### 1. Appearance
 - **Theme**: Toggle between **Dark Theme** (default) and **Light Theme**.
 - **UI Scale**: Adjust scaling factor from `0.5x` to `2.0x` for high-DPI (4K/Retina) displays.
 - **Editor Font Family**: Choose between `Roboto`, `OpenSans`, or installed system monospace fonts for the code and property editors.
 - **Editor Font Size**: Text point size (`8`–`32`).
 - **Editor FPS Cap**: Limit viewport framerate (`1`–`1000` FPS, default: `60`) to reduce GPU/CPU consumption.
 
-### 2. General (``)
+### 2. General
 - **Language & Region**: Switch editor localization (English, German, etc.).
 - **Reopen Last Project on Startup**: Automatically restores the most recently active `.litidata` project on launch.
 - **Gradle Launch Arguments**: Additional JVM or Gradle flags passed when running projects.
 - **Log Level**: Filter console output (`ALL`, `INFO`, `WARNING`, `SEVERE`, `OFF`).
 
-### 3. Grid (``)
+### 3. Grid
 - **Snap to Grid**: Global default toggle for grid alignment.
 - **Snap to Pixels**: Global default toggle for integer pixel coordinates.
 - **Snap Division**: Set subdivision precision (`1/1`, `1/2`, `1/4` of tile size).
@@ -48,13 +48,13 @@ Access the application preferences by selecting **File -> Settings...** or press
 - **Grid Color**: Custom color picker and opacity slider.
 - **Live Preview**: Interactive box showing the active grid style.
 
-### 4. Keymap (``)
+### 4. Keymap
 - Full interactive shortcut table.
 - Filter commands with the search bar.
 - Double-click any command row or press **Record Shortcut** to bind custom key combinations.
 - **Reset Defaults**: Restore original factory keybindings.
 
-### 5. MCP Server (``)
+### 5. MCP Server
 - **Enable MCP Server**: Enable or disable the embedded Model Context Protocol server.
 - **Server Port**: Port for JSON-RPC / SSE connections (default: `8088`).
 - **Endpoint Info**: Displays `http://localhost:8088/mcp` and `http://localhost:8088/sse` with one-click clipboard copy.

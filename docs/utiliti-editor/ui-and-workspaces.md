@@ -17,8 +17,8 @@ The utiLITI editor is structured around high-productivity level design and code 
 
 On the far left edge of the window is the **Workspace Rail**, allowing you to switch between the two primary modes with a single click:
 
-- **Map Workspace** (``): Opens the 2D visual level design canvas, entity hierarchy, layer table, and property inspector.
-- **Scripts Workspace** (``): Opens the integrated Monaco code editor, class outline, script explorer, diagnostics dock, and JDI debugger.
+- **Map Workspace**: Opens the 2D visual level design canvas, entity hierarchy, layer table, and property inspector.
+- **Scripts Workspace**: Opens the integrated Monaco code editor, class outline, script explorer, diagnostics dock, and JDI debugger.
 
 Opening a script file from the asset tree or double-clicking an attached script in the inspector automatically switches to the **Scripts Workspace**.
 
@@ -56,16 +56,16 @@ The top toolbar houses primary project controls, active tools, and editing short
 | Control | Function | Shortcut |
 | :--- | :--- | :--- |
 | **Map Selector** | Dropdown showing the currently loaded map; switch between project maps instantly. | — |
-| **Run Project (``)** | Compiles and runs the current project using the standalone runner or Gradle task. | `Shift + F10` |
-| **Debug Project (``)** | Launches the game in debug mode with JDI breakpoint support attached. | `Shift + F9` |
-| **Stop Project (``)** | Terminates the running game process. | `Ctrl + F2` |
+| **Run Project** | Compiles and runs the current project using the standalone runner or Gradle task. | `Shift + F10` |
+| **Debug Project** | Launches the game in debug mode with JDI breakpoint support attached. | `Shift + F9` |
+| **Stop Project** | Terminates the running game process. | `Ctrl + F2` |
 | **Launch Status Indicator** | Displays real-time build and execution status (Building, Launching, Running). | — |
 | **Tool Selector** | Switch between Pointer, Tile Brush, Bucket Fill, Eraser, Stamp Brush, and Wang Terrain tools. | `1`–`6` |
 | **Undo / Redo Split Buttons** | Click to undo/redo the last action, or click the dropdown arrow to view and jump through the **Visual History List**. | `Ctrl + Z` / `Ctrl + Y` |
 | **Add Entity (`+`)** | Dropdown menu to spawn new game entities (Props, Creatures, Lights, Triggers, Emitters, custom classes). | `Ctrl + 1`–`0` |
 | **Grid Toggle (`#`)** | Toggles the visual tile grid overlay. | `Ctrl + G` |
-| **Snap Toggle (``)** | Toggles grid/pixel snapping on and off during placement and dragging. | — |
-| **Collision Toggle (`️`)** | Renders static physics collision boxes in real-time. | `Ctrl + H` |
+| **Snap Toggle** | Toggles grid/pixel snapping on and off during placement and dragging. | — |
+| **Collision Toggle (``)** | Renders static physics collision boxes in real-time. | `Ctrl + H` |
 | **Zoom Controls** | Zoom in (`+`), zoom out (`-`), or reset zoom to 100%. | `Ctrl + +` / `Ctrl + -` |
 
 ---
@@ -109,10 +109,10 @@ Manages the render and depth hierarchy of your map:
 
 ### Layer Controls:
 - **Add (`+`)**: Create a new Tile Layer or Object Layer.
-- **Delete (`️`)**: Remove the selected layer.
-- **Lift / Lower (`⬆️`/`⬇️`)**: Move the layer up or down in the rendering order.
-- **Visibility Toggle (`️`)**: Hide or show individual layers.
-- **Solo Mode (`️‍️`)**: "Show selected layer only" to focus on a single layer without clutter.
+- **Delete (``)**: Remove the selected layer.
+- **Lift / Lower (`⬆`/`⬇`)**: Move the layer up or down in the rendering order.
+- **Visibility Toggle (``)**: Hide or show individual layers.
+- **Solo Mode (``)**: "Show selected layer only" to focus on a single layer without clutter.
 - **Color Tint & Opacity**: Customize layer tint colors and alpha opacity.
 
 ---

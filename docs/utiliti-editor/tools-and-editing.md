@@ -19,8 +19,8 @@ The primary tools are available on the viewport toolbar and can be activated usi
 
 | Tool | Icon | Hotkey | Target Layer | Description |
 | :--- | :---: | :---: | :--- | :--- |
-| **Pointer Tool** | ↖️ | `V` / `1` | Object / All | Selects, moves, resizes, and rotates map entities. |
-| **Tile Brush Tool** | ️ | `B` / `2` | Tile Layer | Paints individual tiles selected from the Tileset panel. |
+| **Pointer Tool** | ↖ | `V` / `1` | Object / All | Selects, moves, resizes, and rotates map entities. |
+| **Tile Brush Tool** |  | `B` / `2` | Tile Layer | Paints individual tiles selected from the Tileset panel. |
 | **Bucket Fill Tool** | | `G` / `3` | Tile Layer | Flood-fills contiguous tile areas with the active tile GID. |
 | **Eraser Tool** | | `E` / `4` | Tile Layer | Clears tile cells on the active tile layer. |
 | **Stamp Brush Tool** | | `S` / `5` | Tile Layer | Stamps multi-tile patterns and rectangular tile arrangements. |

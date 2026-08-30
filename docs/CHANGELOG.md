@@ -235,7 +235,7 @@ What are you waiting for? Start the new year the right way: making games with LI
 * [f3ce2ca](https://github.com/gurkenlabs/litiengine/commit/f3ce2ca84902123f6da4399caaaa160da80f0090) Prevented UndoManager from updating the same object multiple times
 * [8306abd](https://github.com/gurkenlabs/litiengine/commit/8306abdf548cb0ec8006b2b5ad4402fca505f114) Prevented entity list from completely rebuilding upon entity deletion
 
-#### ‍ New Contributors ‍
+####  New Contributors 
 
 * @DanielH4 in [#376](https://github.com/gurkenlabs/litiengine/pull/376)
 * @nwessman in [#377](https://github.com/gurkenlabs/litiengine/pull/377)

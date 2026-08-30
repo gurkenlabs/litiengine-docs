@@ -2140,7 +2140,7 @@ LITIENGINE provides a unified, low-latency input polling and event system across
 
 ---
 
-## ️ Temporary Input Locking (Cutscenes & Dialogues)
+##  Temporary Input Locking (Cutscenes & Dialogues)
 
 To disable input during cutscenes, pause menus, or dialogue sequences:
 
@@ -5999,7 +5999,7 @@ Instead of requiring separate external collision tools, utiLITI includes an inte
 
 ```text
 ┌──────────────────────────────────────────────┐
-│ Tools: [↖️ Select] [Rectangle] [️ Delete] │
+│ Tools: [↖ Select] [Rectangle] [ Delete] │
 ├──────────────────────────────────────────────┤
 │ ┌──────────────┐ │
 │ │ │ │
@@ -6013,10 +6013,10 @@ Instead of requiring separate external collision tools, utiLITI includes an inte
 
 ### Collision Authoring Workflow:
 1. Select a tile in the grid.
-2. Under the **Collision Editor** section, click **Rectangle Mode** (``).
+2. Under the **Collision Editor** section, click **Rectangle Mode**.
 3. Click and drag across the tile image preview to define collision boundaries (e.g. half-height walls or isometric tops).
-4. Switch to **Select Mode** (`↖️`) to move shapes or drag corner/edge handles to resize.
-5. Click **Delete** (`️`) or press `Delete` to remove collision geometry.
+4. Switch to **Select Mode** (`↖`) to move shapes or drag corner/edge handles to resize.
+5. Click **Delete** (``) or press `Delete` to remove collision geometry.
 
 When painted on any map layer, tiles with defined collision shapes automatically generate static physics obstacles in LITIENGINE's physics engine.
 
@@ -6080,8 +6080,8 @@ The primary tools are available on the viewport toolbar and can be activated usi
 
 | Tool | Icon | Hotkey | Target Layer | Description |
 | :--- | :---: | :---: | :--- | :--- |
-| **Pointer Tool** | ↖️ | `V` / `1` | Object / All | Selects, moves, resizes, and rotates map entities. |
-| **Tile Brush Tool** | ️ | `B` / `2` | Tile Layer | Paints individual tiles selected from the Tileset panel. |
+| **Pointer Tool** | ↖ | `V` / `1` | Object / All | Selects, moves, resizes, and rotates map entities. |
+| **Tile Brush Tool** |  | `B` / `2` | Tile Layer | Paints individual tiles selected from the Tileset panel. |
 | **Bucket Fill Tool** | | `G` / `3` | Tile Layer | Flood-fills contiguous tile areas with the active tile GID. |
 | **Eraser Tool** | | `E` / `4` | Tile Layer | Clears tile cells on the active tile layer. |
 | **Stamp Brush Tool** | | `S` / `5` | Tile Layer | Stamps multi-tile patterns and rectangular tile arrangements. |
@@ -6733,20 +6733,20 @@ Access the application preferences by selecting **File -> Settings...** or press
 └───────────────────┴─────────────────────────────────────────┘
 ```
 
-### 1. Appearance (``)
+### 1. Appearance
 - **Theme**: Toggle between **Dark Theme** (default) and **Light Theme**.
 - **UI Scale**: Adjust scaling factor from `0.5x` to `2.0x` for high-DPI (4K/Retina) displays.
 - **Editor Font Family**: Choose between `Roboto`, `OpenSans`, or installed system monospace fonts for the code and property editors.
 - **Editor Font Size**: Text point size (`8`–`32`).
 - **Editor FPS Cap**: Limit viewport framerate (`1`–`1000` FPS, default: `60`) to reduce GPU/CPU consumption.
 
-### 2. General (``)
+### 2. General
 - **Language & Region**: Switch editor localization (English, German, etc.).
 - **Reopen Last Project on Startup**: Automatically restores the most recently active `.litidata` project on launch.
 - **Gradle Launch Arguments**: Additional JVM or Gradle flags passed when running projects.
 - **Log Level**: Filter console output (`ALL`, `INFO`, `WARNING`, `SEVERE`, `OFF`).
 
-### 3. Grid (``)
+### 3. Grid
 - **Snap to Grid**: Global default toggle for grid alignment.
 - **Snap to Pixels**: Global default toggle for integer pixel coordinates.
 - **Snap Division**: Set subdivision precision (`1/1`, `1/2`, `1/4` of tile size).
@@ -6754,13 +6754,13 @@ Access the application preferences by selecting **File -> Settings...** or press
 - **Grid Color**: Custom color picker and opacity slider.
 - **Live Preview**: Interactive box showing the active grid style.
 
-### 4. Keymap (``)
+### 4. Keymap
 - Full interactive shortcut table.
 - Filter commands with the search bar.
 - Double-click any command row or press **Record Shortcut** to bind custom key combinations.
 - **Reset Defaults**: Restore original factory keybindings.
 
-### 5. MCP Server (``)
+### 5. MCP Server
 - **Enable MCP Server**: Enable or disable the embedded Model Context Protocol server.
 - **Server Port**: Port for JSON-RPC / SSE connections (default: `8088`).
 - **Endpoint Info**: Displays `http://localhost:8088/mcp` and `http://localhost:8088/sse` with one-click clipboard copy.
