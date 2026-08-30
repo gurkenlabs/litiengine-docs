@@ -489,65 +489,206 @@ When developing on macOS (Sonoma, Ventura, Sequoia with M1/M2/M3/M4 Apple Silico
 <!-- BEGIN CHAPTER: getting-started/build-systems.md -->
 
 ---
-title: Build Systems
-icon: lucide/wrench
-description: Learn about build automation utilities in general and how to set up the
-  most common build tools for Java development.
-keywords: [LITIENGINE, java, game, gameengine, development, 2D, programming, build,
-  gradle, maven, ant]
-tags: [gradle, maven, build, dependencies, shadowjar]
+title: "Build Systems & Dependency Setup"
+icon: "lucide/wrench"
+description: "Configure Gradle (Kotlin/Groovy) and Maven build automation with Java 21+ toolchains, Shadow JAR bundling, and LITIENGINE dependencies."
+keywords: ["LITIENGINE build", "Gradle Kotlin DSL", "build.gradle.kts", "build.gradle", "pom.xml", "Java 21 toolchain", "shadowjar"]
+tags: ["gradle", "maven", "build", "dependencies", "shadowjar", "toolchain"]
 ---
-# Build Systems
-## Choose a build system
 
-Have you heard of build automation utilities? If you don't want to manage and compile your software and dependencies by hand with every release, you can rely on build automation utilities to compile and package your source code, manage dependencies, and run automated tests.
-Three build systems are predominantly used for Java development:
+# Build Systems & Dependency Setup
 
-* [Gradle](https://gradle.org/)
-* [Apache Maven](https://maven.apache.org/)
-* [Apache Ant](https://ant.apache.org/) 
+Build automation utilities manage third-party libraries, compile Java source code, run automated tests, and package standalone executable archives.
 
-LITIENGINE itself is built upon **Gradle** and uses it to seamlessly manage its build steps and dependent libraries.
+LITIENGINE is distributed via **Maven Central** and is fully compatible with modern **Gradle** (Kotlin & Groovy DSL) and **Apache Maven**.
 
-## Install and set up a build system
+---
 
-### Example: Eclipse + Gradle
-Assuming that you chose [Eclipse IDE](https://www.eclipse.org/downloads/packages/release/kepler/sr1/eclipse-ide-java-developers) and [Gradle](https://gradle.org/), you can create a Gradle project with these steps:
+## Starter Build Configurations (Java 21+)
 
-* [download Gradle](https://gradle.org/install/).
-* create a new directory `C:\Gradle` and unzip the downloaded file there. 
-* add `C:\Gradle\[your-gradle-version]\bin` to your system's *PATH* environment variable.
-* if there is no gradle plugin in your Eclipse installation, go to Help -> Eclipse Marketplace to search and install Gradle integration.
-* click File > New > Other and select Gradle Project as wizard.
-* two files are required in a Gradle project's root folder: `build.gradle`, containing the build tasks, and `settings.gradle`, containing Gradle settings.
+Select your preferred build tool below for a complete, production-ready configuration:
 
-### Example: IntelliJ + Gradle
-To use [Intellij](https://www.jetbrains.com/idea/) and [Gradle](https://gradle.org/), follow these steps:
-> If you're on linux or mac, you can also use [SDKMAN!](https://sdkman.io/) to manage your Gradle installation. Once you've installed SDKMAN!, type `sdk install gradle` in your terminal. The latest recommend version of Gradle will be installed automatically for you. It should be registered in your IDE after you restart it. For further information look up the [SDKMAN! Docs](https://sdkman.io/usage). **In case you use SDKMAN! skip the next three steps**.
+=== "Gradle (Kotlin DSL)"
 
-* **Usually you don't have to install any build tools manually, because they come bundled with IntelliJ. The next three steps in brackets of installing Gradle for IntelliJ below usually only have to be followed if IntelliJ didn't install those build tools in the installation process already.**
-* ([download Gradle](https://gradle.org/install/).)
-* (create a new directory `C:\Gradle` and unzip the downloaded file there.)
-* (add `C:\Gradle\[your-gradle-version]\bin` to your system's *PATH* environment variable.)
-* usually the Gradle plugin is already installed in IntelliJ, if not, search for it in the plugin marketplace.
-* create a new project and select `Gradle` under `Build system`.
-* two files are required in a Gradle project's root folder: `build.gradle`, containing the build tasks, and `settings.gradle`, containing Gradle settings.
+    ```kotlin title="build.gradle.kts"
+    plugins {
+        java
+        application
+        id("com.gradleup.shadow") version "8.3.6"
+    }
 
-![intellij_gradle](../images/intellij_gradle.png)
+    group = "com.example.game"
+    version = "1.0.0"
 
-### Example: Intellij + Maven
-Getting ready with [Intellij](https://www.jetbrains.com/idea/) and [Maven](https://maven.apache.org/):
-> If you're on linux or mac, you can also use [SKDMAN!](https://sdkman.io/) to manage your Maven installation. Once you've installed SDKMAN!, type `sdk install maven` in your terminal. The latest recommend version of Maven will be installed automatically for you. It should be registered in your IDE after you restart it. For further information look up the [SDKMAN! Docs](https://sdkman.io/usage). **In case you use SDKMAN! skip the next three steps**.
+    repositories {
+        mavenCentral()
+    }
 
-* **Usually you don't have to install any build tools manually, because they come bundled with IntelliJ. The next three steps in brackets of installing Maven for IntelliJ below usually only have to be followed if IntelliJ didn't install those build tools in the installation process already.**
-* \([download Maven](https://maven.apache.org/).\)
-* \(create a new directory `C:\Maven` and unzip the downloaded file there.\)
-* \(add `C:\Maven\[your-maven-version]\bin` to your system's *PATH* environment variable.\)
-* usually the Maven plugin is already installed in IntelliJ, if not, search for it in the plugin marketplace.
-* create a new project and select `Maven` under `Build system`.
-* one file is required in a Maven project's root folder: `pom.xml`, containing the information and settings of your project.
+    java {
+        toolchain {
+            languageVersion.set(JavaLanguageVersion.of(21))
+        }
+    }
 
-![intellij_maven](../images/intellij_maven.png)
+    dependencies {
+        implementation("de.gurkenlabs:litiengine:0.11.1")
+        testImplementation("org.junit.jupiter:junit-jupiter:5.11.4")
+    }
+
+    application {
+        mainClass.set("com.example.game.Program")
+    }
+
+    tasks.shadowJar {
+        archiveClassifier.set("all")
+        manifest {
+            attributes["Main-Class"] = "com.example.game.Program"
+        }
+    }
+    ```
+
+=== "Gradle (Groovy DSL)"
+
+    ```groovy title="build.gradle"
+    plugins {
+        id 'java'
+        id 'application'
+        id 'com.gradleup.shadow' version '8.3.6'
+    }
+
+    group = 'com.example.game'
+    version = '1.0.0'
+
+    repositories {
+        mavenCentral()
+    }
+
+    java {
+        toolchain {
+            languageVersion = JavaLanguageVersion.of(21)
+        }
+    }
+
+    dependencies {
+        implementation 'de.gurkenlabs:litiengine:0.11.1'
+        testImplementation 'org.junit.jupiter:junit-jupiter:5.11.4'
+    }
+
+    application {
+        mainClass = 'com.example.game.Program'
+    }
+
+    tasks.shadowJar {
+        archiveClassifier.set('all')
+        manifest {
+            attributes 'Main-Class': 'com.example.game.Program'
+        }
+    }
+    ```
+
+=== "Maven (pom.xml)"
+
+    ```xml title="pom.xml"
+    <project xmlns="http://maven.apache.org/POM/4.0.0"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+        <modelVersion>4.0.0</modelVersion>
+
+        <groupId>com.example.game</groupId>
+        <artifactId>my-litiengine-game</artifactId>
+        <version>1.0.0</version>
+
+        <properties>
+            <maven.compiler.source>21</maven.compiler.source>
+            <maven.compiler.target>21</maven.compiler.target>
+            <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        </properties>
+
+        <dependencies>
+            <dependency>
+                <groupId>de.gurkenlabs</groupId>
+                <artifactId>litiengine</artifactId>
+                <version>0.11.1</version>
+            </dependency>
+        </dependencies>
+
+        <build>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-shade-plugin</artifactId>
+                    <version>3.5.2</version>
+                    <executions>
+                        <execution>
+                            <phase>package</phase>
+                            <goals>
+                                <goal>shade</goal>
+                            </goals>
+                            <configuration>
+                                <transformers>
+                                    <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                        <mainClass>com.example.game.Program</mainClass>
+                                    </transformer>
+                                </transformers>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </build>
+    </project>
+    ```
+
+---
+
+## IDE Setup & Project Importing
+
+<div class="grid cards" markdown>
+
+- :material-cube-outline:{ .lg .middle } **IntelliJ IDEA**
+
+    ---
+
+    1. Open IntelliJ and select **File &rarr; Open...**.
+    2. Choose the root folder containing `build.gradle.kts` (or `pom.xml`).
+    3. Select **Open as Project** and let Gradle sync dependencies automatically.
+
+- :material-application-brackets-outline:{ .lg .middle } **Eclipse IDE**
+
+    ---
+
+    1. Select **File &rarr; Import... &rarr; Existing Gradle Project**.
+    2. Browse to your project directory and click **Finish**.
+    3. Ensure your Workspace Installed JRE is configured for **Java 21+**.
+
+- :material-microsoft-visual-studio-code:{ .lg .middle } **VS Code**
+
+    ---
+
+    1. Install the **Extension Pack for Java** and **Gradle Extension for Java**.
+    2. Open your project folder; VS Code will automatically detect and configure the Gradle wrapper.
+
+</div>
+
+---
+
+## See Also
+
+<div class="grid cards" markdown>
+
+- :material-download-outline:{ .lg .middle } **[Get LITIENGINE](/getting-started/get-litiengine/)**
+
+    ---
+
+    Snapshot releases, JitPack builds, and manual JAR downloads.
+
+- :material-play-box-outline:{ .lg .middle } **[Deployment & Packaging](/deployment/)**
+
+    ---
+
+    Packaging standalone native binaries with jpackage and Launch4j.
+
+</div>
 
 <!-- END CHAPTER: getting-started/build-systems.md -->
 
@@ -916,70 +1057,70 @@ protected IMovementController createMovementController() {
 <!-- BEGIN CHAPTER: game-api/README.md -->
 
 ---
-title: Core Game API
-icon: lucide/gamepad-2
-description: 'Master LITIENGINE''s core subsystems: 2D Graphics, Positional Sound,
-  Physics Quadtrees, Game Loop, Cameras, and Screens.'
-keywords: [LITIENGINE, game api, graphics, audio, physics, game loop, camera, screens]
-tags: [game-api, architecture, core, systems, subsystems]
----
-# Core Game API
-
-The **Game API** forms the static backbone of LITIENGINE, providing high-performance subsystems for rendering, spatial physics, audio playback, viewports, and display management.
-
+title: "Game API Overview"
+icon: "lucide/code-2"
+description: "Core LITIENGINE static API gateways: Game.world(), Game.physics(), Game.graphics(), Game.audio(), Game.loop(), and Game.tweens()."
+keywords: ["LITIENGINE Game API", "Game.world", "Game.physics", "Game.graphics", "Game.audio", "Game.loop", "Game.tweens"]
+tags: ["game-api", "world", "physics", "graphics", "audio", "loop", "tweens", "screens"]
 ---
 
-## Core Subsystems
+# Game API Overview
+
+The `Game` class acts as the central hub and orchestrator of LITIENGINE. It exposes specialized singleton managers providing access to every engine subsystem.
+
+---
+
+## Core Game Subsystems
 
 <div class="grid cards" markdown>
 
-- :material-palette:{ .lg .middle } **[2D Graphics Engine](/game-api/render-engine/)**
+- :material-earth:{ .lg .middle } **[Game World & Environments](/game-api/game-world/)**
 
     ---
 
-    Double-buffered AWT rendering, sprite transformations, shape drawing, and `TextRenderer` outlines.
+    Loading `.tmx` maps, switching active scenes, entity lookup, and spatial query indexing.
 
-- :material-volume-high:{ .lg .middle } **[2D Sound Engine](/game-api/sound-engine/)**
-
-    ---
-
-    Spatial audio playback, background music streaming, 2D attenuation, and sound effects.
-
-- :material-atom:{ .lg .middle } **[2D Physics Engine](/game-api/physics-engine/)**
+- :material-camera-outline:{ .lg .middle } **[Camera & Viewport](/game-api/camera/)**
 
     ---
 
-    Bounding-box collisions, spatial quadtree acceleration, collision sliding, and raycasting.
+    Smooth target tracking, map clamping, zoom transitions, screen shake trauma, and coordinate conversion.
 
-- :material-clock-fast:{ .lg .middle } **[Game Loop & Timers](/game-api/loops/)**
-
-    ---
-
-    Decoupled 60 Hz physics update tick, fixed-rate logic timers, and delta-time interpolation.
-
-- :material-video-vintage:{ .lg .middle } **[Camera & Viewport](/game-api/camera/)**
+- :material-atom:{ .lg .middle } **[Physics & Collisions](/game-api/physics-engine/)**
 
     ---
 
-    Smooth target tracking, zoom levels, viewport shaking, and bounding constraints.
+    Spatial quadtrees, raycasting, velocity resolution, bounding box collisions, and force gravity.
 
-- :material-monitor-screenshot:{ .lg .middle } **[Screens & State Flow](/game-api/screens/)**
-
-    ---
-
-    Managing Title screens, Gameplay worlds, HUD overlays, and Pause menus.
-
-- :material-animation-play:{ .lg .middle } **[Tweening Engine](/game-api/tweens/)**
+- :material-palette-outline:{ .lg .middle } **[2D Graphics & Rendering](/game-api/render-engine/)**
 
     ---
 
-    Smooth easing transitions for positions, alpha transparency, rotations, and UI scaling.
+    Double-buffered AWT rendering pipeline, Y-sorted render layers, shapes, and `TextRenderer`.
 
-- :material-earth:{ .lg .middle } **[Game World](/game-api/game-world/)**
+- :material-volume-high:{ .lg .middle } **[Sound & Audio Engine](/game-api/sound-engine/)**
 
     ---
 
-    Dynamic environment management, ambient lighting colors, and procedural map loading.
+    2D positional spatial audio falloff, `.ogg` Vorbis streaming, sound effect caching, and music playlists.
+
+- :material-timer-outline:{ .lg .middle } **[Game Loop & Timing](/game-api/loops/)**
+
+    ---
+
+    Deterministic 60 FPS update loop, delta time calculations, timers, and scheduled delay tasks.
+
+- :material-sparkles:{ .lg .middle } **[Tweens & Easing](/game-api/tweens/)**
+
+    ---
+
+    Property interpolation framework with Robert Penner easing equations (`QUAD`, `BOUNCE`, `ELASTIC`).
+
+- :material-monitor-dashboard:{ .lg .middle } **[Screens & Game States](/game-api/screens/)**
+
+    ---
+
+    Scene state manager for Title Screen, Gameplay Screen, Pause Overlay, and Game Over sequences.
 
 </div>
 
@@ -1065,6 +1206,102 @@ For more information, read the [Official Java Documentation on Graphics2D](https
 
 !!! warning "Rendering Lifecycle Rule"
     Never invoke `Graphics2D` draw calls directly outside of the render pipeline (`IRenderable.render(Graphics2D g)` or `Screen.render(Graphics2D g)`). Doing so disrupts double-buffering and causes viewport tearing.
+
+
+
+---
+
+## Custom Graphics & Post-Processing Examples
+
+LITIENGINE allows you to attach custom `IRenderable` callbacks to the render pipeline for custom HUDs, minimaps, and ambient color washes:
+
+### Example 1: Day/Night Cycle Ambient Light Tint
+Renders a smooth fullscreen colored tint over the world layers without obstructing the UI layer:
+
+```java title="DayNightAmbientRenderer.java"
+package com.example.game.graphics;
+
+import de.gurkenlabs.litiengine.Game;
+import de.gurkenlabs.litiengine.graphics.IRenderable;
+import de.gurkenlabs.litiengine.graphics.RenderType;
+import java.awt.AlphaComposite;
+import java.awt.Color;
+import java.awt.Composite;
+import java.awt.Graphics2D;
+
+public class DayNightAmbientRenderer implements IRenderable {
+  // Midnight blue tint with 40% darkness alpha
+  private Color ambientColor = new Color(10, 15, 45, 110);
+
+  public DayNightAmbientRenderer() {
+    // Register to the OVERLAY layer so tiles and creatures are tinted, but UI stays crisp
+    Game.world().environment().registerForRendering(this, RenderType.OVERLAY);
+  }
+
+  @Override
+  public void render(Graphics2D g) {
+    Composite orig = g.getComposite();
+    // Use AlphaComposite for smooth color blending
+    g.setComposite(AlphaComposite.SrcOver);
+    g.setColor(this.ambientColor);
+    
+    // Fill the entire visible camera viewport
+    g.fillRect(0, 0, (int) Game.window().getResolution().getWidth(), (int) Game.window().getResolution().getHeight());
+    g.setComposite(orig);
+  }
+}
+```
+
+---
+
+### Example 2: Dynamic In-Game Radar / Minimap Overlay
+Transforms world coordinates into a top-right corner radar HUD:
+
+```java title="MinimapRadar.java"
+package com.example.game.graphics;
+
+import de.gurkenlabs.litiengine.Game;
+import de.gurkenlabs.litiengine.entities.IEntity;
+import de.gurkenlabs.litiengine.graphics.IRenderable;
+import de.gurkenlabs.litiengine.graphics.RenderType;
+import java.awt.Color;
+import java.awt.Graphics2D;
+import java.awt.geom.Point2D;
+
+public class MinimapRadar implements IRenderable {
+  private final int radarX = 20;
+  private final int radarY = 20;
+  private final int radarSize = 120;
+  private final float scale = 0.08f; // Scale ratio from world to radar
+
+  public MinimapRadar() {
+    // Register on the UI layer so the radar draws on top of everything
+    Game.world().environment().registerForRendering(this, RenderType.UI);
+  }
+
+  @Override
+  public void render(Graphics2D g) {
+    // 1. Draw radar background
+    g.setColor(new Color(0, 0, 0, 180));
+    g.fillRect(radarX, radarY, radarSize, radarSize);
+    g.setColor(Color.WHITE);
+    g.drawRect(radarX, radarY, radarSize, radarSize);
+
+    // 2. Draw active entities on the radar
+    for (IEntity entity : Game.world().environment().all()) {
+      Point2D pos = entity.getLocation();
+      int dotX = radarX + (int) (pos.getX() * scale);
+      int dotY = radarY + (int) (pos.getY() * scale);
+
+      // Clamp inside radar bounds
+      if (dotX >= radarX && dotX <= radarX + radarSize && dotY >= radarY && dotY <= radarY + radarSize) {
+        g.setColor(entity.getName() != null && entity.getName().startsWith("player") ? Color.CYAN : Color.RED);
+        g.fillOval(dotX - 2, dotY - 2, 4, 4);
+      }
+    }
+  }
+}
+```
 
 ## Text and Font Rendering (`TextRenderer`)
 
@@ -2440,58 +2677,48 @@ Game.tweens().begin(player, TweenType.LOCATION_XY, 1000)
 <!-- BEGIN CHAPTER: player-input/README.md -->
 
 ---
-title: Player Input
-icon: lucide/gamepad
-description: Handle low-latency keyboard, mouse, and gamepad controls in LITIENGINE
-  with Panama FFM integration.
-keywords: [LITIENGINE, input, keyboard, mouse, gamepad, input4j, panama ffm]
-tags: [input, player-input, controls, event-listeners]
+title: "Player Input"
+icon: "lucide/gamepad-2"
+description: "Master LITIENGINE player input handling: Keyboard, Mouse, Gamepad (via Input4j and Java FFM), and custom Input Controllers."
+keywords: ["LITIENGINE input", "keyboard", "mouse", "gamepad", "Input4j", "Java FFM", "Input.keyboard", "Input.mouse", "Input.gamepads"]
+tags: ["input", "keyboard", "mouse", "gamepad", "controllers"]
 ---
+
 # Player Input
 
-LITIENGINE provides a unified, low-latency input polling and event system across keyboards, mouse pointers, and hardware gamepads.
+LITIENGINE provides a unified, responsive input subsystem accessible globally via the static `Input` class. It manages keyboard key states, mouse position and dragging, gamepad axis polling (via `Input4j`), and customizable entity input controllers.
 
 ---
 
-## Input Devices
+## Input Documentation Sections
 
 <div class="grid cards" markdown>
 
-- :material-keyboard:{ .lg .middle } **[Keyboard Input](/player-input/keyboard-input/)**
+- :material-keyboard-outline:{ .lg .middle } **[Keyboard Input](/player-input/keyboard-input/)**
 
     ---
 
-    Key listener bindings, continuous key state polling, and configurable directional mapping.
+    Key event listeners, keybinding registration, typed characters, and pressed state polling.
 
-- :material-mouse:{ .lg .middle } **[Mouse Input](/player-input/mouse-input/)**
+- :material-mouse-outline:{ .lg .middle } **[Mouse Input](/player-input/mouse-input/)**
 
     ---
 
-    Pointer coordinates in screen/map space, mouse wheel scrolling, and drag-and-drop interactions.
+    Mouse coordinates, screen-to-world coordinate transformations, drag events, and button clicks.
 
 - :material-controller:{ .lg .middle } **[Gamepad Input](/player-input/gamepad-input/)**
 
     ---
 
-    Multi-controller gamepad polling powered by `Input4j` with zero native DLL configuration.
+    DirectInput, XInput, and multi-controller polling via Input4j and Java Panama Foreign Function & Memory APIs.
+
+- :material-tune:{ .lg .middle } **[Movement Controllers](/control-entities/movement-controller/)**
+
+    ---
+
+    Attaching 8-directional movement, platformer gravity, and custom keybinding controllers to entities.
 
 </div>
-
----
-
-## Temporary Input Locking (Cutscenes & Dialogues)
-
-To disable input during cutscenes, pause menus, or dialogue sequences:
-
-```java
-// Lock input during cutscene
-Input.keyboard().stop();
-Input.mouse().stop();
-
-// Resume input after cutscene
-Input.keyboard().start();
-Input.mouse().start();
-```
 
 <!-- END CHAPTER: player-input/README.md -->
 
@@ -3064,125 +3291,48 @@ Input.gamepads().onPressed(Gamepad.Xbox.LEFT_STICK_X, x -> {
 <!-- BEGIN CHAPTER: entity-framework/README.md -->
 
 ---
-title: Entity Framework Overview
-icon: lucide/boxes
-description: 'Understand the LITIENGINE Entity Framework: entities, environments,
-  annotations, map objects, and lifecycle events.'
-keywords: [LITIENGINE, entity framework, IEntity, Creature, Prop, Environment, Java,
-  annotations]
-tags: [entities, entity-framework, game-objects, architecture]
+title: "Entity Framework"
+icon: "lucide/box"
+description: "Comprehensive guide to LITIENGINE's Entity Component System: Creature, Prop, Trigger, Annotations, and Custom Entity loaders."
+keywords: ["LITIENGINE", "entity framework", "Creature", "Prop", "Trigger", "CollisionEntity", "annotations", "custom entities"]
+tags: ["entity-framework", "entities", "creatures", "props", "triggers", "annotations"]
 ---
+
 # Entity Framework
 
-In LITIENGINE, every dynamic and interactive object that exists within a game world is an **Entity** (implementing `IEntity`). The **Entity Framework** provides the foundational architecture for managing game objects, their spatial transformations, physics collision boundaries, rendering order, animation states, combat mechanics, and event lifecycles.
+Entities represent all interactive, physical, or visual objects living within a game `Environment`. The entity system provides spatial indexing, life cycles, message dispatching, and declarative metadata configuration.
 
-```mermaid
-classDiagram
- class IEntity {
- <<interface>>
- +getLocation()
- +getMapId()
- +render(Graphics2D g)
- }
- class Entity {
- +setLocation(double x, double y)
- +getBoundingBox()
- }
- class CollisionEntity {
- +getCollisionBox()
- +hasCollision()
- }
- class MobileEntity {
- +getVelocity()
- +getMovementController()
- }
- class Creature {
- +getAnimationController()
- +getFacingDirection()
- }
- class CombatEntity {
- +getHitpoints()
- +hit(int damage)
- +die()
- }
- class Prop {
- +getMaterial()
- +isIndestructible()
- }
- class Emitter {
- +spawnParticle()
- }
+---
 
- IEntity <|.. Entity
- Entity <|-- CollisionEntity
- CollisionEntity <|-- MobileEntity
- CollisionEntity <|-- Prop
- MobileEntity <|-- Creature
- Creature <|-- CombatEntity
- Entity <|-- Emitter
-```
+## Entity System Documentation Sections
 
-## Core Concepts
+<div class="grid cards" markdown>
 
-### 1. Entities & Environments
-Entities live inside an `Environment` (a loaded game level or map). When an environment is loaded via `Game.world().loadEnvironment("mapName")`, all entities registered in that environment are automatically updated on each game tick and rendered to the screen.
+- :material-cube-outline:{ .lg .middle } **[Default Entity Types](/entity-framework/default-entity-types/)**
 
-```java
-// Spawn an entity dynamically into the active environment
-Creature monster = new Creature("monster-sprite");
-monster.setLocation(200, 150);
-Game.world().environment().add(monster);
-```
+    ---
 
-### 2. Tiled Maps & MapObjects Integration
-Entities can be created in code or placed visually in the **utiLITI Editor** / **Tiled Editor**. When a map loads, LITIENGINE's `MapObjectLoader` automatically instantiates concrete entity classes from map object layers matching their `type` property.
+    Complete overview of built-in classes: `Creature`, `Prop`, `Trigger`, `Spawnpoint`, `CollisionBox`, and `LightSource`.
 
-### 3. Static Metadata via Annotations
-Instead of setting sizes, bounding boxes, and speeds manually in constructors, LITIENGINE provides declarative annotations:
+- :material-tag-outline:{ .lg .middle } **[Annotations & Matrix](/entity-framework/annotations/)**
 
-* `@EntityInfo`: Configures entity dimensions, custom render tags, and render layers.
-* `@MovementInfo`: Configures base velocity, acceleration, and deceleration.
-* `@CollisionInfo`: Sets up collision boxes and interaction obstacles.
-* `@CombatInfo`: Configures base hitpoints, teams, and invulnerability states.
+    ---
 
-```java
-@EntityInfo(width = 24, height = 32)
-@MovementInfo(velocity = 90)
-@CollisionInfo(collision = true, collisionBoxWidth = 16, collisionBoxHeight = 12)
-public class Goblin extends Creature {
-  public Goblin() {
-    super("goblin");
-  }
-}
-```
+    Declarative metadata (`@EntityInfo`, `@CollisionInfo`, `@MovementInfo`, `@CombatInfo`) and the Entity Architecture Matrix.
 
-## Chapter Topics
+- :material-wrench-outline:{ .lg .middle } **[Custom Entities](/entity-framework/custom-entities/)**
 
-| Topic | Description |
-| :--- | :--- |
-| **[Default Entity Types](/entity-framework/default-entity-types/)** | Explore built-in entities: `Creature`, `Prop`, `Emitter`, `LightSource`, `Trigger`, and `SoundSource`. |
-| **[Props](/entity-framework/props/)** | Learn how to place, customize, and destroy interactive props in your world. |
-| **[Subscribe to Entity Events](/entity-framework/entity-events/)** | Hook into entity lifecycle events (`onMoved`, `onHit`, `onDying`, `onRendered`). |
-| **[Annotations for Static Information](/entity-framework/annotations/)** | Configure static attributes declaratively with `@EntityInfo`, `@MovementInfo`, and `@CombatInfo`. |
-| **[Custom Entity Implementations](/entity-framework/custom-entities/)** | Create complex, custom entity classes from scratch. |
-| **[Custom MapObjectLoaders](/advanced/custom-mapobjectloaders/)** | Map custom Tiled object types directly to your Java entity classes. |
+    ---
 
-## Entity Lifecycle
+    Subclassing base entities, registering custom XML loaders, and binding specialized behaviors.
 
-```mermaid
-flowchart LR
- A["1. Instantiation\n(Constructor / MapLoader)"] --> B["2. Environment.add()\n(onLoaded event)"]
- B --> C["3. Game Loop Tick\n(Controllers / update())"]
- C --> D["4. RenderEngine Pass\n(RenderType layer)"]
- D --> C
- C --> E["5. Environment.remove()\n(onDisposed / Cleanup)"]
-```
+- :material-bell-ring-outline:{ .lg .middle } **[Entity Events & Listeners](/entity-framework/entity-events/)**
 
-1. **Instantiation**: Constructed in Java code or loaded from a `.tmx` MapObject via `MapObjectLoader`.
-2. **Environment Attachment**: Added to an active `Environment`. The entity receives its map ID and triggers `onLoaded` listeners.
-3. **Update Phase**: The game loop updates attached controllers (Movement, AI Behaviors, Animations).
-4. **Render Phase**: The RenderEngine draws the entity on its designated `RenderType` layer (BACKGROUND, GROUND, SURFACE, NORMAL, OVERLAY).
-5. **Disposal**: When removed or killed, `dispose()` cleans up listeners, cancels active tweens, and detaches from physics.
+    ---
+
+    Lifecycle callbacks: `onMoved`, `onHit`, `onDeath`, `onCollision`, and custom message dispatching.
+
+</div>
 
 <!-- END CHAPTER: entity-framework/README.md -->
 
@@ -4374,86 +4524,48 @@ With the example implementation above, we can see the hitboxes of our props rend
 <!-- BEGIN CHAPTER: control-entities/README.md -->
 
 ---
-title: Control Entities Overview
-icon: lucide/bot
-description: 'Master entity control in LITIENGINE: controllers, animation, movement,
-  AI behaviors, abilities, and modern Java scripting.'
-keywords: [LITIENGINE, controllers, movement, animation, behavior, AI, scripting,
-  Java]
-tags: [control-entities, controllers, behaviors, ai]
+title: "Entity Control & AI"
+icon: "lucide/bot"
+description: "Master entity movement controllers, state machine animation controllers, ability combat mechanics, and AI behavior controllers."
+keywords: ["LITIENGINE", "entity control", "controllers", "movement", "animation controller", "ability framework", "AI"]
+tags: ["control-entities", "controllers", "movement", "animation", "abilities", "ai"]
 ---
-# Control Entities
 
-In LITIENGINE, entity behaviors, animations, locomotion, combat actions, and artificial intelligence are managed through a modular and extensible control architecture. This architecture allows developers to separate game object state (`IEntity`) from dynamic runtime logic.
+# Entity Control & AI
 
-```mermaid
-graph TD
- EC["<b>Entity Control Architecture</b>"]
- EC --> M["MovementController<br/><i>Physics & Input Forces</i>"]
- EC --> A["AnimationController<br/><i>Spritesheets & States</i>"]
- EC --> B["BehaviorController<br/><i>AI & State Trees</i>"]
- EC --> S["Scripting Engine<br/><i>Java Logic</i>"]
-```
+LITIENGINE decouples entity logic into specialized modular controllers: **Movement Controllers**, **Animation Controllers**, **Combat Abilities**, and **Behavior Controllers**.
 
-## The Four Control Paradigms
+---
 
-LITIENGINE offers four distinct yet interoperable ways to drive entity behavior:
+## Control & AI Documentation Sections
 
-### 1. Built-in Entity Controllers (`IEntityController`)
-Controllers handle low-level continuous tasks such as keyboard/gamepad-driven movement, pathfinding locomotion, or sprite state transitions:
+<div class="grid cards" markdown>
 
-* **`IMovementController`**: Translates input vectors or navigation paths into 2D velocity forces within the physics engine.
-* **`IEntityAnimationController`**: Evaluates entity state flags (e.g. `isIdle`, `isMoving`, `isDead`, custom states) and plays corresponding spritesheet sequences.
+- :material-walk:{ .lg .middle } **[Movement Controllers](/control-entities/movement-controller/)**
 
-### 2. AI & Behavior Controllers
-For enemy NPCs, companions, and bosses:
+    ---
 
-* **`BehaviorController`**: State-machine and behavior-tree implementations for patrol routes, target acquisition, aggro radiuses, and combat sequences.
+    Physics-driven velocity, acceleration, steering heading, and obstacle collision sliding.
 
-### 3. Ability & Combat Framework
-Structured spell, skill, and combat action system:
+- :material-filmstrip:{ .lg .middle } **[Animation Controllers](/control-entities/animation-controller/)**
 
-* **`Ability`**: Modular spells or physical attacks with cooldowns, range checks, impact effects, and mana/resource costs.
+    ---
 
-### 4. Modern Scripting Engine (Java)
-Write hot-reloadable game logic directly in **utiLITI** or external scripts:
+    State-based animation machines (`idle`, `walk`, `dead`) and dynamic spritesheet switching.
 
-* **Entity Scripts (`EntityScript`)**: Attach custom logic to individual entities without writing boilerplate Java classes.
-* **Environment Scripts (`EnvironmentScript`)**: Control level-wide triggers, cutscenes, wave spawners, and interactive puzzles.
-* **Game Scripts (`GameScript`)**: Manage game startup, global progression flags, inventory, and cross-map state.
+- :material-lightning-bolt-outline:{ .lg .middle } **[Ability Framework](/control-entities/ability-framework/)**
 
-## Chapter Topics
+    ---
 
-| Topic | Description |
-| :--- | :--- |
-| **[Entity Controllers](/control-entities/entity-controllers/)** | Understand the controller lifecycle (`addController`, `getController`, `update`). |
-| **[Animation Controller](/control-entities/animation-controller/)** | Configure sprite animation rules, frame durations, and custom animation states. |
-| **[Movement Controller](/control-entities/movement-controller/)** | Handle keyboard input, gamepad locomotion, velocity, and collision avoidance. |
-| **[Behavior Controller](/control-entities/behavior-controller/)** | Build intelligent AI entities with state machines and behavior trees. |
-| **[Messaging System](/control-entities/messaging-system/)** | Decouple entity communication via typed message events. |
-| **[Ability Framework](/control-entities/ability-framework/)** | Implement cooldown-driven spells, attacks, effects, and area-of-effect abilities. |
-| **[Java Scripting Engine](/control-entities/scripting/)** | Write interactive scripts that run dynamically inside the engine. |
-| **[Script-Only Game Architecture](/control-entities/script-only-games/)** | Build full LITIENGINE games using scripts and utiLITI without custom Java builds. |
-| **[Script Types Guide](/control-entities/scripting/)** | Deep dive into `GameScript`, `EnvironmentScript`, and `EntityScript`. |
-| **[Combat & Action Scripting](/control-entities/combat-scripting/)** | Script damage handlers, health bars, weapon swings, and projectile mechanics. |
+    Cooldown-based combat spells, projectile targeting, area-of-effect effects, and `@AbilityInfo`.
 
-## Quick Example: Attaching a Custom Controller
+- :material-compass-outline:{ .lg .middle } **[Behavior Controllers & AI](/control-entities/behavior-controller/)**
 
-```java
-public class Player extends Creature {
-  public Player() {
-    super("player");
+    ---
 
-    // Add standard keyboard movement controller
-    addController(new KeyboardEntityController<>(this));
+    State machines, waypoint patrol paths, aggro ranges, and dynamic creature tracking.
 
-    // Listen to movement events
-    movement().onMoved(e -> {
-      // Custom footsteps, trail effects, or stamina drain
-    });
-  }
-}
-```
+</div>
 
 <!-- END CHAPTER: control-entities/README.md -->
 
@@ -7046,69 +7158,119 @@ For full project-semantic features such as rename refactoring, cross-file error 
 <!-- BEGIN CHAPTER: utiliti-editor/script-diagnostics.md -->
 
 ---
-title: Script Diagnostics & Guidance
-icon: lucide/activity
-description: Discover script events, architecture guides, and startup configuration
-  directly in utiLITI.
-keywords: [utiLITI, Script Explorer, GameScriptsDialog, script guidance, templates,
-  architecture]
-tags: [diagnostics, compiler, errors, warnings, linter]
+title: "Script Diagnostics & Guidance"
+icon: "lucide/activity"
+description: "Discover script events, architecture guides, live diagnostics, and batch entity automation scripts directly inside utiLITI."
+keywords: ["utiLITI", "Script Explorer", "Monaco", "script guidance", "diagnostics", "batch automation", "Java scripting"]
+tags: ["diagnostics", "compiler", "errors", "warnings", "linter", "scripts", "monaco"]
 ---
+
 # Script Diagnostics & Guidance
 
-utiLITI provides dedicated discovery tools, visual configuration panels, and interactive guidance to help developers explore engine APIs, understand the 3 script tiers, and configure project startup behavior.
+utiLITI provides dedicated discovery tools, live console diagnostics, and an integrated **Monaco Code Editor** with real-time compilation and hot-reloading for Java scripts.
 
 ---
 
 ## 1. Script Events & API Explorer
 
-The **Script Events & API Explorer** is a searchable cheat sheet and interactive catalog of all engine events, lifecycle hooks, and scripting primitives.
+The **Script Events & API Explorer** is an interactive, searchable catalog of all engine events, lifecycle hooks, and scripting primitives:
 
 ### Accessing the Explorer
-- **Menu Bar**: `Script` -> `Script Events & API Explorer...`
-- **Script Workspace**: Click `[]` in the **GLOBALS & APIS** dock panel.
-- **Entity Inspector**: Click `[]` in the **Scripts** section toolbar.
+* **Menu Bar**: `Script` -> `Script Events & API Explorer...`
+* **Script Workspace**: Click `Explorer` in the **GLOBALS & APIS** dock panel.
+* **Entity Inspector**: Click the script icon in the **Scripts** section toolbar.
 
-### Explorer Features
-1. **Categorized Event Catalog**: Browse events categorized into Entity Lifecycle, Environment Lifecycle, Game Lifecycle, Combat & Abilities, Movement & Physics, Cinematics, and Spatial Queries.
-2. **Instant Search & Filter**: Search by method name, parameter type, or code keyword.
-3. **One-Click Insertion**: Click **"Insert into Active Script"** to automatically insert method stubs or code snippets into the active Monaco editor tab at your current cursor position.
-4. **Copy Snippet**: Copy ready-to-use template code to your clipboard.
+### Explorer Capabilities
+1. **Categorized Event Catalog**: Browse events categorized into Entity Lifecycle, Environment Lifecycle, Game Lifecycle, Combat & Abilities, Movement & Physics, and Spatial Queries.
+2. **Instant Search & Filter**: Search by method name, parameter type, or keyword.
+3. **One-Click Insertion**: Click **"Insert into Active Script"** to insert boilerplate method stubs directly into the active Monaco tab.
 
 ---
 
-## 2. Scripting Architecture & Getting Started Guide
+## 2. Practical Script Examples for utiLITI
 
-Located within the **Architecture & Getting Started Guide** tab of the explorer (accessible via `Script -> Scripting Guide & Getting Started...` or the `[]` button in the Script Workspace header):
+You can write and execute pure Java scripts directly inside utiLITI to automate map design, inspect entities, and test game mechanics in real time:
 
-- Explains the roles of **GameScript**, **EnvironmentScript**, and **CreatureScript**.
-- Details how scripts communicate using `globals`, `sendMessage`, and `EntityQuery`.
-- Features one-click **"Create Game Script"**, **"Create Map Script"**, and **"Create Creature Script"** action buttons.
+### Example A: Batch Collider Application to Props
+Automatically applies standardized 2.5D feet collision bounding boxes to all decorative props matching a naming prefix:
+
+```java title="BatchApplyColliders.java"
+import de.gurkenlabs.litiengine.Align;
+import de.gurkenlabs.litiengine.Valign;
+import de.gurkenlabs.litiengine.Game;
+import de.gurkenlabs.litiengine.entities.Prop;
+
+// Find all props with names starting with "tree_" or "rock_"
+Game.world().environment().getProps().forEach(prop -> {
+  if (prop.getName() != null && (prop.getName().startsWith("tree_") || prop.getName().startsWith("rock_"))) {
+    // Enable solid collision anchored to the base
+    prop.setCollision(true);
+    prop.setCollisionBoxWidth(prop.getWidth() * 0.5);
+    prop.setCollisionBoxHeight(prop.getHeight() * 0.3);
+    prop.setCollisionBoxAlign(Align.CENTER);
+    prop.setCollisionBoxValign(Valign.DOWN);
+    System.out.println("Updated collider for: " + prop.getName());
+  }
+});
+```
+
+---
+
+### Example B: Live Quadtree Spatial & Memory Diagnostics
+Inspect active entity counts, memory usage, and quadtree spatial partitions:
+
+```java title="SpatialDiagnostics.java"
+import de.gurkenlabs.litiengine.Game;
+import de.gurkenlabs.litiengine.entities.IEntity;
+import java.util.Collection;
+
+public class DiagnosticsRunner {
+  public static void runDiagnostics() {
+    Collection<IEntity> allEntities = Game.world().environment().all();
+    long totalMem = Runtime.getRuntime().totalMemory() / (1024 * 1024);
+    long freeMem = Runtime.getRuntime().freeMemory() / (1024 * 1024);
+    long usedMem = totalMem - freeMem;
+
+    System.out.println("=== LITIENGINE LIVE DIAGNOSTICS ===");
+    System.out.println("Active Entities: " + allEntities.size());
+    System.out.println("Creatures: " + Game.world().environment().getCreatures().size());
+    System.out.println("Props: " + Game.world().environment().getProps().size());
+    System.out.println("Triggers: " + Game.world().environment().getTriggers().size());
+    System.out.println("Memory Used: " + usedMem + " MB / " + totalMem + " MB");
+    System.out.println("===================================");
+  }
+}
+```
 
 ---
 
 ## 3. Configure Game Scripts & Startup Dialog
 
-The **Game Scripts & Startup Configuration Dialog** provides project-level management for your game entry points:
+The **Game Scripts & Startup Configuration Dialog** (`Script -> Configure Game Scripts...`) allows you to define default boot sequences:
 
-### Accessing the Configuration Dialog
-- **Menu Bar**: `Script` -> `Configure Game Scripts...`
-- **Script Workspace**: Click `[]` in the Script Explorer header actions.
-
-### What you can configure
-- **Primary Startup Script**: Choose which `GameScript` automatically initializes on boot.
-- **Fallback Map**: Specify a default map to load if the game script does not invoke `loadMap()`.
-- **Active Game Scripts Table**: Enable, disable, add, remove, and open game-level scripts directly in the editor.
+* **Primary Startup Script**: Choose which `GameScript` automatically initializes on project launch.
+* **Fallback Map**: Specify a default `.tmx` environment if the game script does not invoke `loadMap()`.
+* **Active Game Scripts Table**: Enable, disable, and rearrange game-level scripts.
 
 ---
 
-## 4. Rich Code Starter Templates
+## See Also
 
-When creating a new script using **Script -> New Script...** or the `[+]` button in the Script Workspace, utiLITI generates fully commented starter code with working examples:
+<div class="grid cards" markdown>
 
-- **GameScript**: Generates map loading boilerplate, `globals` initialization, audio playback, and ESC pause input handlers.
-- **EnvironmentScript**: Generates level start announcement banners, objective tracking via `onEntityRemoved`, and victory transitions.
-- **CreatureScript**: Generates AI movement loops, ability casting, floating combat text on `onHit`, and mortality cleanup on `onDeath`.
+- :material-code-braces:{ .lg .middle } **[UI & Workspaces](/utiliti-editor/ui-and-workspaces/)**
+
+    ---
+
+    Overview of dock panels, Monaco code editor, and asset inspectors.
+
+- :material-play-outline:{ .lg .middle } **[Project Runner](/utiliti-editor/project-runner/)**
+
+    ---
+
+    Launching, debugging, and testing projects directly from utiLITI.
+
+</div>
 
 <!-- END CHAPTER: utiliti-editor/script-diagnostics.md -->
 

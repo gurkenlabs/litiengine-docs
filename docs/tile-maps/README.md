@@ -1,51 +1,43 @@
 ---
-title: Tile Maps
-icon: lucide/map
-description: '>-'
-keywords: [LITIENGINE, java, game engine, 2D, tile maps]
-tags: [tile-maps, tiled, tmx, maps, layers, tilesets]
+title: "Tile Maps Overview"
+icon: "lucide/map"
+description: "Learn how LITIENGINE integrates Tiled TMX maps, orthogonal/isometric grids, collision layers, and custom map properties."
+keywords: ["LITIENGINE", "tile maps", "TMX", "Tiled editor", "map objects", "layers", "tilesets"]
+tags: ["tile-maps", "tmx", "tiled", "maps", "layers", "tilesets"]
 ---
-# Tile Maps
 
-Once you have gained a basic understanding of LITIENGINE's general game infrastructure, it is time to actually create a world for your game to take place in. LITIENGINE uses [.tmx tile maps](https://doc.mapeditor.org/en/stable/reference/tmx-map-format/), a universally acclaimed standard format for 2D level building.
+# Tile Maps Overview
 
-## Create a tile map
+LITIENGINE natively loads and renders `.tmx` map files and `.tsx` tilesets exported from the industry-standard [Tiled Map Editor](https://www.mapeditor.org/) or built directly inside **utiLITI**.
 
-At the beginning of your world building workflow, you create a tile map with [Tiled map editor](/libraries-and-tools/#tiled-map-editor). While we won't go into details here \(because the [official Tiled docs](https://doc.mapeditor.org/en/stable/manual/introduction/) do\), here's the rough workflow:
+---
 
-* First, you need to paint your Tileset in the [pixel art editor of your choice (e.g. Aseprite, LibreSprite, or GIMP)](https://www.aseprite.org/).
-* Then, import the Tileset image into Tiled editor to create a [.tsx Tileset](https://doc.mapeditor.org/en/stable/reference/tmx-map-format/#tileset).
-* Create [layers](https://doc.mapeditor.org/en/stable/manual/layers/) containing Tiles, Objects, and Images.
-* Save your map.
+## Tile Map Documentation Sections
 
-## Loading and Accessing Tile Maps in Code
+<div class="grid cards" markdown>
 
-Load and manipulate tile maps dynamically at runtime:
+- :material-shape-outline:{ .lg .middle } **[Map Objects](/tile-maps/map-objects/)**
 
-```java
-package com.example.game;
+    ---
 
-import de.gurkenlabs.litiengine.Game;
-import de.gurkenlabs.litiengine.environment.tilemap.IMap;
-import de.gurkenlabs.litiengine.environment.tilemap.ITileLayer;
-import de.gurkenlabs.litiengine.resources.Resources;
+    Spawning creatures, props, collision boxes, spawnpoints, triggers, and lights directly from map geometries.
 
-public class MapManager {
-  public static void loadLevel(String mapName) {
-    // 1. Load the map from .litidata or filesystem
-    IMap map = Resources.maps().get(mapName);
+- :material-tag-text-outline:{ .lg .middle } **[Custom Properties](/tile-maps/custom-properties/)**
 
-    // 2. Load into GameWorld environment
-    Game.world().loadEnvironment(map);
+    ---
 
-    // 3. Inspect map dimensions
-    int widthInPixels = map.getSizeInPixels().width;
-    int heightInPixels = map.getSizeInPixels().height;
+    Reading custom metadata properties, booleans, integers, and color variables from map objects.
 
-    // 4. Access tile layers
-    for (ITileLayer layer : map.getTileLayers()) {
-      System.out.println("Layer: " + layer.getName() + " (visible=" + layer.isVisible() + ")");
-    }
-  }
-}
-```
+- :material-cube-outline:{ .lg .middle } **[utiLITI Tileset Editor](/utiliti-editor/tileset-editor/)**
+
+    ---
+
+    Managing embedded vs external tilesets, Wang terrain autotiling rules, and animation frames.
+
+- :material-brush:{ .lg .middle } **[Tools & Editing](/utiliti-editor/tools-and-editing/)**
+
+    ---
+
+    Brush tools, stamps, terrain painters, and layer management in the utiLITI map editor.
+
+</div>

@@ -74,6 +74,102 @@ For more information, read the [Official Java Documentation on Graphics2D](https
 !!! warning "Rendering Lifecycle Rule"
     Never invoke `Graphics2D` draw calls directly outside of the render pipeline (`IRenderable.render(Graphics2D g)` or `Screen.render(Graphics2D g)`). Doing so disrupts double-buffering and causes viewport tearing.
 
+
+
+---
+
+## Custom Graphics & Post-Processing Examples
+
+LITIENGINE allows you to attach custom `IRenderable` callbacks to the render pipeline for custom HUDs, minimaps, and ambient color washes:
+
+### Example 1: Day/Night Cycle Ambient Light Tint
+Renders a smooth fullscreen colored tint over the world layers without obstructing the UI layer:
+
+```java title="DayNightAmbientRenderer.java"
+package com.example.game.graphics;
+
+import de.gurkenlabs.litiengine.Game;
+import de.gurkenlabs.litiengine.graphics.IRenderable;
+import de.gurkenlabs.litiengine.graphics.RenderType;
+import java.awt.AlphaComposite;
+import java.awt.Color;
+import java.awt.Composite;
+import java.awt.Graphics2D;
+
+public class DayNightAmbientRenderer implements IRenderable {
+  // Midnight blue tint with 40% darkness alpha
+  private Color ambientColor = new Color(10, 15, 45, 110);
+
+  public DayNightAmbientRenderer() {
+    // Register to the OVERLAY layer so tiles and creatures are tinted, but UI stays crisp
+    Game.world().environment().registerForRendering(this, RenderType.OVERLAY);
+  }
+
+  @Override
+  public void render(Graphics2D g) {
+    Composite orig = g.getComposite();
+    // Use AlphaComposite for smooth color blending
+    g.setComposite(AlphaComposite.SrcOver);
+    g.setColor(this.ambientColor);
+    
+    // Fill the entire visible camera viewport
+    g.fillRect(0, 0, (int) Game.window().getResolution().getWidth(), (int) Game.window().getResolution().getHeight());
+    g.setComposite(orig);
+  }
+}
+```
+
+---
+
+### Example 2: Dynamic In-Game Radar / Minimap Overlay
+Transforms world coordinates into a top-right corner radar HUD:
+
+```java title="MinimapRadar.java"
+package com.example.game.graphics;
+
+import de.gurkenlabs.litiengine.Game;
+import de.gurkenlabs.litiengine.entities.IEntity;
+import de.gurkenlabs.litiengine.graphics.IRenderable;
+import de.gurkenlabs.litiengine.graphics.RenderType;
+import java.awt.Color;
+import java.awt.Graphics2D;
+import java.awt.geom.Point2D;
+
+public class MinimapRadar implements IRenderable {
+  private final int radarX = 20;
+  private final int radarY = 20;
+  private final int radarSize = 120;
+  private final float scale = 0.08f; // Scale ratio from world to radar
+
+  public MinimapRadar() {
+    // Register on the UI layer so the radar draws on top of everything
+    Game.world().environment().registerForRendering(this, RenderType.UI);
+  }
+
+  @Override
+  public void render(Graphics2D g) {
+    // 1. Draw radar background
+    g.setColor(new Color(0, 0, 0, 180));
+    g.fillRect(radarX, radarY, radarSize, radarSize);
+    g.setColor(Color.WHITE);
+    g.drawRect(radarX, radarY, radarSize, radarSize);
+
+    // 2. Draw active entities on the radar
+    for (IEntity entity : Game.world().environment().all()) {
+      Point2D pos = entity.getLocation();
+      int dotX = radarX + (int) (pos.getX() * scale);
+      int dotY = radarY + (int) (pos.getY() * scale);
+
+      // Clamp inside radar bounds
+      if (dotX >= radarX && dotX <= radarX + radarSize && dotY >= radarY && dotY <= radarY + radarSize) {
+        g.setColor(entity.getName() != null && entity.getName().startsWith("player") ? Color.CYAN : Color.RED);
+        g.fillOval(dotX - 2, dotY - 2, 4, 4);
+      }
+    }
+  }
+}
+```
+
 ## Text and Font Rendering (`TextRenderer`)
 
 LITIENGINE provides the static `TextRenderer` utility to render crisp strings, multiline text, alignments, and high-visibility outlines:
