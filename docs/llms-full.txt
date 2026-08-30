@@ -393,11 +393,11 @@ To develop games with LITIENGINE, you need a Java Development Kit (**JDK**) cont
 
 LITIENGINE requires **JDK 21 LTS or later** (with modern snapshots targeting **JDK 25**).
 
-> [!TIP]
-> On macOS and Linux, you can easily install and manage multiple JDK versions using [SDKMAN!](https://sdkman.io/):
-> ```bash
-> sdk install java
-> ```
+!!! tip
+    On macOS and Linux, you can easily install and manage multiple JDK versions using [SDKMAN!](https://sdkman.io/):
+    ```bash
+    sdk install java
+    ```
 
 ## Recommended Free JDK Distributions
 
@@ -5549,10 +5549,10 @@ Before releasing your build:
 
 ## Best Practices
 
-> [!TIP]
-> - **Always Bundle the JRE**: Bundling Java ensures consistent performance, prevents JVM version conflicts, and creates a seamless zero-configuration experience for players.
-> - **Use Relative Paths**: Always load assets via `Resources.load("game.litidata")` or classloader streams rather than hardcoded absolute file system paths.
-> - **Automate with CI/CD**: Set up a GitHub Actions workflow to build and package your cross-platform zip files automatically whenever a new version tag is pushed.
+!!! tip
+    - **Always Bundle the JRE**: Bundling Java ensures consistent performance, prevents JVM version conflicts, and creates a seamless zero-configuration experience for players.
+    - **Use Relative Paths**: Always load assets via `Resources.load("game.litidata")` or classloader streams rather than hardcoded absolute file system paths.
+    - **Automate with CI/CD**: Set up a GitHub Actions workflow to build and package your cross-platform zip files automatically whenever a new version tag is pushed.
 
 ## See Also
 - **[Savegames Guide](/savegames/)** - Persisting player data across game sessions

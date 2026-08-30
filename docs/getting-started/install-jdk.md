@@ -13,11 +13,11 @@ To develop games with LITIENGINE, you need a Java Development Kit (**JDK**) cont
 
 LITIENGINE requires **JDK 21 LTS or later** (with modern snapshots targeting **JDK 25**).
 
-> [!TIP]
-> On macOS and Linux, you can easily install and manage multiple JDK versions using [SDKMAN!](https://sdkman.io/):
-> ```bash
-> sdk install java
-> ```
+!!! tip
+    On macOS and Linux, you can easily install and manage multiple JDK versions using [SDKMAN!](https://sdkman.io/):
+    ```bash
+    sdk install java
+    ```
 
 ## Recommended Free JDK Distributions
 

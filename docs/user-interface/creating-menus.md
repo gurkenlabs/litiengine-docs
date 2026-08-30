@@ -209,10 +209,10 @@ The `Menu` component handles user input out of the box:
 
 ## Best Practices
 
-> [!TIP]
-> - **Scale Relative to Resolution**: Calculate positions and sizes using `Game.window().getResolution().getWidth()` and `getHeight()` to ensure your menu scales properly on different screen resolutions.
-> - **Focus Management**: Call `component.setFocusable(true)` if you create custom keyboard-navigable components.
-> - **Clean Screen Transitions**: When switching screens with `Game.screens().display()`, use `prepare()` to reset timers, selections, and transient UI states.
+!!! tip
+    - **Scale Relative to Resolution**: Calculate positions and sizes using `Game.window().getResolution().getWidth()` and `getHeight()` to ensure your menu scales properly on different screen resolutions.
+    - **Focus Management**: Call `component.setFocusable(true)` if you create custom keyboard-navigable components.
+    - **Clean Screen Transitions**: When switching screens with `Game.screens().display()`, use `prepare()` to reset timers, selections, and transient UI states.
 
 ## See Also
 - **[GuiComponents: An Overview](/user-interface/gui-components/)** - Component hierarchy and properties

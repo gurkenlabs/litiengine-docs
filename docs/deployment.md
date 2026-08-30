@@ -172,10 +172,10 @@ Before releasing your build:
 
 ## Best Practices
 
-> [!TIP]
-> - **Always Bundle the JRE**: Bundling Java ensures consistent performance, prevents JVM version conflicts, and creates a seamless zero-configuration experience for players.
-> - **Use Relative Paths**: Always load assets via `Resources.load("game.litidata")` or classloader streams rather than hardcoded absolute file system paths.
-> - **Automate with CI/CD**: Set up a GitHub Actions workflow to build and package your cross-platform zip files automatically whenever a new version tag is pushed.
+!!! tip
+    - **Always Bundle the JRE**: Bundling Java ensures consistent performance, prevents JVM version conflicts, and creates a seamless zero-configuration experience for players.
+    - **Use Relative Paths**: Always load assets via `Resources.load("game.litidata")` or classloader streams rather than hardcoded absolute file system paths.
+    - **Automate with CI/CD**: Set up a GitHub Actions workflow to build and package your cross-platform zip files automatically whenever a new version tag is pushed.
 
 ## See Also
 - **[Savegames Guide](/savegames/)** - Persisting player data across game sessions
