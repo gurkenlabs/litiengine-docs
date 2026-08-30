@@ -1,0 +1,45 @@
+/* Header Sponsor Button */
+.header-sponsor-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.28rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1;
+  color: #ffffff !important;
+  background: linear-gradient(135deg, #ea4c89 0%, #ff5e7e 100%);
+  border-radius: 9999px;
+  text-decoration: none !important;
+  margin-right: 0.6rem;
+  box-shadow: 0 2px 6px rgba(234, 76, 137, 0.35);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+  vertical-align: middle;
+}
+
+.header-sponsor-btn svg {
+  display: inline-block;
+  vertical-align: middle;
+  fill: #ffffff;
+  transition: transform 0.2s ease;
+}
+
+.header-sponsor-btn:hover {
+  transform: translateY(-1px) scale(1.03);
+  box-shadow: 0 4px 12px rgba(234, 76, 137, 0.5);
+  background: linear-gradient(135deg, #d83b77 0%, #ff4b6f 100%);
+}
+
+.header-sponsor-btn:hover svg {
+  transform: scale(1.15);
+}
+
+@media screen and (max-width: 40em) {
+  .header-sponsor-btn span {
+    display: none;
+  }
+  .header-sponsor-btn {
+    padding: 0.35rem 0.45rem;
+    margin-right: 0.3rem;
+  }
+}

@@ -134,6 +134,8 @@ social = [
     { icon = "simple/discord", link = "https://discord.gg/9TqCq9C", name = "Discord Community" },
 ]
 
+extra_css = ["stylesheets/extra.css"]
+
 [project.theme]
 custom_dir = "overrides"
 variant = "modern"

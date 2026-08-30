@@ -76,7 +76,7 @@ def validate_links():
     if broken_links or broken_images:
         print(f"Link Validation Failed with {len(broken_links) + len(broken_images)} issue(s):")
         for b in broken_links:
-            print(f"  ❌ {b}")
+            print(f"  [X] {b}")
         for img in broken_images:
             print(f"  🖼️ {img}")
         sys.exit(1)

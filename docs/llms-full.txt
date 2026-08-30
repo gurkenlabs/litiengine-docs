@@ -171,11 +171,13 @@ LITIENGINE is 100% free, independent, and open source. If LITIENGINE helps you b
 
 <div class="grid cards" markdown>
 
-- :material-heart:{ .lg .middle } **[Back LITIENGINE on Open Collective →](https://opencollective.com/litiengine)**
+- :material-heart:{ .lg .middle } **Support Independent Open-Source Game Tech**
 
     ---
 
-    Support the creators on Open Collective. Every recurring backer or one-time contribution helps keep the engine independent, modern, and actively developed.
+    Every recurring backer or one-time contribution directly funds engine maintenance, documentation, and tooling.
+
+    [💖 Become a Backer on Open Collective](https://opencollective.com/litiengine){ .md-button .md-button--primary style="background: linear-gradient(135deg, #ea4c89 0%, #ff5e7e 100%); border-color: #ea4c89; color: white; font-weight: bold; margin-top: 0.5rem;" }
 
 </div>
 

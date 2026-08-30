@@ -198,4 +198,4 @@ Input.keyboard().onKeyPressed(KeyEvent.VK_F11, e -> {
 
 - [Game.screens()](screens.md) - Screen management
 - [Game.graphics()](render-engine.md) - Rendering engine
-- [Configuration](../configuration/README.md) - Game configuration options
+- [Configuration](/configuration/) - Game configuration options

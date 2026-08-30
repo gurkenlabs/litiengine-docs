@@ -97,8 +97,8 @@ public class Goblin extends Creature {
 | **[Props](props.md)** | Learn how to place, customize, and destroy interactive props in your world. |
 | **[Subscribe to Entity Events](entity-events.md)** | Hook into entity lifecycle events (`onMoved`, `onHit`, `onDying`, `onRendered`). |
 | **[Annotations for Static Information](annotations.md)** | Configure static attributes declaratively with `@EntityInfo`, `@MovementInfo`, and `@CombatInfo`. |
-| **[Custom Entity Implementations](../entity-framework/custom-entities.md)** | Create complex, custom entity classes from scratch. |
-| **[Custom MapObjectLoaders](../advanced/custom-mapobjectloaders.md)** | Map custom Tiled object types directly to your Java entity classes. |
+| **[Custom Entity Implementations](/entity-framework/custom-entities/)** | Create complex, custom entity classes from scratch. |
+| **[Custom MapObjectLoaders](/advanced/custom-mapobjectloaders/)** | Map custom Tiled object types directly to your Java entity classes. |
 
 ## Entity Lifecycle
 

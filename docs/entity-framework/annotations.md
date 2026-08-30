@@ -130,7 +130,7 @@ public class Player extends Creature {
 
 ### @AbilityInfo
 
-Ability configuration (see [Ability Framework](../control-entities/ability-framework.md)):
+Ability configuration (see [Ability Framework](/control-entities/ability-framework/)):
 
 ```java
 @AbilityInfo(
@@ -212,8 +212,8 @@ public class Boss extends Creature {
 ## See Also
 
 - [Default Entity Types](default-entity-types.md) - Built-in entity classes
-- [Ability Framework](../control-entities/ability-framework.md) - Ability annotations
-- [Custom Properties](../tile-maps/custom-properties.md) - Runtime property configuration
+- [Ability Framework](/control-entities/ability-framework/) - Ability annotations
+- [Custom Properties](/tile-maps/custom-properties/) - Runtime property configuration
 
 !!! tip "2.5D Perspective Collision Boxes"
     For top-down and 2.5D games, always set `@CollisionInfo` bounding boxes smaller than the entity's sprite (anchored to the feet) to allow characters to naturally walk behind obstacles and trees.

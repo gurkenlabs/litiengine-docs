@@ -193,5 +193,5 @@ player.perform("attack");
 ## See Also
 
 - [Entity Controllers](entity-controllers.md) - Controller overview
-- [Physics Engine](../game-api/physics-engine.md) - Forces and movement
+- [Physics Engine](/game-api/physics-engine/) - Forces and movement
 - [Behavior Controller](behavior-controller.md) - AI abilities

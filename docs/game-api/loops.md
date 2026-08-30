@@ -188,4 +188,4 @@ public class GameTimer implements IUpdateable {
 
 - [Game.world()](game-world.md) - Environment management
 - [Game.screens()](screens.md) - Screen management
-- [Player Input](../player-input/README.md) - Input handling details
+- [Player Input](/player-input/) - Input handling details

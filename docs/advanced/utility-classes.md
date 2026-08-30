@@ -99,4 +99,4 @@ String formatted = TimeUtilities.toReadableTime(125000);  // "2:05"
 
 ## See Also
 
-- [API Quick Reference](../getting-started/api-quick-reference.md) - Core engine method cheat sheet
+- [API Quick Reference](/getting-started/api-quick-reference/) - Core engine method cheat sheet
