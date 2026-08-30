@@ -86,15 +86,15 @@ import de.gurkenlabs.litiengine.Game;
 import de.gurkenlabs.litiengine.resources.Resources;
 
 public class MyGame {
- public static void main(String[] args) {
- Game.init(args);
- 
- // Load the resource bundle created in utiLITI
- Resources.load("game.litidata");
- 
- // Load the initial map and start the game
- Game.world().loadEnvironment("level1");
- Game.start();
- }
+  public static void main(String[] args) {
+    Game.init(args);
+
+    // Load the resource bundle created in utiLITI
+    Resources.load("game.litidata");
+
+    // Load the initial map and start the game
+    Game.world().loadEnvironment("level1");
+    Game.start();
+  }
 }
 ```

@@ -53,7 +53,7 @@ Game.world().camera().setFocus(500, 350);
 // Focus on an entity
 IEntity player = Game.world().environment().get("player");
 if (player != null) {
- Game.world().camera().setFocus(player.getCenter());
+  Game.world().camera().setFocus(player.getCenter());
 }
 ```
 
@@ -71,18 +71,18 @@ To have the camera follow the player automatically, update the focus in a game l
 
 ```java
 public class PlayerCameraFollower implements IUpdateable {
- private final IEntity player;
+  private final IEntity player;
 
- public PlayerCameraFollower(IEntity player) {
- this.player = player;
- }
+  public PlayerCameraFollower(IEntity player) {
+    this.player = player;
+  }
 
- @Override
- public void update() {
- if (this.player != null && !this.player.isDead()) {
- Game.world().camera().setFocus(this.player.getCenter());
- }
- }
+  @Override
+  public void update() {
+    if (this.player != null && !this.player.isDead()) {
+      Game.world().camera().setFocus(this.player.getCenter());
+    }
+  }
 }
 
 // Attach follower to the game loop
@@ -118,7 +118,7 @@ Game.world().camera().setZoom(1.5f, 500);
 
 // Listen for zoom changes
 Game.world().camera().onZoom(e -> {
- System.out.println("New zoom level: " + e.getZoom());
+  System.out.println("New zoom level: " + e.getZoom());
 });
 ```
 
@@ -159,15 +159,15 @@ Because `Camera` implements `Tweenable`, you can drive camera animations using `
 ```java
 // Tween camera location to a new position using quad easing
 Game.tweens().begin(Game.world().camera(), TweenType.LOCATION_XY, 1000)
- .target(800f, 600f)
- .ease(TweenFunction.QUAD_INOUT)
- .begin();
+.target(800f, 600f)
+.ease(TweenFunction.QUAD_INOUT)
+.begin();
 
 // Tween camera zoom level
 Game.tweens().begin(Game.world().camera(), TweenType.ZOOM, 800)
- .target(2.5f)
- .ease(TweenFunction.CUBIC_OUT)
- .begin();
+.target(2.5f)
+.ease(TweenFunction.CUBIC_OUT)
+.begin();
 ```
 
 ---

@@ -140,9 +140,9 @@ Resources.spritesheets().get("player-idle"); // Get spritesheet
 @MovementInfo(velocity = 100)
 @CombatInfo(hitpoints = 50)
 public class Enemy extends Creature {
- public Enemy() {
- super("enemy");
- }
+  public Enemy() {
+    super("enemy");
+  }
 }
 ```
 
@@ -196,19 +196,19 @@ entity.getAnimationController().getCurrentAnimation();
 
 ```java
 public class MenuScreen extends Screen {
- public MenuScreen() {
- super("MENU");
- }
- 
- @Override
- protected void initializeComponents() {
- // Add GUI components
- }
- 
- @Override
- public void render(Graphics2D g) {
- // Custom rendering
- }
+  public MenuScreen() {
+    super("MENU");
+  }
+
+  @Override
+  protected void initializeComponents() {
+    // Add GUI components
+  }
+
+  @Override
+  public void render(Graphics2D g) {
+    // Custom rendering
+  }
 }
 
 Game.screens().add(new MenuScreen());
@@ -220,9 +220,9 @@ Game.screens().current();
 
 ```java
 Game.tweens().begin(entity, TweenType.LOCATION_XY, 1000)
- .target(200, 300)
- .ease(TweenFunction.QUAD_INOUT)
- .begin();
+.target(200, 300)
+.ease(TweenFunction.QUAD_INOUT)
+.begin();
 ```
 
 ## Camera
@@ -251,11 +251,11 @@ client_updaterate=60
 
 ```java
 public static void main(String[] args) {
- Game.info().setName("My Game");
- Game.init(args);
- Resources.load("game.litidata");
- Game.world().loadEnvironment("level1");
- Game.start();
+  Game.info().setName("My Game");
+  Game.init(args);
+  Resources.load("game.litidata");
+  Game.world().loadEnvironment("level1");
+  Game.start();
 }
 ```
 
@@ -263,19 +263,19 @@ public static void main(String[] args) {
 
 ```java
 public class Enemy extends Creature implements IUpdateable {
- public Enemy() {
- super("enemy");
- Game.loop().attach(this);
- }
- 
- @Override
- public void update() {
- if (isDead()) {
- Game.loop().detach(this);
- return;
- }
- // AI logic
- }
+  public Enemy() {
+    super("enemy");
+    Game.loop().attach(this);
+  }
+
+  @Override
+  public void update() {
+    if (isDead()) {
+      Game.loop().detach(this);
+      return;
+    }
+    // AI logic
+  }
 }
 ```
 
@@ -284,11 +284,11 @@ public class Enemy extends Creature implements IUpdateable {
 ```java
 @Override
 protected IMovementController createMovementController() {
- KeyboardEntityController<Player> c = new KeyboardEntityController<>(this);
- c.addUpKey(KeyEvent.VK_W);
- c.addDownKey(KeyEvent.VK_S);
- c.addLeftKey(KeyEvent.VK_A);
- c.addRightKey(KeyEvent.VK_D);
- return c;
+  KeyboardEntityController<Player> c = new KeyboardEntityController<>(this);
+  c.addUpKey(KeyEvent.VK_W);
+  c.addDownKey(KeyEvent.VK_S);
+  c.addLeftKey(KeyEvent.VK_A);
+  c.addRightKey(KeyEvent.VK_D);
+  return c;
 }
 ```

@@ -57,12 +57,12 @@ The `CollisionEvent` class allows you to listen for specific types of collisions
 Prop p;
 // [...]
 p.onCollision(event -> {
- // Our prop is the source of the CollisionEvent.
- System.out.println("Source: " + event.getSource().getName());
- // getInvolvedEntities returns the list of all colliding entities.
- event.getInvolvedEntities().forEach(e -> {
- System.out.println("Involved entity: " + e.getName());
- });
+  // Our prop is the source of the CollisionEvent.
+  System.out.println("Source: " + event.getSource().getName());
+  // getInvolvedEntities returns the list of all colliding entities.
+  event.getInvolvedEntities().forEach(e -> {
+    System.out.println("Involved entity: " + e.getName());
+  });
 });
 ```
 

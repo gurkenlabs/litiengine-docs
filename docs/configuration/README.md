@@ -34,14 +34,14 @@ Game.info().setWebsite("https://litiengine.com/");
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <gameinfo>
- <name>My Testgame</name>
- <subtitle>Made with LITIENGINE!</subtitle>
- <description>A game, that was implemented with the LITIENGINE.</description>
- <website>https://litiengine.com</website>
- <version>v1.0.0</version>
- <company>gurkenlabs.de</company>
- <developer>Steffen Wilke</developer>
- <developer>Matthias Wilke</developer>
+  <name>My Testgame</name>
+  <subtitle>Made with LITIENGINE!</subtitle>
+  <description>A game, that was implemented with the LITIENGINE.</description>
+  <website>https://litiengine.com</website>
+  <version>v1.0.0</version>
+  <company>gurkenlabs.de</company>
+  <developer>Steffen Wilke</developer>
+  <developer>Matthias Wilke</developer>
 </gameinfo>
 ```
 
@@ -105,11 +105,11 @@ Game.config().add(customGroup);
 // Example for a custom configuration group
 @ConfigurationGroupInfo(prefix = "custom_")
 public class MyCustomConfigurationGroup extends ConfigurationGroup {
- private int myInt = 123;
+  private int myInt = 123;
 
- public int getMyInt(){ return this.myInt; }
+  public int getMyInt(){ return this.myInt; }
 
- public void setMyInt(int myInt){ this.myInt = myInt; }
+  public void setMyInt(int myInt){ this.myInt = myInt; }
 }
 ```
 

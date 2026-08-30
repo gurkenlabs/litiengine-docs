@@ -46,30 +46,30 @@ import de.gurkenlabs.litiengine.util.geom.GeometricUtilities;
 @CollisionInfo(collision = true, collisionBoxWidth = 24, collisionBoxHeight = 24)
 public class Hero extends Creature {
 
- public Hero() {
- super("hero");
- }
+  public Hero() {
+    super("hero");
+  }
 
- @Override
- protected KeyboardEntityController<Hero> createMovementController() {
- KeyboardEntityController<Hero> controller = new KeyboardEntityController<>(this);
- controller.addUpKey(KeyEvent.VK_W);
- controller.addDownKey(KeyEvent.VK_S);
- controller.addLeftKey(KeyEvent.VK_A);
- controller.addRightKey(KeyEvent.VK_D);
- return controller;
- }
+  @Override
+  protected KeyboardEntityController<Hero> createMovementController() {
+    KeyboardEntityController<Hero> controller = new KeyboardEntityController<>(this);
+    controller.addUpKey(KeyEvent.VK_W);
+    controller.addDownKey(KeyEvent.VK_S);
+    controller.addLeftKey(KeyEvent.VK_A);
+    controller.addRightKey(KeyEvent.VK_D);
+    return controller;
+  }
 
- @Override
- public void update() {
- super.update();
+  @Override
+  public void update() {
+    super.update();
 
- // Aim toward mouse cursor in world space
- Point2D mouseScreen = Input.mouse().getLocation();
- Point2D mouseWorld = Game.world().camera().getMapLocation(mouseScreen);
- double angle = GeometricUtilities.calcRotationAngleInDegrees(this.getCenter(), mouseWorld);
- this.setAngle((float) angle);
- }
+    // Aim toward mouse cursor in world space
+    Point2D mouseScreen = Input.mouse().getLocation();
+    Point2D mouseWorld = Game.world().camera().getMapLocation(mouseScreen);
+    double angle = GeometricUtilities.calcRotationAngleInDegrees(this.getCenter(), mouseWorld);
+    this.setAngle((float) angle);
+  }
 }
 ```
 
@@ -90,22 +90,22 @@ import de.gurkenlabs.litiengine.entities.Creature;
 @AbilityInfo(name = "Blaster", cooldown = 200, range = 400, impact = 25, origin = AbilityOrigin.DIMENSION_CENTER)
 public class BlasterAbility extends Ability {
 
- public BlasterAbility(Creature executor) {
- super(executor);
- this.addEffect(new ProjectileEffect(this));
- }
+  public BlasterAbility(Creature executor) {
+    super(executor);
+    this.addEffect(new ProjectileEffect(this));
+  }
 
- private static class ProjectileEffect extends Effect {
- public ProjectileEffect(Ability ability) {
- super(ability, EffectTarget.ENEMY);
- }
+  private static class ProjectileEffect extends Effect {
+    public ProjectileEffect(Ability ability) {
+      super(ability, EffectTarget.ENEMY);
+    }
 
- @Override
- protected void apply(Creature target) {
- super.apply(target);
- target.hit(getAbility().getAttributes().value().get().intValue());
- }
- }
+    @Override
+    protected void apply(Creature target) {
+      super.apply(target);
+      target.hit(getAbility().getAttributes().value().get().intValue());
+    }
+  }
 }
 ```
 
@@ -115,9 +115,9 @@ Bind the shooting action to the left mouse button:
 BlasterAbility blaster = new BlasterAbility(hero);
 
 Input.mouse().onPressed(e -> {
- if (Input.mouse().isLeftButton(e)) {
- blaster.cast();
- }
+  if (Input.mouse().isLeftButton(e)) {
+    blaster.cast();
+  }
 });
 ```
 
@@ -142,19 +142,19 @@ import de.gurkenlabs.litiengine.util.geom.GeometricUtilities;
 @CollisionInfo(collision = true, collisionBoxWidth = 20, collisionBoxHeight = 20)
 public class Zombie extends Creature {
 
- public Zombie() {
- super("zombie");
- }
+  public Zombie() {
+    super("zombie");
+  }
 
- @Override
- public void update() {
- super.update();
- Creature player = Game.world().environment().get(Creature.class, "hero");
- if (player != null && !player.isDead()) {
- double angle = GeometricUtilities.calcRotationAngleInDegrees(this.getCenter(), player.getCenter());
- Game.physics().move(this, (float) angle, this.getTickVelocity());
- }
- }
+  @Override
+  public void update() {
+    super.update();
+    Creature player = Game.world().environment().get(Creature.class, "hero");
+    if (player != null && !player.isDead()) {
+      double angle = GeometricUtilities.calcRotationAngleInDegrees(this.getCenter(), player.getCenter());
+      Game.physics().move(this, (float) angle, this.getTickVelocity());
+    }
+  }
 }
 ```
 
@@ -166,24 +166,24 @@ Spawn enemy waves dynamically across the map:
 
 ```java
 public class WaveSpawner implements IUpdateable {
- private int waveNumber = 1;
- private long lastSpawnTime = 0;
+  private int waveNumber = 1;
+  private long lastSpawnTime = 0;
 
- @Override
- public void update() {
- if (Game.time().since(lastSpawnTime) > 5000) {
- spawnWave();
- lastSpawnTime = Game.time().now();
- waveNumber++;
- }
- }
+  @Override
+  public void update() {
+    if (Game.time().since(lastSpawnTime) > 5000) {
+      spawnWave();
+      lastSpawnTime = Game.time().now();
+      waveNumber++;
+    }
+  }
 
- private void spawnWave() {
- for (int i = 0; i < waveNumber * 3; i++) {
- Zombie zombie = new Zombie();
- zombie.setLocation(Game.random().nextInt(800), Game.random().nextInt(600));
- Game.world().environment().add(zombie);
- }
- }
+  private void spawnWave() {
+    for (int i = 0; i < waveNumber * 3; i++) {
+      Zombie zombie = new Zombie();
+      zombie.setLocation(Game.random().nextInt(800), Game.random().nextInt(600));
+      Game.world().environment().add(zombie);
+    }
+  }
 }
 ```

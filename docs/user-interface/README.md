@@ -56,8 +56,8 @@ playButton.setForeground(Color.WHITE);
 playButton.setBackground(new Color(40, 40, 40));
 
 playButton.onClicked(e -> {
- Game.screens().display("INGAME");
- Game.world().loadEnvironment("level1");
+  Game.screens().display("INGAME");
+  Game.world().loadEnvironment("level1");
 });
 
 // Add to your active screen

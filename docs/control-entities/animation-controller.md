@@ -52,22 +52,22 @@ Create custom controllers for complex animation logic:
 
 ```java
 public class PlayerAnimationController extends CreatureAnimationController<Player> {
- 
- public PlayerAnimationController(Player entity) {
- super(entity);
- 
- // Add custom animation rule
- this.addRule(this::shouldAttack, this::getAttackAnimation);
- }
- 
- private boolean shouldAttack() {
- return getEntity().isAttacking();
- }
- 
- private String getAttackAnimation() {
- String dir = getEntity().getFacingDirection().name().toLowerCase();
- return "attack-" + dir;
- }
+
+  public PlayerAnimationController(Player entity) {
+    super(entity);
+
+    // Add custom animation rule
+    this.addRule(this::shouldAttack, this::getAttackAnimation);
+  }
+
+  private boolean shouldAttack() {
+    return getEntity().isAttacking();
+  }
+
+  private String getAttackAnimation() {
+    String dir = getEntity().getFacingDirection().name().toLowerCase();
+    return "attack-" + dir;
+  }
 }
 ```
 
@@ -78,8 +78,8 @@ Add rules to determine when specific animations play:
 ```java
 // Add a rule: condition -> animation name
 animationController.addRule(
- () -> entity.isJumping(), // Condition
- () -> "jump-" + getDirection() // Animation name
+() -> entity.isJumping(), // Condition
+() -> "jump-" + getDirection() // Animation name
 );
 
 // Rules are evaluated in order of priority
@@ -106,10 +106,10 @@ Listen for animation keyframes:
 
 ```java
 entity.getAnimationController().onKeyFrameChanged((anim, frame) -> {
- // Handle keyframe change
- if (frame == 3) {
- playSound("footstep.wav");
- }
+  // Handle keyframe change
+  if (frame == 3) {
+    playSound("footstep.wav");
+  }
 });
 ```
 
@@ -119,9 +119,9 @@ entity.getAnimationController().onKeyFrameChanged((anim, frame) -> {
 Animation current = entity.getAnimationController().getCurrentAnimation();
 
 if (current != null) {
- String name = current.getName();
- int frame = entity.getAnimationController().getCurrentKeyFrameIndex();
- int totalFrames = current.getTotalFrames();
+  String name = current.getName();
+  int frame = entity.getAnimationController().getCurrentKeyFrameIndex();
+  int totalFrames = current.getTotalFrames();
 }
 ```
 

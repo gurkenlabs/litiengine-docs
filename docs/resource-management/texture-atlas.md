@@ -24,9 +24,9 @@ LITIENGINE uses `.sprite` info files to define spritesheet metadata:
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <sprite name="player-idle" width="32" height="32">
- <animations>
- <animation name="idle" keyframes="5" duration="100" loop="true"/>
- </animations>
+  <animations>
+    <animation name="idle" keyframes="5" duration="100" loop="true"/>
+  </animations>
 </sprite>
 ```
 
@@ -102,9 +102,9 @@ Examples:
 ```java
 @AnimationInfo(spritePrefix = "player")
 public class Player extends Creature {
- public Player() {
- super("player"); // Uses "player-*" spritesheets
- }
+  public Player() {
+    super("player"); // Uses "player-*" spritesheets
+  }
 }
 ```
 

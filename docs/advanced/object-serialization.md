@@ -43,20 +43,20 @@ import javax.xml.bind.annotation.*;
 
 @XmlRootElement(name = "playerData")
 public class PlayerData {
- 
- @XmlAttribute
- private String name;
- 
- @XmlElement
- private int level;
- 
- @XmlElement
- private int experience;
- 
- // Required no-arg constructor
- public PlayerData() {}
- 
- // Getters and setters...
+
+  @XmlAttribute
+  private String name;
+
+  @XmlElement
+  private int level;
+
+  @XmlElement
+  private int experience;
+
+  // Required no-arg constructor
+  public PlayerData() {}
+
+  // Getters and setters...
 }
 ```
 
@@ -64,16 +64,16 @@ public class PlayerData {
 
 ```java
 public class SaveData {
- private String playerName;
- private int currentLevel;
- 
- public void save(String filename) {
- XmlUtilities.save(this, filename);
- }
- 
- public static SaveData load(String filename) {
- return XmlUtilities.read(SaveData.class, filename);
- }
+  private String playerName;
+  private int currentLevel;
+
+  public void save(String filename) {
+    XmlUtilities.save(this, filename);
+  }
+
+  public static SaveData load(String filename) {
+    return XmlUtilities.read(SaveData.class, filename);
+  }
 }
 ```
 

@@ -70,19 +70,19 @@ The built-in controller for keyboard-based movement:
 
 ```java
 public class Player extends Creature {
- 
- @Override
- protected IMovementController createMovementController() {
- KeyboardEntityController<Player> controller = new KeyboardEntityController<>(this);
- 
- // Customize keys (default: arrow keys)
- controller.addUpKey(KeyEvent.VK_W);
- controller.addDownKey(KeyEvent.VK_S);
- controller.addLeftKey(KeyEvent.VK_A);
- controller.addRightKey(KeyEvent.VK_D);
- 
- return controller;
- }
+
+  @Override
+  protected IMovementController createMovementController() {
+    KeyboardEntityController<Player> controller = new KeyboardEntityController<>(this);
+
+    // Customize keys (default: arrow keys)
+    controller.addUpKey(KeyEvent.VK_W);
+    controller.addDownKey(KeyEvent.VK_S);
+    controller.addLeftKey(KeyEvent.VK_A);
+    controller.addRightKey(KeyEvent.VK_D);
+
+    return controller;
+  }
 }
 ```
 
@@ -93,7 +93,7 @@ For platformer-style movement with gravity:
 ```java
 @Override
 protected IMovementController createMovementController() {
- return new PlatformingMovementController<>(this);
+  return new PlatformingMovementController<>(this);
 }
 ```
 
@@ -121,7 +121,7 @@ entity.movement().apply(gravity);
 ```java
 // When entity moves
 entity.onMoved(e -> {
- System.out.println("Entity moved to: " + entity.getLocation());
+  System.out.println("Entity moved to: " + entity.getLocation());
 });
 ```
 
@@ -141,33 +141,33 @@ entity.isTouchingGround();
 
 ```java
 public class AStarMovementController extends MovementController<Creature> {
- 
- private Queue<Point2D> path;
- 
- public AStarMovementController(Creature entity) {
- super(entity);
- }
- 
- @Override
- public void update() {
- if (path == null || path.isEmpty()) {
- return;
- }
- 
- Point2D target = path.peek();
- if (getEntity().getLocation().distance(target) < 5) {
- path.poll();
- return;
- }
- 
- // Move toward current waypoint
- double angle = getEntity().getAngleTo(target);
- Game.physics().move(getEntity(), angle, getEntity().getVelocity());
- }
- 
- public void setPath(Queue<Point2D> path) {
- this.path = path;
- }
+
+  private Queue<Point2D> path;
+
+  public AStarMovementController(Creature entity) {
+    super(entity);
+  }
+
+  @Override
+  public void update() {
+    if (path == null || path.isEmpty()) {
+      return;
+    }
+
+    Point2D target = path.peek();
+    if (getEntity().getLocation().distance(target) < 5) {
+      path.poll();
+      return;
+    }
+
+    // Move toward current waypoint
+    double angle = getEntity().getAngleTo(target);
+    Game.physics().move(getEntity(), angle, getEntity().getVelocity());
+  }
+
+  public void setPath(Queue<Point2D> path) {
+    this.path = path;
+  }
 }
 ```
 
@@ -201,24 +201,24 @@ import de.gurkenlabs.litiengine.entities.behavior.EntityNavigator;
 import java.awt.geom.Point2D;
 
 public class EnemyNavigator {
- private final EntityNavigator navigator;
+  private final EntityNavigator navigator;
 
- public EnemyNavigator(Creature enemy) {
- // 1. Create an A* pathfinder bound to the active environment
- AStarPathFinder pathFinder = new AStarPathFinder(Game.world().environment());
+  public EnemyNavigator(Creature enemy) {
+    // 1. Create an A* pathfinder bound to the active environment
+    AStarPathFinder pathFinder = new AStarPathFinder(Game.world().environment());
 
- // 2. Attach navigator to enemy creature
- this.navigator = new EntityNavigator(enemy, pathFinder);
+    // 2. Attach navigator to enemy creature
+    this.navigator = new EntityNavigator(enemy, pathFinder);
 
- // 3. Callback when destination is reached
- this.navigator.onTargetReached(nav -> {
- System.out.println("Enemy reached target checkpoint!");
- });
- }
+    // 3. Callback when destination is reached
+    this.navigator.onTargetReached(nav -> {
+      System.out.println("Enemy reached target checkpoint!");
+    });
+  }
 
- public void moveTo(Point2D targetLocation) {
- // Computes A* path around collision geometry and moves creature
- navigator.navigate(targetLocation);
- }
+  public void moveTo(Point2D targetLocation) {
+    // Computes A* path around collision geometry and moves creature
+    navigator.navigate(targetLocation);
+  }
 }
 ```

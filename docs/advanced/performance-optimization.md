@@ -44,17 +44,17 @@ Every render call has overhead. Batch similar operations:
 ```java
 // BAD: Multiple state changes
 for (Entity e : entities) {
- g.setColor(e.getColor());
- g.fill(e.getBoundingBox());
+  g.setColor(e.getColor());
+  g.fill(e.getBoundingBox());
 }
 
 // GOOD: Batch by color
 Map<Color, List<Entity>> byColor = groupByColor(entities);
 for (Map.Entry<Color, List<Entity>> entry : byColor.entrySet()) {
- g.setColor(entry.getKey());
- for (Entity e : entry.getValue()) {
- g.fill(e.getBoundingBox());
- }
+  g.setColor(entry.getKey());
+  for (Entity e : entry.getValue()) {
+    g.fill(e.getBoundingBox());
+  }
 }
 ```
 
@@ -65,14 +65,14 @@ Only render what's on screen:
 ```java
 @Override
 public void render(Graphics2D g) {
- Rectangle2D viewport = Game.world().camera().getViewport();
- 
- for (IEntity entity : entities) {
- if (viewport.intersects(entity.getBoundingBox())) {
- // Only render visible entities
- entity.render(g);
- }
- }
+  Rectangle2D viewport = Game.world().camera().getViewport();
+
+  for (IEntity entity : entities) {
+    if (viewport.intersects(entity.getBoundingBox())) {
+      // Only render visible entities
+      entity.render(g);
+    }
+  }
 }
 ```
 
@@ -96,10 +96,10 @@ Disable updates for off-screen entities:
 // In custom entity
 @Override
 public void update() {
- if (!isOnScreen()) {
- return; // Skip update
- }
- // Normal update logic
+  if (!isOnScreen()) {
+    return; // Skip update
+  }
+  // Normal update logic
 }
 ```
 
@@ -109,19 +109,19 @@ Reuse objects instead of creating new ones:
 
 ```java
 public class BulletPool {
- private static final List<Bullet> pool = new ArrayList<>();
- 
- public static Bullet get() {
- if (pool.isEmpty()) {
- return new Bullet();
- }
- return pool.remove(pool.size() - 1);
- }
- 
- public static void release(Bullet bullet) {
- bullet.reset();
- pool.add(bullet);
- }
+  private static final List<Bullet> pool = new ArrayList<>();
+
+  public static Bullet get() {
+    if (pool.isEmpty()) {
+      return new Bullet();
+    }
+    return pool.remove(pool.size() - 1);
+  }
+
+  public static void release(Bullet bullet) {
+    bullet.reset();
+    pool.add(bullet);
+  }
 }
 ```
 
@@ -130,7 +130,7 @@ public class BulletPool {
 ```java
 // Remove entities when not needed
 if (Game.world().environment().getEntities().size() > MAX_ENTITIES) {
- // Remove oldest/distant entities
+  // Remove oldest/distant entities
 }
 ```
 
@@ -173,8 +173,8 @@ entity.dispose();
 ```java
 // Remove listeners when disposing
 public void dispose() {
- Game.loop().detach(this);
- Input.keyboard().removeKeyListener(listener);
+  Game.loop().detach(this);
+  Input.keyboard().removeKeyListener(listener);
 }
 ```
 

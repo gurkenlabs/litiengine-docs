@@ -77,27 +77,27 @@ Add LITIENGINE to your project build configuration:
 === "Gradle (Kotlin)"
 
     ```kotlin
-    dependencies {
-        implementation("de.gurkenlabs:litiengine:0.13.0-SNAPSHOT")
-    }
+dependencies {
+  implementation("de.gurkenlabs:litiengine:0.13.0-SNAPSHOT")
+}
     ```
 
 === "Gradle (Groovy)"
 
     ```groovy
-    dependencies {
-        implementation 'de.gurkenlabs:litiengine:0.13.0-SNAPSHOT'
-    }
+dependencies {
+  implementation 'de.gurkenlabs:litiengine:0.13.0-SNAPSHOT'
+}
     ```
 
 === "Maven"
 
     ```xml
-    <dependency>
-        <groupId>de.gurkenlabs</groupId>
-        <artifactId>litiengine</artifactId>
-        <version>0.13.0-SNAPSHOT</version>
-    </dependency>
+<dependency>
+  <groupId>de.gurkenlabs</groupId>
+  <artifactId>litiengine</artifactId>
+  <version>0.13.0-SNAPSHOT</version>
+</dependency>
     ```
 
 ### Your First Game in 15 Lines
@@ -275,27 +275,27 @@ Add the LITIENGINE dependency to your Gradle project by adding the following cod
 === "Gradle (Kotlin DSL)"
 
  ```kotlin
- dependencies {
- implementation("de.gurkenlabs:litiengine:0.13.0-SNAPSHOT")
- }
+dependencies {
+  implementation("de.gurkenlabs:litiengine:0.13.0-SNAPSHOT")
+}
  ```
 
 === "Gradle (Groovy DSL)"
 
  ```groovy
- dependencies {
- implementation 'de.gurkenlabs:litiengine:0.13.0-SNAPSHOT'
- }
+dependencies {
+  implementation 'de.gurkenlabs:litiengine:0.13.0-SNAPSHOT'
+}
  ```
 
 === "Maven"
 
  ```xml
- <dependency>
- <groupId>de.gurkenlabs</groupId>
- <artifactId>litiengine</artifactId>
- <version>0.13.0-SNAPSHOT</version>
- </dependency>
+<dependency>
+  <groupId>de.gurkenlabs</groupId>
+  <artifactId>litiengine</artifactId>
+  <version>0.13.0-SNAPSHOT</version>
+</dependency>
  ```
 
 ### Sample Project
@@ -311,20 +311,20 @@ Consuming the snapshot artifacts is as simple as adding the sonatype snapshots r
 in your `build.gradle`:
 ```groovy
 plugins {
- id("java")
- id("application")
+  id("java")
+  id("application")
 }
 
 repositories {
- mavenCentral()
- maven{
- url "https://oss.sonatype.org/content/repositories/snapshots/"
- }
+  mavenCentral()
+  maven{
+    url "https://oss.sonatype.org/content/repositories/snapshots/"
+  }
 
 }
 
 dependencies {
- implementation 'de.gurkenlabs:litiengine:0.11.1-SNAPSHOT'
+  implementation 'de.gurkenlabs:litiengine:0.11.1-SNAPSHOT'
 }
 ```
 
@@ -357,16 +357,16 @@ dependencies {
 Then in `my_project/settings.gradle`, add the following block:
 ```java
 includeBuild ("../litiengine"){
- dependencySubstitution {
- substitute module('de.gurkenlabs:litiengine') using project(':litiengine')
- }
+  dependencySubstitution {
+    substitute module('de.gurkenlabs:litiengine') using project(':litiengine')
+  }
 }
 ```
 In `my_project/build.gradle`, define the dependency without a version:
 
 ```groovy
 dependencies {
- implementation 'de.gurkenlabs:litiengine'
+  implementation 'de.gurkenlabs:litiengine'
 }
 ```
  Gradle will automatically replace any dependency with the version provided by `includeBuild` if it finds a matching module.
@@ -396,7 +396,7 @@ LITIENGINE requires **JDK 21 LTS or later** (with modern snapshots targeting **J
 !!! tip
     On macOS and Linux, you can easily install and manage multiple JDK versions using [SDKMAN!](https://sdkman.io/):
     ```bash
-    sdk install java
+sdk install java
     ```
 
 ## Recommended Free JDK Distributions
@@ -568,8 +568,8 @@ An example implementation would look like this:
 ```java
 public class Program {
 
- public static void main(String[] args) {
- }
+  public static void main(String[] args) {
+  }
 }
 ```
 
@@ -584,10 +584,10 @@ import de.gurkenlabs.litiengine.Game;
 
 public class Program {
 
- public static void main(String[] args) {
- Game.init(args);
- Game.start();
- }
+  public static void main(String[] args) {
+    Game.init(args);
+    Game.start();
+  }
 }
 ```
 !!! note
@@ -746,9 +746,9 @@ Resources.spritesheets().get("player-idle"); // Get spritesheet
 @MovementInfo(velocity = 100)
 @CombatInfo(hitpoints = 50)
 public class Enemy extends Creature {
- public Enemy() {
- super("enemy");
- }
+  public Enemy() {
+    super("enemy");
+  }
 }
 ```
 
@@ -802,19 +802,19 @@ entity.getAnimationController().getCurrentAnimation();
 
 ```java
 public class MenuScreen extends Screen {
- public MenuScreen() {
- super("MENU");
- }
- 
- @Override
- protected void initializeComponents() {
- // Add GUI components
- }
- 
- @Override
- public void render(Graphics2D g) {
- // Custom rendering
- }
+  public MenuScreen() {
+    super("MENU");
+  }
+
+  @Override
+  protected void initializeComponents() {
+    // Add GUI components
+  }
+
+  @Override
+  public void render(Graphics2D g) {
+    // Custom rendering
+  }
 }
 
 Game.screens().add(new MenuScreen());
@@ -826,9 +826,9 @@ Game.screens().current();
 
 ```java
 Game.tweens().begin(entity, TweenType.LOCATION_XY, 1000)
- .target(200, 300)
- .ease(TweenFunction.QUAD_INOUT)
- .begin();
+.target(200, 300)
+.ease(TweenFunction.QUAD_INOUT)
+.begin();
 ```
 
 ## Camera
@@ -857,11 +857,11 @@ client_updaterate=60
 
 ```java
 public static void main(String[] args) {
- Game.info().setName("My Game");
- Game.init(args);
- Resources.load("game.litidata");
- Game.world().loadEnvironment("level1");
- Game.start();
+  Game.info().setName("My Game");
+  Game.init(args);
+  Resources.load("game.litidata");
+  Game.world().loadEnvironment("level1");
+  Game.start();
 }
 ```
 
@@ -869,19 +869,19 @@ public static void main(String[] args) {
 
 ```java
 public class Enemy extends Creature implements IUpdateable {
- public Enemy() {
- super("enemy");
- Game.loop().attach(this);
- }
- 
- @Override
- public void update() {
- if (isDead()) {
- Game.loop().detach(this);
- return;
- }
- // AI logic
- }
+  public Enemy() {
+    super("enemy");
+    Game.loop().attach(this);
+  }
+
+  @Override
+  public void update() {
+    if (isDead()) {
+      Game.loop().detach(this);
+      return;
+    }
+    // AI logic
+  }
 }
 ```
 
@@ -890,12 +890,12 @@ public class Enemy extends Creature implements IUpdateable {
 ```java
 @Override
 protected IMovementController createMovementController() {
- KeyboardEntityController<Player> c = new KeyboardEntityController<>(this);
- c.addUpKey(KeyEvent.VK_W);
- c.addDownKey(KeyEvent.VK_S);
- c.addLeftKey(KeyEvent.VK_A);
- c.addRightKey(KeyEvent.VK_D);
- return c;
+  KeyboardEntityController<Player> c = new KeyboardEntityController<>(this);
+  c.addUpKey(KeyEvent.VK_W);
+  c.addDownKey(KeyEvent.VK_S);
+  c.addLeftKey(KeyEvent.VK_A);
+  c.addRightKey(KeyEvent.VK_D);
+  return c;
 }
 ```
 
@@ -1073,21 +1073,21 @@ import java.awt.Font;
 import java.awt.Graphics2D;
 
 public class CustomHudRenderer {
- public static void drawHud(Graphics2D g) {
- // 1. Set active font and color
- Font pixelFont = Resources.fonts().get("fonts/pixel.ttf", 16f);
- g.setFont(pixelFont);
- g.setColor(Color.WHITE);
+  public static void drawHud(Graphics2D g) {
+    // 1. Set active font and color
+    Font pixelFont = Resources.fonts().get("fonts/pixel.ttf", 16f);
+    g.setFont(pixelFont);
+    g.setColor(Color.WHITE);
 
- // 2. Simple text at pixel coordinates
- TextRenderer.render(g, "Score: 1250", 20, 30);
+    // 2. Simple text at pixel coordinates
+    TextRenderer.render(g, "Score: 1250", 20, 30);
 
- // 3. Text with High-Contrast Outline (great for floating damage / HUD)
- TextRenderer.renderWithOutline(g, "BOSS INCOMING!", 400, 100, Color.BLACK);
+    // 3. Text with High-Contrast Outline (great for floating damage / HUD)
+    TextRenderer.renderWithOutline(g, "BOSS INCOMING!", 400, 100, Color.BLACK);
 
- // 4. Centered / Aligned Text within a bounding area
- TextRenderer.render(g, "PAUSED", 0, 200, Align.CENTER, Valign.MIDDLE);
- }
+    // 4. Centered / Aligned Text within a bounding area
+    TextRenderer.render(g, "PAUSED", 0, 200, Align.CENTER, Valign.MIDDLE);
+  }
 }
 ```
 <script type="application/ld+json">
@@ -1239,24 +1239,24 @@ import de.gurkenlabs.litiengine.sound.Track;
 import de.gurkenlabs.litiengine.resources.Resources;
 
 public class AudioManager {
- private static float masterVolume = 1.0f;
- private static float musicVolume = 0.8f;
- private static float sfxVolume = 1.0f;
+  private static float masterVolume = 1.0f;
+  private static float musicVolume = 0.8f;
+  private static float sfxVolume = 1.0f;
 
- public static void setMasterVolume(float volume) {
- masterVolume = Math.clamp(volume, 0.0f, 1.0f);
- Game.audio().setMasterPlayback(masterVolume);
- }
+  public static void setMasterVolume(float volume) {
+    masterVolume = Math.clamp(volume, 0.0f, 1.0f);
+    Game.audio().setMasterPlayback(masterVolume);
+  }
 
- public static void playMusic(String trackName) {
- Track musicTrack = Resources.tracks().get(trackName);
- Game.audio().playMusic(musicTrack, true); // true = seamless loop
- }
+  public static void playMusic(String trackName) {
+    Track musicTrack = Resources.tracks().get(trackName);
+    Game.audio().playMusic(musicTrack, true); // true = seamless loop
+  }
 
- public static void playSound(String soundName) {
- Sound sound = Resources.sounds().get(soundName);
- Game.audio().playSound(sound, false, 1, sfxVolume * masterVolume);
- }
+  public static void playSound(String soundName) {
+    Sound sound = Resources.sounds().get(soundName);
+    Game.audio().playSound(sound, false, 1, sfxVolume * masterVolume);
+  }
 }
 ```
 
@@ -1267,16 +1267,16 @@ Play audio centered at specific world coordinates or attached to moving entities
 ```java
 // Play positional explosion sound originating from a barrel entity
 Game.audio().playSound(
- Resources.sounds().get("explosion.ogg"),
- barrelEntity.getCenter(),
- false // do not loop
+Resources.sounds().get("explosion.ogg"),
+barrelEntity.getCenter(),
+false // do not loop
 );
 
 // Continuous spatial hum originating from a generator prop
 Game.audio().playSound(
- Resources.sounds().get("generator_hum.ogg"),
- generatorProp,
- true // loop continuously
+Resources.sounds().get("generator_hum.ogg"),
+generatorProp,
+true // loop continuously
 );
 ```
 
@@ -1349,12 +1349,12 @@ The `CollisionEvent` class allows you to listen for specific types of collisions
 Prop p;
 // [...]
 p.onCollision(event -> {
- // Our prop is the source of the CollisionEvent.
- System.out.println("Source: " + event.getSource().getName());
- // getInvolvedEntities returns the list of all colliding entities.
- event.getInvolvedEntities().forEach(e -> {
- System.out.println("Involved entity: " + e.getName());
- });
+  // Our prop is the source of the CollisionEvent.
+  System.out.println("Source: " + event.getSource().getName());
+  // getInvolvedEntities returns the list of all colliding entities.
+  event.getInvolvedEntities().forEach(e -> {
+    System.out.println("Involved entity: " + e.getName());
+  });
 });
 ```
 
@@ -1453,12 +1453,12 @@ To execute custom logic every tick, implement the `IUpdateable` interface and at
 
 ```java
 public class MyEntity extends Entity implements IUpdateable {
- 
- @Override
- public void update() {
- // This code runs every tick (default: 60 times per second)
- setLocation(getX() + 1, getY());
- }
+
+  @Override
+  public void update() {
+    // This code runs every tick (default: 60 times per second)
+    setLocation(getX() + 1, getY());
+  }
 }
 
 // Attach the entity to the game loop
@@ -1492,7 +1492,7 @@ Schedule actions to execute after a delay:
 ```java
 // Execute after 2 seconds (120 ticks at 60 tick rate)
 int actionId = Game.loop().execute(120, () -> {
- System.out.println("Delayed action executed!");
+  System.out.println("Delayed action executed!");
 });
 
 // Cancel a timed action by setting execution time to -1
@@ -1530,26 +1530,26 @@ cl_showGameMetrics=false
 ```java
 @EntityInfo(width = 32, height = 32)
 public class Enemy extends Creature implements IUpdateable {
- 
- public Enemy() {
- super("enemy");
- Game.loop().attach(this);
- }
- 
- @Override
- public void update() {
- if (this.isDead()) {
- Game.loop().detach(this);
- return;
- }
- 
- // AI behavior runs every tick
- chasePlayer();
- }
- 
- private void chasePlayer() {
- // Movement logic
- }
+
+  public Enemy() {
+    super("enemy");
+    Game.loop().attach(this);
+  }
+
+  @Override
+  public void update() {
+    if (this.isDead()) {
+      Game.loop().detach(this);
+      return;
+    }
+
+    // AI behavior runs every tick
+    chasePlayer();
+  }
+
+  private void chasePlayer() {
+    // Movement logic
+  }
 }
 ```
 
@@ -1557,18 +1557,18 @@ public class Enemy extends Creature implements IUpdateable {
 
 ```java
 public class GameTimer implements IUpdateable {
- private int secondsRemaining;
- 
- public GameTimer(int seconds) {
- this.secondsRemaining = seconds;
- Game.loop().attach(this);
- }
- 
- @Override
- public void update() {
- // Track time using deltaTime
- // 60 ticks = 1 second at default tick rate
- }
+  private int secondsRemaining;
+
+  public GameTimer(int seconds) {
+    this.secondsRemaining = seconds;
+    Game.loop().attach(this);
+  }
+
+  @Override
+  public void update() {
+    // Track time using deltaTime
+    // 60 ticks = 1 second at default tick rate
+  }
 }
 ```
 
@@ -1618,10 +1618,10 @@ Game.world().environment().remove("my-entity");
 
 // add a entity listener to the current environment of the game
 Game.world().environment().addEntityListener(new EnvironmentEntityListener(){
- @Override
- public void entityAdded(IEntity entity) {
- // do sth when entities are added
- }
+  @Override
+  public void entityAdded(IEntity entity) {
+    // do sth when entities are added
+  }
 });
 ```
  ### Layering
@@ -1657,28 +1657,28 @@ import de.gurkenlabs.litiengine.environment.tilemap.xml.TmxMap;
 import java.awt.Color;
 
 public class ProceduralWorld {
- public static void generateDungeon() {
- // 1. Create a blank in-memory map (e.g. 50x50 tiles, 16x16 pixels per tile)
- TmxMap proceduralMap = new TmxMap();
- proceduralMap.setWidth(50);
- proceduralMap.setHeight(50);
- proceduralMap.setTileWidth(16);
- proceduralMap.setTileHeight(16);
+  public static void generateDungeon() {
+    // 1. Create a blank in-memory map (e.g. 50x50 tiles, 16x16 pixels per tile)
+    TmxMap proceduralMap = new TmxMap();
+    proceduralMap.setWidth(50);
+    proceduralMap.setHeight(50);
+    proceduralMap.setTileWidth(16);
+    proceduralMap.setTileHeight(16);
 
- // 2. Wrap into an Environment
- Environment env = new Environment(proceduralMap);
+    // 2. Wrap into an Environment
+    Environment env = new Environment(proceduralMap);
 
- // 3. Add entities programmatically
- Prop pillar = new Prop("rock");
- pillar.setLocation(100, 100);
- env.add(pillar);
+    // 3. Add entities programmatically
+    Prop pillar = new Prop("rock");
+    pillar.setLocation(100, 100);
+    env.add(pillar);
 
- // 4. Set ambient lighting
- env.getAmbientLight().setColor(new Color(20, 25, 40, 200));
+    // 4. Set ambient lighting
+    env.getAmbientLight().setColor(new Color(20, 25, 40, 200));
 
- // 5. Activate environment in GameWorld
- Game.world().loadEnvironment(env);
- }
+    // 5. Activate environment in GameWorld
+    Game.world().loadEnvironment(env);
+  }
 }
 ```
 
@@ -1744,7 +1744,7 @@ Game.world().camera().setFocus(500, 350);
 // Focus on an entity
 IEntity player = Game.world().environment().get("player");
 if (player != null) {
- Game.world().camera().setFocus(player.getCenter());
+  Game.world().camera().setFocus(player.getCenter());
 }
 ```
 
@@ -1762,18 +1762,18 @@ To have the camera follow the player automatically, update the focus in a game l
 
 ```java
 public class PlayerCameraFollower implements IUpdateable {
- private final IEntity player;
+  private final IEntity player;
 
- public PlayerCameraFollower(IEntity player) {
- this.player = player;
- }
+  public PlayerCameraFollower(IEntity player) {
+    this.player = player;
+  }
 
- @Override
- public void update() {
- if (this.player != null && !this.player.isDead()) {
- Game.world().camera().setFocus(this.player.getCenter());
- }
- }
+  @Override
+  public void update() {
+    if (this.player != null && !this.player.isDead()) {
+      Game.world().camera().setFocus(this.player.getCenter());
+    }
+  }
 }
 
 // Attach follower to the game loop
@@ -1809,7 +1809,7 @@ Game.world().camera().setZoom(1.5f, 500);
 
 // Listen for zoom changes
 Game.world().camera().onZoom(e -> {
- System.out.println("New zoom level: " + e.getZoom());
+  System.out.println("New zoom level: " + e.getZoom());
 });
 ```
 
@@ -1850,15 +1850,15 @@ Because `Camera` implements `Tweenable`, you can drive camera animations using `
 ```java
 // Tween camera location to a new position using quad easing
 Game.tweens().begin(Game.world().camera(), TweenType.LOCATION_XY, 1000)
- .target(800f, 600f)
- .ease(TweenFunction.QUAD_INOUT)
- .begin();
+.target(800f, 600f)
+.ease(TweenFunction.QUAD_INOUT)
+.begin();
 
 // Tween camera zoom level
 Game.tweens().begin(Game.world().camera(), TweenType.ZOOM, 800)
- .target(2.5f)
- .ease(TweenFunction.CUBIC_OUT)
- .begin();
+.target(2.5f)
+.ease(TweenFunction.CUBIC_OUT)
+.begin();
 ```
 
 ---
@@ -1919,16 +1919,16 @@ System.out.println("Currently active screen: " + Game.screens().current().getNam
 
 // a custom screen implementation that renders "Test text" on the screen
 public class TestScreen extends GameScreen {
- public TestScreen() {
- super("TEST");
- }
- @Override
- public void render(final Graphics2D g) {
- super.render(g);
- g.setFont(Resources.fonts().get("customfont.ttf",32f));
- g.setColor(Color.RED);
- TextRenderer.render(g, "Test text", 100, 100);
- }
+  public TestScreen() {
+    super("TEST");
+  }
+  @Override
+  public void render(final Graphics2D g) {
+    super.render(g);
+    g.setFont(Resources.fonts().get("customfont.ttf",32f));
+    g.setColor(Color.RED);
+    TextRenderer.render(g, "Test text", 100, 100);
+  }
 }
 ```
 
@@ -1948,43 +1948,43 @@ import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 
 public class GameOverScreen extends Screen {
- public static final String NAME = "GAME_OVER";
+  public static final String NAME = "GAME_OVER";
 
- public GameOverScreen() {
- super(NAME);
- }
+  public GameOverScreen() {
+    super(NAME);
+  }
 
- @Override
- protected void initializeComponents() {
- super.initializeComponents();
+  @Override
+  protected void initializeComponents() {
+    super.initializeComponents();
 
- // Listen for Space key to restart
- Input.keyboard().onKeyTyped(KeyEvent.VK_SPACE, event -> {
- if (Game.screens().current().equals(this)) {
- Game.world().loadEnvironment("level1");
- Game.screens().display("INGAME-SCREEN");
- }
- });
- }
+    // Listen for Space key to restart
+    Input.keyboard().onKeyTyped(KeyEvent.VK_SPACE, event -> {
+      if (Game.screens().current().equals(this)) {
+        Game.world().loadEnvironment("level1");
+        Game.screens().display("INGAME-SCREEN");
+      }
+    });
+  }
 
- @Override
- public void render(Graphics2D g) {
- // Fill dark background
- g.setColor(new Color(15, 10, 20, 230));
- g.fillRect(0, 0, (int) Game.window().getResolution().getWidth(), (int) Game.window().getResolution().getHeight());
+  @Override
+  public void render(Graphics2D g) {
+    // Fill dark background
+    g.setColor(new Color(15, 10, 20, 230));
+    g.fillRect(0, 0, (int) Game.window().getResolution().getWidth(), (int) Game.window().getResolution().getHeight());
 
- // Draw game over banner
- g.setColor(Color.RED);
- g.setFont(new Font("Monospaced", Font.BOLD, 48));
- g.drawString("GAME OVER", (int) (Game.window().getCenter().getX() - 140), (int) (Game.window().getCenter().getY() - 20));
+    // Draw game over banner
+    g.setColor(Color.RED);
+    g.setFont(new Font("Monospaced", Font.BOLD, 48));
+    g.drawString("GAME OVER", (int) (Game.window().getCenter().getX() - 140), (int) (Game.window().getCenter().getY() - 20));
 
- // Draw prompt
- g.setColor(Color.WHITE);
- g.setFont(new Font("Monospaced", Font.PLAIN, 18));
- g.drawString("Press [SPACE] to Restart", (int) (Game.window().getCenter().getX() - 120), (int) (Game.window().getCenter().getY() + 40));
+    // Draw prompt
+    g.setColor(Color.WHITE);
+    g.setFont(new Font("Monospaced", Font.PLAIN, 18));
+    g.drawString("Press [SPACE] to Restart", (int) (Game.window().getCenter().getX() - 120), (int) (Game.window().getCenter().getY() + 40));
 
- super.render(g);
- }
+    super.render(g);
+  }
 }
 ```
 
@@ -2029,9 +2029,9 @@ Then you can chain methods to set the starting and ending values, the easing fun
 ImageComponent ic;
 // Create a new Tween that moves the ImageComponent to the given location over 4 seconds, using a quadratic easing function.
 Game.tweens().begin(ic, TweenType.LOCATION_XY, 4000)
- .target(100, 200)
- .ease(TweenFunction.QUAD_INOUT)
- .begin();
+.target(100, 200)
+.ease(TweenFunction.QUAD_INOUT)
+.begin();
 ```
 
 ## TweenType
@@ -2199,102 +2199,102 @@ import  de.gurkenlabs.litiengine.physics.MovementController;
 import  de.gurkenlabs.litiengine.util.ListUtilities;
 
 public  class  KeyboardEntityController<T  extends  IMobileEntity> extends  MovementController< T > {
-  private  final  List <Integer > up;
-  private  final  List <Integer > down;
-  private  final  List <Integer > left;
-  private  final  List <Integer > right;
-  public  KeyboardEntityController(final  T  entity) {
-    this (entity, KeyEvent.VK_UP, KeyEvent.VK_DOWN, KeyEvent.VK_LEFT, KeyEvent.VK_RIGHT); // You can customize these key. 
-  }
-  public  KeyboardEntityController(final  T  entity, final  int  up, final  int  down, final  int  left, final  int  right) {
-    super (entity);
-    this .up = new  ArrayList <>();
-    this .down = new  ArrayList <>();
-    this .left = new  ArrayList <>();
-    this .right = new  ArrayList <>();
-    this .up.add(up);
-    this .down.add(down);
-    this .left.add(left);
-    this .right.add(right);
-    Input.keyboard().onKeyPressed(this::handlePressedKey);
-  }
-  public  void  handlePressedKey(final  KeyEvent  keyCode) {
-    if  (this .up.contains(keyCode.getKeyCode())) {
-      this .setDy(this .getDy() - 1 );
-    } else  if  (this .down.contains(keyCode.getKeyCode())) {
-      this .setDy(this .getDy() + 1 );
-    } else  if  (this .left.contains(keyCode.getKeyCode())) {
-      this .setDx(this .getDx() - 1 );
-    } else  if  (this .right.contains(keyCode.getKeyCode())) { // getDx, getDy tells the current coodinates of the character.
-      this .setDx(this .getDx() + 1 ); // setDx, setDy sets the coodinates of the character.
-    }
-  }
-  public  void  addUpKey(int  keyCode) {
-    if  (this .up.contains(keyCode)) {
-      return ;
-    }
-    this .up.add(keyCode);
-  }
-  public  void  addDownKey(int  keyCode) {
-    if  (this .down.contains(keyCode)) {
-      return ;
-    }
-    this .down.add(keyCode);
-  }
-  public  void  addLeftKey(int  keyCode) {
-    if  (this .left.contains(keyCode)) {
-      return ;
-    }
-    this .left.add(keyCode);
-  }
-  public  void  addRightKey(int  keyCode) {
-    if  (this .right.contains(keyCode)) {
-      return ;
-    }
-    this .right.add(keyCode);
-  }
-  public  List <Integer > getUpKeys() {
-    return  this .up;
-  }
-  public  List <Integer > getDownKeys() {
-    return  this .down;
-  }
-  public  List <Integer > getLeftKeys() {
-    return  this .left;
-  }
-  public  List <Integer > getRightKeys() {
-    return  this .right;
-  }
-  public  void  setUpKeys(int ... up) {
-    this .setUpKeys(ListUtilities.getIntList(up));
-  }
-  public  void  setUpKeys(List <Integer > up) {
-    set(this .up, up);
-  }
-  public  void  setDownKeys(int ... down) {
-    this .setDownKeys(ListUtilities.getIntList(down));
-  }
-  public  void  setDownKeys(List <Integer > down) {
-    set(this .down, down);
-  }
-  public  void  setLeftKeys(int ... left) {
-    this .setLeftKeys(ListUtilities.getIntList(left));
-  }
-  public  void  setLeftKeys(List <Integer > left) {
-    set(this .left, left);
-  }
-  public  void  setRightKeys(int ... right) {
-    this .setRightKeys(ListUtilities.getIntList(right));
-  }
-  public  void  setRightKeys(List <Integer > right) {
-    set(this .right, right);
-  }
-  private  static  void  set(List <Integer > keyList, List <Integer > keys) {
-    keyList.clear();
-    for  (int  key : keys) {
-      keyList.add(key);
-    }
-  }
+  private  final  List <Integer > up;
+  private  final  List <Integer > down;
+  private  final  List <Integer > left;
+  private  final  List <Integer > right;
+  public  KeyboardEntityController(final  T  entity) {
+    this (entity, KeyEvent.VK_UP, KeyEvent.VK_DOWN, KeyEvent.VK_LEFT, KeyEvent.VK_RIGHT); // You can customize these key.
+  }
+  public  KeyboardEntityController(final  T  entity, final  int  up, final  int  down, final  int  left, final  int  right) {
+    super (entity);
+    this .up = new  ArrayList <>();
+    this .down = new  ArrayList <>();
+    this .left = new  ArrayList <>();
+    this .right = new  ArrayList <>();
+    this .up.add(up);
+    this .down.add(down);
+    this .left.add(left);
+    this .right.add(right);
+    Input.keyboard().onKeyPressed(this::handlePressedKey);
+  }
+  public  void  handlePressedKey(final  KeyEvent  keyCode) {
+    if  (this .up.contains(keyCode.getKeyCode())) {
+      this .setDy(this .getDy() - 1 );
+    } else  if  (this .down.contains(keyCode.getKeyCode())) {
+      this .setDy(this .getDy() + 1 );
+    } else  if  (this .left.contains(keyCode.getKeyCode())) {
+      this .setDx(this .getDx() - 1 );
+    } else  if  (this .right.contains(keyCode.getKeyCode())) { // getDx, getDy tells the current coodinates of the character.
+      this .setDx(this .getDx() + 1 ); // setDx, setDy sets the coodinates of the character.
+    }
+  }
+  public  void  addUpKey(int  keyCode) {
+    if  (this .up.contains(keyCode)) {
+      return ;
+    }
+    this .up.add(keyCode);
+  }
+  public  void  addDownKey(int  keyCode) {
+    if  (this .down.contains(keyCode)) {
+      return ;
+    }
+    this .down.add(keyCode);
+  }
+  public  void  addLeftKey(int  keyCode) {
+    if  (this .left.contains(keyCode)) {
+      return ;
+    }
+    this .left.add(keyCode);
+  }
+  public  void  addRightKey(int  keyCode) {
+    if  (this .right.contains(keyCode)) {
+      return ;
+    }
+    this .right.add(keyCode);
+  }
+  public  List <Integer > getUpKeys() {
+    return  this .up;
+  }
+  public  List <Integer > getDownKeys() {
+    return  this .down;
+  }
+  public  List <Integer > getLeftKeys() {
+    return  this .left;
+  }
+  public  List <Integer > getRightKeys() {
+    return  this .right;
+  }
+  public  void  setUpKeys(int ... up) {
+    this .setUpKeys(ListUtilities.getIntList(up));
+  }
+  public  void  setUpKeys(List <Integer > up) {
+    set(this .up, up);
+  }
+  public  void  setDownKeys(int ... down) {
+    this .setDownKeys(ListUtilities.getIntList(down));
+  }
+  public  void  setDownKeys(List <Integer > down) {
+    set(this .down, down);
+  }
+  public  void  setLeftKeys(int ... left) {
+    this .setLeftKeys(ListUtilities.getIntList(left));
+  }
+  public  void  setLeftKeys(List <Integer > left) {
+    set(this .left, left);
+  }
+  public  void  setRightKeys(int ... right) {
+    this .setRightKeys(ListUtilities.getIntList(right));
+  }
+  public  void  setRightKeys(List <Integer > right) {
+    set(this .right, right);
+  }
+  private  static  void  set(List <Integer > keyList, List <Integer > keys) {
+    keyList.clear();
+    for  (int  key : keys) {
+      keyList.add(key);
+    }
+  }
 }
 ```
 
@@ -2352,16 +2352,16 @@ double y = location.getY();
 ```java
 // Check if any mouse button is pressed
 if (Input.mouse().isPressed()) {
- // Mouse button is currently pressed
+  // Mouse button is currently pressed
 }
 
 // Check specific buttons
 if (Input.mouse().isLeftMouseButtonDown()) {
- // Left mouse button is pressed
+  // Left mouse button is pressed
 }
 
 if (Input.mouse().isRightMouseButtonDown()) {
- // Right mouse button is pressed
+  // Right mouse button is pressed
 }
 ```
 
@@ -2373,7 +2373,7 @@ Register listeners to respond to mouse events:
 
 ```java
 Input.mouse().onClicked(e -> {
- System.out.println("Mouse clicked at: " + e.getX() + ", " + e.getY());
+  System.out.println("Mouse clicked at: " + e.getX() + ", " + e.getY());
 });
 ```
 
@@ -2382,17 +2382,17 @@ Input.mouse().onClicked(e -> {
 ```java
 // When mouse button is pressed down
 Input.mouse().onPressed(e -> {
- System.out.println("Mouse pressed: " + e.getButton());
+  System.out.println("Mouse pressed: " + e.getButton());
 });
 
 // When mouse button is released
 Input.mouse().onReleased(e -> {
- System.out.println("Mouse released: " + e.getButton());
+  System.out.println("Mouse released: " + e.getButton());
 });
 
 // Continuously while mouse is pressed
 Input.mouse().onPressing(e -> {
- // Handle dragging operations
+  // Handle dragging operations
 });
 ```
 
@@ -2401,13 +2401,13 @@ Input.mouse().onPressing(e -> {
 ```java
 // When mouse moves
 Input.mouse().onMoved(e -> {
- Point2D location = Input.mouse().getLocation();
- // Update cursor effects, hover states, etc.
+  Point2D location = Input.mouse().getLocation();
+  // Update cursor effects, hover states, etc.
 });
 
 // When mouse is dragged (moved while button pressed)
 Input.mouse().onDragged(e -> {
- // Handle drag operations
+  // Handle drag operations
 });
 ```
 
@@ -2419,13 +2419,13 @@ Convert screen coordinates to game world coordinates:
 
 ```java
 Input.mouse().onClicked(e -> {
- // Get screen position
- Point2D screenPos = Input.mouse().getLocation();
- 
- // Convert to world position (account for camera)
- Point2D worldPos = Game.world().camera().getMapLocation(screenPos);
- 
- // Now you can use worldPos for game logic
+  // Get screen position
+  Point2D screenPos = Input.mouse().getLocation();
+
+  // Convert to world position (account for camera)
+  Point2D worldPos = Game.world().camera().getMapLocation(screenPos);
+
+  // Now you can use worldPos for game logic
 });
 ```
 
@@ -2433,16 +2433,16 @@ Input.mouse().onClicked(e -> {
 
 ```java
 Input.mouse().onClicked(e -> {
- Point2D mousePos = Input.mouse().getLocation();
- Point2D worldPos = Game.world().camera().getMapLocation(mousePos);
- 
- // Check if clicked on any entity
- for (IEntity entity : Game.world().environment().getEntities()) {
- if (entity.getBoundingBox().contains(worldPos)) {
- System.out.println("Clicked on: " + entity.getName());
- break;
- }
- }
+  Point2D mousePos = Input.mouse().getLocation();
+  Point2D worldPos = Game.world().camera().getMapLocation(mousePos);
+
+  // Check if clicked on any entity
+  for (IEntity entity : Game.world().environment().getEntities()) {
+    if (entity.getBoundingBox().contains(worldPos)) {
+      System.out.println("Clicked on: " + entity.getName());
+      break;
+    }
+  }
 });
 ```
 
@@ -2450,13 +2450,13 @@ Input.mouse().onClicked(e -> {
 
 ```java
 Input.mouse().onClicked(e -> {
- Point2D worldPos = Game.world().camera().getMapLocation(
- Input.mouse().getLocation()
- );
- 
- // Move player to clicked location
- Player player = Player.instance();
- Game.physics().move(player, player.getAngleTo(worldPos), player.getVelocity());
+  Point2D worldPos = Game.world().camera().getMapLocation(
+  Input.mouse().getLocation()
+);
+
+  // Move player to clicked location
+  Player player = Player.instance();
+  Game.physics().move(player, player.getAngleTo(worldPos), player.getVelocity());
 });
 ```
 
@@ -2466,12 +2466,12 @@ Handle mouse wheel events for zooming or scrolling:
 
 ```java
 Game.window().getRenderComponent().addMouseWheelListener(e -> {
- int rotation = e.getWheelRotation();
- if (rotation < 0) {
- // Scroll up / zoom in
- } else {
- // Scroll down / zoom out
- }
+  int rotation = e.getWheelRotation();
+  if (rotation < 0) {
+    // Scroll up / zoom in
+  } else {
+    // Scroll down / zoom out
+  }
 });
 ```
 
@@ -2480,12 +2480,12 @@ Game.window().getRenderComponent().addMouseWheelListener(e -> {
 ```java
 // Check if event was left button
 if (Input.mouse().isLeftButton(event)) {
- // ...
+  // ...
 }
 
-// Check if event was right button 
+// Check if event was right button
 if (Input.mouse().isRightButton(event)) {
- // ...
+  // ...
 }
 
 // Set mouse location programmatically
@@ -2554,16 +2554,16 @@ Gamepad gamepad = Input.gamepads().getCurrent();
 ```java
 // Using button-specific listener
 Input.gamepads().onPressed(Gamepad.Xbox.A, value -> {
- System.out.println("A button pressed!");
+  System.out.println("A button pressed!");
 });
 
 // Using generic button listener
 Input.gamepads().onPressed((button, value) -> {
- if (button.equals(Gamepad.Xbox.A)) {
- System.out.println("A PRESSED");
- } else if (button.equals(Gamepad.Xbox.B)) {
- System.out.println("B PRESSED");
- }
+  if (button.equals(Gamepad.Xbox.A)) {
+    System.out.println("A PRESSED");
+  } else if (button.equals(Gamepad.Xbox.B)) {
+    System.out.println("B PRESSED");
+  }
 });
 ```
 
@@ -2571,9 +2571,9 @@ Input.gamepads().onPressed((button, value) -> {
 
 ```java
 Input.gamepads().onReleased((button, value) -> {
- if (button.equals(Gamepad.Xbox.START)) {
- // Pause game
- }
+  if (button.equals(Gamepad.Xbox.START)) {
+    // Pause game
+  }
 });
 ```
 
@@ -2606,19 +2606,19 @@ Read analog values from thumbsticks:
 
 ```java
 Input.gamepads().onPressed(Gamepad.Xbox.LEFT_STICK_Y, pollValue -> {
- if (pollValue > 0.5) {
- System.out.println("MOVE UP");
- } else if (pollValue < -0.5) {
- System.out.println("MOVE DOWN");
- }
+  if (pollValue > 0.5) {
+    System.out.println("MOVE UP");
+  } else if (pollValue < -0.5) {
+    System.out.println("MOVE DOWN");
+  }
 });
 
 Input.gamepads().onPressed(Gamepad.Xbox.LEFT_STICK_X, pollValue -> {
- if (pollValue > 0.5) {
- System.out.println("MOVE RIGHT");
- } else if (pollValue < -0.5) {
- System.out.println("MOVE LEFT");
- }
+  if (pollValue > 0.5) {
+    System.out.println("MOVE RIGHT");
+  } else if (pollValue < -0.5) {
+    System.out.println("MOVE LEFT");
+  }
 });
 ```
 
@@ -2629,14 +2629,14 @@ Check gamepad state directly without event listeners:
 ```java
 Gamepad gamepad = Input.gamepads().getCurrent();
 if (gamepad != null) {
- // Get button state
- if (gamepad.isPressed(Gamepad.Xbox.A)) {
- // A button is pressed
- }
- 
- // Get axis value (-1.0 to 1.0)
- float x = gamepad.getPollValue(Gamepad.Xbox.LEFT_STICK_X);
- float y = gamepad.getPollValue(Gamepad.Xbox.LEFT_STICK_Y);
+  // Get button state
+  if (gamepad.isPressed(Gamepad.Xbox.A)) {
+    // A button is pressed
+  }
+
+  // Get axis value (-1.0 to 1.0)
+  float x = gamepad.getPollValue(Gamepad.Xbox.LEFT_STICK_X);
+  float y = gamepad.getPollValue(Gamepad.Xbox.LEFT_STICK_Y);
 }
 ```
 
@@ -2645,12 +2645,12 @@ if (gamepad != null) {
 ```java
 // When a gamepad is connected
 Input.gamepads().onAdded(gamepad -> {
- System.out.println("Gamepad connected: " + gamepad.getName());
+  System.out.println("Gamepad connected: " + gamepad.getName());
 });
 
 // When a gamepad is disconnected
 Input.gamepads().onRemoved(gamepad -> {
- System.out.println("Gamepad disconnected");
+  System.out.println("Gamepad disconnected");
 });
 ```
 
@@ -2660,16 +2660,16 @@ Control entities with gamepad input:
 
 ```java
 public class GamepadEntityController<T extends IMobileEntity> extends MovementController<T> {
- 
- public GamepadEntityController(T entity) {
- super(entity);
- Input.gamepads().onPressed(Gamepad.Xbox.LEFT_STICK_X, x -> {
- this.setDx((float) x);
- });
- Input.gamepads().onPressed(Gamepad.Xbox.LEFT_STICK_Y, y -> {
- this.setDy((float) y);
- });
- }
+
+  public GamepadEntityController(T entity) {
+    super(entity);
+    Input.gamepads().onPressed(Gamepad.Xbox.LEFT_STICK_X, x -> {
+      this.setDx((float) x);
+    });
+    Input.gamepads().onPressed(Gamepad.Xbox.LEFT_STICK_Y, y -> {
+      this.setDy((float) y);
+    });
+  }
 }
 ```
 
@@ -2681,18 +2681,18 @@ Handle stick dead zones to prevent drift:
 private static final float DEAD_ZONE = 0.2f;
 
 private float applyDeadZone(float value) {
- if (Math.abs(value) < DEAD_ZONE) {
- return 0;
- }
- return value;
+  if (Math.abs(value) < DEAD_ZONE) {
+    return 0;
+  }
+  return value;
 }
 
 // Usage
 Input.gamepads().onPressed(Gamepad.Xbox.LEFT_STICK_X, x -> {
- float adjustedX = applyDeadZone((float) x);
- if (adjustedX != 0) {
- controller.setDx(adjustedX);
- }
+  float adjustedX = applyDeadZone((float) x);
+  if (adjustedX != 0) {
+    controller.setDx(adjustedX);
+  }
 });
 ```
 
@@ -2797,9 +2797,9 @@ Instead of setting sizes, bounding boxes, and speeds manually in constructors, L
 @MovementInfo(velocity = 90)
 @CollisionInfo(collision = true, collisionBoxWidth = 16, collisionBoxHeight = 12)
 public class Goblin extends Creature {
- public Goblin() {
- super("goblin");
- }
+  public Goblin() {
+    super("goblin");
+  }
 }
 ```
 
@@ -2883,11 +2883,11 @@ The base class for all game objects.
 
 ```java
 public class MyEntity extends Entity {
- public MyEntity() {
- super("my-entity");
- setLocation(100, 100);
- setSize(32, 32);
- }
+  public MyEntity() {
+    super("my-entity");
+    setLocation(100, 100);
+    setSize(32, 32);
+  }
 }
 ```
 
@@ -2907,9 +2907,9 @@ Extends `Entity` with collision detection capabilities.
 @EntityInfo(width = 32, height = 32)
 @CollisionInfo(collisionBoxWidth = 28, collisionBoxHeight = 28, collision = true)
 public class Wall extends CollisionEntity {
- public Wall() {
- super("wall");
- }
+  public Wall() {
+    super("wall");
+  }
 }
 ```
 
@@ -2931,9 +2931,9 @@ Extends `CollisionEntity` with health and combat mechanics.
 @EntityInfo(width = 32, height = 32)
 @CombatInfo(hitpoints = 100, team = 1)
 public class Destructible extends CombatEntity {
- public Destructible() {
- super("destructible");
- }
+  public Destructible() {
+    super("destructible");
+  }
 }
 ```
 
@@ -2960,9 +2960,9 @@ The most feature-rich entity type. Combines collision, combat, movement, and ani
 @CombatInfo(hitpoints = 50)
 @CollisionInfo(collisionBoxWidth = 14, collisionBoxHeight = 16, collision = true)
 public class Player extends Creature {
- public Player() {
- super("player"); // spritePrefix
- }
+  public Player() {
+    super("player"); // spritePrefix
+  }
 }
 ```
 
@@ -2988,9 +2988,9 @@ Static or interactive objects in the game world.
 @EntityInfo(width = 32, height = 32)
 @CollisionInfo(collision = true)
 public class Barrel extends Prop {
- public Barrel() {
- super("barrel");
- }
+  public Barrel() {
+    super("barrel");
+  }
 }
 ```
 
@@ -3088,27 +3088,27 @@ The easiest approach is to extend an existing entity type:
 @MovementInfo(velocity = 50)
 @CombatInfo(hitpoints = 100)
 public class Player extends Creature {
- 
- private int experience;
- private List<Ability> abilities;
- 
- public Player() {
- super("player");
- this.abilities = new ArrayList<>();
- }
- 
- public void addExperience(int xp) {
- this.experience += xp;
- checkLevelUp();
- }
- 
- public int getExperience() {
- return experience;
- }
- 
- private void checkLevelUp() {
- // Level up logic
- }
+
+  private int experience;
+  private List<Ability> abilities;
+
+  public Player() {
+    super("player");
+    this.abilities = new ArrayList<>();
+  }
+
+  public void addExperience(int xp) {
+    this.experience += xp;
+    checkLevelUp();
+  }
+
+  public int getExperience() {
+    return experience;
+  }
+
+  private void checkLevelUp() {
+    // Level up logic
+  }
 }
 ```
 
@@ -3119,42 +3119,42 @@ For unique behaviors, extend `Entity` directly:
 ```java
 @EntityInfo(width = 64, height = 64)
 public class Portal extends Entity implements IUpdateable {
- 
- private String targetMap;
- private String targetSpawnpoint;
- private boolean active;
- 
- public Portal() {
- super("portal");
- Game.loop().attach(this);
- }
- 
- @Override
- public void update() {
- if (!active) return;
- 
- // Check for player collision
- Player player = Player.instance();
- if (this.getBoundingBox().contains(player.getCenter())) {
- teleport(player);
- }
- }
- 
- private void teleport(Player player) {
- Game.world().loadEnvironment(targetMap);
- Game.world().environment().getSpawnpoint(targetSpawnpoint).spawn(player);
- }
- 
- public void setTarget(String map, String spawnpoint) {
- this.targetMap = map;
- this.targetSpawnpoint = spawnpoint;
- }
- 
- @Override
- public void dispose() {
- Game.loop().detach(this);
- super.dispose();
- }
+
+  private String targetMap;
+  private String targetSpawnpoint;
+  private boolean active;
+
+  public Portal() {
+    super("portal");
+    Game.loop().attach(this);
+  }
+
+  @Override
+  public void update() {
+    if (!active) return;
+
+    // Check for player collision
+    Player player = Player.instance();
+    if (this.getBoundingBox().contains(player.getCenter())) {
+      teleport(player);
+    }
+  }
+
+  private void teleport(Player player) {
+    Game.world().loadEnvironment(targetMap);
+    Game.world().environment().getSpawnpoint(targetSpawnpoint).spawn(player);
+  }
+
+  public void setTarget(String map, String spawnpoint) {
+    this.targetMap = map;
+    this.targetSpawnpoint = spawnpoint;
+  }
+
+  @Override
+  public void dispose() {
+    Game.loop().detach(this);
+    super.dispose();
+  }
 }
 ```
 
@@ -3164,18 +3164,18 @@ Control which controllers your entity uses:
 
 ```java
 public class FlyingEnemy extends Creature {
- 
- @Override
- protected IMovementController createMovementController() {
- // Use custom flying movement
- return new FlyingMovementController<>(this);
- }
- 
- @Override
- protected IEntityAnimationController<?> createAnimationController() {
- // Custom animation logic
- return new FlyingAnimationController(this);
- }
+
+  @Override
+  protected IMovementController createMovementController() {
+    // Use custom flying movement
+    return new FlyingMovementController<>(this);
+  }
+
+  @Override
+  protected IEntityAnimationController<?> createAnimationController() {
+    // Custom animation logic
+    return new FlyingAnimationController(this);
+  }
 }
 ```
 
@@ -3185,17 +3185,17 @@ Override rendering for unique visual effects:
 
 ```java
 public class Ghost extends Creature {
- 
- @Override
- public void render(Graphics2D g) {
- // Set ghost effect
- Composite old = g.getComposite();
- g.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.5f));
- 
- super.render(g);
- 
- g.setComposite(old);
- }
+
+  @Override
+  public void render(Graphics2D g) {
+    // Set ghost effect
+    Composite old = g.getComposite();
+    g.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.5f));
+
+    super.render(g);
+
+    g.setComposite(old);
+  }
 }
 ```
 
@@ -3280,12 +3280,12 @@ trigger.setMessageTarget("door1");
 
 ```java
 trigger.onActivated(event -> {
- IEntity activator = event.getEntity();
- System.out.println("Triggered by: " + activator.getName());
- 
- // Execute trigger logic
- spawnEnemies();
- closeDoors();
+  IEntity activator = event.getEntity();
+  System.out.println("Triggered by: " + activator.getName());
+
+  // Execute trigger logic
+  spawnEnemies();
+  closeDoors();
 });
 ```
 
@@ -3293,7 +3293,7 @@ trigger.onActivated(event -> {
 
 ```java
 trigger.onDeactivated(event -> {
- System.out.println("Entity left trigger zone");
+  System.out.println("Entity left trigger zone");
 });
 ```
 
@@ -3304,7 +3304,7 @@ trigger.onDeactivated(event -> {
 ```java
 Trigger exit = new Trigger("exit", TriggerActivation.ONCE);
 exit.onActivated(e -> {
- Game.world().loadEnvironment("level2");
+  Game.world().loadEnvironment("level2");
 });
 ```
 
@@ -3313,11 +3313,11 @@ exit.onActivated(e -> {
 ```java
 Trigger spawnZone = new Trigger("spawn_wave1", TriggerActivation.ONCE);
 spawnZone.onActivated(e -> {
- for (int i = 0; i < 5; i++) {
- Enemy enemy = new Enemy();
- enemy.setLocation(spawnX + i * 50, spawnY);
- Game.world().environment().add(enemy);
- }
+  for (int i = 0; i < 5; i++) {
+    Enemy enemy = new Enemy();
+    enemy.setLocation(spawnX + i * 50, spawnY);
+    Game.world().environment().add(enemy);
+  }
 });
 ```
 
@@ -3326,11 +3326,11 @@ spawnZone.onActivated(e -> {
 ```java
 Trigger cutscene = new Trigger("intro_cutscene", TriggerActivation.ONCE);
 cutscene.onActivated(e -> {
- Player.instance().setControlEnabled(false);
- playDialog("welcome");
- Game.loop().execute(3000, () -> {
- Player.instance().setControlEnabled(true);
- });
+  Player.instance().setControlEnabled(false);
+  playDialog("welcome");
+  Game.loop().execute(3000, () -> {
+    Player.instance().setControlEnabled(true);
+  });
 });
 ```
 
@@ -3340,9 +3340,9 @@ Triggers can activate other triggers or send messages:
 
 ```java
 trigger1.onActivated(e -> {
- // Activate trigger2
- Trigger trigger2 = Game.world().environment().getTrigger("trigger2");
- trigger2.activate((IEntity) e.getEntity());
+  // Activate trigger2
+  Trigger trigger2 = Game.world().environment().getTrigger("trigger2");
+  trigger2.activate((IEntity) e.getEntity());
 });
 ```
 
@@ -3378,12 +3378,12 @@ Basic entity configuration:
 
 ```java
 @EntityInfo(
- width = 32, // Entity width in pixels
- height = 32, // Entity height in pixels
- renderType = RenderType.NORMAL // Rendering layer
+width = 32, // Entity width in pixels
+height = 32, // Entity height in pixels
+renderType = RenderType.NORMAL // Rendering layer
 )
 public class MyEntity extends Entity {
- // ...
+  // ...
 }
 ```
 
@@ -3401,14 +3401,14 @@ Collision detection configuration:
 
 ```java
 @CollisionInfo(
- collision = true, // Enable collision
- collisionBoxWidth = 28, // Collision box width
- collisionBoxHeight = 28, // Collision box height
- collisionBoxAlign = Align.CENTER, // Horizontal alignment
- collisionBoxValign = Valign.MIDDLE // Vertical alignment
+collision = true, // Enable collision
+collisionBoxWidth = 28, // Collision box width
+collisionBoxHeight = 28, // Collision box height
+collisionBoxAlign = Align.CENTER, // Horizontal alignment
+collisionBoxValign = Valign.MIDDLE // Vertical alignment
 )
 public class Wall extends CollisionEntity {
- // ...
+  // ...
 }
 ```
 
@@ -3429,13 +3429,13 @@ Movement properties for mobile entities:
 
 ```java
 @MovementInfo(
- velocity = 100, // Pixels per second
- acceleration = 50, // Acceleration rate
- deceleration = 50, // Deceleration rate
- turnOnMove = true // Face movement direction
+velocity = 100, // Pixels per second
+acceleration = 50, // Acceleration rate
+deceleration = 50, // Deceleration rate
+turnOnMove = true // Face movement direction
 )
 public class Enemy extends Creature {
- // ...
+  // ...
 }
 ```
 
@@ -3454,13 +3454,13 @@ Combat and health configuration:
 
 ```java
 @CombatInfo(
- hitpoints = 100, // Maximum HP
- team = 1, // Team identifier
- isIndestructible = false, // Cannot be damaged
- isTarget = true // Can be targeted
+hitpoints = 100, // Maximum HP
+team = 1, // Team identifier
+isIndestructible = false, // Cannot be damaged
+isTarget = true // Can be targeted
 )
 public class Player extends Creature {
- // ...
+  // ...
 }
 ```
 
@@ -3479,11 +3479,11 @@ Animation configuration:
 
 ```java
 @AnimationInfo(
- spritePrefix = "player", // Spritesheet name prefix
- spriteBatched = true // Use sprite batching
+spritePrefix = "player", // Spritesheet name prefix
+spriteBatched = true // Use sprite batching
 )
 public class Player extends Creature {
- // ...
+  // ...
 }
 ```
 
@@ -3500,13 +3500,13 @@ Ability configuration (see [Ability Framework](/control-entities/ability-framewo
 
 ```java
 @AbilityInfo(
- cooldown = 1000, // Milliseconds between uses
- duration = 500, // Execution duration
- value = 100, // Custom value (damage, etc.)
- range = 200 // Maximum range
+cooldown = 1000, // Milliseconds between uses
+duration = 500, // Execution duration
+value = 100, // Custom value (damage, etc.)
+range = 200 // Maximum range
 )
 public class Fireball extends Ability {
- // ...
+  // ...
 }
 ```
 
@@ -3521,10 +3521,10 @@ Use multiple annotations for complete entity configuration:
 @CombatInfo(hitpoints = 50, team = 1)
 @AnimationInfo(spritePrefix = "gurknukem")
 public class Player extends Creature {
- 
- public Player() {
- super("gurknukem");
- }
+
+  public Player() {
+    super("gurknukem");
+  }
 }
 ```
 
@@ -3536,11 +3536,11 @@ Annotations define **static defaults** that can be overridden at runtime:
 @EntityInfo(width = 32, height = 32)
 @MovementInfo(velocity = 100)
 public class Enemy extends Creature {
- 
- public void speedBoost() {
- // Override annotation value at runtime
- this.setVelocity(200);
- }
+
+  public void speedBoost() {
+    // Override annotation value at runtime
+    this.setVelocity(200);
+  }
 }
 ```
 
@@ -3564,14 +3564,14 @@ Define custom annotations for game-specific data:
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
 public @interface EnemyInfo {
- int aggroRange() default 200;
- int xpReward() default 10;
- String[] lootTable() default {};
+  int aggroRange() default 200;
+  int xpReward() default 10;
+  String[] lootTable() default {};
 }
 
 @EnemyInfo(aggroRange = 300, xpReward = 25)
 public class Boss extends Creature {
- // ...
+  // ...
 }
 ```
 
@@ -3608,11 +3608,11 @@ LITIENGINE entities support event-driven programming through listener registrati
 
 ```java
 entity.onAdded(e -> {
- System.out.println("Entity added to environment");
+  System.out.println("Entity added to environment");
 });
 
 entity.onRemoved(e -> {
- System.out.println("Entity removed from environment");
+  System.out.println("Entity removed from environment");
 });
 ```
 
@@ -3620,13 +3620,13 @@ entity.onRemoved(e -> {
 
 ```java
 Game.world().environment().onEntityAdded(e -> {
- IEntity entity = e.getEntity();
- System.out.println("Spawned: " + entity.getName());
+  IEntity entity = e.getEntity();
+  System.out.println("Spawned: " + entity.getName());
 });
 
 Game.world().environment().onEntityRemoved(e -> {
- IEntity entity = e.getEntity();
- System.out.println("Despawned: " + entity.getName());
+  IEntity entity = e.getEntity();
+  System.out.println("Despawned: " + entity.getName());
 });
 ```
 
@@ -3638,14 +3638,14 @@ Game.world().environment().onEntityRemoved(e -> {
 CombatEntity combat = ...;
 
 combat.onHit(event -> {
- int damage = event.getDamage();
- ICombatEntity attacker = event.getExecutor();
- 
- System.out.println("Took " + damage + " damage!");
- 
- // Play hit effect
- playHitSound();
- flashRed();
+  int damage = event.getDamage();
+  ICombatEntity attacker = event.getExecutor();
+
+  System.out.println("Took " + damage + " damage!");
+
+  // Play hit effect
+  playHitSound();
+  flashRed();
 });
 ```
 
@@ -3653,16 +3653,16 @@ combat.onHit(event -> {
 
 ```java
 combat.onDeath(event -> {
- System.out.println("Entity died!");
- 
- // Handle death
- spawnLoot(combat.getLocation());
- Game.world().environment().remove(combat);
+  System.out.println("Entity died!");
+
+  // Handle death
+  spawnLoot(combat.getLocation());
+  Game.world().environment().remove(combat);
 });
 
 combat.onResurrect(event -> {
- System.out.println("Entity revived!");
- combat.setHitpoints(combat.getMaxHitpoints());
+  System.out.println("Entity revived!");
+  combat.setHitpoints(combat.getMaxHitpoints());
 });
 ```
 
@@ -3674,9 +3674,9 @@ combat.onResurrect(event -> {
 MobileEntity mobile = ...;
 
 mobile.onMoved(event -> {
- // Entity position updated
- checkForTriggers(mobile.getLocation());
- updateMinimap();
+  // Entity position updated
+  checkForTriggers(mobile.getLocation());
+  updateMinimap();
 });
 ```
 
@@ -3686,12 +3686,12 @@ mobile.onMoved(event -> {
 CollisionEntity colliding = ...;
 
 colliding.onCollision(event -> {
- // Get other entities involved
- for (IEntity other : event.getInvolvedEntities()) {
- if (other != colliding) {
- handleCollisionWith(other);
- }
- }
+  // Get other entities involved
+  for (IEntity other : event.getInvolvedEntities()) {
+    if (other != colliding) {
+      handleCollisionWith(other);
+    }
+  }
 });
 ```
 
@@ -3699,17 +3699,17 @@ colliding.onCollision(event -> {
 
 ```java
 entity.getAnimationController().onKeyFrameChanged((anim, frame) -> {
- // Specific frame reached
- if (frame == 3 && anim.getName().contains("walk")) {
- playFootstepSound();
- }
+  // Specific frame reached
+  if (frame == 3 && anim.getName().contains("walk")) {
+    playFootstepSound();
+  }
 });
 
 entity.getAnimationController().onFinished(anim -> {
- // Animation completed
- if (anim.getName().equals("attack")) {
- entity.setAttacking(false);
- }
+  // Animation completed
+  if (anim.getName().equals("attack")) {
+    entity.setAttacking(false);
+  }
 });
 ```
 
@@ -3719,16 +3719,16 @@ entity.getAnimationController().onFinished(anim -> {
 Trigger trigger = ...;
 
 trigger.onActivated(event -> {
- IEntity activator = event.getEntity();
- System.out.println("Trigger activated by: " + activator.getName());
- 
- // Execute trigger logic
- spawnEnemies();
- closeDoors();
+  IEntity activator = event.getEntity();
+  System.out.println("Trigger activated by: " + activator.getName());
+
+  // Execute trigger logic
+  spawnEnemies();
+  closeDoors();
 });
 
 trigger.onDeactivated(event -> {
- System.out.println("Entity left trigger zone");
+  System.out.println("Entity left trigger zone");
 });
 ```
 
@@ -3738,10 +3738,10 @@ Define and fire custom events:
 
 ```java
 public class PowerUpEvent {
- private String powerUpType;
- private IEntity target;
- 
- // constructor, getters...
+  private String powerUpType;
+  private IEntity target;
+
+  // constructor, getters...
 }
 
 // Fire event
@@ -3749,9 +3749,9 @@ entity.fireEvent(new PowerUpEvent("speed", entity));
 
 // Listen for events
 entity.onEvent(PowerUpEvent.class, event -> {
- if ("speed".equals(event.getPowerUpType())) {
- applySpeedBoost();
- }
+  if ("speed".equals(event.getPowerUpType())) {
+    applySpeedBoost();
+  }
 });
 ```
 
@@ -3780,7 +3780,7 @@ Multiple listeners can be registered for the same event:
 // Sound handler
 entity.onHit(event -> playHitSound());
 
-// Visual effect handler 
+// Visual effect handler
 entity.onHit(event -> showDamageNumber());
 
 // Game logic handler
@@ -3794,17 +3794,17 @@ Subscribe to global game world events:
 ```java
 // Environment loaded
 Game.world().onLoaded(env -> {
- initializeLevel();
+  initializeLevel();
 });
 
 // Environment unloaded
 Game.world().onUnloaded(env -> {
- cleanupLevel();
+  cleanupLevel();
 });
 
 // Camera changed
 Game.world().onCameraMoved(camera -> {
- updateParallax();
+  updateParallax();
 });
 ```
 
@@ -3913,14 +3913,14 @@ import java.awt.Color;
 @AnimationInfo(spritePrefix = "prop-box")
 public class Box extends Prop {
 
- public Box(String spritesheetName) {
- super(spritesheetName);
- System.out.println("Box constructed!");
- onRendered(rl -> {
- rl.getGraphics().setColor(Color.CYAN);
- Game.graphics().renderOutline(rl.getGraphics(), getHitBox());
- });
- }
+  public Box(String spritesheetName) {
+    super(spritesheetName);
+    System.out.println("Box constructed!");
+    onRendered(rl -> {
+      rl.getGraphics().setColor(Color.CYAN);
+      Game.graphics().renderOutline(rl.getGraphics(), getHitBox());
+    });
+  }
 }
 ```
 
@@ -4006,17 +4006,17 @@ Write hot-reloadable game logic directly in **utiLITI** or external scripts:
 
 ```java
 public class Player extends Creature {
- public Player() {
- super("player");
+  public Player() {
+    super("player");
 
- // Add standard keyboard movement controller
- addController(new KeyboardEntityController<>(this));
+    // Add standard keyboard movement controller
+    addController(new KeyboardEntityController<>(this));
 
- // Listen to movement events
- movement().onMoved(e -> {
- // Custom footsteps, trail effects, or stamina drain
- });
- }
+    // Listen to movement events
+    movement().onMoved(e -> {
+      // Custom footsteps, trail effects, or stamina drain
+    });
+  }
 }
 ```
 
@@ -4050,18 +4050,18 @@ Controllers implement the `IEntityController` interface and are attached to enti
 
 ```java
 public class Player extends Creature {
- 
- public Player() {
- super("player");
- 
- // Add custom controller
- this.addController(new MyCustomController(this));
- }
- 
- @Override
- protected IMovementController createMovementController() {
- return new KeyboardEntityController<>(this);
- }
+
+  public Player() {
+    super("player");
+
+    // Add custom controller
+    this.addController(new MyCustomController(this));
+  }
+
+  @Override
+  protected IMovementController createMovementController() {
+    return new KeyboardEntityController<>(this);
+  }
 }
 ```
 
@@ -4071,9 +4071,9 @@ Controllers are automatically attached to the game loop when added to an entity:
 
 ```java
 public interface IEntityController extends IUpdateable {
- void attach();
- void detach();
- IEntity getEntity();
+  void attach();
+  void detach();
+  IEntity getEntity();
 }
 ```
 
@@ -4097,25 +4097,25 @@ Extend `EntityController` for custom behavior:
 
 ```java
 public class MyCustomController extends EntityController<MyEntity> {
- 
- public MyCustomController(MyEntity entity) {
- super(entity);
- }
- 
- @Override
- public void update() {
- // Called every tick while attached
- MyEntity entity = getEntity();
- 
- // Custom logic here
- if (entity.isAlive()) {
- performCustomBehavior();
- }
- }
- 
- private void performCustomBehavior() {
- // Custom behavior implementation
- }
+
+  public MyCustomController(MyEntity entity) {
+    super(entity);
+  }
+
+  @Override
+  public void update() {
+    // Called every tick while attached
+    MyEntity entity = getEntity();
+
+    // Custom logic here
+    if (entity.isAlive()) {
+      performCustomBehavior();
+    }
+  }
+
+  private void performCustomBehavior() {
+    // Custom behavior implementation
+  }
 }
 ```
 
@@ -4126,22 +4126,22 @@ Entities can override which controllers are created:
 ```java
 @EntityInfo(width = 32, height = 32)
 public class FlyingEnemy extends Creature {
- 
- public FlyingEnemy() {
- super("flying-enemy");
- }
- 
- @Override
- protected IMovementController createMovementController() {
- // Use custom flying movement instead of default
- return new FlyingMovementController<>(this);
- }
- 
- @Override
- protected IEntityAnimationController<?> createAnimationController() {
- // Custom animation controller
- return new FlyingEnemyAnimationController(this);
- }
+
+  public FlyingEnemy() {
+    super("flying-enemy");
+  }
+
+  @Override
+  protected IMovementController createMovementController() {
+    // Use custom flying movement instead of default
+    return new FlyingMovementController<>(this);
+  }
+
+  @Override
+  protected IEntityAnimationController<?> createAnimationController() {
+    // Custom animation controller
+    return new FlyingEnemyAnimationController(this);
+  }
 }
 ```
 
@@ -4164,16 +4164,16 @@ Controllers can define and fire custom events:
 
 ```java
 public class CombatController extends EntityController<Creature> {
- 
- public void attack() {
- // Perform attack
- fireAttackEvent();
- }
- 
- private void fireAttackEvent() {
- // Notify listeners
- getEntity().getListeners().forEach(l -> l.onAttack());
- }
+
+  public void attack() {
+    // Perform attack
+    fireAttackEvent();
+  }
+
+  private void fireAttackEvent() {
+    // Notify listeners
+    getEntity().getListeners().forEach(l -> l.onAttack());
+  }
 }
 ```
 
@@ -4263,19 +4263,19 @@ The built-in controller for keyboard-based movement:
 
 ```java
 public class Player extends Creature {
- 
- @Override
- protected IMovementController createMovementController() {
- KeyboardEntityController<Player> controller = new KeyboardEntityController<>(this);
- 
- // Customize keys (default: arrow keys)
- controller.addUpKey(KeyEvent.VK_W);
- controller.addDownKey(KeyEvent.VK_S);
- controller.addLeftKey(KeyEvent.VK_A);
- controller.addRightKey(KeyEvent.VK_D);
- 
- return controller;
- }
+
+  @Override
+  protected IMovementController createMovementController() {
+    KeyboardEntityController<Player> controller = new KeyboardEntityController<>(this);
+
+    // Customize keys (default: arrow keys)
+    controller.addUpKey(KeyEvent.VK_W);
+    controller.addDownKey(KeyEvent.VK_S);
+    controller.addLeftKey(KeyEvent.VK_A);
+    controller.addRightKey(KeyEvent.VK_D);
+
+    return controller;
+  }
 }
 ```
 
@@ -4286,7 +4286,7 @@ For platformer-style movement with gravity:
 ```java
 @Override
 protected IMovementController createMovementController() {
- return new PlatformingMovementController<>(this);
+  return new PlatformingMovementController<>(this);
 }
 ```
 
@@ -4314,7 +4314,7 @@ entity.movement().apply(gravity);
 ```java
 // When entity moves
 entity.onMoved(e -> {
- System.out.println("Entity moved to: " + entity.getLocation());
+  System.out.println("Entity moved to: " + entity.getLocation());
 });
 ```
 
@@ -4334,33 +4334,33 @@ entity.isTouchingGround();
 
 ```java
 public class AStarMovementController extends MovementController<Creature> {
- 
- private Queue<Point2D> path;
- 
- public AStarMovementController(Creature entity) {
- super(entity);
- }
- 
- @Override
- public void update() {
- if (path == null || path.isEmpty()) {
- return;
- }
- 
- Point2D target = path.peek();
- if (getEntity().getLocation().distance(target) < 5) {
- path.poll();
- return;
- }
- 
- // Move toward current waypoint
- double angle = getEntity().getAngleTo(target);
- Game.physics().move(getEntity(), angle, getEntity().getVelocity());
- }
- 
- public void setPath(Queue<Point2D> path) {
- this.path = path;
- }
+
+  private Queue<Point2D> path;
+
+  public AStarMovementController(Creature entity) {
+    super(entity);
+  }
+
+  @Override
+  public void update() {
+    if (path == null || path.isEmpty()) {
+      return;
+    }
+
+    Point2D target = path.peek();
+    if (getEntity().getLocation().distance(target) < 5) {
+      path.poll();
+      return;
+    }
+
+    // Move toward current waypoint
+    double angle = getEntity().getAngleTo(target);
+    Game.physics().move(getEntity(), angle, getEntity().getVelocity());
+  }
+
+  public void setPath(Queue<Point2D> path) {
+    this.path = path;
+  }
 }
 ```
 
@@ -4394,25 +4394,25 @@ import de.gurkenlabs.litiengine.entities.behavior.EntityNavigator;
 import java.awt.geom.Point2D;
 
 public class EnemyNavigator {
- private final EntityNavigator navigator;
+  private final EntityNavigator navigator;
 
- public EnemyNavigator(Creature enemy) {
- // 1. Create an A* pathfinder bound to the active environment
- AStarPathFinder pathFinder = new AStarPathFinder(Game.world().environment());
+  public EnemyNavigator(Creature enemy) {
+    // 1. Create an A* pathfinder bound to the active environment
+    AStarPathFinder pathFinder = new AStarPathFinder(Game.world().environment());
 
- // 2. Attach navigator to enemy creature
- this.navigator = new EntityNavigator(enemy, pathFinder);
+    // 2. Attach navigator to enemy creature
+    this.navigator = new EntityNavigator(enemy, pathFinder);
 
- // 3. Callback when destination is reached
- this.navigator.onTargetReached(nav -> {
- System.out.println("Enemy reached target checkpoint!");
- });
- }
+    // 3. Callback when destination is reached
+    this.navigator.onTargetReached(nav -> {
+      System.out.println("Enemy reached target checkpoint!");
+    });
+  }
 
- public void moveTo(Point2D targetLocation) {
- // Computes A* path around collision geometry and moves creature
- navigator.navigate(targetLocation);
- }
+  public void moveTo(Point2D targetLocation) {
+    // Computes A* path around collision geometry and moves creature
+    navigator.navigate(targetLocation);
+  }
 }
 ```
 
@@ -4477,22 +4477,22 @@ Create custom controllers for complex animation logic:
 
 ```java
 public class PlayerAnimationController extends CreatureAnimationController<Player> {
- 
- public PlayerAnimationController(Player entity) {
- super(entity);
- 
- // Add custom animation rule
- this.addRule(this::shouldAttack, this::getAttackAnimation);
- }
- 
- private boolean shouldAttack() {
- return getEntity().isAttacking();
- }
- 
- private String getAttackAnimation() {
- String dir = getEntity().getFacingDirection().name().toLowerCase();
- return "attack-" + dir;
- }
+
+  public PlayerAnimationController(Player entity) {
+    super(entity);
+
+    // Add custom animation rule
+    this.addRule(this::shouldAttack, this::getAttackAnimation);
+  }
+
+  private boolean shouldAttack() {
+    return getEntity().isAttacking();
+  }
+
+  private String getAttackAnimation() {
+    String dir = getEntity().getFacingDirection().name().toLowerCase();
+    return "attack-" + dir;
+  }
 }
 ```
 
@@ -4503,8 +4503,8 @@ Add rules to determine when specific animations play:
 ```java
 // Add a rule: condition -> animation name
 animationController.addRule(
- () -> entity.isJumping(), // Condition
- () -> "jump-" + getDirection() // Animation name
+() -> entity.isJumping(), // Condition
+() -> "jump-" + getDirection() // Animation name
 );
 
 // Rules are evaluated in order of priority
@@ -4531,10 +4531,10 @@ Listen for animation keyframes:
 
 ```java
 entity.getAnimationController().onKeyFrameChanged((anim, frame) -> {
- // Handle keyframe change
- if (frame == 3) {
- playSound("footstep.wav");
- }
+  // Handle keyframe change
+  if (frame == 3) {
+    playSound("footstep.wav");
+  }
 });
 ```
 
@@ -4544,9 +4544,9 @@ entity.getAnimationController().onKeyFrameChanged((anim, frame) -> {
 Animation current = entity.getAnimationController().getCurrentAnimation();
 
 if (current != null) {
- String name = current.getName();
- int frame = entity.getAnimationController().getCurrentKeyFrameIndex();
- int totalFrames = current.getTotalFrames();
+  String name = current.getName();
+  int frame = entity.getAnimationController().getCurrentKeyFrameIndex();
+  int totalFrames = current.getTotalFrames();
 }
 ```
 
@@ -4619,7 +4619,7 @@ First of all, we need a collection of points that mark the path for our rat to w
 If you decide to add the path manually, the object xml should look something like this:
 ```xml
 <object id="10" name="rat_path" type="PATH" x="264" y="84" width="0" height="0">
- <polyline points="0,4 -38,9 -40,20 0,20 40,28 48,52 46,100 81,148 68,180"/>
+  <polyline points="0,4 -38,9 -40,20 0,20 40,28 48,52 46,100 81,148 68,180"/>
 </object>
 ```
 
@@ -4636,9 +4636,9 @@ We're going to keep the rat implementation a minimal extension of `Creature` and
 @MovementInfo(velocity = 6)
 public class Rat extends Creature {
 
- public Rat() {
- super("rat");
- }
+  public Rat() {
+    super("rat");
+  }
 
 }
 ```
@@ -4650,47 +4650,47 @@ Next, we implement a custom `MapObjectLoader` that can handle the `PATH` object 
 ```java
 public class PathMapObjectLoader extends MapObjectLoader {
 
- public PathMapObjectLoader() {
- super("PATH");
- }
+  public PathMapObjectLoader() {
+    super("PATH");
+  }
 
- @Override
- public Collection<IEntity> load(Environment environment, IMapObject mapObject) {
- Collection<IEntity> entities = new ArrayList<>();
- if (!mapObject.getType().equals("PATH")
- || !mapObject.getName().equals("rat_path")
- || mapObject.getPolyline() == null 
- || mapObject.getPolyline().getPoints().isEmpty()) {
- return entities;
- }
+  @Override
+  public Collection<IEntity> load(Environment environment, IMapObject mapObject) {
+    Collection<IEntity> entities = new ArrayList<>();
+    if (!mapObject.getType().equals("PATH")
+    || !mapObject.getName().equals("rat_path")
+    || mapObject.getPolyline() == null
+    || mapObject.getPolyline().getPoints().isEmpty()) {
+      return entities;
+    }
 
- // Convert the mapObject's polyline to a Path2D object.
- final Path2D path = MapUtilities.convertPolyshapeToPath(mapObject);
- if (path == null) {
- return entities;
- }
+    // Convert the mapObject's polyline to a Path2D object.
+    final Path2D path = MapUtilities.convertPolyshapeToPath(mapObject);
+    if (path == null) {
+      return entities;
+    }
 
- final Point2D start = new Point2D.Double(mapObject.getLocation().getX(), mapObject.getLocation().getY());
+    final Point2D start = new Point2D.Double(mapObject.getLocation().getX(), mapObject.getLocation().getY());
 
- // Either initialize a new Rat and add it to the entity list, or access an existing instance.
- Rat rat;
- rat.setLocation(start);
- rat.setMapId(mapObject.getId());
- // Add a behavior controller to the rat.
- rat.addController(new RatController(rat, path));
- 
- // For cutscenes, you can let the camera follow our Rat
- Game.world().setCamera(new PositionLockCamera(rat));
+    // Either initialize a new Rat and add it to the entity list, or access an existing instance.
+    Rat rat;
+    rat.setLocation(start);
+    rat.setMapId(mapObject.getId());
+    // Add a behavior controller to the rat.
+    rat.addController(new RatController(rat, path));
 
- return entities;
- }
+    // For cutscenes, you can let the camera follow our Rat
+    Game.world().setCamera(new PositionLockCamera(rat));
+
+    return entities;
+  }
 }
 
 ```
 
 When you initialize your game (before calling `Game.start()`), you need to register the `PathMapObjectLoader` like this:
 ```java
- Environment.registerMapObjectLoader(new PathMapObjectLoader());
+Environment.registerMapObjectLoader(new PathMapObjectLoader());
 ```
 
 ### The StateController
@@ -4700,27 +4700,27 @@ Now, we define the conditions for switching between walking randomly and followi
 ```java
 public class RatController extends StateController<Rat> {
 
- private final FollowPathState followPathState;
- private final WalkAroundState randomWalkState;
+  private final FollowPathState followPathState;
+  private final WalkAroundState randomWalkState;
 
 
- public RatController(final Rat entity, final Path2D path) {
- super(entity);
- this.followPathState = new FollowPathState(entity, path);
- this.randomWalkState = new WalkAroundState(entity);
- // Stop navigating if the rat was killed
- followPathState.getNavigator().cancelNavigation(e -> entity.isDead());
- // Trigger the state transition to walk around randomly once the navigator has reached the end of the path.
- followPathState.getTransitions().add(new Transition(1, randomWalkState) {
+  public RatController(final Rat entity, final Path2D path) {
+    super(entity);
+    this.followPathState = new FollowPathState(entity, path);
+    this.randomWalkState = new WalkAroundState(entity);
+    // Stop navigating if the rat was killed
+    followPathState.getNavigator().cancelNavigation(e -> entity.isDead());
+    // Trigger the state transition to walk around randomly once the navigator has reached the end of the path.
+    followPathState.getTransitions().add(new Transition(1, randomWalkState) {
 
- @Override
- public boolean conditionsFullfilled() {
- return !followPathState.getNavigator().isNavigating();
- }
- });
- // Set the first state
- setState(followPathState);
- }
+      @Override
+      public boolean conditionsFullfilled() {
+        return !followPathState.getNavigator().isNavigating();
+      }
+    });
+    // Set the first state
+    setState(followPathState);
+  }
 }
 ```
 
@@ -4732,29 +4732,29 @@ In the previous section, we have initialized a `FollowPathState` and a `WalkArou
 ```java
 public class FollowPathState extends EntityState<Creature> {
 
- private EntityNavigator navigator;
- private final Path2D path;
- private boolean started;
+  private EntityNavigator navigator;
+  private final Path2D path;
+  private boolean started;
 
- public FollowPathState(final Creature entity, final Path2D path) {
- super("FOLLOW_PATH", entity, Game.world().environment());
- this.path = path;
- // Add an EntityNavigator that can move our entity along paths. Since we want to determine the path manually, pass null as the PathFinder parameter to the constructor.
- this.navigator = new EntityNavigator(entity, null);
- }
+  public FollowPathState(final Creature entity, final Path2D path) {
+    super("FOLLOW_PATH", entity, Game.world().environment());
+    this.path = path;
+    // Add an EntityNavigator that can move our entity along paths. Since we want to determine the path manually, pass null as the PathFinder parameter to the constructor.
+    this.navigator = new EntityNavigator(entity, null);
+  }
 
- @Override
- public void perform() {
- // let the EntityNavigator start navigating.
- if (!started) {
- navigator.navigate(path);
- this.started = true;
- }
- }
+  @Override
+  public void perform() {
+    // let the EntityNavigator start navigating.
+    if (!started) {
+      navigator.navigate(path);
+      this.started = true;
+    }
+  }
 
- public EntityNavigator getNavigator() {
- return navigator;
- }
+  public EntityNavigator getNavigator() {
+    return navigator;
+  }
 }
 ```
 
@@ -4764,29 +4764,29 @@ The `FollowPathState` simply tells an `EntityNavigator` to move our entity along
 
 ```java
 public class WalkAroundState extends EntityState<Creature> {
- private static final int ANGLE_CHANGE_INTERVAL = 3000;
- private int angle;
- private long lastAngleChange;
+  private static final int ANGLE_CHANGE_INTERVAL = 3000;
+  private int angle;
+  private long lastAngleChange;
 
- public WalkAroundState(final Creature entity) {
- super("WALK_AROUND", entity, Game.world().environment());
- }
+  public WalkAroundState(final Creature entity) {
+    super("WALK_AROUND", entity, Game.world().environment());
+  }
 
- @Override
- public void perform() {
- if (getEntity().isDead()) {
- return;
- }
+  @Override
+  public void perform() {
+    if (getEntity().isDead()) {
+      return;
+    }
 
- final long currentTick = Game.loop().getTicks();
+    final long currentTick = Game.loop().getTicks();
 
- if (angle == 0 || Game.time().since(lastAngleChange) > ANGLE_CHANGE_INTERVAL) {
- this.angle = Game.random().nextInt(360);
- this.lastAngleChange = currentTick;
- }
+    if (angle == 0 || Game.time().since(lastAngleChange) > ANGLE_CHANGE_INTERVAL) {
+      this.angle = Game.random().nextInt(360);
+      this.lastAngleChange = currentTick;
+    }
 
- Game.physics().move(getEntity(), angle, getEntity().getTickVelocity());
- }
+    Game.physics().move(getEntity(), angle, getEntity().getTickVelocity());
+  }
 }
 ```
 
@@ -4822,71 +4822,71 @@ import de.gurkenlabs.litiengine.entities.behavior.StateMachine;
 import java.awt.geom.Point2D;
 
 public class EnemyAIController extends StateMachine {
- private final Creature enemy;
- private final Creature player;
+  private final Creature enemy;
+  private final Creature player;
 
- public EnemyAIController(Creature enemy, Creature player) {
- this.enemy = enemy;
- this.player = player;
+  public EnemyAIController(Creature enemy, Creature player) {
+    this.enemy = enemy;
+    this.player = player;
 
- // Define States
- PatrolState patrol = new PatrolState(enemy);
- ChaseState chase = new ChaseState(enemy, player);
- AttackState attack = new AttackState(enemy, player);
+    // Define States
+    PatrolState patrol = new PatrolState(enemy);
+    ChaseState chase = new ChaseState(enemy, player);
+    AttackState attack = new AttackState(enemy, player);
 
- // Define Transitions
- patrol.getTransitions().add(new EntityTransition<>(1, chase, e -> getDistanceToPlayer() < 150));
- chase.getTransitions().add(new EntityTransition<>(1, attack, e -> getDistanceToPlayer() < 30));
- chase.getTransitions().add(new EntityTransition<>(2, patrol, e -> getDistanceToPlayer() > 250));
- attack.getTransitions().add(new EntityTransition<>(1, chase, e -> getDistanceToPlayer() >= 30));
+    // Define Transitions
+    patrol.getTransitions().add(new EntityTransition<>(1, chase, e -> getDistanceToPlayer() < 150));
+    chase.getTransitions().add(new EntityTransition<>(1, attack, e -> getDistanceToPlayer() < 30));
+    chase.getTransitions().add(new EntityTransition<>(2, patrol, e -> getDistanceToPlayer() > 250));
+    attack.getTransitions().add(new EntityTransition<>(1, chase, e -> getDistanceToPlayer() >= 30));
 
- // Initial state
- this.setState(patrol);
- }
+    // Initial state
+    this.setState(patrol);
+  }
 
- private double getDistanceToPlayer() {
- return enemy.getCenter().distance(player.getCenter());
- }
+  private double getDistanceToPlayer() {
+    return enemy.getCenter().distance(player.getCenter());
+  }
 
- private static class PatrolState extends EntityState<Creature> {
- public PatrolState(Creature enemy) {
- super("PATROL", enemy);
- }
+  private static class PatrolState extends EntityState<Creature> {
+    public PatrolState(Creature enemy) {
+      super("PATROL", enemy);
+    }
 
- @Override
- public void perform() {
- // Roam or wander around origin
- }
- }
+    @Override
+    public void perform() {
+      // Roam or wander around origin
+    }
+  }
 
- private static class ChaseState extends EntityState<Creature> {
- private final Creature target;
+  private static class ChaseState extends EntityState<Creature> {
+    private final Creature target;
 
- public ChaseState(Creature enemy, Creature target) {
- super("CHASE", enemy);
- this.target = target;
- }
+    public ChaseState(Creature enemy, Creature target) {
+      super("CHASE", enemy);
+      this.target = target;
+    }
 
- @Override
- public void perform() {
- // Navigate towards player location
- getEntity().getMovementController().applyForce(target.getCenter(), 50);
- }
- }
+    @Override
+    public void perform() {
+      // Navigate towards player location
+      getEntity().getMovementController().applyForce(target.getCenter(), 50);
+    }
+  }
 
- private static class AttackState extends EntityState<Creature> {
- private final Creature target;
+  private static class AttackState extends EntityState<Creature> {
+    private final Creature target;
 
- public AttackState(Creature enemy, Creature target) {
- super("ATTACK", enemy);
- this.target = target;
- }
+    public AttackState(Creature enemy, Creature target) {
+      super("ATTACK", enemy);
+      this.target = target;
+    }
 
- @Override
- public void perform() {
- // Execute combat attack or ability
- }
- }
+    @Override
+    public void perform() {
+      // Execute combat attack or ability
+    }
+  }
 }
 ```
 
@@ -4926,11 +4926,11 @@ The Ability Framework provides a structured way to implement combat abilities, s
 ```java
 @AbilityInfo(cooldown = 500, duration = 300, value = 240)
 public class Jump extends Ability {
- 
- public Jump(Creature executor) {
- super(executor);
- this.addEffect(new JumpEffect(this));
- }
+
+  public Jump(Creature executor) {
+    super(executor);
+    this.addEffect(new JumpEffect(this));
+  }
 }
 ```
 
@@ -4940,15 +4940,15 @@ Configure ability properties:
 
 ```java
 @AbilityInfo(
- cooldown = 1000, // Milliseconds between uses
- duration = 500, // How long ability executes
- value = 100, // Custom value (damage, etc.)
- origin = EntityPivotType.CENTER, // Where ability originates
- range = 200, // Maximum range
- multiTarget = false // Can hit multiple targets
+cooldown = 1000, // Milliseconds between uses
+duration = 500, // How long ability executes
+value = 100, // Custom value (damage, etc.)
+origin = EntityPivotType.CENTER, // Where ability originates
+range = 200, // Maximum range
+multiTarget = false // Can hit multiple targets
 )
 public class Fireball extends Ability {
- // ...
+  // ...
 }
 ```
 
@@ -4960,12 +4960,12 @@ Jump jumpAbility = new Jump(creature);
 
 // Check if ability can be cast
 if (jumpAbility.canCast()) {
- jumpAbility.cast();
+  jumpAbility.cast();
 }
 
 // Check if currently executing
 if (jumpAbility.isExecuting()) {
- // Ability in progress
+  // Ability in progress
 }
 ```
 
@@ -4975,22 +4975,22 @@ Effects are applied when an ability executes:
 
 ```java
 public class JumpEffect extends ForceEffect {
- 
- public JumpEffect(Ability ability) {
- super(ability, ability.getAttributes().value().get(), EffectTarget.EXECUTINGENTITY);
- }
- 
- @Override
- protected Force applyForce(IMobileEntity entity) {
- GravityForce force = new GravityForce(entity, getStrength(), Direction.UP);
- entity.movement().apply(force);
- return force;
- }
- 
- @Override
- protected boolean hasEnded(EffectApplication appliance) {
- return super.hasEnded(appliance) || isTouchingCeiling();
- }
+
+  public JumpEffect(Ability ability) {
+    super(ability, ability.getAttributes().value().get(), EffectTarget.EXECUTINGENTITY);
+  }
+
+  @Override
+  protected Force applyForce(IMobileEntity entity) {
+    GravityForce force = new GravityForce(entity, getStrength(), Direction.UP);
+    entity.movement().apply(force);
+    return force;
+  }
+
+  @Override
+  protected boolean hasEnded(EffectApplication appliance) {
+    return super.hasEnded(appliance) || isTouchingCeiling();
+  }
 }
 ```
 
@@ -5015,27 +5015,27 @@ Create combat abilities that deal damage:
 
 ```java
 public class SwordSlash extends Ability {
- 
- public SwordSlash(Creature executor) {
- super(executor);
- this.addEffect(new DamageEffect(this));
- }
+
+  public SwordSlash(Creature executor) {
+    super(executor);
+    this.addEffect(new DamageEffect(this));
+  }
 }
 
 public class DamageEffect extends Effect {
- 
- public DamageEffect(Ability ability) {
- super(ability, EffectTarget.ENEMY);
- }
- 
- @Override
- public void apply(IEntity entity) {
- if (entity instanceof ICombatEntity) {
- ICombatEntity target = (ICombatEntity) entity;
- int damage = getAbility().getAttributes().value().get();
- target.hit(damage);
- }
- }
+
+  public DamageEffect(Ability ability) {
+    super(ability, EffectTarget.ENEMY);
+  }
+
+  @Override
+  public void apply(IEntity entity) {
+    if (entity instanceof ICombatEntity) {
+      ICombatEntity target = (ICombatEntity) entity;
+      int damage = getAbility().getAttributes().value().get();
+      target.hit(damage);
+    }
+  }
 }
 ```
 
@@ -5043,11 +5043,11 @@ public class DamageEffect extends Effect {
 
 ```java
 ability.onCast(event -> {
- System.out.println("Ability cast!");
+  System.out.println("Ability cast!");
 });
 
 ability.onFinished(event -> {
- System.out.println("Ability finished!");
+  System.out.println("Ability finished!");
 });
 ```
 
@@ -5070,18 +5070,18 @@ Mark methods as invokable abilities:
 
 ```java
 public class Player extends Creature {
- 
- @Action(description = "Perform a jump")
- public void jump() {
- if (jumpAbility.canCast()) {
- jumpAbility.cast();
- }
- }
- 
- @Action(description = "Attack with sword")
- public void attack() {
- // Perform attack
- }
+
+  @Action(description = "Perform a jump")
+  public void jump() {
+    if (jumpAbility.canCast()) {
+      jumpAbility.cast();
+    }
+  }
+
+  @Action(description = "Attack with sword")
+  public void attack() {
+    // Perform attack
+  }
 }
 
 // Invoke by name
@@ -5138,20 +5138,20 @@ import de.gurkenlabs.litiengine.scripting.CreatureScript;
 import de.gurkenlabs.litiengine.scripting.ScriptInfo;
 
 @ScriptInfo(
- name = "Guard Patrol Behavior",
- description = "Patrols between waypoints and chases the player on sight."
+name = "Guard Patrol Behavior",
+description = "Patrols between waypoints and chases the player on sight."
 )
 public class GuardBehavior extends CreatureScript {
 
- @Override
- public void onLoaded(Creature entity) {
- System.out.println("Guard loaded: " + entity.getName());
- }
+  @Override
+  public void onLoaded(Creature entity) {
+    System.out.println("Guard loaded: " + entity.getName());
+  }
 
- @Override
- public void update(Creature entity) {
- // Continuous logic executed on every game loop tick
- }
+  @Override
+  public void update(Creature entity) {
+    // Continuous logic executed on every game loop tick
+  }
 }
 ```
 
@@ -5168,21 +5168,21 @@ import de.gurkenlabs.litiengine.scripting.ScriptInfo;
 import java.awt.Color;
 
 @ScriptInfo(
- name = "Dungeon Ambience & Waves",
- description = "Controls dungeon torch lighting and monster wave spawning."
+name = "Dungeon Ambience & Waves",
+description = "Controls dungeon torch lighting and monster wave spawning."
 )
 public class DungeonLevelScript extends EnvironmentScript {
 
- @Override
- public void onLoaded(Environment environment) {
- // Set sinister dungeon ambient darkness
- environment.getAmbientLight().setColor(new Color(15, 10, 25, 220));
- }
+  @Override
+  public void onLoaded(Environment environment) {
+    // Set sinister dungeon ambient darkness
+    environment.getAmbientLight().setColor(new Color(15, 10, 25, 220));
+  }
 
- @Override
- public void update(Environment environment) {
- // Monitor wave objectives
- }
+  @Override
+  public void update(Environment environment) {
+    // Monitor wave objectives
+  }
 }
 ```
 
@@ -5233,24 +5233,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SaveData implements Serializable {
- private static final long serialVersionUID = 1L;
+  private static final long serialVersionUID = 1L;
 
- // Metadata
- public String saveSlotName = "Slot 1";
- public long timestamp = System.currentTimeMillis();
- public String currentMapName = "level1";
+  // Metadata
+  public String saveSlotName = "Slot 1";
+  public long timestamp = System.currentTimeMillis();
+  public String currentMapName = "level1";
 
- // Player State
- public double playerX = 100.0;
- public double playerY = 150.0;
- public int playerHealth = 100;
- public int playerMaxHealth = 100;
- public int gold = 0;
- public List<String> inventoryItems = new ArrayList<>();
+  // Player State
+  public double playerX = 100.0;
+  public double playerY = 150.0;
+  public int playerHealth = 100;
+  public int playerMaxHealth = 100;
+  public int gold = 0;
+  public List<String> inventoryItems = new ArrayList<>();
 
- // World Progress Flags
- public List<String> defeatedBosses = new ArrayList<>();
- public List<String> openedChests = new ArrayList<>();
+  // World Progress Flags
+  public List<String> defeatedBosses = new ArrayList<>();
+  public List<String> openedChests = new ArrayList<>();
 }
 ```
 
@@ -5272,60 +5272,60 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 public class SaveManager {
- private static final String SAVE_FOLDER = "saves/";
+  private static final String SAVE_FOLDER = "saves/";
 
- public static void saveGame(String fileName, Creature player) {
- try {
- Path folder = Paths.get(SAVE_FOLDER);
- if (!Files.exists(folder)) {
- Files.createDirectories(folder);
- }
+  public static void saveGame(String fileName, Creature player) {
+    try {
+      Path folder = Paths.get(SAVE_FOLDER);
+      if (!Files.exists(folder)) {
+        Files.createDirectories(folder);
+      }
 
- SaveData data = new SaveData();
- data.currentMapName = Game.world().environment().getMap().getName();
- data.playerX = player.getX();
- data.playerY = player.getY();
- data.playerHealth = player.getHitPoints();
+      SaveData data = new SaveData();
+      data.currentMapName = Game.world().environment().getMap().getName();
+      data.playerX = player.getX();
+      data.playerY = player.getY();
+      data.playerHealth = player.getHitPoints();
 
- // Write binary serialized file (or JSON via Jackson/Gson)
- try (ObjectOutputStream oos = new ObjectOutputStream(
- new FileOutputStream(SAVE_FOLDER + fileName))) {
- oos.writeObject(data);
- }
+      // Write binary serialized file (or JSON via Jackson/Gson)
+      try (ObjectOutputStream oos = new ObjectOutputStream(
+      new FileOutputStream(SAVE_FOLDER + fileName))) {
+        oos.writeObject(data);
+      }
 
- System.out.println("Game saved successfully to " + fileName);
- } catch (IOException e) {
- e.printStackTrace();
- }
- }
+      System.out.println("Game saved successfully to " + fileName);
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+  }
 
- public static void loadGame(String fileName, Creature player) {
- File saveFile = new File(SAVE_FOLDER + fileName);
- if (!saveFile.exists()) {
- System.err.println("Save file does not exist: " + fileName);
- return;
- }
+  public static void loadGame(String fileName, Creature player) {
+    File saveFile = new File(SAVE_FOLDER + fileName);
+    if (!saveFile.exists()) {
+      System.err.println("Save file does not exist: " + fileName);
+      return;
+    }
 
- try (ObjectInputStream ois = new ObjectInputStream(
- new FileInputStream(saveFile))) {
- SaveData data = (SaveData) ois.readObject();
+    try (ObjectInputStream ois = new ObjectInputStream(
+    new FileInputStream(saveFile))) {
+      SaveData data = (SaveData) ois.readObject();
 
- // 1. Load the recorded map environment
- Game.world().loadEnvironment(data.currentMapName);
+      // 1. Load the recorded map environment
+      Game.world().loadEnvironment(data.currentMapName);
 
- // 2. Restore player coordinates & stats
- player.setLocation(data.playerX, data.playerY);
- player.setHitPoints(data.playerHealth);
+      // 2. Restore player coordinates & stats
+      player.setLocation(data.playerX, data.playerY);
+      player.setHitPoints(data.playerHealth);
 
- // 3. Add player to the newly loaded environment
- Game.world().environment().add(player);
- Game.world().camera().setFocus(player);
+      // 3. Add player to the newly loaded environment
+      Game.world().environment().add(player);
+      Game.world().camera().setFocus(player);
 
- System.out.println("Game state loaded from " + fileName);
- } catch (Exception e) {
- e.printStackTrace();
- }
- }
+      System.out.println("Game state loaded from " + fileName);
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -5338,12 +5338,12 @@ To prevent chests from closing or dead bosses from respawning when reloading an 
 ```java
 // On environment loaded callback:
 Game.world().onLoaded(env -> {
- for (String chestId : currentSaveData.openedChests) {
- Prop chest = env.getProp(chestId);
- if (chest != null) {
- chest.setHitPoints(0); // Mark chest as opened/looted
- }
- }
+  for (String chestId : currentSaveData.openedChests) {
+    Prop chest = env.getProp(chestId);
+    if (chest != null) {
+      chest.setHitPoints(0); // Mark chest as opened/looted
+    }
+  }
 });
 ```
 
@@ -5400,8 +5400,8 @@ Before building a release distribution, ensure your project is properly configur
  * Increment your version number in `build.gradle` (e.g. `version = "1.0.0"`).
  * Update the metadata in your main entry point:
  ```java
- Game.info().setName("My Game");
- Game.info().setVersion("v1.0.0");
+Game.info().setName("My Game");
+Game.info().setVersion("v1.0.0");
  ```
 
 2. **Disable Debug Flags**:
@@ -5417,84 +5417,84 @@ Modern LITIENGINE games target **Java 21 or later**. Below is a recommended `bui
 
 ```groovy
 plugins {
- id 'java'
- id 'application'
- id 'com.github.johnrengelman.shadow' version '8.1.1'
- id 'edu.sc.seis.launch4j' version '3.0.5'
+  id 'java'
+  id 'application'
+  id 'com.github.johnrengelman.shadow' version '8.1.1'
+  id 'edu.sc.seis.launch4j' version '3.0.5'
 }
 
 group = 'com.mygame'
 version = '1.0.0'
 
 java {
- toolchain {
- languageVersion = JavaLanguageVersion.of(21)
- }
+  toolchain {
+    languageVersion = JavaLanguageVersion.of(21)
+  }
 }
 
 application {
- mainClass = 'com.mygame.Program'
+  mainClass = 'com.mygame.Program'
 }
 
 repositories {
- mavenCentral()
+  mavenCentral()
 }
 
 dependencies {
- implementation 'de.gurkenlabs:litiengine:0.11.1'
+  implementation 'de.gurkenlabs:litiengine:0.11.1'
 }
 
 // Configure fat / shadow jar
 shadowJar {
- archiveBaseName.set('mygame')
- archiveClassifier.set('all')
- archiveVersion.set(project.version.toString())
+  archiveBaseName.set('mygame')
+  archiveClassifier.set('all')
+  archiveVersion.set(project.version.toString())
 }
 
 // Configure Windows .exe generation
 launch4j {
- mainClassName = 'com.mygame.Program'
- icon = "${projectDir}/icon.ico"
- outputDir = 'libs'
- outfile = "mygame-${project.version}.exe"
- jarTask = tasks.shadowJar
- companyName = 'My Game Studio'
- headerType = 'gui'
- jreMinVersion = '21'
- bundledJrePath = 'jre'
- jvmOptions = ['-Xms256m', '-Xmx1024m']
+  mainClassName = 'com.mygame.Program'
+  icon = "${projectDir}/icon.ico"
+  outputDir = 'libs'
+  outfile = "mygame-${project.version}.exe"
+  jarTask = tasks.shadowJar
+  companyName = 'My Game Studio'
+  headerType = 'gui'
+  jreMinVersion = '21'
+  bundledJrePath = 'jre'
+  jvmOptions = ['-Xms256m', '-Xmx1024m']
 }
 
 // Package standalone Windows distribution zip
 tasks.register('distZipWindows', Zip) {
- group = 'distribution'
- dependsOn tasks.createExe
+  group = 'distribution'
+  dependsOn tasks.createExe
 
- archiveFileName = "mygame-${project.version}-win.zip"
- destinationDirectory = file("${buildDir}/distributions")
+  archiveFileName = "mygame-${project.version}-win.zip"
+  destinationDirectory = file("${buildDir}/distributions")
 
- from("${buildDir}/launch4j") {
- include '*.exe'
- }
- from(projectDir) {
- include 'config.properties'
- include 'game.litidata'
- }
+  from("${buildDir}/launch4j") {
+    include '*.exe'
+  }
+  from(projectDir) {
+    include 'config.properties'
+    include 'game.litidata'
+  }
 }
 
 // Package standalone Cross-Platform JAR distribution
 tasks.register('distZipUniversal', Zip) {
- group = 'distribution'
- dependsOn tasks.shadowJar
+  group = 'distribution'
+  dependsOn tasks.shadowJar
 
- archiveFileName = "mygame-${project.version}-universal.zip"
- destinationDirectory = file("${buildDir}/distributions")
+  archiveFileName = "mygame-${project.version}-universal.zip"
+  destinationDirectory = file("${buildDir}/distributions")
 
- from(tasks.shadowJar.archiveFile)
- from(projectDir) {
- include 'config.properties'
- include 'game.litidata'
- }
+  from(tasks.shadowJar.archiveFile)
+  from(projectDir) {
+    include 'config.properties'
+    include 'game.litidata'
+  }
 }
 ```
 
@@ -5507,8 +5507,8 @@ Players should not be required to manually install Java on their systems. You ca
 ```bash
 # Create a minimal bundled JRE containing only required modules
 jlink --no-header-files --no-man-pages --compress=2 \
- --add-modules java.base,java.desktop,java.logging,java.management \
- --output build/distributions/jre
+--add-modules java.base,java.desktop,java.logging,java.management \
+--output build/distributions/jre
 ```
 
 Place the output `jre/` directory inside your game distribution root alongside `mygame.exe` (matching `bundledJrePath = 'jre'` in Launch4j).
@@ -5715,16 +5715,16 @@ import de.gurkenlabs.litiengine.Game;
 import de.gurkenlabs.litiengine.resources.Resources;
 
 public class MyGame {
- public static void main(String[] args) {
- Game.init(args);
- 
- // Load the resource bundle created in utiLITI
- Resources.load("game.litidata");
- 
- // Load the initial map and start the game
- Game.world().loadEnvironment("level1");
- Game.start();
- }
+  public static void main(String[] args) {
+    Game.init(args);
+
+    // Load the resource bundle created in utiLITI
+    Resources.load("game.litidata");
+
+    // Load the initial map and start the game
+    Game.world().loadEnvironment("level1");
+    Game.start();
+  }
 }
 ```
 
@@ -6480,21 +6480,21 @@ import de.gurkenlabs.litiengine.scripting.*;
 @ScriptInfo(id = "GoblinAI", host = ScriptHostType.ENTITY, target = Creature.class)
 public class GoblinAI extends CreatureScript {
 
- @ScriptProperty(description = "Aggro search radius in pixels", defaultValue = "150")
- private double aggroRadius = 150;
+  @ScriptProperty(description = "Aggro search radius in pixels", defaultValue = "150")
+  private double aggroRadius = 150;
 
- @ScriptProperty(description = "Attack damage per hit", defaultValue = "20")
- private int attackPower = 20;
+  @ScriptProperty(description = "Attack damage per hit", defaultValue = "20")
+  private int attackPower = 20;
 
- @ScriptProperty(description = "Whether the goblin retreats when low on health")
- private boolean cowardly = true;
+  @ScriptProperty(description = "Whether the goblin retreats when low on health")
+  private boolean cowardly = true;
 
- @Override
- public void update() {
- if (cowardly && host().getHitPoints().get() < 10) {
- // Retreat behavior...
- }
- }
+  @Override
+  public void update() {
+    if (cowardly && host().getHitPoints().get() < 10) {
+      // Retreat behavior...
+    }
+  }
 }
 ```
 

@@ -60,21 +60,21 @@ import java.awt.Font;
 import java.awt.image.BufferedImage;
 
 public class ResourceManager {
- public static void preloadAssets() {
- // 1. Load complete binary bundle (.litidata)
- Resources.load("game.litidata");
+  public static void preloadAssets() {
+    // 1. Load complete binary bundle (.litidata)
+    Resources.load("game.litidata");
 
- // 2. Spritesheets (image path, frame width, frame height)
- Spritesheet heroSprites = Resources.spritesheets().load("sprites/hero.png", 24, 24);
+    // 2. Spritesheets (image path, frame width, frame height)
+    Spritesheet heroSprites = Resources.spritesheets().load("sprites/hero.png", 24, 24);
 
- // 3. Sounds (supports .wav natively, MP3/OGG via SPI)
- Sound jumpSound = Resources.sounds().get("audio/jump.wav");
+    // 3. Sounds (supports .wav natively, MP3/OGG via SPI)
+    Sound jumpSound = Resources.sounds().get("audio/jump.wav");
 
- // 4. TrueType / OpenType Fonts
- Font retroFont = Resources.fonts().get("fonts/pixel.ttf", 16f);
+    // 4. TrueType / OpenType Fonts
+    Font retroFont = Resources.fonts().get("fonts/pixel.ttf", 16f);
 
- // 5. Raw BufferedImages
- BufferedImage logo = Resources.images().get("branding/logo.png");
- }
+    // 5. Raw BufferedImages
+    BufferedImage logo = Resources.images().get("branding/logo.png");
+  }
 }
 ```

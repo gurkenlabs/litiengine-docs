@@ -22,9 +22,9 @@ Then you can chain methods to set the starting and ending values, the easing fun
 ImageComponent ic;
 // Create a new Tween that moves the ImageComponent to the given location over 4 seconds, using a quadratic easing function.
 Game.tweens().begin(ic, TweenType.LOCATION_XY, 4000)
- .target(100, 200)
- .ease(TweenFunction.QUAD_INOUT)
- .begin();
+.target(100, 200)
+.ease(TweenFunction.QUAD_INOUT)
+.begin();
 ```
 
 ## TweenType

@@ -90,14 +90,14 @@ import java.awt.Color;
 @AnimationInfo(spritePrefix = "prop-box")
 public class Box extends Prop {
 
- public Box(String spritesheetName) {
- super(spritesheetName);
- System.out.println("Box constructed!");
- onRendered(rl -> {
- rl.getGraphics().setColor(Color.CYAN);
- Game.graphics().renderOutline(rl.getGraphics(), getHitBox());
- });
- }
+  public Box(String spritesheetName) {
+    super(spritesheetName);
+    System.out.println("Box constructed!");
+    onRendered(rl -> {
+      rl.getGraphics().setColor(Color.CYAN);
+      Game.graphics().renderOutline(rl.getGraphics(), getHitBox());
+    });
+  }
 }
 ```
 

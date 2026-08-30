@@ -47,16 +47,16 @@ Gamepad gamepad = Input.gamepads().getCurrent();
 ```java
 // Using button-specific listener
 Input.gamepads().onPressed(Gamepad.Xbox.A, value -> {
- System.out.println("A button pressed!");
+  System.out.println("A button pressed!");
 });
 
 // Using generic button listener
 Input.gamepads().onPressed((button, value) -> {
- if (button.equals(Gamepad.Xbox.A)) {
- System.out.println("A PRESSED");
- } else if (button.equals(Gamepad.Xbox.B)) {
- System.out.println("B PRESSED");
- }
+  if (button.equals(Gamepad.Xbox.A)) {
+    System.out.println("A PRESSED");
+  } else if (button.equals(Gamepad.Xbox.B)) {
+    System.out.println("B PRESSED");
+  }
 });
 ```
 
@@ -64,9 +64,9 @@ Input.gamepads().onPressed((button, value) -> {
 
 ```java
 Input.gamepads().onReleased((button, value) -> {
- if (button.equals(Gamepad.Xbox.START)) {
- // Pause game
- }
+  if (button.equals(Gamepad.Xbox.START)) {
+    // Pause game
+  }
 });
 ```
 
@@ -99,19 +99,19 @@ Read analog values from thumbsticks:
 
 ```java
 Input.gamepads().onPressed(Gamepad.Xbox.LEFT_STICK_Y, pollValue -> {
- if (pollValue > 0.5) {
- System.out.println("MOVE UP");
- } else if (pollValue < -0.5) {
- System.out.println("MOVE DOWN");
- }
+  if (pollValue > 0.5) {
+    System.out.println("MOVE UP");
+  } else if (pollValue < -0.5) {
+    System.out.println("MOVE DOWN");
+  }
 });
 
 Input.gamepads().onPressed(Gamepad.Xbox.LEFT_STICK_X, pollValue -> {
- if (pollValue > 0.5) {
- System.out.println("MOVE RIGHT");
- } else if (pollValue < -0.5) {
- System.out.println("MOVE LEFT");
- }
+  if (pollValue > 0.5) {
+    System.out.println("MOVE RIGHT");
+  } else if (pollValue < -0.5) {
+    System.out.println("MOVE LEFT");
+  }
 });
 ```
 
@@ -122,14 +122,14 @@ Check gamepad state directly without event listeners:
 ```java
 Gamepad gamepad = Input.gamepads().getCurrent();
 if (gamepad != null) {
- // Get button state
- if (gamepad.isPressed(Gamepad.Xbox.A)) {
- // A button is pressed
- }
- 
- // Get axis value (-1.0 to 1.0)
- float x = gamepad.getPollValue(Gamepad.Xbox.LEFT_STICK_X);
- float y = gamepad.getPollValue(Gamepad.Xbox.LEFT_STICK_Y);
+  // Get button state
+  if (gamepad.isPressed(Gamepad.Xbox.A)) {
+    // A button is pressed
+  }
+
+  // Get axis value (-1.0 to 1.0)
+  float x = gamepad.getPollValue(Gamepad.Xbox.LEFT_STICK_X);
+  float y = gamepad.getPollValue(Gamepad.Xbox.LEFT_STICK_Y);
 }
 ```
 
@@ -138,12 +138,12 @@ if (gamepad != null) {
 ```java
 // When a gamepad is connected
 Input.gamepads().onAdded(gamepad -> {
- System.out.println("Gamepad connected: " + gamepad.getName());
+  System.out.println("Gamepad connected: " + gamepad.getName());
 });
 
 // When a gamepad is disconnected
 Input.gamepads().onRemoved(gamepad -> {
- System.out.println("Gamepad disconnected");
+  System.out.println("Gamepad disconnected");
 });
 ```
 
@@ -153,16 +153,16 @@ Control entities with gamepad input:
 
 ```java
 public class GamepadEntityController<T extends IMobileEntity> extends MovementController<T> {
- 
- public GamepadEntityController(T entity) {
- super(entity);
- Input.gamepads().onPressed(Gamepad.Xbox.LEFT_STICK_X, x -> {
- this.setDx((float) x);
- });
- Input.gamepads().onPressed(Gamepad.Xbox.LEFT_STICK_Y, y -> {
- this.setDy((float) y);
- });
- }
+
+  public GamepadEntityController(T entity) {
+    super(entity);
+    Input.gamepads().onPressed(Gamepad.Xbox.LEFT_STICK_X, x -> {
+      this.setDx((float) x);
+    });
+    Input.gamepads().onPressed(Gamepad.Xbox.LEFT_STICK_Y, y -> {
+      this.setDy((float) y);
+    });
+  }
 }
 ```
 
@@ -174,18 +174,18 @@ Handle stick dead zones to prevent drift:
 private static final float DEAD_ZONE = 0.2f;
 
 private float applyDeadZone(float value) {
- if (Math.abs(value) < DEAD_ZONE) {
- return 0;
- }
- return value;
+  if (Math.abs(value) < DEAD_ZONE) {
+    return 0;
+  }
+  return value;
 }
 
 // Usage
 Input.gamepads().onPressed(Gamepad.Xbox.LEFT_STICK_X, x -> {
- float adjustedX = applyDeadZone((float) x);
- if (adjustedX != 0) {
- controller.setDx(adjustedX);
- }
+  float adjustedX = applyDeadZone((float) x);
+  if (adjustedX != 0) {
+    controller.setDx(adjustedX);
+  }
 });
 ```
 

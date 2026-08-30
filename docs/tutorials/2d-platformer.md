@@ -142,29 +142,29 @@ In our case, there are three resource folders: 'maps', 'sprites', and 'audio', w
 We proceed with creating a class containing our `main`-method to actually run our program like in the example shown below:
 
 ```java
-public class Program { 
- public static void main(String[] args) { 
- // set meta information about the game 
- Game.info().setName("GURK NUKEM"); 
- Game.info().setSubTitle("");
- Game.info().setVersion("v0.0.1"); 
- Game.info().setWebsite("https://github.com/gurkenlabs/litiengine-gurk-nukem"); 
- Game.info().setDescription("An example 2D platformer with shooter elements made in the LITIENGINE"); 
- 
- // init the game infrastructure 
- Game.init(args); 
+public class Program {
+  public static void main(String[] args) {
+    // set meta information about the game
+    Game.info().setName("GURK NUKEM");
+    Game.info().setSubTitle("");
+    Game.info().setVersion("v0.0.1");
+    Game.info().setWebsite("https://github.com/gurkenlabs/litiengine-gurk-nukem");
+    Game.info().setDescription("An example 2D platformer with shooter elements made in the LITIENGINE");
 
- // set the icon for the game (this has to be done after initialization because the ScreenManager will not be present otherwise) 
- Game.window().setIcon(Resources.images().get("icon.png")); 
- Game.graphics().setBaseRenderScale(4f); 
+    // init the game infrastructure
+    Game.init(args);
 
- // load data from the utiLITI game file 
- Resources.load("game.litidata"); 
- 
- // load the first level (resources for the map were implicitly loaded from the game file) 
- Game.world().loadEnvironment("level1"); 
- Game.start(); 
- }
+    // set the icon for the game (this has to be done after initialization because the ScreenManager will not be present otherwise)
+    Game.window().setIcon(Resources.images().get("icon.png"));
+    Game.graphics().setBaseRenderScale(4f);
+
+    // load data from the utiLITI game file
+    Resources.load("game.litidata");
+
+    // load the first level (resources for the map were implicitly loaded from the game file)
+    Game.world().loadEnvironment("level1");
+    Game.start();
+  }
 }
 ```
 
@@ -203,12 +203,12 @@ As it would be nice to actually have our game shown in the empty window, we need
 For this purpose, we create an `IngameScreen` that extends `GameScreen`.
 
 ```java
-public class IngameScreen extends GameScreen { 
- public static final String NAME = "INGAME-SCREEN"; 
+public class IngameScreen extends GameScreen {
+  public static final String NAME = "INGAME-SCREEN";
 
- public IngameScreen() { 
- super(NAME); 
- } 
+  public IngameScreen() {
+    super(NAME);
+  }
 }
 ```
 
@@ -240,33 +240,33 @@ Finally, we can put our awesomely edgy main protagonist inside the game!
 For this, we utilize LITIENGINE's `Entity` framework. Let's go ahead and create a `Player`-class:
 
 ```java
-@EntityInfo(width = 18, height = 18) 
-@MovementInfo(velocity = 70) 
-@CollisionInfo(collisionBoxWidth = 8, collisionBoxHeight = 16, collision = true) 
-public class Player extends Creature implements IUpdateable { 
- private static Player instance; 
- 
- public static Player instance() { 
- if (instance == null) { 
- instance = new Player(); 
- } 
- 
- return instance; 
- } 
- 
- private Player() { 
- super("gurknukem");
- } 
- 
- @Override 
- public void update() { 
- }
+@EntityInfo(width = 18, height = 18)
+@MovementInfo(velocity = 70)
+@CollisionInfo(collisionBoxWidth = 8, collisionBoxHeight = 16, collision = true)
+public class Player extends Creature implements IUpdateable {
+  private static Player instance;
 
- @Override
- protected IMovementController createMovementController() {
- // setup movement controller
- return new PlatformingMovementController<>(this);
- }
+  public static Player instance() {
+    if (instance == null) {
+      instance = new Player();
+    }
+
+    return instance;
+  }
+
+  private Player() {
+    super("gurknukem");
+  }
+
+  @Override
+  public void update() {
+  }
+
+  @Override
+  protected IMovementController createMovementController() {
+    // setup movement controller
+    return new PlatformingMovementController<>(this);
+  }
 }
 ```
 
@@ -312,32 +312,32 @@ For now, we leave the `update()`-method empty and focus on spawning our freshly 
 To keep our `main()`-method as atomic and light as possible, we go ahead and create a class GurkNukemLogic, where we will initialize global game logic such as spawning behavior or defining cameras.
 
 ```java
-public final class GurkNukemLogic { 
+public final class GurkNukemLogic {
 
- private GurkNukemLogic() { 
- } 
+  private GurkNukemLogic() {
+  }
 
- /** 
- * Initializes the game logic for the GURK NUKEM game. 
- */ 
- public static void init() { 
- // we'll use a camera in our game that is locked to the location of the player 
- Camera camera = new PositionLockCamera(Player.instance()); 
- camera.setClampToMap(true); 
- Game.world().setCamera(camera); 
- 
- // set a basic gravity for all levels. 
- Game.world().setGravity(120); 
- 
- // add default game logic for when a level was loaded 
- Game.world().onLoaded(e -> { 
- // spawn the player instance on the spawn point with the name "enter" 
- Spawnpoint enter = e.getSpawnpoint("enter"); 
- if (enter != null) { 
- enter.spawn(Player.instance()); 
- } 
- }); 
- }
+  /**
+  * Initializes the game logic for the GURK NUKEM game.
+  */
+  public static void init() {
+    // we'll use a camera in our game that is locked to the location of the player
+    Camera camera = new PositionLockCamera(Player.instance());
+    camera.setClampToMap(true);
+    Game.world().setCamera(camera);
+
+    // set a basic gravity for all levels.
+    Game.world().setGravity(120);
+
+    // add default game logic for when a level was loaded
+    Game.world().onLoaded(e -> {
+      // spawn the player instance on the spawn point with the name "enter"
+      Spawnpoint enter = e.getSpawnpoint("enter");
+      if (enter != null) {
+        enter.spawn(Player.instance());
+      }
+    });
+  }
 }
 ```
 
@@ -371,15 +371,15 @@ An odd thing you might have noticed by now is that you're not yet able to exit t
 For initializing our key bindings, we create the class `PlayerInput`:
 
 ```java
-public final class PlayerInput { 
- 
- private PlayerInput() { 
- } 
- 
- public static void init() { 
- // make the game exit upon pressing ESCAPE (by default there is no such key binding and the window needs to be shutdown otherwise, e.g. ALT-F4 on Windows) 
- Input.keyboard().onKeyPressed(KeyEvent.VK_ESCAPE, e -> System.exit(0)); 
- } 
+public final class PlayerInput {
+
+  private PlayerInput() {
+  }
+
+  public static void init() {
+    // make the game exit upon pressing ESCAPE (by default there is no such key binding and the window needs to be shutdown otherwise, e.g. ALT-F4 on Windows)
+    Input.keyboard().onKeyPressed(KeyEvent.VK_ESCAPE, e -> System.exit(0));
+  }
 }
 ```
 
@@ -392,48 +392,48 @@ Again, we need to call this code from our `main()`-method by adding `PlayerInpu
 For the jump mechanic, we choose to utilize LITIENGINE's `Ability` framework. Go ahead and create the class `Jump`:
 
 ```java
-@AbilityInfo(cooldown = 500, origin = EntityPivotType.COLLISIONBOX_CENTER, duration = 300, value = 240) 
-public class Jump extends Ability { 
- 
- public Jump(Creature executor) { 
- super(executor); 
- this.addEffect(new JumpEffect(this)); 
- } 
- 
- private class JumpEffect extends ForceEffect { 
+@AbilityInfo(cooldown = 500, origin = EntityPivotType.COLLISIONBOX_CENTER, duration = 300, value = 240)
+public class Jump extends Ability {
 
- protected JumpEffect(Ability ability) { 
- super(ability, ability.getAttributes().value().get().intValue(), EffectTarget.EXECUTINGENTITY); 
- } 
- 
- @Override 
- protected Force applyForce(IMobileEntity affectedEntity) { 
- // create a new force and apply it to the player 
- GravityForce force = new GravityForce(affectedEntity, this.getStrength(), Direction.UP); 
- affectedEntity.movement().apply(force); 
- return force; 
- } 
- 
- @Override 
- protected boolean hasEnded(final EffectApplication appliance) { 
- return super.hasEnded(appliance) || this.isTouchingCeiling(); 
- } 
- 
- /** 
- * Make sure that the jump is cancelled when the entity touches a static collision box above it. 
- * 
- * @return True if the entity touches a static collision box above it. 
- */ 
- private boolean isTouchingCeiling() { 
- Optional opt = Game.world().environment().getCollisionBoxes().stream().filter(x -> x.getBoundingBox().intersects(this.getAbility().getExecutor().getBoundingBox())).findFirst(); 
- if (!opt.isPresent()) { 
- return false; 
- } 
+  public Jump(Creature executor) {
+    super(executor);
+    this.addEffect(new JumpEffect(this));
+  }
 
- CollisionBox box = opt.get(); 
- return box.getCollisionBox().getMaxY() <= this.getAbility().getExecutor().getCollisionBox().getMinY(); 
- } 
- } 
+  private class JumpEffect extends ForceEffect {
+
+    protected JumpEffect(Ability ability) {
+      super(ability, ability.getAttributes().value().get().intValue(), EffectTarget.EXECUTINGENTITY);
+    }
+
+    @Override
+    protected Force applyForce(IMobileEntity affectedEntity) {
+      // create a new force and apply it to the player
+      GravityForce force = new GravityForce(affectedEntity, this.getStrength(), Direction.UP);
+      affectedEntity.movement().apply(force);
+      return force;
+    }
+
+    @Override
+    protected boolean hasEnded(final EffectApplication appliance) {
+      return super.hasEnded(appliance) || this.isTouchingCeiling();
+    }
+
+    /**
+    * Make sure that the jump is cancelled when the entity touches a static collision box above it.
+    *
+    * @return True if the entity touches a static collision box above it.
+    */
+    private boolean isTouchingCeiling() {
+      Optional opt = Game.world().environment().getCollisionBoxes().stream().filter(x -> x.getBoundingBox().intersects(this.getAbility().getExecutor().getBoundingBox())).findFirst();
+      if (!opt.isPresent()) {
+        return false;
+      }
+
+      CollisionBox box = opt.get();
+      return box.getCollisionBox().getMaxY() <= this.getAbility().getExecutor().getCollisionBox().getMinY();
+    }
+  }
 }
 ```
 
@@ -464,74 +464,74 @@ public class Jump extends Ability {
 Now, back to our `Player`-class, where we have to perform a few more adjustments, ending up with the following code:
 
 ```java
-@EntityInfo(width = 18, height = 18) 
-@MovementInfo(velocity = 70) 
-@CollisionInfo(collisionBoxWidth = 8, collisionBoxHeight = 16, collision = true) 
-public class Player extends Creature implements IUpdateable { 
- public static final int MAX_ADDITIONAL_JUMPS = 1; 
+@EntityInfo(width = 18, height = 18)
+@MovementInfo(velocity = 70)
+@CollisionInfo(collisionBoxWidth = 8, collisionBoxHeight = 16, collision = true)
+public class Player extends Creature implements IUpdateable {
+  public static final int MAX_ADDITIONAL_JUMPS = 1;
 
- private static Player instance; 
- private final Jump jump; 
- private int consecutiveJumps; 
- 
- private Player() { 
- super("gurknukem"); 
- 
- // setup the player's abilities 
- this.jump = new Jump(this); 
- } 
- 
- public static Player instance() { 
- if (instance == null) { 
- instance = new Player(); 
- } 
- 
- return instance; 
- } 
- 
- @Override public void update() { 
- // reset the number of consecutive jumps when touching the ground 
- if (this.isTouchingGround()) { 
- this.consecutiveJumps = 0; 
- } 
- }
+  private static Player instance;
+  private final Jump jump;
+  private int consecutiveJumps;
 
- @Override
- protected IMovementController createMovementController() {
- // setup movement controller
- return new PlatformingMovementController<>(this);
- }
- 
- /** 
- * Checks whether this instance can currently jump and then performs the Jump ability. 
- *
- * Note that the name of this methods needs to be equal to {@link PlatformingMovementController#JUMP}} in order for the controller 
- * to be able to use this method.
- * Another option is to explicitly specify the Action.name() attribute on the annotation.
- */
- @Action(description = "This performs the jump ability for the player's entity.") 
- public void jump() { 
- if (this.consecutiveJumps >= MAX_ADDITIONAL_JUMPS || !this.jump.canCast()) { 
- return; 
- } 
- 
- this.jump.cast(); 
- this.consecutiveJumps++; 
- } 
- 
- private boolean isTouchingGround() { 
- // the idea of this ground check is to extend the current collision box by 
- // one pixel and see if 
- // a) it collides with any static collision box 
- Rectangle2D groundCheck = new Rectangle2D.Double(this.getCollisionBox().getX(), this.getCollisionBox().getY(), this.getCollisionBoxWidth(), this.getCollisionBoxHeight() + 1); 
- 
- // b) it collides with the map's boundaries 
- if (groundCheck.getMaxY() > Game.physics().getBounds().getMaxY()) { 
- return true;
- } 
- 
- return Game.physics().collides(groundCheck, Collision.STATIC); 
- } 
+  private Player() {
+    super("gurknukem");
+
+    // setup the player's abilities
+    this.jump = new Jump(this);
+  }
+
+  public static Player instance() {
+    if (instance == null) {
+      instance = new Player();
+    }
+
+    return instance;
+  }
+
+  @Override public void update() {
+    // reset the number of consecutive jumps when touching the ground
+    if (this.isTouchingGround()) {
+      this.consecutiveJumps = 0;
+    }
+  }
+
+  @Override
+  protected IMovementController createMovementController() {
+    // setup movement controller
+    return new PlatformingMovementController<>(this);
+  }
+
+  /**
+  * Checks whether this instance can currently jump and then performs the Jump ability.
+  *
+  * Note that the name of this methods needs to be equal to {@link PlatformingMovementController#JUMP}} in order for the controller
+* to be able to use this method.
+* Another option is to explicitly specify the Action.name() attribute on the annotation.
+*/
+@Action(description = "This performs the jump ability for the player's entity.")
+public void jump() {
+  if (this.consecutiveJumps >= MAX_ADDITIONAL_JUMPS || !this.jump.canCast()) {
+    return;
+  }
+
+  this.jump.cast();
+  this.consecutiveJumps++;
+}
+
+private boolean isTouchingGround() {
+  // the idea of this ground check is to extend the current collision box by
+  // one pixel and see if
+  // a) it collides with any static collision box
+  Rectangle2D groundCheck = new Rectangle2D.Double(this.getCollisionBox().getX(), this.getCollisionBox().getY(), this.getCollisionBoxWidth(), this.getCollisionBoxHeight() + 1);
+
+  // b) it collides with the map's boundaries
+  if (groundCheck.getMaxY() > Game.physics().getBounds().getMaxY()) {
+    return true;
+  }
+
+  return Game.physics().collides(groundCheck, Collision.STATIC);
+}
 }
 ```
 

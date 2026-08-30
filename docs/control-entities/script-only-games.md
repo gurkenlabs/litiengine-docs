@@ -82,9 +82,9 @@ sendMessage(targetCreature, "heal:50");
 // Receive and handle messages:
 @Override
 protected void onMessage(String message, Object sender) {
- if ("enrage".equals(message)) {
- host().getVelocity().setBaseValue(300);
- }
+  if ("enrage".equals(message)) {
+    host().getVelocity().setBaseValue(300);
+  }
 }
 ```
 
@@ -94,11 +94,11 @@ Scripts can query and filter entities in the active environment:
 ```java
 // Find the closest alive monster within 200 pixels:
 var target = EntityQuery.in(environment(), Creature.class)
- .alive()
- .enemyOf(host())
- .within(host().getCenter(), 200)
- .nearestTo(host().getCenter())
- .first();
+.alive()
+.enemyOf(host())
+.within(host().getCenter(), 200)
+.nearestTo(host().getCenter())
+.first();
 ```
 
 ---

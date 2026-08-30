@@ -93,21 +93,21 @@ import de.gurkenlabs.litiengine.scripting.*;
 @ScriptInfo(id = "GoblinAI", host = ScriptHostType.ENTITY, target = Creature.class)
 public class GoblinAI extends CreatureScript {
 
- @ScriptProperty(description = "Aggro search radius in pixels", defaultValue = "150")
- private double aggroRadius = 150;
+  @ScriptProperty(description = "Aggro search radius in pixels", defaultValue = "150")
+  private double aggroRadius = 150;
 
- @ScriptProperty(description = "Attack damage per hit", defaultValue = "20")
- private int attackPower = 20;
+  @ScriptProperty(description = "Attack damage per hit", defaultValue = "20")
+  private int attackPower = 20;
 
- @ScriptProperty(description = "Whether the goblin retreats when low on health")
- private boolean cowardly = true;
+  @ScriptProperty(description = "Whether the goblin retreats when low on health")
+  private boolean cowardly = true;
 
- @Override
- public void update() {
- if (cowardly && host().getHitPoints().get() < 10) {
- // Retreat behavior...
- }
- }
+  @Override
+  public void update() {
+    if (cowardly && host().getHitPoints().get() < 10) {
+      // Retreat behavior...
+    }
+  }
 }
 ```
 

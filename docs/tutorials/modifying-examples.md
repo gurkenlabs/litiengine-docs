@@ -47,7 +47,7 @@ Open `src/main/java/de/gurkenlabs/ldjam44/entities/Player.java`:
 @MovementInfo(velocity = 140)
 @CollisionInfo(collisionBoxWidth = 8, collisionBoxHeight = 16, collision = true)
 public class Player extends Creature {
- // ...
+  // ...
 }
 ```
 
@@ -59,9 +59,9 @@ Open the combat ability class (e.g. `Hit.java`):
 // Reduce cooldown from 1000ms to 250ms for rapid attacks
 @AbilityInfo(cooldown = 250, range = 24)
 public class Hit extends Ability {
- public Hit(Creature executor) {
- super(executor);
- }
+  public Hit(Creature executor) {
+    super(executor);
+  }
 }
 ```
 

@@ -91,21 +91,21 @@ import java.awt.Font;
 import java.awt.Graphics2D;
 
 public class CustomHudRenderer {
- public static void drawHud(Graphics2D g) {
- // 1. Set active font and color
- Font pixelFont = Resources.fonts().get("fonts/pixel.ttf", 16f);
- g.setFont(pixelFont);
- g.setColor(Color.WHITE);
+  public static void drawHud(Graphics2D g) {
+    // 1. Set active font and color
+    Font pixelFont = Resources.fonts().get("fonts/pixel.ttf", 16f);
+    g.setFont(pixelFont);
+    g.setColor(Color.WHITE);
 
- // 2. Simple text at pixel coordinates
- TextRenderer.render(g, "Score: 1250", 20, 30);
+    // 2. Simple text at pixel coordinates
+    TextRenderer.render(g, "Score: 1250", 20, 30);
 
- // 3. Text with High-Contrast Outline (great for floating damage / HUD)
- TextRenderer.renderWithOutline(g, "BOSS INCOMING!", 400, 100, Color.BLACK);
+    // 3. Text with High-Contrast Outline (great for floating damage / HUD)
+    TextRenderer.renderWithOutline(g, "BOSS INCOMING!", 400, 100, Color.BLACK);
 
- // 4. Centered / Aligned Text within a bounding area
- TextRenderer.render(g, "PAUSED", 0, 200, Align.CENTER, Valign.MIDDLE);
- }
+    // 4. Centered / Aligned Text within a bounding area
+    TextRenderer.render(g, "PAUSED", 0, 200, Align.CENTER, Valign.MIDDLE);
+  }
 }
 ```
 <script type="application/ld+json">

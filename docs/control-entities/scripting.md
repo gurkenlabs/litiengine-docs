@@ -34,20 +34,20 @@ import de.gurkenlabs.litiengine.scripting.CreatureScript;
 import de.gurkenlabs.litiengine.scripting.ScriptInfo;
 
 @ScriptInfo(
- name = "Guard Patrol Behavior",
- description = "Patrols between waypoints and chases the player on sight."
+name = "Guard Patrol Behavior",
+description = "Patrols between waypoints and chases the player on sight."
 )
 public class GuardBehavior extends CreatureScript {
 
- @Override
- public void onLoaded(Creature entity) {
- System.out.println("Guard loaded: " + entity.getName());
- }
+  @Override
+  public void onLoaded(Creature entity) {
+    System.out.println("Guard loaded: " + entity.getName());
+  }
 
- @Override
- public void update(Creature entity) {
- // Continuous logic executed on every game loop tick
- }
+  @Override
+  public void update(Creature entity) {
+    // Continuous logic executed on every game loop tick
+  }
 }
 ```
 
@@ -64,21 +64,21 @@ import de.gurkenlabs.litiengine.scripting.ScriptInfo;
 import java.awt.Color;
 
 @ScriptInfo(
- name = "Dungeon Ambience & Waves",
- description = "Controls dungeon torch lighting and monster wave spawning."
+name = "Dungeon Ambience & Waves",
+description = "Controls dungeon torch lighting and monster wave spawning."
 )
 public class DungeonLevelScript extends EnvironmentScript {
 
- @Override
- public void onLoaded(Environment environment) {
- // Set sinister dungeon ambient darkness
- environment.getAmbientLight().setColor(new Color(15, 10, 25, 220));
- }
+  @Override
+  public void onLoaded(Environment environment) {
+    // Set sinister dungeon ambient darkness
+    environment.getAmbientLight().setColor(new Color(15, 10, 25, 220));
+  }
 
- @Override
- public void update(Environment environment) {
- // Monitor wave objectives
- }
+  @Override
+  public void update(Environment environment) {
+    // Monitor wave objectives
+  }
 }
 ```
 

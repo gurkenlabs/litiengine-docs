@@ -83,13 +83,13 @@ Game.world().loadEnvironment("mapName");
 After that, you have to add a render method to your screen like this:
 
 ```java
-@Override 
-public void render(Graphics2D graphics) { 
- if (Game.world().environment() != null) { 
- Game.world().environment().render(graphics); 
- }
+@Override
+public void render(Graphics2D graphics) {
+  if (Game.world().environment() != null) {
+    Game.world().environment().render(graphics);
+  }
 
- super.render(graphics); 
+  super.render(graphics);
 }
 ```
 
@@ -104,27 +104,27 @@ Game.screens().display("screenName");
 In this chapter, we will have a look on how I created the pad, which means the player in my game. First, we will create a class **Player**. This class extends `Creature`, it implements `IUpdateable` and `IRenderable`.
 
 ```java
-public class Player extends Creature implements IUpdateable, IRenderable 
+public class Player extends Creature implements IUpdateable, IRenderable
 {...}
 ```
 
 Right above the class, we add some annotations which contain information about our player entity (sample from my game):
 
 ```java
-@EntityInfo(width = 216, height = 16) 
-@MovementInfo(velocity = 2000) 
+@EntityInfo(width = 216, height = 16)
+@MovementInfo(velocity = 2000)
 @CollisionInfo(collisionBoxWidth = 216, collisionBoxHeight = 16, collision = true)
 ```
 
 Let's have a look at the constructor. In my case it's a private constructor in which the sprite(s) of the player is set and a movement controller is added:
 
 ```java
-private Player() { 
- super("vaus"); 
- KeyboardEntityController playerController = new KeyboardEntityController<>(this); 
- playerController.addLeftKey(KeyEvent.VK_LEFT); 
- playerController.addRightKey(KeyEvent.VK_RIGHT); 
- this.setController(IMovementController.class, playerController); 
+private Player() {
+  super("vaus");
+  KeyboardEntityController playerController = new KeyboardEntityController<>(this);
+  playerController.addLeftKey(KeyEvent.VK_LEFT);
+  playerController.addRightKey(KeyEvent.VK_RIGHT);
+  this.setController(IMovementController.class, playerController);
 }
 ```
 
@@ -139,12 +139,12 @@ private static Player instance;
 The last thing we need for our Player class is a public method to get the instance of our player from everywhere in our source code. We achieve this with the following method:
 
 ```java
-public static Player instance() { 
- if (instance == null) { 
- instance = new Player(); 
- } 
+public static Player instance() {
+  if (instance == null) {
+    instance = new Player();
+  }
 
- return instance; 
+  return instance;
 }
 ```
 
@@ -153,14 +153,14 @@ That's everything I needed inside my player class (except some member variables 
 To let our player instance appear in our game, we then need to spawn it. In my game, I added a LoadedListener in the init() method of my GameHandler class which then spawns my pad (the player) if a level was loaded and sets its location to the center bottom of the screen:
 
 ```java
-Game.world().addLoadedListener(e -> { 
- Spawnpoint enter = e.getSpawnpoint("enter"); 
- if (enter != null) { 
- enter.spawn(Player.instance()); 
- } 
- 
- Player.instance().setLocation(Game.window().getResolution().getWidth() / 2 - Player.instance().getWidth() / 2, 
- Game.window().getResolution().getHeight() * 0.95); 
+Game.world().addLoadedListener(e -> {
+  Spawnpoint enter = e.getSpawnpoint("enter");
+  if (enter != null) {
+    enter.spawn(Player.instance());
+  }
+
+  Player.instance().setLocation(Game.window().getResolution().getWidth() / 2 - Player.instance().getWidth() / 2,
+  Game.window().getResolution().getHeight() * 0.95);
 }
 ```
 
@@ -174,51 +174,51 @@ In this chapter of the tutorial, we will deal with the creation of the ball and 
 Let's start with the class Ball:
 
 ```java
-public class Ball extends Creature implements IUpdateable, IRenderable 
+public class Ball extends Creature implements IUpdateable, IRenderable
 {...}
 ```
 
 The class Ball extends Creature and implements IUpdateable and IRenderable just like our Player class. We also add some annotations to deliver some information about our ball entity:
 
 ```java
-@EntityInfo(width = 64, height = 64) 
-@MovementInfo(velocity = 2000) 
+@EntityInfo(width = 64, height = 64)
+@MovementInfo(velocity = 2000)
 @CollisionInfo(collisionBoxWidth = 64, collisionBoxHeight = 64, collision = true)
 ```
 
 To keep track if the ball is currently moving or not, the class contains an enum BallState:
 
 ```java
-public enum BallState { 
- IDLE, 
- INGAME 
+public enum BallState {
+  IDLE,
+  INGAME
 }
 ```
 
 Also, we need variables to save the current state and the current instance:
 
 ```java
-private static BallState state; 
+private static BallState state;
 private static Ball instance;
 ```
 
 The constructor of the class is quite simple:
 
 ```java
-private Ball() { 
- super("ball"); 
+private Ball() {
+  super("ball");
 }
 ```
 
 So everything is just like inside the Player class but without a movement controller. Additionally, we again need a method to get the current instance of the ball from everywhere in our source code:
 
 ```java
-public static Ball instance() { 
- if (instance == null) { 
- instance = new Ball(); 
- } 
+public static Ball instance() {
+  if (instance == null) {
+    instance = new Ball();
+  }
 
- return instance; 
+  return instance;
 }
 ```
 
@@ -228,33 +228,33 @@ Let's start with the update method:
 The update method checks if the ball touches the bottom of the screen which then results in losing a life for the player:
 
 ```java
-@Override 
-public void update() { 
- if (Ball.instance().getLocation().getY() + Ball.instance().getHeight() >= Game.window().getResolution().getHeight()) { 
- GameHandler.lifeLost(); 
- } 
+@Override
+public void update() {
+  if (Ball.instance().getLocation().getY() + Ball.instance().getHeight() >= Game.window().getResolution().getHeight()) {
+    GameHandler.lifeLost();
+  }
 }
 ```
 
 I won't further go into the `lifeLost()` method because this doesn't belong to the ball. Last but not least there's the render method:
 
 ```java
-@Override 
-public void render(Graphics2D graphics2D) { 
- if (state == BallState.INGAME) { 
- boolean isMoving = Game.physics().move(Ball.instance(), Ball.instance().getAngle(), Ball.instance().getTickVelocity()); 
- if (!isMoving) { 
- double newAngle;
+@Override
+public void render(Graphics2D graphics2D) {
+  if (state == BallState.INGAME) {
+    boolean isMoving = Game.physics().move(Ball.instance(), Ball.instance().getAngle(), Ball.instance().getTickVelocity());
+    if (!isMoving) {
+      double newAngle;
 
- if (Ball.instance().getLocation().getY() + Ball.instance().getHeight() >= Player.instance().getLocation().getY()) { 
- newAngle = getAngleOfDynamicCollision(); 
- } else { 
- newAngle = getAngleOfStaticCollision(); 
- } 
+      if (Ball.instance().getLocation().getY() + Ball.instance().getHeight() >= Player.instance().getLocation().getY()) {
+        newAngle = getAngleOfDynamicCollision();
+      } else {
+        newAngle = getAngleOfStaticCollision();
+      }
 
- Ball.instance().setAngle(newAngle); Game.physics().move(Ball.instance(), Ball.instance().getAngle(), Ball.instance().getTickVelocity()); 
- } 
- } 
+      Ball.instance().setAngle(newAngle); Game.physics().move(Ball.instance(), Ball.instance().getAngle(), Ball.instance().getTickVelocity());
+    }
+  }
 }
 ```
 
@@ -267,9 +267,9 @@ Later on, when there are blocks in the game, there has to be a mechanism to dete
 That was a lot of code for the Ball class. To get the ball working, we also need some more code in the GameHandler class. Just like the player, the ball is spawned on the map when a map was loaded. You need to add:
 
 ```java
-Spawnpoint enterBall = e.getSpawnpoint("enter_ball"); 
-if (enterBall != null) { 
- enterBall.spawn(Ball.instance()); 
+Spawnpoint enterBall = e.getSpawnpoint("enter_ball");
+if (enterBall != null) {
+  enterBall.spawn(Ball.instance());
 }
 ```
 
@@ -278,19 +278,19 @@ to the `LoadedListener` inside the `init()` method of the GameHandler class. Thi
 Also, we add a listener for the space key of the keyboard inside the `init()` method of the GameHandler which then calls the `startBall()` method:
 
 ```java
-Input.keyboard().onKeyPressed(e -> { 
- if (e.getKeyCode() == KeyEvent.VK_SPACE) { 
- if (GameHandler.getState() == GameState.INGAME && Ball.getState() == Ball.BallState.IDLE) { 
- startBall(); 
- } 
- } 
+Input.keyboard().onKeyPressed(e -> {
+  if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+    if (GameHandler.getState() == GameState.INGAME && Ball.getState() == Ball.BallState.IDLE) {
+      startBall();
+    }
+  }
 });
 
-private static void startBall() { 
- Ball.instance().setAngle(180);  
- Ball.instance().setVelocity(GAMESPEED);  
- Ball.instance().setAcceleration(500);  
- Ball.setState(Ball.BallState.INGAME); 
+private static void startBall() {
+  Ball.instance().setAngle(180);
+  Ball.instance().setVelocity(GAMESPEED);
+  Ball.instance().setAcceleration(500);
+  Ball.setState(Ball.BallState.INGAME);
 }
 ```
 
@@ -298,12 +298,12 @@ The `startBall()` method sets the initial speed (depends on selected difficulty)
 Finally, we need one more snippet of code to handle the ball's behavior when its state is IDLE:
 
 ```java
-@Override 
-public void update() { 
- if (Ball.getState() == Ball.BallState.IDLE) { 
- Point2D locationOfPlayer = Player.instance().getLocation(); 
- Ball.instance().setLocation(locationOfPlayer.getX() + 76, locationOfPlayer.getY() - 67); 
- } 
+@Override
+public void update() {
+  if (Ball.getState() == Ball.BallState.IDLE) {
+    Point2D locationOfPlayer = Player.instance().getLocation();
+    Ball.instance().setLocation(locationOfPlayer.getX() + 76, locationOfPlayer.getY() - 67);
+  }
 }
 ```
 
@@ -328,7 +328,7 @@ After adding the desired blocks and saving the .litidata file, we need to write 
 We add the following lines to the Ball class in a method which handles the collision of the ball with a block:
 
 ```java
-int points = Block.getPointsOfBlock(hitObject.getSpritesheetName()); 
+int points = Block.getPointsOfBlock(hitObject.getSpritesheetName());
 GameHandler.increasePoints(points); Game.world().environment().remove(hitObject);
 ```
 
@@ -336,8 +336,8 @@ The method `getPointsOfBlock()` returns the points the player earns for destroyi
 If the game is restarted later, the block will still be destroyed. To let it appear again, I just used the following code snippet to iterate over all levels and reset them:
 
 ```java
-for (int i = 0; i <= MAX_LEVEL; i++) { 
- Game.world().reset(Resources.maps().get("level" + i)); 
+for (int i = 0; i <= MAX_LEVEL; i++) {
+  Game.world().reset(Resources.maps().get("level" + i));
 }
 ```
 
@@ -354,12 +354,12 @@ Game.audio().playSound("name_of_sound_in_.litidata_file");
 To play some music, you have to write the following code inside the update method of the screen you want to play the music on:
 
 ```java
-@Override 
-public void update() { 
- if (this.lastPlayed == 0) { 
- Game.audio().playMusic("menu_music"); 
- this.lastPlayed = Game.loop().getTicks(); 
- }
+@Override
+public void update() {
+  if (this.lastPlayed == 0) {
+    Game.audio().playMusic("menu_music");
+    this.lastPlayed = Game.loop().getTicks();
+  }
 }
 ```
 

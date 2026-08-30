@@ -125,24 +125,24 @@ import de.gurkenlabs.litiengine.sound.Track;
 import de.gurkenlabs.litiengine.resources.Resources;
 
 public class AudioManager {
- private static float masterVolume = 1.0f;
- private static float musicVolume = 0.8f;
- private static float sfxVolume = 1.0f;
+  private static float masterVolume = 1.0f;
+  private static float musicVolume = 0.8f;
+  private static float sfxVolume = 1.0f;
 
- public static void setMasterVolume(float volume) {
- masterVolume = Math.clamp(volume, 0.0f, 1.0f);
- Game.audio().setMasterPlayback(masterVolume);
- }
+  public static void setMasterVolume(float volume) {
+    masterVolume = Math.clamp(volume, 0.0f, 1.0f);
+    Game.audio().setMasterPlayback(masterVolume);
+  }
 
- public static void playMusic(String trackName) {
- Track musicTrack = Resources.tracks().get(trackName);
- Game.audio().playMusic(musicTrack, true); // true = seamless loop
- }
+  public static void playMusic(String trackName) {
+    Track musicTrack = Resources.tracks().get(trackName);
+    Game.audio().playMusic(musicTrack, true); // true = seamless loop
+  }
 
- public static void playSound(String soundName) {
- Sound sound = Resources.sounds().get(soundName);
- Game.audio().playSound(sound, false, 1, sfxVolume * masterVolume);
- }
+  public static void playSound(String soundName) {
+    Sound sound = Resources.sounds().get(soundName);
+    Game.audio().playSound(sound, false, 1, sfxVolume * masterVolume);
+  }
 }
 ```
 
@@ -153,16 +153,16 @@ Play audio centered at specific world coordinates or attached to moving entities
 ```java
 // Play positional explosion sound originating from a barrel entity
 Game.audio().playSound(
- Resources.sounds().get("explosion.ogg"),
- barrelEntity.getCenter(),
- false // do not loop
+Resources.sounds().get("explosion.ogg"),
+barrelEntity.getCenter(),
+false // do not loop
 );
 
 // Continuous spatial hum originating from a generator prop
 Game.audio().playSound(
- Resources.sounds().get("generator_hum.ogg"),
- generatorProp,
- true // loop continuously
+Resources.sounds().get("generator_hum.ogg"),
+generatorProp,
+true // loop continuously
 );
 ```
 

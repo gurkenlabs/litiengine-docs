@@ -64,16 +64,16 @@ Write hot-reloadable game logic directly in **utiLITI** or external scripts:
 
 ```java
 public class Player extends Creature {
- public Player() {
- super("player");
+  public Player() {
+    super("player");
 
- // Add standard keyboard movement controller
- addController(new KeyboardEntityController<>(this));
+    // Add standard keyboard movement controller
+    addController(new KeyboardEntityController<>(this));
 
- // Listen to movement events
- movement().onMoved(e -> {
- // Custom footsteps, trail effects, or stamina drain
- });
- }
+    // Listen to movement events
+    movement().onMoved(e -> {
+      // Custom footsteps, trail effects, or stamina drain
+    });
+  }
 }
 ```

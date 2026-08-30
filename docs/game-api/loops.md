@@ -65,12 +65,12 @@ To execute custom logic every tick, implement the `IUpdateable` interface and at
 
 ```java
 public class MyEntity extends Entity implements IUpdateable {
- 
- @Override
- public void update() {
- // This code runs every tick (default: 60 times per second)
- setLocation(getX() + 1, getY());
- }
+
+  @Override
+  public void update() {
+    // This code runs every tick (default: 60 times per second)
+    setLocation(getX() + 1, getY());
+  }
 }
 
 // Attach the entity to the game loop
@@ -104,7 +104,7 @@ Schedule actions to execute after a delay:
 ```java
 // Execute after 2 seconds (120 ticks at 60 tick rate)
 int actionId = Game.loop().execute(120, () -> {
- System.out.println("Delayed action executed!");
+  System.out.println("Delayed action executed!");
 });
 
 // Cancel a timed action by setting execution time to -1
@@ -142,26 +142,26 @@ cl_showGameMetrics=false
 ```java
 @EntityInfo(width = 32, height = 32)
 public class Enemy extends Creature implements IUpdateable {
- 
- public Enemy() {
- super("enemy");
- Game.loop().attach(this);
- }
- 
- @Override
- public void update() {
- if (this.isDead()) {
- Game.loop().detach(this);
- return;
- }
- 
- // AI behavior runs every tick
- chasePlayer();
- }
- 
- private void chasePlayer() {
- // Movement logic
- }
+
+  public Enemy() {
+    super("enemy");
+    Game.loop().attach(this);
+  }
+
+  @Override
+  public void update() {
+    if (this.isDead()) {
+      Game.loop().detach(this);
+      return;
+    }
+
+    // AI behavior runs every tick
+    chasePlayer();
+  }
+
+  private void chasePlayer() {
+    // Movement logic
+  }
 }
 ```
 
@@ -169,18 +169,18 @@ public class Enemy extends Creature implements IUpdateable {
 
 ```java
 public class GameTimer implements IUpdateable {
- private int secondsRemaining;
- 
- public GameTimer(int seconds) {
- this.secondsRemaining = seconds;
- Game.loop().attach(this);
- }
- 
- @Override
- public void update() {
- // Track time using deltaTime
- // 60 ticks = 1 second at default tick rate
- }
+  private int secondsRemaining;
+
+  public GameTimer(int seconds) {
+    this.secondsRemaining = seconds;
+    Game.loop().attach(this);
+  }
+
+  @Override
+  public void update() {
+    // Track time using deltaTime
+    // 60 ticks = 1 second at default tick rate
+  }
 }
 ```
 

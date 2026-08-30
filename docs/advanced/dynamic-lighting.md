@@ -128,14 +128,14 @@ Lights can follow entities:
 
 ```java
 public class TorchBearer extends Creature {
- private LightSource torchLight;
- 
- @Override
- public void update() {
- super.update();
- // Light follows entity
- torchLight.setLocation(this.getCenter());
- }
+  private LightSource torchLight;
+
+  @Override
+  public void update() {
+    super.update();
+    // Light follows entity
+    torchLight.setLocation(this.getCenter());
+  }
 }
 ```
 
@@ -156,8 +156,8 @@ Pulsing or animated lighting:
 
 ```java
 Game.loop().attach(() -> {
- float pulse = (float) Math.sin(Game.time().now() / 200.0) * 0.3f + 0.7f;
- light.setIntensity((int)(150 * pulse));
+  float pulse = (float) Math.sin(Game.time().now() / 200.0) * 0.3f + 0.7f;
+  light.setIntensity((int)(150 * pulse));
 });
 ```
 
@@ -200,20 +200,20 @@ import java.awt.Color;
 import java.awt.geom.Point2D;
 
 public class TorchLight {
- public static LightSource createTorch(double x, double y) {
- // 1. Create a radial ellipse light source (radius = 120, warm amber color)
- Color warmGlow = new Color(255, 180, 50, 180);
- LightSource torch = new LightSource(120, warmGlow, LightSource.Type.ELLIPSE);
- torch.setLocation(x, y);
+  public static LightSource createTorch(double x, double y) {
+    // 1. Create a radial ellipse light source (radius = 120, warm amber color)
+    Color warmGlow = new Color(255, 180, 50, 180);
+    LightSource torch = new LightSource(120, warmGlow, LightSource.Type.ELLIPSE);
+    torch.setLocation(x, y);
 
- // 2. Add to active environment
- Game.world().environment().add(torch);
+    // 2. Add to active environment
+    Game.world().environment().add(torch);
 
- // 3. Add ambient world darkness (RGBA)
- Game.world().environment().getAmbientLight().setColor(new Color(10, 15, 25, 220));
+    // 3. Add ambient world darkness (RGBA)
+    Game.world().environment().getAmbientLight().setColor(new Color(10, 15, 25, 220));
 
- return torch;
- }
+    return torch;
+  }
 }
 ```
 
@@ -222,7 +222,7 @@ public class TorchLight {
 ```java
 // Create a flickering torch flame effect in your game loop
 Game.loop().attach(Game.world().environment(), () -> {
- int jitter = (int) (Math.random() * 8) - 4;
- torch.setRadius(120 + jitter);
+  int jitter = (int) (Math.random() * 8) - 4;
+  torch.setRadius(120 + jitter);
 });
 ```

@@ -18,8 +18,8 @@ An example implementation would look like this:
 ```java
 public class Program {
 
- public static void main(String[] args) {
- }
+  public static void main(String[] args) {
+  }
 }
 ```
 
@@ -34,10 +34,10 @@ import de.gurkenlabs.litiengine.Game;
 
 public class Program {
 
- public static void main(String[] args) {
- Game.init(args);
- Game.start();
- }
+  public static void main(String[] args) {
+    Game.init(args);
+    Game.start();
+  }
 }
 ```
 !!! note

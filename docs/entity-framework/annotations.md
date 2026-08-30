@@ -17,12 +17,12 @@ Basic entity configuration:
 
 ```java
 @EntityInfo(
- width = 32, // Entity width in pixels
- height = 32, // Entity height in pixels
- renderType = RenderType.NORMAL // Rendering layer
+width = 32, // Entity width in pixels
+height = 32, // Entity height in pixels
+renderType = RenderType.NORMAL // Rendering layer
 )
 public class MyEntity extends Entity {
- // ...
+  // ...
 }
 ```
 
@@ -40,14 +40,14 @@ Collision detection configuration:
 
 ```java
 @CollisionInfo(
- collision = true, // Enable collision
- collisionBoxWidth = 28, // Collision box width
- collisionBoxHeight = 28, // Collision box height
- collisionBoxAlign = Align.CENTER, // Horizontal alignment
- collisionBoxValign = Valign.MIDDLE // Vertical alignment
+collision = true, // Enable collision
+collisionBoxWidth = 28, // Collision box width
+collisionBoxHeight = 28, // Collision box height
+collisionBoxAlign = Align.CENTER, // Horizontal alignment
+collisionBoxValign = Valign.MIDDLE // Vertical alignment
 )
 public class Wall extends CollisionEntity {
- // ...
+  // ...
 }
 ```
 
@@ -68,13 +68,13 @@ Movement properties for mobile entities:
 
 ```java
 @MovementInfo(
- velocity = 100, // Pixels per second
- acceleration = 50, // Acceleration rate
- deceleration = 50, // Deceleration rate
- turnOnMove = true // Face movement direction
+velocity = 100, // Pixels per second
+acceleration = 50, // Acceleration rate
+deceleration = 50, // Deceleration rate
+turnOnMove = true // Face movement direction
 )
 public class Enemy extends Creature {
- // ...
+  // ...
 }
 ```
 
@@ -93,13 +93,13 @@ Combat and health configuration:
 
 ```java
 @CombatInfo(
- hitpoints = 100, // Maximum HP
- team = 1, // Team identifier
- isIndestructible = false, // Cannot be damaged
- isTarget = true // Can be targeted
+hitpoints = 100, // Maximum HP
+team = 1, // Team identifier
+isIndestructible = false, // Cannot be damaged
+isTarget = true // Can be targeted
 )
 public class Player extends Creature {
- // ...
+  // ...
 }
 ```
 
@@ -118,11 +118,11 @@ Animation configuration:
 
 ```java
 @AnimationInfo(
- spritePrefix = "player", // Spritesheet name prefix
- spriteBatched = true // Use sprite batching
+spritePrefix = "player", // Spritesheet name prefix
+spriteBatched = true // Use sprite batching
 )
 public class Player extends Creature {
- // ...
+  // ...
 }
 ```
 
@@ -139,13 +139,13 @@ Ability configuration (see [Ability Framework](/control-entities/ability-framewo
 
 ```java
 @AbilityInfo(
- cooldown = 1000, // Milliseconds between uses
- duration = 500, // Execution duration
- value = 100, // Custom value (damage, etc.)
- range = 200 // Maximum range
+cooldown = 1000, // Milliseconds between uses
+duration = 500, // Execution duration
+value = 100, // Custom value (damage, etc.)
+range = 200 // Maximum range
 )
 public class Fireball extends Ability {
- // ...
+  // ...
 }
 ```
 
@@ -160,10 +160,10 @@ Use multiple annotations for complete entity configuration:
 @CombatInfo(hitpoints = 50, team = 1)
 @AnimationInfo(spritePrefix = "gurknukem")
 public class Player extends Creature {
- 
- public Player() {
- super("gurknukem");
- }
+
+  public Player() {
+    super("gurknukem");
+  }
 }
 ```
 
@@ -175,11 +175,11 @@ Annotations define **static defaults** that can be overridden at runtime:
 @EntityInfo(width = 32, height = 32)
 @MovementInfo(velocity = 100)
 public class Enemy extends Creature {
- 
- public void speedBoost() {
- // Override annotation value at runtime
- this.setVelocity(200);
- }
+
+  public void speedBoost() {
+    // Override annotation value at runtime
+    this.setVelocity(200);
+  }
 }
 ```
 
@@ -203,14 +203,14 @@ Define custom annotations for game-specific data:
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
 public @interface EnemyInfo {
- int aggroRange() default 200;
- int xpReward() default 10;
- String[] lootTable() default {};
+  int aggroRange() default 200;
+  int xpReward() default 10;
+  String[] lootTable() default {};
 }
 
 @EnemyInfo(aggroRange = 300, xpReward = 25)
 public class Boss extends Creature {
- // ...
+  // ...
 }
 ```
 

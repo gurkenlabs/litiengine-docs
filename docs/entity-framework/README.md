@@ -83,9 +83,9 @@ Instead of setting sizes, bounding boxes, and speeds manually in constructors, L
 @MovementInfo(velocity = 90)
 @CollisionInfo(collision = true, collisionBoxWidth = 16, collisionBoxHeight = 12)
 public class Goblin extends Creature {
- public Goblin() {
- super("goblin");
- }
+  public Goblin() {
+    super("goblin");
+  }
 }
 ```
 

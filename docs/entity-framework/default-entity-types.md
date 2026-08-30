@@ -43,11 +43,11 @@ The base class for all game objects.
 
 ```java
 public class MyEntity extends Entity {
- public MyEntity() {
- super("my-entity");
- setLocation(100, 100);
- setSize(32, 32);
- }
+  public MyEntity() {
+    super("my-entity");
+    setLocation(100, 100);
+    setSize(32, 32);
+  }
 }
 ```
 
@@ -67,9 +67,9 @@ Extends `Entity` with collision detection capabilities.
 @EntityInfo(width = 32, height = 32)
 @CollisionInfo(collisionBoxWidth = 28, collisionBoxHeight = 28, collision = true)
 public class Wall extends CollisionEntity {
- public Wall() {
- super("wall");
- }
+  public Wall() {
+    super("wall");
+  }
 }
 ```
 
@@ -91,9 +91,9 @@ Extends `CollisionEntity` with health and combat mechanics.
 @EntityInfo(width = 32, height = 32)
 @CombatInfo(hitpoints = 100, team = 1)
 public class Destructible extends CombatEntity {
- public Destructible() {
- super("destructible");
- }
+  public Destructible() {
+    super("destructible");
+  }
 }
 ```
 
@@ -120,9 +120,9 @@ The most feature-rich entity type. Combines collision, combat, movement, and ani
 @CombatInfo(hitpoints = 50)
 @CollisionInfo(collisionBoxWidth = 14, collisionBoxHeight = 16, collision = true)
 public class Player extends Creature {
- public Player() {
- super("player"); // spritePrefix
- }
+  public Player() {
+    super("player"); // spritePrefix
+  }
 }
 ```
 
@@ -148,9 +148,9 @@ Static or interactive objects in the game world.
 @EntityInfo(width = 32, height = 32)
 @CollisionInfo(collision = true)
 public class Barrel extends Prop {
- public Barrel() {
- super("barrel");
- }
+  public Barrel() {
+    super("barrel");
+  }
 }
 ```
 

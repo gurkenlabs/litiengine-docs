@@ -27,27 +27,27 @@ Add the LITIENGINE dependency to your Gradle project by adding the following cod
 === "Gradle (Kotlin DSL)"
 
  ```kotlin
- dependencies {
- implementation("de.gurkenlabs:litiengine:0.13.0-SNAPSHOT")
- }
+dependencies {
+  implementation("de.gurkenlabs:litiengine:0.13.0-SNAPSHOT")
+}
  ```
 
 === "Gradle (Groovy DSL)"
 
  ```groovy
- dependencies {
- implementation 'de.gurkenlabs:litiengine:0.13.0-SNAPSHOT'
- }
+dependencies {
+  implementation 'de.gurkenlabs:litiengine:0.13.0-SNAPSHOT'
+}
  ```
 
 === "Maven"
 
  ```xml
- <dependency>
- <groupId>de.gurkenlabs</groupId>
- <artifactId>litiengine</artifactId>
- <version>0.13.0-SNAPSHOT</version>
- </dependency>
+<dependency>
+  <groupId>de.gurkenlabs</groupId>
+  <artifactId>litiengine</artifactId>
+  <version>0.13.0-SNAPSHOT</version>
+</dependency>
  ```
 
 ### Sample Project
@@ -63,20 +63,20 @@ Consuming the snapshot artifacts is as simple as adding the sonatype snapshots r
 in your `build.gradle`:
 ```groovy
 plugins {
- id("java")
- id("application")
+  id("java")
+  id("application")
 }
 
 repositories {
- mavenCentral()
- maven{
- url "https://oss.sonatype.org/content/repositories/snapshots/"
- }
+  mavenCentral()
+  maven{
+    url "https://oss.sonatype.org/content/repositories/snapshots/"
+  }
 
 }
 
 dependencies {
- implementation 'de.gurkenlabs:litiengine:0.11.1-SNAPSHOT'
+  implementation 'de.gurkenlabs:litiengine:0.11.1-SNAPSHOT'
 }
 ```
 
@@ -109,16 +109,16 @@ dependencies {
 Then in `my_project/settings.gradle`, add the following block:
 ```java
 includeBuild ("../litiengine"){
- dependencySubstitution {
- substitute module('de.gurkenlabs:litiengine') using project(':litiengine')
- }
+  dependencySubstitution {
+    substitute module('de.gurkenlabs:litiengine') using project(':litiengine')
+  }
 }
 ```
 In `my_project/build.gradle`, define the dependency without a version:
 
 ```groovy
 dependencies {
- implementation 'de.gurkenlabs:litiengine'
+  implementation 'de.gurkenlabs:litiengine'
 }
 ```
  Gradle will automatically replace any dependency with the version provided by `includeBuild` if it finds a matching module.

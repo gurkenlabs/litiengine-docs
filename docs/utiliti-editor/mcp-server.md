@@ -172,10 +172,10 @@ Level A tools provide stateless, batch-capable map operations with optimistic re
 
 // 2. Batch Place Props & Creatures
 {"tool": "create_entities", "arguments": {
- "mapId": "triage_room",
- "entities": [{"type": "PROP", "name": "bed1", "spritesheetName": "bed3", "material": "STEEL", "x": 64, "y": 64, "width": 32, "height": 32, "collision": true},
- {"type": "CREATURE", "name": "zombie1", "spritesheetName": "zombie-doctor", "x": 96, "y": 64, "width": 16, "height": 16}]
-}}
+    "mapId": "triage_room",
+    "entities": [{"type": "PROP", "name": "bed1", "spritesheetName": "bed3", "material": "STEEL", "x": 64, "y": 64, "width": 32, "height": 32, "collision": true},
+      {"type": "CREATURE", "name": "zombie1", "spritesheetName": "zombie-doctor", "x": 96, "y": 64, "width": 16, "height": 16}]
+  }}
 
 // 3. Scatter Blood Stains
 {"tool": "scatter_floor_details", "arguments": {"mapId": "triage_room", "layer": "details", "x": 4, "y": 4, "width": 10, "height": 10, "gids": [140, 141, 142], "density": 0.25}}
@@ -186,18 +186,18 @@ Level A tools provide stateless, batch-capable map operations with optimistic re
 ```json
 // 1. Create a Creature Combat Script
 {"tool": "create-script", "arguments": {
- "name": "SkeletonWarriorAI",
- "host": "ENTITY",
- "targetType": "Creature"
-}}
+    "name": "SkeletonWarriorAI",
+    "host": "ENTITY",
+    "targetType": "Creature"
+  }}
 
 // 2. Attach Script to an Enemy on the Active Map
 {"tool": "bind-script", "arguments": {
- "script": "SkeletonWarriorAI",
- "targetType": "entity",
- "targetId": "101",
- "parameters": {"aggroRadius": "120", "attackPower": "15"}
-}}
+    "script": "SkeletonWarriorAI",
+    "targetType": "entity",
+    "targetId": "101",
+    "parameters": {"aggroRadius": "120", "attackPower": "15"}
+  }}
 ```
 
 ---

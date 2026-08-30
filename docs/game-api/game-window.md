@@ -20,16 +20,16 @@ Set up the window before or after game initialization:
 
 ```java
 public static void main(String[] args) {
- // Set game info first (used for window title)
- Game.info().setName("My Game");
- Game.info().setVersion("v1.0.0");
- 
- Game.init(args);
- 
- // Set window icon after initialization
- Game.window().setIcon(Resources.images().get("icon.png"));
- 
- Game.start();
+  // Set game info first (used for window title)
+  Game.info().setName("My Game");
+  Game.info().setVersion("v1.0.0");
+
+  Game.init(args);
+
+  // Set window icon after initialization
+  Game.window().setIcon(Resources.images().get("icon.png"));
+
+  Game.start();
 }
 ```
 
@@ -134,15 +134,15 @@ Listen for window state changes:
 
 ```java
 Game.window().addWindowListener(new WindowAdapter() {
- @Override
- public void windowGainedFocus(WindowEvent e) {
- // Game window gained focus
- }
- 
- @Override
- public void windowLostFocus(WindowEvent e) {
- // Game window lost focus - consider pausing
- }
+  @Override
+  public void windowGainedFocus(WindowEvent e) {
+    // Game window gained focus
+  }
+
+  @Override
+  public void windowLostFocus(WindowEvent e) {
+    // Game window lost focus - consider pausing
+  }
 });
 ```
 
@@ -170,19 +170,19 @@ cl_showGameMetrics=false
 
 ```java
 public static void main(String[] args) {
- Game.info().setName("My Game");
- Game.info().setVersion("v1.0.0");
- 
- Game.init(args);
- 
- // Configure window appearance
- Game.window().setIcon(Resources.images().get("icon.png"));
- Game.window().cursor().set(Resources.images().get("cursor.png"), 8, 8);
- 
- // Set render scale for pixel art look
- Game.graphics().setBaseRenderScale(4f);
- 
- Game.start();
+  Game.info().setName("My Game");
+  Game.info().setVersion("v1.0.0");
+
+  Game.init(args);
+
+  // Configure window appearance
+  Game.window().setIcon(Resources.images().get("icon.png"));
+  Game.window().cursor().set(Resources.images().get("cursor.png"), 8, 8);
+
+  // Set render scale for pixel art look
+  Game.graphics().setBaseRenderScale(4f);
+
+  Game.start();
 }
 ```
 
@@ -190,7 +190,7 @@ public static void main(String[] args) {
 
 ```java
 Input.keyboard().onKeyPressed(KeyEvent.VK_F11, e -> {
- Game.window().setFullscreen(!Game.window().isFullscreen());
+  Game.window().setFullscreen(!Game.window().isFullscreen());
 });
 ```
 

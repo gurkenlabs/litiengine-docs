@@ -24,14 +24,14 @@ whenever the project is being built.
 
 ```kotlin
 tasks.register<Copy>("natives") {
- for (dep in configurations.runtimeClasspath.get().files) {
- from(zipTree(dep).files)
- include("**/*.dll", "**/*.so", "**/*.jnilib", "**/*.dylib")
- into(File(buildDir, "libs"))
- }
+  for (dep in configurations.runtimeClasspath.get().files) {
+    from(zipTree(dep).files)
+    include("**/*.dll", "**/*.so", "**/*.jnilib", "**/*.dylib")
+    into(File(buildDir, "libs"))
+  }
 }
 
 tasks.named("build") {
- dependsOn("natives")
+  dependsOn("natives")
 }
 ```

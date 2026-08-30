@@ -18,27 +18,27 @@ The easiest approach is to extend an existing entity type:
 @MovementInfo(velocity = 50)
 @CombatInfo(hitpoints = 100)
 public class Player extends Creature {
- 
- private int experience;
- private List<Ability> abilities;
- 
- public Player() {
- super("player");
- this.abilities = new ArrayList<>();
- }
- 
- public void addExperience(int xp) {
- this.experience += xp;
- checkLevelUp();
- }
- 
- public int getExperience() {
- return experience;
- }
- 
- private void checkLevelUp() {
- // Level up logic
- }
+
+  private int experience;
+  private List<Ability> abilities;
+
+  public Player() {
+    super("player");
+    this.abilities = new ArrayList<>();
+  }
+
+  public void addExperience(int xp) {
+    this.experience += xp;
+    checkLevelUp();
+  }
+
+  public int getExperience() {
+    return experience;
+  }
+
+  private void checkLevelUp() {
+    // Level up logic
+  }
 }
 ```
 
@@ -49,42 +49,42 @@ For unique behaviors, extend `Entity` directly:
 ```java
 @EntityInfo(width = 64, height = 64)
 public class Portal extends Entity implements IUpdateable {
- 
- private String targetMap;
- private String targetSpawnpoint;
- private boolean active;
- 
- public Portal() {
- super("portal");
- Game.loop().attach(this);
- }
- 
- @Override
- public void update() {
- if (!active) return;
- 
- // Check for player collision
- Player player = Player.instance();
- if (this.getBoundingBox().contains(player.getCenter())) {
- teleport(player);
- }
- }
- 
- private void teleport(Player player) {
- Game.world().loadEnvironment(targetMap);
- Game.world().environment().getSpawnpoint(targetSpawnpoint).spawn(player);
- }
- 
- public void setTarget(String map, String spawnpoint) {
- this.targetMap = map;
- this.targetSpawnpoint = spawnpoint;
- }
- 
- @Override
- public void dispose() {
- Game.loop().detach(this);
- super.dispose();
- }
+
+  private String targetMap;
+  private String targetSpawnpoint;
+  private boolean active;
+
+  public Portal() {
+    super("portal");
+    Game.loop().attach(this);
+  }
+
+  @Override
+  public void update() {
+    if (!active) return;
+
+    // Check for player collision
+    Player player = Player.instance();
+    if (this.getBoundingBox().contains(player.getCenter())) {
+      teleport(player);
+    }
+  }
+
+  private void teleport(Player player) {
+    Game.world().loadEnvironment(targetMap);
+    Game.world().environment().getSpawnpoint(targetSpawnpoint).spawn(player);
+  }
+
+  public void setTarget(String map, String spawnpoint) {
+    this.targetMap = map;
+    this.targetSpawnpoint = spawnpoint;
+  }
+
+  @Override
+  public void dispose() {
+    Game.loop().detach(this);
+    super.dispose();
+  }
 }
 ```
 
@@ -94,18 +94,18 @@ Control which controllers your entity uses:
 
 ```java
 public class FlyingEnemy extends Creature {
- 
- @Override
- protected IMovementController createMovementController() {
- // Use custom flying movement
- return new FlyingMovementController<>(this);
- }
- 
- @Override
- protected IEntityAnimationController<?> createAnimationController() {
- // Custom animation logic
- return new FlyingAnimationController(this);
- }
+
+  @Override
+  protected IMovementController createMovementController() {
+    // Use custom flying movement
+    return new FlyingMovementController<>(this);
+  }
+
+  @Override
+  protected IEntityAnimationController<?> createAnimationController() {
+    // Custom animation logic
+    return new FlyingAnimationController(this);
+  }
 }
 ```
 
@@ -115,17 +115,17 @@ Override rendering for unique visual effects:
 
 ```java
 public class Ghost extends Creature {
- 
- @Override
- public void render(Graphics2D g) {
- // Set ghost effect
- Composite old = g.getComposite();
- g.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.5f));
- 
- super.render(g);
- 
- g.setComposite(old);
- }
+
+  @Override
+  public void render(Graphics2D g) {
+    // Set ghost effect
+    Composite old = g.getComposite();
+    g.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.5f));
+
+    super.render(g);
+
+    g.setComposite(old);
+  }
 }
 ```
 
