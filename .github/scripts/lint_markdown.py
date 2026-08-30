@@ -111,6 +111,15 @@ def lint_markdown():
                 if not line.startswith("    "):
                     errors.append(f"{rel}:{line_num}: Content inside tab block must be indented by at least 4 spaces: '{line[:40]}' (tab opened on line {tab_start_line})")
 
+        # 7. Check for Raw UTF-8 Emojis (Disallowed - use native SVG icons :material-...: or clean text)
+        emoji_pattern = re.compile(r'[\U00010000-\U0010ffff]|[\u2600-\u27BF]|[\u2300-\u23FF]|[\u2B50-\u2B55]')
+        for idx, line in enumerate(lines):
+            line_num = idx + 1
+            # Skip code blocks for unicode tests if necessary, but ban in prose/headers
+            match = emoji_pattern.search(line)
+            if match and not line.strip().startswith("```") and "assets" not in rel:
+                errors.append(f"{rel}:{line_num}: Raw UTF-8 emoji '{match.group(0)}' found. Use native Material/Lucide SVG icons instead.")
+
     if errors:
         print(f"Markdown Syntax Lint Failed with {len(errors)} error(s):")
         for e in errors:

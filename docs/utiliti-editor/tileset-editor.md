@@ -63,7 +63,7 @@ Instead of requiring separate external collision tools, utiLITI includes an inte
 
 ```text
 ┌──────────────────────────────────────────────┐
-│ Tools: [↖ Select] [Rectangle] [ Delete] │
+│ Tools: [ Select] [Rectangle] [ Delete] │
 ├──────────────────────────────────────────────┤
 │ ┌──────────────┐ │
 │ │ │ │
@@ -79,7 +79,7 @@ Instead of requiring separate external collision tools, utiLITI includes an inte
 1. Select a tile in the grid.
 2. Under the **Collision Editor** section, click **Rectangle Mode**.
 3. Click and drag across the tile image preview to define collision boundaries (e.g. half-height walls or isometric tops).
-4. Switch to **Select Mode** (`↖`) to move shapes or drag corner/edge handles to resize.
+4. Switch to **Select Mode** (``) to move shapes or drag corner/edge handles to resize.
 5. Click **Delete** (``) or press `Delete` to remove collision geometry.
 
 When painted on any map layer, tiles with defined collision shapes automatically generate static physics obstacles in LITIENGINE's physics engine.

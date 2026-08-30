@@ -2140,7 +2140,7 @@ LITIENGINE provides a unified, low-latency input polling and event system across
 
 ---
 
-##  Temporary Input Locking (Cutscenes & Dialogues)
+## Temporary Input Locking (Cutscenes & Dialogues)
 
 To disable input during cutscenes, pause menus, or dialogue sequences:
 
@@ -5999,7 +5999,7 @@ Instead of requiring separate external collision tools, utiLITI includes an inte
 
 ```text
 ┌──────────────────────────────────────────────┐
-│ Tools: [↖ Select] [Rectangle] [ Delete] │
+│ Tools: [ Select] [Rectangle] [ Delete] │
 ├──────────────────────────────────────────────┤
 │ ┌──────────────┐ │
 │ │ │ │
@@ -6015,7 +6015,7 @@ Instead of requiring separate external collision tools, utiLITI includes an inte
 1. Select a tile in the grid.
 2. Under the **Collision Editor** section, click **Rectangle Mode**.
 3. Click and drag across the tile image preview to define collision boundaries (e.g. half-height walls or isometric tops).
-4. Switch to **Select Mode** (`↖`) to move shapes or drag corner/edge handles to resize.
+4. Switch to **Select Mode** (``) to move shapes or drag corner/edge handles to resize.
 5. Click **Delete** (``) or press `Delete` to remove collision geometry.
 
 When painted on any map layer, tiles with defined collision shapes automatically generate static physics obstacles in LITIENGINE's physics engine.
@@ -6080,7 +6080,7 @@ The primary tools are available on the viewport toolbar and can be activated usi
 
 | Tool | Icon | Hotkey | Target Layer | Description |
 | :--- | :---: | :---: | :--- | :--- |
-| **Pointer Tool** | ↖ | `V` / `1` | Object / All | Selects, moves, resizes, and rotates map entities. |
+| **Pointer Tool** | | `V` / `1` | Object / All | Selects, moves, resizes, and rotates map entities. |
 | **Tile Brush Tool** |  | `B` / `2` | Tile Layer | Paints individual tiles selected from the Tileset panel. |
 | **Bucket Fill Tool** | | `G` / `3` | Tile Layer | Flood-fills contiguous tile areas with the active tile GID. |
 | **Eraser Tool** | | `E` / `4` | Tile Layer | Clears tile cells on the active tile layer. |

@@ -38,7 +38,7 @@ LITIENGINE provides a unified, low-latency input polling and event system across
 
 ---
 
-##  Temporary Input Locking (Cutscenes & Dialogues)
+## Temporary Input Locking (Cutscenes & Dialogues)
 
 To disable input during cutscenes, pause menus, or dialogue sequences:
 

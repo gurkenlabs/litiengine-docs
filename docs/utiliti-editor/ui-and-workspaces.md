@@ -28,7 +28,7 @@ Opening a script file from the asset tree or double-clicking an attached script 
 
 ```text
 ┌──────┬────────────────────────────────────────────────────────────────────────┐
-│ │ [Map Selector ▼] [Run] [Debug] [Stop] [Tools...] [↩ Undo] │
+│ │ [Map Selector ▼] [Run] [Debug] [Stop] [Tools...] [ Undo] │
 │ ├─────────────────────────────────────────┬──────────────────────────────┤
 │ M │ │ [Objects] [Layers] │
 │ A │ │ ├ Tree hierarchy of entities │

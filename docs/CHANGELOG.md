@@ -235,7 +235,7 @@ What are you waiting for? Start the new year the right way: making games with LI
 * [f3ce2ca](https://github.com/gurkenlabs/litiengine/commit/f3ce2ca84902123f6da4399caaaa160da80f0090) Prevented UndoManager from updating the same object multiple times
 * [8306abd](https://github.com/gurkenlabs/litiengine/commit/8306abdf548cb0ec8006b2b5ad4402fca505f114) Prevented entity list from completely rebuilding upon entity deletion
 
-####  New Contributors 
+#### New Contributors
 
 * @DanielH4 in [#376](https://github.com/gurkenlabs/litiengine/pull/376)
 * @nwessman in [#377](https://github.com/gurkenlabs/litiengine/pull/377)
@@ -269,7 +269,7 @@ Apart from that, we've updated the sponsoring tiers in [the LITIENGINE Open Coll
 
 As always, huge thanks to all contributors and fans! This is an exciting journey for us and we are grateful to share it with you.
 
-#### Fixes 
+#### Fixes
 
 * [5bce248](https://github.com/gurkenlabs/litiengine/commit/5bce24853eab3f233e809b47ec4cbe5279776b8f) Fixed unsupported Javadoc tags
 * [ab5529a](https://github.com/gurkenlabs/litiengine/commit/ab5529a4478c1430b3a87b87cd22f7899c4ebb7e) Fixed keyframe durations for automatically flipped animations in `CreatureAnimationControllers`
@@ -376,7 +376,7 @@ With the release of our new Website, the documentation and other information abo
 It's been a long journey but, finally, we're leaving the Alpha status and are looking forward to even more fruitful experiences with the LITIENGINE in the future.
 A big thank you to all members of this community. Without your feedback and contributions we wouldn't be here today. You're awesome! 
 
-#### Fixes 
+#### Fixes
  * [00178dd](https://github.com/gurkenlabs/litiengine/commit/00178dd052d21a5aab3c237c4849161614f89645) Fixed NullPointerException when rendering Shapes
  * [00178dd](https://github.com/gurkenlabs/litiengine/commit/00178dd052d21a5aab3c237c4849161614f89645) Fixed vertical position when rendering Text with Alignment.
  * [2c55195](https://github.com/gurkenlabs/litiengine/commit/2c5519506f858fe13432fb91b529a680c41d19f4) Fixed NullPointerException when setting opacity on an image.
