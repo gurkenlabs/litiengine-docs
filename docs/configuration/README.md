@@ -155,7 +155,7 @@ game_screenShake=true
 
     Audio volume buses and playlist management.
 
-- :material-monitor-dashboard:{ .lg .middle } **[Game Window](/game-api/game-window/)**
+- :material-monitor:{ .lg .middle } **[Game Window](/game-api/game-window/)**
 
     ---
 

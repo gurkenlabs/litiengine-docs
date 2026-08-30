@@ -1110,13 +1110,13 @@ The `Game` class acts as the central hub and orchestrator of LITIENGINE. It expo
 
     Deterministic 60 FPS update loop, delta time calculations, timers, and scheduled delay tasks.
 
-- :material-sparkles:{ .lg .middle } **[Tweens & Easing](/game-api/tweens/)**
+- :material-creation:{ .lg .middle } **[Tweens & Easing](/game-api/tweens/)**
 
     ---
 
     Property interpolation framework with Robert Penner easing equations (`QUAD`, `BOUNCE`, `ELASTIC`).
 
-- :material-monitor-dashboard:{ .lg .middle } **[Screens & Game States](/game-api/screens/)**
+- :material-monitor:{ .lg .middle } **[Screens & Game States](/game-api/screens/)**
 
     ---
 
