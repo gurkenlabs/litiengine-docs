@@ -16,36 +16,36 @@ LITIENGINE uses declarative Java annotations to define static metadata (bounding
 
 Experiment with entity dimensions and `@CollisionInfo` alignments to see how bounding boxes align with character feet in 2.5D top-down games:
 
-<div class="interactive-card" markdown="1">
-
+<div class="interactive-card">
 <div style="display: flex; gap: 1.5rem; flex-wrap: wrap; align-items: flex-start;">
-  <div style="flex: 1; min-width: 260px;">
-    <div style="margin-bottom: 0.6rem;">
-      <label style="font-weight: 600; font-size: 0.85rem;">Collision Box Width (<span id="lbl-box-w">16px</span>):</label>
-      <input id="rng-box-w" type="range" min="4" max="32" value="16" style="width: 100%;">
-    </div>
-    <div style="margin-bottom: 0.6rem;">
-      <label style="font-weight: 600; font-size: 0.85rem;">Collision Box Height (<span id="lbl-box-h">12px</span>):</label>
-      <input id="rng-box-h" type="range" min="4" max="32" value="12" style="width: 100%;">
-    </div>
-    <div style="margin-bottom: 0.6rem;">
-      <label style="font-weight: 600; font-size: 0.85rem;">Vertical Alignment (`Valign`):</label>
-      <select id="sel-valign" style="width: 100%; padding: 0.35rem; border-radius: 4px; background: var(--md-code-bg-color); color: var(--md-default-fg-color); border: 1px solid var(--md-default-fg-color--lighter);">
-        <option value="Valign.DOWN" selected>Valign.DOWN (Anchored to Feet for 2.5D)</option>
-        <option value="Valign.MIDDLE">Valign.MIDDLE (Centered)</option>
-        <option value="Valign.TOP">Valign.TOP (Top Anchored)</option>
-      </select>
-    </div>
-    <div style="font-size: 0.8rem;">
-      <strong>Generated Annotation:</strong>
-      <pre style="margin-top: 0.25rem; padding: 0.5rem; border-radius: 4px; background: var(--md-code-bg-color); font-size: 0.72rem;"><code id="box-code-preview">@EntityInfo(width = 32, height = 32)
+<div style="flex: 1; min-width: 260px;">
+<div style="margin-bottom: 0.6rem;">
+<label style="font-weight: 600; font-size: 0.85rem;">Collision Box Width (<span id="lbl-box-w">16px</span>):</label>
+<input id="rng-box-w" type="range" min="4" max="32" value="16" style="width: 100%;">
+</div>
+<div style="margin-bottom: 0.6rem;">
+<label style="font-weight: 600; font-size: 0.85rem;">Collision Box Height (<span id="lbl-box-h">12px</span>):</label>
+<input id="rng-box-h" type="range" min="4" max="32" value="12" style="width: 100%;">
+</div>
+<div style="margin-bottom: 0.6rem;">
+<label style="font-weight: 600; font-size: 0.85rem;">Vertical Alignment (Valign):</label>
+<select id="sel-valign" style="width: 100%; padding: 0.35rem; border-radius: 4px; background: var(--md-code-bg-color); color: var(--md-default-fg-color); border: 1px solid var(--md-default-fg-color--lighter);">
+<option value="Valign.DOWN" selected>Valign.DOWN (Anchored to Feet for 2.5D)</option>
+<option value="Valign.MIDDLE">Valign.MIDDLE (Centered)</option>
+<option value="Valign.TOP">Valign.TOP (Top Anchored)</option>
+</select>
+</div>
+<div style="font-size: 0.8rem;">
+<strong>Generated Annotation:</strong>
+<pre style="margin-top: 0.25rem; padding: 0.5rem; border-radius: 4px; background: var(--md-code-bg-color); font-size: 0.72rem;"><code id="box-code-preview">@EntityInfo(width = 32, height = 32)
 @CollisionInfo(collisionBoxWidth = 16, collisionBoxHeight = 12, collisionBoxValign = Valign.DOWN)</code></pre>
-    </div>
-  </div>
-  <div style="flex: 1; min-width: 260px; text-align: center;">
-    <canvas id="box-canvas" width="220" height="200" style="border: 1px solid var(--md-default-fg-color--lighter); border-radius: 6px; background: var(--md-code-bg-color); max-width: 100%; height: auto;"></canvas>
-    <div style="font-size: 0.75rem; color: var(--md-default-fg-color--lighter); margin-top: 0.25rem;">Entity Sprite (Blue) vs Physics Collider (Red)</div>
-  </div>
+</div>
+</div>
+<div style="flex: 1; min-width: 260px; text-align: center;">
+<canvas id="box-canvas" width="220" height="200" style="border: 1px solid var(--md-default-fg-color--lighter); border-radius: 6px; background: var(--md-code-bg-color); max-width: 100%; height: auto;"></canvas>
+<div style="font-size: 0.75rem; color: var(--md-default-fg-color--lighter); margin-top: 0.25rem;">Entity Sprite (Blue) vs Physics Collider (Red)</div>
+</div>
+</div>
 </div>
 
 </div>

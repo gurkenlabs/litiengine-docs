@@ -16,37 +16,37 @@ The **TweenEngine** (`Game.tweens()`) provides a high-performance property inter
 
 Select an easing equation below to preview the interpolation curve and watch the live animation in real time:
 
-<div class="interactive-card" markdown="1">
-
+<div class="interactive-card">
 <div style="display: flex; gap: 1.5rem; flex-wrap: wrap; align-items: flex-start;">
-  <div style="flex: 1; min-width: 280px;">
-    <label for="tween-func-select" style="font-weight: 600; display: block; margin-bottom: 0.5rem;">Select Easing Function:</label>
-    <select id="tween-func-select" style="width: 100%; padding: 0.5rem; border-radius: 4px; background: var(--md-code-bg-color); color: var(--md-default-fg-color); border: 1px solid var(--md-default-fg-color--lighter);">
-      <option value="LINEAR">LINEAR (Constant Speed)</option>
-      <option value="QUAD_IN">QUAD_IN (Accelerating)</option>
-      <option value="QUAD_OUT" selected>QUAD_OUT (Decelerating)</option>
-      <option value="QUAD_INOUT">QUAD_INOUT (Smooth S-Curve)</option>
-      <option value="CUBIC_OUT">CUBIC_OUT (Smooth Stop)</option>
-      <option value="BOUNCE_OUT">BOUNCE_OUT (Physical Bouncing)</option>
-      <option value="ELASTIC_OUT">ELASTIC_OUT (Spring Oscillator)</option>
-      <option value="BACK_OUT">BACK_OUT (Overshoot & Settle)</option>
-      <option value="SINE_INOUT">SINE_INOUT (Gentle Wave)</option>
-    </select>
-    <div style="margin-top: 1rem;">
-      <button id="btn-play-tween" class="md-button md-button--primary" style="width: 100%;">▶ Play Animation</button>
-    </div>
-    <div style="margin-top: 1rem; font-size: 0.8rem;">
-      <strong>Generated Java Code:</strong>
-      <pre style="margin-top: 0.25rem; padding: 0.5rem; border-radius: 4px; background: var(--md-code-bg-color); overflow-x: auto;"><code id="tween-code-preview">Game.tweens().begin(entity, TweenType.LOCATION_X, 1000)
+<div style="flex: 1; min-width: 280px;">
+<label for="tween-func-select" style="font-weight: 600; display: block; margin-bottom: 0.5rem;">Select Easing Function:</label>
+<select id="tween-func-select" style="width: 100%; padding: 0.5rem; border-radius: 4px; background: var(--md-code-bg-color); color: var(--md-default-fg-color); border: 1px solid var(--md-default-fg-color--lighter);">
+<option value="LINEAR">LINEAR (Constant Speed)</option>
+<option value="QUAD_IN">QUAD_IN (Accelerating)</option>
+<option value="QUAD_OUT" selected>QUAD_OUT (Decelerating)</option>
+<option value="QUAD_INOUT">QUAD_INOUT (Smooth S-Curve)</option>
+<option value="CUBIC_OUT">CUBIC_OUT (Smooth Stop)</option>
+<option value="BOUNCE_OUT">BOUNCE_OUT (Physical Bouncing)</option>
+<option value="ELASTIC_OUT">ELASTIC_OUT (Spring Oscillator)</option>
+<option value="BACK_OUT">BACK_OUT (Overshoot & Settle)</option>
+<option value="SINE_INOUT">SINE_INOUT (Gentle Wave)</option>
+</select>
+<div style="margin-top: 1rem;">
+<button id="btn-play-tween" class="md-button md-button--primary" style="width: 100%;">Play Animation</button>
+</div>
+<div style="margin-top: 1rem; font-size: 0.8rem;">
+<strong>Generated Java Code:</strong>
+<pre style="margin-top: 0.25rem; padding: 0.5rem; border-radius: 4px; background: var(--md-code-bg-color); overflow-x: auto;"><code id="tween-code-preview">Game.tweens().begin(entity, TweenType.LOCATION_X, 1000)
     .target(400)
     .ease(TweenFunction.QUAD_OUT)
     .begin();</code></pre>
-    </div>
-  </div>
-  <div style="flex: 1; min-width: 280px; text-align: center;">
-    <canvas id="tween-canvas" width="320" height="220" style="border: 1px solid var(--md-default-fg-color--lighter); border-radius: 6px; background: var(--md-code-bg-color); max-width: 100%; height: auto;"></canvas>
-    <div style="font-size: 0.75rem; color: var(--md-default-fg-color--lighter); margin-top: 0.25rem;">Curve Graph & Position Preview</div>
-  </div>
+</div>
+</div>
+<div style="flex: 1; min-width: 280px; text-align: center;">
+<canvas id="tween-canvas" width="320" height="220" style="border: 1px solid var(--md-default-fg-color--lighter); border-radius: 6px; background: var(--md-code-bg-color); max-width: 100%; height: auto;"></canvas>
+<div style="font-size: 0.75rem; color: var(--md-default-fg-color--lighter); margin-top: 0.25rem;">Curve Graph & Position Preview</div>
+</div>
+</div>
 </div>
 
 </div>

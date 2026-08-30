@@ -38,37 +38,37 @@ flowchart LR
 
 Experiment with base resolutions, integer pixel zoom multipliers, and screen shake trauma:
 
-<div class="interactive-card" markdown="1">
-
+<div class="interactive-card">
 <div style="display: flex; gap: 1.5rem; flex-wrap: wrap; align-items: flex-start;">
-  <div style="flex: 1; min-width: 260px;">
-    <div style="margin-bottom: 0.75rem;">
-      <label style="font-weight: 600; font-size: 0.85rem; display: block;">Base Virtual Resolution:</label>
-      <select id="cam-res-select" style="width: 100%; padding: 0.4rem; border-radius: 4px; background: var(--md-code-bg-color); color: var(--md-default-fg-color); border: 1px solid var(--md-default-fg-color--lighter);">
-        <option value="320x180">320 × 180 (Retro 16:9 16px Pixel Art)</option>
-        <option value="480x270" selected>480 × 270 (Standard 2D Native)</option>
-        <option value="640x360">640 × 360 (High-Density 2D)</option>
-      </select>
-    </div>
-    <div style="margin-bottom: 0.75rem;">
-      <label style="font-weight: 600; font-size: 0.85rem; display: flex; justify-content: space-between;">
-        <span>Zoom Scale (<span id="lbl-zoom">2.0x</span>):</span>
-      </label>
-      <input id="rng-zoom" type="range" min="1.0" max="4.0" step="0.5" value="2.0" style="width: 100%;">
-    </div>
-    <div style="margin-bottom: 0.75rem;">
-      <button id="btn-shake" class="md-button" style="width: 100%; font-size: 0.8rem;">Trigger Screen Shake</button>
-    </div>
-    <div style="font-size: 0.8rem;">
-      <strong>Java Configuration:</strong>
-      <pre style="margin-top: 0.25rem; padding: 0.5rem; border-radius: 4px; background: var(--md-code-bg-color); font-size: 0.75rem;"><code id="cam-code-preview">Game.world().camera().setZoom(2.0f, 0);
+<div style="flex: 1; min-width: 260px;">
+<div style="margin-bottom: 0.75rem;">
+<label style="font-weight: 600; font-size: 0.85rem; display: block;">Base Virtual Resolution:</label>
+<select id="cam-res-select" style="width: 100%; padding: 0.4rem; border-radius: 4px; background: var(--md-code-bg-color); color: var(--md-default-fg-color); border: 1px solid var(--md-default-fg-color--lighter);">
+<option value="320x180">320 × 180 (Retro 16:9 16px Pixel Art)</option>
+<option value="480x270" selected>480 × 270 (Standard 2D Native)</option>
+<option value="640x360">640 × 360 (High-Density 2D)</option>
+</select>
+</div>
+<div style="margin-bottom: 0.75rem;">
+<label style="font-weight: 600; font-size: 0.85rem; display: flex; justify-content: space-between;">
+<span>Zoom Scale (<span id="lbl-zoom">2.0x</span>):</span>
+</label>
+<input id="rng-zoom" type="range" min="1.0" max="4.0" step="0.5" value="2.0" style="width: 100%;">
+</div>
+<div style="margin-bottom: 0.75rem;">
+<button id="btn-shake" class="md-button" style="width: 100%; font-size: 0.8rem;">Trigger Screen Shake</button>
+</div>
+<div style="font-size: 0.8rem;">
+<strong>Java Configuration:</strong>
+<pre style="margin-top: 0.25rem; padding: 0.5rem; border-radius: 4px; background: var(--md-code-bg-color); font-size: 0.75rem;"><code id="cam-code-preview">Game.world().camera().setZoom(2.0f, 0);
 Game.world().camera().setClampToMap(true);</code></pre>
-    </div>
-  </div>
-  <div style="flex: 1; min-width: 280px; text-align: center;">
-    <canvas id="cam-canvas" width="320" height="200" style="border: 1px solid var(--md-default-fg-color--lighter); border-radius: 6px; background: #111; max-width: 100%; height: auto;"></canvas>
-    <div style="font-size: 0.75rem; color: var(--md-default-fg-color--lighter); margin-top: 0.25rem;">Viewport Render with Pixel Grid & Player Tracking</div>
-  </div>
+</div>
+</div>
+<div style="flex: 1; min-width: 280px; text-align: center;">
+<canvas id="cam-canvas" width="320" height="200" style="border: 1px solid var(--md-default-fg-color--lighter); border-radius: 6px; background: #111; max-width: 100%; height: auto;"></canvas>
+<div style="font-size: 0.75rem; color: var(--md-default-fg-color--lighter); margin-top: 0.25rem;">Viewport Render with Pixel Grid & Player Tracking</div>
+</div>
+</div>
 </div>
 
 </div>
