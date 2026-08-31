@@ -33,7 +33,7 @@ Welcome to the official technical documentation for **LITIENGINE**, the free and
 
     ---
 
-    Install Java {{ java_version }} LTS+, configure Gradle or Maven, and start your first LITIENGINE application in a few lines of Java.
+    Install Java {{ java_version }}+, configure Gradle or Maven, and start your first LITIENGINE application in a few lines of Java.
 
 - :material-code-json:{ .lg .middle } **[Core Game API](game-api/README.md)**
 
@@ -566,7 +566,7 @@ To make sure the JDK got installed correctly, open the `New Project` dialogue an
 
 When developing on macOS (Sonoma, Ventura, Sequoia with M1/M2/M3/M4 Apple Silicon):
 
-* **Java Baseline**: Use an **AArch64 (ARM64)** build of OpenJDK 21 or GraalVM (e.g. Eclipse Temurin or via SDKMAN: `sdk install java 21-tem`).
+* **Java Baseline**: Use an **AArch64 (ARM64)** build of OpenJDK {{ java_version }} or GraalVM (e.g. Eclipse Temurin or via SDKMAN: `sdk install java`).
 * **Foreign Memory Access (Input4j)**: LITIENGINE automatically manages Panama FFM bindings on macOS for low-latency gamepad and keyboard polling.
 * **utiLITI UI on Retina Displays**: If text appears tiny on high-DPI displays, Swing UI scaling is automatically adjusted by the JVM. You can explicitly set `-Dsun.java2d.uiScale=2.0` in your IDE run configuration if needed.
 
@@ -626,6 +626,7 @@ Select your preferred build tool below for a complete, production-ready configur
 
     application {
         mainClass.set("com.example.game.Program")
+        applicationDefaultJvmArgs = listOf("--enable-native-access=ALL-UNNAMED")
     }
 
     tasks.shadowJar {
@@ -665,6 +666,7 @@ Select your preferred build tool below for a complete, production-ready configur
 
     application {
         mainClass = 'com.example.game.Program'
+        applicationDefaultJvmArgs = ['--enable-native-access=ALL-UNNAMED']
     }
 
     tasks.shadowJar {
@@ -3465,8 +3467,8 @@ Input.gamepads().onPressed(Gamepad.Xbox.LEFT_STICK_X, x -> {
 - [Mouse Input](mouse-input.md) - Mouse handling
 - [Player Input Overview](README.md) - Input API overview
 
-!!! important "Panama FFM Foreign Memory"
-    LITIENGINE uses `Input4j` via Java Panama Foreign Function & Memory (FFM) APIs. Run your JVM on Java 21 or later to enable native controller polling without JNI overhead.
+!!! info "Foreign Function & Memory (FFM) Support"
+    LITIENGINE uses `Input4j` via Java Panama Foreign Function & Memory (FFM) APIs. Run your JVM on Java 25 or later with `--enable-native-access=ALL-UNNAMED` to enable native controller polling without JNI overhead.
 
 <!-- END CHAPTER: player-input/gamepad-input.md -->
 
@@ -3634,9 +3636,9 @@ public class Destructible extends CombatEntity {
 
 ### Events
 ```java
-combatEntity.onHit(event -> { /* took damage */ });
-combatEntity.onDeath(event -> { /* died */ });
-combatEntity.onResurrect(event -> { /* revived */ });
+combatEntity.onHit(hitEvent -> { /* took damage */ });
+combatEntity.onDeath((victim, hitEvent) -> { /* died */ });
+combatEntity.onResurrect(resurrected -> { /* revived */ });
 ```
 
 ## Creature
@@ -3932,7 +3934,8 @@ Triggers are area-based sensor entities that fire events when other entities ent
 ### Via Code
 
 ```java
-Trigger trigger = new Trigger(TriggerActivation.COLLISION, "exit_level");
+// Constructor: (activationType, name, message)
+Trigger trigger = new Trigger(TriggerActivation.COLLISION, "exit_trigger", "exit_level");
 trigger.setLocation(100, 100);
 trigger.setWidth(64);
 trigger.setHeight(64);
@@ -3951,8 +3954,8 @@ The `TriggerActivation` enum defines how the trigger detects activation when ins
 - **`INTERACT`**: Activated when game logic explicitly invokes `trigger.interact(entity)` (e.g. from an input listener or action key).
 
 ```java
-// Create an interaction trigger
-Trigger talkTrigger = new Trigger(TriggerActivation.INTERACT, "talk_elder");
+// Create an interaction trigger: (activationType, name, message)
+Trigger talkTrigger = new Trigger(TriggerActivation.INTERACT, "npc_trigger", "talk_elder");
 
 // Explicitly trigger interaction from player input logic
 talkTrigger.interact(player);
@@ -6106,10 +6109,8 @@ Game.world().onLoaded(env -> {
 ---
 title: Deploying LITIENGINE Games
 icon: lucide/package
-description: Learn how to build, package, and deploy LITIENGINE games for Windows,
-  Linux, and macOS using Gradle, Launch4j, and jpackage.
-keywords: [LITIENGINE, deployment, distribution, gradle, launch4j, jpackage, steam,
-  itch.io, Java 21]
+description: Learn how to build, package, and deploy LITIENGINE games for Windows, Linux, and macOS using Gradle, Launch4j, and jpackage.
+keywords: [LITIENGINE, deployment, distribution, gradle, launch4j, jpackage, steam, itch.io, Java 25]
 tags: [deployment, packaging, distribution, jar, jpackage, native, executable]
 ---
 # Deploying LITIENGINE Games
@@ -6131,7 +6132,7 @@ Before building a release distribution, ensure your project is properly configur
  * Update the metadata in your main entry point:
  ```java
 Game.info().setName("My Game");
-Game.info().setVersion("v1.0.0");
+Game.info().setVersion("1.0.0");
  ```
 
 2. **Disable Debug Flags**:
@@ -6143,7 +6144,7 @@ Game.info().setVersion("v1.0.0");
 
 ## 2. Build Automation with Gradle
 
-Modern LITIENGINE games target **Java 25 or later**. Below is a recommended `build.gradle` using the standard Gradle `application` plugin, `shadow` (uber-jar), and `launch4j` for generating native Windows `.exe` wrappers:
+Modern LITIENGINE games target **Java {{ java_version }} or later**. Below is a recommended `build.gradle` using the standard Gradle `application` plugin, `shadow` (uber-jar), and `launch4j` for generating native Windows `.exe` wrappers:
 
 ```groovy
 plugins {
@@ -6164,6 +6165,7 @@ java {
 
 application {
   mainClass = 'com.mygame.Program'
+  applicationDefaultJvmArgs = ['--enable-native-access=ALL-UNNAMED']
 }
 
 repositories {
@@ -6190,9 +6192,9 @@ launch4j {
   jarTask = tasks.shadowJar
   companyName = 'My Game Studio'
   headerType = 'gui'
-  jreMinVersion = '21'
+  jreMinVersion = '{{ java_version }}'
   bundledJrePath = 'jre'
-  jvmOptions = ['-Xms256m', '-Xmx1024m']
+  jvmOptions = ['-Xms256m', '-Xmx1024m', '--enable-native-access=ALL-UNNAMED']
 }
 
 // Package standalone Windows distribution zip
@@ -7594,8 +7596,8 @@ Access the application preferences by selecting **File -> Settings...** or press
 ---
 title: "Frequently Asked Questions"
 icon: "lucide/help-circle"
-description: "Comprehensive FAQ addressing LITIENGINE architecture, Java 21+ support, performance, game loops, persistence, multiplayer, and distribution."
-keywords: ["LITIENGINE FAQ", "questions", "java 2D game", "performance", "platforms", "savegame", "multiplayer", "scaling", "licensing", "steam"]
+description: "Comprehensive FAQ addressing LITIENGINE architecture, Java 25+ support, performance, game loops, persistence, multiplayer, and distribution."
+keywords: ["LITIENGINE FAQ", "questions", "java 2D game", "performance", "platforms", "savegame", "multiplayer", "scaling", "licensing", "steam", "Java 25"]
 tags: ["faq", "questions", "troubleshooting", "help", "basics", "architecture", "multiplayer"]
 ---
 
@@ -7617,12 +7619,15 @@ Quick answers to the most common questions about LITIENGINE architecture, perfor
     By relying on pure Java AWT 2D graphics without heavy native dynamic C/C++ libraries (like LWJGL or libGDX bindings), LITIENGINE games run identically across Windows, macOS, and Linux without native DLL hell, driver crashes, or platform-specific compilation hurdles.
 
 ??? question "How does the game loop work?"
-    LITIENGINE coordinates game updates and rendering through a unified loop (`Game.loop()`):
+    LITIENGINE coordinates game updates, input polling, and rendering through a unified loop (`Game.loop()`):
     
-    1. **Update Phase**: Executes registered `IUpdateable` components, physics simulation, spatial quadtree indexing, entity behaviors, and tweens.
-    2. **Render Phase**: Renders the active `Screen`, map layers, entities, and UI components on the AWT graphics pipeline.
+    1. **Invariable Update Phase**: Polls connected hardware devices (`Input.keyboard()`, `Input.mouse()`, `Input.gamepads()`) and updates internal runtime state.
+    2. **Update Phase (`super.process()`)**: Executes registered `IUpdateable` components, physics simulation, spatial quadtree indexing, entity behaviors, and tweens.
+    3. **Timed Actions**: Dispatches scheduled delayed callbacks registered via `Game.loop().perform(...)`.
+    4. **Camera & Rendering Phase**: Calculates camera target focus/trauma shake and renders the active `Screen`, map layers, entities, and UI components on the AWT Graphics2D pipeline.
+    5. **Metrics**: Records tick execution times and frame rates.
     
-    The target tick rate is configured via `config().client().getMaxFps()` (default: 60 ticks/second), while input is polled on an independent loop for responsive control.
+    The target tick rate is configured via `config().client().getMaxFps()` (default: 60 ticks/second).
 
 ??? question "Does LITIENGINE collect any telemetry or user data?"
     **No.** LITIENGINE and the utiLITI Editor contain zero telemetry, tracking, or analytics code.

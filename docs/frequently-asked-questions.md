@@ -1,8 +1,8 @@
 ---
 title: "Frequently Asked Questions"
 icon: "lucide/help-circle"
-description: "Comprehensive FAQ addressing LITIENGINE architecture, Java 21+ support, performance, game loops, persistence, multiplayer, and distribution."
-keywords: ["LITIENGINE FAQ", "questions", "java 2D game", "performance", "platforms", "savegame", "multiplayer", "scaling", "licensing", "steam"]
+description: "Comprehensive FAQ addressing LITIENGINE architecture, Java 25+ support, performance, game loops, persistence, multiplayer, and distribution."
+keywords: ["LITIENGINE FAQ", "questions", "java 2D game", "performance", "platforms", "savegame", "multiplayer", "scaling", "licensing", "steam", "Java 25"]
 tags: ["faq", "questions", "troubleshooting", "help", "basics", "architecture", "multiplayer"]
 ---
 
@@ -24,12 +24,15 @@ Quick answers to the most common questions about LITIENGINE architecture, perfor
     By relying on pure Java AWT 2D graphics without heavy native dynamic C/C++ libraries (like LWJGL or libGDX bindings), LITIENGINE games run identically across Windows, macOS, and Linux without native DLL hell, driver crashes, or platform-specific compilation hurdles.
 
 ??? question "How does the game loop work?"
-    LITIENGINE coordinates game updates and rendering through a unified loop (`Game.loop()`):
+    LITIENGINE coordinates game updates, input polling, and rendering through a unified loop (`Game.loop()`):
     
-    1. **Update Phase**: Executes registered `IUpdateable` components, physics simulation, spatial quadtree indexing, entity behaviors, and tweens.
-    2. **Render Phase**: Renders the active `Screen`, map layers, entities, and UI components on the AWT graphics pipeline.
+    1. **Invariable Update Phase**: Polls connected hardware devices (`Input.keyboard()`, `Input.mouse()`, `Input.gamepads()`) and updates internal runtime state.
+    2. **Update Phase (`super.process()`)**: Executes registered `IUpdateable` components, physics simulation, spatial quadtree indexing, entity behaviors, and tweens.
+    3. **Timed Actions**: Dispatches scheduled delayed callbacks registered via `Game.loop().perform(...)`.
+    4. **Camera & Rendering Phase**: Calculates camera target focus/trauma shake and renders the active `Screen`, map layers, entities, and UI components on the AWT Graphics2D pipeline.
+    5. **Metrics**: Records tick execution times and frame rates.
     
-    The target tick rate is configured via `config().client().getMaxFps()` (default: 60 ticks/second), while input is polled on an independent loop for responsive control.
+    The target tick rate is configured via `config().client().getMaxFps()` (default: 60 ticks/second).
 
 ??? question "Does LITIENGINE collect any telemetry or user data?"
     **No.** LITIENGINE and the utiLITI Editor contain zero telemetry, tracking, or analytics code.

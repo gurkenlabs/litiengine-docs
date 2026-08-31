@@ -108,7 +108,7 @@ plugins = ["macros"]
 
 [project.extra]
 version = "0.13.0"
-snapshot_version = "0.13.0-SNAPSHOT"
+snapshot_version = "0.14.0-SNAPSHOT"
 java_version = "25"
 social = [{ icon = "simple/opencollective", link = "https://opencollective.com/litiengine", name = "Sponsor on Open Collective" },
  { icon = "simple/github", link = "https://github.com/gurkenlabs/litiengine", name = "GitHub" },

@@ -18,7 +18,7 @@ graph TD
 
 ## Project Vision & Java Support Policy
 * **Pure Java Portability**: Keep the engine lightweight, portable, and straightforward to run on any desktop operating system without managing cumbersome C/C++ native dynamic libraries.
-* **Java LTS Baseline**: Development is generally oriented around **Java Long-Term Support (LTS) releases** (such as Java 21 LTS), while proactively adopting groundbreaking JDK features when they provide major advantages (such as the Foreign Function & Memory / Panama API utilized by **[Input4j](https://github.com/gurkenlabs/input4j)** for gamepad input).
+* **Modern Java Baseline**: Development targets **Java {{ java_version }}+**, proactively adopting groundbreaking JDK features when they provide major advantages (such as the Foreign Function & Memory / Panama API utilized by **[Input4j](https://github.com/gurkenlabs/input4j)** for gamepad input).
 * **Integrated Creative Workflow**: Provide a seamless development loop between code, assets, and level design through the **utiLITI Editor**.
 
 ---

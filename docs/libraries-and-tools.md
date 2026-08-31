@@ -18,7 +18,7 @@ LITIENGINE intentionally avoids heavy native dynamic bindings (like C/C++ OpenGL
 
 | Library | Version / Source | Purpose |
 |:---|:---|:---|
-| **[Input4j](https://github.com/gurkenlabs/input4j)** | Pure Java 21+ | Gamepad, joystick, and controller input integration utilizing Java Panama Foreign Function & Memory (FFM) APIs with zero external DLL/so dependencies. |
+| **[Input4j](https://github.com/gurkenlabs/input4j)** | Pure Java 25+ | Gamepad, joystick, and controller input integration utilizing Java Panama Foreign Function & Memory (FFM) APIs with zero external DLL/so dependencies. |
 | **[VorbisSPI](https://central.sonatype.com/artifact/com.googlecode.soundlibs/vorbisspi)** | 1.0.3-1 | Java Sound Service Provider Interface for decoding and streaming `.ogg` Vorbis audio files. |
 
 ---

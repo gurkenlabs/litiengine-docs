@@ -1,10 +1,8 @@
 ---
 title: Deploying LITIENGINE Games
 icon: lucide/package
-description: Learn how to build, package, and deploy LITIENGINE games for Windows,
-  Linux, and macOS using Gradle, Launch4j, and jpackage.
-keywords: [LITIENGINE, deployment, distribution, gradle, launch4j, jpackage, steam,
-  itch.io, Java 21]
+description: Learn how to build, package, and deploy LITIENGINE games for Windows, Linux, and macOS using Gradle, Launch4j, and jpackage.
+keywords: [LITIENGINE, deployment, distribution, gradle, launch4j, jpackage, steam, itch.io, Java 25]
 tags: [deployment, packaging, distribution, jar, jpackage, native, executable]
 ---
 # Deploying LITIENGINE Games
@@ -26,7 +24,7 @@ Before building a release distribution, ensure your project is properly configur
  * Update the metadata in your main entry point:
  ```java
 Game.info().setName("My Game");
-Game.info().setVersion("v1.0.0");
+Game.info().setVersion("1.0.0");
  ```
 
 2. **Disable Debug Flags**:
@@ -38,7 +36,7 @@ Game.info().setVersion("v1.0.0");
 
 ## 2. Build Automation with Gradle
 
-Modern LITIENGINE games target **Java 25 or later**. Below is a recommended `build.gradle` using the standard Gradle `application` plugin, `shadow` (uber-jar), and `launch4j` for generating native Windows `.exe` wrappers:
+Modern LITIENGINE games target **Java {{ java_version }} or later**. Below is a recommended `build.gradle` using the standard Gradle `application` plugin, `shadow` (uber-jar), and `launch4j` for generating native Windows `.exe` wrappers:
 
 ```groovy
 plugins {
@@ -59,6 +57,7 @@ java {
 
 application {
   mainClass = 'com.mygame.Program'
+  applicationDefaultJvmArgs = ['--enable-native-access=ALL-UNNAMED']
 }
 
 repositories {
@@ -85,9 +84,9 @@ launch4j {
   jarTask = tasks.shadowJar
   companyName = 'My Game Studio'
   headerType = 'gui'
-  jreMinVersion = '21'
+  jreMinVersion = '{{ java_version }}'
   bundledJrePath = 'jre'
-  jvmOptions = ['-Xms256m', '-Xmx1024m']
+  jvmOptions = ['-Xms256m', '-Xmx1024m', '--enable-native-access=ALL-UNNAMED']
 }
 
 // Package standalone Windows distribution zip

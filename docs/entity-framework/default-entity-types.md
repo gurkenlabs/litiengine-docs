@@ -106,9 +106,9 @@ public class Destructible extends CombatEntity {
 
 ### Events
 ```java
-combatEntity.onHit(event -> { /* took damage */ });
-combatEntity.onDeath(event -> { /* died */ });
-combatEntity.onResurrect(event -> { /* revived */ });
+combatEntity.onHit(hitEvent -> { /* took damage */ });
+combatEntity.onDeath((victim, hitEvent) -> { /* died */ });
+combatEntity.onResurrect(resurrected -> { /* revived */ });
 ```
 
 ## Creature

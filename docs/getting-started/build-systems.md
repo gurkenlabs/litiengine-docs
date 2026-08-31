@@ -47,6 +47,7 @@ Select your preferred build tool below for a complete, production-ready configur
 
     application {
         mainClass.set("com.example.game.Program")
+        applicationDefaultJvmArgs = listOf("--enable-native-access=ALL-UNNAMED")
     }
 
     tasks.shadowJar {
@@ -86,6 +87,7 @@ Select your preferred build tool below for a complete, production-ready configur
 
     application {
         mainClass = 'com.example.game.Program'
+        applicationDefaultJvmArgs = ['--enable-native-access=ALL-UNNAMED']
     }
 
     tasks.shadowJar {

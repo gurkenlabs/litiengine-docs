@@ -23,7 +23,8 @@ Triggers are area-based sensor entities that fire events when other entities ent
 ### Via Code
 
 ```java
-Trigger trigger = new Trigger(TriggerActivation.COLLISION, "exit_level");
+// Constructor: (activationType, name, message)
+Trigger trigger = new Trigger(TriggerActivation.COLLISION, "exit_trigger", "exit_level");
 trigger.setLocation(100, 100);
 trigger.setWidth(64);
 trigger.setHeight(64);
@@ -42,8 +43,8 @@ The `TriggerActivation` enum defines how the trigger detects activation when ins
 - **`INTERACT`**: Activated when game logic explicitly invokes `trigger.interact(entity)` (e.g. from an input listener or action key).
 
 ```java
-// Create an interaction trigger
-Trigger talkTrigger = new Trigger(TriggerActivation.INTERACT, "talk_elder");
+// Create an interaction trigger: (activationType, name, message)
+Trigger talkTrigger = new Trigger(TriggerActivation.INTERACT, "npc_trigger", "talk_elder");
 
 // Explicitly trigger interaction from player input logic
 talkTrigger.interact(player);

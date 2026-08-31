@@ -20,7 +20,7 @@ Welcome to the official technical documentation for **LITIENGINE**, the free and
 
     ---
 
-    Install Java {{ java_version }} LTS+, configure Gradle or Maven, and start your first LITIENGINE application in a few lines of Java.
+    Install Java {{ java_version }}+, configure Gradle or Maven, and start your first LITIENGINE application in a few lines of Java.
 
 - :material-code-json:{ .lg .middle } **[Core Game API](game-api/README.md)**
 

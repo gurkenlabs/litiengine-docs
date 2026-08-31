@@ -45,7 +45,7 @@ package com.example.game.recipes;
 
 import de.gurkenlabs.litiengine.Game;
 import de.gurkenlabs.litiengine.entities.ICombatEntity;
-import de.gurkenlabs.litiengine.graphics.emitters.xml.TextParticle;
+import de.gurkenlabs.litiengine.graphics.emitters.particles.TextParticle;
 import java.awt.Color;
 import java.awt.geom.Point2D;
 
@@ -56,13 +56,11 @@ public class DamageTextRecipe {
       Point2D location = entity.getCenter();
 
       // Spawn a floating text particle above the entity
-      TextParticle textParticle = new TextParticle(
-          "-" + (int) damageTaken,
-          event.wasKilled() ? Color.RED : Color.YELLOW,
-          (float) location.getX(),
-          (float) location.getY() - 10,
-          800 // lifetime in ms
-      );
+      TextParticle textParticle = new TextParticle("-" + (int) damageTaken);
+      textParticle.setColor(event.wasKilled() ? Color.RED : Color.YELLOW);
+      textParticle.setX((float) location.getX());
+      textParticle.setY((float) location.getY() - 10);
+      textParticle.setTimeToLive(800); // lifetime in ms
       textParticle.setVelocityY(-0.8f); // Float upwards
       Game.world().environment().add(textParticle);
     });
@@ -125,7 +123,7 @@ import de.gurkenlabs.litiengine.resources.Resources;
     cooldown = 1500, // 1.5 second cooldown
     duration = 300,
     range = 180,
-    castType = CastType.ONCONFIRMATION
+    castType = CastType.ONCONFIRM
 )
 public class FireballAbilityRecipe extends Ability {
   public FireballAbilityRecipe(Creature executor) {
@@ -143,7 +141,7 @@ public class FireballAbilityRecipe extends Ability {
 
 ## 5. Simple Distance-Based Enemy Aggro AI
 
-An enemy behavior controller that moves toward the player when they enter detection range:
+An enemy behavior controller that steers toward the player when they enter detection range:
 
 ```java title="EnemyAggroRecipe.java"
 package com.example.game.recipes;
@@ -169,11 +167,11 @@ public class EnemyAggroRecipe extends EntityController<Creature> {
 
     double distance = getEntity().getCenter().distance(player.getCenter());
     if (distance <= AGGRO_RADIUS) {
-      // Move towards the player
-      getEntity().movement().move(player.getCenter(), (float) getEntity().getVelocity().get());
+      // Steer towards the player
+      getEntity().movement().setDestination(player.getCenter());
     } else {
       // Stop moving when player exits detection radius
-      getEntity().movement().setVelocity(0);
+      getEntity().movement().setDestination(null);
     }
   }
 }
