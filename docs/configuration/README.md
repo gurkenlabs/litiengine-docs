@@ -46,8 +46,8 @@ Controls master, music, and sound effect volume buses:
 
 | Property Key | Type | Default | Description |
 |:---|:---|:---|:---|
-| `sfx_soundVolume` | `float` | `0.5f` | Master volume multiplier for sound effects ($0.0$ to $1.0$). |
-| `sfx_musicVolume` | `float` | `0.5f` | Master volume multiplier for background music ($0.0$ to $1.0$). |
+| `sfx_soundVolume` | `float` | `0.5f` | Master volume multiplier for sound effects (`0.0` to `1.0`). |
+| `sfx_musicVolume` | `float` | `0.5f` | Master volume multiplier for background music (`0.0` to `1.0`). |
 
 ---
 
