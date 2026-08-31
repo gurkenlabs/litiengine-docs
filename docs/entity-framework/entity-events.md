@@ -123,8 +123,8 @@ combatEntity.onResurrect(resurrected -> {
 ICollisionEntity collisionEntity = ...;
 
 collisionEntity.onCollision(event -> {
-  ICollisionEntity other = event.getInvolvedEntity();
-  if (other != null) {
+  for (ICollisionEntity other : event.getInvolvedEntities()) {
+    System.out.println("Collided with entity: " + other.getName());
     handleCollisionWith(other);
   }
 });

@@ -164,14 +164,20 @@ package com.example.game.recipes;
 import de.gurkenlabs.litiengine.Game;
 import de.gurkenlabs.litiengine.entities.Creature;
 import de.gurkenlabs.litiengine.entities.IEntity;
-import de.gurkenlabs.litiengine.entities.behavior.EntityController;
+import de.gurkenlabs.litiengine.entities.IEntityController;
 import de.gurkenlabs.litiengine.util.geom.GeometricUtilities;
 
-public class EnemyAggroRecipe extends EntityController<Creature> {
+public class EnemyAggroRecipe implements IEntityController<Creature> {
   private static final double AGGRO_RADIUS = 150.0;
+  private final Creature creature;
 
-  public EnemyAggroRecipe(Creature enemy) {
-    super(enemy);
+  public EnemyAggroRecipe(Creature creature) {
+    this.creature = creature;
+  }
+
+  @Override
+  public Creature getEntity() {
+    return this.creature;
   }
 
   @Override
@@ -188,6 +194,12 @@ public class EnemyAggroRecipe extends EntityController<Creature> {
       Game.physics().move(getEntity(), angle, getEntity().getTickVelocity());
     }
   }
+
+  @Override
+  public void detach() {}
+
+  @Override
+  public void attach() {}
 }
 ```
 
@@ -243,6 +255,12 @@ public class DeathExplosionRecipe {
           RectangleParticle particle = new RectangleParticle(4, 4);
           particle.setColor(Color.ORANGE);
           particle.setTimeToLive(500);
+
+          // Assign randomized radial velocity for a burst explosion effect
+          double angle = Game.random().nextDouble() * 360.0;
+          float speed = (float) (0.5f + Game.random().nextDouble() * 1.5f);
+          particle.setVelocityX((float) (Math.cos(Math.toRadians(angle)) * speed));
+          particle.setVelocityY((float) (Math.sin(Math.toRadians(angle)) * speed));
           return particle;
         }
       };

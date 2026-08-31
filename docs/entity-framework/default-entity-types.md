@@ -21,7 +21,7 @@ Choose the optimal entity type for your game objects:
 | **`Emitter`** | Particle sources (fire, weather, explosions) | None | `@EntityInfo` | `EMITTER` | `onFinished`, `data().setEmitterDuration(...)` |
 | **`LightSource`** | Dynamic/static ambient lights & torches | None | `@EntityInfo` | `LIGHTSOURCE` | `activate()`, `deactivate()`, `setColor()` |
 | **`Spawnpoint`** | Level entry points and entity spawn markers | None | `@EntityInfo` | `SPAWNPOINT` | `onSpawned`, `spawn(IEntity)` |
-| **`CollisionEntity`** | Invisible collision barrier / impassable wall | Static Solid | `@CollisionInfo` | `COLLISIONBOX` | `onCollision`, `setCollision(boolean)` |
+| **`CollisionEntity`** | Invisible collision barrier / obstacle | Configurable (defaults to DYNAMIC) | `@CollisionInfo` | `COLLISIONBOX` | `onCollision`, `setCollision(boolean)` |
 
 ---
 
@@ -66,7 +66,7 @@ Extends `Entity` with collision detection capabilities.
 
 ```java
 @EntityInfo(width = 32, height = 32)
-@CollisionInfo(collisionBoxWidth = 28, collisionBoxHeight = 28, collision = true)
+@CollisionInfo(collisionBoxWidth = 28, collisionBoxHeight = 28, collision = true, collisionType = Collision.STATIC)
 public class Wall extends CollisionEntity {
   public Wall() {
     super("wall");
@@ -74,15 +74,15 @@ public class Wall extends CollisionEntity {
 }
 ```
 
-### Collision Types
-- **STATIC**: Collides with static geometry
-- **DYNAMIC**: Collides with moving objects
-- **ANY**: Collides with everything
-- **NONE**: No collision
+### Collision Types (`Collision`)
+- **`DYNAMIC`** (default): Collides with static geometry and other dynamic entities (used for actors, creatures, moving obstacles).
+- **`STATIC`**: Immovable geometry that dynamic entities collide against (used for walls, map boundaries).
+- **`NONE`**: Disables collision resolution for this entity.
+- **`ANY`**: Special filter flag used exclusively for `PhysicsEngine` spatial queries and raycasts (cannot be assigned directly to an entity's `collisionType`).
 
 ### Key Properties
 - Collision box dimensions and offset
-- Collision type
+- Collision type (`DYNAMIC`, `STATIC`, `NONE`)
 
 ## CombatEntity
 
@@ -206,7 +206,8 @@ emitter.activate();
 Entity spawn locations.
 
 ```java
-Spawnpoint spawn = new Spawnpoint(Direction.RIGHT, "player_start");
+Spawnpoint spawn = new Spawnpoint(Direction.RIGHT);
+spawn.setName("player_start");
 spawn.setLocation(100, 100);
 spawn.spawn(new Player());
 ```
