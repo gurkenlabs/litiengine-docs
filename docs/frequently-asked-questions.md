@@ -57,13 +57,8 @@ Quick answers to the most common questions about LITIENGINE architecture, perfor
     Game.window().getRenderComponent().setFullscreen(!Game.window().getRenderComponent().isFullscreen());
     ```
 
-??? question "Why is the origin (0, 0) at the top-left and Y pointing downward?"
-    LITIENGINE is built on **Java AWT / Java 2D** graphics and standard Tiled `.tmx` maps, which place `(0, 0)` at the **top-left corner**:
-    
-    * **`+X`**: Increases to the **right** (width).
-    * **`+Y`**: Increases **downward** (height).
-    
-    All engine subsystems (`Environment`, `IEntity`, `Camera`, `PhysicsEngine`) share this exact coordinate convention. See **[Coordinate Systems & Spatial Spaces](/game-api/coordinate-systems/)**.
+??? question "How does LITIENGINE's coordinate system work?"
+    LITIENGINE uses a **top-left origin `(0, 0)`** convention inherited from Java AWT/2D. `+X` increases to the right, and `+Y` increases downward. The engine differentiates between **Tile Grid Coordinates** (discrete integer indices), **World/Map Coordinates** (continuous pixel coordinates), and **Viewport Coordinates** (screen pixels adjusted by camera zoom and focus). See our guide on **[Coordinate Systems & Spatial Spaces](game-api/coordinate-systems.md)**.
 
 ??? question "How do I convert between Screen, World, and Tile coordinates?"
     Use the `Camera` and map dimensions:
