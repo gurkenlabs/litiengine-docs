@@ -53,7 +53,7 @@ rock.setCollisionType(Collision.STATIC);
 | `NONE` | Zero Physics Check | Physics disabled (ghost mode, intangible sensors). |
 
 !!! tip "Entity Position vs. Collision Anchors"
-    Remember that `entity.getLocation()` returns the **top-left anchor** of the entity's bounding box, whereas `entity.getCenter()` returns the centroid and `entity.getCollisionBox()` returns the physical collider rectangle. When performing distance checks, line-of-sight raycasts, or tile grid checks, use `entity.getCenter()` or `entity.getCollisionBox()` to avoid off-by-half-tile discrepancies. See **[Coordinate Systems & Spatial Spaces](/game-api/coordinate-systems/)**.
+    Remember that `entity.getLocation()` returns the **top-left anchor** of the entity's bounding box, whereas `entity.getCenter()` returns the centroid and `entity.getCollisionBox()` returns the physical collider rectangle. When performing distance checks, line-of-sight raycasts, or tile grid checks, use `entity.getCenter()` or `entity.getCollisionBox()` to avoid off-by-half-tile discrepancies. See **[Coordinate Systems & Spatial Spaces](coordinate-systems.md)**.
 
 ---
 
@@ -178,13 +178,13 @@ if (barrel != null) {
 
 <div class="grid cards" markdown>
 
-- :material-walk:{ .lg .middle } **[Movement Controllers](/control-entities/movement-controller/)**
+- :material-walk:{ .lg .middle } **[Movement Controllers](../control-entities/movement-controller.md)**
 
     ---
 
     Steering heading, acceleration rates, and collision sliding.
 
-- :material-tag-outline:{ .lg .middle } **[Entity Annotations & Matrix](/entity-framework/annotations/)**
+- :material-tag-outline:{ .lg .middle } **[Entity Annotations & Matrix](../entity-framework/annotations.md)**
 
     ---
 

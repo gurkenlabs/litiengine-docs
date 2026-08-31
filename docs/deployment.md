@@ -1,10 +1,8 @@
 ---
 title: Deploying LITIENGINE Games
 icon: lucide/package
-description: Learn how to build, package, and deploy LITIENGINE games for Windows,
-  Linux, and macOS using Gradle, Launch4j, and jpackage.
-keywords: [LITIENGINE, deployment, distribution, gradle, launch4j, jpackage, steam,
-  itch.io, Java 21]
+description: Learn how to build, package, and deploy LITIENGINE games for Windows, Linux, and macOS using Gradle, Launch4j, and jpackage.
+keywords: [LITIENGINE, deployment, distribution, gradle, launch4j, jpackage, steam, itch.io, Java 25]
 tags: [deployment, packaging, distribution, jar, jpackage, native, executable]
 ---
 # Deploying LITIENGINE Games
@@ -26,7 +24,7 @@ Before building a release distribution, ensure your project is properly configur
  * Update the metadata in your main entry point:
  ```java
 Game.info().setName("My Game");
-Game.info().setVersion("v1.0.0");
+Game.info().setVersion("1.0.0");
  ```
 
 2. **Disable Debug Flags**:
@@ -38,13 +36,13 @@ Game.info().setVersion("v1.0.0");
 
 ## 2. Build Automation with Gradle
 
-Modern LITIENGINE games target **Java 21 or later**. Below is a recommended `build.gradle` using the standard Gradle `application` plugin, `shadow` (uber-jar), and `launch4j` for generating native Windows `.exe` wrappers:
+Modern LITIENGINE games target **Java {{ java_version }} or later**. Below is a recommended `build.gradle` using the standard Gradle `application` plugin, `shadow` (uber-jar), and `launch4j` for generating native Windows `.exe` wrappers:
 
 ```groovy
 plugins {
   id 'java'
   id 'application'
-  id 'com.github.johnrengelman.shadow' version '8.1.1'
+  id 'com.gradleup.shadow' version '8.3.6'
   id 'edu.sc.seis.launch4j' version '3.0.5'
 }
 
@@ -53,12 +51,13 @@ version = '1.0.0'
 
 java {
   toolchain {
-    languageVersion = JavaLanguageVersion.of(21)
+    languageVersion = JavaLanguageVersion.of({{ java_version }})
   }
 }
 
 application {
   mainClass = 'com.mygame.Program'
+  applicationDefaultJvmArgs = ['--enable-native-access=ALL-UNNAMED']
 }
 
 repositories {
@@ -66,7 +65,7 @@ repositories {
 }
 
 dependencies {
-  implementation 'de.gurkenlabs:litiengine:0.11.1'
+  implementation 'de.gurkenlabs:litiengine:{{ version }}'
 }
 
 // Configure fat / shadow jar
@@ -85,9 +84,9 @@ launch4j {
   jarTask = tasks.shadowJar
   companyName = 'My Game Studio'
   headerType = 'gui'
-  jreMinVersion = '21'
+  jreMinVersion = '{{ java_version }}'
   bundledJrePath = 'jre'
-  jvmOptions = ['-Xms256m', '-Xmx1024m']
+  jvmOptions = ['-Xms256m', '-Xmx1024m', '--enable-native-access=ALL-UNNAMED']
 }
 
 // Package standalone Windows distribution zip
@@ -180,5 +179,5 @@ Before releasing your build:
     - **Automate with CI/CD**: Set up a GitHub Actions workflow to build and package your cross-platform zip files automatically whenever a new version tag is pushed.
 
 ## See Also
-- **[Savegames Guide](/savegames/)** - Persisting player data across game sessions
-- **[Configuration](/configuration/)** - Managing runtime game configuration properties
+- **[Savegames Guide](savegames.md)** - Persisting player data across game sessions
+- **[Configuration](configuration/README.md)** - Managing runtime game configuration properties

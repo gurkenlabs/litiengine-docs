@@ -259,13 +259,13 @@ Game.tweens().begin(player, TweenType.LOCATION_XY, 1000)
 
 <div class="grid cards" markdown>
 
-- :material-camera-outline:{ .lg .middle } **[Camera & Viewport](/game-api/camera/)**
+- :material-camera-outline:{ .lg .middle } **[Camera & Viewport](camera.md)**
 
     ---
 
     Animate camera zoom and panning transitions with tweens.
 
-- :material-cube-outline:{ .lg .middle } **[Entity Framework](/entity-framework/)**
+- :material-cube-outline:{ .lg .middle } **[Entity Framework](../entity-framework/README.md)**
 
     ---
 

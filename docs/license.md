@@ -83,7 +83,7 @@ LITIENGINE incorporates or interoperates with a small set of open-source librari
 | **[Input4j](https://github.com/gurkenlabs/input4j)** | MIT License | Java Panama Foreign Function & Memory (FFM) Gamepad / DirectInput / XInput subsystem |
 | **[VorbisSPI](https://central.sonatype.com/artifact/com.googlecode.soundlibs/vorbisspi)** | LGPL v3 / BSD | OGG Vorbis audio decoding service provider |
 
-For a complete breakdown of all runtime libraries and developer tools, see our **[Libraries and Tools](/libraries-and-tools/)** documentation.
+For a complete breakdown of all runtime libraries and developer tools, see our **[Libraries and Tools](libraries-and-tools.md)** documentation.
 
 ---
 

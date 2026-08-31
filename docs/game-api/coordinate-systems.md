@@ -211,7 +211,7 @@ boolean canSeePlayer = (hit == null);
 
 ## Related Documentation
 
-* [Camera & Viewport](/game-api/camera/)
-* [2D Physics & Spatial Quadtrees](/game-api/physics-engine/)
-* [Game World & Environments](/game-api/game-world/)
-* [Player Mouse Input](/player-input/mouse-input/)
+* [Camera & Viewport](camera.md)
+* [2D Physics & Spatial Quadtrees](physics-engine.md)
+* [Game World & Environments](game-world.md)
+* [Player Mouse Input](../player-input/mouse-input.md)

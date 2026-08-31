@@ -16,25 +16,25 @@ LITIENGINE provides a unified, responsive input subsystem accessible globally vi
 
 <div class="grid cards" markdown>
 
-- :material-keyboard-outline:{ .lg .middle } **[Keyboard Input](/player-input/keyboard-input/)**
+- :material-keyboard-outline:{ .lg .middle } **[Keyboard Input](keyboard-input.md)**
 
     ---
 
     Key event listeners, keybinding registration, typed characters, and pressed state polling.
 
-- :material-mouse-outline:{ .lg .middle } **[Mouse Input](/player-input/mouse-input/)**
+- :material-mouse-outline:{ .lg .middle } **[Mouse Input](mouse-input.md)**
 
     ---
 
     Mouse coordinates, screen-to-world coordinate transformations, drag events, and button clicks.
 
-- :material-controller:{ .lg .middle } **[Gamepad Input](/player-input/gamepad-input/)**
+- :material-controller:{ .lg .middle } **[Gamepad Input](gamepad-input.md)**
 
     ---
 
     DirectInput, XInput, and multi-controller polling via Input4j and Java Panama Foreign Function & Memory APIs.
 
-- :material-tune:{ .lg .middle } **[Movement Controllers](/control-entities/movement-controller/)**
+- :material-tune:{ .lg .middle } **[Movement Controllers](../control-entities/movement-controller.md)**
 
     ---
 

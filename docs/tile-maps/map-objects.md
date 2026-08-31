@@ -132,6 +132,6 @@ Game.world().onLoaded(env -> {
 
 ## See Also
 
-- [Tile Maps Overview](/tile-maps/) - Introduction to TMX maps
-- [Custom Properties](/tile-maps/custom-properties/) - Entity property configuration
-- [Entity Framework](/entity-framework/) - Entity system documentation
+- [Tile Maps Overview](README.md) - Introduction to TMX maps
+- [Custom Properties](custom-properties.md) - Entity property configuration
+- [Entity Framework](../entity-framework/README.md) - Entity system documentation

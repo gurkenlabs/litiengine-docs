@@ -8,19 +8,14 @@ tags: [tutorial, arkanoid, breakout, paddle, ball, bricks]
 ---
 # Arkanoid Brick Breaker Tutorial
 
-> This LITIENGINE tutorial was written by [@YannikSchoeberl](https://github.com/YannikSchoeberl) and originally published on the LITIENGINE community forum.
+!!! warning "Legacy Community Tutorial"
+    This community tutorial was originally written for an earlier LITIENGINE release. While the architectural breakdown of paddle movement, ball bouncing vectors, and screen states is educational, specific APIs may differ from modern releases. For the active starter guide, see **[Top-Down Shooter](topdown-shooter.md)**.
 
-## Tutorial Introduction
+> *Authored by community contributor [@YannikSchoeberl](https://github.com/YannikSchoeberl).*
 
-Hi there!
+---
 
-Three weeks ago, I started working with the LITIENGINE. I'm using the engine to program my own version of Arkanoid (a breakout game) as my student research project for university.
-
-In the beginning, it wasn't easy to figure out how to get things done with the LITIENGINE because at the moment, there is just few documentation. Nevertheless, the docs pages for the most basic things of the engine are there, you can find them here: https://litiengine.com/docs
-
-To understand the more specific parts of the engine and how to use them to achieve what I want to, I had a few looks into the game **"SERVUS BONUS"** which was made for LDJAM 44 with the LITIENGINE. You can find the source code of this game here: https://github.com/gurkenlabs/litiengine-ldjam44
-
-Back to my game:
+## Tutorial Overview
 
 Currently, the basics of Arkanoid are there, which means there are blocks to break, a ball to break those blocks, and a pad that can be moved by the player to prevent the ball from falling down. In the picture below, you can see my first level out of three total.
 

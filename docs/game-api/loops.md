@@ -1,144 +1,138 @@
 ---
 title: Game Loop
 icon: lucide/clock
-description: Learn about LITIENGINE's game loop - Game.loop() for fixed-rate game
-  logic updates, rendering, and the IUpdateable interface.
-keywords: [LITIENGINE, game loop, update, render, tick, IUpdateable, framerate, Java]
+description: Learn about LITIENGINE's GameLoop architecture, IUpdateable execution, tick rate configuration, and timed actions.
+keywords: [LITIENGINE, game loop, GameLoop, update, render, tick, IUpdateable, framerate, Java]
 tags: [gameloop, update-loop, fps, ticks, timing, callbacks]
 ---
+
 # Game Loop
 
-## Decoupled Update vs. Render Loop Architecture
-
-```mermaid
-sequenceDiagram
- autonumber
- participant Engine as GameLoop (60 Hz Fixed)
- participant Phys as PhysicsEngine & Entities
- participant Render as RenderEngine (Variable / VSync)
- participant Screen as GameScreen / HUD
-
- loop Every 16.6 ms (Fixed Tick)
- Engine->>Phys: update() (Entity controllers, AI, velocities)
- Phys->>Phys: resolveCollisions() (Spatial quadtree)
- end
-
- loop Every Frame (Render Tick)
- Render->>Screen: render(Graphics2D g) (Double-buffered canvas)
- Screen->>Render: draw layers (Background -> Ground -> Entities -> Overlay)
- end
-```
+The `GameLoop` is the heart of LITIENGINE. It coordinates logic updates, physics calculations, timed actions, and rendering in a deterministic sequence on each tick.
 
 ---
 
-LITIENGINE uses a decoupled loop architecture where deterministic game logic (UPS) and rendering (FPS) run in coordinated harmony:
+## Game Loop Architecture
+
+In LITIENGINE, the main `GameLoop` executes update logic and triggers the render pass sequentially within each tick iteration:
 
 ```mermaid
 flowchart TD
- subgraph InputLoop["Input Loop (Independent Thread)"]
- RawHW["Hardware Input (Keyboard/Mouse/Gamepad)"] --> InputState["Update Input State (Input.keyboard / Input.mouse / Input.gamepads)"]
- end
+    subgraph InputProcessing["Input Device Polling"]
+        HW["Hardware Devices"] --> InputState["Input.keyboard / Input.mouse / Input.gamepads"]
+    end
 
- subgraph MainGameLoop["Game.loop() (Fixed Tick Rate, e.g., 60 UPS)"]
- TickStart["Tick Start"] --> UpdateLoop["Execute Attached IUpdateable Instances"]
- UpdateLoop --> UpdateEnv["Update Active Environment (Physics, Entities, Emitters)"]
- UpdateEnv --> RenderPass["Render Active Screen (Screen.render)"]
- RenderPass --> RenderWorld["Render Environment (Map, Entities, Lighting, Particles)"]
- RenderWorld --> RenderGUI["Render GuiComponents & HUD"]
- end
+    subgraph TickExecution["GameLoop.process() (Tick Interval: 1000 / getTickRate())"]
+        Step1["1. updateInvariableEngineComponents() (Clock & runtime state)"] --> Step2["2. super.process() (Update IUpdateable components & active Environment)"]
+        Step2 --> Step3["3. executeTimedActions() (Evaluate perform callbacks)"]
+        Step3 --> Step4["4. updateCamera() (Focus target tracking & shake offsets)"]
+        Step4 --> Step5["5. render() (Render active Screen on Graphics2D canvas)"]
+        Step5 --> Step6["6. trackMetrics() (Compute FPS, UPS, and frame timing)"]
+    end
 ```
 
-- **Game Loop** (`Game.loop()`) - Handles game logic and triggers rendering at a fixed tick rate.
-- **Input Loop** - Processes player input independently for maximum responsiveness.
+### Execution Order in `GameLoop.process()`
 
-This design ensures consistent physics and gameplay regardless of monitor refresh rates or momentary rendering spikes.
+On every tick, `GameLoop` runs the following stages sequentially:
 
-## The Main Game Loop - `Game.loop()`
+1. **Invariable Engine Updates**: Updates internal runtime components and state.
+2. **`IUpdateable` Execution & Environment**: Iterates over registered `IUpdateable` components, advancing entity behaviors, physics simulation, and particle systems.
+3. **Timed Action Dispatch**: Evaluates scheduled delay callbacks registered via `Game.loop().perform(...)`.
+4. **Camera Focus Update**: Recalculates camera target tracking, bounding box map clamping, and screen shake trauma offsets.
+5. **Screen & Component Render**: Renders the active `Screen` and environment layers via the AWT graphics pipeline to the window render canvas.
+6. **Metrics Tracking**: Records tick execution duration and calculates live FPS / UPS metrics.
 
-The `Game.loop()` method returns the main `IGameLoop` that executes all game logic and triggers rendering. It runs at a fixed tick rate (default: 60 ticks/second), ensuring physics, AI, and other time-dependent systems behave consistently.
+---
 
-!!! note
-    The game's loop also executes the rendering process. This internally renders the currently active screen which passes the `Graphics2D` object to all `GuiComponents` and the Environment for rendering.
+## Using `Game.loop()`
 
-### IUpdateable Interface
+The `Game.loop()` method provides global access to the active `IGameLoop`:
 
-To execute custom logic every tick, implement the `IUpdateable` interface and attach it to the loop:
+### The `IUpdateable` Interface
+
+To execute custom game logic every tick, implement `IUpdateable` and attach your object to the loop:
 
 ```java
-public class MyEntity extends Entity implements IUpdateable {
+public class MovingPlatform extends Entity implements IUpdateable {
+
+  public MovingPlatform() {
+    super("platform");
+    Game.loop().attach(this);
+  }
 
   @Override
   public void update() {
-    // This code runs every tick (default: 60 times per second)
+    // This method executes on every game loop tick
     setLocation(getX() + 1, getY());
   }
+
+  public void destroy() {
+    // Detach when no longer active
+    Game.loop().detach(this);
+  }
 }
-
-// Attach the entity to the game loop
-MyEntity entity = new MyEntity();
-Game.loop().attach(entity);
-
-// Later, detach when no longer needed
-Game.loop().detach(entity);
 ```
 
-### Loop Properties
+---
+
+## Tick Rate & Timing Configuration
+
+The tick interval is dynamically calculated based on the configured tick rate:
+
+$$\text{Tick Interval (ms)} = \frac{1000}{\text{getTickRate()} \times \text{scale}}$$
 
 ```java
 // Get the time passed since the last tick (in milliseconds)
 long deltaTime = Game.loop().getDeltaTime();
 
-// Get total ticks since game started
+// Get total tick count since game startup
 long totalTicks = Game.loop().getTicks();
 
-// Get the current tick rate (ticks per second)
+// Current tick rate (default: 60 ticks/second)
 int tickRate = Game.loop().getTickRate();
 
-// Modify tick rate (default is 60)
-Game.loop().setTickRate(30);
+// Adjust the tick rate programmatically
+Game.loop().setTickRate(60);
 ```
 
-### Timed Actions
+### Configuring Max FPS
 
-Schedule actions to execute after a delay:
+The engine tick rate and frame rate target are configured via client properties or `Game.config()`:
 
 ```java
-// Execute after 2 seconds (120 ticks at 60 tick rate)
-int actionId = Game.loop().execute(120, () -> {
-  System.out.println("Delayed action executed!");
-});
-
-// Cancel a timed action by setting execution time to -1
-Game.loop().alterExecutionTime(actionId, -1);
+// Set target update and frame rate
+Game.config().client().setMaxFps(60);
 ```
 
-## Why Separate Loops?
-
-LITIENGINE separates game logic/rendering from input processing for several advantages:
-
-1. **Consistent Physics**: Game logic runs at a fixed rate, preventing physics bugs from variable framerates
-2. **Responsive Controls**: Input processing continues even if rendering slows
-3. **Predictable Behavior**: Game state updates are deterministic
-4. **Decoupled Systems**: Input doesn't interfere with game logic timing
-
-## Configuration
-
-Configure loop behavior in your `config.properties`:
-
-```properties
-# Game loop tick rate (updates per second)
-client_updaterate=60
-
-# Maximum FPS (0 = unlimited)
+```properties title="config.properties"
+# Maximum FPS and update tick rate (default: 60)
 cl_maxFps=60
 
-# Show game metrics (FPS, UPS)
+# Show game metrics overlay (FPS, UPS)
 cl_showGameMetrics=false
 ```
 
+---
+
+## Scheduling Timed Actions
+
+`GameLoop` provides built-in action schedulers without needing raw Java `Thread.sleep` or timer threads:
+
+```java
+// Schedule an action to execute after a delay in milliseconds (e.g. 2000 ms = 2 seconds)
+int actionId = Game.loop().perform(2000, () -> {
+  System.out.println("Delayed task executed!");
+});
+
+// Cancel a scheduled action by its ID before it executes
+Game.loop().removeAction(actionId);
+```
+
+---
+
 ## Common Patterns
 
-### Entity with Update Logic
+### Entity AI Update with Lifecycle Cleanup
 
 ```java
 @EntityInfo(width = 32, height = 32)
@@ -156,37 +150,19 @@ public class Enemy extends Creature implements IUpdateable {
       return;
     }
 
-    // AI behavior runs every tick
     chasePlayer();
   }
 
   private void chasePlayer() {
-    // Movement logic
+    // Enemy movement and AI logic
   }
 }
 ```
 
-### Game State Timer
-
-```java
-public class GameTimer implements IUpdateable {
-  private int secondsRemaining;
-
-  public GameTimer(int seconds) {
-    this.secondsRemaining = seconds;
-    Game.loop().attach(this);
-  }
-
-  @Override
-  public void update() {
-    // Track time using deltaTime
-    // 60 ticks = 1 second at default tick rate
-  }
-}
-```
+---
 
 ## See Also
 
-- [Game.world()](/game-api/game-world/) - Environment management
-- [Game.screens()](/game-api/screens/) - Screen management
-- [Player Input](/player-input/) - Input handling details
+- [Game World & Environments](game-world.md) - Loading maps and managing entity lifecycles
+- [Screens & Game States](screens.md) - Managing title, gameplay, and UI screens
+- [Player Input](../player-input/README.md) - Handling keyboard, mouse, and gamepads

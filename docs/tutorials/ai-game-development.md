@@ -13,7 +13,7 @@ tags: [ai, opencode, antigravity, codex, mcp, agents-md, automation, cursor, cla
 
 Building 2D games in Java is significantly faster and more intuitive when pairing with modern **AI Coding Assistants**. In the open-source spirit, developers can leverage tools like **[OpenCode](https://github.com/opencode-ai/opencode)**, **Google Antigravity**, **OpenAI Codex**, **Claude**, and **Cursor**.
 
-Because **LITIENGINE** is built on pure Java 21+ with zero external C-dependencies, AI agents excel at generating game logic, creating custom entity controllers, writing unit tests, and automating level design through the **utiLITI Model Context Protocol (MCP) Server**.
+Because **LITIENGINE** is built on pure Java 25+ with zero external C-dependencies, AI agents excel at generating game logic, creating custom entity controllers, writing unit tests, and automating level design through the **utiLITI Model Context Protocol (MCP) Server**.
 
 ---
 
@@ -21,7 +21,7 @@ Because **LITIENGINE** is built on pure Java 21+ with zero external C-dependenci
 
 ```mermaid
 graph LR
-    AI["AI Coding Agent<br/>(OpenCode / Antigravity / Codex / Claude)"] -->|Code Generation| SRC["Pure Java 21+ Source<br/>(No C/JNI bindings)"]
+    AI["AI Coding Agent<br/>(OpenCode / Antigravity / Codex / Claude)"] -->|Code Generation| SRC["Pure Java 25+ Source<br/>(No C/JNI bindings)"]
     AI -->|MCP JSON-RPC Tools| MCP["utiLITI MCP Server<br/>(:8088/mcp)"]
     MCP -->|Live Map Mutation| MAP["utiLITI Editor Viewport"]
     SRC -->|Standard Gradle| GAME["LITIENGINE Game Runtime"]
@@ -62,7 +62,7 @@ Below is the complete `AGENTS.md` specification ready to copy:
 This repository contains a 2D game built with **LITIENGINE**, a free, open-source 2D Java Game Engine. This document provides technical rules, project architecture, build instructions, and coding standards for AI coding agents.
 
 ## 1. Tech Stack & Rules
-- Language: Java 21 LTS or newer
+- Language: Java 25 or newer
 - Build System: Gradle (./gradlew run, ./gradlew test, ./gradlew shadowJar)
 - Graphics: Pure Java AWT 2D (zero OpenGL/Vulkan C-bindings)
 - Input: Input4j via Panama Foreign Function & Memory (FFM) APIs
@@ -225,19 +225,19 @@ The AI assistant will execute the MCP commands (`add-prop`, `add-light`, `batch-
 
 <div class="grid cards" markdown>
 
-- :material-robot-outline:{ .lg .middle } **[utiLITI MCP Server Reference](/utiliti-editor/mcp-server/)**
+- :material-robot-outline:{ .lg .middle } **[utiLITI MCP Server Reference](../utiliti-editor/mcp-server.md)**
 
     ---
 
     Detailed specification for all 90+ raw primitives and semantic map mutation tools.
 
-- :material-gamepad-variant-outline:{ .lg .middle } **[2D Platformer Tutorial](/tutorials/2d-platformer/)**
+- :material-gamepad-variant-outline:{ .lg .middle } **[2D Platformer Tutorial](2d-platformer.md)**
 
     ---
 
     Step-by-step tutorial building a complete 2D action platformer with LITIENGINE.
 
-- :material-book-open-page-variant:{ .lg .middle } **[API Quick Reference](/getting-started/api-quick-reference/)**
+- :material-book-open-page-variant:{ .lg .middle } **[API Quick Reference](../getting-started/api-quick-reference.md)**
 
     ---
 

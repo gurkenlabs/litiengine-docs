@@ -8,25 +8,22 @@ tags: [tutorial, platformer, gravity, jumping, levels, enemies]
 ---
 # 2D Platformer Tutorial
 
-So, you’ve learned about LITIENGINE – great!
+!!! warning "Legacy Tutorial"
+    This tutorial was originally written for an earlier version of LITIENGINE. While the architectural concepts, level design principles, and game loop patterns remain helpful, specific APIs and utiLITI workflows may differ from current releases. For the active starter guide, see **[Top-Down Shooter](topdown-shooter.md)**.
 
-You’ve created a project in eclipse and imported LITIENGINE.
-If not, check out our [Download Page](https://litiengine.com/download/) that comes with detailed installation instructions.
+In this series, we guide you through the steps necessary for creating a platformer game inspired by classic retro games, made in a 4-color Game Boy aesthetic.
 
-Now you’ve probably come to the point where you’ve asked yourself:
-> “How am I supposed to actually make a game with this?”
+This project is open sourced under the MIT license. You can find the code and assets in the **[GitHub repository for Gurk Nukem](https://github.com/gurkenlabs/litiengine-gurk-nukem)**.
 
-In this How-To-Series, we guide you through the steps necessary for creating a platformer game inspired by the old Duke Nukem games, made in a glorious four-colour gameboy look.
-
-The this project is entirely open sourced (under the MIT license). You can find the code among all the assets in the [GitHub repository for Gurk Nukem](https://github.com/gurkenlabs/litiengine-gurk-nukem).
 ![Gurk Nukem Title](../images/gurknukem-title.png)
 
-Each blog chapter will represent the work that can be done in one day by following our step-by-step explanations.
+---
 
-## Chapter 1: The first Level
+## Chapter 1: The First Level
 
-### Creating a project in utiLITI
-For a general idea about what utiLITI is, read the [docs page about utiLITI](/utiliti-editor/) first.
+### Creating a Project in utiLITI
+
+For a general overview of the editor, read the **[utiLITI Editor Overview](../utiliti-editor/README.md)** first.
 
 Start the utiLITI editor. Hit "**File -> New...**" (`CTRL+N`)
 
@@ -136,7 +133,7 @@ Now that you've created a first test map for your platforming game, we will show
 
 Let's start today by opening up the Eclipse IDE (as it is the IDE of choice for this how-to-series).
 
-At this point, we assume that you've already created a Java project and referenced LITIENGINE in it as described [HERE](/getting-started/).
+At this point, we assume that you've already created a Java project and referenced LITIENGINE in it as described [HERE](../getting-started/README.md).
 Also, you have created resource folders and added them to your project's build path.
 In our case, there are three resource folders: 'maps', 'sprites', and 'audio', which are located in the root folder of our project.
 
@@ -174,7 +171,7 @@ public class Program {
  setters of `Game.info()`.
 
 - Calling `Game.init()` is then needed to initialize the Game
- infrastructure (see the [API Quick Reference](/getting-started/api-quick-reference/) for an in-depth overview
+ infrastructure (see the [API Quick Reference](../getting-started/api-quick-reference.md) for an in-depth overview
  of what this does).
 
 - Next, we set the window icon from the logo we created in Day 1 by
@@ -286,7 +283,7 @@ Right at the top, you'll notice the [annotations](https://docs.oracle.com/javase
  everything from `CombatEntity`, `CollisionEntity`, and `Entity`,
  while also implementing the methods from `IMobileEntity` and
  `IUpdateable`. For a clearer unterstanding of the entity
- hierarchy, you can [explore the Entity Framework](/entity-framework/).
+ hierarchy, you can [explore the Entity Framework](../entity-framework/README.md).
 
 - We adopt a [Singleton pattern](https://community.oracle.com/docs/DOC-918906) for the `Player`-class, meaning
  that we only allow the existence of one single instance of `Player`

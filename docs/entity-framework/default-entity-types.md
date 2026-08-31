@@ -13,15 +13,15 @@ tags: [creature, prop, trigger, spawnpoint, collisionbox, light]
 
 Choose the optimal entity type for your game objects:
 
-| Entity Type | Purpose / Use Case | Default Collision | Key Annotations | utiLITI Object Type | Key Lifecycle Events |
+| Entity Type | Purpose / Use Case | Default Collision | Key Annotations | utiLITI Object Type | Key Behaviors & Hooks |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **`Creature`** | Living characters, NPCs, enemies, players | Yes (Dynamic box) | `@EntityInfo`, `@MovementInfo`, `@CombatInfo`, `@CollisionInfo` | `CREATURE` | `onMoved`, `onHit`, `onDeath`, `onStateChanged` |
-| **`Prop`** | Interactive/static map objects (chests, trees, pots) | Configurable | `@EntityInfo`, `@CollisionInfo` | `PROP` | `onHit`, `onStateChanged`, `onDamaged` |
-| **`Trigger`** | Invisible event zones (doors, cutscenes, teleporters) | Sensor only | `@EntityInfo` | `TRIGGER` | `onActivated`, `onDeactivated` |
-| **`Emitter`** | Particle sources (fire, weather, explosions) | None | `@EntityInfo` | `EMITTER` | `onSpawned`, `onParticleFinished` |
-| **`LightSource`** | Dynamic/static ambient lights & torches | None | `@EntityInfo` | `LIGHTSOURCE` | `onToggled`, `onColorChanged` |
-| **`Spawnpoint`** | Level entry points and entity spawn markers | None | `@EntityInfo` | `SPAWNPOINT` | `onSpawned` |
-| **`CollisionEntity`** | Invisible collision barrier / impassable wall | Static Solid | `@CollisionInfo` | `COLLISIONBOX` | `onCollision` |
+| **`Creature`** | Living characters, NPCs, enemies, players | Yes (Dynamic box) | `@EntityInfo`, `@MovementInfo`, `@CombatInfo`, `@CollisionInfo` | `CREATURE` | `onMoved`, `onHit`, `onDeath`, `onResurrect` |
+| **`Prop`** | Interactive/static map objects (chests, trees, pots) | Configurable | `@EntityInfo`, `@CollisionInfo` | `PROP` | `onHit`, `onDeath`, `PropState` |
+| **`Trigger`** | Invisible event zones (doors, cutscenes, teleporters) | Sensor only | `@EntityInfo` | `TRIGGER` | `addActivatedListener`, `addDeactivatedListener` |
+| **`Emitter`** | Particle sources (fire, weather, explosions) | None | `@EntityInfo` | `EMITTER` | `onFinished`, `data().setEmitterDuration(...)` |
+| **`LightSource`** | Dynamic/static ambient lights & torches | None | `@EntityInfo` | `LIGHTSOURCE` | `activate()`, `deactivate()`, `setColor()` |
+| **`Spawnpoint`** | Level entry points and entity spawn markers | None | `@EntityInfo` | `SPAWNPOINT` | `onSpawned`, `spawn(IEntity)` |
+| **`CollisionEntity`** | Invisible collision barrier / obstacle | Configurable (defaults to DYNAMIC) | `@CollisionInfo` | `COLLISIONBOX` | `onCollision`, `setCollision(boolean)` |
 
 ---
 
@@ -32,10 +32,10 @@ LITIENGINE provides a hierarchy of built-in entity types. Each type builds upon 
 ```text
 IEntity
  └── Entity (base class)
- └── CollisionEntity (has collision)
- └── CombatEntity (has health/combat)
- └── Creature (has animation, movement)
- └── Prop (static/dynamic objects)
+       └── CollisionEntity (has collision)
+             └── CombatEntity (has health/combat)
+                   ├── Creature (has animation, movement, facing)
+                   └── Prop (static/dynamic destructible objects)
 ```
 
 ## Entity
@@ -58,7 +58,7 @@ public class MyEntity extends Entity {
 - **Size**: Width and height
 - **MapId**: ID from map object
 - **Tags**: String tags for categorization
-- **RenderType**: Rendering layer (BACKGROUND, GROUND, NORMAL, OVERLAY, UI)
+- **RenderType**: Rendering layer (`NONE`, `BACKGROUND`, `GROUND`, `SURFACE`, `NORMAL`, `OVERLAY`, `UI`)
 
 ## CollisionEntity
 
@@ -66,7 +66,7 @@ Extends `Entity` with collision detection capabilities.
 
 ```java
 @EntityInfo(width = 32, height = 32)
-@CollisionInfo(collisionBoxWidth = 28, collisionBoxHeight = 28, collision = true)
+@CollisionInfo(collisionBoxWidth = 28, collisionBoxHeight = 28, collision = true, collisionType = Collision.STATIC)
 public class Wall extends CollisionEntity {
   public Wall() {
     super("wall");
@@ -74,15 +74,15 @@ public class Wall extends CollisionEntity {
 }
 ```
 
-### Collision Types
-- **STATIC**: Collides with static geometry
-- **DYNAMIC**: Collides with moving objects
-- **ANY**: Collides with everything
-- **NONE**: No collision
+### Collision Types (`Collision`)
+- **`DYNAMIC`** (default): Collides with static geometry and other dynamic entities (used for actors, creatures, moving obstacles).
+- **`STATIC`**: Immovable geometry that dynamic entities collide against (used for walls, map boundaries).
+- **`NONE`**: Disables collision resolution for this entity.
+- **`ANY`**: Special filter flag used exclusively for `PhysicsEngine` spatial queries and raycasts (cannot be assigned directly to an entity's `collisionType`).
 
 ### Key Properties
 - Collision box dimensions and offset
-- Collision type
+- Collision type (`DYNAMIC`, `STATIC`, `NONE`)
 
 ## CombatEntity
 
@@ -106,14 +106,14 @@ public class Destructible extends CombatEntity {
 
 ### Events
 ```java
-combatEntity.onHit(event -> { /* took damage */ });
-combatEntity.onDeath(event -> { /* died */ });
-combatEntity.onResurrect(event -> { /* revived */ });
+combatEntity.onHit(hitEvent -> { /* took damage */ });
+combatEntity.onDeath((victim, hitEvent) -> { /* died */ });
+combatEntity.onResurrect(resurrected -> { /* revived */ });
 ```
 
 ## Creature
 
-The most feature-rich entity type. Combines collision, combat, movement, and animation.
+The most feature-rich entity type for living characters. Extends `CombatEntity` with movement, directional facing, and state animation controllers.
 
 ```java
 @EntityInfo(width = 18, height = 18)
@@ -122,35 +122,35 @@ The most feature-rich entity type. Combines collision, combat, movement, and ani
 @CollisionInfo(collisionBoxWidth = 14, collisionBoxHeight = 16, collision = true)
 public class Player extends Creature {
   public Player() {
-    super("player"); // spritePrefix
+    super("player"); // Spritesheet name
   }
 }
 ```
 
 ### Features
-- Automatic animation from spritesheets
+- Automatic animation controller from spritesheets
 - Movement controller integration
-- Facing direction tracking
-- State machine (idle, walking, dead)
+- Facing direction tracking (`Direction.UP`, `DOWN`, `LEFT`, `RIGHT`)
+- State management (`idle`, `walk`, `dead`)
 
 ### Key Methods
 ```java
 creature.getFacingDirection(); // Current facing direction
-creature.setSpritePrefix("prefix"); // For animation lookup
+creature.setSpritesheetName("player-alt"); // Change spritesheet animation source
 creature.isIdle(); // Check if not moving
 creature.isDead(); // Check if dead
 ```
 
 ## Prop
 
-Static or interactive objects in the game world.
+Static or interactive objects in the game world. Extends `CombatEntity` directly (does NOT inherit creature movement).
 
 ```java
 @EntityInfo(width = 32, height = 32)
 @CollisionInfo(collision = true)
 public class Barrel extends Prop {
   public Barrel() {
-    super("barrel");
+    super("barrel"); // Spritesheet name
   }
 }
 ```
@@ -170,36 +170,45 @@ prop-barrel-destroyed.png
 ## Other Entity Types
 
 ### Trigger
-Area-based event triggers that activate when entities enter.
+Area-based event triggers activated on collision or user interaction.
 
 ```java
-Trigger trigger = new Trigger("myTrigger", TriggerActivation.PROPAGATE);
-trigger.onActivated(e -> { /* entered */ });
-trigger.onDeactivated(e -> { /* exited */ });
+Trigger trigger = new Trigger(TriggerActivation.COLLISION, "door_sensor", "open_door");
+trigger.addActivatedListener(event -> {
+    IEntity entity = event.getEntity();
+    // Action triggered when entity enters zone
+});
+trigger.addDeactivatedListener(event -> {
+    // Action triggered when entity leaves zone
+});
 ```
 
 ### LightSource
 Dynamic lighting entities.
 
 ```java
-LightSource light = new LightSource();
-light.setIntensity(150);
-light.setColor(Color.ORANGE);
+LightSource light = new LightSource(150, Color.ORANGE, LightSource.Type.ELLIPSE, true);
+light.setLocation(100, 100);
+Game.world().environment().add(light);
 ```
 
 ### Emitter
 Particle effect sources.
 
 ```java
-Emitter emitter = new Emitter("fire");
-emitter.getData().setEmitterDuration(5000);
+Emitter emitter = new Emitter(100, 100);
+emitter.data().setEmitterDuration(5000);
+Game.world().environment().add(emitter);
+emitter.activate();
 ```
 
 ### Spawnpoint
 Entity spawn locations.
 
 ```java
-Spawnpoint spawn = new Spawnpoint("start", Direction.RIGHT);
+Spawnpoint spawn = new Spawnpoint(Direction.RIGHT);
+spawn.setName("player_start");
+spawn.setLocation(100, 100);
 spawn.spawn(new Player());
 ```
 
@@ -218,6 +227,6 @@ spawn.spawn(new Player());
 
 ## See Also
 
-- [Entity Framework Overview](/entity-framework/) - Entity system intro
-- [Annotations](/entity-framework/annotations/) - Configure entities
-- [Props](/entity-framework/props/) - Detailed prop documentation
+- [Entity Framework Overview](README.md) - Entity system intro
+- [Annotations](annotations.md) - Configure entities
+- [Props](props.md) - Detailed prop documentation

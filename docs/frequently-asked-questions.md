@@ -1,8 +1,8 @@
 ---
 title: "Frequently Asked Questions"
 icon: "lucide/help-circle"
-description: "Comprehensive FAQ addressing LITIENGINE architecture, Java 21+ support, performance, game loops, persistence, multiplayer, and distribution."
-keywords: ["LITIENGINE FAQ", "questions", "java 2D game", "performance", "platforms", "savegame", "multiplayer", "scaling", "licensing", "steam"]
+description: "Comprehensive FAQ addressing LITIENGINE architecture, Java 25+ support, performance, game loops, persistence, multiplayer, and distribution."
+keywords: ["LITIENGINE FAQ", "questions", "java 2D game", "performance", "platforms", "savegame", "multiplayer", "scaling", "licensing", "steam", "Java 25"]
 tags: ["faq", "questions", "troubleshooting", "help", "basics", "architecture", "multiplayer"]
 ---
 
@@ -15,19 +15,24 @@ Quick answers to the most common questions about LITIENGINE architecture, perfor
 ## General & Architecture
 
 ??? question "Is LITIENGINE a library or a full game engine?"
-    LITIENGINE is a **modular 2D Java Game Library and Framework**. It provides everything needed to build commercial-grade 2D games: a decoupled 60 FPS update loop, 2D tile-based physics with spatial quadtrees, AWT graphics pipeline, 2D positional audio, entity lifecycle management, and the companion **utiLITI Editor**.
+    LITIENGINE is a **modular 2D Java Game Library and Framework**. It provides everything needed to build commercial-grade 2D games: a high-performance game loop, 2D physics with spatial quadtrees, AWT graphics pipeline, 2D positional audio, entity lifecycle management, and the companion **utiLITI Editor**.
 
 ??? question "What Java version is required?"
-    LITIENGINE requires **Java 21 LTS or newer** (tested through JDK 25). It leverages modern Java features including Java Panama Foreign Function & Memory (FFM) APIs for low-latency gamepad polling via `Input4j` with zero JNI setup.
+    LITIENGINE requires **Java {{ java_version }} or newer**. It leverages modern Java features including Java Panama Foreign Function & Memory (FFM) APIs for low-latency gamepad polling via `Input4j` with zero native JNI libraries.
 
 ??? question "Why pure Java with AWT instead of OpenGL/Vulkan bindings?"
     By relying on pure Java AWT 2D graphics without heavy native dynamic C/C++ libraries (like LWJGL or libGDX bindings), LITIENGINE games run identically across Windows, macOS, and Linux without native DLL hell, driver crashes, or platform-specific compilation hurdles.
 
-??? question "How does the decoupled game loop work?"
-    LITIENGINE uses a **decoupled multi-threaded loop**:
+??? question "How does the game loop work?"
+    LITIENGINE coordinates game updates, input polling, and rendering through a unified loop (`Game.loop()`):
     
-    1. **Update Loop (`Game.loop()`)**: Runs at a fixed, deterministic rate (default: **60 ticks/second**) executing physics, entity logic, timers, and AI.
-    2. **Render Loop (`Game.window().getRenderComponent()`)**: Runs on the AWT graphics pipeline, interpolating positions to deliver smooth rendering regardless of display refresh rate.
+    1. **Invariable Update Phase**: Polls connected hardware devices (`Input.keyboard()`, `Input.mouse()`, `Input.gamepads()`) and updates internal runtime state.
+    2. **Update Phase (`super.process()`)**: Executes registered `IUpdateable` components, physics simulation, spatial quadtree indexing, entity behaviors, and tweens.
+    3. **Timed Actions**: Dispatches scheduled delayed callbacks registered via `Game.loop().perform(...)`.
+    4. **Camera & Rendering Phase**: Calculates camera target focus/trauma shake and renders the active `Screen`, map layers, entities, and UI components on the AWT Graphics2D pipeline.
+    5. **Metrics**: Records tick execution times and frame rates.
+    
+    The target tick rate is configured via `config().client().getMaxFps()` (default: 60 ticks/second).
 
 ??? question "Does LITIENGINE collect any telemetry or user data?"
     **No.** LITIENGINE and the utiLITI Editor contain zero telemetry, tracking, or analytics code.
@@ -55,13 +60,8 @@ Quick answers to the most common questions about LITIENGINE architecture, perfor
     Game.window().getRenderComponent().setFullscreen(!Game.window().getRenderComponent().isFullscreen());
     ```
 
-??? question "Why is the origin (0, 0) at the top-left and Y pointing downward?"
-    LITIENGINE is built on **Java AWT / Java 2D** graphics and standard Tiled `.tmx` maps, which place `(0, 0)` at the **top-left corner**:
-    
-    * **`+X`**: Increases to the **right** (width).
-    * **`+Y`**: Increases **downward** (height).
-    
-    All engine subsystems (`Environment`, `IEntity`, `Camera`, `PhysicsEngine`) share this exact coordinate convention. See **[Coordinate Systems & Spatial Spaces](/game-api/coordinate-systems/)**.
+??? question "How does LITIENGINE's coordinate system work?"
+    LITIENGINE uses a **top-left origin `(0, 0)`** convention inherited from Java AWT/2D. `+X` increases to the right, and `+Y` increases downward. The engine differentiates between **Tile Grid Coordinates** (discrete integer indices), **World/Map Coordinates** (continuous pixel coordinates), and **Viewport Coordinates** (screen pixels adjusted by camera zoom and focus). See our guide on **[Coordinate Systems & Spatial Spaces](game-api/coordinate-systems.md)**.
 
 ??? question "How do I convert between Screen, World, and Tile coordinates?"
     Use the `Camera` and map dimensions:
@@ -105,7 +105,7 @@ Quick answers to the most common questions about LITIENGINE architecture, perfor
     **Yes!** LITIENGINE is licensed under the permissive **MIT License**. You retain 100% ownership of your game source code, assets, and commercial revenue. You can freely sell your games on Steam, itch.io, GOG, or your own store.
 
 ??? question "How do players run my game without installing Java?"
-    You can bundle a lightweight Java Runtime Environment (JRE) directly with your game using **jlink**, **jpackage**, or **Launch4j**. The player receives a standalone `.exe`, `.app`, or `.zip` bundle (~35 MB) and simply double-clicks to play. See our **[Deployment Guide](/deployment/)**.
+    You can bundle a lightweight Java Runtime Environment (JRE) directly with your game using **jlink**, **jpackage**, or **Launch4j**. The player receives a standalone `.exe`, `.app`, or `.zip` bundle (~35 MB) and simply double-clicks to play. See our **[Deployment Guide](deployment.md)**.
 
 ---
 
@@ -115,7 +115,7 @@ Quick answers to the most common questions about LITIENGINE architecture, perfor
     **No.** You can build complete games purely in Java code using procedural generation or raw Tiled maps. However, **utiLITI** significantly accelerates level design, entity placement, tileset Wang autotiling, and binary `.litidata` resource archiving.
 
 ??? question "Can I use AI coding agents like OpenCode or Antigravity with LITIENGINE?"
-    **Yes!** utiLITI includes an embedded **Model Context Protocol (MCP)** server on port `8088`. AI agents can inspect loaded maps, place entities, configure colliders, and generate code directly. Check out our **[AI-Assisted Game Development Guide](/tutorials/ai-game-development/)**.
+    **Yes!** utiLITI includes an embedded **Model Context Protocol (MCP)** server on port `8088`. AI agents can inspect loaded maps, place entities, configure colliders, and generate code directly. Check out our **[AI-Assisted Game Development Guide](tutorials/ai-game-development.md)**.
 
 ??? question "Can I use Tiled Map Editor alongside utiLITI?"
     **Yes.** LITIENGINE natively parses `.tmx` map files and `.tsx` tilesets exported from [Tiled Map Editor](https://www.mapeditor.org/). You can import `.tmx` maps directly into your `.litidata` projects in utiLITI.

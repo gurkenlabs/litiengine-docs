@@ -7,7 +7,7 @@ This repository contains a 2D game built with **LITIENGINE**, a free, open-sourc
 ## 1. Project Overview & Tech Stack
 
 - **Engine**: LITIENGINE (Java 2D Game Engine)
-- **Language**: Java 21 LTS or newer (tested with JDK 21-25)
+- **Language**: Java 25 or newer
 - **Build System**: Gradle 8.x / 9.x (or Maven)
 - **Graphics Pipeline**: Pure Java AWT 2D (zero OpenGL/Vulkan C-bindings)
 - **Input System**: Input4j (powered by Java Panama Foreign Function & Memory APIs)

@@ -1,57 +1,82 @@
 ---
 title: Project Structure
 icon: lucide/folder-tree
-description: Learn about best practices for setting up your game project hierarchy.
-keywords: [LITIENGINE, java, game, gameengine, development, 2D, programming, file,
-  project, hierarchy, structure]
+description: Learn best practices for organizing your LITIENGINE game project hierarchy and asset pipeline.
+keywords: [LITIENGINE, java, gradle project structure, maven, 2D game architecture, litidata]
 tags: [project-structure, architecture, organization, directories, assets]
 ---
+
 # Project Structure
-## Initialize the project structure
 
-Now, depending on the chosen build system, your project structure might look slightly different. LITIENGINE doesn't restrict you in how you can organize your project. However there are some common practices that we think are useful to apply for a Game project with the LITIENGINE:
+LITIENGINE follows modern Java application standards and integrates seamlessly with standard build tools like **Gradle** and **Maven**.
 
-* store your resources in `src` folders
-* create multiple sub-folders for different types of resources
-* save all the resources for your game within the project folder
+---
 
-## Content Authoring vs. Runtime Logic
+## Canonical Project Hierarchy
 
-In a typical LITIENGINE game project, responsibilities are clearly split between content authoring and game runtime logic:
-
-* **Content & Resource Data (`.litidata`)**: Stored in a `.litidata` container file alongside maps (`.tmx`), tilesets (`.tsx`), spritesheets, sound assets, emitters, and entity blueprints. Created and authored using **utiLITI** or via the built-in **MCP (Model Context Protocol) Server**.
-* **Game Logic & Behavior (`src/`)**: Implemented in the sibling Java/Gradle project. Custom entity types (`Creature`, `Prop`, `Trigger`), abilities (`Ability`, `Effect`), AI behavior controllers (`IBehaviorController`), game states/screens, and automated unit tests live in Java code.
-
-> **Key Takeaway:** Game logic is typically implemented in the sibling Java/Gradle project beside the `.litidata` game-data project. Use utiLITI / MCP for content authoring and inspect the Gradle project for runtime behavior, APIs, and tests.
-
-## An example LITIENGINE project structure
+A standard Gradle-based LITIENGINE game project adheres to the standard `src/main/java` and `src/main/resources` structure:
 
 ```text
-game-project
-└─── sprites
-│ │─── sprite1.png
-│ └─── ...
-│─── audio
-│ │─── sound1.ogg
-│ └─── ...
-│─── maps
-│ │─── map1.tmx
-│ │─── tileset.tsx
-│ │─── tileset.png
-│ └─── ...
-│─── localization
-│ │─── strings.properties
-│ │─── strings_de_DE.properties
-│ └─── ...
-│─── src
-│ └─── com
-│ └─── mygame
-│ │─── Program.java
-│ └─── ...
-│─── .classpath
-│─── game.litidata
-│─── config.properties
-│─── build.gradle
-│─── settings.gradle
-└───...
+my-game/
+├── build.gradle.kts (or build.gradle)
+├── settings.gradle.kts (or settings.gradle)
+├── gradlew
+├── gradlew.bat
+├── gradle/
+│   └── wrapper/
+│       ├── gradle-wrapper.jar
+│       └── gradle-wrapper.properties
+├── src/
+│   ├── main/
+│   │   ├── java/
+│   │   │   └── com/example/game/
+│   │   │       ├── Program.java
+│   │   │       ├── entities/
+│   │   │       │   └── Player.java
+│   │   │       └── screens/
+│   │   │           └── IngameScreen.java
+│   │   └── resources/
+│   │       ├── game.litidata
+│   │       └── config.properties
+│   └── test/
+│       └── java/
+│           └── com/example/game/
+│               └── GameLogicTest.java
+└── raw-assets/               (Optional source assets folder for utiLITI)
+    ├── maps/
+    │   ├── level1.tmx
+    │   └── tileset.tsx
+    ├── sprites/
+    │   └── hero.png
+    └── audio/
+        └── battle.ogg
 ```
+
+---
+
+## Asset Pipeline: Raw Assets vs `.litidata`
+
+LITIENGINE uses a streamlined two-tier asset workflow:
+
+1. **Source Assets (`raw-assets/`)**: Individual `.png` spritesheets, `.tmx` maps from Tiled, `.tsx` tilesets, and `.ogg` audio files. You organize these in your filesystem and edit them with your favorite creative tools.
+2. **Resource Bundle (`game.litidata`)**: The **utiLITI Editor** packages all referenced maps, tilesets, spritesheets, and sound metadata into a single optimized `.litidata` file. 
+3. **Runtime Loading**: Place the resulting `game.litidata` inside `src/main/resources/`. When you compile your application into a standalone JAR, `Resources.load("game.litidata")` reads the packaged binary directly from the classpath with zero extra configuration.
+
+---
+
+## Directory Responsibilities
+
+| Directory / File | Purpose |
+| :--- | :--- |
+| **`src/main/java/`** | Contains all Java source files, entity classes, screen managers, ability scripts, and game controllers. |
+| **`src/main/resources/`** | Bundled classpath assets including `game.litidata`, string localization files (`strings.properties`), and default engine configs. |
+| **`src/test/java/`** | Automated unit and integration tests (JUnit 5). |
+| **`build.gradle.kts`** | Dependency declarations, Java toolchains, JVM compiler flags, and shadow JAR packaging tasks. |
+
+---
+
+## See Also
+
+- [Build Systems & Dependency Setup](build-systems.md) - Gradle & Maven starter configs
+- [Get LITIENGINE](get-litiengine.md) - Dependency installation
+- [Project Management in utiLITI](../utiliti-editor/create-projects.md) - Creating `.litidata` files

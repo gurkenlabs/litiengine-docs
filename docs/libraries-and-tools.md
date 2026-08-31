@@ -18,7 +18,7 @@ LITIENGINE intentionally avoids heavy native dynamic bindings (like C/C++ OpenGL
 
 | Library | Version / Source | Purpose |
 |:---|:---|:---|
-| **[Input4j](https://github.com/gurkenlabs/input4j)** | Pure Java 21+ | Gamepad, joystick, and controller input integration utilizing Java Panama Foreign Function & Memory (FFM) APIs with zero external DLL/so dependencies. |
+| **[Input4j](https://github.com/gurkenlabs/input4j)** | Pure Java 25+ | Gamepad, joystick, and controller input integration utilizing Java Panama Foreign Function & Memory (FFM) APIs with zero external DLL/so dependencies. |
 | **[VorbisSPI](https://central.sonatype.com/artifact/com.googlecode.soundlibs/vorbisspi)** | 1.0.3-1 | Java Sound Service Provider Interface for decoding and streaming `.ogg` Vorbis audio files. |
 
 ---
@@ -27,7 +27,7 @@ LITIENGINE intentionally avoids heavy native dynamic bindings (like C/C++ OpenGL
 
 <div class="grid cards" markdown>
 
-- :material-cube-outline:{ .lg .middle } **[utiLITI Editor](/utiliti-editor/)**
+- :material-cube-outline:{ .lg .middle } **[utiLITI Editor](utiliti-editor/README.md)**
 
     ---
 
@@ -45,7 +45,7 @@ LITIENGINE intentionally avoids heavy native dynamic bindings (like C/C++ OpenGL
 
     Seamless workflow for importing spritesheet grids, JSON texture atlases, and animation frame sequences exported from Aseprite.
 
-- :material-robot-outline:{ .lg .middle } **[Model Context Protocol (MCP)](/utiliti-editor/mcp-server/)**
+- :material-robot-outline:{ .lg .middle } **[Model Context Protocol (MCP)](utiliti-editor/mcp-server.md)**
 
     ---
 
@@ -118,13 +118,13 @@ When preparing your game for release, these tools allow you to package standalon
 
 <div class="grid cards" markdown>
 
-- :material-play-box-outline:{ .lg .middle } **[Deployment & Distribution](/deployment/)**
+- :material-play-box-outline:{ .lg .middle } **[Deployment & Distribution](deployment.md)**
 
     ---
 
     Step-by-step instructions on bundling standalone executables with jlink and Launch4j.
 
-- :material-map-legend:{ .lg .middle } **[Tile Maps Overview](/tile-maps/)**
+- :material-map-legend:{ .lg .middle } **[Tile Maps Overview](tile-maps/README.md)**
 
     ---
 

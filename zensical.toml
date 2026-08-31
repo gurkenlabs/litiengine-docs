@@ -82,8 +82,8 @@ nav = [{ "Get Started" = ["getting-started/README.md",
  { "UI & Workspaces" = "utiliti-editor/ui-and-workspaces.md" },
  { "Settings & Shortcuts" = "utiliti-editor/settings-and-shortcuts.md" },] },
  { "Tutorials" = [{ "AI-Assisted Game Development" = "tutorials/ai-game-development.md" },
-        { "Gameplay Recipes & Cookbook" = "tutorials/gameplay-recipes.md" },
-        { "2D Platformer" = "tutorials/2d-platformer.md" },
+ { "Gameplay Recipes & Cookbook" = "tutorials/gameplay-recipes.md" },
+ { "2D Platformer" = "tutorials/2d-platformer.md" },
  { "Arkanoid Brick Breaker" = "tutorials/arkanoid-clone.md" },
  { "Top-Down Shooter" = "tutorials/topdown-shooter.md" },
  { "Modifying Examples" = "tutorials/modifying-examples.md" },] },
@@ -104,7 +104,12 @@ nav = [{ "Get Started" = ["getting-started/README.md",
  { "License" = "license.md" },] },
  { "Sponsor" = "https://opencollective.com/litiengine" },]
 
+plugins = ["macros"]
+
 [project.extra]
+version = "0.13.0"
+snapshot_version = "0.14.0-SNAPSHOT"
+java_version = "25"
 social = [{ icon = "simple/opencollective", link = "https://opencollective.com/litiengine", name = "Sponsor on Open Collective" },
  { icon = "simple/github", link = "https://github.com/gurkenlabs/litiengine", name = "GitHub" },
  { icon = "simple/discord", link = "https://discord.gg/9TqCq9C", name = "Discord Community" },]
@@ -112,7 +117,7 @@ social = [{ icon = "simple/opencollective", link = "https://opencollective.com/l
 [project.theme]
 custom_dir = "overrides"
 variant = "modern"
-logo = "assets/logo.png"
+logo = "assets/icon.png"
 favicon = "assets/favicon.ico"
 features = ["navigation.instant",
  "navigation.tracking",
