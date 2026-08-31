@@ -111,7 +111,7 @@ social = [{ icon = "simple/opencollective", link = "https://opencollective.com/l
 custom_dir = "overrides"
 variant = "modern"
 logo = "assets/logo.png"
-favicon = "assets/favicon.png"
+favicon = "assets/favicon.ico"
 features = ["navigation.instant",
  "navigation.tracking",
  "navigation.tabs",
