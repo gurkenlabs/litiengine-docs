@@ -8,30 +8,9 @@ tags: [gameloop, update-loop, fps, ticks, timing, callbacks]
 ---
 # Game Loop
 
-## Decoupled Update vs. Render Loop Architecture
+## Game Loop Architecture
 
-```mermaid
-sequenceDiagram
- autonumber
- participant Engine as GameLoop (60 Hz Fixed)
- participant Phys as PhysicsEngine & Entities
- participant Render as RenderEngine (Variable / VSync)
- participant Screen as GameScreen / HUD
-
- loop Every 16.6 ms (Fixed Tick)
- Engine->>Phys: update() (Entity controllers, AI, velocities)
- Phys->>Phys: resolveCollisions() (Spatial quadtree)
- end
-
- loop Every Frame (Render Tick)
- Render->>Screen: render(Graphics2D g) (Double-buffered canvas)
- Screen->>Render: draw layers (Background -> Ground -> Entities -> Overlay)
- end
-```
-
----
-
-LITIENGINE uses a decoupled loop architecture where deterministic game logic (UPS) and rendering (FPS) run in coordinated harmony:
+LITIENGINE coordinates game updates and rendering through a unified main loop (`Game.loop()`) while polling input devices independently for low-latency responsiveness:
 
 ```mermaid
 flowchart TD
@@ -39,26 +18,24 @@ flowchart TD
  RawHW["Hardware Input (Keyboard/Mouse/Gamepad)"] --> InputState["Update Input State (Input.keyboard / Input.mouse / Input.gamepads)"]
  end
 
- subgraph MainGameLoop["Game.loop() (Fixed Tick Rate, e.g., 60 UPS)"]
- TickStart["Tick Start"] --> UpdateLoop["Execute Attached IUpdateable Instances"]
- UpdateLoop --> UpdateEnv["Update Active Environment (Physics, Entities, Emitters)"]
- UpdateEnv --> RenderPass["Render Active Screen (Screen.render)"]
- RenderPass --> RenderWorld["Render Environment (Map, Entities, Lighting, Particles)"]
- RenderWorld --> RenderGUI["Render GuiComponents & HUD"]
+ subgraph MainGameLoop["Game.loop() (Target Tick Rate via config().client().getMaxFps())"]
+ TickStart["Tick Start"] --> UpdateLoop["1. Execute Attached IUpdateable Instances"]
+ UpdateLoop --> UpdateEnv["2. Update Active Environment (Physics, Entities, Emitters)"]
+ UpdateEnv --> RenderPass["3. Render Active Screen (Screen.render)"]
+ RenderPass --> RenderWorld["Draw Environment (Map, Entities, Lighting, Particles)"]
+ RenderWorld --> RenderGUI["Draw GuiComponents & HUD"]
  end
 ```
 
-- **Game Loop** (`Game.loop()`) - Handles game logic and triggers rendering at a fixed tick rate.
-- **Input Loop** - Processes player input independently for maximum responsiveness.
-
-This design ensures consistent physics and gameplay regardless of monitor refresh rates or momentary rendering spikes.
+- **Game Loop** (`Game.loop()`) - Executes time-dependent logic (physics, entity controllers, AI) and triggers the rendering pass on each tick.
+- **Input Loop** - Processes keyboard, mouse, and gamepad hardware input on an independent thread for maximum responsiveness.
 
 ## The Main Game Loop - `Game.loop()`
 
-The `Game.loop()` method returns the main `IGameLoop` that executes all game logic and triggers rendering. It runs at a fixed tick rate (default: 60 ticks/second), ensuring physics, AI, and other time-dependent systems behave consistently.
+The `Game.loop()` method returns the main `IGameLoop` that executes all game logic and triggers rendering. Its tick rate is configured via `config().client().getMaxFps()` (default: 60 ticks/second), ensuring physics, AI, and time-dependent systems behave consistently.
 
 !!! note
-    The game's loop also executes the rendering process. This internally renders the currently active screen which passes the `Graphics2D` object to all `GuiComponents` and the Environment for rendering.
+    The game loop executes both the update and rendering phases. It updates the active environment, executes attached `IUpdateable`s, and then renders the currently active `Screen` by passing the `Graphics2D` context to all components and layers.
 
 ### IUpdateable Interface
 

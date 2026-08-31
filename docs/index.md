@@ -1,16 +1,14 @@
 ---
 title: Documentation Overview
 icon: lucide/book-open
-description: Official technical documentation, API guides, tutorials, and tooling
-  reference for LITIENGINE, the free, open-source 2D Java Game Engine.
+description: Official technical documentation, API guides, tutorials, and tooling reference for LITIENGINE, the free, open-source 2D Java Game Engine.
 keywords: [LITIENGINE, java, game engine, 2D, docs, api reference, tutorials, utiliti]
 tags: [overview, quickstart, getting-started, java, 2d-engine, game-development]
 ---
+
 # LITIENGINE Documentation
 
 Welcome to the official technical documentation for **LITIENGINE**, the free and open-source 2D Java Game Engine.
-
-> **Main Website & Community:** Looking for general game engine news, indie showcase games, forum discussions, or downloads? Visit the **[Official LITIENGINE Website](https://litiengine.com/)** and the **[LITIENGINE Community Showcase](https://litiengine.com/showcase/)**.
 
 ---
 
@@ -18,37 +16,37 @@ Welcome to the official technical documentation for **LITIENGINE**, the free and
 
 <div class="grid cards" markdown>
 
-- :material-rocket-launch:{ .lg .middle } **[Get Started](/getting-started/)**
+- :material-rocket-launch:{ .lg .middle } **[Get Started](getting-started/README.md)**
 
     ---
 
-    Install Java 21 LTS+, configure Gradle or Maven, and run your first 2D game in 15 lines of pure Java.
+    Install Java 25+, configure Gradle or Maven, and start your first LITIENGINE application in a few lines of Java.
 
-- :material-code-json:{ .lg .middle } **[Core Game API](/game-api/)**
-
-    ---
-
-    Explore decoupled game loops, 2D physics, camera tracking, input handling, and positional spatial audio.
-
-- :material-hammer-wrench:{ .lg .middle } **[utiLITI Editor](/utiliti-editor/)**
+- :material-code-json:{ .lg .middle } **[Core Game API](game-api/README.md)**
 
     ---
 
-    Design maps, manage tilesets, edit sprite sheets, and script live game entities with the Monaco workspace.
+    Explore game loops, 2D physics, camera tracking, input handling, and positional spatial audio.
 
-- :material-school:{ .lg .middle } **[Tutorials](/tutorials/2d-platformer/)**
+- :material-hammer-wrench:{ .lg .middle } **[utiLITI Editor](utiliti-editor/README.md)**
+
+    ---
+
+    Design maps, manage tilesets, edit sprite sheets, and script live game entities with the integrated Java scripting workspace.
+
+- :material-school:{ .lg .middle } **[Tutorials](tutorials/2d-platformer.md)**
 
     ---
 
     Step-by-step guides building a 2D Platformer, an Arkanoid clone, or a Top-Down Action Twin-Stick Shooter.
 
-- :material-tune:{ .lg .middle } **[Advanced Topics](/advanced/dynamic-lighting/)**
+- :material-tune:{ .lg .middle } **[Advanced Topics](advanced/dynamic-lighting.md)**
 
     ---
 
     Dynamic 2D lighting, particle systems, performance tuning, string localization, and serialization.
 
-- :material-help-circle-outline:{ .lg .middle } **[Project & Reference](/frequently-asked-questions/)**
+- :material-help-circle-outline:{ .lg .middle } **[Project & Reference](frequently-asked-questions.md)**
 
     ---
 
@@ -65,16 +63,24 @@ Add LITIENGINE to your project build configuration:
 === "Gradle (Kotlin)"
 
     ```kotlin
+    repositories {
+      mavenCentral()
+    }
+
     dependencies {
-      implementation("de.gurkenlabs:litiengine:0.13.0-SNAPSHOT")
+      implementation("de.gurkenlabs:litiengine:0.12.0")
     }
     ```
 
 === "Gradle (Groovy)"
 
     ```groovy
+    repositories {
+      mavenCentral()
+    }
+
     dependencies {
-      implementation 'de.gurkenlabs:litiengine:0.13.0-SNAPSHOT'
+      implementation 'de.gurkenlabs:litiengine:0.12.0'
     }
     ```
 
@@ -84,11 +90,49 @@ Add LITIENGINE to your project build configuration:
     <dependency>
       <groupId>de.gurkenlabs</groupId>
       <artifactId>litiengine</artifactId>
-      <version>0.13.0-SNAPSHOT</version>
+      <version>0.12.0</version>
     </dependency>
     ```
 
-### Your First Game in 15 Lines
+---
+
+!!! tip "Development Builds"
+    Looking for development builds and bleeding-edge features? See **[Snapshot Versions](getting-started/get-litiengine.md#snapshot-versions)**.
+
+---
+
+## Your First LITIENGINE Window
+
+Start your first LITIENGINE application in a few lines of Java:
+
+```java title="src/main/java/com/example/game/Program.java" linenums="1"
+package com.example.game;
+
+import de.gurkenlabs.litiengine.Game;
+
+public class Program {
+  public static void main(String[] args) {
+    Game.info().setName("My First LITIENGINE Game"); // (1)!
+    Game.info().setVersion("1.0.0"); // (2)!
+
+    Game.init(args); // (3)!
+    Game.start(); // (4)!
+  }
+}
+```
+
+1. Sets application metadata displayed in window title bars and logger outputs.
+2. Sets application version string (`1.0.0`).
+3. Initializes LITIENGINE's core infrastructure, including configuration, window and rendering infrastructure, input, physics, the game loop, and the default camera.
+4. Starts the game loop and runtime systems such as audio and tweens.
+
+Run this class and LITIENGINE opens your first game window!
+
+---
+
+## Next Step: Load Your First Map
+
+Once you create a `.litidata` resource bundle in the **utiLITI Editor**, load and start your game environment:
 
 ```java title="src/main/java/com/example/game/Program.java" linenums="1"
 package com.example.game;
@@ -98,22 +142,36 @@ import de.gurkenlabs.litiengine.resources.Resources;
 
 public class Program {
   public static void main(String[] args) {
-    Game.info().setName("My First LITIENGINE Game"); // (1)!
-    Game.info().setVersion("v1.0.0");
+    Game.info().setName("My First LITIENGINE Game");
+    Game.info().setVersion("1.0.0");
 
-    Game.init(args); // (2)!
-    Resources.load("game.litidata"); // (3)!
-    Game.world().loadEnvironment("level1"); // (4)!
-    Game.start(); // (5)!
+    Game.init(args);
+    Resources.load("game.litidata"); // (1)!
+    Game.world().loadEnvironment("level1"); // (2)!
+    Game.start();
   }
 }
 ```
 
-1. Sets application metadata displayed in window title bars and logger outputs.
-2. Initializes the graphics canvas, physics quadtrees, audio playback, and input devices.
-3. Loads the binary asset archive containing maps, spritesheets, and sounds.
-4. Initializes the environment and binds entities to the physics world.
-5. Launches the decoupled 60 FPS update loop and rendering tick threads.
+1. Loads a `.litidata` resource bundle created with utiLITI.
+2. Loads the specified map as the active game environment.
+
+Ready to build your world? Follow the next guide:
+
+Next: **[Create Your First Project & Map with utiLITI](utiliti-editor/create-projects.md)** &rarr;
+
+---
+
+## Community & Resources
+
+Looking for general game engine news, indie showcase games, forum discussions, or downloads?
+
+* **[Official Website](https://litiengine.com/)** — Engine overview, news, and official releases.
+* **[Community Showcase](https://litiengine.com/showcase/)** — Featured games built by the community.
+* **[Community Forum](https://forum.litiengine.com/)** — Discussion boards and technical Q&A.
+* **[Discord Community](https://discord.gg/9TqCq9C)** — Chat in real-time with fellow developers.
+* **[GitHub Repository](https://github.com/gurkenlabs/litiengine)** — Source code, issue tracker, and feature requests.
+* **[API Quick Reference](getting-started/api-quick-reference.md)** — Core engine method and class cheat sheet.
 
 ---
 
@@ -132,13 +190,3 @@ LITIENGINE is 100% free, independent, and open source. If LITIENGINE helps you b
     [Become a Backer on Open Collective](https://opencollective.com/litiengine){ .md-button .md-button--primary style="background: linear-gradient(135deg, #ea4c89 0%, #ff5e7e 100%); border-color: #ea4c89; color: white; font-weight: bold; margin-top: 0.5rem;" }
 
 </div>
-
----
-
-## Community & Resources
-
-* **[Official Website](https://litiengine.com/)** — Engine overview, news, and official releases.
-* **[Community Showcase](https://litiengine.com/showcase/)** — Featured games built by the community.
-* **[Community Forum](https://forum.litiengine.com/)** — Discussion boards and technical Q&A.
-* **[GitHub Repository](https://github.com/gurkenlabs/litiengine)** — Source code, issue tracker, and feature requests.
-* **[API Quick Reference](/getting-started/api-quick-reference/)** — Core engine method and class cheat sheet.

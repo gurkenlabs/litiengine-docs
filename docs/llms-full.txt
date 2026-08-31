@@ -14,16 +14,14 @@ This file contains the complete technical documentation for LITIENGINE, optimize
 ---
 title: Documentation Overview
 icon: lucide/book-open
-description: Official technical documentation, API guides, tutorials, and tooling
-  reference for LITIENGINE, the free, open-source 2D Java Game Engine.
+description: Official technical documentation, API guides, tutorials, and tooling reference for LITIENGINE, the free, open-source 2D Java Game Engine.
 keywords: [LITIENGINE, java, game engine, 2D, docs, api reference, tutorials, utiliti]
 tags: [overview, quickstart, getting-started, java, 2d-engine, game-development]
 ---
+
 # LITIENGINE Documentation
 
 Welcome to the official technical documentation for **LITIENGINE**, the free and open-source 2D Java Game Engine.
-
-> **Main Website & Community:** Looking for general game engine news, indie showcase games, forum discussions, or downloads? Visit the **[Official LITIENGINE Website](https://litiengine.com/)** and the **[LITIENGINE Community Showcase](https://litiengine.com/showcase/)**.
 
 ---
 
@@ -31,37 +29,37 @@ Welcome to the official technical documentation for **LITIENGINE**, the free and
 
 <div class="grid cards" markdown>
 
-- :material-rocket-launch:{ .lg .middle } **[Get Started](/getting-started/)**
+- :material-rocket-launch:{ .lg .middle } **[Get Started](getting-started/README.md)**
 
     ---
 
-    Install Java 21 LTS+, configure Gradle or Maven, and run your first 2D game in 15 lines of pure Java.
+    Install Java 25+, configure Gradle or Maven, and start your first LITIENGINE application in a few lines of Java.
 
-- :material-code-json:{ .lg .middle } **[Core Game API](/game-api/)**
-
-    ---
-
-    Explore decoupled game loops, 2D physics, camera tracking, input handling, and positional spatial audio.
-
-- :material-hammer-wrench:{ .lg .middle } **[utiLITI Editor](/utiliti-editor/)**
+- :material-code-json:{ .lg .middle } **[Core Game API](game-api/README.md)**
 
     ---
 
-    Design maps, manage tilesets, edit sprite sheets, and script live game entities with the Monaco workspace.
+    Explore game loops, 2D physics, camera tracking, input handling, and positional spatial audio.
 
-- :material-school:{ .lg .middle } **[Tutorials](/tutorials/2d-platformer/)**
+- :material-hammer-wrench:{ .lg .middle } **[utiLITI Editor](utiliti-editor/README.md)**
+
+    ---
+
+    Design maps, manage tilesets, edit sprite sheets, and script live game entities with the integrated Java scripting workspace.
+
+- :material-school:{ .lg .middle } **[Tutorials](tutorials/2d-platformer.md)**
 
     ---
 
     Step-by-step guides building a 2D Platformer, an Arkanoid clone, or a Top-Down Action Twin-Stick Shooter.
 
-- :material-tune:{ .lg .middle } **[Advanced Topics](/advanced/dynamic-lighting/)**
+- :material-tune:{ .lg .middle } **[Advanced Topics](advanced/dynamic-lighting.md)**
 
     ---
 
     Dynamic 2D lighting, particle systems, performance tuning, string localization, and serialization.
 
-- :material-help-circle-outline:{ .lg .middle } **[Project & Reference](/frequently-asked-questions/)**
+- :material-help-circle-outline:{ .lg .middle } **[Project & Reference](frequently-asked-questions.md)**
 
     ---
 
@@ -78,16 +76,24 @@ Add LITIENGINE to your project build configuration:
 === "Gradle (Kotlin)"
 
     ```kotlin
+    repositories {
+      mavenCentral()
+    }
+
     dependencies {
-      implementation("de.gurkenlabs:litiengine:0.13.0-SNAPSHOT")
+      implementation("de.gurkenlabs:litiengine:0.12.0")
     }
     ```
 
 === "Gradle (Groovy)"
 
     ```groovy
+    repositories {
+      mavenCentral()
+    }
+
     dependencies {
-      implementation 'de.gurkenlabs:litiengine:0.13.0-SNAPSHOT'
+      implementation 'de.gurkenlabs:litiengine:0.12.0'
     }
     ```
 
@@ -97,11 +103,49 @@ Add LITIENGINE to your project build configuration:
     <dependency>
       <groupId>de.gurkenlabs</groupId>
       <artifactId>litiengine</artifactId>
-      <version>0.13.0-SNAPSHOT</version>
+      <version>0.12.0</version>
     </dependency>
     ```
 
-### Your First Game in 15 Lines
+---
+
+!!! tip "Development Builds"
+    Looking for development builds and bleeding-edge features? See **[Snapshot Versions](getting-started/get-litiengine.md#snapshot-versions)**.
+
+---
+
+## Your First LITIENGINE Window
+
+Start your first LITIENGINE application in a few lines of Java:
+
+```java title="src/main/java/com/example/game/Program.java" linenums="1"
+package com.example.game;
+
+import de.gurkenlabs.litiengine.Game;
+
+public class Program {
+  public static void main(String[] args) {
+    Game.info().setName("My First LITIENGINE Game"); // (1)!
+    Game.info().setVersion("1.0.0"); // (2)!
+
+    Game.init(args); // (3)!
+    Game.start(); // (4)!
+  }
+}
+```
+
+1. Sets application metadata displayed in window title bars and logger outputs.
+2. Sets application version string (`1.0.0`).
+3. Initializes LITIENGINE's core infrastructure, including configuration, window and rendering infrastructure, input, physics, the game loop, and the default camera.
+4. Starts the game loop and runtime systems such as audio and tweens.
+
+Run this class and LITIENGINE opens your first game window!
+
+---
+
+## Next Step: Load Your First Map
+
+Once you create a `.litidata` resource bundle in the **utiLITI Editor**, load and start your game environment:
 
 ```java title="src/main/java/com/example/game/Program.java" linenums="1"
 package com.example.game;
@@ -111,22 +155,36 @@ import de.gurkenlabs.litiengine.resources.Resources;
 
 public class Program {
   public static void main(String[] args) {
-    Game.info().setName("My First LITIENGINE Game"); // (1)!
-    Game.info().setVersion("v1.0.0");
+    Game.info().setName("My First LITIENGINE Game");
+    Game.info().setVersion("1.0.0");
 
-    Game.init(args); // (2)!
-    Resources.load("game.litidata"); // (3)!
-    Game.world().loadEnvironment("level1"); // (4)!
-    Game.start(); // (5)!
+    Game.init(args);
+    Resources.load("game.litidata"); // (1)!
+    Game.world().loadEnvironment("level1"); // (2)!
+    Game.start();
   }
 }
 ```
 
-1. Sets application metadata displayed in window title bars and logger outputs.
-2. Initializes the graphics canvas, physics quadtrees, audio playback, and input devices.
-3. Loads the binary asset archive containing maps, spritesheets, and sounds.
-4. Initializes the environment and binds entities to the physics world.
-5. Launches the decoupled 60 FPS update loop and rendering tick threads.
+1. Loads a `.litidata` resource bundle created with utiLITI.
+2. Loads the specified map as the active game environment.
+
+Ready to build your world? Follow the next guide:
+
+Next: **[Create Your First Project & Map with utiLITI](utiliti-editor/create-projects.md)** &rarr;
+
+---
+
+## Community & Resources
+
+Looking for general game engine news, indie showcase games, forum discussions, or downloads?
+
+* **[Official Website](https://litiengine.com/)** — Engine overview, news, and official releases.
+* **[Community Showcase](https://litiengine.com/showcase/)** — Featured games built by the community.
+* **[Community Forum](https://forum.litiengine.com/)** — Discussion boards and technical Q&A.
+* **[Discord Community](https://discord.gg/9TqCq9C)** — Chat in real-time with fellow developers.
+* **[GitHub Repository](https://github.com/gurkenlabs/litiengine)** — Source code, issue tracker, and feature requests.
+* **[API Quick Reference](getting-started/api-quick-reference.md)** — Core engine method and class cheat sheet.
 
 ---
 
@@ -146,16 +204,6 @@ LITIENGINE is 100% free, independent, and open source. If LITIENGINE helps you b
 
 </div>
 
----
-
-## Community & Resources
-
-* **[Official Website](https://litiengine.com/)** — Engine overview, news, and official releases.
-* **[Community Showcase](https://litiengine.com/showcase/)** — Featured games built by the community.
-* **[Community Forum](https://forum.litiengine.com/)** — Discussion boards and technical Q&A.
-* **[GitHub Repository](https://github.com/gurkenlabs/litiengine)** — Source code, issue tracker, and feature requests.
-* **[API Quick Reference](/getting-started/api-quick-reference/)** — Core engine method and class cheat sheet.
-
 <!-- END CHAPTER: index.md -->
 
 ---
@@ -166,14 +214,13 @@ LITIENGINE is 100% free, independent, and open source. If LITIENGINE helps you b
 ---
 title: Getting Started
 icon: lucide/compass
-description: Everything you need to set up your environment, install Java 21+, configure
-  Gradle/Maven, and run your first 2D LITIENGINE game.
+description: Everything you need to set up your environment, install Java 25+, configure Gradle/Maven, and run your first 2D LITIENGINE game.
 keywords: [LITIENGINE, getting started, java, gradle, installation, setup, tutorial]
 tags: [getting-started, overview, installation, setup, quickstart]
 ---
 # Getting Started
 
-Welcome to **LITIENGINE**! This section guides you through installing the Java 21+ development kit, configuring your IDE, setting up Gradle or Maven build automation, and launching your first 2D game.
+Welcome to **LITIENGINE**! This section guides you through installing the Java 25+ development kit, configuring your IDE, setting up Gradle or Maven build automation, and launching your first 2D game.
 
 ---
 
@@ -181,49 +228,49 @@ Welcome to **LITIENGINE**! This section guides you through installing the Java 2
 
 <div class="grid cards" markdown>
 
-- :material-download:{ .lg .middle } **[Get LITIENGINE](/getting-started/get-litiengine/)**
+- :material-download:{ .lg .middle } **[Get LITIENGINE](get-litiengine.md)**
 
     ---
 
     Dependency coordinates for Gradle and Maven, Sonatype snapshot repositories, and standalone fat JARs.
 
-- :material-coffee:{ .lg .middle } **[Install JDK 21+](/getting-started/install-jdk/)**
+- :material-coffee:{ .lg .middle } **[Install JDK 25+](install-jdk.md)**
 
     ---
 
-    Set up Java 21 LTS or newer across Windows, Linux, and macOS with modern Panama FFM support.
+    Set up Java 25 or newer across Windows, Linux, and macOS with modern Panama FFM support.
 
-- :material-laptop:{ .lg .middle } **[Set Up Your IDE](/getting-started/development-environment/)**
+- :material-laptop:{ .lg .middle } **[Set Up Your IDE](development-environment.md)**
 
     ---
 
     Configuring IntelliJ IDEA, Eclipse, or VS Code with hot-reloading and debug profiles.
 
-- :material-hammer-wrench:{ .lg .middle } **[Build Systems](/getting-started/build-systems/)**
+- :material-hammer-wrench:{ .lg .middle } **[Build Systems](build-systems.md)**
 
     ---
 
     Automated Gradle tasks, `shadowJar` packaging, and build automation workflows.
 
-- :material-folder-cog:{ .lg .middle } **[Project Structure](/getting-started/project-structure/)**
+- :material-folder-cog:{ .lg .middle } **[Project Structure](project-structure.md)**
 
     ---
 
     Recommended directory layouts for assets, `.litidata` resource archives, maps, and source files.
 
-- :material-play-circle:{ .lg .middle } **[Run the Game](/getting-started/run-the-game/)**
+- :material-play-circle:{ .lg .middle } **[Run the Game](run-the-game.md)**
 
     ---
 
-    Your first 15-line program initializing `Game.init()`, loading maps, and starting the 60 FPS loop.
+    Your first program initializing `Game.init()`, creating your game window, and loading maps.
 
-- :material-book-open-page-variant:{ .lg .middle } **[API Quick Reference](/getting-started/api-quick-reference/)**
+- :material-book-open-page-variant:{ .lg .middle } **[API Quick Reference](api-quick-reference.md)**
 
     ---
 
     Instant cheat sheet covering all core modules: `Game.*`, `Resources.*`, `Input.*`, and `Camera`.
 
-- :material-package-variant-closed:{ .lg .middle } **[Deployment Guide](/deployment/)**
+- :material-package-variant-closed:{ .lg .middle } **[Deployment Guide](../deployment.md)**
 
     ---
 
@@ -236,10 +283,10 @@ Welcome to **LITIENGINE**! This section guides you through installing the Java 2
 ## Frequently Asked Questions
 
 ??? question "Which Java version is required?"
-    LITIENGINE requires **Java 21 LTS or newer** (tested through JDK 25).
+    LITIENGINE requires **Java 25 or newer**.
 
 ??? question "Can I run LITIENGINE on Apple Silicon (M1–M4)?"
-    Yes! LITIENGINE runs natively on macOS AArch64 using any standard ARM64 JDK (Temurin, Azul, or Oracle).
+    Yes! LITIENGINE runs natively on macOS AArch64 using any standard ARM64 JDK 25+ (Temurin, Azul, or Oracle).
 
 <!-- END CHAPTER: getting-started/README.md -->
 
@@ -275,20 +322,29 @@ Add the LITIENGINE dependency to your Gradle project by adding the following cod
 > While it's also possible to reference the library via **Maven** or **Ant**, our recommended and supported way is to use gradle. 
 > 
 
-### Gradle (Groovy)
+### Stable Release (Maven Central)
+
 === "Gradle (Kotlin DSL)"
 
     ```kotlin
+    repositories {
+      mavenCentral()
+    }
+
     dependencies {
-      implementation("de.gurkenlabs:litiengine:0.13.0-SNAPSHOT")
+      implementation("de.gurkenlabs:litiengine:0.12.0")
     }
     ```
 
 === "Gradle (Groovy DSL)"
 
     ```groovy
+    repositories {
+      mavenCentral()
+    }
+
     dependencies {
-      implementation 'de.gurkenlabs:litiengine:0.13.0-SNAPSHOT'
+      implementation 'de.gurkenlabs:litiengine:0.12.0'
     }
     ```
 
@@ -298,39 +354,73 @@ Add the LITIENGINE dependency to your Gradle project by adding the following cod
     <dependency>
       <groupId>de.gurkenlabs</groupId>
       <artifactId>litiengine</artifactId>
-      <version>0.13.0-SNAPSHOT</version>
+      <version>0.12.0</version>
     </dependency>
     ```
 
 ### Sample Project
-A basic example for a Gradle based LITIENGINE project can be found [HERE](https://github.com/gurkenlabs/litiengine-gurk-nukem). Have a look at the project's `build.gradle` and `settings.gradle`.
 
-## Consuming LITIENGINE snapshot versions
-Feeling bold and adventurous?
-Try one of LITIENGINE's nightly snapshot builds!
-> If you use LITIENGINE snapshot versions, expect untested code and API that might still change!
+A basic example for a Gradle-based LITIENGINE project can be found on GitHub: **[LITIENGINE Gurk Nukem](https://github.com/gurkenlabs/litiengine-gurk-nukem)**.
 
-Consuming the snapshot artifacts is as simple as adding the sonatype snapshots repository to your dependency management, and choosing your preferred snapshot version. Browse all available snapshots [here](https://oss.sonatype.org/content/repositories/snapshots/)!
+---
 
-in your `build.gradle`:
-```groovy
-plugins {
-  id("java")
-  id("application")
-}
+## Snapshot Versions
 
-repositories {
-  mavenCentral()
-  maven{
-    url "https://oss.sonatype.org/content/repositories/snapshots/"
-  }
+Feeling adventurous? Try one of LITIENGINE's nightly snapshot builds!
 
-}
+> **Warning:** If you use LITIENGINE snapshot versions, expect untested code and APIs that might still change!
 
-dependencies {
-  implementation 'de.gurkenlabs:litiengine:0.11.1-SNAPSHOT'
-}
-```
+Consuming snapshot artifacts is as simple as adding the Sonatype snapshots repository to your build configuration:
+
+=== "Gradle (Kotlin DSL)"
+
+    ```kotlin
+    repositories {
+      mavenCentral()
+      maven {
+        url = uri("https://oss.sonatype.org/content/repositories/snapshots/")
+      }
+    }
+
+    dependencies {
+      implementation("de.gurkenlabs:litiengine:0.13.0-SNAPSHOT")
+    }
+    ```
+
+=== "Gradle (Groovy DSL)"
+
+    ```groovy
+    repositories {
+      mavenCentral()
+      maven {
+        url "https://oss.sonatype.org/content/repositories/snapshots/"
+      }
+    }
+
+    dependencies {
+      implementation 'de.gurkenlabs:litiengine:0.13.0-SNAPSHOT'
+    }
+    ```
+
+=== "Maven"
+
+    ```xml
+    <repositories>
+      <repository>
+        <id>sonatype-snapshots</id>
+        <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+        <snapshots><enabled>true</enabled></snapshots>
+      </repository>
+    </repositories>
+
+    <dependencies>
+      <dependency>
+        <groupId>de.gurkenlabs</groupId>
+        <artifactId>litiengine</artifactId>
+        <version>0.13.0-SNAPSHOT</version>
+      </dependency>
+    </dependencies>
+    ```
 
 
 ## (Advanced) Composite build with a local copy of the LITIENGINE repository
@@ -396,7 +486,7 @@ tags: [jdk, java, installation, temurin, corretto, setup, sdkman]
 
 To develop games with LITIENGINE, you need a Java Development Kit (**JDK**) containing the Java Virtual Machine (**JVM**) and Java compiler.
 
-LITIENGINE requires **JDK 21 LTS or later** (with modern snapshots targeting **JDK 25**).
+LITIENGINE requires **JDK 25 or later**.
 
 !!! tip
     On macOS and Linux, you can easily install and manage multiple JDK versions using [SDKMAN!](https://sdkman.io/):
@@ -425,11 +515,11 @@ java --version
 javac --version
 ```
 
-Both commands should return version `21` (or higher).
+Both commands should return version `25` (or higher).
 
 ## Next Steps
 
-Now that your JDK is ready, proceed to **[Set Up Your IDE](/getting-started/development-environment/)**.
+Now that your JDK is ready, proceed to **[Set Up Your IDE](development-environment.md)**.
 
 <!-- END CHAPTER: getting-started/install-jdk.md -->
 
@@ -491,8 +581,8 @@ When developing on macOS (Sonoma, Ventura, Sequoia with M1/M2/M3/M4 Apple Silico
 ---
 title: "Build Systems & Dependency Setup"
 icon: "lucide/wrench"
-description: "Configure Gradle (Kotlin/Groovy) and Maven build automation with Java 21+ toolchains, Shadow JAR bundling, and LITIENGINE dependencies."
-keywords: ["LITIENGINE build", "Gradle Kotlin DSL", "build.gradle.kts", "build.gradle", "pom.xml", "Java 21 toolchain", "shadowjar"]
+description: "Configure Gradle (Kotlin/Groovy) and Maven build automation with Java 25+ toolchains, Shadow JAR bundling, and LITIENGINE dependencies."
+keywords: ["LITIENGINE build", "Gradle Kotlin DSL", "build.gradle.kts", "build.gradle", "pom.xml", "Java 25 toolchain", "shadowjar"]
 tags: ["gradle", "maven", "build", "dependencies", "shadowjar", "toolchain"]
 ---
 
@@ -504,7 +594,7 @@ LITIENGINE is distributed via **Maven Central** and is fully compatible with mod
 
 ---
 
-## Starter Build Configurations (Java 21+)
+## Starter Build Configurations (Java 25+)
 
 Select your preferred build tool below for a complete, production-ready configuration:
 
@@ -526,12 +616,12 @@ Select your preferred build tool below for a complete, production-ready configur
 
     java {
         toolchain {
-            languageVersion.set(JavaLanguageVersion.of(21))
+            languageVersion.set(JavaLanguageVersion.of(25))
         }
     }
 
     dependencies {
-        implementation("de.gurkenlabs:litiengine:0.11.1")
+        implementation("de.gurkenlabs:litiengine:0.12.0")
         testImplementation("org.junit.jupiter:junit-jupiter:5.11.4")
     }
 
@@ -565,12 +655,12 @@ Select your preferred build tool below for a complete, production-ready configur
 
     java {
         toolchain {
-            languageVersion = JavaLanguageVersion.of(21)
+            languageVersion = JavaLanguageVersion.of(25)
         }
     }
 
     dependencies {
-        implementation 'de.gurkenlabs:litiengine:0.11.1'
+        implementation 'de.gurkenlabs:litiengine:0.12.0'
         testImplementation 'org.junit.jupiter:junit-jupiter:5.11.4'
     }
 
@@ -599,8 +689,8 @@ Select your preferred build tool below for a complete, production-ready configur
         <version>1.0.0</version>
 
         <properties>
-            <maven.compiler.source>21</maven.compiler.source>
-            <maven.compiler.target>21</maven.compiler.target>
+            <maven.compiler.source>25</maven.compiler.source>
+            <maven.compiler.target>25</maven.compiler.target>
             <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         </properties>
 
@@ -608,7 +698,7 @@ Select your preferred build tool below for a complete, production-ready configur
             <dependency>
                 <groupId>de.gurkenlabs</groupId>
                 <artifactId>litiengine</artifactId>
-                <version>0.11.1</version>
+                <version>0.12.0</version>
             </dependency>
         </dependencies>
 
@@ -659,7 +749,7 @@ Select your preferred build tool below for a complete, production-ready configur
 
     1. Select **File &rarr; Import... &rarr; Existing Gradle Project**.
     2. Browse to your project directory and click **Finish**.
-    3. Ensure your Workspace Installed JRE is configured for **Java 21+**.
+    3. Ensure your Workspace Installed JRE is configured for **Java 25+**.
 
 - :material-microsoft-visual-studio-code:{ .lg .middle } **VS Code**
 
@@ -1074,49 +1164,49 @@ The `Game` class acts as the central hub and orchestrator of LITIENGINE. It expo
 
 <div class="grid cards" markdown>
 
-- :material-earth:{ .lg .middle } **[Game World & Environments](/game-api/game-world/)**
+- :material-earth:{ .lg .middle } **[Game World & Environments](game-world.md)**
 
     ---
 
     Loading `.tmx` maps, switching active scenes, entity lookup, and spatial query indexing.
 
-- :material-camera-outline:{ .lg .middle } **[Camera & Viewport](/game-api/camera/)**
+- :material-camera-outline:{ .lg .middle } **[Camera & Viewport](camera.md)**
 
     ---
 
     Smooth target tracking, map clamping, zoom transitions, screen shake trauma, and coordinate conversion.
 
-- :material-atom:{ .lg .middle } **[Physics & Collisions](/game-api/physics-engine/)**
+- :material-atom:{ .lg .middle } **[Physics & Collisions](physics-engine.md)**
 
     ---
 
     Spatial quadtrees, raycasting, velocity resolution, bounding box collisions, and force gravity.
 
-- :material-palette-outline:{ .lg .middle } **[2D Graphics & Rendering](/game-api/render-engine/)**
+- :material-palette-outline:{ .lg .middle } **[2D Graphics & Rendering](render-engine.md)**
 
     ---
 
     Double-buffered AWT rendering pipeline, Y-sorted render layers, shapes, and `TextRenderer`.
 
-- :material-volume-high:{ .lg .middle } **[Sound & Audio Engine](/game-api/sound-engine/)**
+- :material-volume-high:{ .lg .middle } **[Sound & Audio Engine](sound-engine.md)**
 
     ---
 
     2D positional spatial audio falloff, `.ogg` Vorbis streaming, sound effect caching, and music playlists.
 
-- :material-timer-outline:{ .lg .middle } **[Game Loop & Timing](/game-api/loops/)**
+- :material-timer-outline:{ .lg .middle } **[Game Loop & Timing](loops.md)**
 
     ---
 
-    Deterministic 60 FPS update loop, delta time calculations, timers, and scheduled delay tasks.
+    Game loop execution, delta time calculations, update callbacks, and scheduled delay tasks.
 
-- :material-creation:{ .lg .middle } **[Tweens & Easing](/game-api/tweens/)**
+- :material-creation:{ .lg .middle } **[Tweens & Easing](tweens.md)**
 
     ---
 
     Property interpolation framework with Robert Penner easing equations (`QUAD`, `BOUNCE`, `ELASTIC`).
 
-- :material-monitor:{ .lg .middle } **[Screens & Game States](/game-api/screens/)**
+- :material-monitor:{ .lg .middle } **[Screens & Game States](screens.md)**
 
     ---
 
@@ -1750,30 +1840,9 @@ tags: [gameloop, update-loop, fps, ticks, timing, callbacks]
 ---
 # Game Loop
 
-## Decoupled Update vs. Render Loop Architecture
+## Game Loop Architecture
 
-```mermaid
-sequenceDiagram
- autonumber
- participant Engine as GameLoop (60 Hz Fixed)
- participant Phys as PhysicsEngine & Entities
- participant Render as RenderEngine (Variable / VSync)
- participant Screen as GameScreen / HUD
-
- loop Every 16.6 ms (Fixed Tick)
- Engine->>Phys: update() (Entity controllers, AI, velocities)
- Phys->>Phys: resolveCollisions() (Spatial quadtree)
- end
-
- loop Every Frame (Render Tick)
- Render->>Screen: render(Graphics2D g) (Double-buffered canvas)
- Screen->>Render: draw layers (Background -> Ground -> Entities -> Overlay)
- end
-```
-
----
-
-LITIENGINE uses a decoupled loop architecture where deterministic game logic (UPS) and rendering (FPS) run in coordinated harmony:
+LITIENGINE coordinates game updates and rendering through a unified main loop (`Game.loop()`) while polling input devices independently for low-latency responsiveness:
 
 ```mermaid
 flowchart TD
@@ -1781,26 +1850,24 @@ flowchart TD
  RawHW["Hardware Input (Keyboard/Mouse/Gamepad)"] --> InputState["Update Input State (Input.keyboard / Input.mouse / Input.gamepads)"]
  end
 
- subgraph MainGameLoop["Game.loop() (Fixed Tick Rate, e.g., 60 UPS)"]
- TickStart["Tick Start"] --> UpdateLoop["Execute Attached IUpdateable Instances"]
- UpdateLoop --> UpdateEnv["Update Active Environment (Physics, Entities, Emitters)"]
- UpdateEnv --> RenderPass["Render Active Screen (Screen.render)"]
- RenderPass --> RenderWorld["Render Environment (Map, Entities, Lighting, Particles)"]
- RenderWorld --> RenderGUI["Render GuiComponents & HUD"]
+ subgraph MainGameLoop["Game.loop() (Target Tick Rate via config().client().getMaxFps())"]
+ TickStart["Tick Start"] --> UpdateLoop["1. Execute Attached IUpdateable Instances"]
+ UpdateLoop --> UpdateEnv["2. Update Active Environment (Physics, Entities, Emitters)"]
+ UpdateEnv --> RenderPass["3. Render Active Screen (Screen.render)"]
+ RenderPass --> RenderWorld["Draw Environment (Map, Entities, Lighting, Particles)"]
+ RenderWorld --> RenderGUI["Draw GuiComponents & HUD"]
  end
 ```
 
-- **Game Loop** (`Game.loop()`) - Handles game logic and triggers rendering at a fixed tick rate.
-- **Input Loop** - Processes player input independently for maximum responsiveness.
-
-This design ensures consistent physics and gameplay regardless of monitor refresh rates or momentary rendering spikes.
+- **Game Loop** (`Game.loop()`) - Executes time-dependent logic (physics, entity controllers, AI) and triggers the rendering pass on each tick.
+- **Input Loop** - Processes keyboard, mouse, and gamepad hardware input on an independent thread for maximum responsiveness.
 
 ## The Main Game Loop - `Game.loop()`
 
-The `Game.loop()` method returns the main `IGameLoop` that executes all game logic and triggers rendering. It runs at a fixed tick rate (default: 60 ticks/second), ensuring physics, AI, and other time-dependent systems behave consistently.
+The `Game.loop()` method returns the main `IGameLoop` that executes all game logic and triggers rendering. Its tick rate is configured via `config().client().getMaxFps()` (default: 60 ticks/second), ensuring physics, AI, and time-dependent systems behave consistently.
 
 !!! note
-    The game's loop also executes the rendering process. This internally renders the currently active screen which passes the `Graphics2D` object to all `GuiComponents` and the Environment for rendering.
+    The game loop executes both the update and rendering phases. It updates the active environment, executes attached `IUpdateable`s, and then renders the currently active `Screen` by passing the `Graphics2D` context to all components and layers.
 
 ### IUpdateable Interface
 
@@ -6077,13 +6144,13 @@ Game.info().setVersion("v1.0.0");
 
 ## 2. Build Automation with Gradle
 
-Modern LITIENGINE games target **Java 21 or later**. Below is a recommended `build.gradle` using the standard Gradle `application` plugin, `shadow` (uber-jar), and `launch4j` for generating native Windows `.exe` wrappers:
+Modern LITIENGINE games target **Java 25 or later**. Below is a recommended `build.gradle` using the standard Gradle `application` plugin, `shadow` (uber-jar), and `launch4j` for generating native Windows `.exe` wrappers:
 
 ```groovy
 plugins {
   id 'java'
   id 'application'
-  id 'com.github.johnrengelman.shadow' version '8.1.1'
+  id 'com.gradleup.shadow' version '8.3.6'
   id 'edu.sc.seis.launch4j' version '3.0.5'
 }
 
@@ -6092,7 +6159,7 @@ version = '1.0.0'
 
 java {
   toolchain {
-    languageVersion = JavaLanguageVersion.of(21)
+    languageVersion = JavaLanguageVersion.of(25)
   }
 }
 
@@ -6105,7 +6172,7 @@ repositories {
 }
 
 dependencies {
-  implementation 'de.gurkenlabs:litiengine:0.11.1'
+  implementation 'de.gurkenlabs:litiengine:0.12.0'
 }
 
 // Configure fat / shadow jar
@@ -7542,19 +7609,21 @@ Quick answers to the most common questions about LITIENGINE architecture, perfor
 ## General & Architecture
 
 ??? question "Is LITIENGINE a library or a full game engine?"
-    LITIENGINE is a **modular 2D Java Game Library and Framework**. It provides everything needed to build commercial-grade 2D games: a decoupled 60 FPS update loop, 2D tile-based physics with spatial quadtrees, AWT graphics pipeline, 2D positional audio, entity lifecycle management, and the companion **utiLITI Editor**.
+    LITIENGINE is a **modular 2D Java Game Library and Framework**. It provides everything needed to build commercial-grade 2D games: a high-performance game loop, 2D physics with spatial quadtrees, AWT graphics pipeline, 2D positional audio, entity lifecycle management, and the companion **utiLITI Editor**.
 
 ??? question "What Java version is required?"
-    LITIENGINE requires **Java 21 LTS or newer** (tested through JDK 25). It leverages modern Java features including Java Panama Foreign Function & Memory (FFM) APIs for low-latency gamepad polling via `Input4j` with zero JNI setup.
+    LITIENGINE requires **Java 25 or newer**. It leverages modern Java features including Java Panama Foreign Function & Memory (FFM) APIs for low-latency gamepad polling via `Input4j` with zero JNI setup.
 
 ??? question "Why pure Java with AWT instead of OpenGL/Vulkan bindings?"
     By relying on pure Java AWT 2D graphics without heavy native dynamic C/C++ libraries (like LWJGL or libGDX bindings), LITIENGINE games run identically across Windows, macOS, and Linux without native DLL hell, driver crashes, or platform-specific compilation hurdles.
 
-??? question "How does the decoupled game loop work?"
-    LITIENGINE uses a **decoupled multi-threaded loop**:
+??? question "How does the game loop work?"
+    LITIENGINE coordinates game updates and rendering through a unified loop (`Game.loop()`):
     
-    1. **Update Loop (`Game.loop()`)**: Runs at a fixed, deterministic rate (default: **60 ticks/second**) executing physics, entity logic, timers, and AI.
-    2. **Render Loop (`Game.window().getRenderComponent()`)**: Runs on the AWT graphics pipeline, interpolating positions to deliver smooth rendering regardless of display refresh rate.
+    1. **Update Phase**: Executes registered `IUpdateable` components, physics simulation, spatial quadtree indexing, entity behaviors, and tweens.
+    2. **Render Phase**: Renders the active `Screen`, map layers, entities, and UI components on the AWT graphics pipeline.
+    
+    The target tick rate is configured via `config().client().getMaxFps()` (default: 60 ticks/second), while input is polled on an independent loop for responsive control.
 
 ??? question "Does LITIENGINE collect any telemetry or user data?"
     **No.** LITIENGINE and the utiLITI Editor contain zero telemetry, tracking, or analytics code.

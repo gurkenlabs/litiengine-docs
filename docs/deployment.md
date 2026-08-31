@@ -38,13 +38,13 @@ Game.info().setVersion("v1.0.0");
 
 ## 2. Build Automation with Gradle
 
-Modern LITIENGINE games target **Java 21 or later**. Below is a recommended `build.gradle` using the standard Gradle `application` plugin, `shadow` (uber-jar), and `launch4j` for generating native Windows `.exe` wrappers:
+Modern LITIENGINE games target **Java 25 or later**. Below is a recommended `build.gradle` using the standard Gradle `application` plugin, `shadow` (uber-jar), and `launch4j` for generating native Windows `.exe` wrappers:
 
 ```groovy
 plugins {
   id 'java'
   id 'application'
-  id 'com.github.johnrengelman.shadow' version '8.1.1'
+  id 'com.gradleup.shadow' version '8.3.6'
   id 'edu.sc.seis.launch4j' version '3.0.5'
 }
 
@@ -53,7 +53,7 @@ version = '1.0.0'
 
 java {
   toolchain {
-    languageVersion = JavaLanguageVersion.of(21)
+    languageVersion = JavaLanguageVersion.of(25)
   }
 }
 
@@ -66,7 +66,7 @@ repositories {
 }
 
 dependencies {
-  implementation 'de.gurkenlabs:litiengine:0.11.1'
+  implementation 'de.gurkenlabs:litiengine:0.12.0'
 }
 
 // Configure fat / shadow jar

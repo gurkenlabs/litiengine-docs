@@ -1,8 +1,8 @@
 ---
 title: "Build Systems & Dependency Setup"
 icon: "lucide/wrench"
-description: "Configure Gradle (Kotlin/Groovy) and Maven build automation with Java 21+ toolchains, Shadow JAR bundling, and LITIENGINE dependencies."
-keywords: ["LITIENGINE build", "Gradle Kotlin DSL", "build.gradle.kts", "build.gradle", "pom.xml", "Java 21 toolchain", "shadowjar"]
+description: "Configure Gradle (Kotlin/Groovy) and Maven build automation with Java 25+ toolchains, Shadow JAR bundling, and LITIENGINE dependencies."
+keywords: ["LITIENGINE build", "Gradle Kotlin DSL", "build.gradle.kts", "build.gradle", "pom.xml", "Java 25 toolchain", "shadowjar"]
 tags: ["gradle", "maven", "build", "dependencies", "shadowjar", "toolchain"]
 ---
 
@@ -14,7 +14,7 @@ LITIENGINE is distributed via **Maven Central** and is fully compatible with mod
 
 ---
 
-## Starter Build Configurations (Java 21+)
+## Starter Build Configurations (Java 25+)
 
 Select your preferred build tool below for a complete, production-ready configuration:
 
@@ -36,12 +36,12 @@ Select your preferred build tool below for a complete, production-ready configur
 
     java {
         toolchain {
-            languageVersion.set(JavaLanguageVersion.of(21))
+            languageVersion.set(JavaLanguageVersion.of(25))
         }
     }
 
     dependencies {
-        implementation("de.gurkenlabs:litiengine:0.11.1")
+        implementation("de.gurkenlabs:litiengine:0.12.0")
         testImplementation("org.junit.jupiter:junit-jupiter:5.11.4")
     }
 
@@ -75,12 +75,12 @@ Select your preferred build tool below for a complete, production-ready configur
 
     java {
         toolchain {
-            languageVersion = JavaLanguageVersion.of(21)
+            languageVersion = JavaLanguageVersion.of(25)
         }
     }
 
     dependencies {
-        implementation 'de.gurkenlabs:litiengine:0.11.1'
+        implementation 'de.gurkenlabs:litiengine:0.12.0'
         testImplementation 'org.junit.jupiter:junit-jupiter:5.11.4'
     }
 
@@ -109,8 +109,8 @@ Select your preferred build tool below for a complete, production-ready configur
         <version>1.0.0</version>
 
         <properties>
-            <maven.compiler.source>21</maven.compiler.source>
-            <maven.compiler.target>21</maven.compiler.target>
+            <maven.compiler.source>25</maven.compiler.source>
+            <maven.compiler.target>25</maven.compiler.target>
             <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         </properties>
 
@@ -118,7 +118,7 @@ Select your preferred build tool below for a complete, production-ready configur
             <dependency>
                 <groupId>de.gurkenlabs</groupId>
                 <artifactId>litiengine</artifactId>
-                <version>0.11.1</version>
+                <version>0.12.0</version>
             </dependency>
         </dependencies>
 
@@ -169,7 +169,7 @@ Select your preferred build tool below for a complete, production-ready configur
 
     1. Select **File &rarr; Import... &rarr; Existing Gradle Project**.
     2. Browse to your project directory and click **Finish**.
-    3. Ensure your Workspace Installed JRE is configured for **Java 21+**.
+    3. Ensure your Workspace Installed JRE is configured for **Java 25+**.
 
 - :material-microsoft-visual-studio-code:{ .lg .middle } **VS Code**
 

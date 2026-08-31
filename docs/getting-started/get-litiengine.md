@@ -25,20 +25,29 @@ Add the LITIENGINE dependency to your Gradle project by adding the following cod
 > While it's also possible to reference the library via **Maven** or **Ant**, our recommended and supported way is to use gradle. 
 > 
 
-### Gradle (Groovy)
+### Stable Release (Maven Central)
+
 === "Gradle (Kotlin DSL)"
 
     ```kotlin
+    repositories {
+      mavenCentral()
+    }
+
     dependencies {
-      implementation("de.gurkenlabs:litiengine:0.13.0-SNAPSHOT")
+      implementation("de.gurkenlabs:litiengine:0.12.0")
     }
     ```
 
 === "Gradle (Groovy DSL)"
 
     ```groovy
+    repositories {
+      mavenCentral()
+    }
+
     dependencies {
-      implementation 'de.gurkenlabs:litiengine:0.13.0-SNAPSHOT'
+      implementation 'de.gurkenlabs:litiengine:0.12.0'
     }
     ```
 
@@ -48,39 +57,73 @@ Add the LITIENGINE dependency to your Gradle project by adding the following cod
     <dependency>
       <groupId>de.gurkenlabs</groupId>
       <artifactId>litiengine</artifactId>
-      <version>0.13.0-SNAPSHOT</version>
+      <version>0.12.0</version>
     </dependency>
     ```
 
 ### Sample Project
-A basic example for a Gradle based LITIENGINE project can be found [HERE](https://github.com/gurkenlabs/litiengine-gurk-nukem). Have a look at the project's `build.gradle` and `settings.gradle`.
 
-## Consuming LITIENGINE snapshot versions
-Feeling bold and adventurous?
-Try one of LITIENGINE's nightly snapshot builds!
-> If you use LITIENGINE snapshot versions, expect untested code and API that might still change!
+A basic example for a Gradle-based LITIENGINE project can be found on GitHub: **[LITIENGINE Gurk Nukem](https://github.com/gurkenlabs/litiengine-gurk-nukem)**.
 
-Consuming the snapshot artifacts is as simple as adding the sonatype snapshots repository to your dependency management, and choosing your preferred snapshot version. Browse all available snapshots [here](https://oss.sonatype.org/content/repositories/snapshots/)!
+---
 
-in your `build.gradle`:
-```groovy
-plugins {
-  id("java")
-  id("application")
-}
+## Snapshot Versions
 
-repositories {
-  mavenCentral()
-  maven{
-    url "https://oss.sonatype.org/content/repositories/snapshots/"
-  }
+Feeling adventurous? Try one of LITIENGINE's nightly snapshot builds!
 
-}
+> **Warning:** If you use LITIENGINE snapshot versions, expect untested code and APIs that might still change!
 
-dependencies {
-  implementation 'de.gurkenlabs:litiengine:0.11.1-SNAPSHOT'
-}
-```
+Consuming snapshot artifacts is as simple as adding the Sonatype snapshots repository to your build configuration:
+
+=== "Gradle (Kotlin DSL)"
+
+    ```kotlin
+    repositories {
+      mavenCentral()
+      maven {
+        url = uri("https://oss.sonatype.org/content/repositories/snapshots/")
+      }
+    }
+
+    dependencies {
+      implementation("de.gurkenlabs:litiengine:0.13.0-SNAPSHOT")
+    }
+    ```
+
+=== "Gradle (Groovy DSL)"
+
+    ```groovy
+    repositories {
+      mavenCentral()
+      maven {
+        url "https://oss.sonatype.org/content/repositories/snapshots/"
+      }
+    }
+
+    dependencies {
+      implementation 'de.gurkenlabs:litiengine:0.13.0-SNAPSHOT'
+    }
+    ```
+
+=== "Maven"
+
+    ```xml
+    <repositories>
+      <repository>
+        <id>sonatype-snapshots</id>
+        <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+        <snapshots><enabled>true</enabled></snapshots>
+      </repository>
+    </repositories>
+
+    <dependencies>
+      <dependency>
+        <groupId>de.gurkenlabs</groupId>
+        <artifactId>litiengine</artifactId>
+        <version>0.13.0-SNAPSHOT</version>
+      </dependency>
+    </dependencies>
+    ```
 
 
 ## (Advanced) Composite build with a local copy of the LITIENGINE repository
