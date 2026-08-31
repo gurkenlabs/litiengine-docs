@@ -191,9 +191,9 @@ Input.gamepads().onPressed(Gamepad.Xbox.LEFT_STICK_X, x -> {
 
 ## See Also
 
-- [Keyboard Input](/player-input/keyboard-input/) - Keyboard handling
-- [Mouse Input](/player-input/mouse-input/) - Mouse handling
-- [Player Input Overview](/player-input/) - Input API overview
+- [Keyboard Input](keyboard-input.md) - Keyboard handling
+- [Mouse Input](mouse-input.md) - Mouse handling
+- [Player Input Overview](README.md) - Input API overview
 
 !!! important "Panama FFM Foreign Memory"
     LITIENGINE uses `Input4j` via Java Panama Foreign Function & Memory (FFM) APIs. Run your JVM on Java 21 or later to enable native controller polling without JNI overhead.

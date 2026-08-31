@@ -85,7 +85,7 @@ Pre-bake shadows instead of calculating dynamically:
 gfx_enableDynamicShadows=false
 ```
 
-See [Static Lighting](/advanced/static-lighting/) for details.
+See [Static Lighting](static-lighting.md) for details.
 
 ## Entity Management
 
@@ -245,9 +245,9 @@ gfx_enableResolutionScale=true
 
 ## See Also
 
-- [Particle System](/advanced/particle-system/) - Particle optimization
-- [Entity Framework](/entity-framework/) - Entity management
-- [Render Engine](/game-api/render-engine/) - Rendering system
+- [Particle System](particle-system.md) - Particle optimization
+- [Entity Framework](..\entity-framework\README.md) - Entity management
+- [Render Engine](..\game-api\render-engine.md) - Rendering system
 
 !!! tip "Zero-Allocation Game Loops"
     Avoid creating `new Point2D.Double(...)` or temporary objects inside your update loops. Reuse pre-allocated instance vectors to eliminate Garbage Collection (GC) latency spikes.

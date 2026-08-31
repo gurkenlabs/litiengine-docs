@@ -36,13 +36,17 @@ Game.world().environment().add(trigger);
 
 ## Trigger Activation Modes
 
-The `TriggerActivation` enum defines how the trigger detects activation:
+The `TriggerActivation` enum defines how the trigger detects activation when instantiated:
 
-- **`COLLISION`**: Activates automatically whenever an entity collides with/enters the trigger area.
-- **`INTERACT`**: Activates when a player enters the area and presses the interact key.
+- **`COLLISION`**: Activates automatically whenever an entity collides with or enters the trigger bounding box.
+- **`INTERACT`**: Activated when game logic explicitly invokes `trigger.interact(entity)` (e.g. from an input listener or action key).
 
 ```java
-trigger.setActivationType(TriggerActivation.INTERACT);
+// Create an interaction trigger
+Trigger talkTrigger = new Trigger(TriggerActivation.INTERACT, "talk_elder");
+
+// Explicitly trigger interaction from player input logic
+talkTrigger.interact(player);
 ```
 
 ---

@@ -197,6 +197,6 @@ Input.keyboard().onKeyPressed(KeyEvent.VK_F11, e -> {
 
 ## See Also
 
-- [Game.screens()](/game-api/screens/) - Screen management
-- [Game.graphics()](/game-api/render-engine/) - Rendering engine
-- [Configuration](/configuration/) - Game configuration options
+- [Game.screens()](screens.md) - Screen management
+- [Game.graphics()](render-engine.md) - Rendering engine
+- [Configuration](..\configuration\README.md) - Game configuration options

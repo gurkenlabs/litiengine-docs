@@ -7,7 +7,7 @@ tags: [getting-started, overview, installation, setup, quickstart]
 ---
 # Getting Started
 
-Welcome to **LITIENGINE**! This section guides you through installing the Java {{ java_version }} LTS+ development kit, configuring your IDE, setting up Gradle or Maven build automation, and launching your first 2D game.
+Welcome to **LITIENGINE**! This section guides you through installing the Java {{ java_version }}+ development kit, configuring your IDE, setting up Gradle or Maven build automation, and launching your first 2D game.
 
 ---
 
@@ -25,7 +25,7 @@ Welcome to **LITIENGINE**! This section guides you through installing the Java {
 
     ---
 
-    Set up Java {{ java_version }} LTS or newer across Windows, Linux, and macOS with modern OpenJDK builds.
+    Set up Java {{ java_version }} or newer across Windows, Linux, and macOS with modern OpenJDK builds.
 
 - :material-laptop:{ .lg .middle } **[Set Up Your IDE](development-environment.md)**
 

@@ -17,10 +17,10 @@ These are the required components for making it happen:
 
 * A path on your map
 * A rat implementation
-* A [`MapObjectLoader`](/advanced/custom-mapobjectloaders/) that associates the path object and the rat
-* A [`StateController`](/control-entities/entity-controllers/) that switches between the rat behaviour states
+* A [`MapObjectLoader`](..\advanced\custom-mapobjectloaders.md) that associates the path object and the rat
+* A [`StateController`](entity-controllers.md) that switches between the rat behaviour states
 * Different [`EntityStates`](#implementing-an-ai-state-machine) that represent certain behaviours
-* An [`EntityNavigator`](/control-entities/movement-controller/) to move the rat along the path
+* An [`EntityNavigator`](movement-controller.md) to move the rat along the path
 
 ### The path MapObject
 First of all, we need a collection of points that mark the path for our rat to walk on. 
@@ -106,7 +106,7 @@ Environment.registerMapObjectLoader(new PathMapObjectLoader());
 
 ### The StateController
 
-Now, we define the conditions for switching between walking randomly and following the predetermined path. For that, we implement a state machine that transitions between states once certain conditions are met. In our example, we begin with the path following behaviour and then switch to random walking once the end of the path is reached. What could happen while walking around to trigger another transition? Get creative with the [`StateController`](/control-entities/entity-controllers/) mechanics!
+Now, we define the conditions for switching between walking randomly and following the predetermined path. For that, we implement a state machine that transitions between states once certain conditions are met. In our example, we begin with the path following behaviour and then switch to random walking once the end of the path is reached. What could happen while walking around to trigger another transition? Get creative with the [`StateController`](entity-controllers.md) mechanics!
 
 ```java
 public class RatController extends StateController<Rat> {

@@ -18,7 +18,7 @@ Quick answers to the most common questions about LITIENGINE architecture, perfor
     LITIENGINE is a **modular 2D Java Game Library and Framework**. It provides everything needed to build commercial-grade 2D games: a high-performance game loop, 2D physics with spatial quadtrees, AWT graphics pipeline, 2D positional audio, entity lifecycle management, and the companion **utiLITI Editor**.
 
 ??? question "What Java version is required?"
-    Stable releases (LITIENGINE {{ version }}) require **Java {{ java_version }} LTS or newer**. Nightly snapshot builds (`{{ snapshot_version }}`) leverage modern Java features including Java Panama Foreign Function & Memory (FFM) APIs and target **Java {{ next_java_version }}+**.
+    LITIENGINE requires **Java {{ java_version }} or newer**. It leverages modern Java features including Java Panama Foreign Function & Memory (FFM) APIs for low-latency gamepad polling via `Input4j` with zero native JNI libraries.
 
 ??? question "Why pure Java with AWT instead of OpenGL/Vulkan bindings?"
     By relying on pure Java AWT 2D graphics without heavy native dynamic C/C++ libraries (like LWJGL or libGDX bindings), LITIENGINE games run identically across Windows, macOS, and Linux without native DLL hell, driver crashes, or platform-specific compilation hurdles.
@@ -89,7 +89,7 @@ Quick answers to the most common questions about LITIENGINE architecture, perfor
     **Yes!** LITIENGINE is licensed under the permissive **MIT License**. You retain 100% ownership of your game source code, assets, and commercial revenue. You can freely sell your games on Steam, itch.io, GOG, or your own store.
 
 ??? question "How do players run my game without installing Java?"
-    You can bundle a lightweight Java Runtime Environment (JRE) directly with your game using **jlink**, **jpackage**, or **Launch4j**. The player receives a standalone `.exe`, `.app`, or `.zip` bundle (~35 MB) and simply double-clicks to play. See our **[Deployment Guide](/deployment/)**.
+    You can bundle a lightweight Java Runtime Environment (JRE) directly with your game using **jlink**, **jpackage**, or **Launch4j**. The player receives a standalone `.exe`, `.app`, or `.zip` bundle (~35 MB) and simply double-clicks to play. See our **[Deployment Guide](deployment.md)**.
 
 ---
 
@@ -99,7 +99,7 @@ Quick answers to the most common questions about LITIENGINE architecture, perfor
     **No.** You can build complete games purely in Java code using procedural generation or raw Tiled maps. However, **utiLITI** significantly accelerates level design, entity placement, tileset Wang autotiling, and binary `.litidata` resource archiving.
 
 ??? question "Can I use AI coding agents like OpenCode or Antigravity with LITIENGINE?"
-    **Yes!** utiLITI includes an embedded **Model Context Protocol (MCP)** server on port `8088`. AI agents can inspect loaded maps, place entities, configure colliders, and generate code directly. Check out our **[AI-Assisted Game Development Guide](/tutorials/ai-game-development/)**.
+    **Yes!** utiLITI includes an embedded **Model Context Protocol (MCP)** server on port `8088`. AI agents can inspect loaded maps, place entities, configure colliders, and generate code directly. Check out our **[AI-Assisted Game Development Guide](tutorials/ai-game-development.md)**.
 
 ??? question "Can I use Tiled Map Editor alongside utiLITI?"
     **Yes.** LITIENGINE natively parses `.tmx` map files and `.tsx` tilesets exported from [Tiled Map Editor](https://www.mapeditor.org/). You can import `.tmx` maps directly into your `.litidata` projects in utiLITI.

@@ -275,13 +275,13 @@ public class Hero extends Creature { ... }
 
 <div class="grid cards" markdown>
 
-- :material-cube-outline:{ .lg .middle } **[Custom Entities](/entity-framework/custom-entities/)**
+- :material-cube-outline:{ .lg .middle } **[Custom Entities](custom-entities.md)**
 
     ---
 
     Step-by-step guide to extending `Creature`, `Prop`, and registering custom loaders.
 
-- :material-lightning-bolt-outline:{ .lg .middle } **[Ability Framework](/control-entities/ability-framework/)**
+- :material-lightning-bolt-outline:{ .lg .middle } **[Ability Framework](..\control-entities\ability-framework.md)**
 
     ---
 

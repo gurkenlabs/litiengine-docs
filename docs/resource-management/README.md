@@ -126,7 +126,7 @@ BufferedImage firstFrame = hero.getSprite(0);
 int totalFrames = hero.getTotalNumberOfSprites();
 ```
 
-* For batch importing and timing metadata, see **[Sprite Info Files](/resource-management/sprite-info-files/)** and **[Texture Atlases](/resource-management/texture-atlas/)**.
+* For batch importing and timing metadata, see **[Sprite Info Files](sprite-info-files.md)** and **[Texture Atlases](texture-atlas.md)**.
 
 ### 3. Sounds (`Resources.sounds()`)
 Loads and caches audio tracks and sound effects for the `SoundEngine`:
@@ -208,19 +208,19 @@ To ensure smooth 60 FPS gameplay without garbage collection hiccups or frame stu
 
 <div class="grid cards" markdown>
 
-- :material-image-multiple-outline:{ .lg .middle } **[Texture Atlases](/resource-management/texture-atlas/)**
+- :material-image-multiple-outline:{ .lg .middle } **[Texture Atlases](texture-atlas.md)**
 
     ---
 
     Create, organize, and optimize animation spritesheets and frame dimensions.
 
-- :material-file-document-edit-outline:{ .lg .middle } **[Sprite Info Files](/resource-management/sprite-info-files/)**
+- :material-file-document-edit-outline:{ .lg .middle } **[Sprite Info Files](sprite-info-files.md)**
 
     ---
 
     Batch import hundreds of spritesheets with custom keyframe duration lists.
 
-- :material-filmstrip:{ .lg .middle } **[Animation Controller](/control-entities/animation-controller/)**
+- :material-filmstrip:{ .lg .middle } **[Animation Controller](..\control-entities\animation-controller.md)**
 
     ---
 

@@ -58,7 +58,7 @@ public class DamageTextRecipe {
       // Spawn a floating text particle above the entity
       TextParticle textParticle = new TextParticle(
           "-" + (int) damageTaken,
-          event.wasCritical() ? Color.YELLOW : Color.RED,
+          event.wasKilled() ? Color.RED : Color.YELLOW,
           (float) location.getX(),
           (float) location.getY() - 10,
           800 // lifetime in ms
@@ -223,8 +223,8 @@ import java.awt.geom.Point2D;
 
 public class DeathExplosionRecipe {
   public static void registerExplosionOnDeath(ICombatEntity entity) {
-    entity.onDeath(event -> {
-      Point2D center = entity.getCenter();
+    entity.onDeath((victim, hitEvent) -> {
+      Point2D center = victim.getCenter();
       Emitter emitter = new Emitter(center.getX(), center.getY()) {
         @Override
         protected Particle createNewParticle() {

@@ -21,12 +21,12 @@ Track when an entity enters or leaves the active `Environment`:
 ```java
 entity.addListener(new EntityListener() {
   @Override
-  public void loaded(IEntity entity, IEnvironment environment) {
+  public void loaded(Entity entity, Environment environment) {
     System.out.println("Entity added to environment: " + entity.getName());
   }
 
   @Override
-  public void removed(IEntity entity, IEnvironment environment) {
+  public void removed(Entity entity, Environment environment) {
     System.out.println("Entity removed from environment: " + entity.getName());
   }
 });
@@ -88,7 +88,7 @@ mobile.onMoved(event -> {
 
 ## Combat Events (`ICombatEntity`)
 
-### Taking Damage & Death
+### Taking Damage, Death & Resurrection
 
 ```java
 ICombatEntity combatEntity = ...;
@@ -102,16 +102,16 @@ combatEntity.onHit(event -> {
   playHitSound();
 });
 
-// Death
-combatEntity.onDeath(event -> {
-  System.out.println("Entity died: " + event.getVictim().getName());
-  spawnDeathParticles(event.getVictim().getLocation());
+// Death (CombatEntityDeathListener receives the victim entity and the fatal hit event)
+combatEntity.onDeath((victim, hitEvent) -> {
+  System.out.println("Entity died: " + victim.getName());
+  spawnDeathParticles(victim.getLocation());
 });
 
-// Resurrection
-combatEntity.onResurrect(event -> {
-  System.out.println("Entity revived!");
-  event.getCombatEntity().setHitpoints(event.getCombatEntity().getMaxHitpoints());
+// Resurrection (CombatEntityResurrectListener receives the resurrected entity)
+combatEntity.onResurrect(resurrected -> {
+  System.out.println("Entity revived: " + resurrected.getName());
+  resurrected.setHitpoints(resurrected.getMaxHitpoints());
 });
 ```
 
@@ -134,22 +134,23 @@ collisionEntity.onCollision(event -> {
 
 ## Animation Events (`entity.animations()`)
 
-Access the entity's animation controller via `entity.animations()`:
+Access the entity's animation controller and register playback listeners via `entity.animations()`:
 
 ```java
 IEntityAnimationController<?> controller = entity.animations();
 if (controller != null) {
-  // Keyframe reached
-  controller.onKeyFrameChanged((animation, frame) -> {
-    if (frame == 2 && animation.getName().contains("walk")) {
-      playStepSound();
+  controller.addListener(new AnimationListener() {
+    @Override
+    public void played(Animation animation) {
+      // Triggered when an animation track begins playing
     }
-  });
 
-  // Animation sequence completed
-  controller.onFinished(animation -> {
-    if (animation.getName().equals("attack")) {
-      onAttackCompleted();
+    @Override
+    public void finished(Animation animation) {
+      // Triggered when a non-looping animation track completes
+      if ("attack".equals(animation.getName())) {
+        onAttackCompleted();
+      }
     }
   });
 }
@@ -183,12 +184,12 @@ LITIENGINE entities can send and receive structured string messages:
 // Sending a message
 targetEntity.sendMessage(this, "DAMAGE:25");
 
-// Listening for incoming messages
-entity.addMessageListener(event -> {
+// Listening for incoming messages on an entity
+entity.onMessage(event -> {
   String message = event.getMessage();
-  Object sender = event.getSender();
+  Object sender = event.getSource();
 
-  if (message.startsWith("DAMAGE:")) {
+  if (message != null && message.startsWith("DAMAGE:")) {
     int amount = Integer.parseInt(message.split(":")[1]);
     takeDamage(amount);
   }

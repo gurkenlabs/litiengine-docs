@@ -73,7 +73,7 @@ Feeling adventurous? Try one of LITIENGINE's nightly snapshot builds!
 
 > **Warning:** If you use LITIENGINE snapshot versions, expect untested code and APIs that might still change!
 
-Consuming snapshot artifacts is as simple as adding the Sonatype snapshots repository to your build configuration:
+Consuming snapshot artifacts is as simple as adding the Sonatype Central Portal snapshots repository to your build configuration:
 
 === "Gradle (Kotlin DSL)"
 
@@ -81,7 +81,7 @@ Consuming snapshot artifacts is as simple as adding the Sonatype snapshots repos
     repositories {
       mavenCentral()
       maven {
-        url = uri("https://oss.sonatype.org/content/repositories/snapshots/")
+        url = uri("https://central.sonatype.com/repository/maven-snapshots/")
       }
     }
 
@@ -96,7 +96,7 @@ Consuming snapshot artifacts is as simple as adding the Sonatype snapshots repos
     repositories {
       mavenCentral()
       maven {
-        url "https://oss.sonatype.org/content/repositories/snapshots/"
+        url "https://central.sonatype.com/repository/maven-snapshots/"
       }
     }
 
@@ -111,7 +111,7 @@ Consuming snapshot artifacts is as simple as adding the Sonatype snapshots repos
     <repositories>
       <repository>
         <id>sonatype-snapshots</id>
-        <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+        <url>https://central.sonatype.com/repository/maven-snapshots/</url>
         <snapshots><enabled>true</enabled></snapshots>
       </repository>
     </repositories>

@@ -23,23 +23,24 @@ flowchart TD
     end
 
     subgraph TickExecution["GameLoop.process() (Tick Interval: 1000 / getTickRate())"]
-        Step1["1. updateInvariableEngineComponents()"] --> Step2["2. super.process() (Update attached IUpdateable instances)"]
-        Step2 --> Step3["3. Update Active Environment (Physics, Entities, Emitters)"]
-        Step3 --> Step4["4. executeTimedActions() (Delayed callbacks & timers)"]
-        Step4 --> Step5["5. Render Pass: RenderComponent.render()"]
-        Step5 --> Step6["6. Draw Layers: Background -> Ground -> Surface -> Normal -> Overlay -> GUI"]
+        Step1["1. updateInvariableEngineComponents() (Clock & runtime state)"] --> Step2["2. super.process() (Update IUpdateable components & active Environment)"]
+        Step2 --> Step3["3. executeTimedActions() (Evaluate perform callbacks)"]
+        Step3 --> Step4["4. updateCamera() (Focus target tracking & shake offsets)"]
+        Step4 --> Step5["5. render() (Render active Screen on Graphics2D canvas)"]
+        Step5 --> Step6["6. trackMetrics() (Compute FPS, UPS, and frame timing)"]
     end
 ```
 
 ### Execution Order in `GameLoop.process()`
 
-On every tick, `GameLoop` runs the following stages:
+On every tick, `GameLoop` runs the following stages sequentially:
 
 1. **Invariable Engine Updates**: Updates internal runtime components and state.
-2. **`IUpdateable` Execution**: Iterates over all registered components implementing `IUpdateable` (e.g. custom controllers, entity update logic).
-3. **Environment Simulation**: Advances active physics quadtree checks, spatial indices, entity movements, and particle emitters.
-4. **Timed Action Dispatch**: Evaluates scheduled callbacks registered via `Game.loop().execute(...)` or `Game.loop().perform(...)`.
+2. **`IUpdateable` Execution & Environment**: Iterates over registered `IUpdateable` components, advancing entity behaviors, physics simulation, and particle systems.
+3. **Timed Action Dispatch**: Evaluates scheduled delay callbacks registered via `Game.loop().perform(...)`.
+4. **Camera Focus Update**: Recalculates camera target tracking, bounding box map clamping, and screen shake trauma offsets.
 5. **Screen & Component Render**: Renders the active `Screen` and environment layers via the AWT graphics pipeline to the window render canvas.
+6. **Metrics Tracking**: Records tick execution duration and calculates live FPS / UPS metrics.
 
 ---
 
@@ -118,13 +119,13 @@ cl_showGameMetrics=false
 `GameLoop` provides built-in action schedulers without needing raw Java `Thread.sleep` or timer threads:
 
 ```java
-// Execute a callback after 120 ticks (2 seconds at 60 ticks/second)
-int actionId = Game.loop().execute(120, () -> {
+// Schedule an action to execute after a delay in milliseconds (e.g. 2000 ms = 2 seconds)
+int actionId = Game.loop().perform(2000, () -> {
   System.out.println("Delayed task executed!");
 });
 
-// Reschedule or cancel a timed action
-Game.loop().alterExecutionTime(actionId, -1);
+// Cancel a scheduled action by its ID before it executes
+Game.loop().removeAction(actionId);
 ```
 
 ---

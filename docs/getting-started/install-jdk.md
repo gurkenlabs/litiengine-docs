@@ -1,9 +1,8 @@
 ---
 title: Install JDK
 icon: lucide/coffee
-description: Learn about the Java Development Kit (JDK 21+ / JDK 25) requirements,
-  distributions, and installation methods for LITIENGINE.
-keywords: [LITIENGINE, java, JDK, JVM, SDKMAN, Temurin, GraalVM, Java 21, Java 25]
+description: Learn about the Java Development Kit (JDK 25+) requirements, distributions, and installation methods for LITIENGINE.
+keywords: [LITIENGINE, java, JDK, JVM, SDKMAN, Temurin, GraalVM, Java 25]
 tags: [jdk, java, installation, temurin, corretto, setup, sdkman]
 ---
 # Install JDK
@@ -12,7 +11,7 @@ tags: [jdk, java, installation, temurin, corretto, setup, sdkman]
 
 To develop games with LITIENGINE, you need a Java Development Kit (**JDK**) containing the Java Virtual Machine (**JVM**) and Java compiler.
 
-LITIENGINE {{ version }} requires **JDK {{ java_version }} LTS or later**. Nightly development builds (`{{ snapshot_version }}`) target **JDK {{ next_java_version }}+**.
+LITIENGINE requires **JDK {{ java_version }} or later**.
 
 !!! tip
     On macOS and Linux, you can easily install and manage multiple JDK versions using [SDKMAN!](https://sdkman.io/):
@@ -41,7 +40,7 @@ java --version
 javac --version
 ```
 
-Both commands should return version `21` (or higher).
+Both commands should return version `{{ java_version }}` (or higher).
 
 ## Next Steps
 

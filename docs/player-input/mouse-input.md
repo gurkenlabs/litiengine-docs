@@ -183,6 +183,6 @@ Input.mouse().setLocation(100, 100);
 
 ## See Also
 
-- [Keyboard Input](/player-input/keyboard-input/) - Keyboard handling
-- [Gamepad Input](/player-input/gamepad-input/) - Gamepad handling
-- [Player Input Overview](/player-input/) - Input API overview
+- [Keyboard Input](keyboard-input.md) - Keyboard handling
+- [Gamepad Input](gamepad-input.md) - Gamepad handling
+- [Player Input Overview](README.md) - Input API overview
