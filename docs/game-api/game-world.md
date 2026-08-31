@@ -94,3 +94,11 @@ public class ProceduralWorld {
   }
 }
 ```
+
+---
+
+## Coordinate Systems & Positioning
+
+All positions within an `Environment` use a top-left `(0, 0)` origin where `+X` increases to the right and `+Y` increases downward. For a complete guide on converting between **World Coordinates**, **Screen Viewport Coordinates**, and **Tile Grid Coordinates**, as well as understanding entity anchors (`getLocation()` vs `getCenter()`), see the dedicated guide:
+
+See **[Coordinate Systems & Spatial Spaces](/game-api/coordinate-systems/)**.

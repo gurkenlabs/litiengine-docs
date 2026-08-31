@@ -57,6 +57,24 @@ Quick answers to the most common questions about LITIENGINE architecture, perfor
     Game.window().getRenderComponent().setFullscreen(!Game.window().getRenderComponent().isFullscreen());
     ```
 
+??? question "Why is the origin (0, 0) at the top-left and Y pointing downward?"
+    LITIENGINE is built on **Java AWT / Java 2D** graphics and standard Tiled `.tmx` maps, which place `(0, 0)` at the **top-left corner**:
+    
+    * **`+X`**: Increases to the **right** (width).
+    * **`+Y`**: Increases **downward** (height).
+    
+    All engine subsystems (`Environment`, `IEntity`, `Camera`, `PhysicsEngine`) share this exact coordinate convention. See **[Coordinate Systems & Spatial Spaces](/game-api/coordinate-systems/)**.
+
+??? question "How do I convert between Screen, World, and Tile coordinates?"
+    Use the `Camera` and map dimensions:
+    
+    * **Screen (Mouse) &rarr; World**: `Game.world().camera().getMapLocation(Input.mouse().getLocation())`
+    * **World &rarr; Screen**: `Game.world().camera().getViewportLocation(entity.getLocation())`
+    * **World &rarr; Tile Grid**: `(int)(pos.getX() / map.getTileWidth())`, `(int)(pos.getY() / map.getTileHeight())`
+
+??? question "Why are my collision checks or tile queries off by half a tile?"
+    `entity.getLocation()` returns the **top-left corner** of an entity's sprite bounding box. When checking tile-based collision, pathfinding, or distance, use **`entity.getCenter()`** or **`entity.getCollisionBox()`** instead of `getLocation()`.
+
 ---
 
 ## Mechanics, Audio & Persistence

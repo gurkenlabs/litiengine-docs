@@ -52,6 +52,9 @@ rock.setCollisionType(Collision.STATIC);
 | `ANY` | Normal Tick Check | Reacts to both static architecture and moving entities. |
 | `NONE` | Zero Physics Check | Physics disabled (ghost mode, intangible sensors). |
 
+!!! tip "Entity Position vs. Collision Anchors"
+    Remember that `entity.getLocation()` returns the **top-left anchor** of the entity's bounding box, whereas `entity.getCenter()` returns the centroid and `entity.getCollisionBox()` returns the physical collider rectangle. When performing distance checks, line-of-sight raycasts, or tile grid checks, use `entity.getCenter()` or `entity.getCollisionBox()` to avoid off-by-half-tile discrepancies. See **[Coordinate Systems & Spatial Spaces](/game-api/coordinate-systems/)**.
+
 ---
 
 ## Line-of-Sight Raycasting
