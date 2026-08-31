@@ -35,7 +35,7 @@ Add the LITIENGINE dependency to your Gradle project by adding the following cod
     }
 
     dependencies {
-      implementation("de.gurkenlabs:litiengine:0.12.0")
+      implementation("de.gurkenlabs:litiengine:{{ version }}")
     }
     ```
 
@@ -47,7 +47,7 @@ Add the LITIENGINE dependency to your Gradle project by adding the following cod
     }
 
     dependencies {
-      implementation 'de.gurkenlabs:litiengine:0.12.0'
+      implementation 'de.gurkenlabs:litiengine:{{ version }}'
     }
     ```
 
@@ -57,7 +57,7 @@ Add the LITIENGINE dependency to your Gradle project by adding the following cod
     <dependency>
       <groupId>de.gurkenlabs</groupId>
       <artifactId>litiengine</artifactId>
-      <version>0.12.0</version>
+      <version>{{ version }}</version>
     </dependency>
     ```
 
@@ -86,7 +86,7 @@ Consuming snapshot artifacts is as simple as adding the Sonatype snapshots repos
     }
 
     dependencies {
-      implementation("de.gurkenlabs:litiengine:0.13.0-SNAPSHOT")
+      implementation("de.gurkenlabs:litiengine:{{ snapshot_version }}")
     }
     ```
 
@@ -101,7 +101,7 @@ Consuming snapshot artifacts is as simple as adding the Sonatype snapshots repos
     }
 
     dependencies {
-      implementation 'de.gurkenlabs:litiengine:0.13.0-SNAPSHOT'
+      implementation 'de.gurkenlabs:litiengine:{{ snapshot_version }}'
     }
     ```
 
@@ -120,7 +120,7 @@ Consuming snapshot artifacts is as simple as adding the Sonatype snapshots repos
       <dependency>
         <groupId>de.gurkenlabs</groupId>
         <artifactId>litiengine</artifactId>
-        <version>0.13.0-SNAPSHOT</version>
+        <version>{{ snapshot_version }}</version>
       </dependency>
     </dependencies>
     ```

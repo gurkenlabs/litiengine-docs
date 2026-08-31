@@ -81,7 +81,7 @@ Add LITIENGINE to your project build configuration:
     }
 
     dependencies {
-      implementation("de.gurkenlabs:litiengine:0.12.0")
+      implementation("de.gurkenlabs:litiengine:{{ version }}")
     }
     ```
 
@@ -93,7 +93,7 @@ Add LITIENGINE to your project build configuration:
     }
 
     dependencies {
-      implementation 'de.gurkenlabs:litiengine:0.12.0'
+      implementation 'de.gurkenlabs:litiengine:{{ version }}'
     }
     ```
 
@@ -103,7 +103,7 @@ Add LITIENGINE to your project build configuration:
     <dependency>
       <groupId>de.gurkenlabs</groupId>
       <artifactId>litiengine</artifactId>
-      <version>0.12.0</version>
+      <version>{{ version }}</version>
     </dependency>
     ```
 
@@ -332,7 +332,7 @@ Add the LITIENGINE dependency to your Gradle project by adding the following cod
     }
 
     dependencies {
-      implementation("de.gurkenlabs:litiengine:0.12.0")
+      implementation("de.gurkenlabs:litiengine:{{ version }}")
     }
     ```
 
@@ -344,7 +344,7 @@ Add the LITIENGINE dependency to your Gradle project by adding the following cod
     }
 
     dependencies {
-      implementation 'de.gurkenlabs:litiengine:0.12.0'
+      implementation 'de.gurkenlabs:litiengine:{{ version }}'
     }
     ```
 
@@ -354,7 +354,7 @@ Add the LITIENGINE dependency to your Gradle project by adding the following cod
     <dependency>
       <groupId>de.gurkenlabs</groupId>
       <artifactId>litiengine</artifactId>
-      <version>0.12.0</version>
+      <version>{{ version }}</version>
     </dependency>
     ```
 
@@ -383,7 +383,7 @@ Consuming snapshot artifacts is as simple as adding the Sonatype snapshots repos
     }
 
     dependencies {
-      implementation("de.gurkenlabs:litiengine:0.13.0-SNAPSHOT")
+      implementation("de.gurkenlabs:litiengine:{{ snapshot_version }}")
     }
     ```
 
@@ -398,7 +398,7 @@ Consuming snapshot artifacts is as simple as adding the Sonatype snapshots repos
     }
 
     dependencies {
-      implementation 'de.gurkenlabs:litiengine:0.13.0-SNAPSHOT'
+      implementation 'de.gurkenlabs:litiengine:{{ snapshot_version }}'
     }
     ```
 
@@ -417,7 +417,7 @@ Consuming snapshot artifacts is as simple as adding the Sonatype snapshots repos
       <dependency>
         <groupId>de.gurkenlabs</groupId>
         <artifactId>litiengine</artifactId>
-        <version>0.13.0-SNAPSHOT</version>
+        <version>{{ snapshot_version }}</version>
       </dependency>
     </dependencies>
     ```
@@ -616,12 +616,12 @@ Select your preferred build tool below for a complete, production-ready configur
 
     java {
         toolchain {
-            languageVersion.set(JavaLanguageVersion.of(25))
+            languageVersion.set(JavaLanguageVersion.of({{ java_version }}))
         }
     }
 
     dependencies {
-        implementation("de.gurkenlabs:litiengine:0.12.0")
+        implementation("de.gurkenlabs:litiengine:{{ version }}")
         testImplementation("org.junit.jupiter:junit-jupiter:5.11.4")
     }
 
@@ -655,12 +655,12 @@ Select your preferred build tool below for a complete, production-ready configur
 
     java {
         toolchain {
-            languageVersion = JavaLanguageVersion.of(25)
+            languageVersion = JavaLanguageVersion.of({{ java_version }})
         }
     }
 
     dependencies {
-        implementation 'de.gurkenlabs:litiengine:0.12.0'
+        implementation 'de.gurkenlabs:litiengine:{{ version }}'
         testImplementation 'org.junit.jupiter:junit-jupiter:5.11.4'
     }
 
@@ -689,8 +689,8 @@ Select your preferred build tool below for a complete, production-ready configur
         <version>1.0.0</version>
 
         <properties>
-            <maven.compiler.source>25</maven.compiler.source>
-            <maven.compiler.target>25</maven.compiler.target>
+            <maven.compiler.source>{{ java_version }}</maven.compiler.source>
+            <maven.compiler.target>{{ java_version }}</maven.compiler.target>
             <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         </properties>
 
@@ -698,7 +698,7 @@ Select your preferred build tool below for a complete, production-ready configur
             <dependency>
                 <groupId>de.gurkenlabs</groupId>
                 <artifactId>litiengine</artifactId>
-                <version>0.12.0</version>
+                <version>{{ version }}</version>
             </dependency>
         </dependencies>
 
@@ -6159,7 +6159,7 @@ version = '1.0.0'
 
 java {
   toolchain {
-    languageVersion = JavaLanguageVersion.of(25)
+    languageVersion = JavaLanguageVersion.of({{ java_version }})
   }
 }
 
@@ -6172,7 +6172,7 @@ repositories {
 }
 
 dependencies {
-  implementation 'de.gurkenlabs:litiengine:0.12.0'
+  implementation 'de.gurkenlabs:litiengine:{{ version }}'
 }
 
 // Configure fat / shadow jar

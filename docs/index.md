@@ -68,7 +68,7 @@ Add LITIENGINE to your project build configuration:
     }
 
     dependencies {
-      implementation("de.gurkenlabs:litiengine:0.12.0")
+      implementation("de.gurkenlabs:litiengine:{{ version }}")
     }
     ```
 
@@ -80,7 +80,7 @@ Add LITIENGINE to your project build configuration:
     }
 
     dependencies {
-      implementation 'de.gurkenlabs:litiengine:0.12.0'
+      implementation 'de.gurkenlabs:litiengine:{{ version }}'
     }
     ```
 
@@ -90,7 +90,7 @@ Add LITIENGINE to your project build configuration:
     <dependency>
       <groupId>de.gurkenlabs</groupId>
       <artifactId>litiengine</artifactId>
-      <version>0.12.0</version>
+      <version>{{ version }}</version>
     </dependency>
     ```
 

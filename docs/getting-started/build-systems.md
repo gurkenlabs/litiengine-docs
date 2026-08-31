@@ -36,12 +36,12 @@ Select your preferred build tool below for a complete, production-ready configur
 
     java {
         toolchain {
-            languageVersion.set(JavaLanguageVersion.of(25))
+            languageVersion.set(JavaLanguageVersion.of({{ java_version }}))
         }
     }
 
     dependencies {
-        implementation("de.gurkenlabs:litiengine:0.12.0")
+        implementation("de.gurkenlabs:litiengine:{{ version }}")
         testImplementation("org.junit.jupiter:junit-jupiter:5.11.4")
     }
 
@@ -75,12 +75,12 @@ Select your preferred build tool below for a complete, production-ready configur
 
     java {
         toolchain {
-            languageVersion = JavaLanguageVersion.of(25)
+            languageVersion = JavaLanguageVersion.of({{ java_version }})
         }
     }
 
     dependencies {
-        implementation 'de.gurkenlabs:litiengine:0.12.0'
+        implementation 'de.gurkenlabs:litiengine:{{ version }}'
         testImplementation 'org.junit.jupiter:junit-jupiter:5.11.4'
     }
 
@@ -109,8 +109,8 @@ Select your preferred build tool below for a complete, production-ready configur
         <version>1.0.0</version>
 
         <properties>
-            <maven.compiler.source>25</maven.compiler.source>
-            <maven.compiler.target>25</maven.compiler.target>
+            <maven.compiler.source>{{ java_version }}</maven.compiler.source>
+            <maven.compiler.target>{{ java_version }}</maven.compiler.target>
             <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         </properties>
 
@@ -118,7 +118,7 @@ Select your preferred build tool below for a complete, production-ready configur
             <dependency>
                 <groupId>de.gurkenlabs</groupId>
                 <artifactId>litiengine</artifactId>
-                <version>0.12.0</version>
+                <version>{{ version }}</version>
             </dependency>
         </dependencies>
 

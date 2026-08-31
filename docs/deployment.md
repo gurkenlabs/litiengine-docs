@@ -53,7 +53,7 @@ version = '1.0.0'
 
 java {
   toolchain {
-    languageVersion = JavaLanguageVersion.of(25)
+    languageVersion = JavaLanguageVersion.of({{ java_version }})
   }
 }
 
@@ -66,7 +66,7 @@ repositories {
 }
 
 dependencies {
-  implementation 'de.gurkenlabs:litiengine:0.12.0'
+  implementation 'de.gurkenlabs:litiengine:{{ version }}'
 }
 
 // Configure fat / shadow jar
