@@ -1,6 +1,6 @@
 /**
  * EthicalAds Integration for LITIENGINE Documentation (Zensical)
- * Privacy-preserving developer ads with instant navigation and consistent card styling.
+ * Privacy-preserving developer ads with instant navigation, staging support, and timeout fallbacks.
  */
 (function() {
   // Global error listener to silently hide any blocked or failed ad images / pixels
@@ -12,8 +12,14 @@
   }, true);
 
   function setupAds() {
-    const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
-    const testAttr = isLocalhost ? ' data-ea-test="true"' : '';
+    const hostname = window.location.hostname;
+    // On localhost or staging domains (such as github.io), request test ads so EthicalAds doesn't fail domain checks
+    const isTestEnv = hostname === 'localhost' || 
+                      hostname === '127.0.0.1' || 
+                      hostname.endsWith('github.io') || 
+                      hostname.endsWith('.dev') ||
+                      hostname.includes('preview');
+    const testAttr = isTestEnv ? ' data-ea-test="true"' : '';
 
     // 1. Table of Contents Sidebar Placement (Desktop)
     const tocNav = document.querySelector('.md-sidebar--secondary nav.md-nav--secondary');
@@ -25,7 +31,7 @@
         adSidebarWrapper.className = 'ea-sidebar-wrapper';
         tocNav.appendChild(adSidebarWrapper);
       }
-      // Clean inner content on SPA navigation so EthicalAds cleanly re-renders
+      adSidebarWrapper.style.display = '';
       adSidebarWrapper.innerHTML = `<div data-ea-publisher="litiengine" data-ea-type="text"${testAttr} class="adaptive bordered"></div>`;
     }
 
@@ -39,18 +45,37 @@
         adArticleWrapper.className = 'ethical-ad-article-wrapper';
         contentInner.appendChild(adArticleWrapper);
       }
+      adArticleWrapper.style.display = '';
       adArticleWrapper.innerHTML = `<div data-ea-publisher="litiengine" data-ea-type="image"${testAttr} class="adaptive bordered"></div>`;
     }
 
-    // 3. Trigger EthicalAds reload with retry for async script loading
-    function tryLoadAds(attempts = 0) {
+    // 3. Trigger EthicalAds reload with retry and timeout guard
+    function triggerAds(attempts = 0) {
       if (window.ethicalads && typeof window.ethicalads.load === 'function') {
-        window.ethicalads.load();
-      } else if (attempts < 5) {
-        setTimeout(() => tryLoadAds(attempts + 1), 250);
+        try {
+          window.ethicalads.load();
+        } catch (e) {
+          console.debug('EthicalAds load error', e);
+        }
+      } else if (attempts < 6) {
+        setTimeout(() => triggerAds(attempts + 1), 250);
       }
     }
-    tryLoadAds();
+    triggerAds();
+
+    // 4. Timeout fallback: if ads are blocked or empty after 3.5 seconds, hide containers to prevent perpetual empty states
+    setTimeout(function() {
+      const adElements = document.querySelectorAll('[data-ea-publisher]');
+      adElements.forEach(function(el) {
+        // If ad element has not rendered any content or has ea-empty class
+        if (el.classList.contains('ea-empty') || (!el.classList.contains('loaded') && !el.classList.contains('ea-loaded') && el.children.length === 0)) {
+          const parentWrapper = el.closest('.ea-sidebar-wrapper, .ethical-ad-article-wrapper');
+          if (parentWrapper) {
+            parentWrapper.style.display = 'none';
+          }
+        }
+      });
+    }, 3500);
   }
 
   // Hook into Material/Zensical document observable stream if present
