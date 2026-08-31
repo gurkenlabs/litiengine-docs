@@ -99,7 +99,8 @@ nav = [{ "Get Started" = ["getting-started/README.md",
  { "Roadmap" = "roadmap.md" },
  { "Release Notes" = "CHANGELOG.md" },
  { "Libraries & Tools" = "libraries-and-tools.md" },
- { "Glossary" = "GLOSSARY.md" },] },
+ { "Glossary" = "GLOSSARY.md" },
+ { "License" = "license.md" },] },
  { "Sponsor" = "https://opencollective.com/litiengine" },]
 
 [project.extra]

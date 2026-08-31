@@ -16,25 +16,25 @@ LITIENGINE natively loads and renders `.tmx` map files and `.tsx` tilesets expor
 
 <div class="grid cards" markdown>
 
-- :material-shape-outline:{ .lg .middle } **[Map Objects](map-objects.md)**
+- :material-shape-outline:{ .lg .middle } **[Map Objects](/tile-maps/map-objects/)**
 
     ---
 
     Spawning creatures, props, collision boxes, spawnpoints, triggers, and lights directly from map geometries.
 
-- :material-tag-text-outline:{ .lg .middle } **[Custom Properties](custom-properties.md)**
+- :material-tag-text-outline:{ .lg .middle } **[Custom Properties](/tile-maps/custom-properties/)**
 
     ---
 
     Reading custom metadata properties, booleans, integers, and color variables from map objects.
 
-- :material-cube-outline:{ .lg .middle } **[utiLITI Tileset Editor](../utiliti-editor/tileset-editor.md)**
+- :material-cube-outline:{ .lg .middle } **[utiLITI Tileset Editor](/utiliti-editor/tileset-editor/)**
 
     ---
 
     Managing embedded vs external tilesets, Wang terrain autotiling rules, and animation frames.
 
-- :material-brush:{ .lg .middle } **[Tools & Editing](../utiliti-editor/tools-and-editing.md)**
+- :material-brush:{ .lg .middle } **[Tools & Editing](/utiliti-editor/tools-and-editing/)**
 
     ---
 

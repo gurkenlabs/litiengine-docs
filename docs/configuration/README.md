@@ -149,13 +149,13 @@ game_screenShake=true
 
 <div class="grid cards" markdown>
 
-- :material-volume-high:{ .lg .middle } **[Sound Engine](../game-api/sound-engine.md)**
+- :material-volume-high:{ .lg .middle } **[Sound Engine](/game-api/sound-engine/)**
 
     ---
 
     Audio volume buses and playlist management.
 
-- :material-monitor:{ .lg .middle } **[Game Window](../game-api/game-window.md)**
+- :material-monitor:{ .lg .middle } **[Game Window](/game-api/game-window/)**
 
     ---
 
