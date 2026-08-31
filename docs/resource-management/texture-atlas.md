@@ -125,7 +125,7 @@ By default, LITIENGINE plays animation frames at **100ms** per frame (10 FPS). Y
 
     Batch import spritesheets and custom keyframe durations via plain text `.info` files.
 
-- :material-animation-play:{ .lg .middle } **[Animation Controller](..\control-entities\animation-controller.md)**
+- :material-animation-play:{ .lg .middle } **[Animation Controller](../control-entities/animation-controller.md)**
 
     ---
 

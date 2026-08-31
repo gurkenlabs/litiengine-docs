@@ -322,4 +322,4 @@ public class RainEmitter extends Emitter {
 ## See Also
 
 - [Dynamic Lighting](dynamic-lighting.md) - Lighting effects
-- [Render Engine](..\game-api\render-engine.md) - Rendering system
+- [Render Engine](../game-api/render-engine.md) - Rendering system

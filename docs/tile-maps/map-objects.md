@@ -134,4 +134,4 @@ Game.world().onLoaded(env -> {
 
 - [Tile Maps Overview](README.md) - Introduction to TMX maps
 - [Custom Properties](custom-properties.md) - Entity property configuration
-- [Entity Framework](..\entity-framework\README.md) - Entity system documentation
+- [Entity Framework](../entity-framework/README.md) - Entity system documentation

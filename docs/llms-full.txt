@@ -771,7 +771,7 @@ Select your preferred build tool below for a complete, production-ready configur
 
     Snapshot releases, JitPack builds, and manual JAR downloads.
 
-- :material-play-box-outline:{ .lg .middle } **[Deployment & Packaging](..\deployment.md)**
+- :material-play-box-outline:{ .lg .middle } **[Deployment & Packaging](../deployment.md)**
 
     ---
 
@@ -1283,7 +1283,7 @@ Specifying a direction is optional and the `CreatureAnimationController` will al
 
 In general, you are not limited to any of the pre-defined animation rules. You can decide to extend the animation controller or write one from scratch that better suits your needs.
 
-More details on this can be found in the [Animation Controller](..\control-entities\animation-controller.md) chapter.
+More details on this can be found in the [Animation Controller](../control-entities/animation-controller.md) chapter.
 
 ## The Graphics instance - `Graphics2D`
 
@@ -1552,7 +1552,7 @@ sfx_musicVolume=0.5
 ---
 
 ## See Also
-* **[Resource Management](..\resource-management\README.md)** - Loading sound resources into `.litidata`
+* **[Resource Management](../resource-management/README.md)** - Loading sound resources into `.litidata`
 * **[Game World](game-world.md)** - Environment & entity locations
 
 ---
@@ -2839,7 +2839,7 @@ Game.tweens().begin(player, TweenType.LOCATION_XY, 1000)
 
     Animate camera zoom and panning transitions with tweens.
 
-- :material-cube-outline:{ .lg .middle } **[Entity Framework](..\entity-framework\README.md)**
+- :material-cube-outline:{ .lg .middle } **[Entity Framework](../entity-framework/README.md)**
 
     ---
 
@@ -2897,7 +2897,7 @@ LITIENGINE provides a unified, responsive input subsystem accessible globally vi
 
     DirectInput, XInput, and multi-controller polling via Input4j and Java Panama Foreign Function & Memory APIs.
 
-- :material-tune:{ .lg .middle } **[Movement Controllers](..\control-entities\movement-controller.md)**
+- :material-tune:{ .lg .middle } **[Movement Controllers](../control-entities/movement-controller.md)**
 
     ---
 
@@ -3897,8 +3897,8 @@ public class Ghost extends Creature {
 ## See Also
 
 - [Default Entity Types](default-entity-types.md) - Built-in types
-- [Entity Controllers](..\control-entities\entity-controllers.md) - Controller system
-- [Custom MapObjectLoaders](..\advanced\custom-mapobjectloaders.md) - Loading from maps
+- [Entity Controllers](../control-entities/entity-controllers.md) - Controller system
+- [Custom MapObjectLoaders](../advanced/custom-mapobjectloaders.md) - Loading from maps
 
 <!-- END CHAPTER: entity-framework/custom-entities.md -->
 
@@ -4323,7 +4323,7 @@ public class Hero extends Creature { ... }
 
     Step-by-step guide to extending `Creature`, `Prop`, and registering custom loaders.
 
-- :material-lightning-bolt-outline:{ .lg .middle } **[Ability Framework](..\control-entities\ability-framework.md)**
+- :material-lightning-bolt-outline:{ .lg .middle } **[Ability Framework](../control-entities/ability-framework.md)**
 
     ---
 
@@ -5100,7 +5100,7 @@ entity.movement().clearForces();
 ## See Also
 
 - [Entity Controllers](entity-controllers.md) - Controller overview
-- [Physics Engine](..\game-api\physics-engine.md) - Collision and physics
+- [Physics Engine](../game-api/physics-engine.md) - Collision and physics
 - [Behavior Controller](behavior-controller.md) - AI movement
 
 ## A* Pathfinding and Navigation (`EntityNavigator`)
@@ -5302,8 +5302,8 @@ entity.getAnimationController().add(anim);
 ## See Also
 
 - [Entity Controllers](entity-controllers.md) - Controller overview
-- [Render Engine](..\game-api\render-engine.md) - How entities are rendered
-- [Resource Management](..\resource-management\README.md) - Loading spritesheets
+- [Render Engine](../game-api/render-engine.md) - How entities are rendered
+- [Resource Management](../resource-management/README.md) - Loading spritesheets
 
 <!-- END CHAPTER: control-entities/animation-controller.md -->
 
@@ -5331,7 +5331,7 @@ These are the required components for making it happen:
 
 * A path on your map
 * A rat implementation
-* A [`MapObjectLoader`](..\advanced\custom-mapobjectloaders.md) that associates the path object and the rat
+* A [`MapObjectLoader`](../advanced/custom-mapobjectloaders.md) that associates the path object and the rat
 * A [`StateController`](entity-controllers.md) that switches between the rat behaviour states
 * Different [`EntityStates`](#implementing-an-ai-state-machine) that represent certain behaviours
 * An [`EntityNavigator`](movement-controller.md) to move the rat along the path
@@ -5818,7 +5818,7 @@ player.perform("attack");
 ## See Also
 
 - [Entity Controllers](entity-controllers.md) - Controller overview
-- [Physics Engine](..\game-api\physics-engine.md) - Forces and movement
+- [Physics Engine](../game-api/physics-engine.md) - Forces and movement
 - [Behavior Controller](behavior-controller.md) - AI abilities
 
 <!-- END CHAPTER: control-entities/ability-framework.md -->
@@ -6286,7 +6286,7 @@ Before releasing your build:
 
 ## See Also
 - **[Savegames Guide](savegames.md)** - Persisting player data across game sessions
-- **[Configuration](configuration\README.md)** - Managing runtime game configuration properties
+- **[Configuration](configuration/README.md)** - Managing runtime game configuration properties
 
 <!-- END CHAPTER: deployment.md -->
 

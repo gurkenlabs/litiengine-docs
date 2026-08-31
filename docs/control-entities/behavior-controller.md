@@ -17,7 +17,7 @@ These are the required components for making it happen:
 
 * A path on your map
 * A rat implementation
-* A [`MapObjectLoader`](..\advanced\custom-mapobjectloaders.md) that associates the path object and the rat
+* A [`MapObjectLoader`](../advanced/custom-mapobjectloaders.md) that associates the path object and the rat
 * A [`StateController`](entity-controllers.md) that switches between the rat behaviour states
 * Different [`EntityStates`](#implementing-an-ai-state-machine) that represent certain behaviours
 * An [`EntityNavigator`](movement-controller.md) to move the rat along the path

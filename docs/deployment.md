@@ -181,4 +181,4 @@ Before releasing your build:
 
 ## See Also
 - **[Savegames Guide](savegames.md)** - Persisting player data across game sessions
-- **[Configuration](configuration\README.md)** - Managing runtime game configuration properties
+- **[Configuration](configuration/README.md)** - Managing runtime game configuration properties

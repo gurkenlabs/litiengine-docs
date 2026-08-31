@@ -281,7 +281,7 @@ public class Hero extends Creature { ... }
 
     Step-by-step guide to extending `Creature`, `Prop`, and registering custom loaders.
 
-- :material-lightning-bolt-outline:{ .lg .middle } **[Ability Framework](..\control-entities\ability-framework.md)**
+- :material-lightning-bolt-outline:{ .lg .middle } **[Ability Framework](../control-entities/ability-framework.md)**
 
     ---
 

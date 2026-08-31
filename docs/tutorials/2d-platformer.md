@@ -133,7 +133,7 @@ Now that you've created a first test map for your platforming game, we will show
 
 Let's start today by opening up the Eclipse IDE (as it is the IDE of choice for this how-to-series).
 
-At this point, we assume that you've already created a Java project and referenced LITIENGINE in it as described [HERE](..\getting-started\README.md).
+At this point, we assume that you've already created a Java project and referenced LITIENGINE in it as described [HERE](../getting-started/README.md).
 Also, you have created resource folders and added them to your project's build path.
 In our case, there are three resource folders: 'maps', 'sprites', and 'audio', which are located in the root folder of our project.
 
@@ -171,7 +171,7 @@ public class Program {
  setters of `Game.info()`.
 
 - Calling `Game.init()` is then needed to initialize the Game
- infrastructure (see the [API Quick Reference](..\getting-started\api-quick-reference.md) for an in-depth overview
+ infrastructure (see the [API Quick Reference](../getting-started/api-quick-reference.md) for an in-depth overview
  of what this does).
 
 - Next, we set the window icon from the logo we created in Day 1 by
@@ -283,7 +283,7 @@ Right at the top, you'll notice the [annotations](https://docs.oracle.com/javase
  everything from `CombatEntity`, `CollisionEntity`, and `Entity`,
  while also implementing the methods from `IMobileEntity` and
  `IUpdateable`. For a clearer unterstanding of the entity
- hierarchy, you can [explore the Entity Framework](..\entity-framework\README.md).
+ hierarchy, you can [explore the Entity Framework](../entity-framework/README.md).
 
 - We adopt a [Singleton pattern](https://community.oracle.com/docs/DOC-918906) for the `Player`-class, meaning
  that we only allow the existence of one single instance of `Player`

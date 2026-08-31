@@ -28,13 +28,13 @@ LITIENGINE natively loads and renders `.tmx` map files and `.tsx` tilesets expor
 
     Reading custom metadata properties, booleans, integers, and color variables from map objects.
 
-- :material-cube-outline:{ .lg .middle } **[utiLITI Tileset Editor](..\utiliti-editor\tileset-editor.md)**
+- :material-cube-outline:{ .lg .middle } **[utiLITI Tileset Editor](../utiliti-editor/tileset-editor.md)**
 
     ---
 
     Managing embedded vs external tilesets, Wang terrain autotiling rules, and animation frames.
 
-- :material-brush:{ .lg .middle } **[Tools & Editing](..\utiliti-editor\tools-and-editing.md)**
+- :material-brush:{ .lg .middle } **[Tools & Editing](../utiliti-editor/tools-and-editing.md)**
 
     ---
 

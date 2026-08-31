@@ -192,7 +192,7 @@ Select your preferred build tool below for a complete, production-ready configur
 
     Snapshot releases, JitPack builds, and manual JAR downloads.
 
-- :material-play-box-outline:{ .lg .middle } **[Deployment & Packaging](..\deployment.md)**
+- :material-play-box-outline:{ .lg .middle } **[Deployment & Packaging](../deployment.md)**
 
     ---
 

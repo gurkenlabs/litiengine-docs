@@ -265,7 +265,7 @@ Game.tweens().begin(player, TweenType.LOCATION_XY, 1000)
 
     Animate camera zoom and panning transitions with tweens.
 
-- :material-cube-outline:{ .lg .middle } **[Entity Framework](..\entity-framework\README.md)**
+- :material-cube-outline:{ .lg .middle } **[Entity Framework](../entity-framework/README.md)**
 
     ---
 

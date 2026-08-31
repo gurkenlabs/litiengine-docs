@@ -34,7 +34,7 @@ LITIENGINE provides a unified, responsive input subsystem accessible globally vi
 
     DirectInput, XInput, and multi-controller polling via Input4j and Java Panama Foreign Function & Memory APIs.
 
-- :material-tune:{ .lg .middle } **[Movement Controllers](..\control-entities\movement-controller.md)**
+- :material-tune:{ .lg .middle } **[Movement Controllers](../control-entities/movement-controller.md)**
 
     ---
 

@@ -39,6 +39,8 @@ def validate_links():
         # Image links
         for alt, img_path in re.findall(r'!\[([^\]]*)\]\(([^)]+)\)', text_no_code):
             img_path = img_path.strip().split()[0]
+            if "\\" in img_path:
+                broken_images.append(f"{rel}: Backslash in image path '{img_path}' (must use forward slash '/')")
             if not img_path.startswith("http://") and not img_path.startswith("https://") and not img_path.startswith("data:"):
                 if img_path.startswith("/"):
                     target_img = docs_dir / img_path.lstrip("/")
@@ -50,6 +52,8 @@ def validate_links():
         # Document links
         for label, link_url in re.findall(r'(?<!!)\[([^\]]+)\]\(([^)]+)\)', text_no_code):
             link_url = link_url.strip().split()[0]
+            if "\\" in link_url:
+                broken_links.append(f"{rel}: Backslash in link URL '{link_url}' (must use forward slash '/')")
             if link_url.startswith("http://") or link_url.startswith("https://") or link_url.startswith("mailto:"):
                 continue
                 

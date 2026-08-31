@@ -113,7 +113,7 @@ public class AssetLoader {
 
     Organizing spritesheets and texture regions.
 
-- :material-filmstrip:{ .lg .middle } **[Animation Controller](..\control-entities\animation-controller.md)**
+- :material-filmstrip:{ .lg .middle } **[Animation Controller](../control-entities/animation-controller.md)**
 
     ---
 

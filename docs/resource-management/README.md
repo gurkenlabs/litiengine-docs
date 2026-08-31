@@ -220,7 +220,7 @@ To ensure smooth 60 FPS gameplay without garbage collection hiccups or frame stu
 
     Batch import hundreds of spritesheets with custom keyframe duration lists.
 
-- :material-filmstrip:{ .lg .middle } **[Animation Controller](..\control-entities\animation-controller.md)**
+- :material-filmstrip:{ .lg .middle } **[Animation Controller](../control-entities/animation-controller.md)**
 
     ---
 

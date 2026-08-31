@@ -103,5 +103,5 @@ Game.graphics().setShadowOpacity(0.8f); // 80% opacity
 ## See Also
 
 - [Dynamic Lighting](dynamic-lighting.md) - Real-time lighting
-- [Environment](..\game-api\game-world.md) - Environment management
-- [Render Engine](..\game-api\render-engine.md) - Rendering system
+- [Environment](../game-api/game-world.md) - Environment management
+- [Render Engine](../game-api/render-engine.md) - Rendering system

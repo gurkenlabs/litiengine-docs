@@ -177,4 +177,4 @@ public class EnemyLoader extends MapObjectLoader {
 
 - [Map Objects](map-objects.md) - Placing and loading map objects
 - [Tile Maps Overview](README.md) - Introduction to TMX maps
-- [Entity Framework](..\entity-framework\README.md) - Entity system documentation
+- [Entity Framework](../entity-framework/README.md) - Entity system documentation
