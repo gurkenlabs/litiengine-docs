@@ -12,7 +12,7 @@ tags: [jdk, java, installation, temurin, corretto, setup, sdkman]
 
 To develop games with LITIENGINE, you need a Java Development Kit (**JDK**) containing the Java Virtual Machine (**JVM**) and Java compiler.
 
-LITIENGINE requires **JDK 25 or later**.
+LITIENGINE {{ version }} requires **JDK {{ java_version }} LTS or later**. Nightly development builds (`{{ snapshot_version }}`) target **JDK {{ next_java_version }}+**.
 
 !!! tip
     On macOS and Linux, you can easily install and manage multiple JDK versions using [SDKMAN!](https://sdkman.io/):
@@ -41,7 +41,7 @@ java --version
 javac --version
 ```
 
-Both commands should return version `25` (or higher).
+Both commands should return version `21` (or higher).
 
 ## Next Steps
 

@@ -1,224 +1,222 @@
 ---
 title: Entity Event System
 icon: lucide/zap
-description: Learn how to subscribe to entity events in LITIENGINE for movement, combat,
-  lifecycle, and custom events.
-keywords: [LITIENGINE, entity events, listener, callback, onHit, onDeath, onMoved,
-  Java]
-tags: [entity-events, listeners, callbacks, lifecycle, events]
+description: Subscribe to entity lifecycle, combat, movement, transform, and messaging events in LITIENGINE.
+keywords: [LITIENGINE, entity events, EntityListener, onHit, onDeath, onMoved, EntityTransformListener, Java]
+tags: [entity-events, listeners, callbacks, lifecycle, events, messaging]
 ---
+
 # Entity Event System
 
-LITIENGINE entities support event-driven programming through listener registration. Subscribe to events to react to entity state changes without polling.
+LITIENGINE entities support an event-driven architecture through typed listener registrations. Subscribing to listeners allows reacting to entity state transitions, collisions, and lifecycles without polling loops.
+
+---
 
 ## Lifecycle Events
 
-### Entity Spawned/Removed
+### Entity Added / Removed (`EntityListener`)
+
+Track when an entity enters or leaves the active `Environment`:
 
 ```java
-entity.onAdded(e -> {
-  System.out.println("Entity added to environment");
-});
+entity.addListener(new EntityListener() {
+  @Override
+  public void loaded(IEntity entity, IEnvironment environment) {
+    System.out.println("Entity added to environment: " + entity.getName());
+  }
 
-entity.onRemoved(e -> {
-  System.out.println("Entity removed from environment");
+  @Override
+  public void removed(IEntity entity, IEnvironment environment) {
+    System.out.println("Entity removed from environment: " + entity.getName());
+  }
 });
 ```
 
-### Environment Events
+### Environment-Level Entity Tracking
+
+To monitor all entities spawned or despawned in the active scene:
 
 ```java
-Game.world().environment().onEntityAdded(e -> {
-  IEntity entity = e.getEntity();
-  System.out.println("Spawned: " + entity.getName());
-});
+Game.world().environment().addEntityListener(new EnvironmentEntityListener() {
+  @Override
+  public void entityAdded(IEntity entity) {
+    System.out.println("Spawned in environment: " + entity.getName());
+  }
 
-Game.world().environment().onEntityRemoved(e -> {
-  IEntity entity = e.getEntity();
-  System.out.println("Despawned: " + entity.getName());
+  @Override
+  public void entityRemoved(IEntity entity) {
+    System.out.println("Despawned from environment: " + entity.getName());
+  }
 });
 ```
 
-## Combat Events
+---
 
-### Taking Damage
+## Transform & Movement Events
+
+### Location & Size Changes (`EntityTransformListener`)
 
 ```java
-CombatEntity combat = ...;
+entity.addTransformListener(new EntityTransformListener() {
+  @Override
+  public void locationChanged(IEntity entity) {
+    // React to position updates
+    checkForSensors(entity.getLocation());
+  }
 
-combat.onHit(event -> {
-  int damage = event.getDamage();
-  ICombatEntity attacker = event.getExecutor();
-
-  System.out.println("Took " + damage + " damage!");
-
-  // Play hit effect
-  playHitSound();
-  flashRed();
+  @Override
+  public void sizeChanged(IEntity entity) {
+    // React to bounding box dimension changes
+  }
 });
 ```
 
-### Death and Resurrection
+### MobileEntity Movement Callbacks
+
+For `Creature` or `IMobileEntity` instances with a movement controller:
 
 ```java
-combat.onDeath(event -> {
-  System.out.println("Entity died!");
-
-  // Handle death
-  spawnLoot(combat.getLocation());
-  Game.world().environment().remove(combat);
-});
-
-combat.onResurrect(event -> {
-  System.out.println("Entity revived!");
-  combat.setHitpoints(combat.getMaxHitpoints());
-});
-```
-
-## Movement Events
-
-### Position Changed
-
-```java
-MobileEntity mobile = ...;
+IMobileEntity mobile = ...;
 
 mobile.onMoved(event -> {
-  // Entity position updated
-  checkForTriggers(mobile.getLocation());
-  updateMinimap();
+  // Executes whenever velocity translates the entity position
+  updateFootsteps(event.getEntity().getLocation());
 });
 ```
 
-## Collision Events
+---
+
+## Combat Events (`ICombatEntity`)
+
+### Taking Damage & Death
 
 ```java
-CollisionEntity colliding = ...;
+ICombatEntity combatEntity = ...;
 
-colliding.onCollision(event -> {
-  // Get other entities involved
-  for (IEntity other : event.getInvolvedEntities()) {
-    if (other != colliding) {
-      handleCollisionWith(other);
+// Taking damage
+combatEntity.onHit(event -> {
+  double damage = event.getDamage();
+  ICombatEntity attacker = event.getExecutor();
+
+  System.out.println("Took " + damage + " damage from " + (attacker != null ? attacker.getName() : "environment"));
+  playHitSound();
+});
+
+// Death
+combatEntity.onDeath(event -> {
+  System.out.println("Entity died: " + event.getVictim().getName());
+  spawnDeathParticles(event.getVictim().getLocation());
+});
+
+// Resurrection
+combatEntity.onResurrect(event -> {
+  System.out.println("Entity revived!");
+  event.getCombatEntity().setHitpoints(event.getCombatEntity().getMaxHitpoints());
+});
+```
+
+---
+
+## Collision Events (`ICollisionEntity`)
+
+```java
+ICollisionEntity collisionEntity = ...;
+
+collisionEntity.onCollision(event -> {
+  ICollisionEntity other = event.getInvolvedEntity();
+  if (other != null) {
+    handleCollisionWith(other);
+  }
+});
+```
+
+---
+
+## Animation Events (`entity.animations()`)
+
+Access the entity's animation controller via `entity.animations()`:
+
+```java
+IEntityAnimationController<?> controller = entity.animations();
+if (controller != null) {
+  // Keyframe reached
+  controller.onKeyFrameChanged((animation, frame) -> {
+    if (frame == 2 && animation.getName().contains("walk")) {
+      playStepSound();
     }
-  }
-});
+  });
+
+  // Animation sequence completed
+  controller.onFinished(animation -> {
+    if (animation.getName().equals("attack")) {
+      onAttackCompleted();
+    }
+  });
+}
 ```
 
-## Animation Events
+---
 
-```java
-entity.getAnimationController().onKeyFrameChanged((anim, frame) -> {
-  // Specific frame reached
-  if (frame == 3 && anim.getName().contains("walk")) {
-    playFootstepSound();
-  }
-});
-
-entity.getAnimationController().onFinished(anim -> {
-  // Animation completed
-  if (anim.getName().equals("attack")) {
-    entity.setAttacking(false);
-  }
-});
-```
-
-## Trigger Events
+## Trigger Events (`Trigger`)
 
 ```java
 Trigger trigger = ...;
 
-trigger.onActivated(event -> {
+trigger.addActivatedListener(event -> {
   IEntity activator = event.getEntity();
   System.out.println("Trigger activated by: " + activator.getName());
-
-  // Execute trigger logic
-  spawnEnemies();
-  closeDoors();
+  openDoor();
 });
 
-trigger.onDeactivated(event -> {
-  System.out.println("Entity left trigger zone");
+trigger.addDeactivatedListener(event -> {
+  System.out.println("Entity left trigger bounds: " + event.getEntity().getName());
 });
 ```
 
-## Custom Events
+---
 
-Define and fire custom events:
+## Entity Messaging System
+
+LITIENGINE entities can send and receive structured string messages:
 
 ```java
-public class PowerUpEvent {
-  private String powerUpType;
-  private IEntity target;
+// Sending a message
+targetEntity.sendMessage(this, "DAMAGE:25");
 
-  // constructor, getters...
-}
+// Listening for incoming messages
+entity.addMessageListener(event -> {
+  String message = event.getMessage();
+  Object sender = event.getSender();
 
-// Fire event
-entity.fireEvent(new PowerUpEvent("speed", entity));
-
-// Listen for events
-entity.onEvent(PowerUpEvent.class, event -> {
-  if ("speed".equals(event.getPowerUpType())) {
-    applySpeedBoost();
+  if (message.startsWith("DAMAGE:")) {
+    int amount = Integer.parseInt(message.split(":")[1]);
+    takeDamage(amount);
   }
 });
 ```
 
-## Removing Listeners
+---
 
-Store listener references to remove them later:
+## World Lifecycle Events
 
-```java
-Consumer<HitEvent> hitListener = event -> handleHit(event);
-
-// Add listener
-combatEntity.onHit(hitListener);
-
-// Remove specific listener
-combatEntity.removeHitListener(hitListener);
-
-// Remove all listeners of a type
-combatEntity.clearHitListeners();
-```
-
-## Multiple Listeners
-
-Multiple listeners can be registered for the same event:
-
-```java
-// Sound handler
-entity.onHit(event -> playHitSound());
-
-// Visual effect handler
-entity.onHit(event -> showDamageNumber());
-
-// Game logic handler
-entity.onHit(event -> updateHealthBar());
-```
-
-## World Events
-
-Subscribe to global game world events:
+Subscribe to global environment transitions on `Game.world()`:
 
 ```java
 // Environment loaded
 Game.world().onLoaded(env -> {
-  initializeLevel();
+  initializeLevel(env);
 });
 
 // Environment unloaded
 Game.world().onUnloaded(env -> {
-  cleanupLevel();
-});
-
-// Camera changed
-Game.world().onCameraMoved(camera -> {
-  updateParallax();
+  cleanupLevel(env);
 });
 ```
 
+---
+
 ## See Also
 
-- [Default Entity Types](/entity-framework/default-entity-types/) - Entity hierarchy
-- [Messaging System](/control-entities/messaging-system/) - Entity communication
-- [Ability Framework](/control-entities/ability-framework/) - Ability events
+- [Default Entity Types](default-entity-types.md) - Entity inheritance & base types
+- [Messaging System](../control-entities/messaging-system.md) - Inter-entity communication
+- [Ability Framework](../control-entities/ability-framework.md) - Combat abilities & cooldowns

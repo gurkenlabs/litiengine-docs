@@ -20,7 +20,7 @@ Welcome to the official technical documentation for **LITIENGINE**, the free and
 
     ---
 
-    Install Java 25+, configure Gradle or Maven, and start your first LITIENGINE application in a few lines of Java.
+    Install Java {{ java_version }} LTS+, configure Gradle or Maven, and start your first LITIENGINE application in a few lines of Java.
 
 - :material-code-json:{ .lg .middle } **[Core Game API](game-api/README.md)**
 
@@ -34,11 +34,11 @@ Welcome to the official technical documentation for **LITIENGINE**, the free and
 
     Design maps, manage tilesets, edit sprite sheets, and script live game entities with the integrated Java scripting workspace.
 
-- :material-school:{ .lg .middle } **[Tutorials](tutorials/2d-platformer.md)**
+- :material-school:{ .lg .middle } **[Tutorials](tutorials/topdown-shooter.md)**
 
     ---
 
-    Step-by-step guides building a 2D Platformer, an Arkanoid clone, or a Top-Down Action Twin-Stick Shooter.
+    Step-by-step guides building a Top-Down Action Shooter, gameplay mechanics, and community recipe cookbooks.
 
 - :material-tune:{ .lg .middle } **[Advanced Topics](advanced/dynamic-lighting.md)**
 

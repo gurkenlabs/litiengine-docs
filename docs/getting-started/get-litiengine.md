@@ -15,7 +15,7 @@ Now, let us discuss how to actually download the LITIENGINE. The engine consists
 The LITIENGINE SDK contains *utiLITI*, our project management and map creation tool. It is a stand-alone editor which produces project files that can then be loaded to your game. You can [download the LITIENGINE SDK from litiengine.com](https://litiengine.com/download/).
 
 !!! note
-    The utiLITI editor is not an IDE for Java development.
+    utiLITI includes integrated Java scripting, diagnostics, and project execution tools. For full application development and large refactorings, a dedicated Java IDE such as IntelliJ IDEA is still recommended.
 
 ## 2. Get the LITIENGINE Java library via Gradle
 

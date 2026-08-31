@@ -7,7 +7,7 @@ tags: [getting-started, overview, installation, setup, quickstart]
 ---
 # Getting Started
 
-Welcome to **LITIENGINE**! This section guides you through installing the Java 25+ development kit, configuring your IDE, setting up Gradle or Maven build automation, and launching your first 2D game.
+Welcome to **LITIENGINE**! This section guides you through installing the Java {{ java_version }} LTS+ development kit, configuring your IDE, setting up Gradle or Maven build automation, and launching your first 2D game.
 
 ---
 
@@ -21,11 +21,11 @@ Welcome to **LITIENGINE**! This section guides you through installing the Java 2
 
     Dependency coordinates for Gradle and Maven, Sonatype snapshot repositories, and standalone fat JARs.
 
-- :material-coffee:{ .lg .middle } **[Install JDK 25+](install-jdk.md)**
+- :material-coffee:{ .lg .middle } **[Install JDK](install-jdk.md)**
 
     ---
 
-    Set up Java 25 or newer across Windows, Linux, and macOS with modern Panama FFM support.
+    Set up Java {{ java_version }} LTS or newer across Windows, Linux, and macOS with modern OpenJDK builds.
 
 - :material-laptop:{ .lg .middle } **[Set Up Your IDE](development-environment.md)**
 

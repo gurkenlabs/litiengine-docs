@@ -18,7 +18,7 @@ Quick answers to the most common questions about LITIENGINE architecture, perfor
     LITIENGINE is a **modular 2D Java Game Library and Framework**. It provides everything needed to build commercial-grade 2D games: a high-performance game loop, 2D physics with spatial quadtrees, AWT graphics pipeline, 2D positional audio, entity lifecycle management, and the companion **utiLITI Editor**.
 
 ??? question "What Java version is required?"
-    LITIENGINE requires **Java 25 or newer**. It leverages modern Java features including Java Panama Foreign Function & Memory (FFM) APIs for low-latency gamepad polling via `Input4j` with zero JNI setup.
+    Stable releases (LITIENGINE {{ version }}) require **Java {{ java_version }} LTS or newer**. Nightly snapshot builds (`{{ snapshot_version }}`) leverage modern Java features including Java Panama Foreign Function & Memory (FFM) APIs and target **Java {{ next_java_version }}+**.
 
 ??? question "Why pure Java with AWT instead of OpenGL/Vulkan bindings?"
     By relying on pure Java AWT 2D graphics without heavy native dynamic C/C++ libraries (like LWJGL or libGDX bindings), LITIENGINE games run identically across Windows, macOS, and Linux without native DLL hell, driver crashes, or platform-specific compilation hurdles.

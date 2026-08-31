@@ -32,10 +32,10 @@ LITIENGINE provides a hierarchy of built-in entity types. Each type builds upon 
 ```text
 IEntity
  └── Entity (base class)
- └── CollisionEntity (has collision)
- └── CombatEntity (has health/combat)
- └── Creature (has animation, movement)
- └── Prop (static/dynamic objects)
+       └── CollisionEntity (has collision)
+             └── CombatEntity (has health/combat)
+                   ├── Creature (has animation, movement, facing)
+                   └── Prop (static/dynamic destructible objects)
 ```
 
 ## Entity
@@ -58,7 +58,7 @@ public class MyEntity extends Entity {
 - **Size**: Width and height
 - **MapId**: ID from map object
 - **Tags**: String tags for categorization
-- **RenderType**: Rendering layer (BACKGROUND, GROUND, NORMAL, OVERLAY, UI)
+- **RenderType**: Rendering layer (`NONE`, `BACKGROUND`, `GROUND`, `SURFACE`, `NORMAL`, `OVERLAY`, `UI`)
 
 ## CollisionEntity
 
@@ -113,7 +113,7 @@ combatEntity.onResurrect(event -> { /* revived */ });
 
 ## Creature
 
-The most feature-rich entity type. Combines collision, combat, movement, and animation.
+The most feature-rich entity type for living characters. Extends `CombatEntity` with movement, directional facing, and state animation controllers.
 
 ```java
 @EntityInfo(width = 18, height = 18)
@@ -122,35 +122,35 @@ The most feature-rich entity type. Combines collision, combat, movement, and ani
 @CollisionInfo(collisionBoxWidth = 14, collisionBoxHeight = 16, collision = true)
 public class Player extends Creature {
   public Player() {
-    super("player"); // spritePrefix
+    super("player"); // Spritesheet name
   }
 }
 ```
 
 ### Features
-- Automatic animation from spritesheets
+- Automatic animation controller from spritesheets
 - Movement controller integration
-- Facing direction tracking
-- State machine (idle, walking, dead)
+- Facing direction tracking (`Direction.UP`, `DOWN`, `LEFT`, `RIGHT`)
+- State management (`idle`, `walk`, `dead`)
 
 ### Key Methods
 ```java
 creature.getFacingDirection(); // Current facing direction
-creature.setSpritePrefix("prefix"); // For animation lookup
+creature.setSpritesheetName("player-alt"); // Change spritesheet animation source
 creature.isIdle(); // Check if not moving
 creature.isDead(); // Check if dead
 ```
 
 ## Prop
 
-Static or interactive objects in the game world.
+Static or interactive objects in the game world. Extends `CombatEntity` directly (does NOT inherit creature movement).
 
 ```java
 @EntityInfo(width = 32, height = 32)
 @CollisionInfo(collision = true)
 public class Barrel extends Prop {
   public Barrel() {
-    super("barrel");
+    super("barrel"); // Spritesheet name
   }
 }
 ```
@@ -170,12 +170,17 @@ prop-barrel-destroyed.png
 ## Other Entity Types
 
 ### Trigger
-Area-based event triggers that activate when entities enter.
+Area-based event triggers activated on collision or user interaction.
 
 ```java
-Trigger trigger = new Trigger("myTrigger", TriggerActivation.PROPAGATE);
-trigger.onActivated(e -> { /* entered */ });
-trigger.onDeactivated(e -> { /* exited */ });
+Trigger trigger = new Trigger(TriggerActivation.COLLISION, "door_sensor");
+trigger.addActivatedListener(event -> {
+    IEntity entity = event.getEntity();
+    // Action triggered when entity enters zone
+});
+trigger.addDeactivatedListener(event -> {
+    // Action triggered when entity leaves zone
+});
 ```
 
 ### LightSource
@@ -218,6 +223,6 @@ spawn.spawn(new Player());
 
 ## See Also
 
-- [Entity Framework Overview](/entity-framework/) - Entity system intro
-- [Annotations](/entity-framework/annotations/) - Configure entities
-- [Props](/entity-framework/props/) - Detailed prop documentation
+- [Entity Framework Overview](README.md) - Entity system intro
+- [Annotations](annotations.md) - Configure entities
+- [Props](props.md) - Detailed prop documentation

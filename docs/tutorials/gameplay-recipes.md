@@ -1,20 +1,20 @@
 ---
 title: "Gameplay Recipes & Cookbook"
 icon: "lucide/utensils"
-description: "Quick copy-paste code recipes and solutions for common 2D game mechanics in LITIENGINE - camera shake, damage numbers, enemy aggro, abilities, and portals."
+description: "Practical code examples and recipes for common 2D game mechanics in LITIENGINE - camera shake, damage numbers, enemy aggro, abilities, and portals."
 keywords: ["LITIENGINE recipes", "cookbook", "camera shake", "damage numbers", "enemy ai", "ability cooldown", "portal transition", "floating text", "Java 2D game"]
 tags: ["recipes", "cookbook", "gameplay", "camera-shake", "damage-text", "abilities", "particles", "portals", "ai"]
 ---
 
 # Gameplay Recipes & Cookbook
 
-A curated collection of concise, production-ready code recipes for common 2D game mechanics. Each snippet is self-contained and designed to be dropped directly into your LITIENGINE project.
+A curated collection of practical code examples illustrating common 2D game mechanics in LITIENGINE. Adapt these patterns to your project's architecture, entity definitions, and target version.
 
 ---
 
 ## 1. Screen Shake on Hit
 
-Add visceral impact to explosions, heavy attacks, or taking damage by shaking the camera:
+Add impact to explosions, heavy attacks, or damage events by shaking the camera:
 
 ```java title="CameraShakeRecipe.java"
 package com.example.game.recipes;
@@ -52,15 +52,15 @@ import java.awt.geom.Point2D;
 public class DamageTextRecipe {
   public static void registerDamageTextListener(ICombatEntity entity) {
     entity.onHit(event -> {
-      int damageTaken = event.getDamage();
+      double damageTaken = event.getDamage();
       Point2D location = entity.getCenter();
 
       // Spawn a floating text particle above the entity
       TextParticle textParticle = new TextParticle(
-          "-" + damageTaken,
-          event.isCritical() ? Color.YELLOW : Color.RED,
-          location.getX(),
-          location.getY() - 10,
+          "-" + (int) damageTaken,
+          event.wasCritical() ? Color.YELLOW : Color.RED,
+          (float) location.getX(),
+          (float) location.getY() - 10,
           800 // lifetime in ms
       );
       textParticle.setVelocityY(-0.8f); // Float upwards
@@ -74,30 +74,31 @@ public class DamageTextRecipe {
 
 ## 3. Portal & Level Transition Triggers
 
-Trigger seamless level transitions when the player walks into a map doorway or teleporter:
+Trigger level transitions when the player walks into a map doorway or teleporter:
 
 ```java title="LevelTransitionRecipe.java"
 package com.example.game.recipes;
 
 import de.gurkenlabs.litiengine.Game;
 import de.gurkenlabs.litiengine.entities.IEntity;
+import de.gurkenlabs.litiengine.entities.Spawnpoint;
 import de.gurkenlabs.litiengine.entities.Trigger;
 
 public class LevelTransitionRecipe {
   public static void setupPortal(Trigger portalTrigger, String targetMapName, String targetSpawnpoint) {
-    portalTrigger.addEntityListener(new Trigger.TriggerListener() {
-      @Override
-      public void activated(Trigger.TriggerEvent event) {
-        IEntity player = event.getEntity();
-        if (player.getName().equals("player")) {
-          // Fade out and load the target environment
-          Game.window().getRenderComponent().fadeOut(300);
-          Game.loop().perform(350, () -> {
-            Game.world().loadEnvironment(targetMapName);
-            Game.world().environment().getSpawnpoint(targetSpawnpoint).spawn(player);
-            Game.window().getRenderComponent().fadeIn(300);
-          });
-        }
+    portalTrigger.addActivatedListener(event -> {
+      IEntity player = event.getEntity();
+      if (player != null && "player".equals(player.getName())) {
+        // Fade out and load the target environment
+        Game.window().getRenderComponent().fadeOut(300);
+        Game.loop().perform(350, () -> {
+          Game.world().loadEnvironment(targetMapName);
+          Spawnpoint spawn = Game.world().environment().getSpawnpoint(targetSpawnpoint);
+          if (spawn != null) {
+            spawn.spawn(player);
+          }
+          Game.window().getRenderComponent().fadeIn(300);
+        });
       }
     });
   }
@@ -108,7 +109,7 @@ public class LevelTransitionRecipe {
 
 ## 4. Cooldown-Based Attack Ability
 
-Implement an attack skill with cooldown tracking, casting sound, and visual range validation:
+Implement an attack skill with cooldown tracking and visual range validation:
 
 ```java title="FireballAbilityRecipe.java"
 package com.example.game.recipes;
@@ -142,7 +143,7 @@ public class FireballAbilityRecipe extends Ability {
 
 ## 5. Simple Distance-Based Enemy Aggro AI
 
-An enemy behavior controller that pursues the player when they step inside detection range:
+An enemy behavior controller that moves toward the player when they enter detection range:
 
 ```java title="EnemyAggroRecipe.java"
 package com.example.game.recipes;
@@ -168,11 +169,11 @@ public class EnemyAggroRecipe extends EntityController<Creature> {
 
     double distance = getEntity().getCenter().distance(player.getCenter());
     if (distance <= AGGRO_RADIUS) {
-      // Pathfind and move towards the player
-      getEntity().getNavigator().navigate(player.getCenter());
+      // Move towards the player
+      getEntity().movement().move(player.getCenter(), (float) getEntity().getVelocity().get());
     } else {
       // Stop moving when player exits detection radius
-      getEntity().getNavigator().stop();
+      getEntity().movement().setVelocity(0);
     }
   }
 }
@@ -207,7 +208,7 @@ public class PositionalAudioRecipe {
 
 ## 7. Particle Explosion on Entity Death
 
-Create a visual explosion of dust or sparks when an enemy is destroyed:
+Create a visual explosion when an entity is defeated:
 
 ```java title="DeathExplosionRecipe.java"
 package com.example.game.recipes;
@@ -215,6 +216,7 @@ package com.example.game.recipes;
 import de.gurkenlabs.litiengine.Game;
 import de.gurkenlabs.litiengine.entities.ICombatEntity;
 import de.gurkenlabs.litiengine.graphics.emitters.Emitter;
+import de.gurkenlabs.litiengine.graphics.emitters.particles.Particle;
 import de.gurkenlabs.litiengine.graphics.emitters.particles.RectangleParticle;
 import java.awt.Color;
 import java.awt.geom.Point2D;
@@ -242,22 +244,22 @@ public class DeathExplosionRecipe {
 
 <div class="grid cards" markdown>
 
-- :material-robot-outline:{ .lg .middle } **[AI-Assisted Game Development](/tutorials/ai-game-development/)**
+- :material-robot-outline:{ .lg .middle } **[AI-Assisted Game Development](ai-game-development.md)**
 
     ---
 
-    Pair with OpenCode, Antigravity, or Codex to generate custom mechanics and controllers.
+    Pair with AI tools to generate custom mechanics and controllers.
 
-- :material-gamepad-variant-outline:{ .lg .middle } **[2D Platformer Tutorial](/tutorials/2d-platformer/)**
-
-    ---
-
-    Step-by-step tutorial creating jumping mechanics, coins, and enemies from scratch.
-
-- :material-book-open-page-variant:{ .lg .middle } **[API Quick Reference](/getting-started/api-quick-reference/)**
+- :material-gamepad-variant-outline:{ .lg .middle } **[Top-Down Shooter Tutorial](topdown-shooter.md)**
 
     ---
 
-    Instant cheat sheet covering all engine classes, method signatures, and annotations.
+    Complete step-by-step game tutorial building movement, projectiles, and enemy waves.
+
+- :material-book-open-page-variant:{ .lg .middle } **[API Quick Reference](../getting-started/api-quick-reference.md)**
+
+    ---
+
+    Core engine method and class cheat sheet.
 
 </div>
