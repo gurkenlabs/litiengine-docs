@@ -44,9 +44,9 @@ The building blocks of LITIENGINE's UI. Every component has:
 
 | Guide | Description |
 | :--- | :--- |
-| **[GuiComponents: An Overview](/user-interface/gui-components/)** | Complete catalog of UI components: `Button`, `CheckBox`, `Slider`, `TextFieldComponent`, `ListField`, `DropdownListField`, `SpeechBubble`, and `ImageComponent`. |
-| **[Creating Menus](/user-interface/creating-menus/)** | Step-by-step guide to building complete title screens, interactive menus with keyboard/mouse navigation, and screen transitions. |
-| **[Screens API](/game-api/screens/)** | Learn how the `ScreenManager` controls display states and resolution rendering. |
+| **[GuiComponents: An Overview](gui-components.md)** | Complete catalog of UI components: `Button`, `CheckBox`, `Slider`, `TextFieldComponent`, `ListField`, `DropdownListField`, `SpeechBubble`, and `ImageComponent`. |
+| **[Creating Menus](creating-menus.md)** | Step-by-step guide to building complete title screens, interactive menus with keyboard/mouse navigation, and screen transitions. |
+| **[Screens API](../game-api/screens.md)** | Learn how the `ScreenManager` controls display states and resolution rendering. |
 
 ## Quick Example: Creating a Clickable Button
 

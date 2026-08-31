@@ -180,5 +180,5 @@ Before releasing your build:
     - **Automate with CI/CD**: Set up a GitHub Actions workflow to build and package your cross-platform zip files automatically whenever a new version tag is pushed.
 
 ## See Also
-- **[Savegames Guide](/savegames/)** - Persisting player data across game sessions
-- **[Configuration](/configuration/)** - Managing runtime game configuration properties
+- **[Savegames Guide](savegames.md)** - Persisting player data across game sessions
+- **[Configuration](configuration/README.md)** - Managing runtime game configuration properties

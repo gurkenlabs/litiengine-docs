@@ -103,8 +103,8 @@ sfx_musicVolume=0.5
 ---
 
 ## See Also
-* **[Resource Management](/resource-management/)** - Loading sound resources into `.litidata`
-* **[Game World](/game-api/game-world/)** - Environment & entity locations
+* **[Resource Management](../resource-management/README.md)** - Loading sound resources into `.litidata`
+* **[Game World](game-world.md)** - Environment & entity locations
 
 ---
 

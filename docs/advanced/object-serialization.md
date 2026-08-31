@@ -80,5 +80,5 @@ public class SaveData {
 
 ## See Also
 
-- [Savegames](/savegames/) - Game save system
-- [Configuration](/configuration/) - Config files
+- [Savegames](../savegames.md) - Game save system
+- [Configuration](../configuration/README.md) - Config files

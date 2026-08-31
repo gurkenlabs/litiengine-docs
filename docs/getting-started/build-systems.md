@@ -186,13 +186,13 @@ Select your preferred build tool below for a complete, production-ready configur
 
 <div class="grid cards" markdown>
 
-- :material-download-outline:{ .lg .middle } **[Get LITIENGINE](/getting-started/get-litiengine/)**
+- :material-download-outline:{ .lg .middle } **[Get LITIENGINE](get-litiengine.md)**
 
     ---
 
     Snapshot releases, JitPack builds, and manual JAR downloads.
 
-- :material-play-box-outline:{ .lg .middle } **[Deployment & Packaging](/deployment/)**
+- :material-play-box-outline:{ .lg .middle } **[Deployment & Packaging](../deployment.md)**
 
     ---
 

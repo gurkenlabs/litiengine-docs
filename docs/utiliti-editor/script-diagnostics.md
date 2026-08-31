@@ -99,13 +99,13 @@ The **Game Scripts & Startup Configuration Dialog** (`Script -> Configure Game S
 
 <div class="grid cards" markdown>
 
-- :material-code-braces:{ .lg .middle } **[UI & Workspaces](/utiliti-editor/ui-and-workspaces/)**
+- :material-code-braces:{ .lg .middle } **[UI & Workspaces](ui-and-workspaces.md)**
 
     ---
 
     Overview of dock panels, Monaco code editor, and asset inspectors.
 
-- :material-play-outline:{ .lg .middle } **[Project Runner](/utiliti-editor/project-runner/)**
+- :material-play-outline:{ .lg .middle } **[Project Runner](project-runner.md)**
 
     ---
 
