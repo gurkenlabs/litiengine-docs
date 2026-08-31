@@ -302,9 +302,9 @@ Game.tweens().begin(Game.world().camera(), TweenType.ZOOM, 800)
 ---
 
 ## See Also
-* **[Game World](game-world.md)** - Environment management
-* **[Render Engine](render-engine.md)** - 2D rendering pipeline
-* **[Tweens](tweens.md)** - Animation and easing engine
+* **[Game World](/game-api/game-world/)** - Environment management
+* **[Render Engine](/game-api/render-engine/)** - 2D rendering pipeline
+* **[Tweens](/game-api/tweens/)** - Animation and easing engine
 
 *[Game.world()]: Accesses active Environment, Camera, and Entity World registry
 *[Game.world().camera()]: Manages active Camera viewport, focus tracking, zoom, and shake

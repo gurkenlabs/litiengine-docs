@@ -218,6 +218,6 @@ spawn.spawn(new Player());
 
 ## See Also
 
-- [Entity Framework Overview](README.md) - Entity system intro
-- [Annotations](annotations.md) - Configure entities
-- [Props](props.md) - Detailed prop documentation
+- [Entity Framework Overview](/entity-framework/) - Entity system intro
+- [Annotations](/entity-framework/annotations/) - Configure entities
+- [Props](/entity-framework/props/) - Detailed prop documentation

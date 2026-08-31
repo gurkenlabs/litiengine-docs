@@ -82,9 +82,8 @@ LITIENGINE incorporates or interoperates with a small set of open-source librari
 |:---|:---|:---|
 | **[Input4j](https://github.com/gurkenlabs/input4j)** | MIT License | Java Panama Foreign Function & Memory (FFM) Gamepad / DirectInput / XInput subsystem |
 | **[VorbisSPI](https://central.sonatype.com/artifact/com.googlecode.soundlibs/vorbisspi)** | LGPL v3 / BSD | OGG Vorbis audio decoding service provider |
-| **[Tiled Map Editor](https://www.mapeditor.org/)** | GPL / BSD (TMX format) | Industry-standard tile map format and editor integration |
 
-For a complete breakdown of all runtime libraries and developer tools, see our **[Libraries and Tools](libraries-and-tools.md)** documentation.
+For a complete breakdown of all runtime libraries and developer tools, see our **[Libraries and Tools](/libraries-and-tools/)** documentation.
 
 ---
 

@@ -113,19 +113,19 @@ By default, LITIENGINE plays animation frames at **100ms** per frame (10 FPS). Y
 
 <div class="grid cards" markdown>
 
-- :material-library:{ .lg .middle } **[Resource Management Overview](README.md)**
+- :material-library:{ .lg .middle } **[Resource Management Overview](/resource-management/)**
 
     ---
 
     Learn how the static `Resources` hub manages in-memory caching and `.litidata` bundles.
 
-- :material-file-document-edit:{ .lg .middle } **[Sprite Info Files](sprite-info-files.md)**
+- :material-file-document-edit:{ .lg .middle } **[Sprite Info Files](/resource-management/sprite-info-files/)**
 
     ---
 
     Batch import spritesheets and custom keyframe durations via plain text `.info` files.
 
-- :material-animation-play:{ .lg .middle } **[Animation Controller](../control-entities/animation-controller.md)**
+- :material-animation-play:{ .lg .middle } **[Animation Controller](/control-entities/animation-controller/)**
 
     ---
 

@@ -101,6 +101,6 @@ public Collection<IEntity> load(Environment environment, IMapObject mapObject) {
 
 ## See Also
 
-- [Map Objects](../tile-maps/map-objects.md) - MapObject overview
-- [Custom Properties](../tile-maps/custom-properties.md) - Property configuration
-- [Default Entity Types](../entity-framework/default-entity-types.md) - Built-in types
+- [Map Objects](/tile-maps/map-objects/) - MapObject overview
+- [Custom Properties](/tile-maps/custom-properties/) - Property configuration
+- [Default Entity Types](/entity-framework/default-entity-types/) - Built-in types

@@ -114,4 +114,4 @@ Wang tiles allow the **Terrain Brush Tool** to automatically connect and blend t
 2. Select the terrain type (`Corner`, `Edge`, or `Mixed`).
 3. Add **Wang Colors** (e.g. *Grass* as Green, *Stone* as Gray).
 4. Select a tile in the tileset and use the **8-Slot Terrain Mask** to assign which edges and corners belong to each terrain color.
-5. Once configured, switch to the [Terrain Brush Tool](tools-and-editing.md) to paint seamless terrain borders directly on your map!
+5. Once configured, switch to the [Terrain Brush Tool](/utiliti-editor/tools-and-editing/) to paint seamless terrain borders directly on your map!

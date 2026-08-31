@@ -73,5 +73,5 @@ If a key is missing in the current locale, the engine falls back to the default 
 
 ## See Also
 
-- [Resource Management](../resource-management/README.md) - Loading resources
-- [User Interface](../user-interface/README.md) - Building UIs
+- [Resource Management](/resource-management/) - Loading resources
+- [User Interface](/user-interface/) - Building UIs

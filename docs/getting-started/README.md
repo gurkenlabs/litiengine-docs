@@ -16,49 +16,49 @@ Welcome to **LITIENGINE**! This section guides you through installing the Java 2
 
 <div class="grid cards" markdown>
 
-- :material-download:{ .lg .middle } **[Get LITIENGINE](get-litiengine.md)**
+- :material-download:{ .lg .middle } **[Get LITIENGINE](/getting-started/get-litiengine/)**
 
     ---
 
     Dependency coordinates for Gradle and Maven, Sonatype snapshot repositories, and standalone fat JARs.
 
-- :material-coffee:{ .lg .middle } **[Install JDK 21+](install-jdk.md)**
+- :material-coffee:{ .lg .middle } **[Install JDK 21+](/getting-started/install-jdk/)**
 
     ---
 
     Set up Java 21 LTS or newer across Windows, Linux, and macOS with modern Panama FFM support.
 
-- :material-laptop:{ .lg .middle } **[Set Up Your IDE](development-environment.md)**
+- :material-laptop:{ .lg .middle } **[Set Up Your IDE](/getting-started/development-environment/)**
 
     ---
 
     Configuring IntelliJ IDEA, Eclipse, or VS Code with hot-reloading and debug profiles.
 
-- :material-hammer-wrench:{ .lg .middle } **[Build Systems](build-systems.md)**
+- :material-hammer-wrench:{ .lg .middle } **[Build Systems](/getting-started/build-systems/)**
 
     ---
 
     Automated Gradle tasks, `shadowJar` packaging, and build automation workflows.
 
-- :material-folder-cog:{ .lg .middle } **[Project Structure](project-structure.md)**
+- :material-folder-cog:{ .lg .middle } **[Project Structure](/getting-started/project-structure/)**
 
     ---
 
     Recommended directory layouts for assets, `.litidata` resource archives, maps, and source files.
 
-- :material-play-circle:{ .lg .middle } **[Run the Game](run-the-game.md)**
+- :material-play-circle:{ .lg .middle } **[Run the Game](/getting-started/run-the-game/)**
 
     ---
 
     Your first 15-line program initializing `Game.init()`, loading maps, and starting the 60 FPS loop.
 
-- :material-book-open-page-variant:{ .lg .middle } **[API Quick Reference](api-quick-reference.md)**
+- :material-book-open-page-variant:{ .lg .middle } **[API Quick Reference](/getting-started/api-quick-reference/)**
 
     ---
 
     Instant cheat sheet covering all core modules: `Game.*`, `Resources.*`, `Input.*`, and `Camera`.
 
-- :material-package-variant-closed:{ .lg .middle } **[Deployment Guide](../deployment.md)**
+- :material-package-variant-closed:{ .lg .middle } **[Deployment Guide](/deployment/)**
 
     ---
 

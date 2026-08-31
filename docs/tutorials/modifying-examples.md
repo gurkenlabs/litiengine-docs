@@ -78,5 +78,5 @@ public class Hit extends Ability {
 
 ## 4. Next Steps
 
-* Explore creating custom maps in utiLITI: **[Import Maps with utiLITI](../utiliti-editor/maps-and-environments.md)**
-* Learn about the full entity lifecycle: **[Entity Framework Overview](../entity-framework/README.md)**
+* Explore creating custom maps in utiLITI: **[Import Maps with utiLITI](/utiliti-editor/maps-and-environments/)**
+* Learn about the full entity lifecycle: **[Entity Framework Overview](/entity-framework/)**

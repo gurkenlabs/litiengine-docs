@@ -175,13 +175,13 @@ if (barrel != null) {
 
 <div class="grid cards" markdown>
 
-- :material-walk:{ .lg .middle } **[Movement Controllers](../control-entities/movement-controller.md)**
+- :material-walk:{ .lg .middle } **[Movement Controllers](/control-entities/movement-controller/)**
 
     ---
 
     Steering heading, acceleration rates, and collision sliding.
 
-- :material-tag-outline:{ .lg .middle } **[Entity Annotations & Matrix](../entity-framework/annotations.md)**
+- :material-tag-outline:{ .lg .middle } **[Entity Annotations & Matrix](/entity-framework/annotations/)**
 
     ---
 

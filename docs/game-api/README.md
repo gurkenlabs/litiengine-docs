@@ -16,49 +16,49 @@ The `Game` class acts as the central hub and orchestrator of LITIENGINE. It expo
 
 <div class="grid cards" markdown>
 
-- :material-earth:{ .lg .middle } **[Game World & Environments](game-world.md)**
+- :material-earth:{ .lg .middle } **[Game World & Environments](/game-api/game-world/)**
 
     ---
 
     Loading `.tmx` maps, switching active scenes, entity lookup, and spatial query indexing.
 
-- :material-camera-outline:{ .lg .middle } **[Camera & Viewport](camera.md)**
+- :material-camera-outline:{ .lg .middle } **[Camera & Viewport](/game-api/camera/)**
 
     ---
 
     Smooth target tracking, map clamping, zoom transitions, screen shake trauma, and coordinate conversion.
 
-- :material-atom:{ .lg .middle } **[Physics & Collisions](physics-engine.md)**
+- :material-atom:{ .lg .middle } **[Physics & Collisions](/game-api/physics-engine/)**
 
     ---
 
     Spatial quadtrees, raycasting, velocity resolution, bounding box collisions, and force gravity.
 
-- :material-palette-outline:{ .lg .middle } **[2D Graphics & Rendering](render-engine.md)**
+- :material-palette-outline:{ .lg .middle } **[2D Graphics & Rendering](/game-api/render-engine/)**
 
     ---
 
     Double-buffered AWT rendering pipeline, Y-sorted render layers, shapes, and `TextRenderer`.
 
-- :material-volume-high:{ .lg .middle } **[Sound & Audio Engine](sound-engine.md)**
+- :material-volume-high:{ .lg .middle } **[Sound & Audio Engine](/game-api/sound-engine/)**
 
     ---
 
     2D positional spatial audio falloff, `.ogg` Vorbis streaming, sound effect caching, and music playlists.
 
-- :material-timer-outline:{ .lg .middle } **[Game Loop & Timing](loops.md)**
+- :material-timer-outline:{ .lg .middle } **[Game Loop & Timing](/game-api/loops/)**
 
     ---
 
     Deterministic 60 FPS update loop, delta time calculations, timers, and scheduled delay tasks.
 
-- :material-creation:{ .lg .middle } **[Tweens & Easing](tweens.md)**
+- :material-creation:{ .lg .middle } **[Tweens & Easing](/game-api/tweens/)**
 
     ---
 
     Property interpolation framework with Robert Penner easing equations (`QUAD`, `BOUNCE`, `ELASTIC`).
 
-- :material-monitor:{ .lg .middle } **[Screens & Game States](screens.md)**
+- :material-monitor:{ .lg .middle } **[Screens & Game States](/game-api/screens/)**
 
     ---
 

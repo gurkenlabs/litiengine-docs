@@ -27,7 +27,7 @@ LITIENGINE intentionally avoids heavy native dynamic bindings (like C/C++ OpenGL
 
 <div class="grid cards" markdown>
 
-- :material-cube-outline:{ .lg .middle } **[utiLITI Editor](utiliti-editor/README.md)**
+- :material-cube-outline:{ .lg .middle } **[utiLITI Editor](/utiliti-editor/)**
 
     ---
 
@@ -45,7 +45,7 @@ LITIENGINE intentionally avoids heavy native dynamic bindings (like C/C++ OpenGL
 
     Seamless workflow for importing spritesheet grids, JSON texture atlases, and animation frame sequences exported from Aseprite.
 
-- :material-robot-outline:{ .lg .middle } **[Model Context Protocol (MCP)](utiliti-editor/mcp-server.md)**
+- :material-robot-outline:{ .lg .middle } **[Model Context Protocol (MCP)](/utiliti-editor/mcp-server/)**
 
     ---
 
@@ -118,13 +118,13 @@ When preparing your game for release, these tools allow you to package standalon
 
 <div class="grid cards" markdown>
 
-- :material-play-box-outline:{ .lg .middle } **[Deployment & Distribution](deployment.md)**
+- :material-play-box-outline:{ .lg .middle } **[Deployment & Distribution](/deployment/)**
 
     ---
 
     Step-by-step instructions on bundling standalone executables with jlink and Launch4j.
 
-- :material-map-legend:{ .lg .middle } **[Tile Maps Overview](tile-maps/README.md)**
+- :material-map-legend:{ .lg .middle } **[Tile Maps Overview](/tile-maps/)**
 
     ---
 

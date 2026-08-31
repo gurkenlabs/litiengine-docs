@@ -225,19 +225,19 @@ The AI assistant will execute the MCP commands (`add-prop`, `add-light`, `batch-
 
 <div class="grid cards" markdown>
 
-- :material-robot-outline:{ .lg .middle } **[utiLITI MCP Server Reference](../utiliti-editor/mcp-server.md)**
+- :material-robot-outline:{ .lg .middle } **[utiLITI MCP Server Reference](/utiliti-editor/mcp-server/)**
 
     ---
 
     Detailed specification for all 90+ raw primitives and semantic map mutation tools.
 
-- :material-gamepad-variant-outline:{ .lg .middle } **[2D Platformer Tutorial](2d-platformer.md)**
+- :material-gamepad-variant-outline:{ .lg .middle } **[2D Platformer Tutorial](/tutorials/2d-platformer/)**
 
     ---
 
     Step-by-step tutorial building a complete 2D action platformer with LITIENGINE.
 
-- :material-book-open-page-variant:{ .lg .middle } **[API Quick Reference](../getting-started/api-quick-reference.md)**
+- :material-book-open-page-variant:{ .lg .middle } **[API Quick Reference](/getting-started/api-quick-reference/)**
 
     ---
 
