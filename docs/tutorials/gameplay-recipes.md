@@ -45,6 +45,8 @@ package com.example.game.recipes;
 
 import de.gurkenlabs.litiengine.Game;
 import de.gurkenlabs.litiengine.entities.ICombatEntity;
+import de.gurkenlabs.litiengine.graphics.emitters.Emitter;
+import de.gurkenlabs.litiengine.graphics.emitters.particles.Particle;
 import de.gurkenlabs.litiengine.graphics.emitters.particles.TextParticle;
 import java.awt.Color;
 import java.awt.geom.Point2D;
@@ -55,14 +57,22 @@ public class DamageTextRecipe {
       double damageTaken = event.getDamage();
       Point2D location = entity.getCenter();
 
-      // Spawn a floating text particle above the entity
-      TextParticle textParticle = new TextParticle("-" + (int) damageTaken);
-      textParticle.setColor(event.wasKilled() ? Color.RED : Color.YELLOW);
-      textParticle.setX((float) location.getX());
-      textParticle.setY((float) location.getY() - 10);
-      textParticle.setTimeToLive(800); // lifetime in ms
-      textParticle.setVelocityY(-0.8f); // Float upwards
-      Game.world().environment().add(textParticle);
+      // Spawn a floating text particle via a dedicated emitter
+      Emitter emitter = new Emitter(location.getX(), location.getY() - 10) {
+        @Override
+        protected Particle createNewParticle() {
+          TextParticle textParticle = new TextParticle("-" + (int) damageTaken);
+          textParticle.setColor(event.wasKilled() ? Color.RED : Color.YELLOW);
+          textParticle.setVelocityY(-0.8f); // Float upwards
+          textParticle.setTimeToLive(800);  // Lifetime in ms
+          return textParticle;
+        }
+      };
+      emitter.data().setEmitterDuration(800);
+      emitter.data().setMaxParticles(1);
+      emitter.data().setSpawnAmount(1);
+      Game.world().environment().add(emitter);
+      emitter.activate();
     });
   }
 }
@@ -112,11 +122,13 @@ Implement an attack skill with cooldown tracking and visual range validation:
 ```java title="FireballAbilityRecipe.java"
 package com.example.game.recipes;
 
+import de.gurkenlabs.litiengine.Game;
 import de.gurkenlabs.litiengine.abilities.Ability;
 import de.gurkenlabs.litiengine.abilities.AbilityInfo;
 import de.gurkenlabs.litiengine.abilities.CastType;
 import de.gurkenlabs.litiengine.entities.Creature;
 import de.gurkenlabs.litiengine.resources.Resources;
+import de.gurkenlabs.litiengine.sound.Sound;
 
 @AbilityInfo(
     name = "Fireball",
@@ -131,7 +143,10 @@ public class FireballAbilityRecipe extends Ability {
 
     // Play casting sound effect upon cast
     this.onCast(event -> {
-      Resources.sounds().get("audio/sfx/fireball.wav").play();
+      Sound sound = Resources.sounds().get("audio/sfx/fireball.wav");
+      if (sound != null) {
+        Game.audio().playSound(sound, executor);
+      }
     });
   }
 }
@@ -150,6 +165,7 @@ import de.gurkenlabs.litiengine.Game;
 import de.gurkenlabs.litiengine.entities.Creature;
 import de.gurkenlabs.litiengine.entities.IEntity;
 import de.gurkenlabs.litiengine.entities.behavior.EntityController;
+import de.gurkenlabs.litiengine.util.geom.GeometricUtilities;
 
 public class EnemyAggroRecipe extends EntityController<Creature> {
   private static final double AGGRO_RADIUS = 150.0;
@@ -167,11 +183,9 @@ public class EnemyAggroRecipe extends EntityController<Creature> {
 
     double distance = getEntity().getCenter().distance(player.getCenter());
     if (distance <= AGGRO_RADIUS) {
-      // Steer towards the player
-      getEntity().movement().setDestination(player.getCenter());
-    } else {
-      // Stop moving when player exits detection radius
-      getEntity().movement().setDestination(null);
+      // Calculate rotation angle towards player and move creature via physics engine
+      double angle = GeometricUtilities.calcRotationAngleInDegrees(getEntity().getCenter(), player.getCenter());
+      Game.physics().move(getEntity(), angle, getEntity().getTickVelocity());
     }
   }
 }
@@ -226,11 +240,17 @@ public class DeathExplosionRecipe {
       Emitter emitter = new Emitter(center.getX(), center.getY()) {
         @Override
         protected Particle createNewParticle() {
-          return new RectangleParticle(4, 4, Color.ORANGE, 500);
+          RectangleParticle particle = new RectangleParticle(4, 4);
+          particle.setColor(Color.ORANGE);
+          particle.setTimeToLive(500);
+          return particle;
         }
       };
-      emitter.setTimeToLive(600);
+      emitter.data().setEmitterDuration(600);
+      emitter.data().setMaxParticles(15);
+      emitter.data().setSpawnAmount(15);
       Game.world().environment().add(emitter);
+      emitter.activate();
     });
   }
 }

@@ -3543,15 +3543,15 @@ tags: [creature, prop, trigger, spawnpoint, collisionbox, light]
 
 Choose the optimal entity type for your game objects:
 
-| Entity Type | Purpose / Use Case | Default Collision | Key Annotations | utiLITI Object Type | Key Lifecycle Events |
+| Entity Type | Purpose / Use Case | Default Collision | Key Annotations | utiLITI Object Type | Key Behaviors & Hooks |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **`Creature`** | Living characters, NPCs, enemies, players | Yes (Dynamic box) | `@EntityInfo`, `@MovementInfo`, `@CombatInfo`, `@CollisionInfo` | `CREATURE` | `onMoved`, `onHit`, `onDeath`, `onStateChanged` |
-| **`Prop`** | Interactive/static map objects (chests, trees, pots) | Configurable | `@EntityInfo`, `@CollisionInfo` | `PROP` | `onHit`, `onStateChanged`, `onDamaged` |
-| **`Trigger`** | Invisible event zones (doors, cutscenes, teleporters) | Sensor only | `@EntityInfo` | `TRIGGER` | `onActivated`, `onDeactivated` |
-| **`Emitter`** | Particle sources (fire, weather, explosions) | None | `@EntityInfo` | `EMITTER` | `onSpawned`, `onParticleFinished` |
-| **`LightSource`** | Dynamic/static ambient lights & torches | None | `@EntityInfo` | `LIGHTSOURCE` | `onToggled`, `onColorChanged` |
-| **`Spawnpoint`** | Level entry points and entity spawn markers | None | `@EntityInfo` | `SPAWNPOINT` | `onSpawned` |
-| **`CollisionEntity`** | Invisible collision barrier / impassable wall | Static Solid | `@CollisionInfo` | `COLLISIONBOX` | `onCollision` |
+| **`Creature`** | Living characters, NPCs, enemies, players | Yes (Dynamic box) | `@EntityInfo`, `@MovementInfo`, `@CombatInfo`, `@CollisionInfo` | `CREATURE` | `onMoved`, `onHit`, `onDeath`, `onResurrect` |
+| **`Prop`** | Interactive/static map objects (chests, trees, pots) | Configurable | `@EntityInfo`, `@CollisionInfo` | `PROP` | `onHit`, `onDeath`, `PropState` |
+| **`Trigger`** | Invisible event zones (doors, cutscenes, teleporters) | Sensor only | `@EntityInfo` | `TRIGGER` | `addActivatedListener`, `addDeactivatedListener` |
+| **`Emitter`** | Particle sources (fire, weather, explosions) | None | `@EntityInfo` | `EMITTER` | `onFinished`, `data().setEmitterDuration(...)` |
+| **`LightSource`** | Dynamic/static ambient lights & torches | None | `@EntityInfo` | `LIGHTSOURCE` | `activate()`, `deactivate()`, `setColor()` |
+| **`Spawnpoint`** | Level entry points and entity spawn markers | None | `@EntityInfo` | `SPAWNPOINT` | `onSpawned`, `spawn(IEntity)` |
+| **`CollisionEntity`** | Invisible collision barrier / impassable wall | Static Solid | `@CollisionInfo` | `COLLISIONBOX` | `onCollision`, `setCollision(boolean)` |
 
 ---
 
@@ -3703,7 +3703,7 @@ prop-barrel-destroyed.png
 Area-based event triggers activated on collision or user interaction.
 
 ```java
-Trigger trigger = new Trigger(TriggerActivation.COLLISION, "door_sensor");
+Trigger trigger = new Trigger(TriggerActivation.COLLISION, "door_sensor", "open_door");
 trigger.addActivatedListener(event -> {
     IEntity entity = event.getEntity();
     // Action triggered when entity enters zone
@@ -3717,24 +3717,27 @@ trigger.addDeactivatedListener(event -> {
 Dynamic lighting entities.
 
 ```java
-LightSource light = new LightSource();
-light.setIntensity(150);
-light.setColor(Color.ORANGE);
+LightSource light = new LightSource(150, Color.ORANGE, LightSource.Type.ELLIPSE, true);
+light.setLocation(100, 100);
+Game.world().environment().add(light);
 ```
 
 ### Emitter
 Particle effect sources.
 
 ```java
-Emitter emitter = new Emitter("fire");
-emitter.getData().setEmitterDuration(5000);
+Emitter emitter = new Emitter(100, 100);
+emitter.data().setEmitterDuration(5000);
+Game.world().environment().add(emitter);
+emitter.activate();
 ```
 
 ### Spawnpoint
 Entity spawn locations.
 
 ```java
-Spawnpoint spawn = new Spawnpoint("start", Direction.RIGHT);
+Spawnpoint spawn = new Spawnpoint(Direction.RIGHT, "player_start");
+spawn.setLocation(100, 100);
 spawn.spawn(new Player());
 ```
 
@@ -4374,12 +4377,12 @@ Track when an entity enters or leaves the active `Environment`:
 ```java
 entity.addListener(new EntityListener() {
   @Override
-  public void loaded(Entity entity, Environment environment) {
+  public void loaded(IEntity entity, Environment environment) {
     System.out.println("Entity added to environment: " + entity.getName());
   }
 
   @Override
-  public void removed(Entity entity, Environment environment) {
+  public void removed(IEntity entity, Environment environment) {
     System.out.println("Entity removed from environment: " + entity.getName());
   }
 });

@@ -21,12 +21,12 @@ Track when an entity enters or leaves the active `Environment`:
 ```java
 entity.addListener(new EntityListener() {
   @Override
-  public void loaded(Entity entity, Environment environment) {
+  public void loaded(IEntity entity, Environment environment) {
     System.out.println("Entity added to environment: " + entity.getName());
   }
 
   @Override
-  public void removed(Entity entity, Environment environment) {
+  public void removed(IEntity entity, Environment environment) {
     System.out.println("Entity removed from environment: " + entity.getName());
   }
 });
