@@ -242,19 +242,19 @@ public class DeathExplosionRecipe {
 
 <div class="grid cards" markdown>
 
-- :material-robot-outline:{ .lg .middle } **[AI-Assisted Game Development](/tutorials/ai-game-development/)**
+- :material-robot-outline:{ .lg .middle } **[AI-Assisted Game Development](ai-game-development.md)**
 
     ---
 
     Pair with OpenCode, Antigravity, or Codex to generate custom mechanics and controllers.
 
-- :material-gamepad-variant-outline:{ .lg .middle } **[2D Platformer Tutorial](/tutorials/2d-platformer/)**
+- :material-gamepad-variant-outline:{ .lg .middle } **[2D Platformer Tutorial](2d-platformer.md)**
 
     ---
 
     Step-by-step tutorial creating jumping mechanics, coins, and enemies from scratch.
 
-- :material-book-open-page-variant:{ .lg .middle } **[API Quick Reference](/getting-started/api-quick-reference/)**
+- :material-book-open-page-variant:{ .lg .middle } **[API Quick Reference](../getting-started/api-quick-reference.md)**
 
     ---
 

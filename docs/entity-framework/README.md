@@ -16,25 +16,25 @@ Entities represent all interactive, physical, or visual objects living within a 
 
 <div class="grid cards" markdown>
 
-- :material-cube-outline:{ .lg .middle } **[Default Entity Types](/entity-framework/default-entity-types/)**
+- :material-cube-outline:{ .lg .middle } **[Default Entity Types](default-entity-types.md)**
 
     ---
 
     Complete overview of built-in classes: `Creature`, `Prop`, `Trigger`, `Spawnpoint`, `CollisionBox`, and `LightSource`.
 
-- :material-tag-outline:{ .lg .middle } **[Annotations & Matrix](/entity-framework/annotations/)**
+- :material-tag-outline:{ .lg .middle } **[Annotations & Matrix](annotations.md)**
 
     ---
 
     Declarative metadata (`@EntityInfo`, `@CollisionInfo`, `@MovementInfo`, `@CombatInfo`) and the Entity Architecture Matrix.
 
-- :material-wrench-outline:{ .lg .middle } **[Custom Entities](/entity-framework/custom-entities/)**
+- :material-wrench-outline:{ .lg .middle } **[Custom Entities](custom-entities.md)**
 
     ---
 
     Subclassing base entities, registering custom XML loaders, and binding specialized behaviors.
 
-- :material-bell-ring-outline:{ .lg .middle } **[Entity Events & Listeners](/entity-framework/entity-events/)**
+- :material-bell-ring-outline:{ .lg .middle } **[Entity Events & Listeners](entity-events.md)**
 
     ---
 

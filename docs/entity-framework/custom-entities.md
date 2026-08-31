@@ -132,6 +132,6 @@ public class Ghost extends Creature {
 
 ## See Also
 
-- [Default Entity Types](/entity-framework/default-entity-types/) - Built-in types
-- [Entity Controllers](/control-entities/entity-controllers/) - Controller system
-- [Custom MapObjectLoaders](/advanced/custom-mapobjectloaders/) - Loading from maps
+- [Default Entity Types](default-entity-types.md) - Built-in types
+- [Entity Controllers](../control-entities/entity-controllers.md) - Controller system
+- [Custom MapObjectLoaders](../advanced/custom-mapobjectloaders.md) - Loading from maps

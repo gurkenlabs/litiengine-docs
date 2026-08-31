@@ -16,25 +16,25 @@ LITIENGINE decouples entity logic into specialized modular controllers: **Moveme
 
 <div class="grid cards" markdown>
 
-- :material-walk:{ .lg .middle } **[Movement Controllers](/control-entities/movement-controller/)**
+- :material-walk:{ .lg .middle } **[Movement Controllers](movement-controller.md)**
 
     ---
 
     Physics-driven velocity, acceleration, steering heading, and obstacle collision sliding.
 
-- :material-filmstrip:{ .lg .middle } **[Animation Controllers](/control-entities/animation-controller/)**
+- :material-filmstrip:{ .lg .middle } **[Animation Controllers](animation-controller.md)**
 
     ---
 
     State-based animation machines (`idle`, `walk`, `dead`) and dynamic spritesheet switching.
 
-- :material-lightning-bolt-outline:{ .lg .middle } **[Ability Framework](/control-entities/ability-framework/)**
+- :material-lightning-bolt-outline:{ .lg .middle } **[Ability Framework](ability-framework.md)**
 
     ---
 
     Cooldown-based combat spells, projectile targeting, area-of-effect effects, and `@AbilityInfo`.
 
-- :material-compass-outline:{ .lg .middle } **[Behavior Controllers & AI](/control-entities/behavior-controller/)**
+- :material-compass-outline:{ .lg .middle } **[Behavior Controllers & AI](behavior-controller.md)**
 
     ---
 

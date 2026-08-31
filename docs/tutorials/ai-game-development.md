@@ -44,7 +44,7 @@ You can download our official, production-ready template and drop it into your r
 
 <div class="grid cards" markdown>
 
-- :material-file-download:{ .lg .middle } **[Download AGENTS.md Template](/assets/templates/AGENTS.txt)**
+- :material-file-download:{ .lg .middle } **[Download AGENTS.md Template](../assets/templates/AGENTS.txt)**
 
     ---
 
@@ -225,19 +225,19 @@ The AI assistant will execute the MCP commands (`add-prop`, `add-light`, `batch-
 
 <div class="grid cards" markdown>
 
-- :material-robot-outline:{ .lg .middle } **[utiLITI MCP Server Reference](/utiliti-editor/mcp-server/)**
+- :material-robot-outline:{ .lg .middle } **[utiLITI MCP Server Reference](../utiliti-editor/mcp-server.md)**
 
     ---
 
     Detailed specification for all 90+ raw primitives and semantic map mutation tools.
 
-- :material-gamepad-variant-outline:{ .lg .middle } **[2D Platformer Tutorial](/tutorials/2d-platformer/)**
+- :material-gamepad-variant-outline:{ .lg .middle } **[2D Platformer Tutorial](2d-platformer.md)**
 
     ---
 
     Step-by-step tutorial building a complete 2D action platformer with LITIENGINE.
 
-- :material-book-open-page-variant:{ .lg .middle } **[API Quick Reference](/getting-started/api-quick-reference/)**
+- :material-book-open-page-variant:{ .lg .middle } **[API Quick Reference](../getting-started/api-quick-reference.md)**
 
     ---
 
