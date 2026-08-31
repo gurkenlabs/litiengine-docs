@@ -167,7 +167,7 @@ import de.gurkenlabs.litiengine.entities.IEntity;
 import de.gurkenlabs.litiengine.entities.IEntityController;
 import de.gurkenlabs.litiengine.util.geom.GeometricUtilities;
 
-public class EnemyAggroRecipe implements IEntityController<Creature> {
+public class EnemyAggroRecipe implements IEntityController {
   private static final double AGGRO_RADIUS = 150.0;
   private final Creature creature;
 
