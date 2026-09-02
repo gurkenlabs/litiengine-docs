@@ -8,11 +8,11 @@ def generate_llms():
     
     # 1. Summary llms.txt
     llms_txt = """# LITIENGINE Docs
-> Free, open-source 2D Java Game Engine (Java 21+ LTS) with pure AWT graphics, low-latency Panama FFM input (Input4j), spatial quadtree physics, positional 2D audio, and the utiLITI companion level editor.
+> Free, open-source 2D Java Game Engine (Java 25+) with pure AWT graphics, low-latency Panama FFM input (Input4j), spatial quadtree physics, positional 2D audio, and the utiLITI companion level editor.
 
 ## Core Documentation
 
-- [Getting Started](https://docs.litiengine.com/getting-started/): Installation, JDK 21+ setup, Gradle/Maven configuration, and first game.
+- [Getting Started](https://docs.litiengine.com/getting-started/): Installation, JDK 25+ setup, Gradle/Maven configuration, and first game.
 - [API Quick Reference](https://docs.litiengine.com/getting-started/api-quick-reference/): Complete static cheat sheet covering Game.*, Resources.*, and Input.*.
 - [2D Graphics](https://docs.litiengine.com/game-api/render-engine/): AWT rendering, sprite transformations, shape drawing, and TextRenderer outlines.
 - [2D Physics](https://docs.litiengine.com/game-api/physics-engine/): Bounding-box collisions, spatial quadtree acceleration, and collision sliding.
@@ -91,12 +91,13 @@ def generate_llms():
         "utiliti-editor/script-diagnostics.md",
         "utiliti-editor/settings-and-shortcuts.md",
         "frequently-asked-questions.md",
+        "about/sponsors.md",
         "GLOSSARY.md"
     ]
     
     full_buffer = [
         "# LITIENGINE Complete Technical Documentation",
-        "> Free, open-source 2D Java Game Engine (Java 21+ LTS)\n",
+        "> Free, open-source 2D Java Game Engine (Java 25+)\n",
         "This file contains the complete technical documentation for LITIENGINE, optimized for retrieval-augmented generation and LLM consumption.\n",
         "---\n"
     ]

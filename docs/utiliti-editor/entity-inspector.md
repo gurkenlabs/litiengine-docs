@@ -18,30 +18,8 @@ The **Property Inspector** (located on the right side of the Map Workspace) allo
 
 When an entity is selected on the canvas or in the scene graph, the inspector displays organized, collapsible sections:
 
-```text
-┌─────────────────────────────────────────────────────────────┐
-│ ▼ GENERAL │
-│ ID: 104 | Name: goblin_guard | RenderType: NORMAL │
-│ Layer: entities | Implementation: mygame.GoblinAI │
-│ Tags: [enemy] [patrol] │
-│ Transform: X: 128 | Y: 64 | W: 32 | H: 32 │
-├─────────────────────────────────────────────────────────────┤
-│ ▼ ENTITY TYPE (CREATURE / PROP / TRIGGER / etc.) │
-│ Spritesheet: goblin-run | Direction: DOWN | Scale: [x] │
-├─────────────────────────────────────────────────────────────┤
-│ COLLISION │
-├─────────────────────────────────────────────────────────────┤
-│ COMBAT │
-├─────────────────────────────────────────────────────────────┤
-│ MOVEMENT │
-├─────────────────────────────────────────────────────────────┤
-│ ▼ SCRIPTS │
-│ Attached: [GoblinAI] (Order 1, Enabled) │
-│ Properties: aggroRadius=150, attackPower=20 │
-├─────────────────────────────────────────────────────────────┤
-│ CUSTOM PROPERTIES │
-└─────────────────────────────────────────────────────────────┘
-```
+![utiLITI Entity Inspector Panel](../images/utiliti/entity-inspector-panel.png){ .panel-screenshot width="360" }
+*The utiLITI Entity Inspector showing collapsible configuration cards for general properties, entity-specific attributes, collision, combat, and scripts.*
 
 ---
 

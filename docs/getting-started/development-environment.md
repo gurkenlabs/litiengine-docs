@@ -10,28 +10,39 @@ tags: [ide, intellij, vscode, eclipse, setup, configuration]
 
 ## Setup IDE
 
->We highly recommend you to develop your LITIENGINE game with an IDE \(Integrated Development Environment\). This will serve you with a ton of useful development tools, like _code completion_, _debugging_, _build tools_, _unit test execution_ and much more that a plain text editor simply doesn't provide.
+> We highly recommend developing your LITIENGINE game with an IDE (Integrated Development Environment). An IDE provides code completion, interactive debugging, Gradle integration, hot reloading, and test execution that a plain text editor cannot provide.
 
-The most prominent IDEs for Java development are [Eclipse](https://www.eclipse.org/), [IntelliJ IDEA](https://www.jetbrains.com/idea/), and [Apache NetBeans](https://netbeans.org/) - **All of them are free to use!**
+The most popular IDEs for modern Java development are:
 
-In our tutorials, we mostly reference the procedure for Eclipse, but the required steps are often very similar in other IDEs.
+- **[IntelliJ IDEA](https://www.jetbrains.com/idea/)** (Recommended) — The premier IDE for Java, featuring best-in-class Gradle support, seamless navigation, and direct compatibility with utiLITI's script workflows. Both the free Community Edition and Ultimate Edition work great.
+- **[Visual Studio Code](https://code.visualstudio.com/)** — Lightweight editor with the *Extension Pack for Java*.
+- **[Eclipse IDE](https://www.eclipse.org/)** — Traditional open-source Java development environment.
 
-Currently, there is no built-in LITIENGINE support for any IDE but for future releases we plan to develop plugins that will help you bootstrapping and developing a LITIENGINE project.
+---
 
-### Eclipse
-> We've already started development on a [LITIENGINE Eclipse Plugin](https://github.com/gurkenlabs/litiengine-eclipse-plugin).
+### IntelliJ IDEA (Recommended)
 
-If you've chosen Eclipse as your IDE, you need to set up a workspace before launching it. Even if your IDE usually will detect a Java runtime when it's installed in the standard location, you should double-check that your IDE is aware of the correct path to the Java runtime.
-To do this in Eclipse, unfold `Java` in the `Preferences` menu. Double click the `Installed JREs`, and click `Add`. Select `Standard VM` and go next. Click the `Directory...` button and find the JDK folder that you installed. Click `Finish` and `Apply and Close`. Now you are ready to use Eclipse for developing Java applications.
-
-![eclipse-download-5](img/eclipse_download_5.png)
-
-### IntelliJ IDEA
-To make sure the JDK got installed correctly, open the `New Project` dialogue and expand the `JDK` dropdown menu. If you see your installed JDK in the list, you're set. If you don't, you have to click on the `Add JDK...` button. A file picker dialogue will open, choose your JDK folder there.
-
-> If you're on linux or mac, you can also use [SKDMAN!](https://sdkman.io/) to manager your JDK installation . Once you've installed sdk man, type `sdk install java` in your terminal. The latest recommend JDK will be installed automatically for you. It should be registered in your IDE after you restart it. For further information look up the [SDKMAN! Docs](https://sdkman.io/usage).
+1. Open IntelliJ IDEA and choose **New Project** (or **Open** if opening an existing Gradle project).
+2. Select **Java** or **Gradle** with the **Java** language.
+3. In the **JDK** dropdown, select your installed **Java {{ java_version }}** JDK. If it is not listed, click **Add JDK...** -> **Download JDK...** or navigate to your local JDK directory.
+4. When opening an existing LITIENGINE project, IntelliJ will automatically detect `build.gradle` / `build.gradle.kts` and configure all project dependencies and source directories.
 
 ![intellij-picker](../images/intellij_picker.png)
+
+> **Tip (Linux & macOS):** You can use **[SDKMAN!](https://sdkman.io/)** to manage your JDK installations easily. Once installed, run `sdk install java` to install the latest JDK, which will be detected by your IDE. For details, see the [SDKMAN! Documentation](https://sdkman.io/usage).
+
+---
+
+### Eclipse
+
+If you use Eclipse as your IDE:
+
+1. Open Eclipse and unfold **Java** in the **Preferences** menu.
+2. Select **Installed JREs**, click **Add**, and choose **Standard VM**.
+3. Click **Directory...**, navigate to your installed JDK {{ java_version }} folder, and click **Finish**.
+4. Set the new JDK as the default workspace JRE and click **Apply and Close**.
+
+![eclipse-download-5](img/eclipse_download_5.png)
 
 ## macOS & Apple Silicon Notes
 

@@ -26,26 +26,8 @@ Opening a script file from the asset tree or double-clicking an attached script 
 
 ## Window Layout Overview
 
-```text
-┌──────┬────────────────────────────────────────────────────────────────────────┐
-│ │ [Map Selector ▼] [Run] [Debug] [Stop] [Tools...] [ Undo] │
-│ ├─────────────────────────────────────────┬──────────────────────────────┤
-│ M │ │ [Objects] [Layers] │
-│ A │ │ ├ Tree hierarchy of entities │
-│ P │ MAP VIEWPORT CANVAS │ └ Tile & Object layer table │
-│ │ ├──────────────────────────────┤
-│ ─── │ - 2D Map Rendering │ [Inspector] │
-│ S │ - Coordinate Ruler │ ├ General / Transform / Tag │
-│ C │ - Real-time Lighting Previews │ ├ Entity-Specific Panels │
-│ R │ - Drag-and-drop Placement │ └ Script Bindings & Custom │
-│ ├─────────────────────────────────────────┴──────────────────────────────┤
-│ │ [Resources] [Console] │
-│ │ ├ Spritesheets, Tilesets, Blueprints, Sounds, Emitters, Scripts │
-│ │ └ Filtered Logger Output, Clear & Search │
-├──────┴────────────────────────────────────────────────────────────────────────┤
-│ [60 FPS] [x: 320, y: 240] [Selected: Creature (ID 12)] [MCP • 1] │
-└───────────────────────────────────────────────────────────────────────────────┘
-```
+![utiLITI Window Layout Overview](../images/utiliti/window-layout-overview.png)
+*The utiLITI user interface layout featuring the Workspace Rail, Map Viewport Canvas, Entity Hierarchy, Inspector, and Resource Management dock.*
 
 ---
 

@@ -10,6 +10,9 @@ tags: [utiliti, editor, level-editor, game-dev, tooling]
 
 **utiLITI** is the official 2D level design and asset management editor designed specifically for LITIENGINE games.
 
+![utiLITI Editor Layout](../images/utiliti/window-layout-overview.png)
+*The utiLITI editor layout featuring the visual level design canvas, entity hierarchy, property inspector, and asset management panels.*
+
 ---
 
 ## Editor Toolset
