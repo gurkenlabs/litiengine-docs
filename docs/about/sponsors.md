@@ -33,7 +33,7 @@ LITIENGINE is built with and for Java game developers, JVM software engineers, c
 
 ## Sponsorship Tiers
 
-### Platinum Partner — €239 / month
+### Platinum Sponsorship — €199 / month
 
 *Premier visibility across all official LITIENGINE web properties and developer surfaces.*
 
@@ -43,11 +43,11 @@ LITIENGINE is built with and for Java game developers, JVM software engineers, c
 - **Dedicated Sponsor Profile**: Full-width card with high-resolution logo, link, and company description on this page.
 - **Social Recognition**: Welcoming announcement across LITIENGINE Discord and social channels.
 
-[Sponsor as Platinum](https://opencollective.com/litiengine/contribute/platinum-sponsor){ .md-button }
+[Sponsor as Platinum](https://opencollective.com/litiengine/contribute/platinum-sponsorship-19904){ .md-button }
 
 ---
 
-### Gold Partner — €119 / month
+### Gold Sponsorship — €99 / month
 
 *Prominent placement for tech brands, developer tool providers, and organizations.*
 
@@ -56,11 +56,11 @@ LITIENGINE is built with and for Java game developers, JVM software engineers, c
 - **Directory Placement**: Highlighted card with logo, tagline, and link on this page.
 - **Release Recognition**: Mentioned in major release notes.
 
-[Sponsor as Gold](https://opencollective.com/litiengine/contribute/gold-sponsor){ .md-button }
+[Sponsor as Gold](https://opencollective.com/litiengine/contribute/gold-sponsorship-19903){ .md-button }
 
 ---
 
-### Silver Partner — €59 / month
+### Silver Sponsorship — €49 / month
 
 *Ideal for startups, indie studios, and developer services seeking community visibility.*
 
@@ -68,26 +68,26 @@ LITIENGINE is built with and for Java game developers, JVM software engineers, c
 - **Documentation Listing**: Logo listed on the documentation sponsors directory.
 - **Website Placement**: Logo and link on this `/about/sponsors` directory page.
 
-[Sponsor as Silver](https://opencollective.com/litiengine/contribute/silver-sponsor){ .md-button }
+[Sponsor as Silver](https://opencollective.com/litiengine/contribute/silver-sponsorship-19902){ .md-button }
 
 ---
 
-### Bronze Supporter — €35 / month
+### Bronze Sponsorship — €29 / month
 
 *Support sustainable open-source game development with direct website recognition.*
 
 - **Website Directory Placement**: Logo and link in the Bronze section of this page.
 - **Open Collective Recognition**: Public backer avatar and receipt.
 
-[Sponsor as Bronze](https://opencollective.com/litiengine/contribute/bronze-sponsor){ .md-button }
+[Sponsor as Bronze](https://opencollective.com/litiengine/contribute/bronze-sponsorship-14828){ .md-button }
 
 ---
 
-### Individual Backers — From €2 / month
+### Backers — From €2 / month
 
 Join hundreds of individual developers who make LITIENGINE possible. Every contribution fuels server costs, asset licensing, and community bounties.
 
-[Contribute as an Individual Backer](https://opencollective.com/litiengine/contribute){ .md-button }
+[Contribute as a Backer](https://opencollective.com/litiengine/contribute/backer-14243){ .md-button }
 
 ---
 
