@@ -18,6 +18,9 @@ The **Property Inspector** (located on the right side of the Map Workspace) allo
 
 When an entity is selected on the canvas or in the scene graph, the inspector displays organized, collapsible sections:
 
+![utiLITI Entity Inspector Panel](../images/utiliti/entity-inspector-panel.png)
+*The utiLITI Entity Inspector showing collapsible configuration cards for general properties, entity-specific attributes, collision, combat, and scripts.*
+
 ```text
 ┌─────────────────────────────────────────────────────────────┐
 │ ▼ GENERAL │

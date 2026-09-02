@@ -30,6 +30,9 @@ The narrow rail on the left switches the central editor between two peer workspa
 - **Map** keeps the scene hierarchy, viewport tools, map canvas, and asset panel.
 - **Scripts** replaces the canvas with a hierarchical source explorer, live outline, tabbed source editor, compact Problems/Output dock, and script metadata inspector.
 
+![utiLITI Scripts Workspace](../images/utiliti/script-editor.png)
+*The utiLITI Scripts Workspace with source explorer, class outline, tabbed code editor, and script inspector.*
+
 Opening a script asset or double-clicking an attached script switches to the Scripts workspace automatically. Source files remain ordinary project files; the workspace does not copy them into `.litidata`.
 
 ## Script definitions

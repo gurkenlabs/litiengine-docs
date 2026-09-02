@@ -15,6 +15,9 @@ The **Sprite & Animation Editor** (accessible via the `Spritesheets` asset categ
 
 ## Editor Overview
 
+![utiLITI Sprite & Animation Editor](../images/utiliti/sprite-editor-panel.gif)
+*The Sprite & Animation Editor panel featuring interactive grid slicing, keyframe duration tables, and animated live preview.*
+
 ```text
 ┌─────────────────────────────────────────────────────────────┐
 │ Name: hero-walk | Total Frames: 6 | Frame Size: 32x32 │

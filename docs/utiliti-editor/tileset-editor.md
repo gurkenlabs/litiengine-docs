@@ -15,6 +15,9 @@ The **Tileset Editor** (accessible via the `Tilesets` tab or double-clicking any
 
 ## Editor Overview
 
+![utiLITI Tileset Editor](../images/utiliti/tileset-editor.png)
+*The utiLITI Tileset Editor interface showing interactive tile grid selection, tile collision shape tools, and properties.*
+
 ```text
 ┌─────────────────────────────────────────────────────────────┐
 │ Tileset: [dungeon_tileset ▼] Tile Size: 16x16 │

@@ -26,6 +26,9 @@ Opening a script file from the asset tree or double-clicking an attached script 
 
 ## Window Layout Overview
 
+![utiLITI Window Layout Overview](../images/utiliti/window-layout-overview.png)
+*The utiLITI user interface layout featuring the Workspace Rail, Map Viewport Canvas, Entity Hierarchy, Inspector, and Resource Management dock.*
+
 ```text
 ┌──────┬────────────────────────────────────────────────────────────────────────┐
 │ │ [Map Selector ▼] [Run] [Debug] [Stop] [Tools...] [ Undo] │
