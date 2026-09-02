@@ -360,3 +360,110 @@
   vertical-align: middle;
   margin-right: 6px;
 }
+
+/* ==========================================================================
+   Global Docs Sponsor Component (Supported by our community & partners)
+   ========================================================================== */
+.docs-sponsor-component {
+  margin-top: 1.25rem;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid var(--md-default-fg-color--lighter, rgba(255, 255, 255, 0.12));
+  border-radius: 8px;
+  background-color: var(--md-code-bg-color, #1a1e24);
+  font-size: 0.72rem;
+  line-height: 1.35;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.docs-sponsor-component:hover {
+  border-color: var(--md-typeset-a-color, #00b0ff);
+}
+
+.docs-sponsor-component__title {
+  display: block;
+  font-weight: 600;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--md-default-fg-color--light, #888888);
+  margin-bottom: 0.35rem;
+}
+
+.docs-sponsor-component__body {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  min-height: 28px;
+  max-height: 36px;
+}
+
+.docs-sponsor-component__partner {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--md-default-fg-color);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.72rem;
+  max-height: 36px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.docs-sponsor-component__partner:hover {
+  color: var(--md-typeset-a-color, #00b0ff);
+}
+
+.docs-sponsor-component__partner .twemoji {
+  display: inline-flex;
+  align-items: center;
+}
+
+.docs-sponsor-component__partner svg {
+  width: 0.95rem;
+  height: 0.95rem;
+  fill: currentColor;
+}
+
+.docs-sponsor-component__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.2rem 0.55rem;
+  font-size: 0.65rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: #ffffff !important;
+  background-color: #ea4c89;
+  border-radius: 9999px;
+  text-decoration: none !important;
+  white-space: nowrap;
+  max-height: 30px;
+  transition: background-color 0.15s ease, transform 0.15s ease;
+}
+
+.docs-sponsor-component__cta:hover {
+  background-color: #d83b77;
+  transform: translateY(-1px);
+}
+
+/* Secondary sidebar desktop layout */
+.md-sidebar--secondary .docs-sponsor-component {
+  margin: 1.25rem 0.6rem 0.6rem 0.6rem;
+}
+
+/* Footer mobile/tablet banner */
+.docs-sponsor-footer-banner {
+  display: none;
+  margin: 1.25rem auto 0.75rem auto;
+  max-width: 100%;
+}
+
+@media screen and (max-width: 76.24875em) {
+  .docs-sponsor-footer-banner {
+    display: block;
+  }
+}
+
