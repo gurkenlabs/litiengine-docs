@@ -1213,6 +1213,12 @@ The `Game` class acts as the central hub and orchestrator of LITIENGINE. It expo
 
     Scene state manager for Title Screen, Gameplay Screen, Pause Overlay, and Game Over sequences.
 
+- :material-code-json:{ .lg .middle } **[Full Javadoc Reference](https://docs.litiengine.com/javadoc/)**
+
+    ---
+
+    Complete Java API documentation for all packages, classes, and methods across the engine.
+
 </div>
 
 <!-- END CHAPTER: game-api/README.md -->

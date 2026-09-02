@@ -42,6 +42,31 @@ jobs:
       - name: Build Static Documentation
         run: zensical build --clean --strict
 
+      - name: Checkout Engine Repository
+        uses: actions/checkout@v4
+        with:
+          repository: gurkenlabs/litiengine
+          ref: main
+          path: litiengine-src
+
+      - name: Setup Java 25 for Engine
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "25"
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Build and Bundle Javadoc
+        run: |
+          cd litiengine-src
+          chmod +x gradlew
+          ./gradlew :litiengine:javadoc --no-daemon -PskipSpotless
+          cd ..
+          mkdir -p site/javadoc
+          cp -r litiengine-src/litiengine/build/docs/javadoc/* site/javadoc/
+
       - uses: actions/upload-pages-artifact@v3
         with:
           path: site
