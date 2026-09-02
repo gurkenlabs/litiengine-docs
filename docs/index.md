@@ -20,7 +20,7 @@ Welcome to the official technical documentation for **LITIENGINE**, the free and
 
     ---
 
-    Install Java {{ java_version }}+, configure Gradle or Maven, and start your first LITIENGINE application in a few lines of Java.
+    Install Java {{ java_version }}+, configure Gradle or Maven, understand project structure, and spawn your first game window.
 
 - :material-code-json:{ .lg .middle } **[Core Game API](game-api/README.md)**
 
@@ -38,19 +38,19 @@ Welcome to the official technical documentation for **LITIENGINE**, the free and
 
     ---
 
-    Step-by-step guides building a Top-Down Action Shooter, gameplay mechanics, and community recipe cookbooks.
+    Step-by-step guides building a Top-Down Action Shooter, 2D Platformer, Brick Breaker, and AI-assisted game development.
 
-- :material-tune:{ .lg .middle } **[Advanced Topics](advanced/dynamic-lighting.md)**
-
-    ---
-
-    Dynamic 2D lighting, particle systems, performance tuning, string localization, and serialization.
-
-- :material-help-circle-outline:{ .lg .middle } **[Project & Reference](frequently-asked-questions.md)**
+- :material-package-variant-closed:{ .lg .middle } **[Publish & Deploy](deployment.md)**
 
     ---
 
-    Frequently asked questions, release notes, engine roadmap, dependencies, and term glossary.
+    Package standalone games for Windows, macOS, and Linux with Steam, itch.io, Launch4j, and [Savegame Persistence](savegames.md).
+
+- :material-heart-multiple-outline:{ .lg .middle } **[Community & Sponsors](about/sponsors.md)**
+
+    ---
+
+    Explore sponsorship tiers, our [FAQ](frequently-asked-questions.md), [Engine Roadmap](roadmap.md), and [Release Notes](CHANGELOG.md).
 
 </div>
 
@@ -187,6 +187,7 @@ LITIENGINE is 100% free, independent, and open source. If LITIENGINE helps you b
 
     Every recurring backer or one-time contribution directly funds engine maintenance, documentation, and tooling.
 
-    [Become a Backer on Open Collective](https://opencollective.com/litiengine){ .md-button .md-button--primary style="background: linear-gradient(135deg, #ea4c89 0%, #ff5e7e 100%); border-color: #ea4c89; color: white; font-weight: bold; margin-top: 0.5rem;" }
+    [Explore Sponsorship Tiers](about/sponsors.md){ .md-button }
+    [Contribute on Open Collective](https://opencollective.com/litiengine){ .md-button .md-button--primary style="background: linear-gradient(135deg, #ea4c89 0%, #ff5e7e 100%); border-color: #ea4c89; color: white; font-weight: bold; margin-left: 0.5rem;" }
 
 </div>

@@ -84,12 +84,12 @@ Create a ranged attack that fires projectiles toward the mouse cursor:
 ```java
 import de.gurkenlabs.litiengine.abilities.Ability;
 import de.gurkenlabs.litiengine.abilities.AbilityInfo;
-import de.gurkenlabs.litiengine.abilities.AbilityOrigin;
 import de.gurkenlabs.litiengine.abilities.effects.Effect;
 import de.gurkenlabs.litiengine.abilities.effects.EffectTarget;
 import de.gurkenlabs.litiengine.entities.Creature;
+import de.gurkenlabs.litiengine.entities.EntityPivotType;
 
-@AbilityInfo(name = "Blaster", cooldown = 200, range = 400, impact = 25, origin = AbilityOrigin.DIMENSION_CENTER)
+@AbilityInfo(name = "Blaster", cooldown = 200, range = 400, impact = 25, origin = EntityPivotType.DIMENSION_CENTER)
 public class BlasterAbility extends Ability {
 
   public BlasterAbility(Creature executor) {
@@ -105,7 +105,7 @@ public class BlasterAbility extends Ability {
     @Override
     protected void apply(Creature target) {
       super.apply(target);
-      target.hit(getAbility().getAttributes().value().get().intValue());
+      target.hit(getAbility().getAttributes().impact().get().intValue());
     }
   }
 }

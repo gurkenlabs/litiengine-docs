@@ -86,9 +86,19 @@ Input.mouse().isRightMouseButtonDown();
 Input.mouse().onClicked(e -> {...});
 Input.mouse().onMoved(e -> {...});
 
-// Gamepad
-Input.gamepads().getCurrent();
+// Gamepad (Input4j Panama FFM)
+Gamepad gamepad = Input.gamepads().getCurrent();
 Input.gamepads().onPressed(Gamepad.Xbox.A, value -> {...});
+Input.gamepads().onAdded(pad -> System.out.println("Gamepad connected: " + pad.getName()));
+Input.gamepads().onRemoved(pad -> System.out.println("Gamepad disconnected: " + pad.getName()));
+```
+
+## Script Engine & Bindings
+
+```java
+Game.scripts(); // Script engine manager
+Game.scripts().get("patrol_ai"); // Query loaded script by ID
+Game.scripts().getEntities("patrol_ai"); // Query all entities bound to script
 ```
 
 ## Rendering

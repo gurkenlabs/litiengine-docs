@@ -40,10 +40,24 @@ public class Program {
   }
 }
 ```
-!!! note
-    If you can't import library even though update build.gradle right, try to refresh build.gradle.
+!!! note "IDE Dependency Sync"
+    If your IDE cannot resolve LITIENGINE imports after updating your build file:
 
-    If you see the following window, you’ve setup everything correctly and are now ready to create awesome 2D Java games with LITIENGINE!
+    - **IntelliJ IDEA**: Click the floating Gradle refresh icon or choose **View -> Tool Windows -> Gradle -> Reload All Gradle Projects**.
+    - **Eclipse**: Right-click your project -> **Gradle -> Refresh Gradle Project**.
+    - **VS Code**: Open the Command Palette (`Ctrl+Shift+P` / `Cmd+Shift+P`) and run **Java: Clean Java Language Server Workspace**.
 
-    ![Empty LITIENGINE Window](../images/empty-litiengine-window.png)
+!!! tip "Java {{ java_version }}+ Native Access VM Option"
+    When launching your game directly via an IDE `main()` run configuration, add the following VM option to permit native memory access for low-latency gamepad polling:
+
+    ```text
+    --enable-native-access=ALL-UNNAMED
+    ```
+
+    *(In IntelliJ IDEA: **Run -> Edit Configurations... -> Modify options -> Add VM options**).*
+
+If you see the following window, you have set up everything correctly and are now ready to create awesome 2D Java games with LITIENGINE!
+
+![Empty LITIENGINE Window](../images/empty-litiengine-window.png)
+*The default LITIENGINE application window spawned by Game.start().*
 
