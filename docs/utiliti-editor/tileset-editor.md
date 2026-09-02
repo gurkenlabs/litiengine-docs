@@ -18,29 +18,6 @@ The **Tileset Editor** (accessible via the `Tilesets` tab or double-clicking any
 ![utiLITI Tileset Editor](../images/utiliti/tileset-editor.png){ .panel-screenshot width="360" }
 *The utiLITI Tileset Editor interface showing interactive tile grid selection, tile collision shape tools, and properties.*
 
-```text
-┌─────────────────────────────────────────────────────────────┐
-│ Tileset: [dungeon_tileset ▼] Tile Size: 16x16 │
-│ Offsets: X: 0 | Y: 0 Custom Properties: [...] │
-├───────────────────────────────┬─────────────────────────────┤
-│ │ [Tile Properties] │
-│ │ Type: solid_wall │
-│ │ Probability: 1.0 │
-│ ├─────────────────────────────┤
-│ TILE GRID │ [Tile Collision Editor] │
-│ Interactive Atlas │ ┌────────┐ Mode: Rectangle │
-│ Multi-tile Selection │ │ ■■■■■■ │ Shapes: [Delete] │
-│ │ └────────┘ │
-│ ├─────────────────────────────┤
-│ │ [Tile Animation] │
-│ │ Frame 1 (100ms) -> Frame 2 │
-│ ├─────────────────────────────┤
-│ │ [Wang Terrain Sets] │
-│ │ Set: Walls | Type: Corner │
-│ │ 8-Slot Edge/Corner Mask │
-└───────────────────────────────┴─────────────────────────────┘
-```
-
 ---
 
 ## 1. Tileset Properties & Management

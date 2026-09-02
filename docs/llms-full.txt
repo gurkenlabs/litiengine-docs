@@ -6577,25 +6577,6 @@ The **Sprite & Animation Editor** (accessible via the `Spritesheets` asset categ
 ![utiLITI Sprite & Animation Editor](../images/utiliti/sprite-editor-panel.gif){ .panel-screenshot width="360" }
 *The Sprite & Animation Editor panel featuring interactive grid slicing, keyframe duration tables, and animated live preview.*
 
-```text
-┌─────────────────────────────────────────────────────────────┐
-│ Name: hero-walk | Total Frames: 6 | Frame Size: 32x32 │
-├───────────────────────────────┬─────────────────────────────┤
-│ │ [Live Animation Preview] │
-│ │ ┌────────┐ [] [] [] [] │
-│ │ │ HERO │ Speed: 1.0x │
-│ │ └────────┘ Zoom: 4x [Loop] │
-│ SPRITE GRID ├─────────────────────────────┤
-│ Interactive Slicing Preview │ [Keyframe Durations (ms)] │
-│ Columns: 6 | Rows: 1 │ │ Frame 0 │ 120ms │
-│ │ │ Frame 1 │ 100ms │
-│ │ │ Frame 2 │ 100ms │
-│ │ │ Frame 3 │ 120ms │
-│ │ │ Frame 4 │ 100ms │
-│ │ │ Frame 5 │ 100ms │
-└───────────────────────────────┴─────────────────────────────┘
-```
-
 ---
 
 ## 1. Spritesheet Slicing & Metrics
@@ -6671,29 +6652,6 @@ The **Tileset Editor** (accessible via the `Tilesets` tab or double-clicking any
 
 ![utiLITI Tileset Editor](../images/utiliti/tileset-editor.png){ .panel-screenshot width="360" }
 *The utiLITI Tileset Editor interface showing interactive tile grid selection, tile collision shape tools, and properties.*
-
-```text
-┌─────────────────────────────────────────────────────────────┐
-│ Tileset: [dungeon_tileset ▼] Tile Size: 16x16 │
-│ Offsets: X: 0 | Y: 0 Custom Properties: [...] │
-├───────────────────────────────┬─────────────────────────────┤
-│ │ [Tile Properties] │
-│ │ Type: solid_wall │
-│ │ Probability: 1.0 │
-│ ├─────────────────────────────┤
-│ TILE GRID │ [Tile Collision Editor] │
-│ Interactive Atlas │ ┌────────┐ Mode: Rectangle │
-│ Multi-tile Selection │ │ ■■■■■■ │ Shapes: [Delete] │
-│ │ └────────┘ │
-│ ├─────────────────────────────┤
-│ │ [Tile Animation] │
-│ │ Frame 1 (100ms) -> Frame 2 │
-│ ├─────────────────────────────┤
-│ │ [Wang Terrain Sets] │
-│ │ Set: Walls | Type: Corner │
-│ │ 8-Slot Edge/Corner Mask │
-└───────────────────────────────┴─────────────────────────────┘
-```
 
 ---
 
@@ -6935,31 +6893,6 @@ When an entity is selected on the canvas or in the scene graph, the inspector di
 
 ![utiLITI Entity Inspector Panel](../images/utiliti/entity-inspector-panel.png){ .panel-screenshot width="360" }
 *The utiLITI Entity Inspector showing collapsible configuration cards for general properties, entity-specific attributes, collision, combat, and scripts.*
-
-```text
-┌─────────────────────────────────────────────────────────────┐
-│ ▼ GENERAL │
-│ ID: 104 | Name: goblin_guard | RenderType: NORMAL │
-│ Layer: entities | Implementation: mygame.GoblinAI │
-│ Tags: [enemy] [patrol] │
-│ Transform: X: 128 | Y: 64 | W: 32 | H: 32 │
-├─────────────────────────────────────────────────────────────┤
-│ ▼ ENTITY TYPE (CREATURE / PROP / TRIGGER / etc.) │
-│ Spritesheet: goblin-run | Direction: DOWN | Scale: [x] │
-├─────────────────────────────────────────────────────────────┤
-│ COLLISION │
-├─────────────────────────────────────────────────────────────┤
-│ COMBAT │
-├─────────────────────────────────────────────────────────────┤
-│ MOVEMENT │
-├─────────────────────────────────────────────────────────────┤
-│ ▼ SCRIPTS │
-│ Attached: [GoblinAI] (Order 1, Enabled) │
-│ Properties: aggroRadius=150, attackPower=20 │
-├─────────────────────────────────────────────────────────────┤
-│ CUSTOM PROPERTIES │
-└─────────────────────────────────────────────────────────────┘
-```
 
 ---
 

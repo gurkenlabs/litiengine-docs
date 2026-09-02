@@ -18,25 +18,6 @@ The **Sprite & Animation Editor** (accessible via the `Spritesheets` asset categ
 ![utiLITI Sprite & Animation Editor](../images/utiliti/sprite-editor-panel.gif){ .panel-screenshot width="360" }
 *The Sprite & Animation Editor panel featuring interactive grid slicing, keyframe duration tables, and animated live preview.*
 
-```text
-┌─────────────────────────────────────────────────────────────┐
-│ Name: hero-walk | Total Frames: 6 | Frame Size: 32x32 │
-├───────────────────────────────┬─────────────────────────────┤
-│ │ [Live Animation Preview] │
-│ │ ┌────────┐ [] [] [] [] │
-│ │ │ HERO │ Speed: 1.0x │
-│ │ └────────┘ Zoom: 4x [Loop] │
-│ SPRITE GRID ├─────────────────────────────┤
-│ Interactive Slicing Preview │ [Keyframe Durations (ms)] │
-│ Columns: 6 | Rows: 1 │ │ Frame 0 │ 120ms │
-│ │ │ Frame 1 │ 100ms │
-│ │ │ Frame 2 │ 100ms │
-│ │ │ Frame 3 │ 120ms │
-│ │ │ Frame 4 │ 100ms │
-│ │ │ Frame 5 │ 100ms │
-└───────────────────────────────┴─────────────────────────────┘
-```
-
 ---
 
 ## 1. Spritesheet Slicing & Metrics
