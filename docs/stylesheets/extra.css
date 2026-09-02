@@ -361,5 +361,31 @@
   margin-right: 6px;
 }
 
+/* ==========================================================================
+   utiLITI Panel Screenshots (Compact, Centered Vertical Inspectors)
+   ========================================================================== */
+.md-typeset img.panel-screenshot,
+.md-typeset img[src*="-panel"],
+.md-typeset img[src*="tileset-editor"] {
+  display: block;
+  max-width: 360px;
+  width: 100%;
+  margin: 1.5rem auto 0.5rem auto;
+  border-radius: 6px;
+  border: 1px solid var(--md-default-fg-color--lighter, rgba(255, 255, 255, 0.1));
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+}
+
+.md-typeset p:has(> img.panel-screenshot) + p em,
+.md-typeset p:has(> img[src*="-panel"]) + p em,
+.md-typeset p:has(> img[src*="tileset-editor"]) + p em {
+  display: block;
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--md-default-fg-color--light, #888888);
+  margin-bottom: 1.5rem;
+}
+
+
 
 

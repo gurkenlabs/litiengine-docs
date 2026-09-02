@@ -15,7 +15,7 @@ The **Tileset Editor** (accessible via the `Tilesets` tab or double-clicking any
 
 ## Editor Overview
 
-![utiLITI Tileset Editor](../images/utiliti/tileset-editor.png)
+![utiLITI Tileset Editor](../images/utiliti/tileset-editor.png){ .panel-screenshot width="360" }
 *The utiLITI Tileset Editor interface showing interactive tile grid selection, tile collision shape tools, and properties.*
 
 ```text

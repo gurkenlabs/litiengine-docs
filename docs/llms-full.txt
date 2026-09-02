@@ -6574,7 +6574,7 @@ The **Sprite & Animation Editor** (accessible via the `Spritesheets` asset categ
 
 ## Editor Overview
 
-![utiLITI Sprite & Animation Editor](../images/utiliti/sprite-editor-panel.gif)
+![utiLITI Sprite & Animation Editor](../images/utiliti/sprite-editor-panel.gif){ .panel-screenshot width="360" }
 *The Sprite & Animation Editor panel featuring interactive grid slicing, keyframe duration tables, and animated live preview.*
 
 ```text
@@ -6669,7 +6669,7 @@ The **Tileset Editor** (accessible via the `Tilesets` tab or double-clicking any
 
 ## Editor Overview
 
-![utiLITI Tileset Editor](../images/utiliti/tileset-editor.png)
+![utiLITI Tileset Editor](../images/utiliti/tileset-editor.png){ .panel-screenshot width="360" }
 *The utiLITI Tileset Editor interface showing interactive tile grid selection, tile collision shape tools, and properties.*
 
 ```text
@@ -6933,7 +6933,7 @@ The **Property Inspector** (located on the right side of the Map Workspace) allo
 
 When an entity is selected on the canvas or in the scene graph, the inspector displays organized, collapsible sections:
 
-![utiLITI Entity Inspector Panel](../images/utiliti/entity-inspector-panel.png)
+![utiLITI Entity Inspector Panel](../images/utiliti/entity-inspector-panel.png){ .panel-screenshot width="360" }
 *The utiLITI Entity Inspector showing collapsible configuration cards for general properties, entity-specific attributes, collision, combat, and scripts.*
 
 ```text
