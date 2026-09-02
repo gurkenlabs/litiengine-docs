@@ -6319,6 +6319,9 @@ tags: [utiliti, editor, level-editor, game-dev, tooling]
 
 **utiLITI** is the official 2D level design and asset management editor designed specifically for LITIENGINE games.
 
+![utiLITI Editor Layout](../images/utiliti/window-layout-overview.png)
+*The utiLITI editor layout featuring the visual level design canvas, entity hierarchy, property inspector, and asset management panels.*
+
 ---
 
 ## Editor Toolset
@@ -6571,6 +6574,9 @@ The **Sprite & Animation Editor** (accessible via the `Spritesheets` asset categ
 
 ## Editor Overview
 
+![utiLITI Sprite & Animation Editor](../images/utiliti/sprite-editor-panel.gif)
+*The Sprite & Animation Editor panel featuring interactive grid slicing, keyframe duration tables, and animated live preview.*
+
 ```text
 ┌─────────────────────────────────────────────────────────────┐
 │ Name: hero-walk | Total Frames: 6 | Frame Size: 32x32 │
@@ -6662,6 +6668,9 @@ The **Tileset Editor** (accessible via the `Tilesets` tab or double-clicking any
 ---
 
 ## Editor Overview
+
+![utiLITI Tileset Editor](../images/utiliti/tileset-editor.png)
+*The utiLITI Tileset Editor interface showing interactive tile grid selection, tile collision shape tools, and properties.*
 
 ```text
 ┌─────────────────────────────────────────────────────────────┐
@@ -6924,6 +6933,9 @@ The **Property Inspector** (located on the right side of the Map Workspace) allo
 
 When an entity is selected on the canvas or in the scene graph, the inspector displays organized, collapsible sections:
 
+![utiLITI Entity Inspector Panel](../images/utiliti/entity-inspector-panel.png)
+*The utiLITI Entity Inspector showing collapsible configuration cards for general properties, entity-specific attributes, collision, combat, and scripts.*
+
 ```text
 ┌─────────────────────────────────────────────────────────────┐
 │ ▼ GENERAL │
@@ -7172,6 +7184,9 @@ The narrow rail on the left switches the central editor between two peer workspa
 
 - **Map** keeps the scene hierarchy, viewport tools, map canvas, and asset panel.
 - **Scripts** replaces the canvas with a hierarchical source explorer, live outline, tabbed source editor, compact Problems/Output dock, and script metadata inspector.
+
+![utiLITI Scripts Workspace](../images/utiliti/script-editor.png)
+*The utiLITI Scripts Workspace with source explorer, class outline, tabbed code editor, and script inspector.*
 
 Opening a script asset or double-clicking an attached script switches to the Scripts workspace automatically. Source files remain ordinary project files; the workspace does not copy them into `.litidata`.
 
