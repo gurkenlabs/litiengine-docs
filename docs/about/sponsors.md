@@ -112,9 +112,13 @@ All sponsorship funds are managed with complete financial transparency through [
 
 [![JProfiler](https://litiengine.com/wp-content/uploads/2022/01/xjprofiler_large.png.pagespeed.ic.uajXHJCvPb.webp)](https://www.ej-technologies.com/products/jprofiler/overview.html)
 
-### Silver & Bronze Supporters
+### Silver Partners
 
-[![Organizations](https://opencollective.com/litiengine/organizations.svg?width=800)](https://opencollective.com/litiengine#support)
+[![Silver Partners](https://opencollective.com/litiengine/tiers/silver-sponsorship.svg?avatarHeight=48&width=800)](https://opencollective.com/litiengine#category-CONTRIBUTE)
+
+### Bronze Supporters
+
+[![Bronze Supporters](https://opencollective.com/litiengine/tiers/bronze-sponsorship.svg?avatarHeight=36&width=800)](https://opencollective.com/litiengine#category-CONTRIBUTE)
 
 ### Community Backers
 
