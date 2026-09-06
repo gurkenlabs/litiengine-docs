@@ -22,33 +22,28 @@ Dynamic lighting in LITIENGINE uses `LightSource` entities to illuminate the gam
 Set the base illumination for an environment:
 
 ```java
-// Set ambient light color (affects entire map)
+// Set ambient light color for the active environment
 Color ambient = new Color(60, 60, 80); // Dim blue-ish ambient
-Game.world().environment().setAmbientLight(ambient);
+if (Game.world().environment().getAmbientLight() != null) {
+  Game.world().environment().getAmbientLight().setColor(ambient);
+}
 ```
 
-Or configure in `config.properties`:
-
-```properties
-gfx_ambientLight=3d3d50
-gfx_ambientAlpha=0.8
-```
+In map properties (via utiLITI or Tiled), ambient light is configured on the map using the `AMBIENTLIGHT` property with a hexadecimal color (e.g. `#3d3d50`).
 
 ## Creating Light Sources
 
 ### Via utiLITI
 
 1. Add a **LightSource** entity to your map
-2. Configure intensity, color, and shape in the Properties panel
+2. Configure intensity, color, and shape type in the Entity Inspector panel
 
 ### Via Code
 
 ```java
-LightSource torch = new LightSource();
+// Create an active orange elliptical light source
+LightSource torch = new LightSource(150, Color.ORANGE, LightSource.Type.ELLIPSE, true);
 torch.setLocation(100, 100);
-torch.setIntensity(150); // Light radius
-torch.setColor(Color.ORANGE); // Light color
-torch.setShape(LightSource.ELLIPSE); // Light shape
 
 // Add to environment
 Game.world().environment().add(torch);
@@ -58,7 +53,7 @@ Game.world().environment().add(torch);
 
 ### Intensity
 
-Controls the radius of illumination:
+Controls the radius of illumination in pixels:
 
 ```java
 light.setIntensity(100); // Small light
@@ -84,57 +79,57 @@ light.setColor(Color.WHITE);
 
 ### Shape
 
+Light sources support elliptical or rectangular shapes via `LightSource.Type`:
+
 ```java
-// Circular/ellipse light
-light.setShape(LightSource.ELLIPSE);
+// Circular/elliptical light
+light.setLightShapeType(LightSource.Type.ELLIPSE);
 
 // Rectangular light
-light.setShape(LightSource.RECTANGLE);
+light.setLightShapeType(LightSource.Type.RECTANGLE);
 ```
 
-### Flickering
+### Torch Flickering
 
-Add flickering effect for torches and fire:
-
-```java
-// Enable flicker
-light.setFlicker(true);
-light.setFlickerIntensity(0.2f); // 20% intensity variation
-light.setFlickerSpeed(100); // Flicker interval in ms
-```
-
-## Shadow Casting
-
-Static collision boxes can cast shadows:
-
-### Enable in utiLITI
-
-1. Select a CollisionBox
-2. Enable **Shadow Casting** in properties
-3. Set shadow type
-
-### Via Code
+You can easily simulate organic torch flickering by updating intensity in the game loop:
 
 ```java
-CollisionBox wall = new CollisionBox();
-wall.setCastShadow(true);
+Game.loop().attach(() -> {
+  // Random small fluctuation around base intensity
+  int flicker = Game.random().nextInt(-8, 8);
+  torch.setIntensity(150 + flicker);
+});
 ```
 
 ## Dynamic Light Behavior
 
 ### Moving Lights
 
-Lights can follow entities:
+Lights can track moving characters:
 
 ```java
 public class TorchBearer extends Creature {
   private LightSource torchLight;
 
+  public TorchBearer() {
+    super("torchbearer");
+    this.torchLight = new LightSource(120, Color.ORANGE, LightSource.Type.ELLIPSE, true);
+  }
+
+  @Override
+  public void loaded() {
+    super.loaded();
+    Game.world().environment().add(this.torchLight);
+  }
+
   @Override
   public void update() {
     super.update();
-    // Light follows entity
-    torchLight.setLocation(this.getCenter());
+    // Anchor light to the center of the creature
+    torchLight.setLocation(
+      this.getCenter().getX() - torchLight.getWidth() / 2.0,
+      this.getCenter().getY() - torchLight.getHeight() / 2.0
+    );
   }
 }
 ```
@@ -142,12 +137,18 @@ public class TorchBearer extends Creature {
 ### Toggling Lights
 
 ```java
-// Turn light on/off
-light.setActive(false);
-light.setActive(true);
+// Turn light on or off
+light.activate();
+light.deactivate();
 
-// Check state
+// Or toggle between states
+light.toggle();
+
+// Check current state
 boolean isOn = light.isActive();
+
+// Or toggle via message
+light.sendMessage(this, LightSource.TOGGLE_MESSAGE);
 ```
 
 ### Animated Lights
@@ -201,9 +202,9 @@ import java.awt.geom.Point2D;
 
 public class TorchLight {
   public static LightSource createTorch(double x, double y) {
-    // 1. Create a radial ellipse light source (radius = 120, warm amber color)
+    // 1. Create a radial ellipse light source (intensity = 120, warm amber color, active)
     Color warmGlow = new Color(255, 180, 50, 180);
-    LightSource torch = new LightSource(120, warmGlow, LightSource.Type.ELLIPSE);
+    LightSource torch = new LightSource(120, warmGlow, LightSource.Type.ELLIPSE, true);
     torch.setLocation(x, y);
 
     // 2. Add to active environment
@@ -223,6 +224,6 @@ public class TorchLight {
 // Create a flickering torch flame effect in your game loop
 Game.loop().attach(Game.world().environment(), () -> {
   int jitter = (int) (Math.random() * 8) - 4;
-  torch.setRadius(120 + jitter);
+  torch.setIntensity(120 + jitter);
 });
 ```

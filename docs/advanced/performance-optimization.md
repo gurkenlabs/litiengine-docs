@@ -16,7 +16,7 @@ LITIENGINE is designed to be efficient, but game performance depends on how you 
 
 ```java
 // Show FPS and tick rate
-Game.config().debug().setShowGameMetrics(true);
+Game.config().client().setShowGameMetrics(true);
 ```
 
 Or in `config.properties`:

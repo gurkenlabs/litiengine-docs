@@ -12,23 +12,26 @@ LITIENGINE provides a comprehensive GUI framework for creating menus, HUDs, and 
 
 ## Component Hierarchy
 
-```text
-GuiComponent (abstract)
- ├── Button
- ├── CheckBox
- ├── ImageComponent
- ├── Label
- ├── ListField
- ├── Menu
- ├── Slider
- ├── SpeechBubble
- ├── TextFieldComponent
- └── DropdownListField
+```mermaid
+graph TD
+    GC["<b>GuiComponent</b><br/><i>Abstract base component</i>"]
+    GC --> Button
+    GC --> CheckBox
+    GC --> ImageComponent
+    ImageComponent --> Label
+    GC --> ListField
+    GC --> Menu
+    GC --> Slider
+    Slider --> HorizontalSlider
+    Slider --> VerticalSlider
+    GC --> SpeechBubble
+    GC --> TextFieldComponent
+    GC --> DropdownListField
 ```
 
 ## Common Properties
 
-All GuiComponents share these base properties:
+All `GuiComponent` instances share positioning and appearance properties:
 
 ```java
 component.setX(100);
@@ -41,28 +44,30 @@ component.setEnabled(true);
 component.setSuspended(false);
 
 component.setText("Hello");
-component.setForeground(Color.WHITE);
-component.setBackground(Color.DARK_GRAY);
+component.getAppearance().setForeColor(Color.WHITE);
+component.getAppearance().setBackgroundColor1(Color.DARK_GRAY);
 ```
 
 ## Core Components
 
 ### Label
 
-Display static or dynamic text:
+Display static or dynamic text with a transparent background:
 
 ```java
-Label label = new Label("Score: 0");
+Label label = new Label(20, 20, 200, 30);
+label.setText("Score: 0");
 label.setFont(Resources.fonts().get("gamefont.ttf", 24f));
-label.setForeground(Color.WHITE);
+label.getAppearance().setForeColor(Color.WHITE);
 ```
 
 ### Button
 
-Clickable button with text or image:
+Clickable button with text or spritesheet background:
 
 ```java
-Button button = new Button("Start Game");
+Button button = new Button(100, 100, 200, 45);
+button.setText("Start Game");
 button.onClicked(e -> {
   Game.screens().display("GAME");
 });
@@ -70,65 +75,65 @@ button.onClicked(e -> {
 
 ### CheckBox
 
-Toggleable checkbox:
+Toggleable checkbox using built-in font icons or custom spritesheets:
 
 ```java
-CheckBox checkbox = new CheckBox("Enable Sound", true);
-checkbox.onChecked(e -> {
-  Game.audio().setSoundVolume(e.isChecked() ? 1.0f : 0.0f);
+CheckBox checkbox = new CheckBox(100, 160, 24, 24, null, true);
+checkbox.onChange(checked -> {
+  Game.config().sound().setSoundVolume(checked ? 1.0f : 0.0f);
 });
 ```
 
 ### Slider
 
-Draggable value selector:
+Draggable value selector (`HorizontalSlider` or `VerticalSlider`):
 
 ```java
-Slider slider = new Slider(0, 100, 1);
-slider.setValue(50);
-slider.onChange(e -> {
-  int volume = (int) slider.getCurrentValue();
-  Game.audio().setMusicVolume(volume / 100f);
+HorizontalSlider slider = new HorizontalSlider(100, 200, 200, 20, 0f, 100f, 1f);
+slider.setCurrentValue(50f);
+slider.onChange(val -> {
+  Game.config().sound().setMusicVolume(val / 100f);
 });
 ```
 
 ### TextFieldComponent
 
-Text input field:
+Interactive text input field:
 
 ```java
-TextFieldComponent textField = new TextFieldComponent();
-textField.setText("Enter name...");
-textField.onTextChanged(e -> {
-  playerName = textField.getText();
+TextFieldComponent textField = new TextFieldComponent(100, 240, 200, 35, "Enter name...");
+textField.onChangeConfirmed(text -> {
+  playerName = text;
 });
 ```
 
 ### ListField
 
-Scrollable list of items:
+Scrollable 1D or 2D list of items:
 
 ```java
-ListField<String> list = new ListField<>(Arrays.asList("Option 1", "Option 2", "Option 3"));
-list.onChange(e -> {
-  String selected = list.getSelectedObject();
+String[] options = new String[] {"Option 1", "Option 2", "Option 3"};
+ListField list = new ListField(100, 290, 160, 90, options, 3);
+list.onChange(index -> {
+  String selected = (String) list.getSelectedObject();
 });
 ```
 
 ### DropdownListField
 
-Dropdown selection:
+Dropdown selection list:
 
 ```java
-DropdownListField<String> dropdown = new DropdownListField<>(options);
-dropdown.onChange(e -> {
-  String selected = dropdown.getSelectedObject();
+String[] options = new String[] {"Easy", "Medium", "Hard"};
+DropdownListField dropdown = new DropdownListField(100, 400, 160, 35, options, 3);
+dropdown.onChange(index -> {
+  String selected = (String) dropdown.getSelectedObject();
 });
 ```
 
 ## Component Events
 
-All components support common events:
+All components support standard input and focus events:
 
 ```java
 // Mouse events
@@ -137,10 +142,10 @@ component.onMousePressed(e -> { /* mouse down */ });
 component.onMouseReleased(e -> { /* mouse up */ });
 component.onMouseMoved(e -> { /* mouse moved */ });
 component.onHovered(e -> { /* mouse entered */ });
-component.onLeave(e -> { /* mouse left */ });
+component.onMouseLeave(e -> { /* mouse left */ });
 
 // Focus events
-component.onFocused(e -> { /* gained focus */ });
+component.onFocusGained(e -> { /* gained focus */ });
 component.onFocusLost(e -> { /* lost focus */ });
 ```
 
@@ -148,12 +153,15 @@ component.onFocusLost(e -> { /* lost focus */ });
 
 ```java
 public class MenuScreen extends Screen {
+  public MenuScreen() {
+    super("MENU");
+  }
 
   @Override
   protected void initializeComponents() {
-    Button startButton = new Button("Start");
-    startButton.setX(100);
-    startButton.setY(100);
+    super.initializeComponents();
+    Button startButton = new Button(100, 100, 180, 45);
+    startButton.setText("Start");
     startButton.onClicked(e -> startGame());
 
     this.getComponents().add(startButton);
@@ -163,46 +171,31 @@ public class MenuScreen extends Screen {
 
 ## Component Appearance
 
-### Fonts
+### Fonts & Alignment
 
 ```java
 component.setFont(Resources.fonts().get("font.ttf", 24f));
-component.setTextAlignment(TextAlignment.CENTER);
+component.setTextAlign(Align.CENTER);
 ```
 
-### Colors
+### Colors & Styling
 
 ```java
-component.setForeground(Color.WHITE);
-component.setBackground(new Color(0, 0, 0, 180)); // Semi-transparent
-component.setBorderColor(Color.GRAY);
-component.setBorderThickness(2);
+// Default state styling
+component.getAppearance().setForeColor(Color.WHITE);
+component.getAppearance().setBackgroundColor1(new Color(0, 0, 0, 180));
+component.getAppearance().setBorderColor(Color.GRAY);
+component.getAppearance().setBorderStyle(new BasicStroke(2));
+
+// Hover & Selected states
+component.getAppearanceHovered().setForeColor(Color.YELLOW);
+component.getAppearanceHovered().setBackgroundColor1(new Color(40, 40, 40, 220));
 ```
 
 ### Images
 
 ```java
-ImageComponent image = new ImageComponent();
-image.setImage(Resources.images().get("background.png"));
-```
-
-## Layout
-
-### Manual Positioning
-
-```java
-component.setX(100);
-component.setY(50);
-component.setWidth(200);
-component.setHeight(40);
-```
-
-### Anchor Points
-
-```java
-component.setAnchor(Location.CENTER);
-component.setMarginTop(10);
-component.setMarginLeft(20);
+ImageComponent image = new ImageComponent(50, 50, 200, 150, Resources.images().get("banner.png"));
 ```
 
 ## Visibility and State
@@ -228,7 +221,7 @@ public class HealthBar extends GuiComponent {
   private int currentHealth;
   private int maxHealth;
 
-  public HealthBar(int x, int y, int width, int height) {
+  public HealthBar(double x, double y, double width, double height) {
     super(x, y, width, height);
     this.maxHealth = 100;
     this.currentHealth = 100;
@@ -240,16 +233,16 @@ public class HealthBar extends GuiComponent {
 
     // Draw background
     g.setColor(Color.DARK_GRAY);
-    g.fillRect(getX(), getY(), getWidth(), getHeight());
+    g.fillRect((int) getX(), (int) getY(), (int) getWidth(), (int) getHeight());
 
     // Draw health
     g.setColor(Color.RED);
     float healthPercent = (float) currentHealth / maxHealth;
-    g.fillRect(getX(), getY(), (int)(getWidth() * healthPercent), getHeight());
+    g.fillRect((int) getX(), (int) getY(), (int) (getWidth() * healthPercent), (int) getHeight());
   }
 
   public void setHealth(int health) {
-    this.currentHealth = Math.max(0, Math.min(maxHealth, health));
+    this.currentHealth = Math.clamp(health, 0, maxHealth);
   }
 }
 ```

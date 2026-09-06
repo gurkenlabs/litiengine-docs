@@ -87,7 +87,7 @@ Input.mouse().onClicked(e -> {...});
 Input.mouse().onMoved(e -> {...});
 
 // Gamepad (Input4j Panama FFM)
-Gamepad gamepad = Input.gamepads().getCurrent();
+Gamepad gamepad = Input.gamepads().current();
 Input.gamepads().onPressed(Gamepad.Xbox.A, value -> {...});
 Input.gamepads().onAdded(pad -> System.out.println("Gamepad connected: " + pad.getName()));
 Input.gamepads().onRemoved(pad -> System.out.println("Gamepad disconnected: " + pad.getName()));
@@ -117,8 +117,8 @@ Game.audio().playSound("sound.wav");
 Game.audio().playSound("sound.wav", x, y); // At location
 Game.audio().playMusic("music.ogg");
 Game.audio().stopMusic();
-Game.audio().setSoundVolume(0.5f);
-Game.audio().setMusicVolume(0.8f);
+Game.config().sound().setSoundVolume(0.5f);
+Game.config().sound().setMusicVolume(0.8f);
 ```
 
 ## Physics

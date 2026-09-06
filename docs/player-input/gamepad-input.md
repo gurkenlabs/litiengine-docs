@@ -36,8 +36,8 @@ GamepadManager manager = Input.gamepads();
 // Get all connected gamepads
 List<Gamepad> gamepads = Input.gamepads().getAll();
 
-// Get the first connected gamepad
-Gamepad gamepad = Input.gamepads().getCurrent();
+// Get the active primary gamepad
+Gamepad gamepad = Input.gamepads().current();
 ```
 
 ## Button Events

@@ -39,18 +39,9 @@ utiLITI provides robust map authoring and management features supporting standar
 
 Select the map background or choose **Map Properties** in the inspector to configure environment-wide settings:
 
-```text
-┌─────────────────────────────────────────────────────────────┐
-│ MAP PROPERTIES │
-│ Name: dungeon_level_1 | Title: "The Sunken Catacombs" │
-│ Description: "First underground level of the dungeon." │
-├─────────────────────────────────────────────────────────────┤
-│ Ambient Light Color: [#3C0029 (Alpha: 200)] [Picker] │
-│ Static Shadow Color: [#000000 (Alpha: 140)] [Picker] │
-├─────────────────────────────────────────────────────────────┤
-│ [Live Ambient Light & Shadow Preview] │
-└─────────────────────────────────────────────────────────────┘
-```
+![utiLITI Map Properties & Lighting Inspector](../images/utiliti/maps-lighting-inspector.png){ .panel-screenshot width="360" }
+*Map Properties panel showing map metadata, ambient lighting color and alpha, and static shadow controls.*
+
 
 - **Map Name & Title**: Internal identifier and user-facing title.
 - **Ambient Light Color**: Color picker and alpha opacity slider determining global environmental darkness. When ambient alpha is greater than 0, dark levels require `LightSource` entities for visibility.

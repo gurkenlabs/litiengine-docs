@@ -19,134 +19,106 @@ tags: [keyboard, keys, wasd, key-bindings, input]
 
 ---
 
-## Chapter 1: Setting
-1) Clone the code
-```bash
-git clone https://github.com/gurkenlabs/litiengine-gurk-nukem.git
-```
+## Listening for Key Events
 
-2) Create a directory
-Create a directory de/gurkenlabs/litiengine/input inside src folder.
-Create KeyboardEntityController.java file inside the input folder.
-
-![](../images/createjava.png)
-
-
-
-## Chapter 2: Let's move the character with the directional keys
-Paste the following code to the KeyboardEntityController.java file
+The `Input.keyboard()` manager allows you to register global listeners for key press, release, and typing events:
 
 ```java
-package  de.gurkenlabs.litiengine.input;
+import de.gurkenlabs.litiengine.input.Input;
+import java.awt.event.KeyEvent;
 
-import  java.awt.event.KeyEvent;
-import  java.util.ArrayList;
-import  java.util.List;
-import  de.gurkenlabs.litiengine.entities.IMobileEntity;
-import  de.gurkenlabs.litiengine.physics.MovementController;
-import  de.gurkenlabs.litiengine.util.ListUtilities;
+// Listen for a specific key press
+Input.keyboard().onKeyPressed(KeyEvent.VK_SPACE, event -> {
+  System.out.println("Jump action triggered!");
+});
 
-public  class  KeyboardEntityController<T  extends  IMobileEntity> extends  MovementController< T > {
-  private  final  List <Integer > up;
-  private  final  List <Integer > down;
-  private  final  List <Integer > left;
-  private  final  List <Integer > right;
-  public  KeyboardEntityController(final  T  entity) {
-    this (entity, KeyEvent.VK_UP, KeyEvent.VK_DOWN, KeyEvent.VK_LEFT, KeyEvent.VK_RIGHT); // You can customize these key.
+// Listen for all key press events
+Input.keyboard().onKeyPressed(event -> {
+  if (event.getKeyCode() == KeyEvent.VK_ESCAPE) {
+    Game.screens().display("PAUSE_MENU");
   }
-  public  KeyboardEntityController(final  T  entity, final  int  up, final  int  down, final  int  left, final  int  right) {
-    super (entity);
-    this .up = new  ArrayList <>();
-    this .down = new  ArrayList <>();
-    this .left = new  ArrayList <>();
-    this .right = new  ArrayList <>();
-    this .up.add(up);
-    this .down.add(down);
-    this .left.add(left);
-    this .right.add(right);
-    Input.keyboard().onKeyPressed(this::handlePressedKey);
-  }
-  public  void  handlePressedKey(final  KeyEvent  keyCode) {
-    if  (this .up.contains(keyCode.getKeyCode())) {
-      this .setDy(this .getDy() - 1 );
-    } else  if  (this .down.contains(keyCode.getKeyCode())) {
-      this .setDy(this .getDy() + 1 );
-    } else  if  (this .left.contains(keyCode.getKeyCode())) {
-      this .setDx(this .getDx() - 1 );
-    } else  if  (this .right.contains(keyCode.getKeyCode())) { // getDx, getDy tells the current coodinates of the character.
-      this .setDx(this .getDx() + 1 ); // setDx, setDy sets the coodinates of the character.
-    }
-  }
-  public  void  addUpKey(int  keyCode) {
-    if  (this .up.contains(keyCode)) {
-      return ;
-    }
-    this .up.add(keyCode);
-  }
-  public  void  addDownKey(int  keyCode) {
-    if  (this .down.contains(keyCode)) {
-      return ;
-    }
-    this .down.add(keyCode);
-  }
-  public  void  addLeftKey(int  keyCode) {
-    if  (this .left.contains(keyCode)) {
-      return ;
-    }
-    this .left.add(keyCode);
-  }
-  public  void  addRightKey(int  keyCode) {
-    if  (this .right.contains(keyCode)) {
-      return ;
-    }
-    this .right.add(keyCode);
-  }
-  public  List <Integer > getUpKeys() {
-    return  this .up;
-  }
-  public  List <Integer > getDownKeys() {
-    return  this .down;
-  }
-  public  List <Integer > getLeftKeys() {
-    return  this .left;
-  }
-  public  List <Integer > getRightKeys() {
-    return  this .right;
-  }
-  public  void  setUpKeys(int ... up) {
-    this .setUpKeys(ListUtilities.getIntList(up));
-  }
-  public  void  setUpKeys(List <Integer > up) {
-    set(this .up, up);
-  }
-  public  void  setDownKeys(int ... down) {
-    this .setDownKeys(ListUtilities.getIntList(down));
-  }
-  public  void  setDownKeys(List <Integer > down) {
-    set(this .down, down);
-  }
-  public  void  setLeftKeys(int ... left) {
-    this .setLeftKeys(ListUtilities.getIntList(left));
-  }
-  public  void  setLeftKeys(List <Integer > left) {
-    set(this .left, left);
-  }
-  public  void  setRightKeys(int ... right) {
-    this .setRightKeys(ListUtilities.getIntList(right));
-  }
-  public  void  setRightKeys(List <Integer > right) {
-    set(this .right, right);
-  }
-  private  static  void  set(List <Integer > keyList, List <Integer > keys) {
-    keyList.clear();
-    for  (int  key : keys) {
-      keyList.add(key);
-    }
-  }
-}
+});
+
+// Listen for key release
+Input.keyboard().onKeyReleased(KeyEvent.VK_SHIFT, event -> {
+  System.out.println("Sprint released!");
+});
 ```
 
-## Chapter 3: Let's play
-Let's execute the program by build Program.java inside src/com/litiengine/gurknukem
+---
 
-![](../images/gamestart.png)
+## Polling Key State
+
+You can query whether specific keys are currently pressed during the game loop or within entity update callbacks:
+
+```java
+// Check if a key is held down
+if (Input.keyboard().isPressed(KeyEvent.VK_W)) {
+  // Move up or accelerate
+}
+
+// Check multiple keys
+boolean isSprinting = Input.keyboard().isPressed(KeyEvent.VK_SHIFT);
+```
+
+---
+
+## Entity Movement with `KeyboardEntityController`
+
+LITIENGINE includes a built-in `KeyboardEntityController` that binds directional keyboard input to any `IMobileEntity` (`Creature`, `Player`):
+
+### Basic Setup
+
+```java
+Player player = new Player();
+
+// Create keyboard movement controller (defaults to Arrow keys: UP, DOWN, LEFT, RIGHT)
+KeyboardEntityController<Player> controller = new KeyboardEntityController<>(player);
+
+// Attach the controller to the player entity
+player.controllers().add(controller);
+```
+
+### Adding Alternative Bindings (WASD + Arrow Keys)
+
+You can customize directional keys or bind multiple keys to the same direction:
+
+```java
+KeyboardEntityController<Player> controller = new KeyboardEntityController<>(player);
+
+// Add WASD keys in addition to default arrow keys
+controller.addUpKey(KeyEvent.VK_W);
+controller.addDownKey(KeyEvent.VK_S);
+controller.addLeftKey(KeyEvent.VK_A);
+controller.addRightKey(KeyEvent.VK_D);
+
+// Or replace key bindings completely
+controller.setUpKeys(KeyEvent.VK_W);
+controller.setDownKeys(KeyEvent.VK_S);
+controller.setLeftKeys(KeyEvent.VK_A);
+controller.setRightKeys(KeyEvent.VK_D);
+```
+
+---
+
+## Consuming Key Events
+
+When handling UI inputs (e.g. typing into text fields or navigating modal menus), consume events so that gameplay controllers do not process them simultaneously:
+
+```java
+Input.keyboard().onKeyPressed(event -> {
+  if (isMenuOpen && event.getKeyCode() == KeyEvent.VK_ENTER) {
+    selectMenuItem();
+    Input.keyboard().consumeKeyEvent(event);
+  }
+});
+```
+
+---
+
+## See Also
+
+* **[Mouse Input](mouse-input.md)** - Mouse movement, clicks, and coordinate conversion
+* **[Gamepad Input](gamepad-input.md)** - Controller support via Input4j
+* **[Movement Controller](../control-entities/movement-controller.md)** - Custom entity physics and movement
+* **[Entity Controllers](../control-entities/entity-controllers.md)** - Entity controller pipeline

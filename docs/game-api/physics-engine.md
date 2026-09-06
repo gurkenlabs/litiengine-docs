@@ -19,7 +19,7 @@ The **PhysicsEngine** (`Game.physics()`) handles 2D collision detection, velocit
 | `add(ICollisionEntity entity)` | `void` | Registers a collision entity in the physics quadtree. |
 | `remove(ICollisionEntity entity)` | `void` | Deregisters an entity from the physics world. |
 | `move(IMobileEntity entity, double angle, double delta)` | `boolean` | Moves a mobile entity along a heading while resolving obstacle sliding. |
-| `raycast(Point2D start, Point2D end, RaycastType type)` | `RaycastHit` | Casts a line segment through the world to detect obstructing colliders. |
+| `raycast(Point2D start, Point2D target, Collision collision)` | `RaycastHit` | Casts a line segment through the world to detect obstructing colliders. |
 | `getCollisionEntities(Shape area)` | `Collection<ICollisionEntity>` | Returns all solid entities overlapping a spatial area (circle, rectangle). |
 | `collides(Shape shape)` | `boolean` | Checks if a shape intersects any solid physics geometry. |
 
@@ -66,8 +66,8 @@ package com.example.game.ai;
 
 import de.gurkenlabs.litiengine.Game;
 import de.gurkenlabs.litiengine.entities.Creature;
+import de.gurkenlabs.litiengine.physics.Collision;
 import de.gurkenlabs.litiengine.physics.RaycastHit;
-import de.gurkenlabs.litiengine.physics.RaycastType;
 import java.awt.geom.Point2D;
 
 public class EnemyVision {
@@ -76,10 +76,10 @@ public class EnemyVision {
     Point2D end = target.getCenter();
 
     // Cast a ray from enemy to target checking for solid obstacles
-    RaycastHit hit = Game.physics().raycast(start, end, RaycastType.STATIC);
+    RaycastHit hit = Game.physics().raycast(start, end, Collision.STATIC);
 
     // If ray reached the target without hitting a solid wall, line of sight is clear
-    return hit == null || hit.getPoint().distance(start) >= start.distance(end);
+    return hit == null || hit.distance() >= start.distance(end);
   }
 }
 ```
