@@ -48,17 +48,28 @@ String title = Resources.strings().get("game.title");
 String startText = Resources.strings().get("menu.start");
 
 // Use in UI
-Button startButton = new Button(Resources.strings().get("menu.start"));
+Button startButton = new Button(50, 50, 180, 40);
+startButton.setText(Resources.strings().get("menu.start"));
+
+// With formatted parameters (e.g. welcome=Welcome, {0}!)
+String welcome = Resources.strings().get("welcome", playerName);
 ```
 
 ## Setting Locale
 
-```java
-// Set locale before loading resources
-Locale.setDefault(Locale.GERMAN);
+Configure the game locale via client configuration or JVM defaults:
 
-// Or configure in code
-Resources.strings().setLocale(Locale.FRENCH);
+```java
+// Set language and country via configuration
+Game.config().client().setLanguage("de");
+Game.config().client().setCountry("DE");
+
+// Or configure in config.properties:
+// cl_language=de
+// cl_country=DE
+
+// Or set default JVM locale before Game.init()
+Locale.setDefault(Locale.GERMAN);
 ```
 
 ## Fallback Behavior

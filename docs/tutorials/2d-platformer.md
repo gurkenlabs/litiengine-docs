@@ -401,15 +401,18 @@ public class Jump extends Ability {
   private class JumpEffect extends ForceEffect {
 
     protected JumpEffect(Ability ability) {
-      super(ability, ability.getAttributes().value().get().intValue(), EffectTarget.EXECUTINGENTITY);
+      super(
+        new ExecutingEntityTargetingStrategy(),
+        ability.getExecutor(),
+        ability.getAttributes().value().get().floatValue(),
+        ability.getAttributes().duration().getModifiedValue()
+      );
     }
 
     @Override
-    protected Force applyForce(IMobileEntity affectedEntity) {
-      // create a new force and apply it to the player
-      GravityForce force = new GravityForce(affectedEntity, this.getStrength(), Direction.UP);
-      affectedEntity.movement().apply(force);
-      return force;
+    protected Force createForce(IMobileEntity affectedEntity) {
+      // create a new upward force
+      return new GravityForce(affectedEntity, this.getStrength(), Direction.UP);
     }
 
     @Override
@@ -423,7 +426,7 @@ public class Jump extends Ability {
     * @return True if the entity touches a static collision box above it.
     */
     private boolean isTouchingCeiling() {
-      Optional opt = Game.world().environment().getCollisionBoxes().stream().filter(x -> x.getBoundingBox().intersects(this.getAbility().getExecutor().getBoundingBox())).findFirst();
+      Optional<CollisionBox> opt = Game.world().environment().getCollisionBoxes().stream().filter(x -> x.getBoundingBox().intersects(this.getAbility().getExecutor().getBoundingBox())).findFirst();
       if (!opt.isPresent()) {
         return false;
       }
@@ -436,22 +439,22 @@ public class Jump extends Ability {
 ```
 
 - As mentioned before, the class `Jump` is a child of LITIENGINE's
- `Ability`. As such, we can annotate the class with the
- `@AbilityInfo`-annotation to determine its cooldown, origin
- location, duration, and `value`, which is an abstract numeral used
- in different ways, depending on what your ability does.
+  `Ability`. As such, we can annotate the class with the
+  `@AbilityInfo`-annotation to determine its cooldown, origin
+  location, duration, and `value`, which is an abstract numeral used
+  in different ways, depending on what your ability does.
 
 - In an `Ability`'s constructor, the `Creature` which casts the
- `Ability` is always passed as a parameter. In our case, we also add
- a `JumpEffect` to the `Jump`'s list of effects.
+  `Ability` is always passed as a parameter. In our case, we also add
+  a `JumpEffect` to the `Jump`'s list of effects.
 
 - The inner class `JumpEffect` here is a `ForceEffect`, i.e. it will
- apply a given force to its affected entities. In its constructor, we
- establish its strength and `EffectTarget`.
+  apply a given force to its affected entities. In its constructor, we
+  pass an `ExecutingEntityTargetingStrategy`, the executor, its strength, and duration.
 
-- In the `applyForce`-method, we create a `GravityForce` directed
- upward which adopts the `ForceEffect`'s strength. The force will
- then be applied to ability executor for the duration of the ability.
+- In the `createForce`-method, we return a `GravityForce` directed
+  upward which adopts the `ForceEffect`'s strength. The force will
+  then be applied to the ability executor for the duration of the ability.
 
 - We also provide the `isTouchingCeiling`- condition for cancelling
  the `ForceEffect`, which determines if the jumping entity's

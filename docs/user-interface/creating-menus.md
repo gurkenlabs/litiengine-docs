@@ -89,9 +89,9 @@ public class MenuScreen extends Screen {
     Font menuFont = Resources.fonts().get("custom-font.ttf", 20f);
     this.mainMenu.getCellComponents().forEach(btn -> {
       btn.setFont(menuFont);
-      btn.getAppearance().setForegroundColor(Color.LIGHT_GRAY);
-      btn.getAppearanceHovered().setForegroundColor(Color.WHITE);
-      btn.getAppearanceSelected().setForegroundColor(Color.YELLOW);
+      btn.getAppearance().setForeColor(Color.LIGHT_GRAY);
+      btn.getAppearanceHovered().setForeColor(Color.WHITE);
+      btn.getAppearanceSelected().setForeColor(Color.YELLOW);
       btn.getAppearance().setBackgroundColor1(new Color(20, 20, 20, 200));
     });
 
@@ -110,7 +110,7 @@ public class MenuScreen extends Screen {
     screenWidth * 0.6, screenHeight * 0.4,
     "Use ARROW KEYS / WASD to move.\nSPACE to jump.\nLEFT CLICK to attack.");
     this.instructionsPanel.setImageScaleMode(ImageScaleMode.FIT);
-    this.instructionsPanel.getAppearance().setForegroundColor(Color.WHITE);
+    this.instructionsPanel.getAppearance().setForeColor(Color.WHITE);
 
     // 4. Back Button for instructions view
     this.backButton = new ImageComponent(menuX, screenHeight * 0.85, menuWidth, 40, "Back");

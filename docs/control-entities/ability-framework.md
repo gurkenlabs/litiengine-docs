@@ -79,14 +79,17 @@ Effects are applied when an ability executes:
 public class JumpEffect extends ForceEffect {
 
   public JumpEffect(Ability ability) {
-    super(ability, ability.getAttributes().value().get(), EffectTarget.EXECUTINGENTITY);
+    super(
+      new ExecutingEntityTargetingStrategy(),
+      ability.getExecutor(),
+      ability.getAttributes().value().get().floatValue(),
+      ability.getAttributes().duration().getModifiedValue()
+    );
   }
 
   @Override
-  protected Force applyForce(IMobileEntity entity) {
-    GravityForce force = new GravityForce(entity, getStrength(), Direction.UP);
-    entity.movement().apply(force);
-    return force;
+  protected Force createForce(IMobileEntity entity) {
+    return new GravityForce(entity, getStrength(), Direction.UP);
   }
 
   @Override
@@ -96,19 +99,25 @@ public class JumpEffect extends ForceEffect {
 }
 ```
 
-## Effect Targets
+## Targeting Strategies
 
-Define who receives the effect:
+In LITIENGINE, effects select their targets using implementations of `TargetingStrategy`:
 
 ```java
-// Affect the entity using the ability
-EffectTarget.EXECUTINGENTITY
+// Affect only the entity casting the ability
+new ExecutingEntityTargetingStrategy()
 
-// Affect enemies
-EffectTarget.ENEMY
+// Affect hostile enemy combat entities
+new EnemyTargetingStrategy()
 
-// Affect all entities in range
-EffectTarget.ALL
+// Affect friendly/allied entities
+new FriendlyTargetingStrategy()
+
+// Affect other entities (excluding the executor)
+new OtherEntityTargetingStrategy()
+
+// Custom lambda / predicate targeting
+new CustomTargetingStrategy((executor, entity) -> entity.hasTag("burnable"))
 ```
 
 ## Damage Abilities
@@ -120,23 +129,21 @@ public class SwordSlash extends Ability {
 
   public SwordSlash(Creature executor) {
     super(executor);
-    this.addEffect(new DamageEffect(this));
+    this.addEffect(new SwordSlashEffect(this));
   }
 }
 
-public class DamageEffect extends Effect {
+public class SwordSlashEffect extends AbilityEffect {
 
-  public DamageEffect(Ability ability) {
-    super(ability, EffectTarget.ENEMY);
+  public SwordSlashEffect(Ability ability) {
+    super(new EnemyTargetingStrategy(), ability);
   }
 
   @Override
-  public void apply(IEntity entity) {
-    if (entity instanceof ICombatEntity) {
-      ICombatEntity target = (ICombatEntity) entity;
-      int damage = getAbility().getAttributes().value().get();
-      target.hit(damage);
-    }
+  public void apply(ICombatEntity target) {
+    super.apply(target);
+    int damage = getAbility().getAttributes().value().get();
+    target.hit(damage, getAbility());
   }
 }
 ```

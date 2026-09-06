@@ -47,18 +47,18 @@ public class FireEmitter extends Emitter {
     super(x, y);
 
     // Configure emitter
-    this.getData().setSpawnRate(30); // Particles per second
-    this.getData().setEmitterDuration(0); // 0 = infinite
-    this.getData().setMaxParticles(100);
+    this.data().setSpawnRate(30); // Milliseconds between spawns
+    this.data().setEmitterDuration(0); // 0 = infinite
+    this.data().setMaxParticles(100);
 
     // Configure particles
-    this.getData().setParticleWidth(16);
-    this.getData().setParticleHeight(16);
-    this.getData().setMinTTL(500); // Min lifetime (ms)
-    this.getData().setMaxTTL(1000); // Max lifetime (ms)
+    this.data().setParticleWidth(16);
+    this.data().setParticleHeight(16);
+    this.data().getParticleTTL().setMin(500L); // Min lifetime (ms)
+    this.data().getParticleTTL().setMax(1000L); // Max lifetime (ms)
 
     // Particle appearance
-    this.getData().setSpritesheet(Resources.spritesheets().get("fire-particle"));
+    this.data().setSpritesheet(Resources.spritesheets().get("fire-particle"));
 
     // Start emitting
     this.activate();
@@ -72,52 +72,43 @@ public class FireEmitter extends Emitter {
 
 ```java
 // Particle lives between 500-1000ms
-emitter.getData().setMinTTL(500);
-emitter.getData().setMaxTTL(1000);
+emitter.data().getParticleTTL().setMin(500L);
+emitter.data().getParticleTTL().setMax(1000L);
 ```
 
 ### Velocity and Movement
 
 ```java
 // Upward movement with random variance
-emitter.getData().setVelocityXMin(-20);
-emitter.getData().setVelocityXMax(20);
-emitter.getData().setVelocityYMin(-50);
-emitter.getData().setVelocityYMax(-30);
+emitter.data().getVelocityX().setMin(-20f);
+emitter.data().getVelocityX().setMax(20f);
+emitter.data().getVelocityY().setMin(-50f);
+emitter.data().getVelocityY().setMax(-30f);
 
 // Acceleration (gravity, wind)
-emitter.getData().setAccelerationXMin(-5);
-emitter.getData().setAccelerationXMax(5);
-emitter.getData().setAccelerationYMin(-10);
-emitter.getData().setAccelerationYMax(-5);
+emitter.data().getAccelerationX().setMin(-5f);
+emitter.data().getAccelerationX().setMax(5f);
+emitter.data().getAccelerationY().setMin(-10f);
+emitter.data().getAccelerationY().setMax(-5f);
 ```
 
 ### Size and Scale
 
 ```java
 // Initial size
-emitter.getData().setParticleWidth(8);
-emitter.getData().setParticleHeight(8);
-
-// Scale over lifetime (start large, shrink)
-emitter.getData().setMinStartScale(2.0f);
-emitter.getData().setMaxStartScale(2.5f);
-emitter.getData().setMinEndScale(0.1f);
-emitter.getData().setMaxEndScale(0.3f);
+emitter.data().setParticleWidth(8);
+emitter.data().setParticleHeight(8);
 ```
 
 ### Color and Opacity
 
 ```java
-// Color transitions over lifetime
-emitter.getData().setStartColor(Color.ORANGE);
-emitter.getData().setEndColor(Color.RED);
+// Base particle color
+emitter.data().setColor(Color.ORANGE);
 
-// Fade out
-emitter.getData().setMinStartAlpha(1.0f);
-emitter.getData().setMaxStartAlpha(1.0f);
-emitter.getData().setMinEndAlpha(0.0f);
-emitter.getData().setMaxEndAlpha(0.0f);
+// Enable color fading over particle lifespan
+emitter.data().setFade(true);
+emitter.data().setFadeColor(new Color(255, 0, 0, 0));
 ```
 
 ## Particle Types
@@ -127,25 +118,25 @@ emitter.getData().setMaxEndAlpha(0.0f);
 ```java
 // Use a spritesheet for particle visuals
 Spritesheet sheet = Resources.spritesheets().get("sparkle");
-emitter.getData().setSpritesheet(sheet);
+emitter.data().setSpritesheet(sheet);
+emitter.data().setParticleType(ParticleType.SPRITE);
 ```
 
 ### Shape Particles
 
 ```java
 // Render particles as shapes
-emitter.getData().setParticleType(ParticleType.SQUARE);
-emitter.getData().setParticleType(ParticleType.CIRCLE);
-emitter.getData().setParticleType(ParticleType.TRIANGLE);
+emitter.data().setParticleType(ParticleType.RECTANGLE);
+emitter.data().setParticleType(ParticleType.ELLIPSE);
+emitter.data().setParticleType(ParticleType.TRIANGLE);
 ```
 
 ### Text Particles
 
 ```java
 // Render particles as text
-emitter.getData().setParticleType(ParticleType.TEXT);
-emitter.getData().setText("");
-emitter.getData().setFont(Resources.fonts().get("gamefont.ttf", 12f));
+emitter.data().setParticleType(ParticleType.TEXT);
+emitter.data().setText("CRIT!");
 ```
 
 ## Emitter Behavior
@@ -154,28 +145,16 @@ emitter.getData().setFont(Resources.fonts().get("gamefont.ttf", 12f));
 
 ```java
 // Emit burst of particles once
-emitter.getData().setSpawnAmount(50);
-emitter.getData().setEmitterDuration(100);
-emitter.getData().setLoop(false);
+emitter.data().setSpawnAmount(50);
+emitter.data().setEmitterDuration(100);
 ```
 
 ### Continuous Effect
 
 ```java
 // Continuous emission
-emitter.getData().setSpawnRate(20); // Particles per second
-emitter.getData().setEmitterDuration(0); // Infinite
-emitter.getData().setLoop(true);
-```
-
-### Burst Emission
-
-```java
-// Emit bursts at intervals
-emitter.getData().setSpawnAmount(30);
-emitter.getData().setSpawnRate(0); // Not continuous
-emitter.getData().setBurstMode(true);
-emitter.getData().setBurstInterval(2000); // Every 2 seconds
+emitter.data().setSpawnRate(20); // Milliseconds between spawns
+emitter.data().setEmitterDuration(0); // Infinite
 ```
 
 ## Adding Emitters to Environment
@@ -228,21 +207,21 @@ public class CampfireEmitter extends Emitter {
     this.setWidth(16);
     this.setHeight(16);
 
-    this.getData().setParticleType(ParticleType.CIRCLE);
-    this.getData().setSpawnRate(25);
-    this.getData().setParticleTTLMin(400);
-    this.getData().setParticleTTLMax(800);
+    this.data().setParticleType(ParticleType.ELLIPSE);
+    this.data().setSpawnRate(25);
+    this.data().getParticleTTL().setMin(400L);
+    this.data().getParticleTTL().setMax(800L);
 
     // Float upwards with slight horizontal jitter
-    this.getData().setVelocityXMin(-10);
-    this.getData().setVelocityXMax(10);
-    this.getData().setVelocityYMin(-45);
-    this.getData().setVelocityYMax(-20);
+    this.data().getVelocityX().setMin(-10f);
+    this.data().getVelocityX().setMax(10f);
+    this.data().getVelocityY().setMin(-45f);
+    this.data().getVelocityY().setMax(-20f);
 
     // Fade from bright yellow/orange to dark smoky red
-    this.getData().setColor(new Color(255, 200, 50, 220));
-    this.getData().setFade(true);
-    this.getData().setFadeColor(new Color(220, 50, 20, 0));
+    this.data().setColor(new Color(255, 200, 50, 220));
+    this.data().setFade(true);
+    this.data().setFadeColor(new Color(220, 50, 20, 0));
   }
 }
 ```
@@ -260,22 +239,21 @@ public class ExplosionEmitter extends Emitter {
     this.setWidth(10);
     this.setHeight(10);
 
-    this.getData().setParticleType(ParticleType.SQUARE);
-    this.getData().setSpawnAmount(60);
-    this.getData().setEmitterDuration(150);
-    this.getData().setLoop(false);
-    this.getData().setParticleTTLMin(200);
-    this.getData().setParticleTTLMax(500);
+    this.data().setParticleType(ParticleType.RECTANGLE);
+    this.data().setSpawnAmount(60);
+    this.data().setEmitterDuration(150);
+    this.data().getParticleTTL().setMin(200L);
+    this.data().getParticleTTL().setMax(500L);
 
     // Radial explosive velocity in all directions
-    this.getData().setVelocityXMin(-120);
-    this.getData().setVelocityXMax(120);
-    this.getData().setVelocityYMin(-120);
-    this.getData().setVelocityYMax(120);
+    this.data().getVelocityX().setMin(-120f);
+    this.data().getVelocityX().setMax(120f);
+    this.data().getVelocityY().setMin(-120f);
+    this.data().getVelocityY().setMax(120f);
 
-    this.getData().setColor(new Color(255, 120, 0, 255));
-    this.getData().setFade(true);
-    this.getData().setFadeColor(new Color(80, 80, 80, 0));
+    this.data().setColor(new Color(255, 120, 0, 255));
+    this.data().setFade(true);
+    this.data().setFadeColor(new Color(80, 80, 80, 0));
   }
 }
 ```
@@ -295,19 +273,18 @@ public class RainEmitter extends Emitter {
     this.setWidth(Game.world().environment().getMap().getSizeInPixels().getWidth());
     this.setHeight(10);
 
-    this.getData().setParticleType(ParticleType.RECTANGLE);
-    this.getData().setParticleWidth(1);
-    this.getData().setParticleHeight(8);
-    this.getData().setSpawnRate(80);
-    this.getData().setLoop(true);
+    this.data().setParticleType(ParticleType.RECTANGLE);
+    this.data().setParticleWidth(1);
+    this.data().setParticleHeight(8);
+    this.data().setSpawnRate(80);
 
     // Fall downwards with slight wind angle
-    this.getData().setVelocityXMin(-15);
-    this.getData().setVelocityXMax(-5);
-    this.getData().setVelocityYMin(180);
-    this.getData().setVelocityYMax(240);
+    this.data().getVelocityX().setMin(-15f);
+    this.data().getVelocityX().setMax(-5f);
+    this.data().getVelocityY().setMin(180f);
+    this.data().getVelocityY().setMax(240f);
 
-    this.getData().setColor(new Color(150, 190, 255, 160));
+    this.data().setColor(new Color(150, 190, 255, 160));
   }
 }
 ```

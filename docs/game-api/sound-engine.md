@@ -82,11 +82,11 @@ Game.audio().playMusic("boss-theme.ogg");
 Adjust audio levels globally or connect them to in-game options sliders:
 
 ```java
-// Master sound effects volume (0.0f to 1.0f)
-Game.audio().setSoundVolume(0.8f);
+// Sound effects volume (0.0f to 1.0f)
+Game.config().sound().setSoundVolume(0.8f);
 
 // Background music volume (0.0f to 1.0f)
-Game.audio().setMusicVolume(0.5f);
+Game.config().sound().setMusicVolume(0.5f);
 
 // Read current configured volumes
 float currentSfxVolume = Game.config().sound().getSoundVolume();
@@ -112,36 +112,36 @@ sfx_musicVolume=0.5
 
 LITIENGINE's audio engine supports multi-bus volume controls and realistic 2D positional attenuation:
 
-### 1. Multi-Bus Volume Management
+### 1. Volume Management
 
-Separate Master, Music (BGM), and Sound Effect (SFX) volumes in your audio settings:
+Separate Music (BGM) and Sound Effect (SFX) volumes in your audio settings:
 
 ```java title="src/main/java/com/example/game/audio/AudioManager.java" linenums="1"
 package com.example.game.audio;
 
 import de.gurkenlabs.litiengine.Game;
 import de.gurkenlabs.litiengine.sound.Sound;
-import de.gurkenlabs.litiengine.sound.Track;
+import de.gurkenlabs.litiengine.sound.LoopedTrack;
 import de.gurkenlabs.litiengine.resources.Resources;
 
 public class AudioManager {
-  private static float masterVolume = 1.0f;
-  private static float musicVolume = 0.8f;
-  private static float sfxVolume = 1.0f;
-
-  public static void setMasterVolume(float volume) {
-    masterVolume = Math.clamp(volume, 0.0f, 1.0f);
-    Game.audio().setMasterPlayback(masterVolume);
+  public static void setSoundVolume(float volume) {
+    Game.config().sound().setSoundVolume(Math.clamp(volume, 0.0f, 1.0f));
   }
 
-  public static void playMusic(String trackName) {
-    Track musicTrack = Resources.tracks().get(trackName);
-    Game.audio().playMusic(musicTrack, true); // true = seamless loop
+  public static void setMusicVolume(float volume) {
+    Game.config().sound().setMusicVolume(Math.clamp(volume, 0.0f, 1.0f));
+  }
+
+  public static void playMusic(String soundName) {
+    Sound musicSound = Resources.sounds().get(soundName);
+    if (musicSound != null) {
+      Game.audio().playMusic(new LoopedTrack(musicSound));
+    }
   }
 
   public static void playSound(String soundName) {
-    Sound sound = Resources.sounds().get(soundName);
-    Game.audio().playSound(sound, false, 1, sfxVolume * masterVolume);
+    Game.audio().playSound(soundName);
   }
 }
 ```

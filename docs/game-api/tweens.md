@@ -36,10 +36,9 @@ Select an easing equation below to preview the interpolation curve and watch the
 </div>
 <div style="margin-top: 1rem; font-size: 0.8rem;">
 <strong>Generated Java Code:</strong>
-<pre style="margin-top: 0.25rem; padding: 0.5rem; border-radius: 4px; background: var(--md-code-bg-color); overflow-x: auto;"><code id="tween-code-preview">Game.tweens().begin(entity, TweenType.LOCATION_X, 1000)
-    .target(400)
-    .ease(TweenFunction.QUAD_OUT)
-    .begin();</code></pre>
+<pre style="margin-top: 0.25rem; padding: 0.5rem; border-radius: 4px; background: var(--md-code-bg-color); overflow-x: auto;"><code id="tween-code-preview">Game.tweens().start(entity, TweenType.LOCATION_X, 60)
+    .target(400f)
+    .ease(TweenFunction.QUAD_OUT);</code></pre>
 </div>
 </div>
 <div style="flex: 1; min-width: 280px; text-align: center;">
@@ -90,7 +89,7 @@ Select an easing equation below to preview the interpolation curve and watch the
 
     function updateCode() {
       const funcName = select.value;
-      codePreview.textContent = "Game.tweens().begin(entity, TweenType.LOCATION_X, 1000)\n    .target(400)\n    .ease(TweenFunction." + funcName + ")\n    .begin();";
+      codePreview.textContent = "Game.tweens().start(entity, TweenType.LOCATION_X, 60)\n    .target(400f)\n    .ease(TweenFunction." + funcName + ");";
     }
 
     function render() {
@@ -188,11 +187,10 @@ A `Tween` smoothly transitions numerical attributes from a starting value to an 
 ```java title="TweenExample.java"
 ImageComponent ic = new ImageComponent(0, 0, 100, 100);
 
-// Smoothly move ImageComponent to (100, 200) over 4 seconds using quadratic easing
-Game.tweens().begin(ic, TweenType.LOCATION_XY, 4000)
-    .target(100, 200)
-    .ease(TweenFunction.QUAD_INOUT)
-    .begin();
+// Smoothly move ImageComponent to (100, 200) over 120 ticks (~2 seconds at 60 FPS)
+Game.tweens().start(ic, TweenType.LOCATION_XY, 120)
+    .target(100f, 200f)
+    .ease(TweenFunction.QUAD_INOUT);
 ```
 
 ---
@@ -237,20 +235,25 @@ LITIENGINE includes Robert Penner's complete collection of mathematical easing f
 
 ---
 
-## Chaining & Lifecycle Listeners
+## Lifecycle Listeners & Callbacks
 
 ```java title="TweenListeners.java"
-Game.tweens().begin(player, TweenType.LOCATION_XY, 1000)
-    .target(500, 300)
+Game.tweens().start(player, TweenType.LOCATION_XY, 60)
+    .target(500f, 300f)
     .ease(TweenFunction.BOUNCE_OUT)
-    .onStart(tween -> System.out.println("Tween started!"))
-    .onProgress((tween, value) -> System.out.println("Progress: " + value))
-    .onComplete(tween -> {
-      System.out.println("Tween completed!");
-      // Chain another tween or play sound effect
-      Resources.sounds().get("audio/land.ogg").play();
-    })
-    .begin();
+    .addListener(new TweenListener() {
+      @Override
+      public void started(Tween tween) {
+        System.out.println("Tween started!");
+      }
+
+      @Override
+      public void completed(Tween tween) {
+        System.out.println("Tween completed!");
+        // Chain another action or sound effect
+        Game.audio().playSound("land.ogg");
+      }
+    });
 ```
 
 ---

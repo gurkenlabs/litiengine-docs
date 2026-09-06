@@ -53,38 +53,41 @@ Point2D rotated = GeometricUtilities.rotate(p, center, angle);
 boolean inside = GeometricUtilities.shapeContains(shape, point);
 ```
 
-## ImagingUtilities
+## Imaging
 
-Image processing:
+Image manipulation and raster processing:
 
 ```java
-import de.gurkenlabs.litiengine.util.ImagingUtilities;
+import de.gurkenlabs.litiengine.util.Imaging;
 
 // Scale image
-BufferedImage scaled = ImagingUtilities.scale(image, 2.0f);
+BufferedImage scaled = Imaging.scale(image, 2.0);
 
 // Flip horizontally
-BufferedImage flipped = ImagingUtilities.flipHorizontally(image);
+BufferedImage flipped = Imaging.horizontalFlip(image);
 
-// Set opacity
-BufferedImage transparent = ImagingUtilities.setOpacity(image, 0.5f);
+// Set opacity (0.0f to 1.0f)
+BufferedImage transparent = Imaging.setOpacity(image, 0.5f);
 ```
 
-## ColorUtilities
+## ColorHelper
 
-Color operations:
+Color encoding, decoding, and blending utilities:
 
 ```java
-import de.gurkenlabs.litiengine.util.ColorUtilities;
+import de.gurkenlabs.litiengine.util.ColorHelper;
 
-// Parse hex color
-Color color = ColorUtilities.decode("#FF5500");
+// Parse hex color string (#RRGGBB or #AARRGGBB)
+Color color = ColorHelper.decode("#FF5500");
 
-// Color to hex
-String hex = ColorUtilities.encode(color);
+// Color to hex string
+String hex = ColorHelper.encode(color);
 
-// Interpolate colors
-Color blended = ColorUtilities.lerp(color1, color2, 0.5);
+// Blend / interpolate between two colors
+Color blended = ColorHelper.interpolate(color1, color2, 0.5);
+
+// Premultiply alpha
+Color premultiplied = ColorHelper.premultiply(color);
 ```
 
 ## TimeUtilities

@@ -67,30 +67,28 @@ For best results, use both:
 // Dynamic: Player torch, spell effects
 
 // Base ambient light (static)
-Game.world().environment().setAmbientLight(new Color(50, 50, 60));
+if (Game.world().environment().getAmbientLight() != null) {
+  Game.world().environment().getAmbientLight().setColor(new Color(50, 50, 60));
+}
 
 // Add dynamic player light
-LightSource playerLight = new LightSource();
-playerLight.setIntensity(80);
-playerLight.setColor(Color.ORANGE);
-playerLight.setFlicker(true);
+LightSource playerLight = new LightSource(80, Color.ORANGE, LightSource.Type.ELLIPSE, true);
 Game.world().environment().add(playerLight);
 ```
 
-## Shadow Opacity
+## Shadow Layer & Opacity
 
-Control shadow darkness:
+Control shadow color and alpha transparency:
 
-```properties
-# In config.properties
-gfx_shadowOpacity=0.7
-```
+In map properties (via utiLITI or Tiled), set the `SHADOWCOLOR` property to a hex color with alpha (e.g. `#b4000000` for ~70% black).
 
-Or at runtime:
+Or configure at runtime:
 
 ```java
-// Adjust shadow transparency
-Game.graphics().setShadowOpacity(0.8f); // 80% opacity
+// Adjust static shadow layer color and alpha transparency
+if (Game.world().environment().getStaticShadowLayer() != null) {
+  Game.world().environment().getStaticShadowLayer().setColor(new Color(0, 0, 0, 180));
+}
 ```
 
 ## Best Practices

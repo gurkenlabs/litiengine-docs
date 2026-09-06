@@ -12,60 +12,98 @@ The Messaging System allows entities to communicate with each other through mess
 
 ## Entity Messages
 
-Send messages between entities:
+The core messaging API in LITIENGINE sends string-based messages from a sender object to an `IEntity` receiver:
 
 ```java
-// Send message to specific entity
-entity.sendMessage("targetEntity", "ATTACK", damageData);
+// Send a message to a specific target entity
+IEntity target = Game.world().environment().getEntity("lever");
+if (target != null) {
+  target.sendMessage(player, "ACTIVATE");
+}
 
-// Broadcast message to all entities
-Game.world().environment().broadcastMessage("LEVEL_COMPLETE");
+// Broadcast a message to all entities in the active environment
+for (IEntity entity : Game.world().environment().getEntities()) {
+  entity.sendMessage(this, "LEVEL_COMPLETE");
+}
 ```
 
 ## Receiving Messages
 
-Implement message handling:
+Entities register message listeners via `onMessage()`:
 
 ```java
-public class TriggerEntity extends Entity implements IMessageReceiver {
+// Listen for any incoming message
+door.onMessage(event -> {
+  System.out.println("Message: " + event.getMessage() + " from " + event.getSource());
+});
 
-  @Override
-  public void sendMessage(Object sender, String message) {
-    if ("ACTIVATE".equals(message)) {
-      activate();
-    }
+// Listen for a specific message string
+door.onMessage("OPEN_DOOR", event -> {
+  openDoor();
+});
+```
+
+Subclasses of `Entity` can also intercept messages by overriding `sendMessage`:
+
+```java
+public class LeverEntity extends Entity {
+  public LeverEntity() {
+    super("lever");
   }
 
-  private void activate() {
-    // Handle activation
+  @Override
+  public String sendMessage(Object sender, String message) {
+    super.sendMessage(sender, message);
+    if ("TOGGLE".equalsIgnoreCase(message)) {
+      toggleLever();
+      return "toggled";
+    }
+    return null;
+  }
+
+  private void toggleLever() {
+    // Handle toggle logic
   }
 }
 ```
 
-## Entity Events
+## Built-In Message Support
 
-Subscribe to entity lifecycle events:
+Several built-in LITIENGINE entities already support predefined messages out of the box:
+
+- **`LightSource`**: Listens for `"toggle"` to invert its illumination state:
+  ```java
+  LightSource torch = Game.world().environment().getLightSource("dungeon_torch");
+  if (torch != null) {
+    torch.sendMessage(this, LightSource.TOGGLE_MESSAGE);
+  }
+  ```
+- **`Trigger`**: Can be configured in utiLITI with a custom message that is automatically dispatched to target entities when activated.
+
+## Entity Lifecycle Events
+
+Subscribe to entity lifecycle callbacks:
 
 ```java
-// When entity is added to environment
-entity.onAdded(e -> {
-  System.out.println("Entity spawned!");
+// When entity is loaded into an active environment
+entity.onLoaded(e -> {
+  System.out.println("Entity loaded: " + e.getName());
 });
 
-// When entity is removed
+// When entity is removed from an environment
 entity.onRemoved(e -> {
-  System.out.println("Entity destroyed!");
+  System.out.println("Entity removed: " + e.getName());
 });
 ```
 
 ## Combat Events
 
-Listen for combat-related events:
+Listen for combat-related events on `CombatEntity` (`Creature`, `Prop`):
 
 ```java
 CombatEntity combatEntity = ...;
 
-// When hit by attack
+// When hit by an attack
 combatEntity.onHit(event -> {
   int damage = event.getDamage();
   System.out.println("Took " + damage + " damage!");
@@ -85,87 +123,62 @@ combatEntity.onResurrect(event -> {
 
 ## Collision Events
 
-Handle collision events:
+Handle collisions on `CollisionEntity`:
 
 ```java
 CollisionEntity colliding = ...;
 
 colliding.onCollision(event -> {
-  IEntity other = event.getInvolvedEntities().stream()
-  .filter(e -> e != colliding)
-  .findFirst()
-  .orElse(null);
-
-  if (other != null) {
-    handleCollision(other);
+  for (ICollisionEntity other : event.getInvolvedEntities()) {
+    if (other != colliding) {
+      handleCollision(other);
+    }
   }
 });
 ```
 
 ## Movement Events
 
-Track entity movement:
+Track entity movement on `IMobileEntity`:
 
 ```java
-MobileEntity mobile = ...;
+Creature mobile = ...;
 
 mobile.onMoved(event -> {
   // Entity position changed
-  checkForTriggers();
+  checkProximityTriggers(event.getDeltaX(), event.getDeltaY());
 });
 ```
 
-## Custom Events
+## Event Listeners Management
 
-Define custom event types:
-
-```java
-public class GameEvent {
-  private String type;
-  private Object data;
-
-  public GameEvent(String type, Object data) {
-    this.type = type;
-    this.data = data;
-  }
-
-  public String getType() { return type; }
-  public Object getData() { return data; }
-}
-
-// Fire custom event
-entity.fireEvent(new GameEvent("POWERUP_COLLECTED", powerupType));
-```
-
-## Event Listeners
-
-Add and remove listeners dynamically:
+Register and deregister listeners:
 
 ```java
-// Add listener
-Consumer<HitEvent> listener = event -> handleHit(event);
+// Register listener
+CombatEntityHitListener listener = event -> handleHit(event);
 combatEntity.onHit(listener);
 
-// Remove listener (keep reference)
-combatEntity.removeHitListener(listener);
+// Deregister listener
+combatEntity.removeListener(listener);
 ```
 
 ## Environment Events
 
-Listen for environment-level events:
+Listen for map load and unload events:
 
 ```java
-// When environment is loaded
+// When an environment is loaded
 Game.world().onLoaded(env -> {
-  initializeLevel();
+  initializeLevel(env);
 });
 
-// When environment is unloaded
+// When an environment is unloaded
 Game.world().onUnloaded(env -> {
-  cleanupLevel();
+  cleanupLevel(env);
 });
 
-// When entity is added to environment
+// When an entity is added to the active environment
 Game.world().environment().onEntityAdded(e -> {
   System.out.println("Entity added: " + e.getEntity().getName());
 });
@@ -173,15 +186,17 @@ Game.world().environment().onEntityAdded(e -> {
 
 ## Trigger System
 
-Triggers are special entities that fire events when entered:
+Triggers fire events when crossed or interacted with:
 
 ```java
-Trigger trigger = Game.world().environment().getTrigger("myTrigger");
-
-trigger.onActivated(e -> {
-  // Player entered trigger zone
-  spawnEnemies();
-});
+Trigger trigger = Game.world().environment().getTrigger("dungeon_exit");
+if (trigger != null) {
+  trigger.addActivatedListener(event -> {
+    // Player entered trigger zone
+    IEntity activator = event.getEntity();
+    loadNextLevel();
+  });
+}
 ```
 
 ## See Also
