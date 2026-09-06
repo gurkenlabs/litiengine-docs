@@ -959,7 +959,7 @@ Input.mouse().onClicked(e -> {...});
 Input.mouse().onMoved(e -> {...});
 
 // Gamepad (Input4j Panama FFM)
-Gamepad gamepad = Input.gamepads().getCurrent();
+Gamepad gamepad = Input.gamepads().current();
 Input.gamepads().onPressed(Gamepad.Xbox.A, value -> {...});
 Input.gamepads().onAdded(pad -> System.out.println("Gamepad connected: " + pad.getName()));
 Input.gamepads().onRemoved(pad -> System.out.println("Gamepad disconnected: " + pad.getName()));
@@ -989,8 +989,8 @@ Game.audio().playSound("sound.wav");
 Game.audio().playSound("sound.wav", x, y); // At location
 Game.audio().playMusic("music.ogg");
 Game.audio().stopMusic();
-Game.audio().setSoundVolume(0.5f);
-Game.audio().setMusicVolume(0.8f);
+Game.config().sound().setSoundVolume(0.5f);
+Game.config().sound().setMusicVolume(0.8f);
 ```
 
 ## Physics
@@ -1575,11 +1575,11 @@ Game.audio().playMusic("boss-theme.ogg");
 Adjust audio levels globally or connect them to in-game options sliders:
 
 ```java
-// Master sound effects volume (0.0f to 1.0f)
-Game.audio().setSoundVolume(0.8f);
+// Sound effects volume (0.0f to 1.0f)
+Game.config().sound().setSoundVolume(0.8f);
 
 // Background music volume (0.0f to 1.0f)
-Game.audio().setMusicVolume(0.5f);
+Game.config().sound().setMusicVolume(0.5f);
 
 // Read current configured volumes
 float currentSfxVolume = Game.config().sound().getSoundVolume();
@@ -1605,36 +1605,36 @@ sfx_musicVolume=0.5
 
 LITIENGINE's audio engine supports multi-bus volume controls and realistic 2D positional attenuation:
 
-### 1. Multi-Bus Volume Management
+### 1. Volume Management
 
-Separate Master, Music (BGM), and Sound Effect (SFX) volumes in your audio settings:
+Separate Music (BGM) and Sound Effect (SFX) volumes in your audio settings:
 
 ```java title="src/main/java/com/example/game/audio/AudioManager.java" linenums="1"
 package com.example.game.audio;
 
 import de.gurkenlabs.litiengine.Game;
 import de.gurkenlabs.litiengine.sound.Sound;
-import de.gurkenlabs.litiengine.sound.Track;
+import de.gurkenlabs.litiengine.sound.LoopedTrack;
 import de.gurkenlabs.litiengine.resources.Resources;
 
 public class AudioManager {
-  private static float masterVolume = 1.0f;
-  private static float musicVolume = 0.8f;
-  private static float sfxVolume = 1.0f;
-
-  public static void setMasterVolume(float volume) {
-    masterVolume = Math.clamp(volume, 0.0f, 1.0f);
-    Game.audio().setMasterPlayback(masterVolume);
+  public static void setSoundVolume(float volume) {
+    Game.config().sound().setSoundVolume(Math.clamp(volume, 0.0f, 1.0f));
   }
 
-  public static void playMusic(String trackName) {
-    Track musicTrack = Resources.tracks().get(trackName);
-    Game.audio().playMusic(musicTrack, true); // true = seamless loop
+  public static void setMusicVolume(float volume) {
+    Game.config().sound().setMusicVolume(Math.clamp(volume, 0.0f, 1.0f));
+  }
+
+  public static void playMusic(String soundName) {
+    Sound musicSound = Resources.sounds().get(soundName);
+    if (musicSound != null) {
+      Game.audio().playMusic(new LoopedTrack(musicSound));
+    }
   }
 
   public static void playSound(String soundName) {
-    Sound sound = Resources.sounds().get(soundName);
-    Game.audio().playSound(sound, false, 1, sfxVolume * masterVolume);
+    Game.audio().playSound(soundName);
   }
 }
 ```
@@ -1690,7 +1690,7 @@ The **PhysicsEngine** (`Game.physics()`) handles 2D collision detection, velocit
 | `add(ICollisionEntity entity)` | `void` | Registers a collision entity in the physics quadtree. |
 | `remove(ICollisionEntity entity)` | `void` | Deregisters an entity from the physics world. |
 | `move(IMobileEntity entity, double angle, double delta)` | `boolean` | Moves a mobile entity along a heading while resolving obstacle sliding. |
-| `raycast(Point2D start, Point2D end, RaycastType type)` | `RaycastHit` | Casts a line segment through the world to detect obstructing colliders. |
+| `raycast(Point2D start, Point2D target, Collision collision)` | `RaycastHit` | Casts a line segment through the world to detect obstructing colliders. |
 | `getCollisionEntities(Shape area)` | `Collection<ICollisionEntity>` | Returns all solid entities overlapping a spatial area (circle, rectangle). |
 | `collides(Shape shape)` | `boolean` | Checks if a shape intersects any solid physics geometry. |
 
@@ -1737,8 +1737,8 @@ package com.example.game.ai;
 
 import de.gurkenlabs.litiengine.Game;
 import de.gurkenlabs.litiengine.entities.Creature;
+import de.gurkenlabs.litiengine.physics.Collision;
 import de.gurkenlabs.litiengine.physics.RaycastHit;
-import de.gurkenlabs.litiengine.physics.RaycastType;
 import java.awt.geom.Point2D;
 
 public class EnemyVision {
@@ -1747,10 +1747,10 @@ public class EnemyVision {
     Point2D end = target.getCenter();
 
     // Cast a ray from enemy to target checking for solid obstacles
-    RaycastHit hit = Game.physics().raycast(start, end, RaycastType.STATIC);
+    RaycastHit hit = Game.physics().raycast(start, end, Collision.STATIC);
 
     // If ray reached the target without hitting a solid wall, line of sight is clear
-    return hit == null || hit.getPoint().distance(start) >= start.distance(end);
+    return hit == null || hit.distance() >= start.distance(end);
   }
 }
 ```
@@ -2654,10 +2654,9 @@ Select an easing equation below to preview the interpolation curve and watch the
 </div>
 <div style="margin-top: 1rem; font-size: 0.8rem;">
 <strong>Generated Java Code:</strong>
-<pre style="margin-top: 0.25rem; padding: 0.5rem; border-radius: 4px; background: var(--md-code-bg-color); overflow-x: auto;"><code id="tween-code-preview">Game.tweens().begin(entity, TweenType.LOCATION_X, 1000)
-    .target(400)
-    .ease(TweenFunction.QUAD_OUT)
-    .begin();</code></pre>
+<pre style="margin-top: 0.25rem; padding: 0.5rem; border-radius: 4px; background: var(--md-code-bg-color); overflow-x: auto;"><code id="tween-code-preview">Game.tweens().start(entity, TweenType.LOCATION_X, 60)
+    .target(400f)
+    .ease(TweenFunction.QUAD_OUT);</code></pre>
 </div>
 </div>
 <div style="flex: 1; min-width: 280px; text-align: center;">
@@ -2708,7 +2707,7 @@ Select an easing equation below to preview the interpolation curve and watch the
 
     function updateCode() {
       const funcName = select.value;
-      codePreview.textContent = "Game.tweens().begin(entity, TweenType.LOCATION_X, 1000)\n    .target(400)\n    .ease(TweenFunction." + funcName + ")\n    .begin();";
+      codePreview.textContent = "Game.tweens().start(entity, TweenType.LOCATION_X, 60)\n    .target(400f)\n    .ease(TweenFunction." + funcName + ");";
     }
 
     function render() {
@@ -2806,11 +2805,10 @@ A `Tween` smoothly transitions numerical attributes from a starting value to an 
 ```java title="TweenExample.java"
 ImageComponent ic = new ImageComponent(0, 0, 100, 100);
 
-// Smoothly move ImageComponent to (100, 200) over 4 seconds using quadratic easing
-Game.tweens().begin(ic, TweenType.LOCATION_XY, 4000)
-    .target(100, 200)
-    .ease(TweenFunction.QUAD_INOUT)
-    .begin();
+// Smoothly move ImageComponent to (100, 200) over 120 ticks (~2 seconds at 60 FPS)
+Game.tweens().start(ic, TweenType.LOCATION_XY, 120)
+    .target(100f, 200f)
+    .ease(TweenFunction.QUAD_INOUT);
 ```
 
 ---
@@ -2855,20 +2853,25 @@ LITIENGINE includes Robert Penner's complete collection of mathematical easing f
 
 ---
 
-## Chaining & Lifecycle Listeners
+## Lifecycle Listeners & Callbacks
 
 ```java title="TweenListeners.java"
-Game.tweens().begin(player, TweenType.LOCATION_XY, 1000)
-    .target(500, 300)
+Game.tweens().start(player, TweenType.LOCATION_XY, 60)
+    .target(500f, 300f)
     .ease(TweenFunction.BOUNCE_OUT)
-    .onStart(tween -> System.out.println("Tween started!"))
-    .onProgress((tween, value) -> System.out.println("Progress: " + value))
-    .onComplete(tween -> {
-      System.out.println("Tween completed!");
-      // Chain another tween or play sound effect
-      Resources.sounds().get("audio/land.ogg").play();
-    })
-    .begin();
+    .addListener(new TweenListener() {
+      @Override
+      public void started(Tween tween) {
+        System.out.println("Tween started!");
+      }
+
+      @Override
+      public void completed(Tween tween) {
+        System.out.println("Tween completed!");
+        // Chain another action or sound effect
+        Game.audio().playSound("land.ogg");
+      }
+    });
 ```
 
 ---
@@ -2977,137 +2980,109 @@ tags: [keyboard, keys, wasd, key-bindings, input]
 
 ---
 
-## Chapter 1: Setting
-1) Clone the code
-```bash
-git clone https://github.com/gurkenlabs/litiengine-gurk-nukem.git
-```
+## Listening for Key Events
 
-2) Create a directory
-Create a directory de/gurkenlabs/litiengine/input inside src folder.
-Create KeyboardEntityController.java file inside the input folder.
-
-![](../images/createjava.png)
-
-
-
-## Chapter 2: Let's move the character with the directional keys
-Paste the following code to the KeyboardEntityController.java file
+The `Input.keyboard()` manager allows you to register global listeners for key press, release, and typing events:
 
 ```java
-package  de.gurkenlabs.litiengine.input;
+import de.gurkenlabs.litiengine.input.Input;
+import java.awt.event.KeyEvent;
 
-import  java.awt.event.KeyEvent;
-import  java.util.ArrayList;
-import  java.util.List;
-import  de.gurkenlabs.litiengine.entities.IMobileEntity;
-import  de.gurkenlabs.litiengine.physics.MovementController;
-import  de.gurkenlabs.litiengine.util.ListUtilities;
+// Listen for a specific key press
+Input.keyboard().onKeyPressed(KeyEvent.VK_SPACE, event -> {
+  System.out.println("Jump action triggered!");
+});
 
-public  class  KeyboardEntityController<T  extends  IMobileEntity> extends  MovementController< T > {
-  private  final  List <Integer > up;
-  private  final  List <Integer > down;
-  private  final  List <Integer > left;
-  private  final  List <Integer > right;
-  public  KeyboardEntityController(final  T  entity) {
-    this (entity, KeyEvent.VK_UP, KeyEvent.VK_DOWN, KeyEvent.VK_LEFT, KeyEvent.VK_RIGHT); // You can customize these key.
+// Listen for all key press events
+Input.keyboard().onKeyPressed(event -> {
+  if (event.getKeyCode() == KeyEvent.VK_ESCAPE) {
+    Game.screens().display("PAUSE_MENU");
   }
-  public  KeyboardEntityController(final  T  entity, final  int  up, final  int  down, final  int  left, final  int  right) {
-    super (entity);
-    this .up = new  ArrayList <>();
-    this .down = new  ArrayList <>();
-    this .left = new  ArrayList <>();
-    this .right = new  ArrayList <>();
-    this .up.add(up);
-    this .down.add(down);
-    this .left.add(left);
-    this .right.add(right);
-    Input.keyboard().onKeyPressed(this::handlePressedKey);
-  }
-  public  void  handlePressedKey(final  KeyEvent  keyCode) {
-    if  (this .up.contains(keyCode.getKeyCode())) {
-      this .setDy(this .getDy() - 1 );
-    } else  if  (this .down.contains(keyCode.getKeyCode())) {
-      this .setDy(this .getDy() + 1 );
-    } else  if  (this .left.contains(keyCode.getKeyCode())) {
-      this .setDx(this .getDx() - 1 );
-    } else  if  (this .right.contains(keyCode.getKeyCode())) { // getDx, getDy tells the current coodinates of the character.
-      this .setDx(this .getDx() + 1 ); // setDx, setDy sets the coodinates of the character.
-    }
-  }
-  public  void  addUpKey(int  keyCode) {
-    if  (this .up.contains(keyCode)) {
-      return ;
-    }
-    this .up.add(keyCode);
-  }
-  public  void  addDownKey(int  keyCode) {
-    if  (this .down.contains(keyCode)) {
-      return ;
-    }
-    this .down.add(keyCode);
-  }
-  public  void  addLeftKey(int  keyCode) {
-    if  (this .left.contains(keyCode)) {
-      return ;
-    }
-    this .left.add(keyCode);
-  }
-  public  void  addRightKey(int  keyCode) {
-    if  (this .right.contains(keyCode)) {
-      return ;
-    }
-    this .right.add(keyCode);
-  }
-  public  List <Integer > getUpKeys() {
-    return  this .up;
-  }
-  public  List <Integer > getDownKeys() {
-    return  this .down;
-  }
-  public  List <Integer > getLeftKeys() {
-    return  this .left;
-  }
-  public  List <Integer > getRightKeys() {
-    return  this .right;
-  }
-  public  void  setUpKeys(int ... up) {
-    this .setUpKeys(ListUtilities.getIntList(up));
-  }
-  public  void  setUpKeys(List <Integer > up) {
-    set(this .up, up);
-  }
-  public  void  setDownKeys(int ... down) {
-    this .setDownKeys(ListUtilities.getIntList(down));
-  }
-  public  void  setDownKeys(List <Integer > down) {
-    set(this .down, down);
-  }
-  public  void  setLeftKeys(int ... left) {
-    this .setLeftKeys(ListUtilities.getIntList(left));
-  }
-  public  void  setLeftKeys(List <Integer > left) {
-    set(this .left, left);
-  }
-  public  void  setRightKeys(int ... right) {
-    this .setRightKeys(ListUtilities.getIntList(right));
-  }
-  public  void  setRightKeys(List <Integer > right) {
-    set(this .right, right);
-  }
-  private  static  void  set(List <Integer > keyList, List <Integer > keys) {
-    keyList.clear();
-    for  (int  key : keys) {
-      keyList.add(key);
-    }
-  }
-}
+});
+
+// Listen for key release
+Input.keyboard().onKeyReleased(KeyEvent.VK_SHIFT, event -> {
+  System.out.println("Sprint released!");
+});
 ```
 
-## Chapter 3: Let's play
-Let's execute the program by build Program.java inside src/com/litiengine/gurknukem
+---
 
-![](../images/gamestart.png)
+## Polling Key State
+
+You can query whether specific keys are currently pressed during the game loop or within entity update callbacks:
+
+```java
+// Check if a key is held down
+if (Input.keyboard().isPressed(KeyEvent.VK_W)) {
+  // Move up or accelerate
+}
+
+// Check multiple keys
+boolean isSprinting = Input.keyboard().isPressed(KeyEvent.VK_SHIFT);
+```
+
+---
+
+## Entity Movement with `KeyboardEntityController`
+
+LITIENGINE includes a built-in `KeyboardEntityController` that binds directional keyboard input to any `IMobileEntity` (`Creature`, `Player`):
+
+### Basic Setup
+
+```java
+Player player = new Player();
+
+// Create keyboard movement controller (defaults to Arrow keys: UP, DOWN, LEFT, RIGHT)
+KeyboardEntityController<Player> controller = new KeyboardEntityController<>(player);
+
+// Attach the controller to the player entity
+player.controllers().add(controller);
+```
+
+### Adding Alternative Bindings (WASD + Arrow Keys)
+
+You can customize directional keys or bind multiple keys to the same direction:
+
+```java
+KeyboardEntityController<Player> controller = new KeyboardEntityController<>(player);
+
+// Add WASD keys in addition to default arrow keys
+controller.addUpKey(KeyEvent.VK_W);
+controller.addDownKey(KeyEvent.VK_S);
+controller.addLeftKey(KeyEvent.VK_A);
+controller.addRightKey(KeyEvent.VK_D);
+
+// Or replace key bindings completely
+controller.setUpKeys(KeyEvent.VK_W);
+controller.setDownKeys(KeyEvent.VK_S);
+controller.setLeftKeys(KeyEvent.VK_A);
+controller.setRightKeys(KeyEvent.VK_D);
+```
+
+---
+
+## Consuming Key Events
+
+When handling UI inputs (e.g. typing into text fields or navigating modal menus), consume events so that gameplay controllers do not process them simultaneously:
+
+```java
+Input.keyboard().onKeyPressed(event -> {
+  if (isMenuOpen && event.getKeyCode() == KeyEvent.VK_ENTER) {
+    selectMenuItem();
+    Input.keyboard().consumeKeyEvent(event);
+  }
+});
+```
+
+---
+
+## See Also
+
+* **[Mouse Input](mouse-input.md)** - Mouse movement, clicks, and coordinate conversion
+* **[Gamepad Input](gamepad-input.md)** - Controller support via Input4j
+* **[Movement Controller](../control-entities/movement-controller.md)** - Custom entity physics and movement
+* **[Entity Controllers](../control-entities/entity-controllers.md)** - Entity controller pipeline
 
 <!-- END CHAPTER: player-input/keyboard-input.md -->
 
@@ -3350,8 +3325,8 @@ GamepadManager manager = Input.gamepads();
 // Get all connected gamepads
 List<Gamepad> gamepads = Input.gamepads().getAll();
 
-// Get the first connected gamepad
-Gamepad gamepad = Input.gamepads().getCurrent();
+// Get the active primary gamepad
+Gamepad gamepad = Input.gamepads().current();
 ```
 
 ## Button Events
@@ -3601,13 +3576,20 @@ LITIENGINE provides a hierarchy of built-in entity types. Each type builds upon 
 
 ## Entity Hierarchy
 
-```text
-IEntity
- └── Entity (base class)
-       └── CollisionEntity (has collision)
-             └── CombatEntity (has health/combat)
-                   ├── Creature (has animation, movement, facing)
-                   └── Prop (static/dynamic destructible objects)
+```mermaid
+graph TD
+    IE["<b>IEntity</b><br/><i>Core entity interface</i>"]
+    E["<b>Entity</b><br/><i>Base game object (position, size, tags, actions)</i>"]
+    CE["<b>CollisionEntity</b><br/><i>Collision box & physics interaction</i>"]
+    CBE["<b>CombatEntity</b><br/><i>Hit points, combat states, hit/death hooks</i>"]
+    CR["<b>Creature</b><br/><i>Animations, movement controllers, facing direction</i>"]
+    PR["<b>Prop</b><br/><i>Static/dynamic destructible map objects</i>"]
+
+    IE --> E
+    E --> CE
+    CE --> CBE
+    CBE --> CR
+    CBE --> PR
 ```
 
 ## Entity
@@ -5752,14 +5734,17 @@ Effects are applied when an ability executes:
 public class JumpEffect extends ForceEffect {
 
   public JumpEffect(Ability ability) {
-    super(ability, ability.getAttributes().value().get(), EffectTarget.EXECUTINGENTITY);
+    super(
+      new ExecutingEntityTargetingStrategy(),
+      ability.getExecutor(),
+      ability.getAttributes().value().get().floatValue(),
+      ability.getAttributes().duration().getModifiedValue()
+    );
   }
 
   @Override
-  protected Force applyForce(IMobileEntity entity) {
-    GravityForce force = new GravityForce(entity, getStrength(), Direction.UP);
-    entity.movement().apply(force);
-    return force;
+  protected Force createForce(IMobileEntity entity) {
+    return new GravityForce(entity, getStrength(), Direction.UP);
   }
 
   @Override
@@ -5769,19 +5754,25 @@ public class JumpEffect extends ForceEffect {
 }
 ```
 
-## Effect Targets
+## Targeting Strategies
 
-Define who receives the effect:
+In LITIENGINE, effects select their targets using implementations of `TargetingStrategy`:
 
 ```java
-// Affect the entity using the ability
-EffectTarget.EXECUTINGENTITY
+// Affect only the entity casting the ability
+new ExecutingEntityTargetingStrategy()
 
-// Affect enemies
-EffectTarget.ENEMY
+// Affect hostile enemy combat entities
+new EnemyTargetingStrategy()
 
-// Affect all entities in range
-EffectTarget.ALL
+// Affect friendly/allied entities
+new FriendlyTargetingStrategy()
+
+// Affect other entities (excluding the executor)
+new OtherEntityTargetingStrategy()
+
+// Custom lambda / predicate targeting
+new CustomTargetingStrategy((executor, entity) -> entity.hasTag("burnable"))
 ```
 
 ## Damage Abilities
@@ -5793,23 +5784,21 @@ public class SwordSlash extends Ability {
 
   public SwordSlash(Creature executor) {
     super(executor);
-    this.addEffect(new DamageEffect(this));
+    this.addEffect(new SwordSlashEffect(this));
   }
 }
 
-public class DamageEffect extends Effect {
+public class SwordSlashEffect extends AbilityEffect {
 
-  public DamageEffect(Ability ability) {
-    super(ability, EffectTarget.ENEMY);
+  public SwordSlashEffect(Ability ability) {
+    super(new EnemyTargetingStrategy(), ability);
   }
 
   @Override
-  public void apply(IEntity entity) {
-    if (entity instanceof ICombatEntity) {
-      ICombatEntity target = (ICombatEntity) entity;
-      int damage = getAbility().getAttributes().value().get();
-      target.hit(damage);
-    }
+  public void apply(ICombatEntity target) {
+    super.apply(target);
+    int damage = getAbility().getAttributes().value().get();
+    target.hit(damage, getAbility());
   }
 }
 ```
@@ -6560,18 +6549,9 @@ utiLITI provides robust map authoring and management features supporting standar
 
 Select the map background or choose **Map Properties** in the inspector to configure environment-wide settings:
 
-```text
-┌─────────────────────────────────────────────────────────────┐
-│ MAP PROPERTIES │
-│ Name: dungeon_level_1 | Title: "The Sunken Catacombs" │
-│ Description: "First underground level of the dungeon." │
-├─────────────────────────────────────────────────────────────┤
-│ Ambient Light Color: [#3C0029 (Alpha: 200)] [Picker] │
-│ Static Shadow Color: [#000000 (Alpha: 140)] [Picker] │
-├─────────────────────────────────────────────────────────────┤
-│ [Live Ambient Light & Shadow Preview] │
-└─────────────────────────────────────────────────────────────┘
-```
+![utiLITI Map Properties & Lighting Inspector](../images/utiliti/maps-lighting-inspector.png){ .panel-screenshot width="360" }
+*Map Properties panel showing map metadata, ambient lighting color and alpha, and static shadow controls.*
+
 
 - **Map Name & Title**: Internal identifier and user-facing title.
 - **Ambient Light Color**: Color picker and alpha opacity slider determining global environmental darkness. When ambient alpha is greater than 0, dark levels require `LightSource` entities for visibility.
@@ -6712,26 +6692,15 @@ Select any tile in the tile grid to configure its individual metadata:
 
 Instead of requiring separate external collision tools, utiLITI includes an integrated vector collision editor directly within the tileset view:
 
-```text
-┌──────────────────────────────────────────────┐
-│ Tools: [ Select] [Rectangle] [ Delete] │
-├──────────────────────────────────────────────┤
-│ ┌──────────────┐ │
-│ │ │ │
-│ │ ┌──────┐ │ ◄ Resize Grip │
-│ │ │ RED │ │ │
-│ │ │ AREA │ │ │
-│ │ └──────┘ │ │
-│ └──────────────┘ │
-└──────────────────────────────────────────────┘
-```
+![utiLITI Tile Collision Editor](../images/utiliti/tile-collision-editor.png){ .panel-screenshot width="360" }
+*The integrated Tile Collision Editor panel showing shape tools, collision boundaries, and resize handles.*
 
 ### Collision Authoring Workflow:
 1. Select a tile in the grid.
 2. Under the **Collision Editor** section, click **Rectangle Mode**.
 3. Click and drag across the tile image preview to define collision boundaries (e.g. half-height walls or isometric tops).
-4. Switch to **Select Mode** (``) to move shapes or drag corner/edge handles to resize.
-5. Click **Delete** (``) or press `Delete` to remove collision geometry.
+4. Switch to **Select Mode** to move shapes or drag corner/edge handles to resize.
+5. Click **Delete** or press `Delete` to remove collision geometry.
 
 When painted on any map layer, tiles with defined collision shapes automatically generate static physics obstacles in LITIENGINE's physics engine.
 
@@ -6872,11 +6841,9 @@ The **Terrain Brush** uses Wang tilesets to automate natural terrain transitions
 
 utiLITI provides several snapping modes to maintain clean grid alignment during level editing:
 
-```text
-┌─────────────────────────────────────────────────────────────┐
-│ [Snap to Grid] [Snap to Pixels] [Snap Division: 1/2] │
-└─────────────────────────────────────────────────────────────┘
-```
+![utiLITI Snapping Controls](../images/utiliti/snapping-toolbar.png)
+*utiLITI snapping toolbar controls for grid snapping, pixel snapping, and grid subdivision.*
+
 
 | Snapping Mode | Description |
 | :--- | :--- |
@@ -7085,20 +7052,9 @@ Configures entity locomotion:
 
 The **Scripts** section attaches Java script components directly to map entities:
 
-```text
-┌─────────────────────────────────────────────────────────────┐
-│ Attached Scripts: [+] │
-│ ├ 1. [x] GoblinAI.java (Order: 1) [-] │
-│ └ 2. [x] PatrolBehavior.java (Order: 2) [] │
-├─────────────────────────────────────────────────────────────┤
-│ Script Properties (GoblinAI): │
-│ │ Property │ Type │ Value │
-│ ├──────────────┼─────────┼──────────────────────────────────┤
-│ │ aggroRadius │ Double │ 150.0 │
-│ │ attackPower │ Integer │ 25 │
-│ │ cowardly │ Boolean │ true │
-└─────────────────────────────────────────────────────────────┘
-```
+![utiLITI Entity Scripts Inspector](../images/utiliti/entity-scripts-inspector.png){ .panel-screenshot width="360" }
+*The Scripts section of the Entity Inspector showing attached scripts and typed script property fields.*
+
 
 1. **Attach Script**: Choose any script asset from the dropdown and click `+`.
 2. **Execution Order**: Reorder scripts to control lifecycle execution sequence.
@@ -7467,17 +7423,9 @@ Access the application preferences by selecting **File -> Settings...** or press
 
 ## Settings Dialog Categories
 
-```text
-┌─────────────────────────────────────────────────────────────┐
-│ SETTINGS [Search] │
-├───────────────────┬─────────────────────────────────────────┤
-│ [Appearance] │ Theme: (●) Dark (○) Light │
-│ [General] │ UI Scale: [========|====] 1.25x │
-│ [Grid] │ Font Family: [Roboto ▼] Size: [12] │
-│ [Keymap] │ Editor FPS Cap: [60] │
-│ [MCP Server] │ │
-└───────────────────┴─────────────────────────────────────────┘
-```
+![utiLITI Settings Dialog](../images/utiliti/settings-dialog.png)
+*The utiLITI Settings dialog with categories for Appearance, General, Grid, Keymap, and MCP Server configuration.*
+
 
 ### 1. Appearance
 - **Theme**: Toggle between **Dark Theme** (default) and **Light Theme**.
