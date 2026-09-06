@@ -15,17 +15,9 @@ Access the application preferences by selecting **File -> Settings...** or press
 
 ## Settings Dialog Categories
 
-```text
-┌─────────────────────────────────────────────────────────────┐
-│ SETTINGS [Search] │
-├───────────────────┬─────────────────────────────────────────┤
-│ [Appearance] │ Theme: (●) Dark (○) Light │
-│ [General] │ UI Scale: [========|====] 1.25x │
-│ [Grid] │ Font Family: [Roboto ▼] Size: [12] │
-│ [Keymap] │ Editor FPS Cap: [60] │
-│ [MCP Server] │ │
-└───────────────────┴─────────────────────────────────────────┘
-```
+![utiLITI Settings Dialog](../images/utiliti/settings-dialog.png)
+*The utiLITI Settings dialog with categories for Appearance, General, Grid, Keymap, and MCP Server configuration.*
+
 
 ### 1. Appearance
 - **Theme**: Toggle between **Dark Theme** (default) and **Light Theme**.

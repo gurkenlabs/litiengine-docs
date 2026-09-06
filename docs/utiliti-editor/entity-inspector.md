@@ -176,20 +176,9 @@ Configures entity locomotion:
 
 The **Scripts** section attaches Java script components directly to map entities:
 
-```text
-┌─────────────────────────────────────────────────────────────┐
-│ Attached Scripts: [+] │
-│ ├ 1. [x] GoblinAI.java (Order: 1) [-] │
-│ └ 2. [x] PatrolBehavior.java (Order: 2) [] │
-├─────────────────────────────────────────────────────────────┤
-│ Script Properties (GoblinAI): │
-│ │ Property │ Type │ Value │
-│ ├──────────────┼─────────┼──────────────────────────────────┤
-│ │ aggroRadius │ Double │ 150.0 │
-│ │ attackPower │ Integer │ 25 │
-│ │ cowardly │ Boolean │ true │
-└─────────────────────────────────────────────────────────────┘
-```
+![utiLITI Entity Scripts Inspector](../images/utiliti/entity-scripts-inspector.png){ .panel-screenshot width="360" }
+*The Scripts section of the Entity Inspector showing attached scripts and typed script property fields.*
+
 
 1. **Attach Script**: Choose any script asset from the dropdown and click `+`.
 2. **Execution Order**: Reorder scripts to control lifecycle execution sequence.

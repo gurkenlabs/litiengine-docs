@@ -41,26 +41,15 @@ Select any tile in the tile grid to configure its individual metadata:
 
 Instead of requiring separate external collision tools, utiLITI includes an integrated vector collision editor directly within the tileset view:
 
-```text
-┌──────────────────────────────────────────────┐
-│ Tools: [ Select] [Rectangle] [ Delete] │
-├──────────────────────────────────────────────┤
-│ ┌──────────────┐ │
-│ │ │ │
-│ │ ┌──────┐ │ ◄ Resize Grip │
-│ │ │ RED │ │ │
-│ │ │ AREA │ │ │
-│ │ └──────┘ │ │
-│ └──────────────┘ │
-└──────────────────────────────────────────────┘
-```
+![utiLITI Tile Collision Editor](../images/utiliti/tile-collision-editor.png){ .panel-screenshot width="360" }
+*The integrated Tile Collision Editor panel showing shape tools, collision boundaries, and resize handles.*
 
 ### Collision Authoring Workflow:
 1. Select a tile in the grid.
 2. Under the **Collision Editor** section, click **Rectangle Mode**.
 3. Click and drag across the tile image preview to define collision boundaries (e.g. half-height walls or isometric tops).
-4. Switch to **Select Mode** (``) to move shapes or drag corner/edge handles to resize.
-5. Click **Delete** (``) or press `Delete` to remove collision geometry.
+4. Switch to **Select Mode** to move shapes or drag corner/edge handles to resize.
+5. Click **Delete** or press `Delete` to remove collision geometry.
 
 When painted on any map layer, tiles with defined collision shapes automatically generate static physics obstacles in LITIENGINE's physics engine.
 

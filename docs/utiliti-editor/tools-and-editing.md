@@ -96,11 +96,9 @@ The **Terrain Brush** uses Wang tilesets to automate natural terrain transitions
 
 utiLITI provides several snapping modes to maintain clean grid alignment during level editing:
 
-```text
-┌─────────────────────────────────────────────────────────────┐
-│ [Snap to Grid] [Snap to Pixels] [Snap Division: 1/2] │
-└─────────────────────────────────────────────────────────────┘
-```
+![utiLITI Snapping Controls](../images/utiliti/snapping-toolbar.png)
+*utiLITI snapping toolbar controls for grid snapping, pixel snapping, and grid subdivision.*
+
 
 | Snapping Mode | Description |
 | :--- | :--- |
