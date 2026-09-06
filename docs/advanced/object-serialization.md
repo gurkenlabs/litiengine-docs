@@ -67,14 +67,48 @@ public class PlayerData {
 
 ```java
 import de.gurkenlabs.litiengine.util.io.XmlUtilities;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
 import java.nio.file.Path;
 
+@XmlRootElement(name = "saveData")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class SaveData {
+
+  @XmlElement
   private String playerName;
+
+  @XmlElement
   private int currentLevel;
 
-  public void save(Path filePath) {
-    XmlUtilities.save(this, filePath);
+  // Required public no-arg constructor for JAXB
+  public SaveData() {}
+
+  public SaveData(String playerName, int currentLevel) {
+    this.playerName = playerName;
+    this.currentLevel = currentLevel;
+  }
+
+  public String getPlayerName() {
+    return playerName;
+  }
+
+  public void setPlayerName(String playerName) {
+    this.playerName = playerName;
+  }
+
+  public int getCurrentLevel() {
+    return currentLevel;
+  }
+
+  public void setCurrentLevel(int currentLevel) {
+    this.currentLevel = currentLevel;
+  }
+
+  public Path save(Path filePath) {
+    return XmlUtilities.save(this, filePath);
   }
 
   public static SaveData load(Path filePath) throws Exception {

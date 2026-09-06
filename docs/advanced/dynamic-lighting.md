@@ -202,9 +202,9 @@ import java.awt.geom.Point2D;
 
 public class TorchLight {
   public static LightSource createTorch(double x, double y) {
-    // 1. Create a radial ellipse light source (radius = 120, warm amber color)
+    // 1. Create a radial ellipse light source (intensity = 120, warm amber color, active)
     Color warmGlow = new Color(255, 180, 50, 180);
-    LightSource torch = new LightSource(120, warmGlow, LightSource.Type.ELLIPSE);
+    LightSource torch = new LightSource(120, warmGlow, LightSource.Type.ELLIPSE, true);
     torch.setLocation(x, y);
 
     // 2. Add to active environment
@@ -224,6 +224,6 @@ public class TorchLight {
 // Create a flickering torch flame effect in your game loop
 Game.loop().attach(Game.world().environment(), () -> {
   int jitter = (int) (Math.random() * 8) - 4;
-  torch.setRadius(120 + jitter);
+  torch.setIntensity(120 + jitter);
 });
 ```

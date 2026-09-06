@@ -1531,9 +1531,12 @@ Play interface sounds, notifications, or player feedback anywhere in the world:
 // Play a loaded sound resource
 Game.audio().playSound("button-click.wav");
 
-// Play with explicit volume multiplier and loop state
+// Play with loop control (false = play once)
 Sound hitSound = Resources.sounds().get("hit.ogg");
-Game.audio().playSound(hitSound, false, 1.0f);
+Game.audio().playSound(hitSound, false);
+
+// Play with loop control, audible range, and custom volume multiplier
+Game.audio().playSound(hitSound, false, Game.audio().getMaxDistance(), 1.0f);
 ```
 
 ---
