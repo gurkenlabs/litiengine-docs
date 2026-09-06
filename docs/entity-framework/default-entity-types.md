@@ -29,13 +29,20 @@ LITIENGINE provides a hierarchy of built-in entity types. Each type builds upon 
 
 ## Entity Hierarchy
 
-```text
-IEntity
- └── Entity (base class)
-       └── CollisionEntity (has collision)
-             └── CombatEntity (has health/combat)
-                   ├── Creature (has animation, movement, facing)
-                   └── Prop (static/dynamic destructible objects)
+```mermaid
+graph TD
+    IE["<b>IEntity</b><br/><i>Core entity interface</i>"]
+    E["<b>Entity</b><br/><i>Base game object (position, size, tags, actions)</i>"]
+    CE["<b>CollisionEntity</b><br/><i>Collision box & physics interaction</i>"]
+    CBE["<b>CombatEntity</b><br/><i>Hit points, combat states, hit/death hooks</i>"]
+    CR["<b>Creature</b><br/><i>Animations, movement controllers, facing direction</i>"]
+    PR["<b>Prop</b><br/><i>Static/dynamic destructible map objects</i>"]
+
+    IE --> E
+    E --> CE
+    CE --> CBE
+    CBE --> CR
+    CBE --> PR
 ```
 
 ## Entity

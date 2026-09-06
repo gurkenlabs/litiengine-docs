@@ -13,34 +13,14 @@ LITIENGINE allows developers to build entire games using pure scripts—without 
 
 With the **3-tier scripting architecture** and the built-in `GameLauncher`, your entire game logic can live in modular, hot-reloadable pure Java scripts authored directly in utiLITI or IntelliJ.
 
-```text
- ┌──────────────────────────────────────────────────────────┐
- │ GameScript (Global Game Lifecycle & Entry Point) │
- │ • Persistent across all map transitions │
- │ • Loads initial maps: loadMap("level1") │
- │ • Global player state: globals.put("score", 0) │
- │ • Soundtrack & audio: playMusic("bg_theme") │
- │ • Global keybindings: Pause menu on ESC │
- └────────────────────────────┬─────────────────────────────┘
- │ loads & transitions
- ▼
- ┌──────────────────────────────────────────────────────────┐
- │ EnvironmentScript (Map / Level Controller) │
- │ • Active while a specific map is loaded │
- │ • Wave spawning & map objectives │
- │ • onEntityRemoved -> Level clear & transition │
- │ • Cinematics & camera: cameraPanTo(boss, 60) │
- └────────────────────────────┬─────────────────────────────┘
- │ spawns & contains
- ▼
- ┌──────────────────────────────────────────────────────────┐
- │ CreatureScript / EntityScript (Entity Behaviors & AI) │
- │ • Attached to players, enemies, NPCs, chests, traps │
- │ • AI movement: moveTowards(target) │
- │ • Combat abilities: createAbility("Fireball").cast() │
- │ • Projectiles: spawnProjectile() │
- │ • Feedback: onHit (floatText), onDeath (remove()) │
- └──────────────────────────────────────────────────────────┘
+```mermaid
+graph TD
+    GS["<b>GameScript</b><br/><i>Global Game Lifecycle & Entry Point</i><br/>• Persistent across maps<br/>• Audio, input & global state"]
+    ES["<b>EnvironmentScript</b><br/><i>Map & Level Controller</i><br/>• Level objectives & waves<br/>• Cutscenes & transitions"]
+    CS["<b>CreatureScript / EntityScript</b><br/><i>Entity Behaviors & AI</i><br/>• Movement, combat & feedback<br/>• Per-entity event hooks"]
+
+    GS -->|"loads & transitions"| ES
+    ES -->|"spawns & manages"| CS
 ```
 
 ---
