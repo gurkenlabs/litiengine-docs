@@ -82,7 +82,13 @@ public void render(Graphics2D g) {
 Pre-bake shadows instead of calculating dynamically:
 
 ```properties
-gfx_enableDynamicShadows=false
+gfx_renderDynamicShadows=false
+```
+
+Or disable dynamic shadows at runtime:
+
+```java
+Game.config().graphics().setRenderDynamicShadows(false);
 ```
 
 See [Static Lighting](static-lighting.md) for details.
@@ -140,21 +146,21 @@ if (Game.world().environment().getEntities().size() > MAX_ENTITIES) {
 ### Limit Particle Count
 
 ```java
-emitter.getData().setMaxParticles(50); // Set reasonable limit
+emitter.data().setMaxParticles(50); // Set reasonable limit
 ```
 
-### Suspend Off-Screen Emitters
+### Pause Off-Screen Emitters
 
 ```java
-emitter.setSuspended(!isOnScreen());
+emitter.setPaused(!isOnScreen());
 ```
 
 ### Use Simple Particles
 
-Shapes are faster than animated sprites:
+Primitive shape particles are faster to calculate and draw than complex sprite animations:
 
 ```java
-emitter.getData().setParticleType(ParticleType.SQUARE);
+emitter.data().setParticleType(ParticleType.RECTANGLE);
 ```
 
 ## Memory Management
@@ -215,8 +221,8 @@ collisionEntity.setCollisionBoxHeight(32);
 # Limit FPS to reduce CPU usage
 cl_maxFps=60
 
-# Enable V-Sync
-gfx_vsync=true
+# Reduce frame rate when game window loses focus
+gfx_reduceFramesWhenNotFocused=true
 ```
 
 ### Resolution Scaling

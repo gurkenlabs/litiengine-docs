@@ -51,11 +51,31 @@ String startText = Resources.strings().get("menu.start");
 Button startButton = new Button(50, 50, 180, 40);
 startButton.setText(Resources.strings().get("menu.start"));
 
-// With formatted parameters (e.g. welcome=Welcome, {0}!)
-String welcome = Resources.strings().get("welcome", playerName);
+// With formatted parameters (e.g. welcome=Welcome, {0}! You have {1} gold.)
+String welcome = Resources.strings().get("welcome", playerName, goldAmount);
 ```
 
-## Setting Locale
+### UTF-8 Character Encoding
+
+By default, Java `.properties` resource bundles use `ISO-8859-1`. To support full UTF-8 characters (e.g. Japanese, Cyrillic, special symbols), configure string encoding during initialization:
+
+```java
+import java.nio.charset.StandardCharsets;
+
+Resources.strings().setEncoding(StandardCharsets.UTF_8);
+```
+
+### Modular String Bundles
+
+For large projects, organize strings into dedicated bundles (e.g. `dialogue.properties`, `items.properties`, `quests.properties`):
+
+```java
+// Fetch from a specific bundle (e.g. dialogue_de.properties)
+String npcLine = Resources.strings().getFrom("dialogue", "elder.greeting");
+String questObjective = Resources.strings().getFrom("quests", "main.step1", targetName);
+```
+
+## Setting Locale & Runtime Language Switching
 
 Configure the game locale via client configuration or JVM defaults:
 
@@ -72,17 +92,37 @@ Game.config().client().setCountry("DE");
 Locale.setDefault(Locale.GERMAN);
 ```
 
+### Dynamic Language Switching at Runtime
+
+Because `Resources.strings()` evaluates `Game.config().client().getLocale()` dynamically, switching languages at runtime takes effect immediately for subsequent calls. You can refresh active UI screens in response to an options menu change:
+
+```java
+public void switchLanguage(String languageCode, String countryCode) {
+  Game.config().client().setLanguage(languageCode);
+  Game.config().client().setCountry(countryCode);
+
+  // Refresh active screen components with the newly selected locale
+  if (Game.screens().current() != null) {
+    Game.screens().current().getComponents().forEach(c -> {
+      // Re-apply localized text to buttons, labels, and dialogs
+    });
+  }
+}
+```
+
 ## Fallback Behavior
 
-If a key is missing in the current locale, the engine falls back to the default `strings.properties` file.
+If a key is missing in the current locale (e.g. `strings_de.properties`), the engine automatically falls back to the default `strings.properties` resource bundle.
 
 ## Best Practices
 
-1. **Use consistent key naming**: `category.subcategory.item`
-2. **Keep default file complete**: All keys should exist in `strings.properties`
-3. **Don't concatenate strings**: Avoid `"Hello " + name` (word order varies by language)
+1. **Use consistent hierarchical keys**: `category.subcategory.item` (e.g. `ui.menu.btn_play`, `item.weapon.iron_sword`).
+2. **Keep the default bundle complete**: All keys should exist in `strings.properties` as the universal fallback.
+3. **Never concatenate localized strings**: Avoid `"Hello " + name + ", you scored " + score`. Different languages use different word orders; always use `MessageFormat` tokens `{0}`, `{1}`.
+4. **Use UTF-8**: Enable `Resources.strings().setEncoding(StandardCharsets.UTF_8)` when supporting non-Latin alphabets.
 
 ## See Also
 
-- [Resource Management](../resource-management/README.md) - Loading resources
-- [User Interface](../user-interface/README.md) - Building UIs
+- [Resource Management](../resource-management/README.md) - Loading resources into `.litidata`
+- [User Interface](../user-interface/README.md) - Building GUI components and menus
+- [Configuration](../configuration/README.md) - Engine and client configuration settings
