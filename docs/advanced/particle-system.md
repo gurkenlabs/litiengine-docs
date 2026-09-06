@@ -16,18 +16,16 @@ tags: [particles, particle-system, emitters, vfx, visual-effects]
 | :--- | :--- | :--- |
 | `data()` | `EmitterAttributes` | Accesses the configurable particle and spawn attributes object. |
 | `activate()` / `deactivate()` | `void` | Starts or stops particle emission and lifecycle processing. |
-| `pause()` / `setPaused(boolean)` | `void` | Suspends particle updates and spawning without deallocating state. |
+| `setPaused(boolean)` / `togglePaused()` | `void` | Suspends/resumes particle updates and spawning without deallocating state. |
 | `delete()` | `void` | Deactivates and removes the emitter from the active environment. |
 | `getParticles()` | `List<Particle>` | Returns the active collection of living particles managed by this emitter. |
-| `setTimeToLive(int duration)` | `void` | Sets lifespan of the emitter entity in milliseconds (0 for infinite). |
-| `onFinished(EmitterFinishedListener c)` | `void` | Registers a callback invoked when a finite emitter completes and expires. |
-| `onSpawned(EmitterSpawnedListener c)` | `void` | Registers a callback invoked each time a particle is spawned. |
+| `onFinished(EmitterFinishedListener listener)` | `void` | Registers a callback invoked when a finite emitter completes and expires. |
 
 ### Configurable Attributes (`emitter.data()`)
 
 | Method Signature | Return Type | Description |
 | :--- | :--- | :--- |
-| `setParticleType(ParticleType type)` | `void` | Sets the particle primitive (`RECTANGLE`, `ELLIPSE`, `LINE`, `SPRITE`, `TEXT`). |
+| `setParticleType(ParticleType type)` | `void` | Sets the particle primitive (`RECTANGLE`, `ELLIPSE`, `TRIANGLE`, `DIAMOND`, `LINE`, `TEXT`, `SPRITE`). |
 | `setParticleWidth(RangeAttribute<Float>)` | `void` | Sets particle width range in pixels (`getParticleWidth().setMin() / setMax()`). |
 | `setParticleHeight(RangeAttribute<Float>)` | `void` | Sets particle height range in pixels (`getParticleHeight().setMin() / setMax()`). |
 | `getParticleTTL()` | `RangeAttribute<Long>` | Configurable lifetime bounds (in milliseconds) per spawned particle. |
@@ -160,6 +158,7 @@ emitter.data().setParticleType(ParticleType.SPRITE);
 emitter.data().setParticleType(ParticleType.RECTANGLE);
 emitter.data().setParticleType(ParticleType.ELLIPSE);
 emitter.data().setParticleType(ParticleType.TRIANGLE);
+emitter.data().setParticleType(ParticleType.DIAMOND);
 ```
 
 ### Text Particles
