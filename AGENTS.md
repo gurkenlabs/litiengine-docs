@@ -1,45 +1,67 @@
 # AGENTS.md - LITIENGINE Docs
 
-This repository contains the documentation for LITIENGINE, a free, open-source 2D Java Game Engine. The docs are published at https://litiengine.com/docs/
+This repository contains the official documentation for LITIENGINE, a free, open-source 2D Java Game Engine. The docs are published at https://docs.litiengine.com/
 
 ## Repository Overview
 
-This is a **documentation-only repository**. The actual engine code lives at https://github.com/gurkenlabs/litiengine
+This is a **technical documentation repository** powered by [Zensical](https://zensical.org/). The actual engine source code lives at https://github.com/gurkenlabs/litiengine.
 
 - **Language**: Markdown (with Java code examples)
-- **Purpose**: Technical documentation for a 2D game engine library
-- **No build tools, package managers, or CI/CD configured**
+- **Engine Baseline**: Java 25+
+- **Docs Engine**: Zensical (configured in `zensical.toml`)
+- **CI/CD**: GitHub Actions (`docs-check.yml` for pull requests, `docs.yml` for GitHub Pages deployment)
 
-## Build/Lint/Test Commands
+## Build, Lint, and Validation Commands
 
-**Not applicable** - this repository contains only markdown files and images. There are no build, test, or lint commands.
+All contributors and AI agents must run the following validation suite before submitting changes:
 
-For quality assurance:
-- Preview markdown locally with your editor
-- Check links manually before committing
-- Verify images display correctly
+```bash
+# 1. Lint markdown syntax, tables, and list spacing (requires Python 3.10+)
+python .github/scripts/lint_markdown.py
+
+# 2. Validate all internal markdown links and image references
+python .github/scripts/validate_links.py
+
+# 3. Synchronize llms.txt and llms-full.txt
+python .github/scripts/generate_llms.py
+
+# 4. Strict documentation build (must exit with 0 errors/warnings)
+zensical build --clean --strict
+```
+
+### Pre-Commit Hook
+
+A git pre-commit hook is provided under `.githooks/pre-commit`. Enable it locally via:
+
+```bash
+git config core.hooksPath .githooks
+```
 
 ## Project Structure
 
-```
+```text
 /
-├── README.md # Introduction page
-├── SUMMARY.md # Navigation/table of contents (DO NOT REMOVE)
-├── CHANGELOG.md # Release notes
-├── GLOSSARY.md # Term definitions
-├── getting-started/ # Installation & setup guides
-├── game-api/ # Core API documentation (Game.graphics(), etc.)
-├── player-input/ # Input handling (keyboard, mouse, gamepad)
-├── configuration/ # Game configuration docs
-├── entity-framework/ # Entity system documentation
-├── control-entities/ # Controllers, abilities, AI
-├── tile-maps/ # Tiled map integration
-├── resource-management/ # Assets, sprites, textures
-├── user-interface/ # GUI components
-├── utiliti-editor/ # utiLITI editor docs
-├── tutorials/ # Step-by-step tutorials
-├── advanced/ # Advanced topics
-└── images/ # General images/assets
+├── zensical.toml         # Site configuration, theme, and navigation tree
+├── requirements-docs.txt # Python dependencies (Zensical, etc.)
+├── .github/
+│   ├── scripts/          # Python linters and validation tooling
+│   └── workflows/        # CI validation & GitHub Pages deployment
+├── .githooks/            # Pre-commit hook running validations
+├── docs/                 # Documentation source files
+│   ├── getting-started/  # Installation & setup guides
+│   ├── game-api/         # Core API documentation (RenderEngine, SoundEngine, etc.)
+│   ├── player-input/     # Input handling (keyboard, mouse, gamepad)
+│   ├── configuration/    # Game configuration docs
+│   ├── entity-framework/ # Entity system documentation
+│   ├── control-entities/ # Controllers, abilities, AI, scripting
+│   ├── tile-maps/        # Tiled map integration
+│   ├── resource-management/ # Assets, sprites, textures
+│   ├── user-interface/   # GUI components
+│   ├── utiliti-editor/   # utiLITI editor docs
+│   ├── tutorials/        # Step-by-step game tutorials
+│   ├── advanced/         # Advanced engine topics
+│   └── images/           # General screenshots and visual assets
+└── AGENTS.md             # Contributor & AI Agent guidelines
 ```
 
 ## Markdown Style Guidelines
@@ -75,43 +97,48 @@ Game.start();
 
 ```groovy
 dependencies {
- implementation 'de.gurkenlabs:litiengine:0.11.1'
+  implementation 'de.gurkenlabs:litiengine:0.12.0-SNAPSHOT'
 }
 ```
 
 ```xml
 <dependency>
- <groupId>de.gurkenlabs</groupId>
- <artifactId>litiengine</artifactId>
- <version>0.11.1</version>
+  <groupId>de.gurkenlabs</groupId>
+  <artifactId>litiengine</artifactId>
+  <version>0.12.0-SNAPSHOT</version>
 </dependency>
 ```
 ````
 
 ### Links
 
-- Internal links: Use `/docs/` prefix with trailing slash
- ```markdown
- [Getting Started](/docs/getting-started/README/)
- [Install JDK](/docs/getting-started/install-jdk/)
- ```
+- Internal links: Use standard relative paths with `.md` extension. `validate_links.py` verifies all internal links:
+  ```markdown
+  [Getting Started](getting-started/README.md)
+  [Install JDK](../getting-started/install-jdk.md)
+  ```
 - External links: Full URL
- ```markdown
- [Tiled Editor](https://www.mapeditor.org/)
- ```
+  ```markdown
+  [Tiled Editor](https://www.mapeditor.org/)
+  ```
 - API references: Link to API Quick Reference
- ```markdown
- [API Reference](/docs/getting-started/api-quick-reference/)
- ```
+  ```markdown
+  [API Reference](getting-started/api-quick-reference.md)
+  ```
 
-### Callouts/Notes
+### Admonitions / Callouts
 
-Use blockquotes for notes and warnings:
+Zensical natively supports standard admonitions (`note`, `tip`, `warning`, `caution`):
 
 ```markdown
-> **Note:** The utiLITI editor is not an IDE for Java development.
+!!! note "Informative Note"
+    The utiLITI editor is not an IDE for Java development.
 
-> **Warning:** If you use LITIENGINE snapshot versions, expect untested code!
+!!! tip "Performance"
+    Pre-allocate vectors outside update loops to eliminate GC latency.
+
+!!! warning "Snapshot Warning"
+    If you use LITIENGINE snapshot versions, test against current main!
 ```
 
 ### Images
@@ -159,21 +186,19 @@ public class Player extends Creature {
 
 ## Navigation Updates
 
-When adding new pages, update `SUMMARY.md`:
+When adding new pages, register them in the `nav` section of [`zensical.toml`](zensical.toml):
 
-```markdown
-* [New Page Title](/docs/category/new-page/)
+```toml
+{ "New Page Title" = "category/new-page.md" }
 ```
-
-The navigation structure uses `<span>Category Name</span>` for section headers.
 
 ## Stub Files
 
-Many files in this repository are stubs (contain only a title header). When completing stubs:
+If completing stubs or expanding documentation:
 
-1. Check the main LITIENGINE repository for API details
+1. Check the main LITIENGINE repository (`gurkenlabs/litiengine`) for API details
 2. Reference existing similar documentation for style
-3. Include practical code examples
+3. Include practical, compiling Java code examples
 4. Add images/screenshots where helpful
 
 ## Writing Style
@@ -196,5 +221,6 @@ Many files in this repository are stubs (contain only a title header). When comp
 ## External References
 
 - Main repository: https://github.com/gurkenlabs/litiengine
-- Website: https://litiengine.com/
+- Documentation website: https://docs.litiengine.com/
+- Discord community: https://discord.gg/rRB9cKD
 - Forum: https://forum.litiengine.com/

@@ -14,27 +14,35 @@ tags: [game-launcher, standalone-runner, playtesting, execution]
 
 ## Quick Start
 
-Run any `.litidata` game directly:
+Run any `.litidata` game or project directory directly:
 
 ```bash
-java -cp litiengine.jar de.gurkenlabs.litiengine.launch.GameLauncher --project game.litidata
+# Pass the project bundle or directory as an argument
+java -cp litiengine.jar de.gurkenlabs.litiengine.launch.GameLauncher game.litidata
+
+# Or use explicit CLI options
+java -cp litiengine.jar de.gurkenlabs.litiengine.launch.GameLauncher -p ./mygame --map overworld --scale 2.0
 ```
 
 ---
 
 ## CLI Options
 
+```text
+Usage: java -jar litiengine.jar [OPTIONS] [PROJECT_DIR_OR_LITIDATA]
+```
+
 | Option | Argument | Description |
 | :--- | :--- | :--- |
-| `--project` | `<path>` | Path to the `.litidata` resource bundle file (e.g. `--project mygame.litidata`). |
-| `--startup-script` | `<id>` | ID or class of the primary `GameScript` to execute on boot. If omitted, the first bound `GameScript` is run automatically. |
-| `--map` | `<name>` | Initial map to load. If omitted, the first map in the project bundle is loaded. |
-| `--scale` | `<float>` | Default render scale factor (e.g. `--scale 2.0` for pixel art). |
-| `--title` | `<string>` | Custom window title text. |
-| `--gravity` | `<int>` | 2D physics gravity value (default: 0). |
-| `--release` | None | Run in production release mode (disables debug overlays). |
-| `--help`, `-h` | None | Print command line usage and available flags. |
-| `--version`, `-v` | None | Display engine version information. |
+| `-p`, `--project` | `<path>` | Path to the game project root folder or `.litidata` bundle. |
+| `-s`, `--startup-script` | `<name>` | Specify the initial `GameScript` definition to execute on boot. |
+| `-m`, `--map` | `<name>` | Specify the initial map/environment to load. |
+| `-t`, `--title` | `<title>` | Custom game window title. |
+| `--scale` | `<float>` | Set base render scale factor (e.g. `--scale 2.0` for pixel art). |
+| `--gravity` | `<int>` | Set global physics gravity in pixels/sec (default: `0`). |
+| `--release` | `<int>` | Java language level for runtime script compilation (e.g. `--release 25`). |
+| `-h`, `--help` | None | Display command-line usage and available options. |
+| `-v`, `--version` | None | Display engine version information. |
 
 ---
 
