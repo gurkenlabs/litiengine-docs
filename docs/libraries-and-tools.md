@@ -20,6 +20,7 @@ LITIENGINE intentionally avoids heavy native dynamic bindings (like C/C++ OpenGL
 |:---|:---|:---|
 | **[Input4j](https://github.com/gurkenlabs/input4j)** | 1.3.1 | Gamepad, joystick, and controller input integration utilizing Java Panama Foreign Function & Memory (FFM) APIs with zero external DLL/so dependencies. |
 | **[VorbisSPI](https://central.sonatype.com/artifact/com.googlecode.soundlibs/vorbisspi)** | 1.0.3.3 | Java Sound Service Provider Interface for decoding and streaming `.ogg` Vorbis audio files. |
+| **LITIENGINE MP3 SPI** | Built-in | Pure-Java native Java Sound SPI decoder supporting `.mp3` playback, streaming, and ID3v1/ID3v2/APEv2 metadata with zero native dependencies. |
 
 ---
 
@@ -27,25 +28,25 @@ LITIENGINE intentionally avoids heavy native dynamic bindings (like C/C++ OpenGL
 
 <div class="grid cards" markdown>
 
-- :material-cube-outline:{ .lg .middle } **[utiLITI Editor](utiliti-editor/README.md)**
+- :lucide-box:{ .lg .middle } **[utiLITI Editor](utiliti-editor/README.md)**
 
     ---
 
     The official 2D level editor, tileset designer, asset packager, and live Java script executor bundled directly with LITIENGINE.
 
-- :material-map-outline:{ .lg .middle } **[Tiled Map Editor](https://www.mapeditor.org/)**
+- :lucide-map:{ .lg .middle } **[Tiled Map Editor](https://www.mapeditor.org/)**
 
     ---
 
     Full bi-directional support for importing and editing `.tmx` maps and `.tsx` tilesets exported from the industry-standard Tiled editor.
 
-- :material-palette-outline:{ .lg .middle } **[Aseprite](https://www.aseprite.org/) & Pixel Art Tools**
+- :lucide-palette:{ .lg .middle } **[Aseprite](https://www.aseprite.org/) & Pixel Art Tools**
 
     ---
 
     Seamless workflow for importing spritesheet grids, JSON texture atlases, and animation frame sequences exported from Aseprite.
 
-- :material-robot-outline:{ .lg .middle } **[Model Context Protocol (MCP)](utiliti-editor/mcp-server.md)**
+- :lucide-bot:{ .lg .middle } **[Model Context Protocol (MCP)](utiliti-editor/mcp-server.md)**
 
     ---
 
@@ -118,13 +119,13 @@ When preparing your game for release, these tools allow you to package standalon
 
 <div class="grid cards" markdown>
 
-- :material-play-box-outline:{ .lg .middle } **[Deployment & Distribution](deployment.md)**
+- :lucide-package:{ .lg .middle } **[Deployment & Distribution](deployment.md)**
 
     ---
 
     Step-by-step instructions on bundling standalone executables with jlink and Launch4j.
 
-- :material-map-legend:{ .lg .middle } **[Tile Maps Overview](tile-maps/README.md)**
+- :lucide-map:{ .lg .middle } **[Tile Maps Overview](tile-maps/README.md)**
 
     ---
 

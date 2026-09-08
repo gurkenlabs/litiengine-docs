@@ -71,6 +71,14 @@ def lint_markdown():
                     if not prev_is_table and prev_line != "" and not prev_line.startswith("#") and not prev_line.startswith("<"):
                         errors.append(f"{rel}:{line_num}: Table header without preceding blank line: '{prev_line[:40]}'")
 
+            # 4b. Check Heading Boundaries & Formatting
+            if re.match(r'^\s+#{1,6}\s', line):
+                errors.append(f"{rel}:{line_num}: Heading with leading whitespace: '{line[:40]}'")
+            if stripped.startswith("#") and re.match(r'^#{1,6}\s', stripped) and idx > 0:
+                prev_line = lines[idx - 1].strip()
+                if prev_line != "" and prev_line != "---":
+                    errors.append(f"{rel}:{line_num}: Heading without preceding blank line: '{prev_line[:40]}'")
+
             # 5. Check Admonition Indentation (Line following !!! or ??? must be indented with 4 spaces)
             if re.match(r'^[!?]{3}\s+[a-zA-Z0-9_-]+', stripped) and idx + 1 < len(lines):
                 next_line = lines[idx + 1]

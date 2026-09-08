@@ -15,49 +15,49 @@ Welcome to **LITIENGINE**! This section guides you through installing the Java {
 
 <div class="grid cards" markdown>
 
-- :material-download:{ .lg .middle } **[Get LITIENGINE](get-litiengine.md)**
+- :lucide-download:{ .lg .middle } **[Get LITIENGINE](get-litiengine.md)**
 
     ---
 
     Dependency coordinates for Gradle and Maven, Sonatype snapshot repositories, and standalone fat JARs.
 
-- :material-coffee:{ .lg .middle } **[Install JDK](install-jdk.md)**
+- :lucide-coffee:{ .lg .middle } **[Install JDK](install-jdk.md)**
 
     ---
 
     Set up Java {{ java_version }} or newer across Windows, Linux, and macOS with modern OpenJDK builds.
 
-- :material-laptop:{ .lg .middle } **[Set Up Your IDE](development-environment.md)**
+- :lucide-laptop:{ .lg .middle } **[Set Up Your IDE](development-environment.md)**
 
     ---
 
     Configuring IntelliJ IDEA, Eclipse, or VS Code with hot-reloading and debug profiles.
 
-- :material-hammer-wrench:{ .lg .middle } **[Build Systems](build-systems.md)**
+- :lucide-wrench:{ .lg .middle } **[Build Systems](build-systems.md)**
 
     ---
 
     Automated Gradle tasks, `shadowJar` packaging, and build automation workflows.
 
-- :material-folder-cog:{ .lg .middle } **[Project Structure](project-structure.md)**
+- :lucide-folder-tree:{ .lg .middle } **[Project Structure](project-structure.md)**
 
     ---
 
     Recommended directory layouts for assets, `.litidata` resource archives, maps, and source files.
 
-- :material-play-circle:{ .lg .middle } **[Run the Game](run-the-game.md)**
+- :lucide-play:{ .lg .middle } **[Run the Game](run-the-game.md)**
 
     ---
 
     Your first program initializing `Game.init()`, creating your game window, and loading maps.
 
-- :material-book-open-page-variant:{ .lg .middle } **[API Quick Reference](api-quick-reference.md)**
+- :lucide-book-open:{ .lg .middle } **[API Quick Reference](api-quick-reference.md)**
 
     ---
 
     Instant cheat sheet covering all core modules: `Game.*`, `Resources.*`, `Input.*`, and `Camera`.
 
-- :material-package-variant-closed:{ .lg .middle } **[Deployment Guide](../deployment.md)**
+- :lucide-package:{ .lg .middle } **[Deployment Guide](../deployment.md)**
 
     ---
 

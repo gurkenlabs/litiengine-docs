@@ -157,7 +157,7 @@ Select your preferred build tool below for a complete, production-ready configur
 
 <div class="grid cards" markdown>
 
-- :material-cube-outline:{ .lg .middle } **IntelliJ IDEA**
+- :lucide-box:{ .lg .middle } **IntelliJ IDEA**
 
     ---
 
@@ -165,7 +165,7 @@ Select your preferred build tool below for a complete, production-ready configur
     2. Choose the root folder containing `build.gradle.kts` (or `pom.xml`).
     3. Select **Open as Project** and let Gradle sync dependencies automatically.
 
-- :material-application-brackets-outline:{ .lg .middle } **Eclipse IDE**
+- :lucide-code-2:{ .lg .middle } **Eclipse IDE**
 
     ---
 
@@ -173,7 +173,7 @@ Select your preferred build tool below for a complete, production-ready configur
     2. Browse to your project directory and click **Finish**.
     3. Ensure your Workspace Installed JRE is configured for **Java 25+**.
 
-- :material-microsoft-visual-studio-code:{ .lg .middle } **VS Code**
+- :lucide-file-code:{ .lg .middle } **VS Code**
 
     ---
 
@@ -188,13 +188,13 @@ Select your preferred build tool below for a complete, production-ready configur
 
 <div class="grid cards" markdown>
 
-- :material-download-outline:{ .lg .middle } **[Get LITIENGINE](get-litiengine.md)**
+- :lucide-download:{ .lg .middle } **[Get LITIENGINE](get-litiengine.md)**
 
     ---
 
     Snapshot releases, JitPack builds, and manual JAR downloads.
 
-- :material-play-box-outline:{ .lg .middle } **[Deployment & Packaging](../deployment.md)**
+- :lucide-package:{ .lg .middle } **[Deployment & Packaging](../deployment.md)**
 
     ---
 

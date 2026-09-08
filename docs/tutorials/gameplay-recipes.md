@@ -280,19 +280,19 @@ public class DeathExplosionRecipe {
 
 <div class="grid cards" markdown>
 
-- :material-robot-outline:{ .lg .middle } **[AI-Assisted Game Development](ai-game-development.md)**
+- :lucide-bot:{ .lg .middle } **[AI-Assisted Game Development](ai-game-development.md)**
 
     ---
 
     Pair with AI tools to generate custom mechanics and controllers.
 
-- :material-gamepad-variant-outline:{ .lg .middle } **[Top-Down Shooter Tutorial](topdown-shooter.md)**
+- :lucide-gamepad-2:{ .lg .middle } **[Top-Down Shooter Tutorial](topdown-shooter.md)**
 
     ---
 
     Complete step-by-step game tutorial building movement, projectiles, and enemy waves.
 
-- :material-book-open-page-variant:{ .lg .middle } **[API Quick Reference](../getting-started/api-quick-reference.md)**
+- :lucide-book-open:{ .lg .middle } **[API Quick Reference](../getting-started/api-quick-reference.md)**
 
     ---
 

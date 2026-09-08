@@ -208,19 +208,19 @@ To ensure smooth 60 FPS gameplay without garbage collection hiccups or frame stu
 
 <div class="grid cards" markdown>
 
-- :material-image-multiple-outline:{ .lg .middle } **[Texture Atlases](texture-atlas.md)**
+- :lucide-images:{ .lg .middle } **[Texture Atlases](texture-atlas.md)**
 
     ---
 
     Create, organize, and optimize animation spritesheets and frame dimensions.
 
-- :material-file-document-edit-outline:{ .lg .middle } **[Sprite Info Files](sprite-info-files.md)**
+- :lucide-file-text:{ .lg .middle } **[Sprite Info Files](sprite-info-files.md)**
 
     ---
 
     Batch import hundreds of spritesheets with custom keyframe duration lists.
 
-- :material-filmstrip:{ .lg .middle } **[Animation Controller](../control-entities/animation-controller.md)**
+- :lucide-clapperboard:{ .lg .middle } **[Animation Controller](../control-entities/animation-controller.md)**
 
     ---
 

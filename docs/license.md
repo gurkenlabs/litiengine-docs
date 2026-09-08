@@ -18,25 +18,25 @@ The MIT License gives you complete freedom to use, modify, distribute, and monet
 
 <div class="grid cards" markdown>
 
-- :material-check-circle-outline:{ .lg .middle } **Commercial Use**
+- :lucide-check-circle:{ .lg .middle } **Commercial Use**
 
     ---
 
     You can build and sell commercial games on Steam, itch.io, GOG, Epic Games Store, or consoles without paying any royalties or license fees.
 
-- :material-code-tags:{ .lg .middle } **Modification & Forking**
+- :lucide-git-fork:{ .lg .middle } **Modification & Forking**
 
     ---
 
     You are free to modify engine source code, create custom builds, adapt internal subsystems, or integrate private proprietary modules.
 
-- :material-package-variant:{ .lg .middle } **Closed-Source Distribution**
+- :lucide-package:{ .lg .middle } **Closed-Source Distribution**
 
     ---
 
     Your game's proprietary code, storyline, art, and music can remain 100% closed-source. You do **not** need to open-source your game project.
 
-- :material-shield-check-outline:{ .lg .middle } **Attribution Requirement**
+- :lucide-shield-check:{ .lg .middle } **Attribution Requirement**
 
     ---
 

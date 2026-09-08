@@ -16,37 +16,37 @@ Welcome to the official technical documentation for **LITIENGINE**, the free and
 
 <div class="grid cards" markdown>
 
-- :material-rocket-launch:{ .lg .middle } **[Get Started](getting-started/README.md)**
+- :lucide-compass:{ .lg .middle } **[Get Started](getting-started/README.md)**
 
     ---
 
     Install Java {{ java_version }}+, configure Gradle or Maven, understand project structure, and spawn your first game window.
 
-- :material-code-json:{ .lg .middle } **[Core Game API](game-api/README.md)**
+- :lucide-file-code:{ .lg .middle } **[Core Game API](game-api/README.md)**
 
     ---
 
     Explore game loops, 2D physics, camera tracking, input handling, and positional spatial audio.
 
-- :material-hammer-wrench:{ .lg .middle } **[utiLITI Editor](utiliti-editor/README.md)**
+- :lucide-wrench:{ .lg .middle } **[utiLITI Editor](utiliti-editor/README.md)**
 
     ---
 
     Design maps, manage tilesets, edit sprite sheets, and script live game entities with the integrated Java scripting workspace.
 
-- :material-school:{ .lg .middle } **[Tutorials](tutorials/topdown-shooter.md)**
+- :lucide-crosshair:{ .lg .middle } **[Tutorials](tutorials/topdown-shooter.md)**
 
     ---
 
     Step-by-step guides building a Top-Down Action Shooter, 2D Platformer, Brick Breaker, and AI-assisted game development.
 
-- :material-package-variant-closed:{ .lg .middle } **[Publish & Deploy](deployment.md)**
+- :lucide-package:{ .lg .middle } **[Publish & Deploy](deployment.md)**
 
     ---
 
     Package standalone games for Windows, macOS, and Linux with Steam, itch.io, Launch4j, and [Savegame Persistence](savegames.md).
 
-- :material-heart-multiple-outline:{ .lg .middle } **[Community & Sponsors](about/sponsors.md)**
+- :lucide-heart-handshake:{ .lg .middle } **[Community & Sponsors](about/sponsors.md)**
 
     ---
 
@@ -181,7 +181,7 @@ LITIENGINE is 100% free, independent, and open source. If LITIENGINE helps you b
 
 <div class="grid cards" markdown>
 
-- :material-heart:{ .lg .middle } **Support Independent Open-Source Game Tech**
+- :lucide-heart:{ .lg .middle } **Support Independent Open-Source Game Tech**
 
     ---
 
