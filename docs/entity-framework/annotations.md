@@ -271,17 +271,82 @@ public class Hero extends Creature { ... }
 
 ---
 
+### 6. `@Action`
+Marks methods on an `Entity` as executable entity actions stored in `entity.actions()`:
+
+```java title="Player.java"
+import de.gurkenlabs.litiengine.entities.Action;
+import de.gurkenlabs.litiengine.entities.Creature;
+
+public class Player extends Creature {
+
+  @Action(name = "jump", description = "Executes vertical jump trajectory")
+  public void performJump() {
+    // Apply upward jump force
+  }
+
+  @Action(name = "slash", description = "Performs melee sword swing")
+  public void attack() {
+    // Trigger attack animation and damage hitbox
+  }
+}
+```
+
+Any registered action can be triggered dynamically via:
+
+```java
+entity.perform("jump");
+```
+
+---
+
+### 7. `@Tag` and `@Tags`
+Assigns static metadata tags to an entity at construction time without requiring manual `addTag()` constructor calls:
+
+```java title="SkeletonArcher.java"
+import de.gurkenlabs.litiengine.entities.Creature;
+import de.gurkenlabs.litiengine.entities.Tag;
+
+@Tag("undead")
+@Tag("ranged")
+@Tag("monster")
+public class SkeletonArcher extends Creature {
+  // Tags "undead", "ranged", and "monster" are automatically assigned
+}
+```
+
+---
+
+### 8. `@TmxProperty`
+Automatically injects custom map object properties into entity fields when loaded from a `.tmx` or `.litidata` file:
+
+```java title="Guard.java"
+import de.gurkenlabs.litiengine.entities.Creature;
+import de.gurkenlabs.litiengine.environment.tilemap.TmxProperty;
+
+public class Guard extends Creature {
+
+  @TmxProperty(name = "patrolRoute")
+  private String patrolRoute;
+
+  @TmxProperty(name = "alertRadius")
+  private double alertRadius = 150.0;
+}
+```
+
+---
+
 ## See Also
 
 <div class="grid cards" markdown>
 
-- :material-cube-outline:{ .lg .middle } **[Custom Entities](custom-entities.md)**
+- :lucide-box:{ .lg .middle } **[Custom Entities](custom-entities.md)**
 
     ---
 
     Step-by-step guide to extending `Creature`, `Prop`, and registering custom loaders.
 
-- :material-lightning-bolt-outline:{ .lg .middle } **[Ability Framework](../control-entities/ability-framework.md)**
+- :lucide-swords:{ .lg .middle } **[Ability Framework](../control-entities/ability-framework.md)**
 
     ---
 

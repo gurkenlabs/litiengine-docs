@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <style>
+    :root { color: #4B5563; }
+    @media (prefers-color-scheme: dark) {
+      :root { color: #E5E7EB; }
+    }
+  </style>
+  <path d="M6.5 9 5 4.5l4.25 2A8.5 8.5 0 0 1 12 6c.95 0 1.9.16 2.75.5l4.25-2L17.5 9a7.25 7.25 0 0 1 1 3.75c0 4.25-2.9 7.25-6.5 7.25s-6.5-3-6.5-7.25a7.25 7.25 0 0 1 1-3.75Z"/>
+  <circle cx="9.25" cy="12.5" r=".75" fill="currentColor" stroke="none"/><circle cx="14.75" cy="12.5" r=".75" fill="currentColor" stroke="none"/>
+  <path d="m10.75 16 1.25.75 1.25-.75"/>
+</svg>

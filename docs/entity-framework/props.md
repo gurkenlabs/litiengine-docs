@@ -14,6 +14,7 @@ Let us first show you a simple example of creating a box to decorate your map. A
 
 ## Creating a prop spritesheet
 Make sure to name the spritesheet `prop-box`. The `prop-` part is called a `spritePrefix` and is used internally to simplify the process of creating a prop from this spritesheet. The `box` part is called the `spritesheetName` and will be used to identify your spritesheet.
+
 ## Importing a prop spritesheet
 In the top toolbar, use `Resources -> Import -> Sprites...` to open the Spritesheet import dialogue.
 

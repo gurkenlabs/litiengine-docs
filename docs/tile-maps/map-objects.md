@@ -14,16 +14,18 @@ MapObjects are objects placed on your tile map using the Tiled editor or utiLITI
 
 LITIENGINE supports several built-in map object types:
 
-| Type | Description | Entity Class |
-|------|-------------|--------------|
-| `CollisionBox` | Static collision geometry | `CollisionBox` |
-| `Creature` | Movable combat entities | `Creature` |
-| `Prop` | Static or destructible objects | `Prop` |
-| `Spawnpoint` | Entity spawn locations | `Spawnpoint` |
-| `Trigger` | Area-based event triggers | `Trigger` |
-| `LightSource` | Dynamic lighting | `LightSource` |
-| `Emitter` | Particle effects | `Emitter` |
-| `MapArea` | Named areas for scripting | `MapArea` |
+| Icon | Type | Description | Entity Class |
+|:----:|------|-------------|--------------|
+| ![CollisionBox](../images/utiliti-icons/collisionbox.svg){ .utiliti-icon } | `CollisionBox` | Static collision geometry | [`CollisionBox`](../entity-framework/default-entity-types.md#collisionbox) |
+| ![Creature](../images/utiliti-icons/creature.svg){ .utiliti-icon } | `Creature` | Movable combat entities | [`Creature`](../entity-framework/default-entity-types.md#creature) |
+| ![Prop](../images/utiliti-icons/prop.svg){ .utiliti-icon } | `Prop` | Static or destructible objects | [`Prop`](../entity-framework/default-entity-types.md#prop) |
+| ![Spawnpoint](../images/utiliti-icons/spawnpoint.svg){ .utiliti-icon } | `Spawnpoint` | Entity spawn locations | [`Spawnpoint`](../entity-framework/default-entity-types.md#spawnpoint) |
+| ![Trigger](../images/utiliti-icons/trigger.svg){ .utiliti-icon } | `Trigger` | Area-based event triggers | [`Trigger`](../entity-framework/default-entity-types.md#trigger) |
+| ![LightSource](../images/utiliti-icons/bulb.svg){ .utiliti-icon } | `LightSource` | Dynamic lighting | [`LightSource`](../entity-framework/default-entity-types.md#lightsource) |
+| ![SoundSource](../images/utiliti-icons/sound.svg){ .utiliti-icon } | `SoundSource` | Ambient positional audio emitter | [`SoundSource`](../entity-framework/default-entity-types.md#soundsource) |
+| ![StaticShadow](../images/utiliti-icons/shadowbox.svg){ .utiliti-icon } | `StaticShadow` | Baked directional drop shadow | [`StaticShadow`](../entity-framework/default-entity-types.md#staticshadow) |
+| ![Emitter](../images/utiliti-icons/emitter.svg){ .utiliti-icon } | `Emitter` | Particle effects | [`Emitter`](../entity-framework/default-entity-types.md#emitter) |
+| ![MapArea](../images/utiliti-icons/maparea.svg){ .utiliti-icon } | `MapArea` | Named areas for scripting | [`MapArea`](../entity-framework/default-entity-types.md#maparea) |
 
 ## Adding Map Objects in utiLITI
 

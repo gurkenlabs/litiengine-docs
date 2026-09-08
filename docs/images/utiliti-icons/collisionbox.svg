@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <style>
+    :root { color: #4B5563; }
+    .accent { stroke: #D97706; }
+    @media (prefers-color-scheme: dark) {
+      :root { color: #E5E7EB; }
+      .accent { stroke: #F7B54A; }
+    }
+  </style>
+  <rect x="4.25" y="4.25" width="15.5" height="15.5" rx="1.5"/>
+  <rect class="accent" x="2.75" y="2.75" width="3" height="3" rx=".5"/><rect class="accent" x="18.25" y="2.75" width="3" height="3" rx=".5"/><rect class="accent" x="2.75" y="18.25" width="3" height="3" rx=".5"/><rect class="accent" x="18.25" y="18.25" width="3" height="3" rx=".5"/>
+</svg>

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <style>
+    :root { color: #4B5563; }
+    .accent { stroke: #3B82F6; }
+    @media (prefers-color-scheme: dark) {
+      :root { color: #E5E7EB; }
+      .accent { stroke: #60A5FA; }
+    }
+  </style>
+  <circle cx="12" cy="12" r="7"/>
+  <path d="M12 2.5V7m0 10v4.5M2.5 12H7m10 0h4.5"/>
+  <circle class="accent" cx="12" cy="12" r="2.5"/>
+</svg>

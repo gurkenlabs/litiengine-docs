@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <style>
+    :root { color: #4B5563; }
+    .accent-fill { fill: #7C3AED; }
+    @media (prefers-color-scheme: dark) {
+      :root { color: #E5E7EB; }
+      .accent-fill { fill: #A78BFA; }
+    }
+  </style>
+  <circle class="accent-fill" cx="12" cy="12" r="2.5" stroke="none"/>
+  <path d="M12 3v3M12 18v3M3 12h3M18 12h3"/>
+  <g class="accent-fill" stroke="none"><circle cx="6" cy="6" r="1.25"/><circle cx="18" cy="6" r="1.25"/><circle cx="18" cy="18" r="1.25"/><circle cx="6" cy="18" r="1.25"/></g>
+</svg>

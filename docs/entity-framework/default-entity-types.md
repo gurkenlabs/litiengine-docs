@@ -13,15 +13,18 @@ tags: [creature, prop, trigger, spawnpoint, collisionbox, light]
 
 Choose the optimal entity type for your game objects:
 
-| Entity Type | Purpose / Use Case | Default Collision | Key Annotations | utiLITI Object Type | Key Behaviors & Hooks |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| **`Creature`** | Living characters, NPCs, enemies, players | Yes (Dynamic box) | `@EntityInfo`, `@MovementInfo`, `@CombatInfo`, `@CollisionInfo` | `CREATURE` | `onMoved`, `onHit`, `onDeath`, `onResurrect` |
-| **`Prop`** | Interactive/static map objects (chests, trees, pots) | Configurable | `@EntityInfo`, `@CollisionInfo` | `PROP` | `onHit`, `onDeath`, `PropState` |
-| **`Trigger`** | Invisible event zones (doors, cutscenes, teleporters) | Sensor only | `@EntityInfo` | `TRIGGER` | `addActivatedListener`, `addDeactivatedListener` |
-| **`Emitter`** | Particle sources (fire, weather, explosions) | None | `@EntityInfo` | `EMITTER` | `onFinished`, `data().setEmitterDuration(...)` |
-| **`LightSource`** | Dynamic/static ambient lights & torches | None | `@EntityInfo` | `LIGHTSOURCE` | `activate()`, `deactivate()`, `setColor()` |
-| **`Spawnpoint`** | Level entry points and entity spawn markers | None | `@EntityInfo` | `SPAWNPOINT` | `onSpawned`, `spawn(IEntity)` |
-| **`CollisionEntity`** | Invisible collision barrier / obstacle | Configurable (defaults to DYNAMIC) | `@CollisionInfo` | `COLLISIONBOX` | `onCollision`, `setCollision(boolean)` |
+| Icon | Entity Type | Purpose / Use Case | Default Collision | Key Annotations | utiLITI Object Type | Key Behaviors & Hooks |
+| :---: | :--- | :--- | :--- | :--- | :--- | :--- |
+| ![Creature](../images/utiliti-icons/creature.svg){ .utiliti-icon } | **[`Creature`](#creature)** | Living characters, NPCs, enemies, players | Yes (Dynamic box) | `@EntityInfo`, `@MovementInfo`, `@CombatInfo`, `@CollisionInfo` | [`CREATURE`](../tile-maps/map-objects.md#map-object-types) | `onMoved`, `onHit`, `onDeath`, `onResurrect` |
+| ![Prop](../images/utiliti-icons/prop.svg){ .utiliti-icon } | **[`Prop`](#prop)** | Interactive/static map objects (chests, trees, pots) | Configurable | `@EntityInfo`, `@CollisionInfo` | [`PROP`](../tile-maps/map-objects.md#map-object-types) | `onHit`, `onDeath`, `PropState` |
+| ![CollisionBox](../images/utiliti-icons/collisionbox.svg){ .utiliti-icon } | **[`CollisionBox`](#collisionbox)** | Static physics obstacle barrier / wall | Static collider | None | [`COLLISIONBOX`](../tile-maps/map-objects.md#map-object-types) | `isObstructingLight()`, pathfinding blocking |
+| ![Trigger](../images/utiliti-icons/trigger.svg){ .utiliti-icon } | **[`Trigger`](#trigger)** | Invisible event zones (doors, cutscenes, teleporters) | Sensor only | `@EntityInfo` | [`TRIGGER`](../tile-maps/map-objects.md#map-object-types) | `addActivatedListener`, `addDeactivatedListener` |
+| ![Spawnpoint](../images/utiliti-icons/spawnpoint.svg){ .utiliti-icon } | **[`Spawnpoint`](#spawnpoint)** | Level entry points and entity spawn markers | None | `@EntityInfo` | [`SPAWNPOINT`](../tile-maps/map-objects.md#map-object-types) | `onSpawned`, `spawn(IEntity)` |
+| ![LightSource](../images/utiliti-icons/bulb.svg){ .utiliti-icon } | **[`LightSource`](#lightsource)** | Dynamic/static ambient lights & torches | None | `@EntityInfo` | [`LIGHTSOURCE`](../tile-maps/map-objects.md#map-object-types) | `activate()`, `deactivate()`, `setColor()` |
+| ![SoundSource](../images/utiliti-icons/sound.svg){ .utiliti-icon } | **[`SoundSource`](#soundsource)** | Ambient or looping positional audio emitters | None | `@EntityInfo` | [`SOUNDSOURCE`](../tile-maps/map-objects.md#map-object-types) | `play()`, `setLoop(boolean)`, `setRange(int)` |
+| ![StaticShadow](../images/utiliti-icons/shadowbox.svg){ .utiliti-icon } | **[`StaticShadow`](#staticshadow)** | Baked directional drop shadows | None | None | [`STATICSHADOW`](../tile-maps/map-objects.md#map-object-types) | `getShadowType()`, `setOffset()` |
+| ![Emitter](../images/utiliti-icons/emitter.svg){ .utiliti-icon } | **[`Emitter`](#emitter)** | Particle sources (fire, weather, explosions) | None | `@EntityInfo` | [`EMITTER`](../tile-maps/map-objects.md#map-object-types) | `onFinished`, `data().setEmitterDuration(...)` |
+| ![MapArea](../images/utiliti-icons/maparea.svg){ .utiliti-icon } | **[`MapArea`](#maparea)** | Named spatial zones, boundary detection, scripts | Sensor / None | `@EntityInfo` | [`AREA`](../tile-maps/map-objects.md#map-object-types) | Zone boundary queries, `getArea(name)` |
 
 ---
 
@@ -34,12 +37,28 @@ graph TD
     IE["<b>IEntity</b><br/><i>Core entity interface</i>"]
     E["<b>Entity</b><br/><i>Base game object (position, size, tags, actions)</i>"]
     CE["<b>CollisionEntity</b><br/><i>Collision box & physics interaction</i>"]
+    CB["<b>CollisionBox</b><br/><i>Static obstacle barrier</i>"]
     CBE["<b>CombatEntity</b><br/><i>Hit points, combat states, hit/death hooks</i>"]
     CR["<b>Creature</b><br/><i>Animations, movement controllers, facing direction</i>"]
     PR["<b>Prop</b><br/><i>Static/dynamic destructible map objects</i>"]
+    MA["<b>MapArea</b><br/><i>Named spatial zone & boundary</i>"]
+    SSH["<b>StaticShadow</b><br/><i>Baked directional shadow</i>"]
+    SS["<b>SoundSource</b><br/><i>Ambient spatial audio</i>"]
+    TR["<b>Trigger</b><br/><i>Collision/interaction sensor</i>"]
+    SP["<b>Spawnpoint</b><br/><i>Entity spawn marker</i>"]
+    EM["<b>Emitter</b><br/><i>Particle effect source</i>"]
+    LS["<b>LightSource</b><br/><i>Dynamic illumination</i>"]
 
     IE --> E
     E --> CE
+    E --> MA
+    E --> SS
+    E --> TR
+    E --> SP
+    E --> EM
+    E --> LS
+    MA --> SSH
+    CE --> CB
     CE --> CBE
     CBE --> CR
     CBE --> PR
@@ -210,7 +229,7 @@ emitter.activate();
 ```
 
 ### Spawnpoint
-Entity spawn locations.
+Entity spawn locations and player start markers.
 
 ```java
 Spawnpoint spawn = new Spawnpoint(Direction.RIGHT);
@@ -219,21 +238,70 @@ spawn.setLocation(100, 100);
 spawn.spawn(new Player());
 ```
 
+### CollisionBox
+Static collision obstacles that block physical movement and pathfinding.
+
+```java
+// Create an immovable collision barrier (e.g. wall, boundary)
+CollisionBox wall = new CollisionBox(0, 0, 320, 16);
+wall.setObstructingLight(true); // Optionally cast dynamic lighting shadows
+Game.world().environment().add(wall);
+```
+
+### SoundSource
+Positional ambient audio emitters with automatic 2D distance falloff.
+
+```java
+SoundSource waterfall = new SoundSource("waterfall.ogg");
+waterfall.setLocation(250, 180);
+waterfall.setLoop(true);
+waterfall.setRange(300); // Audible within 300px radius
+Game.world().environment().add(waterfall);
+waterfall.play();
+```
+
+### StaticShadow
+Baked directional drop shadows for buildings, trees, and large scenery.
+
+```java
+StaticShadow shadow = new StaticShadow(100, 100, 64, 32, StaticShadowType.DOWN);
+shadow.setOffset(12);
+Game.world().environment().add(shadow);
+```
+
+### MapArea
+Named spatial boundary zones for script triggers, camera bounds, and room queries.
+
+```java
+MapArea bossArena = new MapArea(500, 200, 400, 300);
+bossArena.setName("boss_arena");
+Game.world().environment().add(bossArena);
+
+// Query if an entity is inside the area
+if (bossArena.getBoundingBox().contains(player.getCenter())) {
+  // Trigger boss phase or room containment
+}
+```
+
 ## Choosing the Right Type
 
-| Use Case | Entity Type |
-|----------|-------------|
-| Decorative object, no interaction | `Entity` |
-| Wall, obstacle | `CollisionEntity` |
-| Destructible object with health | `CombatEntity` or `Prop` |
-| Player, enemies, NPCs | `Creature` |
-| Interactive objects | `Prop` |
-| Area triggers | `Trigger` |
-| Lighting | `LightSource` |
-| Particle effects | `Emitter` |
+| Icon | Use Case | Entity Type | utiLITI Object Type |
+| :---: | :--- | :--- | :--- |
+| ![Creature](../images/utiliti-icons/creature.svg){ .utiliti-icon } | Player characters, enemies, companions, NPCs | [`Creature`](#creature) | `CREATURE` |
+| ![Prop](../images/utiliti-icons/prop.svg){ .utiliti-icon } | Interactive/destructible scenery (chests, barrels, levers) | [`Prop`](#prop) | `PROP` |
+| ![CollisionBox](../images/utiliti-icons/collisionbox.svg){ .utiliti-icon } | Invisible static barriers, walls, level boundaries | [`CollisionBox`](#collisionbox) | `COLLISIONBOX` |
+| ![Trigger](../images/utiliti-icons/trigger.svg){ .utiliti-icon } | Collision/interaction event sensors (doors, traps, portals) | [`Trigger`](#trigger) | `TRIGGER` |
+| ![Spawnpoint](../images/utiliti-icons/spawnpoint.svg){ .utiliti-icon } | Player spawn positions, enemy respawn points | [`Spawnpoint`](#spawnpoint) | `SPAWNPOINT` |
+| ![LightSource](../images/utiliti-icons/bulb.svg){ .utiliti-icon } | Torches, lanterns, campfires, dynamic lighting | [`LightSource`](#lightsource) | `LIGHTSOURCE` |
+| ![SoundSource](../images/utiliti-icons/sound.svg){ .utiliti-icon } | Positional waterfalls, crackling fires, ambient soundscapes | [`SoundSource`](#soundsource) | `SOUNDSOURCE` |
+| ![StaticShadow](../images/utiliti-icons/shadowbox.svg){ .utiliti-icon } | Directional drop shadows underneath static obstacles | [`StaticShadow`](#staticshadow) | `STATICSHADOW` |
+| ![Emitter](../images/utiliti-icons/emitter.svg){ .utiliti-icon } | Particle bursts, weather effects, fire, smoke | [`Emitter`](#emitter) | `EMITTER` |
+| ![MapArea](../images/utiliti-icons/maparea.svg){ .utiliti-icon } | Spatial triggers, cutscene zones, camera boundaries | [`MapArea`](#maparea) | `AREA` |
+| :lucide-box:{ .utiliti-icon } | Lightweight decorative entity without physics | `Entity` | - |
 
 ## See Also
 
-- [Entity Framework Overview](README.md) - Entity system intro
-- [Annotations](annotations.md) - Configure entities
-- [Props](props.md) - Detailed prop documentation
+- [Map Objects](../tile-maps/map-objects.md) - Learn how map objects are placed, configured, and loaded from utiLITI and Tiled maps
+- [Entity Framework Overview](README.md) - Entity lifecycle and management
+- [Annotations](annotations.md) - Declarative configuration with `@EntityInfo`, `@CollisionInfo`, and `@CombatInfo`
+- [Props](props.md) - Deep dive into prop states and destructible objects
