@@ -95,16 +95,19 @@ package com.example.game.combat;
 
 import de.gurkenlabs.litiengine.Direction;
 import de.gurkenlabs.litiengine.entities.Creature;
+import de.gurkenlabs.litiengine.entities.IEntity;
 import de.gurkenlabs.litiengine.physics.Force;
 import de.gurkenlabs.litiengine.physics.GravityForce;
+import de.gurkenlabs.litiengine.physics.StickyForce;
+import de.gurkenlabs.litiengine.util.geom.GeometricUtilities;
 import java.awt.geom.Point2D;
 
 public class KnockbackApplier {
   public static void applyKnockback(Creature target, Point2D attackerCenter, float strength) {
     // 1. Calculate angle away from attacker
-    double angle = attackerCenter.angle(target.getCenter());
+    double angle = GeometricUtilities.calcAngle(attackerCenter, target.getCenter());
 
-    // 2. Create impulse force that decelerates smoothly over 30 ticks
+    // 2. Create impulse force
     Force knockback = new Force(target.getCenter(), strength, (float) angle);
     knockback.setCancelOnCollision(true);
 
@@ -113,12 +116,26 @@ public class KnockbackApplier {
   }
 
   public static void applyGravity(Creature target, float pullStrength) {
-    // Continuous gravity pull towards the bottom
+    // Continuous gravity pull downwards
     GravityForce gravity = new GravityForce(target, pullStrength, Direction.DOWN);
     target.movement().apply(gravity);
   }
+
+  public static void applyVortex(Creature victim, IEntity bossEntity, float pullStrength, float radius) {
+    // Sticky force: location dynamically follows bossEntity.getCenter()
+    StickyForce blackHole = new StickyForce(bossEntity, pullStrength, radius);
+    victim.movement().apply(blackHole);
+  }
 }
 ```
+
+### StickyForce (Entity-Anchored Forces)
+
+Unlike static positional forces, a `StickyForce` binds directly to an `IEntity`. As the host entity moves, the force's origin automatically tracks the host's centroid. This is ideal for:
+
+- **Magnetic pickups**: Attracting dropped loot/coins toward the moving player.
+- **Boss gravitational vortexes**: Dragging surrounding heroes toward a moving boss.
+- **Kinetic shielding & auras**: Orbiting barriers that deflect incoming bodies.
 
 ---
 
@@ -178,13 +195,13 @@ if (barrel != null) {
 
 <div class="grid cards" markdown>
 
-- :material-walk:{ .lg .middle } **[Movement Controllers](../control-entities/movement-controller.md)**
+- :lucide-move:{ .lg .middle } **[Movement Controllers](../control-entities/movement-controller.md)**
 
     ---
 
     Steering heading, acceleration rates, and collision sliding.
 
-- :material-tag-outline:{ .lg .middle } **[Entity Annotations & Matrix](../entity-framework/annotations.md)**
+- :lucide-tag:{ .lg .middle } **[Entity Annotations & Matrix](../entity-framework/annotations.md)**
 
     ---
 

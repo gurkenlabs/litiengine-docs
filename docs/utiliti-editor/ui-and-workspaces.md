@@ -156,3 +156,14 @@ Similar to a web browser or IDE, utiLITI tracks the history of inspected objects
 
 - **`Alt + Left Arrow`**: Navigate back to the previously inspected entity.
 - **`Alt + Right Arrow`**: Navigate forward in inspection history.
+
+---
+
+## 10. Toast Notification System
+
+utiLITI provides a floating toast notification system (`Toast`) positioned at the bottom center of the editor canvas:
+
+- **Action Confirmations**: Shows transient messages when files are loaded, saved, or when a new Gradle project is scaffolded.
+- **Interactive Undo Buttons**: When destructive operations occur—such as deleting an entity or removing a layer—the toast notification includes an embedded **Undo** button that immediately reverts the deletion without requiring manual key combinations.
+- **Automatic Dismissal**: Toasts automatically fade out after a brief display duration or immediately dismiss when a new notification arrives.
+

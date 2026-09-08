@@ -8,13 +8,13 @@ tags: [audio, sound, music, sfx, sound-engine, playback, volume]
 ---
 # Sound Engine
 
-The `SoundEngine` (`Game.audio()`) handles all sound effects, ambient background audio, and background music streaming. It natively supports `.wav` and `.ogg` audio formats without external native C libraries.
+The `SoundEngine` (`Game.audio()`) handles all sound effects, ambient background audio, and background music streaming. It natively supports `.wav`, `.ogg`, and `.mp3` audio formats without external native C libraries via its built-in Java Sound SPI.
 
 ```mermaid
 flowchart TD
  subgraph AudioSources["Audio Sources"]
- SFX["Sound Effects (.wav, .ogg)"]
- Music["Music Tracks (.ogg)"]
+ SFX["Sound Effects (.wav, .ogg, .mp3)"]
+ Music["Music Tracks (.ogg, .mp3)"]
  Spatial["Positional Sounds (Point2D)"]
  end
 
@@ -35,8 +35,9 @@ flowchart TD
 Play interface sounds, notifications, or player feedback anywhere in the world:
 
 ```java
-// Play a loaded sound resource
+// Play a loaded sound resource (.wav, .ogg, or .mp3)
 Game.audio().playSound("button-click.wav");
+Game.audio().playSound("coin.mp3");
 
 // Play with loop control (false = play once)
 Sound hitSound = Resources.sounds().get("hit.ogg");
@@ -58,25 +59,44 @@ Point2D explosionPoint = bossEnemy.getCenter();
 Game.audio().playSound("explosion.wav", explosionPoint);
 
 // Positional audio automatically fades as the camera moves farther away
-Game.audio().playSound("waterfall.wav", waterfallEntity.getLocation());
+Game.audio().playSound("waterfall.mp3", waterfallEntity.getLocation());
 ```
 
 ---
 
-## Background Music
+## Background Music & Tracks
 
 Music is streamed asynchronously to optimize memory usage:
 
 ```java
-// Play looping background music
+// Play looping background music (.ogg or .mp3)
 Game.audio().playMusic("overworld-theme.ogg");
 
 // Stop or pause music
 Game.audio().stopMusic();
 
-// Switch tracks with fading
-Game.audio().playMusic("boss-theme.ogg");
+// Switch tracks
+Game.audio().playMusic("boss-theme.mp3");
 ```
+
+### Seamless Intro + Loop Music (`IntroTrack`)
+
+A common requirement in game music (e.g. boss battles, stage themes) is playing an introductory fanfare once before transitioning seamlessly into a continuous loop:
+
+```java
+import de.gurkenlabs.litiengine.sound.IntroTrack;
+import de.gurkenlabs.litiengine.sound.Track;
+
+// Plays "boss-intro.mp3" once, then seamlessly loops "boss-loop.mp3" forever
+Track bossMusic = new IntroTrack("boss-intro.mp3", "boss-loop.mp3");
+Game.audio().playMusic(bossMusic);
+```
+
+LITIENGINE provides three built-in `Track` implementations:
+
+- **`IntroTrack`**: Plays an introductory sound once, then transitions into a seamless infinite loop.
+- **`LoopedTrack`**: Continuously loops a sound resource.
+- **`SinglePlayTrack`**: Plays a sound track once from start to finish without looping.
 
 ---
 

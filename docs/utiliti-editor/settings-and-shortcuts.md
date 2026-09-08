@@ -13,10 +13,14 @@ Access the application preferences by selecting **File -> Settings...** or press
 
 ---
 
-## Settings Dialog Categories
+## Settings Dialog & Real-Time Search
+
+The Settings dialog features an integrated real-time search bar at the top of the category navigation tree. Typing any query instantly filters categories and highlights matching options, whether searching for grid configuration, theme settings, or specific hotkeys. If no matching preference is found, an empty state displays with a one-click **Clear Search** button to quickly restore full visibility.
+
+Keyboard shortcut displays in the editor automatically adapt to your operating system, rendering macOS-native symbols (`Cmd`, `Opt`, `Shift`) or Windows/Linux keys (`Ctrl`, `Alt`, `Shift`).
 
 ![utiLITI Settings Dialog](../images/utiliti/settings-dialog.png)
-*The utiLITI Settings dialog with categories for Appearance, General, Grid, Keymap, and MCP Server configuration.*
+*The utiLITI Settings dialog with real-time search across Appearance, General, Grid, Keymap, and MCP Server categories.*
 
 
 ### 1. Appearance

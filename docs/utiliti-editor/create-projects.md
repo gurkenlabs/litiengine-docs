@@ -28,12 +28,77 @@ A `.litidata` file is an XML-structured container that can either reference exte
 
 ## Creating a New Project
 
-1. Launch the utiLITI editor.
-2. Select **File -> New...** from the menu or press **`Ctrl + N`**.
-3. In the file chooser dialog, navigate to your desired directory and specify your project name (for example, `game.litidata`).
-4. Click **Save**.
+utiLITI features a full **Gradle Project Creation Wizard** (`CreateProjectDialog`) that scaffolds a ready-to-run LITIENGINE game project on disk.
 
-An empty project will be initialized with a blank canvas, default layer setup, and ready-to-use asset containers.
+To open the wizard, select **File -> New Project...** from the menu bar or press **`Ctrl + N`** (**`Cmd + N`** on macOS).
+
+### Project Wizard Settings
+
+| Setting | Description | Default / Example |
+| :--- | :--- | :--- |
+| **Game Name** | Human-readable title of your game, passed to `Game.info().setName(...)`. | `My LITI Game` |
+| **Project Name** | Name of the project directory created on disk. Must be a valid portable directory name. | `my-liti-game` |
+| **Namespace** | Java package namespace for your source code. Must be a valid Java package identifier. | `com.example.mylitigame` |
+| **Game Version** | Initial version of your game, passed to `Game.info().setVersion(...)`. | `1.0.0` |
+| **Project Location** | Directory where the new project folder will be created. | User home / workspace |
+| **Build Script** | Gradle build configuration script language: **Groovy DSL** (`build.gradle`) or **Kotlin DSL** (`build.gradle.kts`). | `Groovy DSL` |
+| **Engine Version** | The LITIENGINE version dependency to include. Populated dynamically from Maven Central. | Latest release |
+
+### Dynamic Version Fetching
+
+The dialog connects asynchronously to Maven Central (`MavenCentralVersions`) to fetch all published engine versions. You can click the **Reload** button (`Icons.RELOAD_16`) to refresh available versions. If no internet connection is available, the wizard automatically falls back to the embedded default engine release.
+
+### Live Project Preview
+
+The right panel of the dialog displays a real-time preview of:
+
+- **Project Structure**: A live tree view showing the directory hierarchy and generated files.
+- **Generated Build Script**: Live preview of the generated `build.gradle` or `build.gradle.kts` containing the required Maven repositories and dependencies.
+
+### Auto-Scaffolded Project Structure
+
+When you click **Create Project**, utiLITI generates the complete project scaffold:
+
+```text
+my-liti-game/
+├── gradlew
+├── gradlew.bat
+├── gradle/
+│   └── wrapper/
+│       ├── gradle-wrapper.jar
+│       └── gradle-wrapper.properties
+├── gradle.properties        # Configured with org.gradle.jvmargs=-Xmx1g
+├── settings.gradle[.kts]    # Declares rootProject.name
+├── build.gradle[.kts]       # Declares Maven Central, LITIENGINE dependency, application plugin
+├── .gitignore               # Ignores .gradle/, build/, out/, .idea/, *.iml
+├── game.litidata            # Blank starter resource bundle
+└── src/
+    └── main/
+        └── java/
+            └── com/example/mylitigame/
+                └── Main.java # Pre-configured entry point loading game.litidata
+```
+
+The generated `Main.java` contains the bootstrap code:
+
+```java
+package com.example.mylitigame;
+
+import de.gurkenlabs.litiengine.Game;
+import de.gurkenlabs.litiengine.resources.Resources;
+
+public class Main {
+  public static void main(String[] args) {
+    Game.info().setName("My LITI Game");
+    Game.info().setVersion("1.0.0");
+    Game.init(args);
+    Resources.load("game.litidata");
+    Game.start();
+  }
+}
+```
+
+Once created, utiLITI opens `game.litidata` automatically, and you can run or build your game immediately using `./gradlew run` or utiLITI's built-in **Run** button (`Shift + F10`).
 
 ---
 

@@ -107,13 +107,13 @@ public class AssetLoader {
 
 <div class="grid cards" markdown>
 
-- :material-image-multiple-outline:{ .lg .middle } **[Texture Atlases](texture-atlas.md)**
+- :lucide-images:{ .lg .middle } **[Texture Atlases](texture-atlas.md)**
 
     ---
 
     Organizing spritesheets and texture regions.
 
-- :material-filmstrip:{ .lg .middle } **[Animation Controller](../control-entities/animation-controller.md)**
+- :lucide-clapperboard:{ .lg .middle } **[Animation Controller](../control-entities/animation-controller.md)**
 
     ---
 

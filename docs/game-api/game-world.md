@@ -37,23 +37,75 @@ Game.world().environment().addEntityListener(new EnvironmentEntityListener(){
   }
 });
 ```
- ### Layering
- When the active Screen calls the `Environment.render(Graphics2D)` method, its internal rendering pipeline is executed which will render everything that was previously added/loaded to the environment. There are different `RenderType`s that define in which order the objects and tile layers will be rendered. Think of the `RenderType`s as layers that are painted on our canvas one after another. 
 
- The rendering order is as follows:
+### Layering
 
- `BACKGROUND` -> `GROUND` -> `SURFACE` -> `NORMAL` -> (static shadows) -> `OVERLAY` -> (ambient light) -> `UI`
+When the active Screen calls the `Environment.render(Graphics2D)` method, its internal rendering pipeline is executed which will render everything that was previously added/loaded to the environment. There are different `RenderType`s that define in which order the objects and tile layers will be rendered. Think of the `RenderType`s as layers that are painted on our canvas one after another.
 
- Internally, the Environment.render method does the following for every `RenderType` (besides `RenderType.NONE`, which can, for example, be used to make objects invisible temporarily):
+The rendering order is as follows:
 
- 1. Render all Map Layers of that type
- 2. Render all registered `IRenderable` implementations of that type
- 3. Render all added `IEntities` of that type
- 4. Call-back on the `EnvironmentRenderListener.rendered` listeners for that type
- 5. If `dbg_logDetailedRenderTimes = true`: track the time it took to execute the rendering
+`BACKGROUND` &rarr; `GROUND` &rarr; `SURFACE` &rarr; `NORMAL` &rarr; *(static shadows)* &rarr; `OVERLAY` &rarr; *(ambient light)* &rarr; `UI`
+
+Internally, the `Environment.render` method does the following for every `RenderType` (besides `RenderType.NONE`, which can, for example, be used to make objects invisible temporarily):
+
+1. Render all Map Layers of that type
+2. Render all registered `IRenderable` implementations of that type
+3. Render all added `IEntities` of that type
+4. Call-back on the `EnvironmentRenderListener.rendered` listeners for that type
+5. If `dbg_logDetailedRenderTimes = true`: track the time it took to execute the rendering
 
 !!! tip "Entity Tag Caching"
     Use `environment.getEntitiesByTag("enemy")` to efficiently query collections of entities instead of filtering through `environment().getAll()` on every frame.
+
+## Fluent Entity Queries (`EntityQuery`)
+
+LITIENGINE provides a fluent spatial query API via `Environment.query(Class)` (or `EntityQuery.in(environment, Class)`) that eliminates manual stream filtering and distance math:
+
+```java
+import de.gurkenlabs.litiengine.Game;
+import de.gurkenlabs.litiengine.entities.Creature;
+import java.util.List;
+import java.util.Optional;
+
+// 1. Find the nearest living enemy creature within 200 pixels
+Optional<Creature> nearestTarget = Game.world().environment()
+    .query(Creature.class)
+    .alive()
+    .enemyOf(player)
+    .within(player.getCenter(), 200)
+    .nearestTo(player.getCenter())
+    .first();
+
+// 2. Query all undead creatures with a specific tag
+List<Creature> skeletons = Game.world().environment()
+    .query(Creature.class)
+    .tagged("undead")
+    .matching(c -> c.getName().startsWith("skeleton_"))
+    .list();
+
+// 3. Count enemies on team 2
+long enemyCount = Game.world().environment()
+    .query(Creature.class)
+    .team(2)
+    .alive()
+    .count();
+```
+
+### Available `EntityQuery` Filters & Operations
+
+| Method | Description |
+|:---|:---|
+| `.within(Point2D center, double radius)` | Keeps entities whose center is at most `radius` pixels from `center`. |
+| `.nearestTo(Point2D point)` | Orders results by increasing Euclidean distance to `point`. |
+| `.alive()` / `.dead()` | Filters combat entities by alive or dead state. |
+| `.team(int teamId)` | Matches combat entities belonging to a specific team. |
+| `.enemyOf(ICombatEntity entity)` | Keeps combat entities whose team differs from `entity`. |
+| `.tagged(String tag)` | Keeps entities that possess the given tag. |
+| `.named(String name)` | Matches entities by exact name. |
+| `.matching(Predicate<T> filter)` | Applies an arbitrary custom predicate filter. |
+| `.first()` | Returns an `Optional<T>` containing the first match. |
+| `.list()` | Evaluates the query into an unmodifiable snapshot `List<T>`. |
+| `.count()` | Counts matching entities without sorting. |
 
 ## Code-Only Environments (Procedural Maps without utiLITI)
 

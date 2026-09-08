@@ -54,21 +54,58 @@ public class Fireball extends Ability {
 }
 ```
 
-## Using Abilities
+## Creature Ability Registry
+
+`Creature` provides a built-in ability registry and execution API so entities can manage, check, and cast their own abilities directly:
 
 ```java
-Creature creature = ...;
-Jump jumpAbility = new Jump(creature);
+Creature player = ...;
 
-// Check if ability can be cast
-if (jumpAbility.canCast()) {
-  jumpAbility.cast();
+// 1. Register an ability instance
+player.addAbility(new Jump(player));
+
+// 2. Check and cast by name or class
+if (player.canCast("Jump")) {
+  player.cast("Jump");
 }
 
-// Check if currently executing
-if (jumpAbility.isExecuting()) {
-  // Ability in progress
+// Or cast by class type
+if (player.canCast(Jump.class)) {
+  player.cast(Jump.class);
 }
+
+// 3. Inspect cooldown state
+boolean onCooldown = player.isOnCooldown("Jump");
+
+// 4. Query registered ability
+Optional<Jump> jump = player.getAbility(Jump.class);
+```
+
+---
+
+## Fluent Dynamic Abilities (`AbilityBuilder`)
+
+Instead of creating a dedicated subclass for every ability, construct dynamic abilities directly using `creature.createAbility(name)`:
+
+```java
+import de.gurkenlabs.litiengine.abilities.CastType;
+import de.gurkenlabs.litiengine.abilities.DynamicAbility;
+
+// Fluently construct and register an ability on the creature
+DynamicAbility fireball = player.createAbility("Fireball")
+    .description("Launches an explosive ball of flame.")
+    .cooldown(1500)   // Cooldown in ms
+    .range(250)       // Cast range in map units
+    .impact(40)       // Base effect impact
+    .castType(CastType.INSTANT)
+    .onCast(execution -> {
+      System.out.println(execution.getAbility().getExecutor().getName() + " cast Fireball!");
+      // Spawn visual projectiles, sounds, or impact effects
+    })
+    .register(); // Automatically adds ability to player
+
+// Cast using the creature registry
+player.cast("Fireball");
 ```
 
 ## Ability Effects

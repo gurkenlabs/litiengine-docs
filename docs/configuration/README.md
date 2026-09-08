@@ -30,14 +30,20 @@ Manages general client runtime properties:
 ---
 
 ### 2. `GraphicConfiguration` (`gfx_`)
-Controls display resolution, window mode, and pixel scaling:
+Controls display resolution, window mode, rendering pipelines, and pixel scaling:
 
 | Property Key | Type | Default | Description |
 |:---|:---|:---|:---|
-| `gfx_fullscreen` | `boolean` | `false` | Enables borderless exclusive fullscreen mode. |
+| `gfx_displayMode` | `DisplayMode` | `WINDOWED` | Window presentation mode (`WINDOWED`, `BORDERLESS`, `FULLSCREEN`). |
+| `gfx_resolutionWidth` | `int` | Screen width | Viewport render width. |
+| `gfx_resolutionHeight` | `int` | Screen height - 100 | Viewport render height. |
 | `gfx_enableResolutionScale` | `boolean` | `true` | Automatically scales virtual coordinates to monitor resolution. |
-| `gfx_graphicQuality` | `Quality` | `VERYHIGH` | AWT anti-aliasing and rendering hint quality (`LOW`, `MEDIUM`, `HIGH`, `VERYHIGH`). |
+| `gfx_java2dPipeline` | `Java2DPipeline` | `OPENGL` | Hardware acceleration pipeline (`DEFAULT`, `OPENGL`, `DIRECTX`). |
+| `gfx_graphicQuality` | `Quality` | `LOW` | AWT anti-aliasing and rendering hint quality (`LOW`, `MEDIUM`, `HIGH`, `VERYHIGH`). |
 | `gfx_antiAliasing` | `boolean` | `false` | Smooths vector geometries (recommended `false` for crisp pixel art). |
+| `gfx_colorInterpolation` | `boolean` | `false` | Enables bicubic/bilinear color interpolation during scaling. |
+| `gfx_renderDynamicShadows` | `boolean` | `false` | Enables ambient dynamic shadow rendering. |
+| `gfx_reduceFramesWhenNotFocused` | `boolean` | `true` | Throttles framerate when the game window loses focus. |
 
 ---
 
@@ -48,6 +54,36 @@ Controls master, music, and sound effect volume buses:
 |:---|:---|:---|:---|
 | `sfx_soundVolume` | `float` | `0.5f` | Master volume multiplier for sound effects (`0.0` to `1.0`). |
 | `sfx_musicVolume` | `float` | `0.5f` | Master volume multiplier for background music (`0.0` to `1.0`). |
+
+---
+
+### 4. `DebugConfiguration` (`dbg_`)
+Toggles diagnostic overlays and metric tracking (active only when `Game.isDebug()` is enabled):
+
+| Property Key | Type | Default | Description |
+|:---|:---|:---|:---|
+| `dbg_debugEnabled` | `boolean` | `false` | Master toggle for debug rendering features. |
+| `dbg_renderBoundingBoxes` | `boolean` | `false` | Renders entity sprite bounding rectangles. |
+| `dbg_renderCollisionBoxes` | `boolean` | `false` | Renders static and dynamic physics collision geometries. |
+| `dbg_renderHitBoxes` | `boolean` | `false` | Renders combat combat-entity combat hitboxes. |
+| `dbg_renderEntityNames` | `boolean` | `false` | Renders text labels with entity IDs and names above sprites. |
+| `dbg_renderDebugMouse` | `boolean` | `false` | Renders cursor map position and grid tile coordinates. |
+| `dbg_renderGuiComponentBoundingBoxes` | `boolean` | `false` | Draws outline boxes around all UI components. |
+| `dbg_trackRenderTimes` | `boolean` | `false` | Measures CPU/GPU frame render times for profiling. |
+
+---
+
+### 5. `InputConfiguration` (`input_`)
+Configures mouse and controller sensitivity and deadzones:
+
+| Property Key | Type | Default | Description |
+|:---|:---|:---|:---|
+| `input_mouseSensitivity` | `float` | `1.0f` | Mouse cursor tracking sensitivity multiplier. |
+| `input_gamepadSupport` | `boolean` | `false` | Enables hardware gamepad polling. |
+| `input_gamepadStickDeadzone` | `float` | `0.15f` | Analog stick drift deadzone threshold (`0.0` to `1.0`). |
+| `input_gamepadAxisDeadzone` | `float` | `0.30f` | General axis deadzone threshold. |
+| `input_gamepadTriggerDeadzone` | `float` | `0.10f` | Analog trigger actuation deadzone threshold. |
+
 
 ---
 
@@ -130,12 +166,30 @@ cl_showGameMetrics=false
 cl_updaterate=60
 
 gfx_antiAliasing=false
+gfx_colorInterpolation=false
+gfx_displayMode=WINDOWED
 gfx_enableResolutionScale=true
-gfx_fullscreen=false
-gfx_graphicQuality=VERYHIGH
+gfx_graphicQuality=LOW
+gfx_java2dPipeline=OPENGL
+gfx_reduceFramesWhenNotFocused=true
+gfx_renderDynamicShadows=false
+gfx_resolutionHeight=980
+gfx_resolutionWidth=1920
 
 sfx_musicVolume=0.75
 sfx_soundVolume=0.80
+
+dbg_debugEnabled=false
+dbg_renderBoundingBoxes=false
+dbg_renderCollisionBoxes=false
+dbg_renderHitBoxes=false
+dbg_renderEntityNames=false
+
+input_gamepadAxisDeadzone=0.30
+input_gamepadStickDeadzone=0.15
+input_gamepadSupport=false
+input_gamepadTriggerDeadzone=0.10
+input_mouseSensitivity=1.0
 
 game_difficulty=2
 game_damageNumbers=true
@@ -149,13 +203,13 @@ game_screenShake=true
 
 <div class="grid cards" markdown>
 
-- :material-volume-high:{ .lg .middle } **[Sound Engine](../game-api/sound-engine.md)**
+- :lucide-volume-2:{ .lg .middle } **[Sound Engine](../game-api/sound-engine.md)**
 
     ---
 
     Audio volume buses and playlist management.
 
-- :material-monitor:{ .lg .middle } **[Game Window](../game-api/game-window.md)**
+- :lucide-monitor:{ .lg .middle } **[Game Window](../game-api/game-window.md)**
 
     ---
 

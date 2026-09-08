@@ -114,12 +114,18 @@ public class TorchBearer extends Creature {
   public TorchBearer() {
     super("torchbearer");
     this.torchLight = new LightSource(120, Color.ORANGE, LightSource.Type.ELLIPSE, true);
-  }
 
-  @Override
-  public void loaded() {
-    super.loaded();
-    Game.world().environment().add(this.torchLight);
+    this.addListener(new EntityListener() {
+      @Override
+      public void loaded(IEntity entity, Environment environment) {
+        environment.add(torchLight);
+      }
+
+      @Override
+      public void removed(IEntity entity, Environment environment) {
+        environment.remove(torchLight);
+      }
+    });
   }
 
   @Override
