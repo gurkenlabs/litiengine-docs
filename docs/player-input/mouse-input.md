@@ -27,14 +27,15 @@ The `Input.mouse()` method provides access to the `IMouse` interface for handlin
 ### Getting Mouse Location
 
 ```java
-// Get current mouse location (window coordinates)
-Point2D location = Input.mouse().getLocation();
-double x = location.getX();
-double y = location.getY();
+// Get mouse location in screen/window coordinates
+Point2D windowLocation = Input.mouse().getLocation();
+
+// Get mouse location in world map coordinates (accounting for camera pan/zoom)
+Point2D mapLocation = Input.mouse().getMapLocation();
 ```
 
-!!! note
-    The coordinates are relative to the game window, not the game world. To get world coordinates, account for camera position.
+!!! tip "Point-and-Click Movement"
+    To drive entity movement using mouse right-clicks, attach a [`MousePathController`](../control-entities/movement-controller.md#mousepathcontroller-point-and-click-arpg-movement) to your creature rather than writing manual raycast/steering code.
 
 ### Checking Button State
 
@@ -145,7 +146,8 @@ Input.mouse().onClicked(e -> {
 
   // Move player to clicked location
   Player player = Player.instance();
-  Game.physics().move(player, player.getAngleTo(worldPos), player.getVelocity());
+  double angle = GeometricUtilities.calcRotationAngleInDegrees(player.getCenter(), worldPos);
+  Game.physics().move(player, angle, player.getVelocity());
 });
 ```
 

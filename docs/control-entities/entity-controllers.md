@@ -80,7 +80,7 @@ public class MyCustomController extends EntityController<MyEntity> {
     MyEntity entity = getEntity();
 
     // Custom logic here
-    if (entity.isAlive()) {
+    if (entity != null && !entity.isDead()) {
       performCustomBehavior();
     }
   }

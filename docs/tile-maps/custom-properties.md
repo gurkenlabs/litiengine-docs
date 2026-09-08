@@ -30,18 +30,26 @@ Custom properties allow you to attach arbitrary data to map objects in the Tiled
 
 LITIENGINE recognizes several built-in property names that configure entity behavior:
 
-| Property | Type | Description |
-|----------|------|-------------|
-| `sprite` | String | Spritesheet name for the entity |
-| `collision` | Boolean | Enable/disable collision |
-| `collisionBoxWidth` | Int | Collision box width in pixels |
-| `collisionBoxHeight` | Int | Collision box height in pixels |
-| `align` | String | Horizontal alignment (LEFT, CENTER, RIGHT) |
-| `valign` | String | Vertical alignment (TOP, MIDDLE, BOTTOM) |
-| `velocity` | Float | Movement velocity |
-| `acceleration` | Float | Movement acceleration |
-| `deceleration` | Float | Movement deceleration |
-| `hp` | Int | Hit points for combat entities |
+| Property Key | Java Constant | Type | Description |
+|:---|:---|:---|:---|
+| `spritesheetName` | `MapObjectProperty.SPRITESHEETNAME` | String | Spritesheet name used for the entity visuals. |
+| `collision` | `MapObjectProperty.COLLISION` | Boolean | Enables or disables solid physical collision. |
+| `collisionboxWidth` | `MapObjectProperty.COLLISIONBOX_WIDTH` | Float | Width of the collision collider in pixels. |
+| `collisionboxHeight` | `MapObjectProperty.COLLISIONBOX_HEIGHT` | Float | Height of the collision collider in pixels. |
+| `collisionAlign` | `MapObjectProperty.COLLISION_ALIGN` | Enum | Horizontal collider alignment (`LEFT`, `CENTER`, `RIGHT`). |
+| `collisionValign` | `MapObjectProperty.COLLISION_VALIGN` | Enum | Vertical collider alignment (`TOP`, `MIDDLE`, `DOWN`). |
+| `collisionType` | `MapObjectProperty.COLLISION_TYPE` | Enum | Physics collider type (`STATIC`, `DYNAMIC`). |
+| `velocity` | `MapObjectProperty.MOVEMENT_VELOCITY` | Float | Maximum movement velocity in pixels per second. |
+| `acceleration` | `MapObjectProperty.MOVEMENT_ACCELERATION` | Int | Milliseconds to accelerate to top speed. |
+| `deceleration` | `MapObjectProperty.MOVEMENT_DECELERATION` | Int | Milliseconds to come to a full stop. |
+| `turnOnMove` | `MapObjectProperty.MOVEMENT_TURNONMOVE` | Boolean | Automatically faces the entity towards movement heading. |
+| `hitpoints` | `MapObjectProperty.COMBAT_HITPOINTS` | Int | Maximum and initial hit points for combat entities. |
+| `indestructible` | `MapObjectProperty.COMBAT_INDESTRUCTIBLE` | Boolean | Prevents combat entity from taking damage. |
+| `team` | `MapObjectProperty.COMBAT_TEAM` | Int | Combat team identifier (0 = neutral/player, 1+ = teams). |
+| `tags` | `MapObjectProperty.TAGS` | String | Comma-separated tags (e.g. `boss,undead,fire`). |
+| `renderType` | `MapObjectProperty.RENDERTYPE` | Enum | Render layer (`BACKGROUND`, `GROUND`, `SURFACE`, `NORMAL`, `OVERLAY`, `UI`). |
+| `material` | `MapObjectProperty.PROP_MATERIAL` | Enum | Prop material (`STONE`, `WOOD`, `METAL`, `GLASS`, etc.). |
+| `isObstacle` | `MapObjectProperty.PROP_OBSTACLE` | Boolean | Whether a prop blocks pathfinding navigation. |
 
 ## Reading Properties at Runtime
 
@@ -162,16 +170,52 @@ public class EnemyLoader extends MapObjectLoader {
   public Collection<IEntity> load(Environment environment, IMapObject mapObject) {
     Enemy enemy = new Enemy();
 
-    // Configure from properties
-    enemy.setHealth(mapObject.getIntValue("hp", 100));
-    enemy.setDamage(mapObject.getIntValue("damage", 10));
-    enemy.setSpeed(mapObject.getFloatValue("speed", 1.0f));
-    enemy.setPatrols(mapObject.getBoolValue("patrol", false));
+    // Configure core engine properties from map object
+    enemy.getHitPoints().set(mapObject.getIntValue("hp", 100));
+    enemy.setVelocity(mapObject.getFloatValue("speed", 70.0f));
+    enemy.setCollision(mapObject.getBoolValue("collision", true));
 
     return List.of(enemy);
   }
 }
 ```
+
+---
+
+## Declarative Property Injection (`@TmxProperty`)
+
+Instead of writing manual loader extraction code, annotate fields in your custom entity classes with `@TmxProperty`. LITIENGINE's `MapObjectLoader` inspects fields and automatically injects matching map object property values at load time:
+
+```java
+package com.example.game.entities;
+
+import de.gurkenlabs.litiengine.entities.Creature;
+import de.gurkenlabs.litiengine.environment.tilemap.TmxProperty;
+
+public class GoblinArcher extends Creature {
+
+  @TmxProperty(name = "patrolRoute")
+  private String patrolRoute;
+
+  @TmxProperty(name = "aggroRadius")
+  private double aggroRadius = 150.0;
+
+  @TmxProperty(name = "dropKey")
+  private boolean dropKey = false;
+
+  public GoblinArcher(String spritesheetName) {
+    super(spritesheetName);
+  }
+
+  public String getPatrolRoute() { return this.patrolRoute; }
+  public double getAggroRadius() { return this.aggroRadius; }
+  public boolean doesDropKey() { return this.dropKey; }
+}
+```
+
+When placing `GoblinArcher` on a map in utiLITI or Tiled, simply set custom properties named `patrolRoute`, `aggroRadius`, and `dropKey`—they are injected into the instance with zero loader boilerplate.
+
+---
 
 ## See Also
 

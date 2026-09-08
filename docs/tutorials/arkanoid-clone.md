@@ -149,15 +149,17 @@ That's everything I needed inside my player class (except some member variables 
 To let our player instance appear in our game, we then need to spawn it. In my game, I added a LoadedListener in the init() method of my GameHandler class which then spawns my pad (the player) if a level was loaded and sets its location to the center bottom of the screen:
 
 ```java
-Game.world().addLoadedListener(e -> {
+Game.world().onLoaded(e -> {
   Spawnpoint enter = e.getSpawnpoint("enter");
   if (enter != null) {
     enter.spawn(Player.instance());
   }
 
-  Player.instance().setLocation(Game.window().getResolution().getWidth() / 2 - Player.instance().getWidth() / 2,
-  Game.window().getResolution().getHeight() * 0.95);
-}
+  Player.instance().setLocation(
+    Game.window().getResolution().getWidth() / 2.0 - Player.instance().getWidth() / 2.0,
+    Game.window().getResolution().getHeight() * 0.95
+  );
+});
 ```
 
 This code snippet only works if there's a `Spawnpoint` with the name "enter".

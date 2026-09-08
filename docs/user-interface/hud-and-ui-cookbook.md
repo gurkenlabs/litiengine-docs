@@ -45,7 +45,7 @@ public class HealthBar extends GuiComponent {
     double screenX = this.entity.getX() - (BAR_WIDTH - this.entity.getWidth()) / 2.0;
     double screenY = this.entity.getY() - 10;
 
-    double healthPercent = Math.max(0.0, (double) entity.getHitpoints() / entity.getMaxHitpoints());
+    double healthPercent = Math.max(0.0, (double) this.entity.getHitPoints().get() / this.entity.getHitPoints().getMax());
 
     // 1. Background Bar (Dark Gray)
     g.setColor(new Color(40, 40, 40, 200));

@@ -61,9 +61,19 @@ Dimension resolution = Game.window().getResolution();
 int width = resolution.width;
 int height = resolution.height;
 
-// Get host screen resolution
-Dimension screenResolution = Game.window().getHostScreenResolution();
+// Get physical screen resolution via AWT Toolkit
+Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+
+// Configure target resolution using preset aspect ratios
+Game.config().graphics().setResolution(Resolution.Ratio16x9.RES_1920x1080.getDimension());
 ```
+
+LITIENGINE provides predefined standard resolutions in `de.gurkenlabs.litiengine.gui.screens.Resolution` across common aspect ratios:
+
+- **16:9**: `Resolution.Ratio16x9.RES_1920x1080`, `RES_1600x900`, `RES_1366x768`, `RES_1280x720`
+- **16:10**: `Resolution.Ratio16x10.RES_1920x1200`, `RES_1680x1050`, `RES_1440x900`, `RES_1280x800`
+- **4:3**: `Resolution.Ratio4x3.RES_1024x768`, `RES_800x600`, `RES_640x480`
+- **5:4**: `Resolution.Ratio5x4.RES_1280x1024`
 
 ### Resolution Scaling
 
@@ -90,25 +100,30 @@ Control how much the game is scaled up from its native resolution:
 Game.graphics().setBaseRenderScale(4f);
 ```
 
-## Fullscreen Mode
+## Display Modes
 
-Toggle between windowed and fullscreen display:
+LITIENGINE supports windowed, borderless window, and exclusive fullscreen modes via the `DisplayMode` enum:
 
 ```java
-// Check if fullscreen
-boolean isFullscreen = Game.window().isFullscreen();
+import de.gurkenlabs.litiengine.configuration.DisplayMode;
 
-// Enable fullscreen
-Game.window().setFullscreen(true);
+// Check current display mode
+DisplayMode currentMode = Game.config().graphics().getDisplayMode();
 
-// Return to windowed mode
-Game.window().setFullscreen(false);
+// Switch to fullscreen
+Game.window().setDisplayMode(DisplayMode.FULLSCREEN);
+
+// Switch to borderless window (fills screen without window borders)
+Game.window().setDisplayMode(DisplayMode.BORDERLESS);
+
+// Return to standard windowed mode
+Game.window().setDisplayMode(DisplayMode.WINDOWED);
 ```
 
 Configure default in `config.properties`:
 
 ```properties
-gfx_fullscreen=false
+gfx_displayMode=FULLSCREEN
 ```
 
 ## Custom Cursor
@@ -131,10 +146,14 @@ The cursor offset parameters (16, 16) define the hotspot position relative to th
 
 ## Window Events
 
-Listen for window state changes:
+Listen for window state changes via `getHostControl()` (the underlying `JFrame`) or react to resolution changes:
 
 ```java
-Game.window().addWindowListener(new WindowAdapter() {
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
+// Listen to standard AWT window events
+Game.window().getHostControl().addWindowListener(new WindowAdapter() {
   @Override
   public void windowGainedFocus(WindowEvent e) {
     // Game window gained focus
@@ -144,6 +163,11 @@ Game.window().addWindowListener(new WindowAdapter() {
   public void windowLostFocus(WindowEvent e) {
     // Game window lost focus - consider pausing
   }
+});
+
+// React whenever the game resolution is changed
+Game.window().onResolutionChanged(newRes -> {
+  System.out.println("Resolution updated to: " + newRes.getWidth() + "x" + newRes.getHeight());
 });
 ```
 
@@ -155,8 +179,8 @@ Key window-related settings in `config.properties`:
 # Enable/disable resolution scaling
 gfx_enableResolutionScale=true
 
-# Start in fullscreen mode
-gfx_fullscreen=false
+# Display mode: WINDOWED, FULLSCREEN, or BORDERLESS
+gfx_displayMode=WINDOWED
 
 # Maximum FPS (0 = unlimited, syncs to monitor if vsync enabled)
 cl_maxFps=60
@@ -190,8 +214,12 @@ public static void main(String[] args) {
 ### Toggle Fullscreen at Runtime
 
 ```java
+import de.gurkenlabs.litiengine.configuration.DisplayMode;
+import java.awt.event.KeyEvent;
+
 Input.keyboard().onKeyPressed(KeyEvent.VK_F11, e -> {
-  Game.window().setFullscreen(!Game.window().isFullscreen());
+  DisplayMode current = Game.config().graphics().getDisplayMode();
+  Game.window().setDisplayMode(current == DisplayMode.FULLSCREEN ? DisplayMode.WINDOWED : DisplayMode.FULLSCREEN);
 });
 ```
 

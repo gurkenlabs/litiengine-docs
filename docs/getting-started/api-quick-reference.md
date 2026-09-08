@@ -64,7 +64,7 @@ Game.loop().getDeltaTime(); // Ms since last tick
 Game.loop().getTicks(); // Total ticks
 Game.loop().getTickRate(); // Ticks per second
 Game.loop().setTickRate(30); // Change tick rate
-Game.loop().execute(60, () -> {...}); // Execute after 60 ticks
+Game.loop().perform(1000, () -> {...}); // Execute after delay (in ms)
 ```
 
 ## Input
@@ -97,8 +97,8 @@ Input.gamepads().onRemoved(pad -> System.out.println("Gamepad disconnected: " + 
 
 ```java
 Game.scripts(); // Script engine manager
-Game.scripts().get("patrol_ai"); // Query loaded script by ID
-Game.scripts().getEntities("patrol_ai"); // Query all entities bound to script
+Game.scripts().getDefinition("patrol_ai"); // Query loaded script definition by ID
+Game.scripts().getEntityBindings(); // Query all entity script bindings
 ```
 
 ## Rendering
@@ -174,8 +174,8 @@ collisionEntity.hasCollision();
 collisionEntity.getCollisionBox();
 
 // Combat
-combatEntity.getHitpoints();
-combatEntity.getMaxHitpoints();
+combatEntity.getHitPoints().get(); // Current hit points
+combatEntity.getHitPoints().getMax(); // Max hit points
 combatEntity.hit(damage);
 combatEntity.isDead();
 

@@ -76,17 +76,18 @@ public class PlayerAnimationController extends CreatureAnimationController<Playe
 
 Add rules to determine when specific animations play:
 
-```java
-// Add a rule: condition -> animation name
+// Add an animation rule: (Predicate<Entity>, Function<Entity, String>, int priority)
 animationController.addRule(
-() -> entity.isJumping(), // Condition
-() -> "jump-" + getDirection() // Animation name
+  e -> e.isDead(),
+  e -> "dead",
+  10 // High priority
 );
 
-// Rules are evaluated in order of priority
-animationController.addRule(1, condition, animation); // Higher priority
-animationController.addRule(0, condition, animation); // Lower priority
-```
+// Default priority (0)
+animationController.addRule(
+  e -> e.hasTag("stunned"),
+  e -> "stunned"
+);
 
 ## Playing Animations
 

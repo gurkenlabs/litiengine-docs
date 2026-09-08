@@ -76,7 +76,7 @@ Player player = new Player();
 KeyboardEntityController<Player> controller = new KeyboardEntityController<>(player);
 
 // Attach the controller to the player entity
-player.controllers().add(controller);
+player.addController(controller);
 ```
 
 ### Adding Alternative Bindings (WASD + Arrow Keys)

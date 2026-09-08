@@ -110,8 +110,7 @@ combatEntity.onDeath((victim, hitEvent) -> {
 
 // Resurrection (CombatEntityResurrectListener receives the resurrected entity)
 combatEntity.onResurrect(resurrected -> {
-  System.out.println("Entity revived: " + resurrected.getName());
-  resurrected.setHitpoints(resurrected.getMaxHitpoints());
+  System.out.println("Entity revived: " + resurrected.getName() + " with " + resurrected.getHitPoints().get() + " HP");
 });
 ```
 

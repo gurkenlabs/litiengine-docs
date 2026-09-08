@@ -103,6 +103,33 @@ Supports:
 - Jumping via @Action annotated methods
 - Gravity applied by PhysicsEngine
 
+## MousePathController (Point-and-Click / ARPG Movement)
+
+For top-down ARPGs, MOBAs, or RTS units where the player moves by right-clicking in the world:
+
+```java
+import de.gurkenlabs.litiengine.entities.Creature;
+import de.gurkenlabs.litiengine.entities.behavior.EntityNavigator;
+import de.gurkenlabs.litiengine.input.MousePathController;
+import de.gurkenlabs.litiengine.physics.IMovementController;
+
+public class HeroPlayer extends Creature {
+
+  @Override
+  protected IMovementController createMovementController() {
+    // 1. Create a navigator backed by A* pathfinding
+    EntityNavigator navigator = new EntityNavigator(this);
+
+    // 2. Wrap with MousePathController for automatic right-click navigation
+    return new MousePathController(navigator, this);
+  }
+}
+```
+
+When right-clicking on the map view, the `MousePathController` automatically computes an obstacle-avoiding A* path to the target location and commands the entity's movement along the path.
+
+---
+
 ## Forces
 
 Apply forces for physics-based movement:
@@ -133,8 +160,8 @@ The PhysicsEngine handles collision response during movement:
 // Entity will stop at collision boundaries
 Game.physics().move(entity, direction, distance);
 
-// Check if touching ground (for platformers)
-entity.isTouchingGround();
+// Check collision with static map obstacles
+boolean collides = Game.physics().collides(entity.getCollisionBox(), Collision.STATIC);
 ```
 
 ## Creating Custom Movement Controllers
@@ -161,7 +188,7 @@ public class AStarMovementController extends MovementController<Creature> {
     }
 
     // Move toward current waypoint
-    double angle = getEntity().getAngleTo(target);
+    double angle = GeometricUtilities.calcRotationAngleInDegrees(getEntity().getCenter(), target);
     Game.physics().move(getEntity(), angle, getEntity().getVelocity());
   }
 
