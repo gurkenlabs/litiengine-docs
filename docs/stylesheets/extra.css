@@ -60,10 +60,24 @@
   color: #006d60;
 }
 
-.md-typeset a,
-.md-typeset a:hover,
-.md-typeset a:focus {
+/* Navigation, buttons, headings, and card titles remain clean without underlines */
+.md-nav a,
+.md-header a,
+.md-tabs a,
+.md-typeset .grid.cards li > p:first-child > strong > a,
+.md-typeset h1 a,
+.md-typeset h2 a,
+.md-typeset h3 a,
+.md-typeset h4 a {
   text-decoration: none;
+}
+
+/* Inline links in text blocks have accessible underlines to satisfy WCAG 1.4.1 */
+.md-typeset p a,
+.md-typeset li > p a {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2.5px;
 }
 
 /* ==========================================================================
