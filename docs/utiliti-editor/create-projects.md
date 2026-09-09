@@ -16,6 +16,8 @@ In LITIENGINE, all game assets, maps, blueprints, particle configurations, sound
 A `.litidata` file is an XML-structured container that can either reference external assets or store base64-encoded compressed resources directly. This makes it effortless to package your entire game for distribution or version-control your assets cleanly.
 
 ### What is stored inside `.litidata`?
+
+- **GUI Layouts**: Declarative menus, panels, buttons, and HUD interfaces designed in the GUI Editor.
 - **Maps**: All TMX map layouts, tile layer GID grids, and placed map objects.
 - **Tilesets**: External and embedded TSX tilesets, Wang terrain definitions, tile animations, and custom tile collision shapes.
 - **Spritesheets**: Image frame metrics, slice dimensions, and keyframe animation timing data.
@@ -23,6 +25,8 @@ A `.litidata` file is an XML-structured container that can either reference exte
 - **Blueprints**: Reusable entity templates and pre-configured object blueprints.
 - **Sounds**: Registered SFX and audio resources.
 - **Script Definitions**: Declarations for game, environment, and entity scripts with their target bindings and `@ScriptProperty` parameter values.
+
+For complete XML schema definitions, GZIP compression options, and the low-level `ResourceBundle` Java API, see the **[.litidata File Format](../resource-management/litidata-file-format.md)** reference.
 
 ---
 

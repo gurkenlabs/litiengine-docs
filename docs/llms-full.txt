@@ -6602,6 +6602,8 @@ In LITIENGINE, all game assets, maps, blueprints, particle configurations, sound
 A `.litidata` file is an XML-structured container that can either reference external assets or store base64-encoded compressed resources directly. This makes it effortless to package your entire game for distribution or version-control your assets cleanly.
 
 ### What is stored inside `.litidata`?
+
+- **GUI Layouts**: Declarative menus, panels, buttons, and HUD interfaces designed in the GUI Editor.
 - **Maps**: All TMX map layouts, tile layer GID grids, and placed map objects.
 - **Tilesets**: External and embedded TSX tilesets, Wang terrain definitions, tile animations, and custom tile collision shapes.
 - **Spritesheets**: Image frame metrics, slice dimensions, and keyframe animation timing data.
@@ -6609,6 +6611,8 @@ A `.litidata` file is an XML-structured container that can either reference exte
 - **Blueprints**: Reusable entity templates and pre-configured object blueprints.
 - **Sounds**: Registered SFX and audio resources.
 - **Script Definitions**: Declarations for game, environment, and entity scripts with their target bindings and `@ScriptProperty` parameter values.
+
+For complete XML schema definitions, GZIP compression options, and the low-level `ResourceBundle` Java API, see the **[.litidata File Format](../resource-management/litidata-file-format.md)** reference.
 
 ---
 
@@ -8019,11 +8023,13 @@ Quick, fact-checked answers to the most common questions about LITIENGINE archit
     * Live in-editor playtesting and debugging (`Shift + F10` to run, `Shift + F9` to debug).
 
 ??? question "What is the `.litidata` file format?"
-    A `.litidata` file is a consolidated binary resource package container created by utiLITI (internally compressed like a ZIP bundle). It packages maps, tilesets, spritesheets, audio files, and custom properties into a single file, loaded with one line in code:
+    A `.litidata` file is a consolidated project container created by utiLITI. Built on JAXB XML, it can be saved either as **plain UTF-8 XML** (ideal for version control and git diffs) or as a **GZIP-compressed binary stream** (for lightweight distribution). It packages maps, tilesets, spritesheets, audio files, particle emitters, entity blueprints, Java script bindings, and GUI layouts into a single file, loaded with one line in code:
 
     ```java
     Resources.load("game.litidata");
     ```
+
+    For complete XML schema tags, low-level `ResourceBundle` usage, and compression options, see the **[.litidata File Format](resource-management/litidata-file-format.md)** guide.
 
 ??? question "Can I use AI coding agents like OpenCode or Antigravity with LITIENGINE?"
     **Yes!** utiLITI includes an embedded **Model Context Protocol (MCP)** server:
@@ -8298,10 +8304,10 @@ A movement controller that translates keyboard input into entity movement.
 The dedicated project management and map editor tool that comes with LITIENGINE.
 
 ### .litidata
-The resource bundle file format used by LITIENGINE. Contains spritesheets, sounds, maps, and other assets.
+The official project container and resource bundle file format used by LITIENGINE. Built on JAXB XML with optional GZIP compression, it encapsulates maps, tilesets, spritesheets, audio files, particle emitters, entity blueprints, Java script bindings, and GUI layouts. See [.litidata File Format](resource-management/litidata-file-format.md).
 
 ### Resource Bundle
-A collection of game assets packaged into a single .litidata file for easy loading.
+An in-memory representation (`ResourceBundle`) or persisted `.litidata` file grouping all game assets for synchronized, thread-safe loading.
 
 ## Animation
 

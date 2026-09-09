@@ -102,10 +102,10 @@ A movement controller that translates keyboard input into entity movement.
 The dedicated project management and map editor tool that comes with LITIENGINE.
 
 ### .litidata
-The resource bundle file format used by LITIENGINE. Contains spritesheets, sounds, maps, and other assets.
+The official project container and resource bundle file format used by LITIENGINE. Built on JAXB XML with optional GZIP compression, it encapsulates maps, tilesets, spritesheets, audio files, particle emitters, entity blueprints, Java script bindings, and GUI layouts. See [.litidata File Format](resource-management/litidata-file-format.md).
 
 ### Resource Bundle
-A collection of game assets packaged into a single .litidata file for easy loading.
+An in-memory representation (`ResourceBundle`) or persisted `.litidata` file grouping all game assets for synchronized, thread-safe loading.
 
 ## Animation
 

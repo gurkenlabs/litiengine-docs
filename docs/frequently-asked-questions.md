@@ -227,11 +227,13 @@ Quick, fact-checked answers to the most common questions about LITIENGINE archit
     * Live in-editor playtesting and debugging (`Shift + F10` to run, `Shift + F9` to debug).
 
 ??? question "What is the `.litidata` file format?"
-    A `.litidata` file is a consolidated binary resource package container created by utiLITI (internally compressed like a ZIP bundle). It packages maps, tilesets, spritesheets, audio files, and custom properties into a single file, loaded with one line in code:
+    A `.litidata` file is a consolidated project container created by utiLITI. Built on JAXB XML, it can be saved either as **plain UTF-8 XML** (ideal for version control and git diffs) or as a **GZIP-compressed binary stream** (for lightweight distribution). It packages maps, tilesets, spritesheets, audio files, particle emitters, entity blueprints, Java script bindings, and GUI layouts into a single file, loaded with one line in code:
 
     ```java
     Resources.load("game.litidata");
     ```
+
+    For complete XML schema tags, low-level `ResourceBundle` usage, and compression options, see the **[.litidata File Format](resource-management/litidata-file-format.md)** guide.
 
 ??? question "Can I use AI coding agents like OpenCode or Antigravity with LITIENGINE?"
     **Yes!** utiLITI includes an embedded **Model Context Protocol (MCP)** server:
