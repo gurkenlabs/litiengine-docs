@@ -118,7 +118,7 @@ Add LITIENGINE to your project build configuration:
 
 Start your first LITIENGINE application in a few lines of Java:
 
-```java title="src/main/java/com/example/game/Program.java" linenums="1"
+```java title="src/main/java/com/example/game/Program.java"
 package com.example.game;
 
 import de.gurkenlabs.litiengine.Game;
@@ -147,7 +147,7 @@ Run this class and LITIENGINE opens your first game window!
 
 Once you create a `.litidata` resource bundle in the **utiLITI Editor**, load and start your game environment:
 
-```java title="src/main/java/com/example/game/Program.java" linenums="1"
+```java title="src/main/java/com/example/game/Program.java"
 package com.example.game;
 
 import de.gurkenlabs.litiengine.Game;
