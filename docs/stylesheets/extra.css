@@ -49,8 +49,17 @@
 }
 
 /* ==========================================================================
-   Modern Link Styling (No Underlines)
+   Modern Link Styling (No Underlines) & WCAG AA Color Contrast
    ========================================================================== */
+[data-md-color-scheme="default"] {
+  --md-typeset-a-color: #007468;
+}
+
+.md-typeset .admonition.tip a,
+.md-typeset details.tip a {
+  color: #006d60;
+}
+
 .md-typeset a,
 .md-typeset a:hover,
 .md-typeset a:focus {
@@ -267,3 +276,12 @@
 [data-md-color-scheme="slate"] .md-typeset img.utiliti-icon {
   filter: brightness(1.4) contrast(1.05);
 }
+
+/* ==========================================================================
+   Code Block Anchor & Touch Accessibility
+   ========================================================================== */
+.md-typeset pre > code a[id^="__codelineno"],
+.md-typeset .linenodiv a {
+  pointer-events: none;
+}
+
