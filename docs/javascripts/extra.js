@@ -1,8 +1,8 @@
 /**
  * LITIENGINE Docs - Accessibility & Client-Side Enhancements
  * 
- * Hardens ARIA attributes for comboboxes, icon-only buttons,
- * and decorative code line anchors for assistive technologies and Lighthouse audits.
+ * Hardens ARIA attributes for comboboxes, icon-only buttons, code annotations,
+ * and decorative code line anchors for assistive technologies, AI agents, and Lighthouse audits.
  */
 (function () {
   'use strict';
@@ -30,6 +30,9 @@
       if (!input.hasAttribute('aria-haspopup')) {
         input.setAttribute('aria-haspopup', 'listbox');
       }
+      if (!input.hasAttribute('aria-controls')) {
+        input.setAttribute('aria-controls', 'search-results');
+      }
     }
 
     // 3. Ensure buttons without text or labels have accessible names
@@ -39,12 +42,27 @@
       var text = (btn.textContent || '').trim();
       if (!text) {
         if (btn.classList.contains('r') || btn.closest('.md-search')) {
-          btn.setAttribute('aria-label', 'Search');
+          if (btn.previousElementSibling === null) {
+            btn.setAttribute('aria-label', 'Close search');
+          } else {
+            btn.setAttribute('aria-label', 'Filter search results');
+          }
         } else if (btn.dataset && btn.dataset.mdComponent === 'search-reset') {
           btn.setAttribute('aria-label', 'Clear search');
         } else {
           btn.setAttribute('aria-label', 'Action');
         }
+      }
+    }
+
+    // 4. Ensure code annotation links have discernible accessible text
+    var annotations = document.querySelectorAll('a.md-annotation__index');
+    for (var a = 0; a < annotations.length; a++) {
+      var ann = annotations[a];
+      if (!ann.getAttribute('aria-label')) {
+        var match = (ann.getAttribute('href') || '').match(/annotation_(\d+)/);
+        var num = match ? match[1] : (a + 1);
+        ann.setAttribute('aria-label', 'Code annotation ' + num);
       }
     }
   }
