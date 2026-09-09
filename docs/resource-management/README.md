@@ -75,7 +75,9 @@ Resources.spritesheets().addContainerListener(new ResourcesContainerListener<Spr
 
 ## Asset Packaging with `.litidata`
 
-In production, games typically package maps, tilesets, spritesheets, audio files, and entity blueprints into a single binary archive created with the **utiLITI Editor**: `game.litidata`.
+In production, games typically bundle maps, tilesets, spritesheets, audio files, particle emitters, scripts, and GUI layouts into a central project resource file created with the **utiLITI Editor**: `game.litidata`.
+
+A `.litidata` file is a structured XML container that can be stored either as plain UTF-8 XML (ideal for Git version control and diffing) or as a GZIP-compressed binary stream (for lightweight production distribution).
 
 Loading this archive automatically populates all corresponding resource containers:
 
@@ -89,7 +91,7 @@ public class Program {
   public static void main(String[] args) {
     Game.init(args);
 
-    // Loads maps, spritesheets, sounds, and blueprints in a single call
+    // Loads maps, spritesheets, sounds, GUI layouts, and blueprints in a single call
     Resources.load("game.litidata");
 
     Game.world().loadEnvironment("level1");
@@ -97,6 +99,8 @@ public class Program {
   }
 }
 ```
+
+For complete XML schema details, element tags, GZIP compression mechanisms, and low-level `ResourceBundle` usage, see the dedicated **[.litidata File Format](litidata-file-format.md)** guide.
 
 ---
 
@@ -207,6 +211,12 @@ To ensure smooth 60 FPS gameplay without garbage collection hiccups or frame stu
 ## Related Documentation
 
 <div class="grid cards" markdown>
+
+- :lucide-file-code:{ .lg .middle } **[.litidata File Format](litidata-file-format.md)**
+
+    ---
+
+    Detailed XML schema specification, GZIP compression, and ResourceBundle Java API.
 
 - :lucide-images:{ .lg .middle } **[Texture Atlases](texture-atlas.md)**
 
