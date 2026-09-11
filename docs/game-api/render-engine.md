@@ -61,7 +61,7 @@ Specifying a direction is optional and the `CreatureAnimationController` will al
 
 In general, you are not limited to any of the pre-defined animation rules. You can decide to extend the animation controller or write one from scratch that better suits your needs.
 
-More details on this can be found in the [Animation Controller](../control-entities/animation-controller.md) chapter.
+More details on this can be found in the [Animation Controller](../control-entities/animation-controller.md) chapter and the [Image & Render Effects](render-effects.md) guide for per-pixel sprite shaders, hit flashes, and contact shadows.
 
 ## The Graphics instance - `Graphics2D`
 

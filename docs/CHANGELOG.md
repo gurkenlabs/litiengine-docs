@@ -247,8 +247,6 @@ What are you waiting for? Start the new year the right way: making games with LI
 
 #### New Sponsors
 
-* [Trust My Paper](https://www.trustmypaper.com/) (Bronze sponsorship on OpenCollective)
-* [CasinoHex Canada](https://onlinecasinohex.ca/) (Bronze sponsorship on OpenCollective)
 * [ej-technologies](https://www.ej-technologies.com/products/jprofiler/overview.html) (kindly provided us with a license for their powerful Java profiler `JProfiler`.)
 
 ## v0.5.1-beta - "No more Netcode" - November 11, 2020
