@@ -8144,7 +8144,7 @@ LITIENGINE is built with and for Java game developers, JVM software engineers, c
 
 ### Silver Sponsorship — €49 / month
 
-*Ideal for startups, indie studios, and developer services seeking community visibility.*
+*Ideal for startups, indie studios, and developer services seeking community visibility. This is the entry tier for organizational website directory placement and logo recognition.*
 
 - **GitHub README Logo**: Listed in the Silver sponsor grid on GitHub.
 - **Documentation Listing**: Logo listed on the documentation sponsors directory.
@@ -8154,27 +8154,18 @@ LITIENGINE is built with and for Java game developers, JVM software engineers, c
 
 ---
 
-### Bronze Sponsorship — €29 / month
-
-*Support sustainable open-source game development with direct website recognition.*
-
-- **Website Directory Placement**: Logo and link in the Bronze section of this page.
-- **Open Collective Recognition**: Public backer avatar and receipt.
-
-[Sponsor as Bronze](https://opencollective.com/litiengine/contribute/bronze-sponsorship-14828){ .md-button }
-
----
-
 ### Backers — From €2 / month
- 
-Join over 50 individual contributors and backers who make LITIENGINE possible (as of September 2026). Every contribution fuels server costs, asset licensing, and community bounties.
- 
+
+Join individual developers and private community members who make LITIENGINE possible. Every contribution fuels server costs, asset licensing, and community bounties.
+
+*(The Backers tier is reserved for private persons. Organizations seeking directory placement or brand acknowledgement must sponsor at the Silver tier or above.)*
+
 [Contribute as a Backer](https://opencollective.com/litiengine/contribute/backer-14243){ .md-button }
- 
+
 ---
- 
+
 ## What Does Sponsorship Fund?
- 
+
 All sponsorship funds are managed with complete financial transparency through our fiscal host, [Open Source Europe](https://opencollective.com/europe):
 
 1. **Infrastructure & Hosting**: Continuous delivery runners, domain registries, documentation platforms, and artifact hosting.
@@ -8192,26 +8183,28 @@ All sponsorship funds are managed with complete financial transparency through o
 
 ### Gold Partners
 
-[![JProfiler](https://litiengine.com/wp-content/uploads/2022/01/xjprofiler_large.png.pagespeed.ic.uajXHJCvPb.webp)](https://www.ej-technologies.com/products/jprofiler/overview.html)
+[![JProfiler](images/jprofiler_large.png)](https://www.ej-technologies.com/products/jprofiler/overview.html)
 
 ### Silver Partners
 
 [![Silver Partners](https://opencollective.com/litiengine/tiers/silver-sponsorship.svg?avatarHeight=48&width=800)](https://opencollective.com/litiengine#category-CONTRIBUTE)
 
-### Bronze Supporters
-
-[![Bronze Supporters](https://opencollective.com/litiengine/tiers/bronze-sponsorship.svg?avatarHeight=36&width=800)](https://opencollective.com/litiengine#category-CONTRIBUTE)
-
 ### Community Backers
 
-[![Individuals](https://opencollective.com/litiengine/individuals.svg?width=800)](https://opencollective.com/litiengine#support)
+The Backers tier is reserved exclusively for private individuals supporting LITIENGINE:
+
+- [Krystian Alabrudzinski](https://opencollective.com/krystian-alabrudzinski)
+- [Mark Gonzalez](https://opencollective.com/mark-gonzalez1)
+- [Hades948](https://opencollective.com/hades948)
+- *...along with our anonymous community backers pledging individually on [Open Collective](https://opencollective.com/litiengine#support).*
 
 ---
 
 ## Sponsor Placement & Ethics Policy
 
-- Links are provided as brand attribution and partner acknowledgement.
-- Sponsors must adhere to community standards and must not promote malicious, deceptive, or hate-oriented material.
+- Links and logos are provided as brand attribution and partner acknowledgement.
+- Directory and documentation placement is reserved for organizations sponsoring at the **Silver tier (€49/month) or higher**. The **Backers tier is strictly for private individuals**; organizations will not be listed under Backers.
+- Sponsors must adhere to community standards and must not promote malicious, deceptive, gambling, or adult material.
 - Sponsorship does not influence technical decision-making, API architecture, or open-source license governance.
 
 <!-- END CHAPTER: about/sponsors.md -->

@@ -299,3 +299,84 @@
   pointer-events: none;
 }
 
+/* ==========================================================================
+   Platinum Partner Sidebar Component
+   ========================================================================== */
+.sidebar-platinum-partner {
+  margin-top: 1.25rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--md-default-fg-color--lightest, rgba(0, 0, 0, 0.07));
+}
+
+[data-md-color-scheme="slate"] .sidebar-platinum-partner {
+  border-top-color: rgba(255, 255, 255, 0.08);
+}
+
+.sidebar-platinum-partner__title {
+  font-size: 0.62rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--md-default-fg-color--lighter, #888888);
+  margin-bottom: 0.5rem;
+}
+
+.sidebar-platinum-partner__card {
+  display: block;
+  padding: 0.75rem 0.85rem;
+  border: 1.5px dashed var(--md-accent-fg-color, #00cfea);
+  border-radius: 8px;
+  background: var(--md-code-bg-color, rgba(0, 0, 0, 0.02));
+  text-decoration: none !important;
+  transition: border-color 0.2s ease, background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+[data-md-color-scheme="slate"] .sidebar-platinum-partner__card {
+  border-color: rgba(20, 227, 255, 0.35);
+  background: rgba(20, 227, 255, 0.03);
+}
+
+.sidebar-platinum-partner__card:hover {
+  border-color: var(--md-accent-fg-color, #00cfea);
+  border-style: solid;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+[data-md-color-scheme="slate"] .sidebar-platinum-partner__card:hover {
+  box-shadow: 0 4px 16px rgba(20, 227, 255, 0.12);
+}
+
+.sidebar-platinum-partner__badge {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--md-default-fg-color);
+}
+
+.sidebar-platinum-partner__badge svg {
+  color: #9d4edd;
+  flex-shrink: 0;
+}
+
+.sidebar-platinum-partner__desc {
+  font-size: 0.68rem;
+  line-height: 1.35;
+  color: var(--md-default-fg-color--light, #666666);
+  margin: 0.4rem 0 0.5rem 0 !important;
+}
+
+.sidebar-platinum-partner__action {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--md-typeset-a-color, #007468);
+  transition: color 0.15s ease;
+}
+
+.sidebar-platinum-partner__card:hover .sidebar-platinum-partner__action {
+  color: var(--md-accent-fg-color, #00cfea);
+}
+
