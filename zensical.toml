@@ -25,6 +25,7 @@ nav = [{ "Get Started" = ["getting-started/README.md",
  { "Savegames & Persistence" = "savegames.md" },] },
  { "Game API" = [{ "Game API" = ["game-api/README.md",
  { "Render Engine" = "game-api/render-engine.md" },
+ { "Image & Render Effects" = "game-api/render-effects.md" },
  { "Sound Engine" = "game-api/sound-engine.md" },
  { "Physics Engine" = "game-api/physics-engine.md" },
  { "Game Loop" = "game-api/loops.md" },
@@ -113,6 +114,7 @@ plugins = ["macros"]
 version = "0.13.0"
 snapshot_version = "0.14.0-SNAPSHOT"
 java_version = "25"
+stars = "836"
 social = [{ icon = "simple/opencollective", link = "https://opencollective.com/litiengine", name = "Sponsor on Open Collective" },
  { icon = "simple/github", link = "https://github.com/gurkenlabs/litiengine", name = "GitHub" },
  { icon = "simple/discord", link = "https://discord.gg/9TqCq9C", name = "Discord Community" },]

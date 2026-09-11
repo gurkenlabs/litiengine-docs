@@ -40,6 +40,12 @@ The `Game` class acts as the central hub and orchestrator of LITIENGINE. It expo
 
     Double-buffered AWT rendering pipeline, Y-sorted render layers, shapes, and `TextRenderer`.
 
+- :lucide-wand-sparkles:{ .lg .middle } **[Image & Render Effects](render-effects.md)**
+
+    ---
+
+    Per-pixel sprite effects, `OverlayPixelsImageEffect` hit flashing, dynamic shadows, and transparency.
+
 - :lucide-volume-2:{ .lg .middle } **[Sound & Audio Engine](sound-engine.md)**
 
     ---

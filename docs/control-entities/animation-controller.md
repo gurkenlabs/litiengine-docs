@@ -152,8 +152,23 @@ Animation anim = new Animation(sheet, true, 100); // loop=true, duration=100ms
 entity.getAnimationController().add(anim);
 ```
 
+## Image Effects Pipeline
+
+You can attach real-time post-processing effects directly to an entity's `AnimationController` via `add(ImageEffect effect)`. Active effects transform the sprite before rendering:
+
+```java
+// Flash white on hit for 100ms
+entity.animations().add(new OverlayPixelsImageEffect(100, Color.WHITE));
+
+// Apply 50% transparency
+entity.animations().add(new TransparencyImageEffect(2000, 0.5f));
+```
+
+For full details on built-in effects, contact shadows, and custom per-pixel filters, see the [Image & Render Effects](../game-api/render-effects.md) guide.
+
 ## See Also
 
 - [Entity Controllers](entity-controllers.md) - Controller overview
 - [Render Engine](../game-api/render-engine.md) - How entities are rendered
+- [Image & Render Effects](../game-api/render-effects.md) - Pixel flash, transparency, and image filters
 - [Resource Management](../resource-management/README.md) - Loading spritesheets

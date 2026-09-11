@@ -24,8 +24,8 @@ LITIENGINE is built with and for Java game developers, JVM software engineers, c
 
 ### Credibility & Reach
 
-- **1,500+** GitHub Stars
-- **Active Community**: 1,000+ Discord members and forum contributors
+- **{{ stars }}** GitHub Stars (as of September 2026)
+- **Active Community**: 150+ Discord members and 50+ Open Collective contributors (as of September 2026)
 - **Multi-Platform Java 25 Engine**: Modern Foreign Function & Memory API integration
 - **100% Transparent**: Every euro received and spent is publicly audited on Open Collective
 
@@ -84,16 +84,16 @@ LITIENGINE is built with and for Java game developers, JVM software engineers, c
 ---
 
 ### Backers — From €2 / month
-
-Join hundreds of individual developers who make LITIENGINE possible. Every contribution fuels server costs, asset licensing, and community bounties.
-
+ 
+Join over 50 individual contributors and backers who make LITIENGINE possible (as of September 2026). Every contribution fuels server costs, asset licensing, and community bounties.
+ 
 [Contribute as a Backer](https://opencollective.com/litiengine/contribute/backer-14243){ .md-button }
-
+ 
 ---
-
+ 
 ## What Does Sponsorship Fund?
-
-All sponsorship funds are managed with complete financial transparency through [Open Source Collective](https://docs.oscollective.org/):
+ 
+All sponsorship funds are managed with complete financial transparency through our fiscal host, [Open Source Europe](https://opencollective.com/europe):
 
 1. **Infrastructure & Hosting**: Continuous delivery runners, domain registries, documentation platforms, and artifact hosting.
 2. **Engine Maintenance**: Critical bug fixing, Java upgrade support (e.g. Java 25 FFM APIs), and input device compatibility (Input4J).
