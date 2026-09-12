@@ -8156,9 +8156,7 @@ LITIENGINE is built with and for Java game developers, JVM software engineers, c
 
 ### Backers — From €2 / month
 
-Join individual developers and private community members who make LITIENGINE possible. Every contribution fuels server costs, asset licensing, and community bounties.
-
-*(The Backers tier is reserved for private persons. Organizations seeking directory placement or brand acknowledgement must sponsor at the Silver tier or above.)*
+Join the individual developers and community members who make LITIENGINE possible. Every contribution directly funds server costs, asset licensing, and community bounties.
 
 [Contribute as a Backer](https://opencollective.com/litiengine/contribute/backer-14243){ .md-button }
 
@@ -8191,7 +8189,7 @@ All sponsorship funds are managed with complete financial transparency through o
 
 ### Community Backers
 
-The Backers tier is reserved exclusively for private individuals supporting LITIENGINE:
+Special thanks to the individual developers and community members who support LITIENGINE:
 
 - [Krystian Alabrudzinski](https://opencollective.com/krystian-alabrudzinski)
 - [Mark Gonzalez](https://opencollective.com/mark-gonzalez1)
@@ -8202,10 +8200,10 @@ The Backers tier is reserved exclusively for private individuals supporting LITI
 
 ## Sponsor Placement & Ethics Policy
 
-- Links and logos are provided as brand attribution and partner acknowledgement.
-- Directory and documentation placement is reserved for organizations sponsoring at the **Silver tier (€49/month) or higher**. The **Backers tier is strictly for private individuals**; organizations will not be listed under Backers.
-- Sponsors must adhere to community standards and must not promote malicious, deceptive, gambling, or adult material.
-- Sponsorship does not influence technical decision-making, API architecture, or open-source license governance.
+- Sponsor logos and links are provided for brand attribution and partner acknowledgement.
+- Website directory placement and logo recognition begin at the Silver tier, while the Backers tier is dedicated to individual community supporters.
+- All sponsor placements are subject to editorial review to ensure alignment with community standards and project values.
+- Sponsorship does not influence technical decision-making, API architecture, or open-source governance.
 
 <!-- END CHAPTER: about/sponsors.md -->
 
