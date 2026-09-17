@@ -8,7 +8,7 @@ def generate_llms():
     
     # 1. Summary llms.txt
     llms_txt = """# LITIENGINE Docs
-> Free, open-source 2D Java Game Engine (Java 25+) with pure AWT graphics, low-latency Panama FFM input (Input4j), spatial quadtree physics, positional 2D audio, and the utiLITI companion level editor.
+> The modern pure-Java 2D game development stack (Java 25+): LITIENGINE runtime, utiLITI visual editor & asset pipeline, Input4j Panama FFM native input, and cross-cutting MCP/AI-assisted workflows.
 
 ## Core Documentation
 

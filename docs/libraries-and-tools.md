@@ -18,7 +18,7 @@ LITIENGINE intentionally avoids heavy native dynamic bindings (like C/C++ OpenGL
 
 | Library | Version / Source | Purpose |
 |:---|:---|:---|
-| **[Input4j](https://github.com/gurkenlabs/input4j)** | 1.3.1 | Gamepad, joystick, and controller input integration utilizing Java Panama Foreign Function & Memory (FFM) APIs with zero external DLL/so dependencies. |
+| **[Input4j](https://gurkenlabs.github.io/input4j/)** | 1.3.1 | Gamepad, joystick, and controller input integration utilizing Java Panama Foreign Function & Memory (FFM) APIs with zero external DLL/so dependencies. |
 | **[VorbisSPI](https://central.sonatype.com/artifact/com.googlecode.soundlibs/vorbisspi)** | 1.0.3.3 | Java Sound Service Provider Interface for decoding and streaming `.ogg` Vorbis audio files. |
 | **LITIENGINE MP3 SPI** | Built-in | Pure-Java native Java Sound SPI decoder supporting `.mp3` playback, streaming, and ID3v1/ID3v2/APEv2 metadata with zero native dependencies. |
 
@@ -40,11 +40,11 @@ LITIENGINE intentionally avoids heavy native dynamic bindings (like C/C++ OpenGL
 
     Full bi-directional support for importing and editing `.tmx` maps and `.tsx` tilesets exported from the industry-standard Tiled editor.
 
-- :lucide-palette:{ .lg .middle } **[Aseprite](https://www.aseprite.org/) & Pixel Art Tools**
+- :lucide-palette:{ .lg .middle } **[JPixelStudio](https://gurkenlabs.itch.io/jpixelstudio) & [Aseprite](https://www.aseprite.org/)**
 
     ---
 
-    Seamless workflow for importing spritesheet grids, JSON texture atlases, and animation frame sequences exported from Aseprite.
+    Transform images into stylized pixel art with Gurkenlabs' FOSS **JPixelStudio**, or import spritesheet grids and JSON animation frame sequences from Aseprite.
 
 - :lucide-bot:{ .lg .middle } **[Model Context Protocol (MCP)](utiliti-editor/mcp-server.md)**
 

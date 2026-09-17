@@ -1,6 +1,6 @@
 # LITIENGINE Docs
 
-Source repository for the official LITIENGINE docs.
+Source repository for the official technical documentation of **LITIENGINE**, the modern pure-Java 2D game development stack.
 
 Documentation: [https://docs.litiengine.com/](https://docs.litiengine.com/)
 

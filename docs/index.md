@@ -1,14 +1,21 @@
 ---
 title: Documentation Overview
 icon: lucide/book-open
-description: Official technical documentation, API guides, tutorials, and tooling reference for LITIENGINE, the free, open-source 2D Java Game Engine.
-keywords: [LITIENGINE, java, game engine, 2D, docs, api reference, tutorials, utiliti]
-tags: [overview, quickstart, getting-started, java, 2d-engine, game-development]
+description: Official technical documentation, API guides, tutorials, and tooling reference for LITIENGINE, the modern pure-Java 2D game development stack.
+keywords: [LITIENGINE, java, game engine, game development stack, 2D, docs, api reference, tutorials, utiliti, input4j, mcp]
+tags: [overview, quickstart, getting-started, java, 2d-engine, game-development, stack]
 ---
 
 # LITIENGINE Documentation
 
-Welcome to the official technical documentation for **LITIENGINE**, the free and open-source 2D Java Game Engine.
+Welcome to the official technical documentation for **LITIENGINE**, the modern pure-Java 2D game development stack.
+
+The LITIENGINE ecosystem unites three foundational pillars with modern AI capabilities into a seamless developer experience:
+
+* **LITIENGINE (Runtime)** — High-performance pure-Java 2D engine powering physics, rendering, entities, and audio.
+* **utiLITI (Tooling)** — Visual map, tile, lighting, and asset editor with an integrated Monaco Java scripting environment.
+* **Input4j (Native Input)** — Hardware gamepad and controller library leveraging the Java 25 Foreign Function & Memory (FFM) API with zero JNI wrappers.
+* **MCP &amp; AI Workflows** — Embedded Model Context Protocol server exposing maps, entities, and scene geometry directly to AI coding agents.
 
 ---
 

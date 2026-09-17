@@ -56,7 +56,7 @@ Here you need to specify the image containing your tiles and the width and heigh
 
 Here you can specify the size of your map or choose an infinite sized map. The next step is then to create the map with tiles from the created tileset and save it. That's all you need to know about the Tiled Map Editor. Let's have a look at the next step: processing the map(s) in the **utiLITI editor**. To get things started, you need to have the utiLITI editor on your computer. If you don't have the editor, get it here: [LITIENGINE SDK Download](https://litiengine.com/download/)
 
-How to create a new game file and import your map is well documented in the LITIENGINE docs: https://litiengine.com/docs/utiliti-editor/
+How to create a new game file and import your map is well documented in the LITIENGINE docs: [utiLITI Editor](../utiliti-editor/README.md).
 
 With `Edit -> Add...` you can add Props, Creatures, Spawnpoints, etc. to your map(s) and within the "Resources" context menu you can import all sprites, sounds, etc. you need for your game. After saving your .litidata file, we proceed to the last step of this first chapter of the tutorial: importing the .lititdata file via source code. In your main method, after the call of
 
@@ -124,7 +124,7 @@ private Player() {
 }
 ```
 
-In my case, the movement controller only needs the right and the left key. The sprites you want to use for your player need to be added to your .litidata file in the utiLITI editor and have to follow the naming conventions you can find here: https://litiengine.com/docs/tutorials/creating-a-platformer/
+In my case, the movement controller only needs the right and the left key. The sprites you want to use for your player need to be added to your .litidata file in the utiLITI editor and have to follow the naming conventions you can find here: [Creating a 2D Platformer](2d-platformer.md).
 
 The class also keeps track of its instance, so it needs a variable for this:
 

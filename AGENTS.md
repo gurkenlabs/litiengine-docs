@@ -1,6 +1,6 @@
 # AGENTS.md - LITIENGINE Docs
 
-This repository contains the official documentation for LITIENGINE, a free, open-source 2D Java Game Engine. The docs are published at https://docs.litiengine.com/
+This repository contains the official documentation for LITIENGINE, the modern pure-Java 2D game development stack. The docs are published at https://docs.litiengine.com/
 
 ## Repository Overview
 
