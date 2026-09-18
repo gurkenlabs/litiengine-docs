@@ -8,9 +8,9 @@ tags: [sponsors, community, open-collective, support, partnership]
 
 # Support LITIENGINE
 
-LITIENGINE is a free, 100% open-source Java 2D Game Engine and tooling suite maintained by Gurkenlabs and our global contributor community. We empower developers, indie game studios, and educators to create tile-based 2D games with clean, modern Java architecture.
+LITIENGINE, utiLITI, and Input4j provide the premier pure-Java 2D game development stack. We empower developers, indie game studios, and educators to create commercial-grade 2D games with clean, modern Java architecture.
 
-By sponsoring LITIENGINE, you directly fund continuous engine maintenance, documentation improvements, high-performance tooling, and the open-source gaming ecosystem.
+By sponsoring LITIENGINE, you directly support the modern pure-Java gaming ecosystem — funding continuous engine maintenance, cutting-edge Java standard adoption (Panama FFM, Loom), visual tooling, and AI-assisted workflows.
 
 [Become a Sponsor on Open Collective](https://opencollective.com/litiengine/contribute){ .md-button .md-button--primary style="background: linear-gradient(135deg, #ea4c89 0%, #ff5e7e 100%); border-color: #ea4c89; color: white; font-weight: bold; margin-top: 0.5rem;" }
 
@@ -85,7 +85,7 @@ Join the individual developers and community members who make LITIENGINE possibl
 All sponsorship funds are managed with complete financial transparency through our fiscal host, [Open Source Europe](https://opencollective.com/europe):
 
 1. **Infrastructure & Hosting**: Continuous delivery runners, domain registries, documentation platforms, and artifact hosting.
-2. **Engine Maintenance**: Critical bug fixing, Java upgrade support (e.g. Java 25 FFM APIs), and input device compatibility (Input4J).
+2. **Engine Maintenance**: Core runtime optimizations, Java upgrade support (e.g. Java 25 FFM APIs), and input device compatibility (Input4j).
 3. **Editor & Tooling**: Expanding utiLITI map editing capabilities, sprite packaging, and asset workflow tooling.
 4. **Learning Resources**: Tutorials, sample projects, API documentation, and beginner-friendly game templates.
 

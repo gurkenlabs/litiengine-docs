@@ -1,7 +1,7 @@
 [project]
 site_name = "LITIENGINE Docs"
 site_url = "https://docs.litiengine.com/"
-site_description = "Documentation for LITIENGINE, the pure Java 2D game engine."
+site_description = "Documentation for LITIENGINE, the modern pure-Java 2D game development stack."
 site_author = "Gurkenlabs"
 docs_dir = "docs"
 site_dir = "site"
@@ -13,7 +13,8 @@ copyright = "Copyright © Gurkenlabs"
 extra_css = ["stylesheets/extra.css"]
 extra_javascript = ["javascripts/extra.js"]
 
-nav = [{ "Get Started" = ["getting-started/README.md",
+nav = [{ "Website" = "https://litiengine.com/" },
+ { "Get Started" = ["getting-started/README.md",
  { "Install JDK" = "getting-started/install-jdk.md" },
  { "Set Up IDE" = "getting-started/development-environment.md" },
  { "Build Systems" = "getting-started/build-systems.md" },
@@ -59,6 +60,7 @@ nav = [{ "Get Started" = ["getting-started/README.md",
  { "Script-Only Games" = "control-entities/script-only-games.md" },
  { "Combat & Action Scripting" = "control-entities/combat-scripting.md" },] },
  { "Tile Maps" = ["tile-maps/README.md",
+ { "Creating Tile Maps" = "tile-maps/creating-tilemaps.md" },
  { "Map Objects" = "tile-maps/map-objects.md" },
  { "Custom Properties" = "tile-maps/custom-properties.md" },] },
  { "Resource Management" = ["resource-management/README.md",

@@ -14,14 +14,21 @@ This file contains the complete technical documentation for LITIENGINE, optimize
 ---
 title: Documentation Overview
 icon: lucide/book-open
-description: Official technical documentation, API guides, tutorials, and tooling reference for LITIENGINE, the free, open-source 2D Java Game Engine.
-keywords: [LITIENGINE, java, game engine, 2D, docs, api reference, tutorials, utiliti]
-tags: [overview, quickstart, getting-started, java, 2d-engine, game-development]
+description: Official technical documentation, API guides, tutorials, and tooling reference for LITIENGINE, the modern pure-Java 2D game development stack.
+keywords: [LITIENGINE, java, game engine, game development stack, 2D, docs, api reference, tutorials, utiliti, input4j, mcp]
+tags: [overview, quickstart, getting-started, java, 2d-engine, game-development, stack]
 ---
 
 # LITIENGINE Documentation
 
-Welcome to the official technical documentation for **LITIENGINE**, the free and open-source 2D Java Game Engine.
+Welcome to the official technical documentation for **LITIENGINE**, the modern pure-Java 2D game development stack.
+
+The LITIENGINE ecosystem unites three foundational pillars with modern AI capabilities into a seamless developer experience:
+
+* **LITIENGINE (Runtime)** — High-performance pure-Java 2D engine powering physics, rendering, entities, and audio.
+* **utiLITI (Tooling)** — Visual map, tile, lighting, and asset editor with an integrated Monaco Java scripting environment.
+* **Input4j (Native Input)** — Hardware gamepad and controller library leveraging the Java 25 Foreign Function & Memory (FFM) API with zero JNI wrappers.
+* **MCP &amp; AI Workflows** — Embedded Model Context Protocol server exposing maps, entities, and scene geometry directly to AI coding agents.
 
 ---
 
@@ -8090,9 +8097,9 @@ tags: [sponsors, community, open-collective, support, partnership]
 
 # Support LITIENGINE
 
-LITIENGINE is a free, 100% open-source Java 2D Game Engine and tooling suite maintained by Gurkenlabs and our global contributor community. We empower developers, indie game studios, and educators to create tile-based 2D games with clean, modern Java architecture.
+LITIENGINE, utiLITI, and Input4j provide the premier pure-Java 2D game development stack. We empower developers, indie game studios, and educators to create commercial-grade 2D games with clean, modern Java architecture.
 
-By sponsoring LITIENGINE, you directly fund continuous engine maintenance, documentation improvements, high-performance tooling, and the open-source gaming ecosystem.
+By sponsoring LITIENGINE, you directly support the modern pure-Java gaming ecosystem — funding continuous engine maintenance, cutting-edge Java standard adoption (Panama FFM, Loom), visual tooling, and AI-assisted workflows.
 
 [Become a Sponsor on Open Collective](https://opencollective.com/litiengine/contribute){ .md-button .md-button--primary style="background: linear-gradient(135deg, #ea4c89 0%, #ff5e7e 100%); border-color: #ea4c89; color: white; font-weight: bold; margin-top: 0.5rem;" }
 
@@ -8167,7 +8174,7 @@ Join the individual developers and community members who make LITIENGINE possibl
 All sponsorship funds are managed with complete financial transparency through our fiscal host, [Open Source Europe](https://opencollective.com/europe):
 
 1. **Infrastructure & Hosting**: Continuous delivery runners, domain registries, documentation platforms, and artifact hosting.
-2. **Engine Maintenance**: Critical bug fixing, Java upgrade support (e.g. Java 25 FFM APIs), and input device compatibility (Input4J).
+2. **Engine Maintenance**: Core runtime optimizations, Java upgrade support (e.g. Java 25 FFM APIs), and input device compatibility (Input4j).
 3. **Editor & Tooling**: Expanding utiLITI map editing capabilities, sprite packaging, and asset workflow tooling.
 4. **Learning Resources**: Tutorials, sample projects, API documentation, and beginner-friendly game templates.
 
