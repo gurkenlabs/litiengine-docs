@@ -13,7 +13,8 @@ copyright = "Copyright © Gurkenlabs"
 extra_css = ["stylesheets/extra.css"]
 extra_javascript = ["javascripts/extra.js"]
 
-nav = [{ "Get Started" = ["getting-started/README.md",
+nav = [{ "Website" = "https://litiengine.com/" },
+ { "Get Started" = ["getting-started/README.md",
  { "Install JDK" = "getting-started/install-jdk.md" },
  { "Set Up IDE" = "getting-started/development-environment.md" },
  { "Build Systems" = "getting-started/build-systems.md" },

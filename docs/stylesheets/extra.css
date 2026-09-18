@@ -1,3 +1,86 @@
+/* ==========================================================================
+   Back Navigation Button (linking to main website)
+   ========================================================================== */
+.md-tabs__item--backlink {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 0.5rem;
+}
+
+.md-tabs__link--back {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.35rem !important;
+  height: 1.65rem !important;
+  line-height: 1.65rem !important;
+  padding: 0 0.75rem !important;
+  margin: auto 0 !important;
+  font-size: 0.76rem !important;
+  font-weight: 600 !important;
+  border-radius: 6px !important;
+  white-space: nowrap !important;
+  text-decoration: none !important;
+  color: #007468 !important;
+  background-color: rgba(0, 148, 133, 0.1) !important;
+  border: 1px solid rgba(0, 148, 133, 0.25) !important;
+  opacity: 1 !important;
+  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease, transform 0.15s ease !important;
+}
+
+.md-tabs__link--back:hover {
+  background-color: #009485 !important;
+  color: #ffffff !important;
+  border-color: #009485 !important;
+  transform: translateX(-2px) !important;
+  text-decoration: none !important;
+}
+
+[data-md-color-scheme="slate"] .md-tabs__link--back {
+  color: #00ccb8 !important;
+  background-color: rgba(0, 204, 184, 0.12) !important;
+  border: 1px solid rgba(0, 204, 184, 0.25) !important;
+}
+
+[data-md-color-scheme="slate"] .md-tabs__link--back:hover {
+  background-color: #00ccb8 !important;
+  color: #0b0c0f !important;
+  border-color: #00ccb8 !important;
+  transform: translateX(-2px) !important;
+}
+
+.md-tabs__link--back svg.docs-back-icon {
+  width: 14px !important;
+  height: 14px !important;
+  stroke: currentColor !important;
+  transition: transform 0.15s ease !important;
+}
+
+.md-tabs__link--back:hover svg.docs-back-icon {
+  transform: translateX(-2px) !important;
+}
+
+/* Mobile Drawer Back Navigation Item */
+.md-nav__item--backlink {
+  margin-bottom: 0.4rem !important;
+  padding-bottom: 0.35rem !important;
+  border-bottom: 1px solid var(--md-default-fg-color--lightest) !important;
+}
+
+.md-nav__item--backlink .md-nav__link {
+  display: inline-flex !important;
+  align-items: center !important;
+  color: var(--md-typeset-a-color) !important;
+  font-weight: 600 !important;
+}
+
+.md-nav__item--backlink .docs-back-icon {
+  width: 14px !important;
+  height: 14px !important;
+  margin-right: 0.4rem !important;
+  stroke: currentColor !important;
+  flex-shrink: 0 !important;
+}
+
 /* Sponsor Navigation Menu Button */
 .md-tabs__item--sponsor {
   margin-left: auto;
