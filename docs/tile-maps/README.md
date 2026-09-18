@@ -16,6 +16,12 @@ LITIENGINE natively loads and renders `.tmx` map files and `.tsx` tilesets expor
 
 <div class="grid cards" markdown>
 
+- :lucide-map:{ .lg .middle } **[Creating Tile Maps](creating-tilemaps.md)**
+
+    ---
+
+    Step-by-step tutorial: tilesets, layers, collisions, map objects, and loading in Java.
+
 - :lucide-box:{ .lg .middle } **[Map Objects](map-objects.md)**
 
     ---
